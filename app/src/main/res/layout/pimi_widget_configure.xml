@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/config_title"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/widget_settings_fragment"
+        android:name="com.kolakek.pimiwidget.widget.WidgetSettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

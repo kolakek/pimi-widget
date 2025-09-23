@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.PimiWidget.AppWidget.Container"
+    android:theme="@style/Theme.PimiWidget.AppWidgetContainer">
+
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.Date"
+        android:padding="0dp"
+        android:text="@string/widget_date_prev" />
+
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.Weather"
+        android:text="@string/widget_temp_prev"
+        android:drawableStart="@drawable/wc_0d"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+</LinearLayout>

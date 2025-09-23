@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.PimiWidget.AppWidget.Container"
+    android:theme="@style/Theme.PimiWidget.AppWidgetContainer">
+
+    <TextClock
+        style="@style/Widget.PimiWidget.AppWidget.DateLight"
+        android:id="@+id/widget_text_clock"
+        android:format12Hour="@string/widget_date_format"
+        android:format24Hour="@string/widget_date_format" />
+
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.WeatherLight"
+        android:id="@+id/widget_temp"
+        android:visibility="invisible"
+        android:text="@string/widget_temp"
+        android:drawableStart="@drawable/wc_nan"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+</LinearLayout>

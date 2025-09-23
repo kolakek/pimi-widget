@@ -1,0 +1,55 @@
+<resources>
+
+    <string name="app_name">Pimi Widget</string>
+    <string name="widget_label">Date &amp; Weather</string>
+    <string name="widget_temp">""</string>
+    <string name="widget_date_prev">"Sun, Jul 4"</string>
+    <string name="widget_temp_prev">"68\u2109"</string>
+    <string name="widget_date_format">"E, MMM d"</string>
+    <string name="config_button">Update widget</string>
+    <string name="config_title">Pimi Widget</string>
+    <string name="config_weather_sec">Weather</string>
+    <string name="config_weather_switch">Weather service</string>
+    <string name="config_weather_descr">Shares your location with the weather provider</string>
+    <string name="config_provider">Provider</string>
+    <string name="config_provider_descr">Weather data by Open-Meteo.com</string>
+    <string name="config_text_color">Colors</string>
+    <string name="config_text_color_light">Light text</string>
+    <string name="config_text_color_dark">Dark text</string>
+    <string name="config_temp">Temperature</string>
+    <string name="config_temp_celsius">Celsius</string>
+    <string name="config_temp_fahrenheit">Fahrenheit</string>
+    <string name="config_interval">Update interval</string>
+    <string name="config_interval_descr">30 minutes or more</string>
+    <string name="config_about_sec">About</string>
+    <string name="config_update_info">Last update</string>
+    <string name="config_update_descr">%1$s ago %2$s%3$s</string>
+    <string name="config_update_descr_nan">Not available</string>
+    <string name="config_loc_perm_alert_title">Location permission required</string>
+    <string name="config_loc_perm_alert">To show the weather for your current area, this app requires access to your location.</string>
+    <string name="config_bg_perm_alert_title">Background location permission</string>
+    <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
+    <string name="config_alert_button_ok">OK, proceed</string>
+    <string name="config_alert_button_no">No, thanks</string>
+
+    <string name="celsius">\u2103</string>
+    <string name="fahrenheit">\u2109</string>
+    <string name="location_symbol">✈\uFE0E</string>
+    <string name="weather_symbol">☀\uFE0E</string>
+
+    <plurals name="days">
+        <item quantity="one">1 day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+
+</resources>

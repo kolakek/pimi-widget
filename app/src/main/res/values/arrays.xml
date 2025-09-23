@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="temp_units">
+        <item>@string/config_temp_celsius</item>
+        <item>@string/config_temp_fahrenheit</item>
+    </array>
+
+    <array name="temp_units_vals">
+        <item>temp_unit_celsius</item>
+        <item>temp_unit_fahrenheit</item>
+    </array>
+
+    <array name="text_colors">
+        <item>@string/config_text_color_light</item>
+        <item>@string/config_text_color_dark</item>
+    </array>
+
+    <array name="text_colors_vals">
+        <item>text_color_light</item>
+        <item>text_color_dark</item>
+    </array>
+
+</resources>

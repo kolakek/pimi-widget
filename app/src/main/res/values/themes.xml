@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="alertDialogTheme">@style/Widget.PimiWidget.AppWidget.MaterialDialogAlert</item>
+    </style>
+
+    <style name="Theme.PimiWidget.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="appWidgetRadius">@android:dimen/system_app_widget_background_radius</item>
+        <item name="appWidgetInnerRadius">@android:dimen/system_app_widget_inner_radius</item>
+    </style>
+
+    <style name="Theme.PimiWidget.AppWidgetContainer" parent="Theme.PimiWidget.AppWidgetContainerParent">
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+
+</resources>

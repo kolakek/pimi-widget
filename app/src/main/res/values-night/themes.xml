@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="alertDialogTheme">@style/Widget.PimiWidget.AppWidget.MaterialDialogAlert</item>
+    </style>
+
+</resources>

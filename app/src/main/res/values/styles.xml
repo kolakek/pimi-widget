@@ -1,0 +1,61 @@
+<resources>
+
+    <style name="Widget.PimiWidget.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:padding">?attr/appWidgetPadding</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:padding">0dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.Date" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.DateDark" parent="Widget.PimiWidget.AppWidget.Date">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.DateLight" parent="Widget.PimiWidget.AppWidget.Date">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.Weather" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:drawablePadding">4dp</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.WeatherDark" parent="Widget.PimiWidget.AppWidget.Weather">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.WeatherLight" parent="Widget.PimiWidget.AppWidget.Weather">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.MaterialDialogAlert" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="dialogCornerRadius">28dp</item>
+    </style>
+
+</resources>
