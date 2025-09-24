@@ -61,14 +61,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         PimiData.timeMillis?.let {
-            debugField?.setSummary(
-                getString(
-                    R.string.config_update_descr,
-                    ageString(it),
-                    if (PimiData.locationSuccess) getString(R.string.location_symbol) else "",
-                    if (PimiData.weatherSuccess) getString(R.string.weather_symbol) else ""
-                )
-            )
+            debugField?.setSummary(getString(R.string.config_update_descr, ageString(it)))
         }
         debugField?.setOnPreferenceClickListener {
             showDebugDialog(context)
@@ -143,13 +136,29 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val builder = AlertDialog.Builder(context)
 
         var workerStr = getString(R.string.config_alert_debug_worker) +
-                ": ${WidgetUpdater.getWorkerStatus(context)}"
+                " ${WidgetUpdater.getWorkerStatus(context)}"
 
         WidgetUpdater.getNextScheduleMillis(context)?.let {
             workerStr += " for ${DateFormat.getTimeFormat(context).format(Date(it))}"
         }
 
-        builder.setMessage(workerStr)
+        var locationStr = "${getString(R.string.config_alert_debug_location)} "
+        var age = PimiData.location?.timeMillis
+        locationStr += if (PimiData.locationSuccess && age != null) {
+            getString(R.string.config_alter_debug_data_age, ageString(age))
+        } else {
+            getString(R.string.worker_status_unavailable)
+        }
+
+        var weatherStr = "${getString(R.string.config_alert_debug_weather)} "
+        age = PimiData.weather?.timeMillis
+        weatherStr += if (PimiData.weatherSuccess && age != null) {
+            getString(R.string.config_alter_debug_data_age, ageString(age))
+        } else {
+            getString(R.string.worker_status_unavailable)
+        }
+
+        builder.setMessage("\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)
         builder.setCancelable(true)
         builder.setPositiveButton(

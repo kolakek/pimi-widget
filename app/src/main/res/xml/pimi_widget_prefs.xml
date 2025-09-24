@@ -2,62 +2,54 @@
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory
-        android:title="@string/config_weather_sec"
-        android:key="category_weather"
-        android:selectable="false"
-        app:iconSpaceReserved="false">
+    <SwitchPreferenceCompat
+        android:key="weather_switch"
+        android:summary="@string/config_weather_descr"
+        android:title="@string/config_weather_switch"
+        android:widgetLayout="@layout/preference_switch"
+        app:iconSpaceReserved="false" />
 
-        <SwitchPreferenceCompat
-            android:key="weather_switch"
-            android:widgetLayout="@layout/preference_switch"
-            android:title="@string/config_weather_switch"
-            android:summary="@string/config_weather_descr"
-            app:iconSpaceReserved="false"/>
+    <Preference
+        android:key="weather_provider"
+        android:summary="@string/config_provider_descr"
+        android:title="@string/config_provider"
+        app:iconSpaceReserved="false" />
 
-        <Preference
-            android:key="weather_provider"
-            android:title="@string/config_provider"
-            android:summary="@string/config_provider_descr"
-            app:iconSpaceReserved="false"/>
+    <ListPreference
+        android:defaultValue="temp_unit_celsius"
+        android:entries="@array/temp_units"
+        android:entryValues="@array/temp_units_vals"
+        android:key="temp_list"
+        android:title="@string/config_temp"
+        app:iconSpaceReserved="false"
+        app:useSimpleSummaryProvider="true" />
 
-        <ListPreference
-            android:key="temp_list"
-            android:title="@string/config_temp"
-            android:entries="@array/temp_units"
-            android:entryValues="@array/temp_units_vals"
-            android:defaultValue="temp_unit_celsius"
-            app:useSimpleSummaryProvider="true"
-            app:iconSpaceReserved="false"/>
+    <Preference
+        android:key="update_interval"
+        android:summary="@string/config_interval_descr"
+        android:title="@string/config_interval"
+        app:iconSpaceReserved="false" />
 
-        <ListPreference
-            android:key="color_list"
-            android:title="@string/config_text_color"
-            android:entries="@array/text_colors"
-            android:entryValues="@array/text_colors_vals"
-            android:defaultValue="text_color_light"
-            app:useSimpleSummaryProvider="true"
-            app:iconSpaceReserved="false"/>
-
-        <Preference
-            android:key="update_interval"
-            android:title="@string/config_interval"
-            android:summary="@string/config_interval_descr"
-            app:iconSpaceReserved="false"/>
-
-    </PreferenceCategory>
+    <ListPreference
+        android:defaultValue="text_color_light"
+        android:entries="@array/text_colors"
+        android:entryValues="@array/text_colors_vals"
+        android:key="color_list"
+        android:title="@string/config_text_color"
+        app:iconSpaceReserved="false"
+        app:useSimpleSummaryProvider="true" />
 
     <PreferenceCategory
-        android:title="@string/config_about_sec"
         android:key="category_settings"
         android:selectable="false"
+        android:title="@string/config_about_sec"
         app:iconSpaceReserved="false">
 
         <Preference
             android:key="about_location"
-            android:title="@string/config_update_info"
             android:summary="@string/config_update_descr_nan"
-            app:iconSpaceReserved="false"/>
+            android:title="@string/config_update_info"
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
