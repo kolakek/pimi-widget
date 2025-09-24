@@ -51,6 +51,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
+        val debugField: Preference? = findPreference(KEY_UPDATE_INFO)
 
         if (WidgetUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
@@ -58,7 +59,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         PimiData.timeMillis?.let {
-            findPreference<Preference>(KEY_UPDATE_INFO)?.setSummary(
+            debugField?.setSummary(
                 getString(
                     R.string.config_update_descr,
                     ageString(it),
@@ -66,6 +67,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     if (PimiData.weatherSuccess) getString(R.string.weather_symbol) else ""
                 )
             )
+        }
+        debugField?.setOnPreferenceClickListener {
+            showDebugDialog(context)
+            true
         }
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
@@ -130,6 +135,26 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    private fun showDebugDialog(
+        context: Context
+    ) {
+        val builder = AlertDialog.Builder(context)
+
+        builder.setMessage(
+            getString(R.string.config_alert_debug_worker) +
+                    ": ${WidgetUpdater.getWorkerStatus(context)}"
+        )
+        builder.setTitle(R.string.config_alert_debug_title)
+        builder.setCancelable(true)
+        builder.setPositiveButton(
+            getString(R.string.config_alert_button_ok)
+        ) { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog = builder.create()
+        alertDialog.show()
+    }
+
     private fun showRationaleDialog(
         context: Context,
         permission: String,
@@ -148,7 +173,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             dialog.dismiss()
         }
         builder.setNegativeButton(
-            getString(R.string.config_alert_button_no)
+            getString(R.string.config_alert_button_stop)
         ) { dialog, _ ->
             dialog.dismiss()
         }

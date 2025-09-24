@@ -30,6 +30,7 @@ import androidx.work.WorkManager
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.location.LocationWorker
+import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.weather.WeatherWorker
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -113,6 +114,19 @@ class WidgetUpdater {
         fun permissionsDenied(context: Context): Boolean {
             return context.checkSelfPermission(REQUIRED_PERMISSION) == PackageManager
                 .PERMISSION_DENIED
+        }
+
+        fun getWorkerStatus(context: Context): String {
+            val workInfos = WorkManager
+                .getInstance(context)
+                .getWorkInfosForUniqueWork(WORK_NAME)
+                .get()
+
+            return if (workInfos.isNotEmpty()) {
+                workInfos[0].state.name
+            } else {
+                context.getString(R.string.worker_status_unavailable)
+            }
         }
     }
 }

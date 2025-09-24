@@ -22,15 +22,18 @@
     <string name="config_interval">Update interval</string>
     <string name="config_interval_descr">30 minutes or more</string>
     <string name="config_about_sec">About</string>
-    <string name="config_update_info">Last update</string>
+    <string name="config_update_info">Last refresh</string>
     <string name="config_update_descr">%1$s ago %2$s%3$s</string>
     <string name="config_update_descr_nan">Not available</string>
     <string name="config_loc_perm_alert_title">Location permission required</string>
     <string name="config_loc_perm_alert">To show the weather for your current area, this app requires access to your location.</string>
     <string name="config_bg_perm_alert_title">Background location permission</string>
     <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
-    <string name="config_alert_button_ok">OK, proceed</string>
-    <string name="config_alert_button_no">No, thanks</string>
+    <string name="config_alert_button_ok">OK</string>
+    <string name="config_alert_button_stop">Stop</string>
+    <string name="config_alert_debug_title">Debug info</string>
+    <string name="config_alert_debug_worker">Worker</string>
+    <string name="worker_status_unavailable">UNAVAILABLE</string>
 
     <string name="celsius">\u2103</string>
     <string name="fahrenheit">\u2109</string>
