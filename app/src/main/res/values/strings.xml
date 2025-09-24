@@ -30,7 +30,7 @@
     <string name="config_bg_perm_alert_title">Background location permission</string>
     <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
     <string name="config_alert_button_ok">OK</string>
-    <string name="config_alert_button_stop">Stop</string>
+    <string name="config_alert_button_cancel">Cancel</string>
     <string name="config_alert_debug_title">Debug info</string>
     <string name="config_alert_debug_worker">Worker</string>
     <string name="worker_status_unavailable">UNAVAILABLE</string>

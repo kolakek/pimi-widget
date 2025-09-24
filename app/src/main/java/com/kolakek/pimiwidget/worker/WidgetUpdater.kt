@@ -26,6 +26,7 @@ import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.PimiData
@@ -127,6 +128,16 @@ class WidgetUpdater {
             } else {
                 context.getString(R.string.worker_status_unavailable)
             }
+        }
+
+        fun getNextScheduleMillis(context: Context): Long? {
+            val workInfos = WorkManager
+                .getInstance(context)
+                .getWorkInfosForUniqueWork(WORK_NAME)
+                .get()
+
+            return workInfos.firstOrNull { it.state == WorkInfo.State.ENQUEUED }
+                ?.nextScheduleTimeMillis
         }
     }
 }

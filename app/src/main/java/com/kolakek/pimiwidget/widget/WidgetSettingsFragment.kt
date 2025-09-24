@@ -21,6 +21,7 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
@@ -30,6 +31,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.worker.WidgetUpdater
+import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
@@ -140,10 +142,14 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val builder = AlertDialog.Builder(context)
 
-        builder.setMessage(
-            getString(R.string.config_alert_debug_worker) +
-                    ": ${WidgetUpdater.getWorkerStatus(context)}"
-        )
+        var workerStr = getString(R.string.config_alert_debug_worker) +
+                ": ${WidgetUpdater.getWorkerStatus(context)}"
+
+        WidgetUpdater.getNextScheduleMillis(context)?.let {
+            workerStr += " for ${DateFormat.getTimeFormat(context).format(Date(it))}"
+        }
+
+        builder.setMessage(workerStr)
         builder.setTitle(R.string.config_alert_debug_title)
         builder.setCancelable(true)
         builder.setPositiveButton(
@@ -173,7 +179,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             dialog.dismiss()
         }
         builder.setNegativeButton(
-            getString(R.string.config_alert_button_stop)
+            getString(R.string.config_alert_button_cancel)
         ) { dialog, _ ->
             dialog.dismiss()
         }
