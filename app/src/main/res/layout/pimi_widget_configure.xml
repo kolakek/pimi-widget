@@ -6,12 +6,14 @@
     android:fitsSystemWindows="true"
     android:padding="16dp">
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/config_title"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+        android:text="@string/config_button"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="16dp"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/widget_settings_fragment"

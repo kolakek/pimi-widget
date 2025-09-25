@@ -49,6 +49,8 @@ class WidgetConfigureActivity : FragmentActivity() {
         val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.button.setOnClickListener { finishWidgetConfigureActivity() }
+
         val intent = intent
         val extras = intent.extras
 

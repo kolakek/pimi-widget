@@ -7,7 +7,6 @@
     <string name="widget_temp_prev">"68\u2109"</string>
     <string name="widget_date_format">"E, MMM d"</string>
     <string name="config_button">Update widget</string>
-    <string name="config_title">Pimi Widget</string>
     <string name="config_weather_switch">Weather service</string>
     <string name="config_weather_descr">Shares your location with the weather provider</string>
     <string name="config_provider">Provider</string>
@@ -20,6 +19,7 @@
     <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_interval">Update interval</string>
     <string name="config_interval_descr">30 minutes or more</string>
+    <string name="config_settings_sec">Settings</string>
     <string name="config_about_sec">About</string>
     <string name="config_update_info">Last refresh</string>
     <string name="config_update_descr">%s ago</string>

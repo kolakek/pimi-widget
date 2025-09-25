@@ -45,12 +45,6 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
 
-        preferenceManager.findPreference<Preference>(KEY_UPDATE_BUTTON)
-            ?.setOnPreferenceClickListener {
-                (activity as? WidgetConfigureActivity)?.finishWidgetConfigureActivity()
-                true
-            }
-
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val debugField: Preference? = findPreference(KEY_UPDATE_INFO)

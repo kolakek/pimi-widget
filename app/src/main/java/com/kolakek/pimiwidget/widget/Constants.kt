@@ -24,7 +24,6 @@ internal const val KEY_COLOR_LIST = "color_list"
 internal const val KEY_COLOR_LIGHT = "text_color_light"
 internal const val KEY_UPDATE_INFO = "about_location"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
-internal const val KEY_UPDATE_BUTTON = "update_button"
 
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
 internal const val MAX_AGE_MILLIS = 120 * 60 * 1000L
