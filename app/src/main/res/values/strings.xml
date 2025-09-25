@@ -32,10 +32,9 @@
     <string name="config_alert_button_cancel">Cancel</string>
     <string name="config_alert_debug_title">Data info</string>
     <string name="config_alert_debug_worker">Worker</string>
-    <string name="config_alert_debug_location">Location data</string>
-    <string name="config_alert_debug_weather">Weather data</string>
-    <string name="config_alter_debug_data_age">%s old</string>
-    <string name="worker_status_unavailable">UNAVAILABLE</string>
+    <string name="config_alert_debug_location">Location</string>
+    <string name="config_alert_debug_weather">Weather</string>
+    <string name="config_alert_debug_data_age">%s old</string>
 
     <string name="celsius">\u2103</string>
     <string name="fahrenheit">\u2109</string>

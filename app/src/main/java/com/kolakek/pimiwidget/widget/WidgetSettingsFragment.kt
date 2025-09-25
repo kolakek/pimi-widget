@@ -133,23 +133,21 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 " ${WidgetUpdater.getWorkerStatus(context)}"
 
         WidgetUpdater.getNextScheduleMillis(context)?.let {
-            workerStr += " for ${DateFormat.getTimeFormat(context).format(Date(it))}"
+            workerStr += " ${DateFormat.getTimeFormat(context).format(Date(it))}"
         }
 
-        var locationStr = "${getString(R.string.config_alert_debug_location)} "
-        var age = PimiData.location?.timeMillis
-        locationStr += if (PimiData.locationSuccess && age != null) {
-            getString(R.string.config_alter_debug_data_age, ageString(age))
-        } else {
-            getString(R.string.worker_status_unavailable)
+        var locationStr = getString(R.string.config_alert_debug_location) +
+                " ${WidgetUpdater.getLocationStatus()}"
+
+        PimiData.location?.timeMillis?.let {
+            locationStr += " ${getString(R.string.config_alert_debug_data_age, ageString(it))}"
         }
 
-        var weatherStr = "${getString(R.string.config_alert_debug_weather)} "
-        age = PimiData.weather?.timeMillis
-        weatherStr += if (PimiData.weatherSuccess && age != null) {
-            getString(R.string.config_alter_debug_data_age, ageString(age))
-        } else {
-            getString(R.string.worker_status_unavailable)
+        var weatherStr = getString(R.string.config_alert_debug_weather) +
+                " ${WidgetUpdater.getWeatherStatus()}"
+
+        PimiData.weather?.timeMillis?.let {
+            weatherStr += " ${getString(R.string.config_alert_debug_data_age, ageString(it))}"
         }
 
         builder.setMessage("\n$locationStr\n\n$weatherStr\n\n$workerStr")

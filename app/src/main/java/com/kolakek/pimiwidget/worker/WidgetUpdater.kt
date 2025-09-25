@@ -31,7 +31,6 @@ import androidx.work.WorkManager
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.location.LocationWorker
-import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.weather.WeatherWorker
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -49,13 +48,13 @@ class WidgetUpdater {
             Timber.d("update(): Update location.")
 
             val location = LocationWorker.getLocation(context)
-            PimiData.locationSuccess = location != null
+            PimiData.locationState = if (location == null) STATUS_FAILED else STATUS_SUCCESS
             location?.let { PimiData.location = it }
 
             Timber.d("update(): Update weather.")
 
             val weather = WeatherWorker.getWeather(PimiData.location)
-            PimiData.weatherSuccess = weather != null
+            PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
             weather?.let { PimiData.weather = it }
 
             Timber.d("update(): Set refresh time.")
@@ -117,6 +116,14 @@ class WidgetUpdater {
                 .PERMISSION_DENIED
         }
 
+        fun getWeatherStatus(): String {
+            return PimiData.weatherState ?: STATUS_NAN
+        }
+
+        fun getLocationStatus(): String {
+            return PimiData.locationState ?: STATUS_NAN
+        }
+
         fun getWorkerStatus(context: Context): String {
             val workInfos = WorkManager
                 .getInstance(context)
@@ -126,7 +133,7 @@ class WidgetUpdater {
             return if (workInfos.isNotEmpty()) {
                 workInfos[0].state.name
             } else {
-                context.getString(R.string.worker_status_unavailable)
+                STATUS_NAN
             }
         }
 
