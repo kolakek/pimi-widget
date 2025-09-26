@@ -8,18 +8,14 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 
 * Displays date and weather for your current area
 * Standalone widget, no launcher icon
-* Tap the widget to open your default weather app
-* Lightweight (just 3.4 MB) and optimized for battery efficiency
+* Tapping the widget opens your default weather app
+* Lightweight and optimized for battery efficiency
 * Location data is shared only with the weather provider (Open-Meteo)
 * No ads, no trackers, no Google Play dependencies
 
 ## Screenshots
 
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png" width="300">
-<br><br>
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png" width="300">
-<br><br>
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png" width="300">
+<img src="doc/screens.png" alt="Screens" width="830">
 
 ## FAQ
 
