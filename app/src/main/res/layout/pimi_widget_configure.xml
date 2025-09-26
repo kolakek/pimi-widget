@@ -6,6 +6,13 @@
     android:fitsSystemWindows="true"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:text="Pimi Widget" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="match_parent"

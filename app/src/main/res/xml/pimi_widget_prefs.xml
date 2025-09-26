@@ -6,7 +6,9 @@
         android:key="category_settings"
         android:selectable="false"
         android:title="@string/config_settings_sec"
-        app:iconSpaceReserved="false">
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false" >
 
         <SwitchPreferenceCompat
             android:key="weather_switch"
@@ -51,7 +53,9 @@
         android:key="category_about"
         android:selectable="false"
         android:title="@string/config_about_sec"
-        app:iconSpaceReserved="false">
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false" >
 
         <Preference
             android:key="about_location"
