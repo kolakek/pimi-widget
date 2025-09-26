@@ -51,7 +51,7 @@ If weather information does not appear, you can find debug information by tappin
 
 - **Location SUCCESS & Weather FAILED**: The widget retrieved your location but could not reach the weather provider. Ensure that your device is connected to the internet.
 
-- **Worker ENQUEUED**: The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
+- **Worker ENQUEUED or RUNNING**: The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
 
 ## Donations
 
