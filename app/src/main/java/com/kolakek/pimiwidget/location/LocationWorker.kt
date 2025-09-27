@@ -42,7 +42,13 @@ object LocationWorker {
 
         Timber.d("getLocation(): Get last location.")
         var location = locationManager.getLastKnownLocation(LOCATION_PROVIDER)
-        location ?: Timber.d("getLocation(): Last location null.")
+
+        if (location == null) {
+            Timber.d("getLocation(): Last location null.")
+        } else {
+            Timber.d("getLocation(): Last location: " +
+                    "${location.elapsedRealtimeAgeMillis / 1000L / 60} min old.")
+        }
 
         if (location == null || location.elapsedRealtimeAgeMillis > LAST_LOCATION_MAX_AGE_MILLIS) {
             Timber.d("getLocation(): Get current location.")

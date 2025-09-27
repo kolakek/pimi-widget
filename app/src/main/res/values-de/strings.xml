@@ -4,46 +4,46 @@
     <string name="app_name">Pimi Widget</string>
 
     <!-- Short description of the widget shown in the widget drawer -->
-    <string name="widget_label">Date &amp; Weather</string>
+    <string name="widget_label">Datum &amp; Wetter</string>
 
     <!-- Empty string to be shown when no weather data is available -->
     <string name="widget_temp">""</string>
 
     <!-- Example temperature value for widget preview -->
-    <string name="widget_date_prev">"Sun, Jul 4"</string>
+    <string name="widget_date_prev">"So., 3. Oct."</string>
 
     <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">"68\u2109"</string>
+    <string name="widget_temp_prev">"22\u2103"</string>
 
     <!-- Default date format for current language -->
-    <string name="widget_date_format">"E, MMM d"</string>
+    <string name="widget_date_format">"E, d. MMM"</string>
 
     <!-- Title of the button for updating the widget from the config screen -->
-    <string name="config_button">Update widget</string>
+    <string name="config_button">Widget aktualisieren</string>
 
     <!-- Short description of the weather switch used in config screen -->
-    <string name="config_weather_switch">Weather service</string>
+    <string name="config_weather_switch">Wetterdienst</string>
 
     <!-- Additional information for the weather switch in config screen -->
-    <string name="config_weather_descr">Enabling the weather service shares your location with the weather provider</string>
+    <string name="config_weather_descr">Die Aktivierung des Wetterdienstes gibt Ihren Standort an den Wetteranbieter weiter</string>
 
     <!-- Title for the weather provider config option -->
-    <string name="config_provider">Weather provider</string>
+    <string name="config_provider">Wetteranbieter</string>
 
     <!-- Short description of weather provider config option -->
-    <string name="config_provider_descr">Weather data by Open-Meteo.com</string>
+    <string name="config_provider_descr">Wetterdaten von Open-Meteo.com</string>
 
     <!-- Title for the config option to adjust the widget colors -->
-    <string name="config_text_color">Colors</string>
+    <string name="config_text_color">Farben</string>
 
     <!-- Config option for selecting light text -->
-    <string name="config_text_color_light">Light text</string>
+    <string name="config_text_color_light">Heller Text</string>
 
     <!-- Config option for selecting dark text -->
-    <string name="config_text_color_dark">Dark text</string>
+    <string name="config_text_color_dark">Dunkler Text</string>
 
     <!-- Title of the config option for selecting the temperature unit -->
-    <string name="config_temp">Temperature</string>
+    <string name="config_temp">Temperatur</string>
 
     <!-- Celsius temperature unit -->
     <string name="config_temp_celsius">Celsius</string>
@@ -52,58 +52,58 @@
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
     <!-- Title for the config option to set the update interval -->
-    <string name="config_interval">Update interval</string>
+    <string name="config_interval">Aktualisierungsintervall</string>
 
     <!-- Config option to for the update interval -->
-    <string name="config_interval_descr">30 minutes</string>
+    <string name="config_interval_descr">30 Minuten</string>
 
     <!-- Section title in the config screen for widget settings -->
-    <string name="config_settings_sec">Settings</string>
+    <string name="config_settings_sec">Einstellungen</string>
 
     <!-- Section title in the config screen for additional information -->
-    <string name="config_about_sec">About</string>
+    <string name="config_about_sec">Über</string>
 
     <!-- Title of the info field for showing when the last refresh took place -->
-    <string name="config_update_info">Last refresh</string>
+    <string name="config_update_info">Letzte Aktualisierung</string>
 
     <!-- String for showing when the last refresh took place -->
-    <string name="config_update_descr">%s ago</string>
+    <string name="config_update_descr">Vor %s</string>
 
     <!-- Fallback string when last refresh information is unavailable -->
-    <string name="config_update_descr_nan">Unavailable</string>
+    <string name="config_update_descr_nan">Nicht verfügbar</string>
 
     <!-- Title of the alert box for explaining that location access is needed -->
-    <string name="config_loc_perm_alert_title">Location permission required</string>
+    <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
 
     <!-- Explanation show in the alert box explaining why location access is needed -->
-    <string name="config_loc_perm_alert">To show the weather for your current area, this app requires access to your location.</string>
+    <string name="config_loc_perm_alert">Um das Wetter für Ihre aktuelle Region anzuzeigen, benötigt diese App Zugriff auf Ihren Standort.</string>
 
     <!-- Title of the alert box for explaining that background location access is needed -->
-    <string name="config_bg_perm_alert_title">Background location permission</string>
+    <string name="config_bg_perm_alert_title">Hintergrund-Standortberechtigung</string>
 
     <!-- Explanation shown in the alert box explaining why background location access is needed -->
-    <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
+    <string name="config_bg_perm_alert">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf Ihren Standort im Hintergrund. Bitte wählen Sie „%s“ im nächsten Bildschirm.</string>
 
     <!-- Text of of the alert box OK button -->
     <string name="config_alert_button_ok">OK</string>
 
     <!-- Text of the alert box cancel button -->
-    <string name="config_alert_button_cancel">Cancel</string>
+    <string name="config_alert_button_cancel">Abbrechen</string>
 
     <!-- Title of the alert box for showing data debug information -->
-    <string name="config_alert_debug_title">Data info</string>
+    <string name="config_alert_debug_title">Dateninfo</string>
 
     <!-- String for the widget background worker, 1 word -->
-    <string name="config_alert_debug_worker">Worker</string>
+    <string name="config_alert_debug_worker">Prozess</string>
 
     <!-- String for the location data, 1 word -->
-    <string name="config_alert_debug_location">Location</string>
+    <string name="config_alert_debug_location">Standort</string>
 
     <!-- String for the weather data, 1 word -->
-    <string name="config_alert_debug_weather">Weather</string>
+    <string name="config_alert_debug_weather">Wetter</string>
 
     <!-- String for showing the age of the data -->
-    <string name="config_alert_debug_data_age">%s old</string>
+    <string name="config_alert_debug_data_age">%s alt</string>
 
     <!-- Symbol for Celsius -->
     <string name="celsius">\u2103</string>
@@ -113,20 +113,20 @@
 
     <!-- Plurals definition for days -->
     <plurals name="days">
-        <item quantity="one">1 day</item>
-        <item quantity="other">%d days</item>
+        <item quantity="one">1 Tag</item>
+        <item quantity="other">%d Tage</item>
     </plurals>
 
     <!-- Plurals definition for hours -->
     <plurals name="hours">
-        <item quantity="one">1 hour</item>
-        <item quantity="other">%d hours</item>
+        <item quantity="one">1 Stunde</item>
+        <item quantity="other">%d Stunden</item>
     </plurals>
 
     <!-- Plurals definition for minutes -->
     <plurals name="minutes">
-        <item quantity="one">1 minute</item>
-        <item quantity="other">%d minutes</item>
+        <item quantity="one">1 Minute</item>
+        <item quantity="other">%d Minuten</item>
     </plurals>
 
 </resources>
