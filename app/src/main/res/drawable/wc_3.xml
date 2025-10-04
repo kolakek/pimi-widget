@@ -7,8 +7,8 @@
   <path
       android:fillColor="#FF000000"
       android:pathData="m13.5,3.5c-2.85,0 -5.22,1.98 -5.84,4.64 -0.62,-0.4 -1.36,-0.64 -2.16,-0.64 -2.21,0 -4,1.79 -4,4s1.79,4 4,4h8c3.31,0 6,-2.69 6,-6s-2.69,-6 -6,-6Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m13,3c-2.85,0 -5.22,1.98 -5.84,4.64 -0.62,-0.4 -1.36,-0.64 -2.16,-0.64 -2.21,0 -4,1.79 -4,4s1.79,4 4,4h8c3.31,0 6,-2.69 6,-6s-2.69,-6 -6,-6Z"
       android:strokeAlpha="0.95"
@@ -19,9 +19,9 @@
           android:centerY="13.82"
           android:gradientRadius="17.18"
           android:type="radial">
-        <item android:offset="0.01" android:color="#FFA6A6A6"/>
-        <item android:offset="0.76" android:color="#FFDEDFE2"/>
-        <item android:offset="0.8" android:color="#FFE2E3E6"/>
+        <item android:offset="0.06" android:color="#FFA6A6A6"/>
+        <item android:offset="0.45" android:color="#FFCBCBCD"/>
+        <item android:offset="0.73" android:color="#FFE2E3E6"/>
       </gradient>
     </aapt:attr>
   </path>

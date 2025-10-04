@@ -7,13 +7,13 @@
   <path
       android:fillColor="#FF000000"
       android:pathData="m13.5,0.5c-2.85,0 -5.22,1.98 -5.84,4.64 -0.46,-0.29 -0.97,-0.5 -1.53,-0.59 -0.11,-0.41 -0.19,-0.83 -0.19,-1.28 0,-1.02 0.31,-1.97 0.83,-2.76 -0.09,0 -0.18,-0.01 -0.28,-0.01C3.74,0.5 1.5,2.74 1.5,5.5c0,0.55 0.11,1.07 0.28,1.57 -0.17,0.45 -0.28,0.93 -0.28,1.43 0,2.21 1.79,4 4,4h8c3.31,0 6,-2.69 6,-6S16.81,0.5 13.5,0.5Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:fillColor="#FF000000"
       android:pathData="m16,17c0,1.38 -1.12,2.5 -2.5,2.5s-2.5,-1.12 -2.5,-2.5 2.5,-3.5 2.5,-3.5c0,0 2.5,2.12 2.5,3.5Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m15.5,16.5c0,1.38 -1.12,2.5 -2.5,2.5s-2.5,-1.12 -2.5,-2.5 2.5,-3.5 2.5,-3.5c0,0 2.5,2.12 2.5,3.5Z"
       android:strokeAlpha="0.95"

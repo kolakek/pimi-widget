@@ -6,32 +6,32 @@
   <path
       android:fillColor="#FF000000"
       android:pathData="m19.5,7.5c0,0.55 -0.51,1 -1.12,1H2.62c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m19,7c0,0.55 -0.51,1 -1.12,1H2.12c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
       android:fillColor="#f2f2f2"/>
   <path
       android:fillColor="#FF000000"
       android:pathData="m19.5,10.5c0,0.55 -0.51,1 -1.12,1H2.62c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m19,10c0,0.55 -0.51,1 -1.12,1H2.12c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
       android:fillColor="#f2f2f2"/>
   <path
       android:fillColor="#FF000000"
       android:pathData="m19.5,13.5c0,0.55 -0.51,1 -1.12,1H2.62c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m19,13c0,0.55 -0.51,1 -1.12,1H2.12c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
       android:fillColor="#f2f2f2"/>
   <path
       android:fillColor="#FF000000"
       android:pathData="m19.5,16.5c0,0.55 -0.51,1 -1.12,1H2.62c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m19,16c0,0.55 -0.51,1 -1.12,1H2.12c-0.62,0 -1.12,-0.45 -1.12,-1h0c0,-0.55 0.51,-1 1.12,-1h15.75c0.62,0 1.12,0.45 1.12,1h0Z"
       android:fillColor="#f2f2f2"/>

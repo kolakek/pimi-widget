@@ -7,8 +7,8 @@
   <path
       android:fillColor="#FF000000"
       android:pathData="m10.5,6.5c0,-1.84 0.55,-3.55 1.5,-4.97 -0.17,0 -0.33,-0.03 -0.5,-0.03C6.53,1.5 2.5,5.53 2.5,10.5s4.03,9 9,9c3.13,0 5.89,-1.6 7.5,-4.03 -4.74,-0.26 -8.5,-4.17 -8.5,-8.97Z"
-      android:strokeAlpha="0.6"
-      android:fillAlpha="0.6"/>
+      android:strokeAlpha="0.4"
+      android:fillAlpha="0.4"/>
   <path
       android:pathData="m10,6c0,-1.84 0.55,-3.55 1.5,-4.97 -0.17,0 -0.33,-0.03 -0.5,-0.03C6.03,1 2,5.03 2,10s4.03,9 9,9c3.13,0 5.89,-1.6 7.5,-4.03 -4.74,-0.26 -8.5,-4.17 -8.5,-8.97Z">
     <aapt:attr name="android:fillColor">
