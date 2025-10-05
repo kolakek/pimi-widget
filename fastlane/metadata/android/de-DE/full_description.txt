@@ -1,0 +1,8 @@
+Funktionen:
+
+* Zeigt Datum und Wetter für deinen aktuellen Standort
+* Eigenständiges Widget, kein Symbol im App-Launcher
+* Antippen des Widgets öffnet deine Standard-Wetter-App
+* Leichtgewichtig und akkusparend
+* Standortdaten werden nur mit dem Wetterdienst (Open-Meteo) geteilt
+* Keine Werbung, keine Tracker, keine Abhängigkeit von Google Play

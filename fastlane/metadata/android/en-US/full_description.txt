@@ -1,0 +1,8 @@
+Features:
+
+* Displays date and weather for your current area
+* Standalone widget, no launcher icon
+* Tapping the widget opens your default weather app
+* Lightweight and optimized for battery efficiency
+* Location data is shared only with the weather provider (Open-Meteo)
+* No ads, no trackers, no Google Play dependencies
