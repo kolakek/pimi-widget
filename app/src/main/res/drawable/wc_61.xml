@@ -19,8 +19,10 @@
           android:centerY="10.82"
           android:gradientRadius="17.18"
           android:type="radial">
-        <item android:offset="0.01" android:color="#FF595959"/>
-        <item android:offset="0.89" android:color="#FF898A8C"/>
+        <item android:offset="0.24" android:color="#FF595959"/>
+        <item android:offset="0.48" android:color="#FF646464"/>
+        <item android:offset="0.9" android:color="#FF838383"/>
+        <item android:offset="1" android:color="#FF8C8C8C"/>
       </gradient>
     </aapt:attr>
   </path>
@@ -32,6 +34,6 @@
   <path
       android:pathData="m15.5,16.5c0,1.38 -1.12,2.5 -2.5,2.5s-2.5,-1.12 -2.5,-2.5 2.5,-3.5 2.5,-3.5c0,0 2.5,2.12 2.5,3.5Z"
       android:strokeAlpha="0.95"
-      android:fillColor="#4591ff"
+      android:fillColor="#66acff"
       android:fillAlpha="0.95"/>
 </vector>
