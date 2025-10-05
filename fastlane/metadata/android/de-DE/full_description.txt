@@ -5,4 +5,4 @@ Funktionen:
 * Antippen des Widgets öffnet deine Standard-Wetter-App
 * Leichtgewichtig und akkusparend
 * Standortdaten werden nur mit dem Wetterdienst (Open-Meteo) geteilt
-* Keine Werbung, keine Tracker, keine Abhängigkeit von Google Play
+* Open Source, keine Werbung, keine Tracker

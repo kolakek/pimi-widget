@@ -5,4 +5,4 @@ Features:
 * Tapping the widget opens your default weather app
 * Lightweight and optimized for battery efficiency
 * Location data is shared only with the weather provider (Open-Meteo)
-* No ads, no trackers, no Google Play dependencies
+* Open source, no ads, no trackers
