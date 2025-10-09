@@ -1,0 +1,1 @@
+* Downgrade to AGP 8.11.1 for F-Droid compatibility
