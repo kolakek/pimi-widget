@@ -1,0 +1,1 @@
+* Updated icons (size, colors, shades), adjusted widget margins and font size
