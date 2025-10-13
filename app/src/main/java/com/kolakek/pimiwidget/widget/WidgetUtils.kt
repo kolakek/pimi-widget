@@ -93,7 +93,11 @@ internal fun updateAppWidgetWeather(
                 )
                 views.setTextViewCompoundDrawables(
                     R.id.widget_temp,
-                    mapWeatherId(weather.weatherCode, weather.isDay),
+                    mapWeatherId(
+                        weather.weatherCode,
+                        weather.isDay,
+                        getIconColorPreference(context) == KEY_COLOR_LIGHT
+                    ),
                     0,
                     0,
                     0
@@ -186,9 +190,10 @@ private fun getRemoteViews(context: Context): RemoteViews {
     }
 }
 
-private fun mapWeatherId(code: Int?, isDay: Int?): Int {
+private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
 
-    return when (code) {
+    return when (code?.let { if (lightColor) it + 1000 else it }) {
+
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
         1 -> if (isDay == 1) R.drawable.wc_1d else R.drawable.wc_1n
         2 -> if (isDay == 1) R.drawable.wc_2d else R.drawable.wc_2n
@@ -215,6 +220,10 @@ private fun mapWeatherId(code: Int?, isDay: Int?): Int {
         95 -> if (isDay == 1) R.drawable.wc_95d else R.drawable.wc_95n
         96 -> if (isDay == 1) R.drawable.wc_96d else R.drawable.wc_96n
         99 -> R.drawable.wc_99
+
+        1053 -> R.drawable.wb_63
+        1063 -> R.drawable.wb_63
+
         else -> R.drawable.wc_nan
     }
 }

@@ -26,6 +26,11 @@ fun getTextColorPreference(context: Context): String {
         .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
 }
 
+fun getIconColorPreference(context: Context): String {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+        .getString(KEY_ICON_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
+}
+
 fun getTempPreference(context: Context): String {
     return PreferenceManager.getDefaultSharedPreferences(context)
         .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
