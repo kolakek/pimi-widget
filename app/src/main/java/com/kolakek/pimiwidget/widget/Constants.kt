@@ -20,8 +20,8 @@ package com.kolakek.pimiwidget.widget
 internal const val KEY_TEMP_UNITS = "temp_list"
 internal const val KEY_CELSIUS = "temp_unit_celsius"
 internal const val KEY_FAHRENHEIT = "temp_unit_fahrenheit"
-internal const val KEY_COLOR_LIST = "color_list"
-internal const val KEY_COLOR_LIGHT = "text_color_light"
+internal const val KEY_TEXT_COLOR_LIST = "text_color_list"
+internal const val KEY_COLOR_LIGHT = "color_light"
 internal const val KEY_UPDATE_INFO = "about_location"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 

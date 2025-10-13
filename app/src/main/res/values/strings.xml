@@ -33,14 +33,17 @@
     <!-- Short description of weather provider config option -->
     <string name="config_provider_descr">Weather data by Open-Meteo.com</string>
 
-    <!-- Title for the config option to adjust the widget colors -->
-    <string name="config_text_color">Colors</string>
+    <!-- Title for the config option to adjust the widget text colors -->
+    <string name="config_text_color">Text color</string>
 
-    <!-- Config option for selecting light text -->
-    <string name="config_text_color_light">Light text</string>
+    <!-- Title for the config option to adjust the widget icon colors -->
+    <string name="config_icon_color">Icon color</string>
 
-    <!-- Config option for selecting dark text -->
-    <string name="config_text_color_dark">Dark text</string>
+    <!-- Config option for selecting light colors -->
+    <string name="config_color_light">Light</string>
+
+    <!-- Config option for selecting dark colors -->
+    <string name="config_color_dark">Dark</string>
 
     <!-- Title of the config option for selecting the temperature unit -->
     <string name="config_temp">Temperature</string>
@@ -50,12 +53,6 @@
 
     <!-- Fahrenheit temperature unit -->
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <!-- Title for the config option to set the update interval -->
-    <string name="config_interval">Update interval</string>
-
-    <!-- Config option to for the update interval -->
-    <string name="config_interval_descr">30 minutes</string>
 
     <!-- Section title in the config screen for widget settings -->
     <string name="config_settings_sec">Settings</string>

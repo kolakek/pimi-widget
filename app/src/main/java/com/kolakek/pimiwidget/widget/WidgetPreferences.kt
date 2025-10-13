@@ -21,9 +21,9 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
-fun getColorPreference(context: Context): String {
+fun getTextColorPreference(context: Context): String {
     return PreferenceManager.getDefaultSharedPreferences(context)
-        .getString(KEY_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
+        .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
 }
 
 fun getTempPreference(context: Context): String {

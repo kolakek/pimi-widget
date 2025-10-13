@@ -11,14 +11,14 @@
         <item>temp_unit_fahrenheit</item>
     </array>
 
-    <array name="text_colors">
-        <item>@string/config_text_color_light</item>
-        <item>@string/config_text_color_dark</item>
+    <array name="colors">
+        <item>@string/config_color_light</item>
+        <item>@string/config_color_dark</item>
     </array>
 
-    <array name="text_colors_vals">
-        <item>text_color_light</item>
-        <item>text_color_dark</item>
+    <array name="colors_vals">
+        <item>color_light</item>
+        <item>color_dark</item>
     </array>
 
 </resources>

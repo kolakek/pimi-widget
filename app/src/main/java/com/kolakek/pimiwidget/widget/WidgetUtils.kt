@@ -179,7 +179,7 @@ private fun pendingAltWeatherAppIntent(
 
 private fun getRemoteViews(context: Context): RemoteViews {
 
-    return if (getColorPreference(context) == KEY_COLOR_LIGHT) {
+    return if (getTextColorPreference(context) == KEY_COLOR_LIGHT) {
         RemoteViews(context.packageName, R.layout.pimi_widget_light)
     } else {
         RemoteViews(context.packageName, R.layout.pimi_widget_dark)

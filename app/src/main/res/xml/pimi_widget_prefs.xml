@@ -32,18 +32,21 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-        <Preference
-            android:key="update_interval"
-            android:summary="@string/config_interval_descr"
-            android:title="@string/config_interval"
-            app:iconSpaceReserved="false" />
+        <ListPreference
+            android:defaultValue="color_light"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="text_color_list"
+            android:title="@string/config_text_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="text_color_light"
-            android:entries="@array/text_colors"
-            android:entryValues="@array/text_colors_vals"
-            android:key="color_list"
-            android:title="@string/config_text_color"
+            android:defaultValue="color_light"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="icon_color_list"
+            android:title="@string/config_icon_color"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
