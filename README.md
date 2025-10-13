@@ -11,7 +11,7 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 * Tapping the widget opens your default weather app
 * Lightweight and optimized for battery efficiency
 * Location data is shared only with the weather provider (Open-Meteo)
-* No ads, no trackers, no Google Play dependencies
+* No additional trackers, no ads, no Google Play dependencies
 
 ## Screenshots
 
