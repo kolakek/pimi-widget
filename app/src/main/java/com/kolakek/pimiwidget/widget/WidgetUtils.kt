@@ -190,6 +190,14 @@ private fun getRemoteViews(context: Context): RemoteViews {
     }
 }
 
+private fun getWeatherStr(context: Context, weather: WeatherData): String {
+    return if (getTempPreference(context) == KEY_FAHRENHEIT) {
+        "${weather.tempF}${context.getString(R.string.fahrenheit)}"
+    } else {
+        "${weather.tempC}${context.getString(R.string.celsius)}"
+    }
+}
+
 private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
 
     return when (code?.let { if (lightColor) it + 1000 else it }) {
@@ -221,17 +229,33 @@ private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
         96 -> if (isDay == 1) R.drawable.wc_96d else R.drawable.wc_96n
         99 -> R.drawable.wc_99
 
+        1000 -> if (isDay == 1) R.drawable.wb_0d else R.drawable.wb_0n
+        1001 -> if (isDay == 1) R.drawable.wb_1d else R.drawable.wb_1n
+        1002 -> if (isDay == 1) R.drawable.wb_2d else R.drawable.wb_2n
+        1003 -> R.drawable.wb_3
+        1045 -> R.drawable.wb_45
+        1048 -> R.drawable.wb_45
+        1051 -> R.drawable.wb_61
         1053 -> R.drawable.wb_63
+        1055 -> R.drawable.wb_65
+        1061 -> R.drawable.wb_61
         1063 -> R.drawable.wb_63
+        1065 -> R.drawable.wb_65
+        1066 -> R.drawable.wb_67
+        1067 -> R.drawable.wb_67
+        1071 -> R.drawable.wb_71
+        1073 -> R.drawable.wb_73
+        1075 -> R.drawable.wb_75
+        1077 -> R.drawable.wb_77
+        1080 -> if (isDay == 1) R.drawable.wb_80d else R.drawable.wb_80n
+        1081 -> if (isDay == 1) R.drawable.wb_81d else R.drawable.wb_81n
+        1082 -> if (isDay == 1) R.drawable.wb_82d else R.drawable.wb_82n
+        1085 -> if (isDay == 1) R.drawable.wb_85d else R.drawable.wb_85n
+        1086 -> if (isDay == 1) R.drawable.wb_86d else R.drawable.wb_86n
+        1095 -> if (isDay == 1) R.drawable.wb_95d else R.drawable.wb_95n
+        1096 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
+        1099 -> R.drawable.wb_99
 
         else -> R.drawable.wc_nan
-    }
-}
-
-private fun getWeatherStr(context: Context, weather: WeatherData): String {
-    return if (getTempPreference(context) == KEY_FAHRENHEIT) {
-        "${weather.tempF}${context.getString(R.string.fahrenheit)}"
-    } else {
-        "${weather.tempC}${context.getString(R.string.celsius)}"
     }
 }
