@@ -1,0 +1,1 @@
+* Increase version number to fix issue with immutable git release
