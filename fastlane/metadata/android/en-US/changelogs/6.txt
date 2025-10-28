@@ -1,0 +1,2 @@
+* Add light weather icons
+* Improve colors, shadows, and shapes of dark weather icons
