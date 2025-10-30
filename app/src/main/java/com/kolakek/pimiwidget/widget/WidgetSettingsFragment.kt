@@ -133,22 +133,14 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 " ${WidgetUpdater.getWorkerStatus(context)}"
 
         WidgetUpdater.getNextScheduleMillis(context)?.let {
-            workerStr += " ${DateFormat.getTimeFormat(context).format(Date(it))}"
+            workerStr += " (${DateFormat.getTimeFormat(context).format(Date(it))})"
         }
 
-        var locationStr = getString(R.string.config_alert_debug_location) +
+        val locationStr = getString(R.string.config_alert_debug_location) +
                 " ${WidgetUpdater.getLocationStatus()}"
 
-        PimiData.location?.timeMillis?.let {
-            locationStr += " ${getString(R.string.config_alert_debug_data_age, ageString(it))}"
-        }
-
-        var weatherStr = getString(R.string.config_alert_debug_weather) +
+        val weatherStr = getString(R.string.config_alert_debug_weather) +
                 " ${WidgetUpdater.getWeatherStatus()}"
-
-        PimiData.weather?.timeMillis?.let {
-            weatherStr += " ${getString(R.string.config_alert_debug_data_age, ageString(it))}"
-        }
 
         builder.setMessage("\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)

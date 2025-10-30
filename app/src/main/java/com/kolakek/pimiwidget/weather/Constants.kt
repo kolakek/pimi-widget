@@ -18,5 +18,5 @@
 package com.kolakek.pimiwidget.weather
 
 internal const val URL = "https://api.open-meteo.com/v1/forecast"
-internal const val DATA = "current=temperature_2m,weather_code,is_day"
+internal const val DATA = "hourly=temperature_2m,weather_code,is_day&forecast_hours=4"
 internal const val OPTIONS = "timeformat=unixtime"

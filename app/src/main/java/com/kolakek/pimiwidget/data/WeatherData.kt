@@ -18,9 +18,8 @@
 package com.kolakek.pimiwidget.data
 
 data class WeatherData (
-    var tempC: Int,
-    var tempF: Int,
-    var weatherCode: Int,
-    var timeMillis: Long,
-    var isDay: Int
+    var hourlyTempCelsius: List<Double>,
+    var hourlyWeatherCode: List<Int>,
+    var hourlyTimeMillis: List<Long>,
+    var hourlyIsDay: List<Int>
 )

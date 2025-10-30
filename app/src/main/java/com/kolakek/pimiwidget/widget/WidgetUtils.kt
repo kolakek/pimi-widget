@@ -27,7 +27,6 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
-import com.kolakek.pimiwidget.data.WeatherData
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -66,44 +65,35 @@ internal fun updateAppWidgetWeather(
     var weatherVisibility = View.INVISIBLE
 
     val views = getRemoteViews(context)
+    val weather = PimiData.weather
 
-    if (getWeatherPreference(context)) {
+    if (getWeatherPreference(context) && weather != null) {
 
         Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
 
-        val weather = PimiData.weather
-        val location = PimiData.location
+        val timeMillis = System.currentTimeMillis()
+        val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
-        if (weather != null && location != null) {
+        if (idx >= 0) {
 
             Timber.d("updateAppWidgetWeather(): Checkpoint 2.")
 
-            val timeMillis = System.currentTimeMillis()
-
-            val weatherAge = timeMillis - weather.timeMillis
-            val locationAge = timeMillis - location.timeMillis
-
-            if (weatherAge < MAX_AGE_MILLIS && locationAge < MAX_AGE_MILLIS) {
-
-                Timber.d("updateAppWidgetWeather(): Checkpoint 3.")
-
-                views.setTextViewText(
-                    R.id.widget_temp,
-                    getWeatherStr(context, weather)
-                )
-                views.setTextViewCompoundDrawables(
-                    R.id.widget_temp,
-                    mapWeatherId(
-                        weather.weatherCode,
-                        weather.isDay,
-                        getIconColorPreference(context) == KEY_COLOR_LIGHT
-                    ),
-                    0,
-                    0,
-                    0
-                )
-                weatherVisibility = View.VISIBLE
-            }
+            views.setTextViewText(
+                R.id.widget_temp,
+                getWeatherStr(context, weather.hourlyTempCelsius[idx])
+            )
+            views.setTextViewCompoundDrawables(
+                R.id.widget_temp,
+                mapWeatherId(
+                    weather.hourlyWeatherCode[idx],
+                    weather.hourlyIsDay[idx],
+                    getIconColorPreference(context) == KEY_COLOR_LIGHT
+                ),
+                0,
+                0,
+                0
+            )
+            weatherVisibility = View.VISIBLE
         }
     }
 
@@ -190,11 +180,11 @@ private fun getRemoteViews(context: Context): RemoteViews {
     }
 }
 
-private fun getWeatherStr(context: Context, weather: WeatherData): String {
+private fun getWeatherStr(context: Context, tempC: Double): String {
     return if (getTempPreference(context) == KEY_FAHRENHEIT) {
-        "${weather.tempF}${context.getString(R.string.fahrenheit)}"
+        "${(tempC * 1.8 + 32.5).toInt()}${context.getString(R.string.fahrenheit)}"
     } else {
-        "${weather.tempC}${context.getString(R.string.celsius)}"
+        "${(tempC + 0.5).toInt()}${context.getString(R.string.celsius)}"
     }
 }
 

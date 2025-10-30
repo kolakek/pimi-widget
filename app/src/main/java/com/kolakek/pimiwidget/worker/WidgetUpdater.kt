@@ -49,11 +49,10 @@ class WidgetUpdater {
 
             val location = LocationWorker.getLocation(context)
             PimiData.locationState = if (location == null) STATUS_FAILED else STATUS_SUCCESS
-            location?.let { PimiData.location = it }
 
             Timber.d("update(): Update weather.")
 
-            val weather = WeatherWorker.getWeather(PimiData.location)
+            val weather = WeatherWorker.getWeather(location)
             PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
             weather?.let { PimiData.weather = it }
 

@@ -21,5 +21,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class ProviderData(
-    val current: CurrentWeatherData
+    val hourly: HourlyWeatherData
 )

@@ -27,5 +27,4 @@ internal const val KEY_UPDATE_INFO = "about_location"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
-internal const val MAX_AGE_MILLIS = 120 * 60 * 1000L
 internal const val WORKER_INIT_DELAY_MILLIS = 2 * 60 * 1000L

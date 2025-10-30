@@ -69,19 +69,14 @@ class WeatherWorker {
             Timber.d("getWeather(): Store data.")
             val weatherData = providerData?.let {
                 WeatherData(
-                    toInt(it.current.temperature_2m),
-                    toInt(it.current.temperature_2m * 1.8 + 32),
-                    it.current.weather_code,
-                    it.current.time * 1000L,
-                    it.current.is_day
+                    it.hourly.temperature_2m,
+                    it.hourly.weather_code,
+                    it.hourly.time.map { v -> v * 1000L },
+                    it.hourly.is_day
                 )
             }
             Timber.d("getWeather(): End function.")
             return weatherData
-        }
-
-        private fun toInt(d: Double): Int {
-            return (d + 0.5).toInt()
         }
     }
 }

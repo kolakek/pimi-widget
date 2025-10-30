@@ -99,9 +99,6 @@
     <!-- String for the weather data, 1 word -->
     <string name="config_alert_debug_weather">Wetter</string>
 
-    <!-- String for showing the age of the data -->
-    <string name="config_alert_debug_data_age">%s alt</string>
-
     <!-- Symbol for Celsius -->
     <string name="celsius">\u2103</string>
 

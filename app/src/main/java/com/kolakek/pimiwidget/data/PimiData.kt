@@ -19,14 +19,12 @@ package com.kolakek.pimiwidget.data
 
 object PimiData {
 
-    var location: LocationData? = null
     var weather: WeatherData? = null
     var locationState: String? = null
     var weatherState: String? = null
     var timeMillis: Long? = null
 
     fun reset(){
-        location = null
         weather = null
         locationState = null
         weatherState = null
