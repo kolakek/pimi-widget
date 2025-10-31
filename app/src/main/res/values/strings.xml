@@ -97,7 +97,13 @@
     <string name="config_alert_debug_weather">Weather</string>
 
     <!-- String for showing when the last refresh took place -->
-    <string name="config_alter_debug_last_update">%s ago</string>
+    <string name="config_alert_debug_last_update">%s ago</string>
+
+    <!-- String for the close button of an alert box -->
+    <string name="config_alert_button_close">Close</string>
+
+    <!-- String for the button of an alert box to force an update -->
+    <string name="config_alert_button_update">Force update</string>
 
     <!-- Symbol for Celsius -->
     <string name="celsius">\u2103</string>

@@ -31,6 +31,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.worker.WidgetUpdater
+import com.kolakek.pimiwidget.worker.WidgetUpdater.Companion.enqueueOneTimeWorker
 import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -127,7 +128,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val builder = AlertDialog.Builder(context)
 
         val updateStr = PimiData.timeMillis?.let {
-            "\n${getString(R.string.config_alter_debug_last_update, ageString(it))}\n"
+            "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
         } ?: ""
 
         var workerStr = getString(R.string.config_alert_debug_worker) +
@@ -147,8 +148,15 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         builder.setTitle(R.string.config_alert_debug_title)
         builder.setCancelable(true)
         builder.setPositiveButton(
-            getString(R.string.config_alert_button_ok)
+            getString(R.string.config_alert_button_close)
         ) { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.setNegativeButton(
+            getString(R.string.config_alert_button_update)
+        ){
+            dialog, _ ->
+            enqueueOneTimeWorker(context)
             dialog.dismiss()
         }
         val alertDialog = builder.create()

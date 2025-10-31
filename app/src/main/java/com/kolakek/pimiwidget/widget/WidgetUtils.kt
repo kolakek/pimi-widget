@@ -76,7 +76,7 @@ internal fun updateAppWidgetWeather(
 
         if (idx >= 0) {
 
-            Timber.d("updateAppWidgetWeather(): Checkpoint 2.")
+            Timber.d("updateAppWidgetWeather(): Checkpoint 2 (index $idx).")
 
             views.setTextViewText(
                 R.id.widget_temp,

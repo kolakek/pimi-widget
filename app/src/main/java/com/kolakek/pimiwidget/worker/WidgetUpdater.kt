@@ -25,6 +25,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
@@ -108,6 +110,22 @@ class WidgetUpdater {
             PimiData.reset()
 
             Timber.d("cancelPeriodicWorker(): End function.")
+        }
+
+        fun enqueueOneTimeWorker(context: Context) {
+            Timber.d("enqueueOneTimeWorker(): Begin function.")
+
+            val request = OneTimeWorkRequestBuilder<PimiWorker>()
+                .build()
+
+            WorkManager
+                .getInstance(context)
+                .enqueueUniqueWork(
+                    ONE_TIME_WORK_NAME,
+                    ExistingWorkPolicy.REPLACE,
+                    request
+                )
+            Timber.d("enqueueOneTimeWorker(): End function.")
         }
 
         fun permissionsDenied(context: Context): Boolean {
