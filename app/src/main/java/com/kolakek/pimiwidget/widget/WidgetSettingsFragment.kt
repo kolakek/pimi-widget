@@ -47,16 +47,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
-        val debugField: Preference? = findPreference(KEY_UPDATE_INFO)
+        val debugField: Preference? = findPreference(KEY_DATA_INFO)
 
         if (WidgetUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
             WidgetUpdater.cancelPeriodicWorker(context)
         }
 
-        PimiData.timeMillis?.let {
-            debugField?.setSummary(getString(R.string.config_update_descr, ageString(it)))
-        }
         debugField?.setOnPreferenceClickListener {
             showDebugDialog(context)
             true
@@ -129,6 +126,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val builder = AlertDialog.Builder(context)
 
+        val updateStr = PimiData.timeMillis?.let {
+            "\n${getString(R.string.config_alter_debug_last_update, ageString(it))}\n"
+        } ?: ""
+
         var workerStr = getString(R.string.config_alert_debug_worker) +
                 " ${WidgetUpdater.getWorkerStatus(context)}"
 
@@ -142,7 +143,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherStr = getString(R.string.config_alert_debug_weather) +
                 " ${WidgetUpdater.getWeatherStatus()}"
 
-        builder.setMessage("\n$locationStr\n\n$weatherStr\n\n$workerStr")
+        builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)
         builder.setCancelable(true)
         builder.setPositiveButton(

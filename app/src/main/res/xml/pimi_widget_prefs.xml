@@ -18,9 +18,9 @@
             app:iconSpaceReserved="false" />
 
         <Preference
-            android:key="weather_provider"
-            android:summary="@string/config_provider_descr"
-            android:title="@string/config_provider"
+            android:key="weather_view"
+            android:summary="@string/config_weather_view_descr"
+            android:title="@string/config_weather_view"
             app:iconSpaceReserved="false" />
 
         <ListPreference
@@ -61,9 +61,9 @@
         app:allowDividerBelow="false" >
 
         <Preference
-            android:key="about_location"
-            android:summary="@string/config_update_descr_nan"
-            android:title="@string/config_update_info"
+            android:key="weather_data"
+            android:summary="@string/config_provider_descr"
+            android:title="@string/config_weather_data"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>

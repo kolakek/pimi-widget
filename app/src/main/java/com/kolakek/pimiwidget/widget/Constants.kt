@@ -23,7 +23,7 @@ internal const val KEY_FAHRENHEIT = "temp_unit_fahrenheit"
 internal const val KEY_TEXT_COLOR_LIST = "text_color_list"
 internal const val KEY_ICON_COLOR_LIST = "icon_color_list"
 internal const val KEY_COLOR_LIGHT = "color_light"
-internal const val KEY_UPDATE_INFO = "about_location"
+internal const val KEY_DATA_INFO = "weather_data"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"

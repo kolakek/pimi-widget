@@ -7,7 +7,7 @@
     <string name="widget_label">Date &amp; Weather</string>
 
     <!-- Empty string to be shown when no weather data is available -->
-    <string name="widget_temp">""</string>
+    <string name="widget_temp">"-"</string>
 
     <!-- Example temperature value for widget preview -->
     <string name="widget_date_prev">"Sun, Jul 4"</string>
@@ -28,7 +28,7 @@
     <string name="config_weather_descr">Enabling the weather service shares your location with the weather provider</string>
 
     <!-- Title for the weather provider config option -->
-    <string name="config_provider">Weather provider</string>
+    <string name="config_weather_data">Weather provider</string>
 
     <!-- Short description of weather provider config option -->
     <string name="config_provider_descr">Weather data by Open-Meteo.com</string>
@@ -60,14 +60,11 @@
     <!-- Section title in the config screen for additional information -->
     <string name="config_about_sec">About</string>
 
-    <!-- Title of the info field for showing when the last refresh took place -->
-    <string name="config_update_info">Last refresh</string>
+    <!-- Title of the info field what weather date is displayed -->
+    <string name="config_weather_view">Weather view</string>
 
-    <!-- String for showing when the last refresh took place -->
-    <string name="config_update_descr">%s ago</string>
-
-    <!-- Fallback string when last refresh information is unavailable -->
-    <string name="config_update_descr_nan">Unavailable</string>
+    <!-- String indicating hourly forecast -->
+    <string name="config_weather_view_descr">Hourly forecast</string>
 
     <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Location permission required</string>
@@ -88,7 +85,7 @@
     <string name="config_alert_button_cancel">Cancel</string>
 
     <!-- Title of the alert box for showing data debug information -->
-    <string name="config_alert_debug_title">Data info</string>
+    <string name="config_alert_debug_title">Data update</string>
 
     <!-- String for the widget background worker, 1 word -->
     <string name="config_alert_debug_worker">Worker</string>
@@ -98,6 +95,9 @@
 
     <!-- String for the weather data, 1 word -->
     <string name="config_alert_debug_weather">Weather</string>
+
+    <!-- String for showing when the last refresh took place -->
+    <string name="config_alter_debug_last_update">%s ago</string>
 
     <!-- Symbol for Celsius -->
     <string name="celsius">\u2103</string>
