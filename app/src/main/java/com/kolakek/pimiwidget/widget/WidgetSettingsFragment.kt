@@ -56,7 +56,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         debugField?.setOnPreferenceClickListener {
-            showDebugDialog(context)
+            showDebugDialog(context, weatherSwitch?.isChecked)
             true
         }
 
@@ -123,7 +123,8 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun showDebugDialog(
-        context: Context
+        context: Context,
+        weatherEnabled: Boolean?
     ) {
         val builder = AlertDialog.Builder(context)
 
@@ -152,12 +153,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) { dialog, _ ->
             dialog.dismiss()
         }
-        builder.setNegativeButton(
-            getString(R.string.config_alert_button_update)
-        ){
-            dialog, _ ->
-            enqueueOneTimeWorker(context)
-            dialog.dismiss()
+        builder.apply {
+            if (weatherEnabled == true) {
+                setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
+                    enqueueOneTimeWorker(context)
+                    dialog.dismiss()
+                }
+            }
         }
         val alertDialog = builder.create()
         alertDialog.show()
