@@ -28,7 +28,7 @@
     <string name="config_weather_descr">Enabling the weather service shares your location with the weather provider</string>
 
     <!-- Title for the weather provider config option -->
-    <string name="config_weather_data">Weather provider</string>
+    <string name="config_weather_data">Data</string>
 
     <!-- Short description of weather provider config option -->
     <string name="config_provider_descr">Weather data by Open-Meteo.com</string>

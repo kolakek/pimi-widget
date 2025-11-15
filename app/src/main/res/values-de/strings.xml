@@ -28,7 +28,7 @@
     <string name="config_weather_descr">Die Aktivierung des Wetterdienstes gibt Ihren Standort an den Wetteranbieter weiter</string>
 
     <!-- Title for the weather provider config option -->
-    <string name="config_weather_data">Wetteranbieter</string>
+    <string name="config_weather_data">Daten</string>
 
     <!-- Short description of weather provider config option -->
     <string name="config_provider_descr">Wetterdaten von Open-Meteo.com</string>
