@@ -29,7 +29,7 @@ Normally, your home app should allow you to reconfigure the widget (e.g., by lon
 
 ### Weather Display
 
-If the widget cannot access your location or retrieve weather data for more than 120 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
+The widget displays the hourly weather forecast. If it cannot access your location or retrieve weather data for more than 180 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
 
 ### Location Access
 
@@ -43,7 +43,7 @@ Supported weather apps (among others): Google Weather, Breezy Weather.
 
 ### Further Troubleshooting
 
-If weather information does not appear, you can find debug information by tapping the **Last refresh** field in the widget configuration. Try the following actions based on the displayed status:
+If weather information does not appear, you can find debug information by tapping the **Data** field in the widget configuration. Try the following actions based on the displayed status:
 
 - **Location FAILED**: The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
 
