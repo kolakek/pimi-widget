@@ -27,7 +27,7 @@ class WidgetConfigureActivity : FragmentActivity() {
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
 
-    fun finishWidgetConfigureActivity() {
+    private fun finishWidgetConfigureActivity() {
         val context = this@WidgetConfigureActivity
 
         updateAppWidget(
