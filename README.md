@@ -16,16 +16,16 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 ## Download
 
 <a href="https://github.com/kolakek/pimi-widget/releases">
-<img src="https://user-images.githubusercontent.com/69304392/148696068-0cfea65d-b18f-4685-82b5-329a330b1c0d.png"
-alt="Get it on GitHub" height="80"/></a>
+	<img src="https://user-images.githubusercontent.com/69304392/148696068-0cfea65d-b18f-4685-82b5-329a330b1c0d.png" alt="Get it on GitHub" height="80"/>
+</a>
 
 ## Screenshots
 
-<p style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png" alt="Screen 1 1" style="flex-shrink: 0; width: 250px; height: auto;">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png" alt="Screen 2" style="flex-shrink: 0; width: 250px; height: auto;">
-  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png" alt="Screen 3" style="flex-shrink: 0; width: 250px; height: auto;">
-</p>
+<div align="left">
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png"" alt="Screen 1" style="width: 250px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png"" alt="Screen 2" style="width: 250px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png"" alt="Screen 3" style="width: 250px"/>
+</div>
 
 ## Documentation
 
