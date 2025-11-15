@@ -21,9 +21,9 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 ## Screenshots
 
 <div align="left">
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png"" alt="Screen 1" style="width: 250px"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png"" alt="Screen 2" style="width: 250px"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png"" alt="Screen 3" style="width: 250px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png"" alt="Screen 1" style="width: 300px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png"" alt="Screen 2" style="width: 300px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png"" alt="Screen 3" style="width: 300px"/>
 </div>
 
 ## Documentation
