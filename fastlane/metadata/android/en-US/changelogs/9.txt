@@ -1,0 +1,2 @@
+* Display hourly forecast
+* Clean up settings window
