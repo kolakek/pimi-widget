@@ -17,6 +17,7 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 
 [<img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" align="center" height="54" hspace="13"/>](https://github.com/kolakek/pimi-widget/blob/main/INSTALL.md#obtainium)
 [<img src="https://user-images.githubusercontent.com/69304392/148696068-0cfea65d-b18f-4685-82b5-329a330b1c0d.png" alt="Get it on GitHub" align="center" height="80"/>](https://github.com/kolakek/pimi-widget/releases)
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" align="center" height="80"/>](https://f-droid.org/packages/com.kolakek.pimiwidget/)
 
 ## Screenshots
 
