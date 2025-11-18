@@ -10,7 +10,7 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 * Standalone widget, no launcher icon
 * Tapping the widget opens your default weather app
 * Lightweight and optimized for battery efficiency
-* Location data is shared only with the weather provider (Open-Meteo)
+* Location data is shared only with the weather provider
 * No additional trackers, no ads, no Google Play dependencies
 
 ## Download
@@ -31,7 +31,7 @@ A minimal, Pixel-style Android widget that shows the date and weather.
 
 ### Privacy Information
 
-The widget collects your location approximately every 30 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider to retrieve updated weather information. Only coarse location access is required; fine location access is optional. No location data is permanently stored on your device.
+The widget collects your location approximately every 30 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. No location data is permanently stored on your device.
 
 ### Widget Configuration
 
