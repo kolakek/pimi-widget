@@ -1,0 +1,2 @@
+* Update dependencies to latest version
+* Add GitHub link to settings screen
