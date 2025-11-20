@@ -1,1 +1,1 @@
-Ein minimalistisches Android-Widget im Pixel-Stil, das Datum und Wetter anzeigt.
+Ein Android-Widget im Pixel-Stil, das Datum und Wetter anzeigt.

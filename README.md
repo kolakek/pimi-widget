@@ -2,7 +2,7 @@
 
 # Pimi Weather Widget
 
-A minimal, Pixel-style Android widget that shows the date and weather.
+Pixel-style Android widget that shows the date and weather.
 
 ## Features
 
