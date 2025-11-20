@@ -66,6 +66,12 @@
             android:title="@string/config_weather_data"
             app:iconSpaceReserved="false" />
 
+        <Preference
+            android:key="source_code"
+            android:summary="@string/config_source_code_descr"
+            android:title="@string/config_source_code"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

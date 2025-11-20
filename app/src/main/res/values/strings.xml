@@ -105,6 +105,12 @@
     <!-- String for the button of an alert box to force an update -->
     <string name="config_alert_button_update">Force update</string>
 
+    <!-- String for preference title that links to source code location -->
+    <string name="config_source_code">Source code</string>
+
+    <!-- String for describing the link to source code location -->
+    <string name="config_source_code_descr">View source code and documentation on GitHub</string>
+
     <!-- Symbol for Celsius -->
     <string name="celsius">\u2103</string>
 

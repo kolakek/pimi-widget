@@ -25,6 +25,8 @@ internal const val KEY_ICON_COLOR_LIST = "icon_color_list"
 internal const val KEY_COLOR_LIGHT = "color_light"
 internal const val KEY_DATA_INFO = "weather_data"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
+internal const val KEY_SOURCE_CODE = "source_code"
 
+internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
 internal const val WORKER_INIT_DELAY_MILLIS = 2 * 60 * 1000L

@@ -19,11 +19,13 @@ package com.kolakek.pimiwidget.widget
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.net.toUri
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -49,6 +51,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val debugField: Preference? = findPreference(KEY_DATA_INFO)
+        val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
         if (WidgetUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
@@ -57,6 +60,11 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         debugField?.setOnPreferenceClickListener {
             showDebugDialog(context, weatherSwitch?.isChecked)
+            true
+        }
+
+        sourceCodeField?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, SOURCE_CODE_URL.toUri()))
             true
         }
 
