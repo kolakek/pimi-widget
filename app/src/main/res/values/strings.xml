@@ -78,7 +78,7 @@
     <!-- Explanation shown in the alert box explaining why background location access is needed -->
     <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
 
-    <!-- Text of of the alert box OK button -->
+    <!-- Text of the alert box OK button -->
     <string name="config_alert_button_ok">OK</string>
 
     <!-- Text of the alert box cancel button -->
