@@ -69,19 +69,23 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == true && WidgetUpdater.permissionsDenied(context)) {
-                requestNextPermission(context)
-                false
-            } else if (newValue == true) {
-                WidgetUpdater.enqueuePeriodicWorker(
-                    context,
-                    0,
-                    ExistingPeriodicWorkPolicy.KEEP
-                )
-                true
-            } else {
-                WidgetUpdater.cancelPeriodicWorker(context)
-                true
+            when (newValue) {
+                true if WidgetUpdater.permissionsDenied(context) -> {
+                    requestNextPermission(context)
+                    false
+                }
+                true -> {
+                    WidgetUpdater.enqueuePeriodicWorker(
+                        context,
+                        0,
+                        ExistingPeriodicWorkPolicy.KEEP
+                    )
+                    true
+                }
+                else -> {
+                    WidgetUpdater.cancelPeriodicWorker(context)
+                    true
+                }
             }
         }
     }
