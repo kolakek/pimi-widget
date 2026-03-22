@@ -1,14 +1,13 @@
 [versions]
-agp = "8.13.1"
-kotlin = "2.3.10"
-coreKtx = "1.17.0"
+agp = "9.0.1"
+coreKtx = "1.18.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 appcompat = "1.7.1"
-kotlinxSerialization = "2.3.10"
+kotlinxSerialization = "2.3.20"
 kotlinxSerializationJson = "1.10.0"
-ktorClientCore = "3.4.0"
+ktorClientCore = "3.4.1"
 leakcanaryAndroid = "2.14"
 material = "1.13.0"
 timber = "5.0.1"
@@ -34,5 +33,4 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerialization" }
