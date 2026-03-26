@@ -45,6 +45,9 @@
     <!-- Config option for selecting dark colors -->
     <string name="config_color_dark">Dark</string>
 
+    <!-- Config option for selecting colors automatically based on wallpaper -->
+    <string name="config_color_auto">Follow wallpaper</string>
+
     <!-- Title of the config option for selecting the temperature unit -->
     <string name="config_temp">Temperature</string>
 

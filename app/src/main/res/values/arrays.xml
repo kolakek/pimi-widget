@@ -14,11 +14,13 @@
     <array name="colors">
         <item>@string/config_color_light</item>
         <item>@string/config_color_dark</item>
+        <item>@string/config_color_auto</item>
     </array>
 
     <array name="colors_vals">
         <item>color_light</item>
         <item>color_dark</item>
+        <item>color_auto</item>
     </array>
 
 </resources>

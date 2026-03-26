@@ -24,13 +24,14 @@
         <receiver
             android:name=".widget.PimiWidget"
             android:label="@string/widget_label"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.LOCALE_CHANGED"/>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
                 <action android:name="com.kolakek.pimiwidget.action.WEATHER_UPDATE"/>
+                <action android:name="com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data

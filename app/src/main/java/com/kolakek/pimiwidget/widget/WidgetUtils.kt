@@ -18,6 +18,8 @@
 package com.kolakek.pimiwidget.widget
 
 import android.app.PendingIntent
+import android.app.WallpaperColors
+import android.app.WallpaperManager
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
@@ -87,7 +89,7 @@ internal fun updateAppWidgetWeather(
                 mapWeatherId(
                     weather.hourlyWeatherCode[idx],
                     weather.hourlyIsDay[idx],
-                    getIconColorPreference(context) == KEY_COLOR_LIGHT
+                    useLightIcons(context)
                 ),
                 0,
                 0,
@@ -172,13 +174,32 @@ private fun pendingAltWeatherAppIntent(
 }
 
 private fun getRemoteViews(context: Context): RemoteViews {
-
-    return if (getTextColorPreference(context) == KEY_COLOR_LIGHT) {
+    return if (useLightText(context)) {
         RemoteViews(context.packageName, R.layout.pimi_widget_light)
     } else {
         RemoteViews(context.packageName, R.layout.pimi_widget_dark)
     }
 }
+
+private fun useLightText(context: Context): Boolean =
+    when (getTextColorPreference(context)) {
+        KEY_COLOR_AUTO -> WallpaperManager.getInstance(context)
+            .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+            ?.colorHints
+            ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
+        KEY_COLOR_LIGHT -> true
+        else -> false
+    }
+
+private fun useLightIcons(context: Context): Boolean =
+    when (getIconColorPreference(context)) {
+        KEY_COLOR_AUTO -> WallpaperManager.getInstance(context)
+            .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+            ?.colorHints
+            ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT != 0 } ?: false
+        KEY_COLOR_LIGHT -> true
+        else -> false
+    }
 
 private fun getWeatherStr(context: Context, tempC: Double): String {
     return if (getTempPreference(context) == KEY_FAHRENHEIT) {
@@ -189,7 +210,6 @@ private fun getWeatherStr(context: Context, tempC: Double): String {
 }
 
 private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
-
     return when (code?.let { if (lightColor) it + 1000 else it }) {
 
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
