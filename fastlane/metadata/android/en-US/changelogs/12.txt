@@ -1,0 +1,2 @@
+* Add option to select text color and icon color automatically
+* Allow other apps to rigger widget refresh
