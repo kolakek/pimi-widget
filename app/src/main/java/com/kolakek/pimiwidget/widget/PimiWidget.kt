@@ -62,7 +62,9 @@ class PimiWidget : AppWidgetProvider() {
         } else if (intent.action == "com.kolakek.pimiwidget.action.WEATHER_UPDATE") {
             updateAppWidgetLoop(context, ::updateAppWidgetWeather)
 
-        } else if (intent.action == "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE") {
+        } else if (intent.action == "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ||
+            intent.action == "android.intent.action.WALLPAPER_CHANGED"
+        ) {
             updateAppWidgetLoop(context, ::updateAppWidget)
         }
     }
