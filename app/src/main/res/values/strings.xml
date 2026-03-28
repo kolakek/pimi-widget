@@ -36,6 +36,15 @@
     <!-- Title for the config option to adjust the widget text colors -->
     <string name="config_text_color">Text color</string>
 
+    <!-- Title for the config option to adjust the widget icon style -->
+    <string name="config_icon_style">Icon style</string>
+
+    <!-- Config option for selecting filled icon style -->
+    <string name="config_icon_style_filled">Shadows &amp; gradients</string>
+
+    <!-- Config option for selecting outlined icon style -->
+    <string name="config_icon_style_outlined">Flat</string>
+
     <!-- Title for the config option to adjust the widget icon colors -->
     <string name="config_icon_color">Icon color</string>
 

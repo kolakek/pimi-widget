@@ -11,7 +11,7 @@
     <TextView
         style="@style/Widget.PimiWidget.AppWidget.Weather"
         android:text="@string/widget_temp_prev"
-        android:drawableStart="@drawable/wc_0d"
+        android:drawableStart="@drawable/uc_0d"
         tools:ignore="UseCompatTextViewDrawableXml" />
 
 </LinearLayout>

@@ -89,7 +89,7 @@ internal fun updateAppWidgetWeather(
                 mapWeatherId(
                     weather.hourlyWeatherCode[idx],
                     weather.hourlyIsDay[idx],
-                    useLightIcons(context)
+                    context
                 ),
                 0,
                 0,
@@ -209,9 +209,11 @@ private fun getWeatherStr(context: Context, tempC: Double): String {
     }
 }
 
-private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
-    return mapWeatherIdOutlined(code, isDay, lightColor)
-}
+private fun mapWeatherId(code: Int?, isDay: Int?, context: Context) =
+    if (getIconStylePreference(context) == KEY_ICON_STYLE_OUTLINED)
+        mapWeatherIdOutlined(code, isDay, useLightIcons(context))
+    else
+        mapWeatherIdFilled(code, isDay, useLightIcons(context))
 
 private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int {
     return when (code?.let { if (lightColor) it + 1000 else it }) {

@@ -23,4 +23,14 @@
         <item>color_auto</item>
     </array>
 
+    <array name="icon_styles">
+        <item>@string/config_icon_style_outlined</item>
+        <item>@string/config_icon_style_filled</item>
+    </array>
+
+    <array name="icon_styles_vals">
+        <item>icon_style_outlined</item>
+        <item>icon_style_filled</item>
+    </array>
+
 </resources>

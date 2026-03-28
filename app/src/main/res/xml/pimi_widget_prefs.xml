@@ -33,11 +33,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="color_light"
-            android:entries="@array/colors"
-            android:entryValues="@array/colors_vals"
-            android:key="text_color_list"
-            android:title="@string/config_text_color"
+            android:defaultValue="icon_style_outlined"
+            android:entries="@array/icon_styles"
+            android:entryValues="@array/icon_styles_vals"
+            android:key="icon_style_list"
+            android:title="@string/config_icon_style"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
@@ -47,6 +47,15 @@
             android:entryValues="@array/colors_vals"
             android:key="icon_color_list"
             android:title="@string/config_icon_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="color_light"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="text_color_list"
+            android:title="@string/config_text_color"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 

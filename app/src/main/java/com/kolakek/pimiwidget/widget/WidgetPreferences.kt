@@ -31,6 +31,11 @@ fun getIconColorPreference(context: Context): String {
         .getString(KEY_ICON_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
 }
 
+fun getIconStylePreference(context: Context): String {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+        .getString(KEY_ICON_STYLE_LIST, KEY_ICON_STYLE_OUTLINED) ?: KEY_ICON_STYLE_OUTLINED
+}
+
 fun getTempPreference(context: Context): String {
     return PreferenceManager.getDefaultSharedPreferences(context)
         .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
