@@ -210,6 +210,10 @@ private fun getWeatherStr(context: Context, tempC: Double): String {
 }
 
 private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
+    return mapWeatherIdOutlined(code, isDay, lightColor)
+}
+
+private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int {
     return when (code?.let { if (lightColor) it + 1000 else it }) {
 
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
@@ -265,6 +269,67 @@ private fun mapWeatherId(code: Int?, isDay: Int?, lightColor: Boolean): Int {
         1095 -> if (isDay == 1) R.drawable.wb_95d else R.drawable.wb_95n
         1096 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
         1099 -> R.drawable.wb_99
+
+        else -> R.drawable.wc_nan
+    }
+}
+
+private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, lightColor: Boolean): Int {
+    return when (code?.let { if (lightColor) it + 1000 else it }) {
+
+        0 -> if (isDay == 1) R.drawable.uc_0d else R.drawable.uc_0n
+        1 -> if (isDay == 1) R.drawable.uc_1d else R.drawable.uc_1n
+        2 -> if (isDay == 1) R.drawable.uc_2d else R.drawable.uc_2n
+        3 -> R.drawable.uc_3
+        45 -> R.drawable.uc_45
+        48 -> R.drawable.uc_45
+        51 -> R.drawable.uc_61
+        53 -> R.drawable.uc_63
+        55 -> R.drawable.uc_65
+        61 -> R.drawable.uc_61
+        63 -> R.drawable.uc_63
+        65 -> R.drawable.uc_65
+        66 -> R.drawable.uc_67
+        67 -> R.drawable.uc_67
+        71 -> R.drawable.uc_71
+        73 -> R.drawable.uc_73
+        75 -> R.drawable.uc_75
+        77 -> R.drawable.uc_77
+        80 -> if (isDay == 1) R.drawable.uc_80d else R.drawable.uc_80n
+        81 -> if (isDay == 1) R.drawable.uc_81d else R.drawable.uc_81n
+        82 -> if (isDay == 1) R.drawable.uc_82d else R.drawable.uc_82n
+        85 -> if (isDay == 1) R.drawable.uc_85d else R.drawable.uc_85n
+        86 -> if (isDay == 1) R.drawable.uc_86d else R.drawable.uc_86n
+        95 -> if (isDay == 1) R.drawable.uc_95d else R.drawable.uc_95n
+        96 -> if (isDay == 1) R.drawable.uc_96d else R.drawable.uc_96n
+        99 -> R.drawable.uc_99
+
+        1000 -> if (isDay == 1) R.drawable.ub_0d else R.drawable.ub_0n
+        1001 -> if (isDay == 1) R.drawable.ub_1d else R.drawable.ub_1n
+        1002 -> if (isDay == 1) R.drawable.ub_2d else R.drawable.ub_2n
+        1003 -> R.drawable.ub_3
+        1045 -> R.drawable.ub_45
+        1048 -> R.drawable.ub_45
+        1051 -> R.drawable.ub_61
+        1053 -> R.drawable.ub_63
+        1055 -> R.drawable.ub_65
+        1061 -> R.drawable.ub_61
+        1063 -> R.drawable.ub_63
+        1065 -> R.drawable.ub_65
+        1066 -> R.drawable.ub_67
+        1067 -> R.drawable.ub_67
+        1071 -> R.drawable.ub_71
+        1073 -> R.drawable.ub_73
+        1075 -> R.drawable.ub_75
+        1077 -> R.drawable.ub_77
+        1080 -> if (isDay == 1) R.drawable.ub_80d else R.drawable.ub_80n
+        1081 -> if (isDay == 1) R.drawable.ub_81d else R.drawable.ub_81n
+        1082 -> if (isDay == 1) R.drawable.ub_82d else R.drawable.ub_82n
+        1085 -> if (isDay == 1) R.drawable.ub_85d else R.drawable.ub_85n
+        1086 -> if (isDay == 1) R.drawable.ub_86d else R.drawable.ub_86n
+        1095 -> if (isDay == 1) R.drawable.ub_95d else R.drawable.ub_95n
+        1096 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
+        1099 -> R.drawable.ub_99
 
         else -> R.drawable.wc_nan
     }
