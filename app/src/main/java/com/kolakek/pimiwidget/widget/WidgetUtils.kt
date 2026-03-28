@@ -173,13 +173,18 @@ private fun pendingAltWeatherAppIntent(
     }
 }
 
-private fun getRemoteViews(context: Context): RemoteViews {
-    return if (useLightText(context)) {
-        RemoteViews(context.packageName, R.layout.pimi_widget_light)
-    } else {
-        RemoteViews(context.packageName, R.layout.pimi_widget_dark)
-    }
-}
+private fun getRemoteViews(context: Context) =
+    RemoteViews(
+        context.packageName,
+        when {
+            useLightText(context) && getIconStylePreference(context) == KEY_ICON_STYLE_OUTLINED ->
+                R.layout.pimi_widget_light
+            useLightText(context) ->
+                R.layout.pimi_widget_light_shadow
+            else ->
+                R.layout.pimi_widget_dark
+        }
+    )
 
 private fun useLightText(context: Context): Boolean =
     when (getTextColorPreference(context)) {

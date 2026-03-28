@@ -28,6 +28,10 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.DateLight" parent="Widget.PimiWidget.AppWidget.Date">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.DateLightShadow" parent="Widget.PimiWidget.AppWidget.Date">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
@@ -47,6 +51,10 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.WeatherLight" parent="Widget.PimiWidget.AppWidget.Weather">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.WeatherLightShadow" parent="Widget.PimiWidget.AppWidget.Weather">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
