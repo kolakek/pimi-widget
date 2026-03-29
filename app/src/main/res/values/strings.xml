@@ -45,9 +45,6 @@
     <!-- Config option for selecting outlined icon style -->
     <string name="config_icon_style_outlined">Flat</string>
 
-    <!-- Title for the config option to adjust the widget icon colors -->
-    <string name="config_icon_color">Icon color</string>
-
     <!-- Config option for selecting light colors -->
     <string name="config_color_light">Light</string>
 

@@ -45,15 +45,6 @@
             android:defaultValue="color_light"
             android:entries="@array/colors"
             android:entryValues="@array/colors_vals"
-            android:key="icon_color_list"
-            android:title="@string/config_icon_color"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            android:defaultValue="color_light"
-            android:entries="@array/colors"
-            android:entryValues="@array/colors_vals"
             android:key="text_color_list"
             android:title="@string/config_text_color"
             app:iconSpaceReserved="false"

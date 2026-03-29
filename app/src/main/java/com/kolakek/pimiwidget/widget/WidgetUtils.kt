@@ -196,16 +196,6 @@ private fun useLightText(context: Context): Boolean =
         else -> false
     }
 
-private fun useLightIcons(context: Context): Boolean =
-    when (getIconColorPreference(context)) {
-        KEY_COLOR_AUTO -> WallpaperManager.getInstance(context)
-            .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-            ?.colorHints
-            ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT != 0 } ?: false
-        KEY_COLOR_LIGHT -> true
-        else -> false
-    }
-
 private fun getWeatherStr(context: Context, tempC: Double): String {
     return if (getTempPreference(context) == KEY_FAHRENHEIT) {
         "${(tempC * 1.8 + 32.5).toInt()}${context.getString(R.string.fahrenheit)}"
@@ -216,9 +206,9 @@ private fun getWeatherStr(context: Context, tempC: Double): String {
 
 private fun mapWeatherId(code: Int?, isDay: Int?, context: Context) =
     if (getIconStylePreference(context) == KEY_ICON_STYLE_OUTLINED)
-        mapWeatherIdOutlined(code, isDay, useLightIcons(context))
+        mapWeatherIdOutlined(code, isDay, !useLightText(context))
     else
-        mapWeatherIdFilled(code, isDay, useLightIcons(context))
+        mapWeatherIdFilled(code, isDay, !useLightText(context))
 
 private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int {
     return when (code?.let { if (lightColor) it + 1000 else it }) {
