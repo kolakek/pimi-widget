@@ -11,8 +11,8 @@ android {
         applicationId = "com.kolakek.pimiwidget"
         minSdk = 33
         targetSdk = 36
-        versionCode = 13
-        versionName = "1.5.1"
+        versionCode = 15
+        versionName = "1.6.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
