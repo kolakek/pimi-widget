@@ -1,2 +1,2 @@
 * Add flat icon theme
-* Set icon color based on text color
+* Set icon colors based on selected text color
