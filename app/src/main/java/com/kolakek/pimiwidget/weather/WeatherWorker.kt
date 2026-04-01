@@ -53,7 +53,7 @@ class WeatherWorker {
             }
             var providerData: ProviderData?
 
-            val str = "$URL?latitude=${location.lat}&longitude=${location.long}&$DATA&$OPTIONS"
+            val str = "$URL?latitude=${location.lat}&longitude=${location.long}&$DAT1&$DAT2&$OPTS"
             Timber.d("getWeather(): $str")
 
             try {
@@ -72,7 +72,11 @@ class WeatherWorker {
                     it.hourly.temperature_2m,
                     it.hourly.weather_code,
                     it.hourly.time.map { v -> v * 1000L },
-                    it.hourly.is_day
+                    it.hourly.is_day,
+                    it.daily.temperature_2m_min,
+                    it.daily.temperature_2m_max,
+                    it.daily.weather_code,
+                    it.daily.time
                 )
             }
             Timber.d("getWeather(): End function.")
