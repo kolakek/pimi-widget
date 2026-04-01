@@ -32,3 +32,5 @@ internal const val KEY_SOURCE_CODE = "source_code"
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
 internal const val WORKER_INIT_DELAY_MILLIS = 2 * 60 * 1000L
+internal const val DAILY_FORECAST_BEFORE_HOUR = 9
+internal const val DAILY_FORECAST_AFTER_HOUR = 21

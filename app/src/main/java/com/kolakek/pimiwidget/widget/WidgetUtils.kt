@@ -31,6 +31,8 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
 import timber.log.Timber
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneId
 import java.util.Locale
 
 internal fun updateAppWidget(
@@ -96,12 +98,34 @@ internal fun updateAppWidgetWeather(
                 0
             )
             weatherVisibility = View.VISIBLE
+
+
+            val (index, isMorning) = getForecastIndex(timeMillis, weather.dailyTimeMillis)
+            index?.let {
+                Timber.d("updateAppWidgetWeather(): Index = $it, isMorning = $isMorning")
+            }
+
+
+
+
         }
     }
 
     views.setViewVisibility(R.id.widget_temp, weatherVisibility)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+}
+
+fun getForecastIndex(timeMillis: Long, dailyTimeMillis: List<Long>): Pair<Int?, Boolean> {
+    val hour = Instant.ofEpochMilli(timeMillis).atZone(ZoneId.systemDefault()).hour
+
+    return if (hour < DAILY_FORECAST_BEFORE_HOUR) {
+        dailyTimeMillis.indexOfLast { it < timeMillis }.takeIf { it != -1 } to true
+    } else if (hour > DAILY_FORECAST_AFTER_HOUR) {
+        dailyTimeMillis.indexOfFirst { it > timeMillis }.takeIf { it != -1 } to false
+    } else {
+        null to false
+    }
 }
 
 internal fun updateAppWidgetLocale(
