@@ -76,7 +76,7 @@ class WeatherWorker {
                     it.daily.temperature_2m_min,
                     it.daily.temperature_2m_max,
                     it.daily.weather_code,
-                    it.daily.time
+                    it.daily.time.map { v -> v * 1000L }
                 )
             }
             Timber.d("getWeather(): End function.")
