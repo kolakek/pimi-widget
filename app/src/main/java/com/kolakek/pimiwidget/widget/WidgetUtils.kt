@@ -268,7 +268,39 @@ private fun getForecastStr(
 }
 
 private fun getWeatherCodeStr(context: Context, code: Int): String {
-    return "Cloudy"
+    return when (code) {
+
+        0 -> context.getString(R.string.w0)
+        1 -> context.getString(R.string.w1)
+        2 -> context.getString(R.string.w2)
+        3 -> context.getString(R.string.w3)
+        45 -> context.getString(R.string.w45)
+        48 -> context.getString(R.string.w45)
+        51 -> context.getString(R.string.w51)
+        53 -> context.getString(R.string.w53)
+        55 -> context.getString(R.string.w55)
+        56 -> context.getString(R.string.w56)
+        57 -> context.getString(R.string.w56)
+        61 -> context.getString(R.string.w61)
+        63 -> context.getString(R.string.w63)
+        65 -> context.getString(R.string.w65)
+        66 -> context.getString(R.string.w66)
+        67 -> context.getString(R.string.w66)
+        71 -> context.getString(R.string.w71)
+        73 -> context.getString(R.string.w73)
+        75 -> context.getString(R.string.w75)
+        77 -> context.getString(R.string.w77)
+        80 -> context.getString(R.string.w80)
+        81 -> context.getString(R.string.w81)
+        82 -> context.getString(R.string.w82)
+        85 -> context.getString(R.string.w85)
+        86 -> context.getString(R.string.w86)
+        95 -> context.getString(R.string.w95)
+        96 -> context.getString(R.string.w95)
+        99 -> context.getString(R.string.w95)
+
+        else -> ""
+    }
 }
 
 private fun mapWeatherId(code: Int?, isDay: Int?, context: Context) =

@@ -141,6 +141,31 @@
     <!-- String saying tomorrow -->
     <string name="tomorrow">Tomorrow</string>
 
+    <!-- Strings defining weather conditions -->
+    <string name="w0">Clear sky</string>
+    <string name="w1">Mainly clear</string>
+    <string name="w2">Partly cloudy</string>
+    <string name="w3">Overcast</string>
+    <string name="w45">Fog</string>
+    <string name="w51">Light drizzle</string>
+    <string name="w53">Drizzle</string>
+    <string name="w55">Dense drizzle</string>
+    <string name="w56">Freezing drizzle</string>
+    <string name="w61">Slight rain</string>
+    <string name="w63">Rain</string>
+    <string name="w65">Heavy rain</string>
+    <string name="w66">Freezing rain</string>
+    <string name="w71">Slight snow</string>
+    <string name="w73">Snow</string>
+    <string name="w75">Heavy snow</string>
+    <string name="w77">Snow grains</string>
+    <string name="w80">Slight rain</string>
+    <string name="w81">Rain</string>
+    <string name="w82">Heavy rain</string>
+    <string name="w85">Slight snow</string>
+    <string name="w86">Heavy snow</string>
+    <string name="w95">Thunderstorm</string>
+
     <!-- Plurals definition for days -->
     <plurals name="days">
         <item quantity="one">1 day</item>
