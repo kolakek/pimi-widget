@@ -80,7 +80,9 @@ internal fun updateAppWidgetWeather(
         var (str, id) = getCurrentWeather(context, weather, timeMillis, fahrenheit)
 
         str?.let {
-            getForecastStr(context, timeMillis, weather, fahrenheit)?.let { str += it }
+            if (getDailyForecastPreference(context)) {
+                getForecastStr(context, timeMillis, weather, fahrenheit)?.let { str += it }
+            }
             views.setTextViewText(R.id.widget_temp, str)
             id?.let { id ->
                 views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0)

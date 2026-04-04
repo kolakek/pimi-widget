@@ -23,6 +23,13 @@
             android:title="@string/config_weather_view"
             app:iconSpaceReserved="false" />
 
+        <CheckBoxPreference
+            android:key="daily_forecast"
+            android:title="@string/config_daily_forecast"
+            android:summary="@string/config_daily_forecast_descr"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
         <ListPreference
             android:defaultValue="temp_unit_celsius"
             android:entries="@array/temp_units"

@@ -75,6 +75,12 @@
     <!-- String indicating hourly forecast -->
     <string name="config_weather_view_descr">Stündliche Vorhersage</string>
 
+    <!-- Titel der Option zur Anzeige der Tagesvorhersage -->
+    <string name="config_daily_forecast">Tagesvorhersage anzeigen</string>
+
+    <!-- Text, der erklärt, wann die Vorhersage angezeigt wird -->
+    <string name="config_daily_forecast_descr">Am Morgen und Abend</string>
+
     <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
 

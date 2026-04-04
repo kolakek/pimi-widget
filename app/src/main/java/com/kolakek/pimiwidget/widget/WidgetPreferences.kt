@@ -21,6 +21,11 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
+fun getDailyForecastPreference(context: Context): Boolean {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+        .getBoolean(KEY_DAILY_FORECAST, true)
+}
+
 fun getTextColorPreference(context: Context): String {
     return PreferenceManager.getDefaultSharedPreferences(context)
         .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT

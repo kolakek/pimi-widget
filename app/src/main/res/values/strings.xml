@@ -75,6 +75,12 @@
     <!-- String indicating hourly forecast -->
     <string name="config_weather_view_descr">Hourly forecast</string>
 
+    <!-- Title of the option to show a daily forecast -->
+    <string name="config_daily_forecast">Show daily forecast</string>
+
+    <!-- String explaining when the forecast is shown -->
+    <string name="config_daily_forecast_descr">In the morning and evening</string>
+
     <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Location permission required</string>
 

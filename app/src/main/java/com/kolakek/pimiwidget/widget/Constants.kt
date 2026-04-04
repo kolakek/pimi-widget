@@ -28,6 +28,7 @@ internal const val KEY_ICON_STYLE_OUTLINED = "icon_style_outlined"
 internal const val KEY_DATA_INFO = "weather_data"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 internal const val KEY_SOURCE_CODE = "source_code"
+internal const val KEY_DAILY_FORECAST = "daily_forecast"
 
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
