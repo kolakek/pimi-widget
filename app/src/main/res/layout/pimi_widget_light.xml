@@ -14,6 +14,8 @@
         android:id="@+id/widget_temp"
         android:visibility="invisible"
         android:text="@string/widget_temp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:drawableStart="@drawable/wc_nan"
         tools:ignore="UseCompatTextViewDrawableXml" />
 
