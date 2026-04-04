@@ -126,6 +126,15 @@
     <!-- Symbol for Fahrenheit -->
     <string name="fahrenheit">\u2109</string>
 
+    <!-- Symbol for degree -->
+    <string name="degree">\u00B0</string>
+
+    <!-- String saying today -->
+    <string name="today">Heute</string>
+
+    <!-- String saying tomorrow -->
+    <string name="tomorrow">Morgen</string>
+
     <!-- Plurals definition for days -->
     <plurals name="days">
         <item quantity="one">1 Tag</item>

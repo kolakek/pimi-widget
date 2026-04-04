@@ -29,6 +29,7 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
+import com.kolakek.pimiwidget.data.WeatherData
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -44,14 +45,14 @@ internal fun updateAppWidget(
 
     val views = getRemoteViews(context)
 
-    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR)?.let{
+    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR)?.let {
         views.setOnClickPendingIntent(R.id.widget_text_clock, it)
     }
 
     val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER)
         ?: pendingAltWeatherAppIntent(context)
 
-    pendingIntent?.let{views.setOnClickPendingIntent(R.id.widget_temp, it)}
+    pendingIntent?.let{ views.setOnClickPendingIntent(R.id.widget_temp, it) }
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 
@@ -66,66 +67,31 @@ internal fun updateAppWidgetWeather(
 ) {
     Timber.d("updateAppWidgetWeather(): Begin Function.")
 
-    var weatherVisibility = View.INVISIBLE
-
-    val views = getRemoteViews(context)
     val weather = PimiData.weather
+    var visibility = View.INVISIBLE
+    val views = getRemoteViews(context)
 
     if (getWeatherPreference(context) && weather != null) {
 
         Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
 
         val timeMillis = System.currentTimeMillis()
-        val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
+        val fahrenheit = getTempPreference(context) == KEY_FAHRENHEIT
+        var (str, id) = getCurrentWeather(context, weather, timeMillis, fahrenheit)
 
-        if (idx >= 0) {
-
-            Timber.d("updateAppWidgetWeather(): Checkpoint 2 (index $idx).")
-
-            views.setTextViewText(
-                R.id.widget_temp,
-                getWeatherStr(context, weather.hourlyTempCelsius[idx])
-            )
-            views.setTextViewCompoundDrawables(
-                R.id.widget_temp,
-                mapWeatherId(
-                    weather.hourlyWeatherCode[idx],
-                    weather.hourlyIsDay[idx],
-                    context
-                ),
-                0,
-                0,
-                0
-            )
-            weatherVisibility = View.VISIBLE
-
-
-            val (index, isMorning) = getForecastIndex(timeMillis, weather.dailyTimeMillis)
-            index?.let {
-                Timber.d("updateAppWidgetWeather(): Index = $it, isMorning = $isMorning")
+        str?.let {
+            getForecastStr(context, timeMillis, weather, fahrenheit)?.let { str += it }
+            views.setTextViewText(R.id.widget_temp, str)
+            id?.let { id ->
+                views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0)
             }
-
-
-
-
+            visibility = View.VISIBLE
         }
     }
 
-    views.setViewVisibility(R.id.widget_temp, weatherVisibility)
+    views.setViewVisibility(R.id.widget_temp, visibility)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
-}
-
-fun getForecastIndex(timeMillis: Long, dailyTimeMillis: List<Long>): Pair<Int?, Boolean> {
-    val hour = Instant.ofEpochMilli(timeMillis).atZone(ZoneId.systemDefault()).hour
-
-    return if (hour < DAILY_FORECAST_BEFORE_HOUR) {
-        dailyTimeMillis.indexOfLast { it < timeMillis }.takeIf { it != -1 } to true
-    } else if (hour > DAILY_FORECAST_AFTER_HOUR) {
-        dailyTimeMillis.indexOfFirst { it > timeMillis }.takeIf { it != -1 } to false
-    } else {
-        null to false
-    }
 }
 
 internal fun updateAppWidgetLocale(
@@ -220,12 +186,87 @@ private fun useLightText(context: Context): Boolean =
         else -> false
     }
 
-private fun getWeatherStr(context: Context, tempC: Double): String {
-    return if (getTempPreference(context) == KEY_FAHRENHEIT) {
-        "${(tempC * 1.8 + 32.5).toInt()}${context.getString(R.string.fahrenheit)}"
-    } else {
-        "${(tempC + 0.5).toInt()}${context.getString(R.string.celsius)}"
+private fun getTemperatureStr(
+    context: Context,
+    tempC: Double,
+    fahrenheit: Boolean,
+    fullUnit: Boolean = true
+): String {
+    val temp = if (fahrenheit) (tempC * 1.8 + 32.5).toInt() else (tempC + 0.5).toInt()
+    val unit = when {
+        fullUnit && fahrenheit -> context.getString(R.string.fahrenheit)
+        fullUnit -> context.getString(R.string.celsius)
+        else -> context.getString(R.string.degree)
     }
+    return "$temp$unit"
+}
+
+private fun getCurrentWeather(
+    context: Context,
+    weather: WeatherData,
+    timeMillis: Long,
+    fahrenheit: Boolean
+): Pair<String?, Int?> {
+    val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
+
+    if (idx == -1) {
+        return null to null
+    }
+
+    val str = getTemperatureStr(
+        context,
+        weather.hourlyTempCelsius[idx],
+        fahrenheit
+    )
+
+    val id = mapWeatherId(
+        weather.hourlyWeatherCode[idx],
+        weather.hourlyIsDay[idx],
+        context
+    )
+
+    return str to id
+}
+
+private fun getForecastStr(
+    context: Context,
+    timeMillis: Long,
+    weather: WeatherData,
+    useFahrenheit: Boolean,
+): String? {
+
+    val zone = ZoneId.systemDefault()
+    val zoned = Instant.ofEpochMilli(timeMillis).atZone(zone)
+    val date = zoned.toLocalDate()
+    val hour = zoned.hour
+
+    val targetDate = when {
+        hour < DAILY_FORECAST_BEFORE_HOUR -> date
+        hour > DAILY_FORECAST_AFTER_HOUR -> date.plusDays(1)
+        else -> return null
+    }
+
+    val idx = weather.dailyTimeMillis.indexOfFirst {
+        Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
+    }
+
+    if (idx == -1) return null
+
+    val minStr = getTemperatureStr(context, weather.dailyTempMinCelsius[idx], useFahrenheit, false)
+    val maxStr = getTemperatureStr(context, weather.dailyTempMaxCelsius[idx], useFahrenheit, false)
+    val codeStr = getWeatherCodeStr(context, weather.dailyWeatherCode[idx])
+
+    val dayStr = if (hour < DAILY_FORECAST_BEFORE_HOUR) {
+        context.getString(R.string.today)
+    } else {
+        context.getString(R.string.tomorrow)
+    }
+
+    return " · $dayStr $minStr/$maxStr · $codeStr"
+}
+
+private fun getWeatherCodeStr(context: Context, code: Int): String {
+    return "Cloudy"
 }
 
 private fun mapWeatherId(code: Int?, isDay: Int?, context: Context) =
