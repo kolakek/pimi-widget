@@ -56,6 +56,16 @@ internal fun updateAppWidget(
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 
+    updateAppWidgetLocaleWeather(context, appWidgetManager, appWidgetId)
+}
+
+internal fun updateAppWidgetLocaleWeather(
+    context: Context,
+    appWidgetManager: AppWidgetManager,
+    appWidgetId: Int
+) {
+    Timber.d("updateAppWidgetLocaleWeather(): Begin Function.")
+
     updateAppWidgetLocale(context, appWidgetManager, appWidgetId)
     updateAppWidgetWeather(context, appWidgetManager, appWidgetId)
 }
@@ -243,8 +253,8 @@ private fun getForecastStr(
     val hour = zoned.hour
 
     val targetDate = when {
-        hour < DAILY_FORECAST_BEFORE_HOUR -> date
-        hour > DAILY_FORECAST_AFTER_HOUR -> date.plusDays(1)
+        hour <= DAILY_FORECAST_BEFORE_HOUR -> date
+        hour >= DAILY_FORECAST_AFTER_HOUR -> date.plusDays(1)
         else -> return null
     }
 
@@ -264,7 +274,7 @@ private fun getForecastStr(
         context.getString(R.string.tomorrow)
     }
 
-    return " · $dayStr $minStr/$maxStr · $codeStr"
+    return " · $dayStr $maxStr/$minStr · $codeStr"
 }
 
 private fun getWeatherCodeStr(context: Context, code: Int): String {
