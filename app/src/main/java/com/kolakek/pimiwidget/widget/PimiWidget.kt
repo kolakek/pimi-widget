@@ -57,7 +57,7 @@ class PimiWidget : AppWidgetProvider() {
                 )
             }
         } else if (intent.action == "android.intent.action.LOCALE_CHANGED") {
-            updateAppWidgetLoop(context, ::updateAppWidgetLocaleWeather)
+            updateAppWidgetLoop(context, ::updateAppWidgetDateWeather)
 
         } else if (intent.action == "com.kolakek.pimiwidget.action.WEATHER_UPDATE") {
             updateAppWidgetLoop(context, ::updateAppWidgetWeather)

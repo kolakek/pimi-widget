@@ -56,18 +56,49 @@ internal fun updateAppWidget(
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 
-    updateAppWidgetLocaleWeather(context, appWidgetManager, appWidgetId)
+    updateAppWidgetDateWeather(context, appWidgetManager, appWidgetId)
 }
 
-internal fun updateAppWidgetLocaleWeather(
+internal fun updateAppWidgetLoop(
+    context: Context, func: (Context, AppWidgetManager, Int) -> Unit
+) {
+    val manager = AppWidgetManager.getInstance(context)
+    manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
+        .forEach { appWidgetId ->
+            func(context, manager, appWidgetId)
+        }
+}
+
+internal fun updateAppWidgetDateWeather(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    Timber.d("updateAppWidgetLocaleWeather(): Begin Function.")
+    Timber.d("updateAppWidgetDateWeather(): Begin Function.")
 
-    updateAppWidgetLocale(context, appWidgetManager, appWidgetId)
+    updateAppWidgetDate(context, appWidgetManager, appWidgetId)
     updateAppWidgetWeather(context, appWidgetManager, appWidgetId)
+}
+
+internal fun updateAppWidgetDate(
+    context: Context,
+    appWidgetManager: AppWidgetManager,
+    appWidgetId: Int
+) {
+    Timber.d("updateAppWidgetDate(): Begin Function.")
+
+    val views = getRemoteViews(context)
+
+    val pattern = DateFormat.getBestDateTimePattern(
+        Locale.getDefault(),
+        context.getString(R.string.widget_date_format)
+    )
+    val datePattern = SimpleDateFormat(pattern, Locale.getDefault()).toLocalizedPattern()
+
+    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", datePattern)
+    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", datePattern)
+
+    appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
 
 internal fun updateAppWidgetWeather(
@@ -104,37 +135,6 @@ internal fun updateAppWidgetWeather(
     views.setViewVisibility(R.id.widget_temp, visibility)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
-}
-
-internal fun updateAppWidgetLocale(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    Timber.d("updateAppWidgetLocale(): Begin Function.")
-
-    val views = getRemoteViews(context)
-
-    val pattern = DateFormat.getBestDateTimePattern(
-        Locale.getDefault(),
-        context.getString(R.string.widget_date_format)
-    )
-    val datePattern = SimpleDateFormat(pattern, Locale.getDefault()).toLocalizedPattern()
-
-    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", datePattern)
-    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", datePattern)
-
-    appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
-}
-
-internal fun updateAppWidgetLoop(
-    context: Context, func: (Context, AppWidgetManager, Int) -> Unit
-) {
-    val manager = AppWidgetManager.getInstance(context)
-    manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
-        .forEach { appWidgetId ->
-            func(context, manager, appWidgetId)
-        }
 }
 
 private fun pendingCategoryIntent(
