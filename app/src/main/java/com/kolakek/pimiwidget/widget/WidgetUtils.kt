@@ -31,7 +31,6 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.data.WeatherData
 import timber.log.Timber
-import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
 import java.util.Locale
@@ -93,10 +92,9 @@ internal fun updateAppWidgetDate(
         Locale.getDefault(),
         context.getString(R.string.widget_date_format)
     )
-    val datePattern = SimpleDateFormat(pattern, Locale.getDefault()).toLocalizedPattern()
 
-    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", datePattern)
-    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", datePattern)
+    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
+    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
@@ -109,6 +107,7 @@ internal fun updateAppWidgetWeather(
     Timber.d("updateAppWidgetWeather(): Begin Function.")
 
     val weather = PimiData.weather
+
     var visibility = View.INVISIBLE
     val views = getRemoteViews(context)
 
@@ -221,9 +220,11 @@ private fun getCurrentWeather(
 ): Pair<String?, Int?> {
     val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
-    if (idx == -1) {
-        return null to null
-    }
+    if (idx == -1 ||
+        idx >= weather.hourlyTempCelsius.size ||
+        idx >= weather.hourlyWeatherCode.size ||
+        idx >= weather.hourlyIsDay.size
+    ) return null to null
 
     val str = getTemperatureStr(
         context,
@@ -262,7 +263,11 @@ private fun getForecastStr(
         Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
     }
 
-    if (idx == -1) return null
+    if (idx == -1 ||
+        idx >= weather.dailyTempMinCelsius.size ||
+        idx >= weather.dailyTempMaxCelsius.size ||
+        idx >= weather.dailyWeatherCode.size
+    ) return null
 
     val minStr = getTemperatureStr(context, weather.dailyTempMinCelsius[idx], useFahrenheit, false)
     val maxStr = getTemperatureStr(context, weather.dailyTempMaxCelsius[idx], useFahrenheit, false)
