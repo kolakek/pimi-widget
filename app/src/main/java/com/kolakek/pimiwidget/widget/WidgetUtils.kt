@@ -24,7 +24,6 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
@@ -32,7 +31,9 @@ import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.data.WeatherData
 import timber.log.Timber
 import java.time.Instant
+import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 internal fun updateAppWidget(
@@ -44,12 +45,12 @@ internal fun updateAppWidget(
 
     val views = getRemoteViews(context)
 
-    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR)?.let {
+    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
         views.setOnClickPendingIntent(R.id.widget_text_clock, it)
     }
 
-    val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER)
-        ?: pendingAltWeatherAppIntent(context)
+    val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
+        ?: pendingAltWeatherAppIntent(context, appWidgetId)
 
     pendingIntent?.let{ views.setOnClickPendingIntent(R.id.widget_temp, it) }
 
@@ -88,13 +89,11 @@ internal fun updateAppWidgetDate(
 
     val views = getRemoteViews(context)
 
-    val pattern = DateFormat.getBestDateTimePattern(
-        Locale.getDefault(),
-        context.getString(R.string.widget_date_format)
-    )
+    val datePattern = context.getString(R.string.widget_date_format)
+    val formatter = DateTimeFormatter.ofPattern(datePattern, Locale.getDefault())
+    val formattedDate = LocalDateTime.now().format(formatter)
 
-    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
-    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
+    views.setTextViewText(R.id.widget_text_clock, formattedDate)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
@@ -107,38 +106,37 @@ internal fun updateAppWidgetWeather(
     Timber.d("updateAppWidgetWeather(): Begin Function.")
 
     val weather = PimiData.weather
-
-    var visibility = View.INVISIBLE
     val views = getRemoteViews(context)
+
+    views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
     if (getWeatherPreference(context) && weather != null) {
 
         Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
 
         val timeMillis = System.currentTimeMillis()
-        val fahrenheit = getTempPreference(context) == KEY_FAHRENHEIT
-        var (str, id) = getCurrentWeather(context, weather, timeMillis, fahrenheit)
+        val useFahrenheit = getTempPreference(context) == KEY_FAHRENHEIT
+        val showForecast = getDailyForecastPreference(context)
+        val (str, id) = getCurrentWeather(context, weather, timeMillis, useFahrenheit)
 
-        str?.let {
-            if (getDailyForecastPreference(context)) {
-                getForecastStr(context, timeMillis, weather, fahrenheit)?.let { str += it }
-            }
-            views.setTextViewText(R.id.widget_temp, str)
-            id?.let { id ->
-                views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0)
-            }
-            visibility = View.VISIBLE
+        val displayStr = str?.run {
+            if (showForecast) {
+                this + (getForecastStr(context, timeMillis, weather, useFahrenheit) ?: "")
+            } else this
+        }
+        displayStr?.let {
+            views.setTextViewText(R.id.widget_temp, it)
+            id?.let { id -> views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0) }
+            views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
     }
-
-    views.setViewVisibility(R.id.widget_temp, visibility)
-
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
 
 private fun pendingCategoryIntent(
     context: Context,
-    category: String
+    category: String,
+    requestCode: Int
 ): PendingIntent? {
 
     val intent = Intent(Intent.ACTION_MAIN).addCategory(category)
@@ -153,7 +151,7 @@ private fun pendingCategoryIntent(
     return intent.resolveActivity(context.packageManager)?.let {
         PendingIntent.getActivity(
             context,
-            0,
+            requestCode,
             intent,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
@@ -162,12 +160,13 @@ private fun pendingCategoryIntent(
 
 private fun pendingAltWeatherAppIntent(
     context: Context,
+    requestCode: Int
 ): PendingIntent? {
 
     return context.packageManager.getLaunchIntentForPackage(ALT_WEATHER_APP)?.let{
         PendingIntent.getActivity(
             context,
-            0,
+            requestCode,
             it,
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
