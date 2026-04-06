@@ -36,58 +36,79 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-internal fun updateAppWidget(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    Timber.d("updateAppWidget(): Begin Function.")
-
-    val views = getRemoteViews(context)
-
-    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
-        views.setOnClickPendingIntent(R.id.widget_text_clock, it)
-    }
-
-    val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
-        ?: pendingAltWeatherAppIntent(context, appWidgetId)
-
-    pendingIntent?.let{ views.setOnClickPendingIntent(R.id.widget_temp, it) }
-
-    appWidgetManager.updateAppWidget(appWidgetId, views)
-
-    updateAppWidgetDateWeather(context, appWidgetManager, appWidgetId)
-}
-
 internal fun updateAppWidgetLoop(
-    context: Context, func: (Context, AppWidgetManager, Int) -> Unit
+    context: Context,
+    updateMode: WidgetUpdateMode
 ) {
     val manager = AppWidgetManager.getInstance(context)
     manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
         .forEach { appWidgetId ->
-            func(context, manager, appWidgetId)
+            updateAppWidget(context, manager, appWidgetId, updateMode)
         }
 }
 
-internal fun updateAppWidgetDateWeather(
+internal fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
+    appWidgetId: Int,
+    updateMode: WidgetUpdateMode = WidgetUpdateMode.APP_WIDGET
 ) {
-    Timber.d("updateAppWidgetDateWeather(): Begin Function.")
+    Timber.d("updateAppWidget(): Begin Function.")
 
-    updateAppWidgetDate(context, appWidgetManager, appWidgetId)
-    updateAppWidgetWeather(context, appWidgetManager, appWidgetId)
+    val showWeather = getWeatherPreference(context)
+    val showForecast = getDailyForecastPreference(context)
+    val tempUnit = getTempPreference(context)
+    val iconStyle = getIconStylePreference(context)
+    val textColor = getTextColorPreference(context)
+
+    val lightText = useLightText(context, textColor)
+    val views = getRemoteViews(context, iconStyle, lightText)
+
+    val weatherData = PimiData.weather
+
+    if (updateMode == WidgetUpdateMode.APP_WIDGET) {
+        pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
+            views.setOnClickPendingIntent(R.id.widget_text_clock, it)
+        }
+        val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
+            ?: pendingAltWeatherAppIntent(context, appWidgetId)
+
+        pendingIntent?.let {
+            views.setOnClickPendingIntent(R.id.widget_temp, it)
+        }
+        appWidgetManager.updateAppWidget(appWidgetId, views)
+    }
+    if (updateMode == WidgetUpdateMode.APP_WIDGET ||
+        updateMode == WidgetUpdateMode.LOCALE
+    ) {
+        updateAppWidgetDate(context, views, appWidgetManager, appWidgetId)
+    }
+    if (updateMode == WidgetUpdateMode.APP_WIDGET ||
+        updateMode == WidgetUpdateMode.LOCALE ||
+        updateMode == WidgetUpdateMode.WEATHER
+    ) {
+        updateAppWidgetWeather(
+            context,
+            views,
+            appWidgetManager,
+            appWidgetId,
+            weatherData,
+            showWeather,
+            showForecast,
+            tempUnit,
+            iconStyle,
+            lightText
+        )
+    }
 }
 
-internal fun updateAppWidgetDate(
+private fun updateAppWidgetDate(
     context: Context,
+    views: RemoteViews,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
     Timber.d("updateAppWidgetDate(): Begin Function.")
-
-    val views = getRemoteViews(context)
 
     val datePattern = context.getString(R.string.widget_date_format)
     val formatter = DateTimeFormatter.ofPattern(datePattern, Locale.getDefault())
@@ -98,38 +119,51 @@ internal fun updateAppWidgetDate(
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
 
-internal fun updateAppWidgetWeather(
+private fun updateAppWidgetWeather(
     context: Context,
+    views: RemoteViews,
     appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
+    appWidgetId: Int,
+    weatherData: WeatherData?,
+    showWeather: Boolean,
+    showForecast: Boolean,
+    tempUnit: String,
+    iconStyle: String,
+    lightText: Boolean
 ) {
     Timber.d("updateAppWidgetWeather(): Begin Function.")
 
-    val weather = PimiData.weather
-    val views = getRemoteViews(context)
-
     views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-    if (getWeatherPreference(context) && weather != null) {
+    if (showWeather) {
+        weatherData?.let { weather ->
 
-        Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
+            Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
 
-        val timeMillis = System.currentTimeMillis()
-        val useFahrenheit = getTempPreference(context) == KEY_FAHRENHEIT
-        val showForecast = getDailyForecastPreference(context)
-        val (str, id) = getCurrentWeather(context, weather, timeMillis, useFahrenheit)
-
-        val displayStr = str?.run {
-            if (showForecast) {
-                this + (getForecastStr(context, timeMillis, weather, useFahrenheit) ?: "")
-            } else this
-        }
-        displayStr?.let {
-            views.setTextViewText(R.id.widget_temp, it)
-            id?.let { id -> views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0) }
-            views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
+            val timeMillis = System.currentTimeMillis()
+            val (str, iconId) = getCurrentWeatherStrAndIcon(
+                context,
+                weather,
+                timeMillis,
+                tempUnit,
+                iconStyle,
+                lightText
+            )
+            val displayStr = str?.run {
+                if (showForecast) {
+                    this + (getForecastStr(context, timeMillis, weather, tempUnit) ?: "")
+                } else this
+            }
+            displayStr?.let {
+                views.setTextViewText(R.id.widget_temp, it)
+                iconId?.let { id ->
+                    views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0)
+                }
+                views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
+            }
         }
     }
+
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
 
@@ -163,7 +197,7 @@ private fun pendingAltWeatherAppIntent(
     requestCode: Int
 ): PendingIntent? {
 
-    return context.packageManager.getLaunchIntentForPackage(ALT_WEATHER_APP)?.let{
+    return context.packageManager.getLaunchIntentForPackage(ALT_WEATHER_APP)?.let {
         PendingIntent.getActivity(
             context,
             requestCode,
@@ -173,49 +207,39 @@ private fun pendingAltWeatherAppIntent(
     }
 }
 
-private fun getRemoteViews(context: Context) =
+private fun getRemoteViews(context: Context, iconStyle: String, lightText: Boolean) =
     RemoteViews(
         context.packageName,
         when {
-            useLightText(context) && getIconStylePreference(context) == KEY_ICON_STYLE_OUTLINED ->
+            lightText && (iconStyle == KEY_ICON_STYLE_OUTLINED) ->
                 R.layout.pimi_widget_light
-            useLightText(context) ->
+
+            lightText ->
                 R.layout.pimi_widget_light_shadow
+
             else ->
                 R.layout.pimi_widget_dark
         }
     )
 
-private fun useLightText(context: Context): Boolean =
-    when (getTextColorPreference(context)) {
+private fun useLightText(context: Context, textColor: String): Boolean =
+    when (textColor) {
         KEY_COLOR_AUTO -> WallpaperManager.getInstance(context)
             .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
             ?.colorHints
             ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
+
         KEY_COLOR_LIGHT -> true
         else -> false
     }
 
-private fun getTemperatureStr(
-    context: Context,
-    tempC: Double,
-    fahrenheit: Boolean,
-    fullUnit: Boolean = true
-): String {
-    val temp = if (fahrenheit) (tempC * 1.8 + 32.5).toInt() else (tempC + 0.5).toInt()
-    val unit = when {
-        fullUnit && fahrenheit -> context.getString(R.string.fahrenheit)
-        fullUnit -> context.getString(R.string.celsius)
-        else -> context.getString(R.string.degree)
-    }
-    return "$temp$unit"
-}
-
-private fun getCurrentWeather(
+private fun getCurrentWeatherStrAndIcon(
     context: Context,
     weather: WeatherData,
     timeMillis: Long,
-    fahrenheit: Boolean
+    tempUnit: String,
+    iconStyle: String,
+    lightText: Boolean
 ): Pair<String?, Int?> {
     val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
@@ -228,13 +252,14 @@ private fun getCurrentWeather(
     val str = getTemperatureStr(
         context,
         weather.hourlyTempCelsius[idx],
-        fahrenheit
+        tempUnit
     )
 
     val id = mapWeatherId(
         weather.hourlyWeatherCode[idx],
         weather.hourlyIsDay[idx],
-        context
+        iconStyle,
+        !lightText
     )
 
     return str to id
@@ -244,7 +269,7 @@ private fun getForecastStr(
     context: Context,
     timeMillis: Long,
     weather: WeatherData,
-    useFahrenheit: Boolean,
+    tempUnit: String
 ): String? {
 
     val zone = ZoneId.systemDefault()
@@ -268,8 +293,8 @@ private fun getForecastStr(
         idx >= weather.dailyWeatherCode.size
     ) return null
 
-    val minStr = getTemperatureStr(context, weather.dailyTempMinCelsius[idx], useFahrenheit, false)
-    val maxStr = getTemperatureStr(context, weather.dailyTempMaxCelsius[idx], useFahrenheit, false)
+    val minStr = getTemperatureStr(context, weather.dailyTempMinCelsius[idx], tempUnit, false)
+    val maxStr = getTemperatureStr(context, weather.dailyTempMaxCelsius[idx], tempUnit, false)
     val codeStr = getWeatherCodeStr(context, weather.dailyWeatherCode[idx])
 
     val dayStr = if (hour < DAILY_FORECAST_BEFORE_HOUR) {
@@ -278,7 +303,23 @@ private fun getForecastStr(
         context.getString(R.string.tomorrow)
     }
 
-    return " · $dayStr $maxStr/$minStr · $codeStr"
+    return " · $dayStr $maxStr / $minStr · $codeStr"
+}
+
+private fun getTemperatureStr(
+    context: Context,
+    tempC: Double,
+    tempUnit: String,
+    fullUnit: Boolean = true
+): String {
+    val useFahrenheit = (tempUnit == KEY_FAHRENHEIT)
+    val temp = if (useFahrenheit) (tempC * 1.8 + 32.5).toInt() else (tempC + 0.5).toInt()
+    val unit = when {
+        fullUnit && useFahrenheit -> context.getString(R.string.fahrenheit)
+        fullUnit -> context.getString(R.string.celsius)
+        else -> context.getString(R.string.degree)
+    }
+    return "$temp$unit"
 }
 
 private fun getWeatherCodeStr(context: Context, code: Int): String {
@@ -317,11 +358,16 @@ private fun getWeatherCodeStr(context: Context, code: Int): String {
     }
 }
 
-private fun mapWeatherId(code: Int?, isDay: Int?, context: Context) =
-    if (getIconStylePreference(context) == KEY_ICON_STYLE_OUTLINED)
-        mapWeatherIdOutlined(code, isDay, !useLightText(context))
+private fun mapWeatherId(
+    code: Int?,
+    isDay: Int?,
+    iconStyle: String,
+    lightColor: Boolean
+) =
+    if (iconStyle == KEY_ICON_STYLE_OUTLINED)
+        mapWeatherIdOutlined(code, isDay, lightColor)
     else
-        mapWeatherIdFilled(code, isDay, !useLightText(context))
+        mapWeatherIdFilled(code, isDay, lightColor)
 
 private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int {
     return when (code?.let { if (lightColor) it + 1000 else it }) {

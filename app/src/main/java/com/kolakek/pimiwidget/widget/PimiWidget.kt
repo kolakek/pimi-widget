@@ -47,7 +47,7 @@ class PimiWidget : AppWidgetProvider() {
         if (intent.action == "android.intent.action.BOOT_COMPLETED" ||
             intent.action == "android.intent.action.MY_PACKAGE_REPLACED"
         ) {
-            updateAppWidgetLoop(context, ::updateAppWidget)
+            updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
 
             if (getWeatherPreference(context)) {
                 WidgetUpdater.enqueuePeriodicWorker(
@@ -57,15 +57,15 @@ class PimiWidget : AppWidgetProvider() {
                 )
             }
         } else if (intent.action == "android.intent.action.LOCALE_CHANGED") {
-            updateAppWidgetLoop(context, ::updateAppWidgetDateWeather)
+            updateAppWidgetLoop(context, WidgetUpdateMode.LOCALE)
 
         } else if (intent.action == "com.kolakek.pimiwidget.action.WEATHER_UPDATE") {
-            updateAppWidgetLoop(context, ::updateAppWidgetWeather)
+            updateAppWidgetLoop(context, WidgetUpdateMode.WEATHER)
 
         } else if (intent.action == "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ||
             intent.action == "android.intent.action.WALLPAPER_CHANGED"
         ) {
-            updateAppWidgetLoop(context, ::updateAppWidget)
+            updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
         }
     }
 }
