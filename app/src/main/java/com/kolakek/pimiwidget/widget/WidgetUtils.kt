@@ -154,16 +154,13 @@ private fun updateAppWidgetWeather(
                     this + (getForecastStr(context, timeMillis, weather, tempUnit) ?: "")
                 } else this
             }
-            displayStr?.let {
-                views.setTextViewText(R.id.widget_temp, it)
-                iconId?.let { id ->
-                    views.setTextViewCompoundDrawables(R.id.widget_temp, id, 0, 0, 0)
-                }
+            if (displayStr != null && iconId != null) {
+                views.setTextViewText(R.id.widget_temp, displayStr)
+                views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
                 views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
             }
         }
     }
-
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }
 
@@ -243,25 +240,18 @@ private fun getCurrentWeatherStrAndIcon(
 ): Pair<String?, Int?> {
     val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
-    if (idx == -1 ||
-        idx >= weather.hourlyTempCelsius.size ||
-        idx >= weather.hourlyWeatherCode.size ||
-        idx >= weather.hourlyIsDay.size
-    ) return null to null
-
     val str = getTemperatureStr(
         context,
-        weather.hourlyTempCelsius[idx],
+        weather.hourlyTempCelsius.getOrNull(idx),
         tempUnit
-    )
+    ) ?: return null to null
 
     val id = mapWeatherId(
-        weather.hourlyWeatherCode[idx],
-        weather.hourlyIsDay[idx],
+        weather.hourlyWeatherCode.getOrNull(idx),
+        weather.hourlyIsDay.getOrNull(idx),
         iconStyle,
         !lightText
     )
-
     return str to id
 }
 
@@ -287,15 +277,24 @@ private fun getForecastStr(
         Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
     }
 
-    if (idx == -1 ||
-        idx >= weather.dailyTempMinCelsius.size ||
-        idx >= weather.dailyTempMaxCelsius.size ||
-        idx >= weather.dailyWeatherCode.size
-    ) return null
+    val minStr = getTemperatureStr(
+        context,
+        weather.dailyTempMinCelsius.getOrNull(idx),
+        tempUnit,
+        false
+    ) ?: return null
 
-    val minStr = getTemperatureStr(context, weather.dailyTempMinCelsius[idx], tempUnit, false)
-    val maxStr = getTemperatureStr(context, weather.dailyTempMaxCelsius[idx], tempUnit, false)
-    val codeStr = getWeatherCodeStr(context, weather.dailyWeatherCode[idx])
+    val maxStr = getTemperatureStr(
+        context,
+        weather.dailyTempMaxCelsius.getOrNull(idx),
+        tempUnit,
+        false
+    ) ?: return null
+
+    val codeStr = getWeatherCodeStr(
+        context,
+        weather.dailyWeatherCode.getOrNull(idx)
+    ) ?: return null
 
     val dayStr = if (hour < DAILY_FORECAST_BEFORE_HOUR) {
         context.getString(R.string.today)
@@ -308,10 +307,12 @@ private fun getForecastStr(
 
 private fun getTemperatureStr(
     context: Context,
-    tempC: Double,
+    tempC: Double?,
     tempUnit: String,
     fullUnit: Boolean = true
-): String {
+): String? {
+    tempC ?: return null
+
     val useFahrenheit = (tempUnit == KEY_FAHRENHEIT)
     val temp = if (useFahrenheit) (tempC * 1.8 + 32.5).toInt() else (tempC + 0.5).toInt()
     val unit = when {
@@ -322,7 +323,7 @@ private fun getTemperatureStr(
     return "$temp$unit"
 }
 
-private fun getWeatherCodeStr(context: Context, code: Int): String {
+private fun getWeatherCodeStr(context: Context, code: Int?): String? {
     return when (code) {
 
         0 -> context.getString(R.string.w0)
@@ -354,7 +355,7 @@ private fun getWeatherCodeStr(context: Context, code: Int): String {
         96 -> context.getString(R.string.w95)
         99 -> context.getString(R.string.w95)
 
-        else -> ""
+        else -> null
     }
 }
 
@@ -369,7 +370,7 @@ private fun mapWeatherId(
     else
         mapWeatherIdFilled(code, isDay, lightColor)
 
-private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int {
+private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int? {
     return when (code?.let { if (lightColor) it + 1000 else it }) {
 
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
@@ -426,11 +427,11 @@ private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): In
         1096 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
         1099 -> R.drawable.wb_99
 
-        else -> R.drawable.wc_nan
+        else -> null
     }
 }
 
-private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, lightColor: Boolean): Int {
+private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, lightColor: Boolean): Int? {
     return when (code?.let { if (lightColor) it + 1000 else it }) {
 
         0 -> if (isDay == 1) R.drawable.uc_0d else R.drawable.uc_0n
@@ -487,6 +488,6 @@ private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, lightColor: Boolean): 
         1096 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
         1099 -> R.drawable.ub_99
 
-        else -> R.drawable.wc_nan
+        else -> null
     }
 }

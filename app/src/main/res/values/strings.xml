@@ -7,7 +7,7 @@
     <string name="widget_label">Date &amp; Weather</string>
 
     <!-- Empty string to be shown when no weather data is available -->
-    <string name="widget_temp">"-"</string>
+    <string name="widget_temp">""</string>
 
     <!-- Example temperature value for widget preview -->
     <string name="widget_date_prev">"Sun, Jul 4"</string>

@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.PimiWidget.AppWidget.Container"
     android:theme="@style/Theme.PimiWidget.AppWidgetContainer">
 
@@ -15,8 +14,6 @@
         android:visibility="invisible"
         android:text="@string/widget_temp"
         android:maxLines="1"
-        android:ellipsize="end"
-        android:drawableStart="@drawable/wc_nan"
-        tools:ignore="UseCompatTextViewDrawableXml" />
+        android:ellipsize="end" />
 
 </LinearLayout>
