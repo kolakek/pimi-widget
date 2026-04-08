@@ -158,6 +158,8 @@ private fun updateAppWidgetWeather(
                 views.setTextViewText(R.id.widget_temp, displayStr)
                 views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
                 views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
+            } else {
+                Timber.w("updateAppWidgetWeather(): Null displayStr or iconId.")
             }
         }
     }
@@ -240,18 +242,25 @@ private fun getCurrentWeatherStrAndIcon(
 ): Pair<String?, Int?> {
     val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
+    if (idx == -1) {
+        Timber.w("getCurrentWeatherStrAndIcon(): No data available for the next hour.")
+        return null to null
+    }
     val str = getTemperatureStr(
         context,
         weather.hourlyTempCelsius.getOrNull(idx),
         tempUnit
-    ) ?: return null to null
-
+    )
     val id = mapWeatherId(
         weather.hourlyWeatherCode.getOrNull(idx),
         weather.hourlyIsDay.getOrNull(idx),
         iconStyle,
         lightText
     )
+    if (str == null || id == null) {
+        Timber.w("getCurrentWeatherStrAndIcon(): Unexpected null return.")
+    }
+
     return str to id
 }
 
@@ -277,24 +286,34 @@ private fun getForecastStr(
         Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
     }
 
+    if (idx == -1) {
+        Timber.w("getForecastStr(): No forecast data available.")
+        return null
+    }
+
     val minStr = getTemperatureStr(
         context,
         weather.dailyTempMinCelsius.getOrNull(idx),
         tempUnit,
         false
-    ) ?: return null
+    )
 
     val maxStr = getTemperatureStr(
         context,
         weather.dailyTempMaxCelsius.getOrNull(idx),
         tempUnit,
         false
-    ) ?: return null
+    )
 
     val codeStr = getWeatherCodeStr(
         context,
         weather.dailyWeatherCode.getOrNull(idx)
-    ) ?: return null
+    )
+
+    if (minStr == null || maxStr == null || codeStr == null) {
+        Timber.w("getForecastStr(): Unexpected null return.")
+        return null
+    }
 
     val dayStr = if (hour < DAILY_FORECAST_BEFORE_HOUR) {
         context.getString(R.string.today)
@@ -307,14 +326,14 @@ private fun getForecastStr(
 
 private fun getTemperatureStr(
     context: Context,
-    tempC: Double?,
+    tempCelsius: Double?,
     tempUnit: String,
     fullUnit: Boolean = true
 ): String? {
-    tempC ?: return null
+    tempCelsius ?: return null
 
     val useFahrenheit = (tempUnit == KEY_FAHRENHEIT)
-    val temp = if (useFahrenheit) (tempC * 1.8 + 32.5).toInt() else (tempC + 0.5).toInt()
+    val temp = (if (useFahrenheit) tempCelsius * 1.8 + 32.5 else tempCelsius + 0.5).toInt()
     val unit = when {
         fullUnit && useFahrenheit -> context.getString(R.string.fahrenheit)
         fullUnit -> context.getString(R.string.celsius)
@@ -350,7 +369,10 @@ private fun getWeatherCodeStr(context: Context, code: Int?): String? {
         86 -> R.string.w86
         95, 96, 99 -> R.string.w95
 
-        else -> return null
+        else -> {
+            Timber.w("getWeatherCodeStr(): Invalid weather code.")
+            return null
+        }
     }
     return context.getString(resId)
 }
@@ -363,15 +385,20 @@ private fun mapWeatherId(
 ): Int? {
     return when {
 
-        code == null || isDay == null -> null
+        code == null || isDay == null -> {
+            Timber.w("mapWeatherId(): Invalid weather code or isDay value.")
+            null
+        }
 
         style == KEY_ICON_STYLE_FILLED && darkColor -> iconIdFilledDark(code, isDay)
         style == KEY_ICON_STYLE_FILLED -> iconIdFilled(code, isDay)
-
         style == KEY_ICON_STYLE_OUTLINED && darkColor -> iconIdOutlinedDark(code, isDay)
         style == KEY_ICON_STYLE_OUTLINED -> iconIdOutlined(code, isDay)
 
-        else -> null
+        else -> {
+            Timber.w("mapWeatherId(): Unexpected null return.")
+            null
+        }
     }
 }
 
@@ -400,7 +427,10 @@ private fun iconIdFilled(code: Int, isDay: Int): Int? {
         96 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
         99 -> R.drawable.wb_99
 
-        else -> null
+        else -> {
+            Timber.w("iconIdFilled(): Invalid weather code.")
+            null
+        }
     }
 }
 
@@ -429,7 +459,10 @@ private fun iconIdFilledDark(code: Int, isDay: Int): Int? {
         96 -> if (isDay == 1) R.drawable.wc_96d else R.drawable.wc_96n
         99 -> R.drawable.wc_99
 
-        else -> null
+        else -> {
+            Timber.w("iconIdFilledDark(): Invalid weather code.")
+            null
+        }
     }
 }
 
@@ -458,7 +491,10 @@ private fun iconIdOutlined(code: Int, isDay: Int): Int? {
         96 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
         99 -> R.drawable.ub_99
 
-        else -> null
+        else -> {
+            Timber.w("iconIdOutlined(): Invalid weather code.")
+            null
+        }
     }
 }
 
@@ -487,6 +523,9 @@ private fun iconIdOutlinedDark(code: Int, isDay: Int): Int? {
         96 -> if (isDay == 1) R.drawable.uc_96d else R.drawable.uc_96n
         99 -> R.drawable.uc_99
 
-        else -> null
+        else -> {
+            Timber.w("iconIdOutlinedDark(): Invalid weather code.")
+            null
+        }
     }
 }
