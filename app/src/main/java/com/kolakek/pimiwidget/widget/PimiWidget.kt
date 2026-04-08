@@ -23,6 +23,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.worker.WidgetUpdater
+import timber.log.Timber
 
 class PimiWidget : AppWidgetProvider() {
 
@@ -47,6 +48,7 @@ class PimiWidget : AppWidgetProvider() {
         if (intent.action == "android.intent.action.BOOT_COMPLETED" ||
             intent.action == "android.intent.action.MY_PACKAGE_REPLACED"
         ) {
+            Timber.d("onReceive(): Update APP_WIDGET.")
             updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
 
             if (getWeatherPreference(context)) {
@@ -57,14 +59,17 @@ class PimiWidget : AppWidgetProvider() {
                 )
             }
         } else if (intent.action == "android.intent.action.LOCALE_CHANGED") {
+            Timber.d("onReceive(): Update LOCALE.")
             updateAppWidgetLoop(context, WidgetUpdateMode.LOCALE)
 
         } else if (intent.action == "com.kolakek.pimiwidget.action.WEATHER_UPDATE") {
+            Timber.d("onReceive(): Update WEATHER_UPDATE.")
             updateAppWidgetLoop(context, WidgetUpdateMode.WEATHER)
 
         } else if (intent.action == "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ||
             intent.action == "android.intent.action.WALLPAPER_CHANGED"
         ) {
+            Timber.d("onReceive(): Update APP_WIDGET.")
             updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
         }
     }

@@ -53,7 +53,7 @@ internal fun updateAppWidget(
     appWidgetId: Int,
     updateMode: WidgetUpdateMode = WidgetUpdateMode.APP_WIDGET
 ) {
-    Timber.d("updateAppWidget(): Begin Function.")
+    Timber.d("updateAppWidget(): Begin Function, update mode $updateMode.")
 
     val showWeather = getWeatherPreference(context)
     val showForecast = getDailyForecastPreference(context)
@@ -138,7 +138,7 @@ private fun updateAppWidgetWeather(
     if (showWeather) {
         weatherData?.let { weather ->
 
-            Timber.d("updateAppWidgetWeather(): Checkpoint 1.")
+            Timber.d("updateAppWidgetWeather(): Refreshing weather display.")
 
             val timeMillis = System.currentTimeMillis()
             val (str, iconId) = getCurrentWeatherStrAndIcon(
@@ -285,6 +285,7 @@ private fun getForecastStr(
     val idx = weather.dailyTimeMillis.indexOfFirst {
         Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
     }
+    Timber.d("getForecastStr(): Target date $targetDate at index $idx.")
 
     if (idx == -1) {
         Timber.w("getForecastStr(): No forecast data available.")

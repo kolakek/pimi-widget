@@ -142,8 +142,8 @@
     <string name="tomorrow">Morgen</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="w0">Klar</string>
-    <string name="w1">Meist klar</string>
+    <string name="w0">Wolkenlos</string>
+    <string name="w1">Meist heiter</string>
     <string name="w2">Teilweise bewölkt</string>
     <string name="w3">Bewölkt</string>
     <string name="w45">Nebel</string>

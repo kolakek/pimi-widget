@@ -160,11 +160,11 @@
     <string name="w75">Heavy snow</string>
     <string name="w77">Snow grains</string>
     <string name="w80">Light showers</string>
-    <string name="w81">Showers</string>
+    <string name="w81">Rain Showers</string>
     <string name="w82">Heavy showers</string>
     <string name="w85">Snow showers</string>
     <string name="w86">Snow showers</string>
-    <string name="w95">Thunderstorm</string>
+    <string name="w95">Thunderstorms</string>
 
     <!-- Plurals definition for days -->
     <plurals name="days">
