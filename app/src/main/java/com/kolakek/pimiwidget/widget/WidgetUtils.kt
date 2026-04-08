@@ -250,7 +250,7 @@ private fun getCurrentWeatherStrAndIcon(
         weather.hourlyWeatherCode.getOrNull(idx),
         weather.hourlyIsDay.getOrNull(idx),
         iconStyle,
-        !lightText
+        lightText
     )
     return str to id
 }
@@ -324,54 +324,55 @@ private fun getTemperatureStr(
 }
 
 private fun getWeatherCodeStr(context: Context, code: Int?): String? {
-    return when (code) {
+    val resId = when (code) {
 
-        0 -> context.getString(R.string.w0)
-        1 -> context.getString(R.string.w1)
-        2 -> context.getString(R.string.w2)
-        3 -> context.getString(R.string.w3)
-        45 -> context.getString(R.string.w45)
-        48 -> context.getString(R.string.w45)
-        51 -> context.getString(R.string.w51)
-        53 -> context.getString(R.string.w53)
-        55 -> context.getString(R.string.w55)
-        56 -> context.getString(R.string.w56)
-        57 -> context.getString(R.string.w56)
-        61 -> context.getString(R.string.w61)
-        63 -> context.getString(R.string.w63)
-        65 -> context.getString(R.string.w65)
-        66 -> context.getString(R.string.w66)
-        67 -> context.getString(R.string.w66)
-        71 -> context.getString(R.string.w71)
-        73 -> context.getString(R.string.w73)
-        75 -> context.getString(R.string.w75)
-        77 -> context.getString(R.string.w77)
-        80 -> context.getString(R.string.w80)
-        81 -> context.getString(R.string.w81)
-        82 -> context.getString(R.string.w82)
-        85 -> context.getString(R.string.w85)
-        86 -> context.getString(R.string.w86)
-        95 -> context.getString(R.string.w95)
-        96 -> context.getString(R.string.w95)
-        99 -> context.getString(R.string.w95)
+        0 -> R.string.w0
+        1 -> R.string.w1
+        2 -> R.string.w2
+        3 -> R.string.w3
+        45 -> R.string.w45
+        48 -> R.string.w45
+        51 -> R.string.w51
+        53 -> R.string.w53
+        55 -> R.string.w55
+        56 -> R.string.w56
+        57 -> R.string.w56
+        61 -> R.string.w61
+        63 -> R.string.w63
+        65 -> R.string.w65
+        66 -> R.string.w66
+        67 -> R.string.w66
+        71 -> R.string.w71
+        73 -> R.string.w73
+        75 -> R.string.w75
+        77 -> R.string.w77
+        80 -> R.string.w80
+        81 -> R.string.w81
+        82 -> R.string.w82
+        85 -> R.string.w85
+        86 -> R.string.w86
+        95 -> R.string.w95
+        96 -> R.string.w95
+        99 -> R.string.w95
 
-        else -> null
+        else -> return null
     }
+    return context.getString(resId)
 }
 
 private fun mapWeatherId(
     code: Int?,
     isDay: Int?,
     iconStyle: String,
-    lightColor: Boolean
+    darkColor: Boolean
 ) =
     if (iconStyle == KEY_ICON_STYLE_OUTLINED)
-        mapWeatherIdOutlined(code, isDay, lightColor)
+        mapWeatherIdOutlined(code, isDay, darkColor)
     else
-        mapWeatherIdFilled(code, isDay, lightColor)
+        mapWeatherIdFilled(code, isDay, darkColor)
 
-private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): Int? {
-    return when (code?.let { if (lightColor) it + 1000 else it }) {
+private fun mapWeatherIdFilled(code: Int?, isDay: Int?, darkColor: Boolean): Int? {
+    return when (code?.let { if (darkColor) it else it + 1000 }) {
 
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
         1 -> if (isDay == 1) R.drawable.wc_1d else R.drawable.wc_1n
@@ -431,8 +432,8 @@ private fun mapWeatherIdFilled(code: Int?, isDay: Int?, lightColor: Boolean): In
     }
 }
 
-private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, lightColor: Boolean): Int? {
-    return when (code?.let { if (lightColor) it + 1000 else it }) {
+private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, darkColor: Boolean): Int? {
+    return when (code?.let { if (darkColor) it else it + 1000 }) {
 
         0 -> if (isDay == 1) R.drawable.uc_0d else R.drawable.uc_0n
         1 -> if (isDay == 1) R.drawable.uc_1d else R.drawable.uc_1n
