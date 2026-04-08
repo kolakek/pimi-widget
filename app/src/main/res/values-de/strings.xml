@@ -142,10 +142,10 @@
     <string name="tomorrow">Morgen</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="w0">Klarer Himmel</string>
+    <string name="w0">Klar</string>
     <string name="w1">Meist klar</string>
     <string name="w2">Teilweise bewölkt</string>
-    <string name="w3">Bedeckt</string>
+    <string name="w3">Bewölkt</string>
     <string name="w45">Nebel</string>
     <string name="w51">Leichter Niesel</string>
     <string name="w53">Nieselregen</string>
@@ -156,14 +156,14 @@
     <string name="w65">Starker Regen</string>
     <string name="w66">Gefrierender Regen</string>
     <string name="w71">Leichter Schnee</string>
-    <string name="w73">Schnee</string>
+    <string name="w73">Schneefall</string>
     <string name="w75">Starker Schnee</string>
     <string name="w77">Schneekörner</string>
-    <string name="w80">Leichter Regen</string>
-    <string name="w81">Regen</string>
-    <string name="w82">Starker Regen</string>
-    <string name="w85">Leichter Schnee</string>
-    <string name="w86">Starker Schnee</string>
+    <string name="w80">Leichte Schauer</string>
+    <string name="w81">Regenschauer</string>
+    <string name="w82">Starke Schauer</string>
+    <string name="w85">Schneeschauer</string>
+    <string name="w86">Schneeschauer</string>
     <string name="w95">Gewitter</string>
 
     <!-- Plurals definition for days -->

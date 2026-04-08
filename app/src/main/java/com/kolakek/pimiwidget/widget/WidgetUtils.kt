@@ -330,18 +330,15 @@ private fun getWeatherCodeStr(context: Context, code: Int?): String? {
         1 -> R.string.w1
         2 -> R.string.w2
         3 -> R.string.w3
-        45 -> R.string.w45
-        48 -> R.string.w45
+        45, 48 -> R.string.w45
         51 -> R.string.w51
         53 -> R.string.w53
         55 -> R.string.w55
-        56 -> R.string.w56
-        57 -> R.string.w56
+        56, 57 -> R.string.w56
         61 -> R.string.w61
         63 -> R.string.w63
         65 -> R.string.w65
-        66 -> R.string.w66
-        67 -> R.string.w66
+        66, 67 -> R.string.w66
         71 -> R.string.w71
         73 -> R.string.w73
         75 -> R.string.w75
@@ -351,9 +348,7 @@ private fun getWeatherCodeStr(context: Context, code: Int?): String? {
         82 -> R.string.w82
         85 -> R.string.w85
         86 -> R.string.w86
-        95 -> R.string.w95
-        96 -> R.string.w95
-        99 -> R.string.w95
+        95, 96, 99 -> R.string.w95
 
         else -> return null
     }
@@ -363,31 +358,64 @@ private fun getWeatherCodeStr(context: Context, code: Int?): String? {
 private fun mapWeatherId(
     code: Int?,
     isDay: Int?,
-    iconStyle: String,
+    style: String,
     darkColor: Boolean
-) =
-    if (iconStyle == KEY_ICON_STYLE_OUTLINED)
-        mapWeatherIdOutlined(code, isDay, darkColor)
-    else
-        mapWeatherIdFilled(code, isDay, darkColor)
+): Int? {
+    return when {
 
-private fun mapWeatherIdFilled(code: Int?, isDay: Int?, darkColor: Boolean): Int? {
-    return when (code?.let { if (darkColor) it else it + 1000 }) {
+        code == null || isDay == null -> null
+
+        style == KEY_ICON_STYLE_FILLED && darkColor -> iconIdFilledDark(code, isDay)
+        style == KEY_ICON_STYLE_FILLED -> iconIdFilled(code, isDay)
+
+        style == KEY_ICON_STYLE_OUTLINED && darkColor -> iconIdOutlinedDark(code, isDay)
+        style == KEY_ICON_STYLE_OUTLINED -> iconIdOutlined(code, isDay)
+
+        else -> null
+    }
+}
+
+private fun iconIdFilled(code: Int, isDay: Int): Int? {
+    return when (code) {
+
+        0 -> if (isDay == 1) R.drawable.wb_0d else R.drawable.wb_0n
+        1 -> if (isDay == 1) R.drawable.wb_1d else R.drawable.wb_1n
+        2 -> if (isDay == 1) R.drawable.wb_2d else R.drawable.wb_2n
+        3 -> R.drawable.wb_3
+        45, 48 -> R.drawable.wb_45
+        51, 61 -> R.drawable.wb_61
+        53, 63 -> R.drawable.wb_63
+        55, 65 -> R.drawable.wb_65
+        56, 57, 66, 67 -> R.drawable.wb_67
+        71 -> R.drawable.wb_71
+        73 -> R.drawable.wb_73
+        75 -> R.drawable.wb_75
+        77 -> R.drawable.wb_77
+        80 -> if (isDay == 1) R.drawable.wb_80d else R.drawable.wb_80n
+        81 -> if (isDay == 1) R.drawable.wb_81d else R.drawable.wb_81n
+        82 -> if (isDay == 1) R.drawable.wb_82d else R.drawable.wb_82n
+        85 -> if (isDay == 1) R.drawable.wb_85d else R.drawable.wb_85n
+        86 -> if (isDay == 1) R.drawable.wb_86d else R.drawable.wb_86n
+        95 -> if (isDay == 1) R.drawable.wb_95d else R.drawable.wb_95n
+        96 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
+        99 -> R.drawable.wb_99
+
+        else -> null
+    }
+}
+
+private fun iconIdFilledDark(code: Int, isDay: Int): Int? {
+    return when (code) {
 
         0 -> if (isDay == 1) R.drawable.wc_0d else R.drawable.wc_0n
         1 -> if (isDay == 1) R.drawable.wc_1d else R.drawable.wc_1n
         2 -> if (isDay == 1) R.drawable.wc_2d else R.drawable.wc_2n
         3 -> R.drawable.wc_3
-        45 -> R.drawable.wc_45
-        48 -> R.drawable.wc_45
-        51 -> R.drawable.wc_61
-        53 -> R.drawable.wc_63
-        55 -> R.drawable.wc_65
-        61 -> R.drawable.wc_61
-        63 -> R.drawable.wc_63
-        65 -> R.drawable.wc_65
-        66 -> R.drawable.wc_67
-        67 -> R.drawable.wc_67
+        45, 48 -> R.drawable.wc_45
+        51, 61 -> R.drawable.wc_61
+        53, 63 -> R.drawable.wc_63
+        55, 65 -> R.drawable.wc_65
+        56, 57, 66, 67 -> R.drawable.wc_67
         71 -> R.drawable.wc_71
         73 -> R.drawable.wc_73
         75 -> R.drawable.wc_75
@@ -401,54 +429,51 @@ private fun mapWeatherIdFilled(code: Int?, isDay: Int?, darkColor: Boolean): Int
         96 -> if (isDay == 1) R.drawable.wc_96d else R.drawable.wc_96n
         99 -> R.drawable.wc_99
 
-        1000 -> if (isDay == 1) R.drawable.wb_0d else R.drawable.wb_0n
-        1001 -> if (isDay == 1) R.drawable.wb_1d else R.drawable.wb_1n
-        1002 -> if (isDay == 1) R.drawable.wb_2d else R.drawable.wb_2n
-        1003 -> R.drawable.wb_3
-        1045 -> R.drawable.wb_45
-        1048 -> R.drawable.wb_45
-        1051 -> R.drawable.wb_61
-        1053 -> R.drawable.wb_63
-        1055 -> R.drawable.wb_65
-        1061 -> R.drawable.wb_61
-        1063 -> R.drawable.wb_63
-        1065 -> R.drawable.wb_65
-        1066 -> R.drawable.wb_67
-        1067 -> R.drawable.wb_67
-        1071 -> R.drawable.wb_71
-        1073 -> R.drawable.wb_73
-        1075 -> R.drawable.wb_75
-        1077 -> R.drawable.wb_77
-        1080 -> if (isDay == 1) R.drawable.wb_80d else R.drawable.wb_80n
-        1081 -> if (isDay == 1) R.drawable.wb_81d else R.drawable.wb_81n
-        1082 -> if (isDay == 1) R.drawable.wb_82d else R.drawable.wb_82n
-        1085 -> if (isDay == 1) R.drawable.wb_85d else R.drawable.wb_85n
-        1086 -> if (isDay == 1) R.drawable.wb_86d else R.drawable.wb_86n
-        1095 -> if (isDay == 1) R.drawable.wb_95d else R.drawable.wb_95n
-        1096 -> if (isDay == 1) R.drawable.wb_96d else R.drawable.wb_96n
-        1099 -> R.drawable.wb_99
+        else -> null
+    }
+}
+
+private fun iconIdOutlined(code: Int, isDay: Int): Int? {
+    return when (code) {
+
+        0 -> if (isDay == 1) R.drawable.ub_0d else R.drawable.ub_0n
+        1 -> if (isDay == 1) R.drawable.ub_1d else R.drawable.ub_1n
+        2 -> if (isDay == 1) R.drawable.ub_2d else R.drawable.ub_2n
+        3 -> R.drawable.ub_3
+        45, 48 -> R.drawable.ub_45
+        51, 61 -> R.drawable.ub_61
+        53, 63 -> R.drawable.ub_63
+        55, 65 -> R.drawable.ub_65
+        56, 57, 66, 67 -> R.drawable.ub_67
+        71 -> R.drawable.ub_71
+        73 -> R.drawable.ub_73
+        75 -> R.drawable.ub_75
+        77 -> R.drawable.ub_77
+        80 -> if (isDay == 1) R.drawable.ub_80d else R.drawable.ub_80n
+        81 -> if (isDay == 1) R.drawable.ub_81d else R.drawable.ub_81n
+        82 -> if (isDay == 1) R.drawable.ub_82d else R.drawable.ub_82n
+        85 -> if (isDay == 1) R.drawable.ub_85d else R.drawable.ub_85n
+        86 -> if (isDay == 1) R.drawable.ub_86d else R.drawable.ub_86n
+        95 -> if (isDay == 1) R.drawable.ub_95d else R.drawable.ub_95n
+        96 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
+        99 -> R.drawable.ub_99
 
         else -> null
     }
 }
 
-private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, darkColor: Boolean): Int? {
-    return when (code?.let { if (darkColor) it else it + 1000 }) {
+private fun iconIdOutlinedDark(code: Int, isDay: Int): Int? {
+    return when (code) {
 
         0 -> if (isDay == 1) R.drawable.uc_0d else R.drawable.uc_0n
         1 -> if (isDay == 1) R.drawable.uc_1d else R.drawable.uc_1n
         2 -> if (isDay == 1) R.drawable.uc_2d else R.drawable.uc_2n
         3 -> R.drawable.uc_3
-        45 -> R.drawable.uc_45
-        48 -> R.drawable.uc_45
-        51 -> R.drawable.uc_61
-        53 -> R.drawable.uc_63
-        55 -> R.drawable.uc_65
-        61 -> R.drawable.uc_61
-        63 -> R.drawable.uc_63
-        65 -> R.drawable.uc_65
-        66 -> R.drawable.uc_67
-        67 -> R.drawable.uc_67
+        45, 48 -> R.drawable.uc_45
+        51, 61 -> R.drawable.uc_61
+        53, 63 -> R.drawable.uc_63
+        55, 65 -> R.drawable.uc_65
+        56, 57, 66, 67 -> R.drawable.uc_67
         71 -> R.drawable.uc_71
         73 -> R.drawable.uc_73
         75 -> R.drawable.uc_75
@@ -461,33 +486,6 @@ private fun mapWeatherIdOutlined(code: Int?, isDay: Int?, darkColor: Boolean): I
         95 -> if (isDay == 1) R.drawable.uc_95d else R.drawable.uc_95n
         96 -> if (isDay == 1) R.drawable.uc_96d else R.drawable.uc_96n
         99 -> R.drawable.uc_99
-
-        1000 -> if (isDay == 1) R.drawable.ub_0d else R.drawable.ub_0n
-        1001 -> if (isDay == 1) R.drawable.ub_1d else R.drawable.ub_1n
-        1002 -> if (isDay == 1) R.drawable.ub_2d else R.drawable.ub_2n
-        1003 -> R.drawable.ub_3
-        1045 -> R.drawable.ub_45
-        1048 -> R.drawable.ub_45
-        1051 -> R.drawable.ub_61
-        1053 -> R.drawable.ub_63
-        1055 -> R.drawable.ub_65
-        1061 -> R.drawable.ub_61
-        1063 -> R.drawable.ub_63
-        1065 -> R.drawable.ub_65
-        1066 -> R.drawable.ub_67
-        1067 -> R.drawable.ub_67
-        1071 -> R.drawable.ub_71
-        1073 -> R.drawable.ub_73
-        1075 -> R.drawable.ub_75
-        1077 -> R.drawable.ub_77
-        1080 -> if (isDay == 1) R.drawable.ub_80d else R.drawable.ub_80n
-        1081 -> if (isDay == 1) R.drawable.ub_81d else R.drawable.ub_81n
-        1082 -> if (isDay == 1) R.drawable.ub_82d else R.drawable.ub_82n
-        1085 -> if (isDay == 1) R.drawable.ub_85d else R.drawable.ub_85n
-        1086 -> if (isDay == 1) R.drawable.ub_86d else R.drawable.ub_86n
-        1095 -> if (isDay == 1) R.drawable.ub_95d else R.drawable.ub_95n
-        1096 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
-        1099 -> R.drawable.ub_99
 
         else -> null
     }
