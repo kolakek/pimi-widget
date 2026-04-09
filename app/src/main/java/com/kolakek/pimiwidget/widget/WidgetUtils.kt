@@ -290,13 +290,13 @@ private fun getForecastStr(
         Timber.w("getForecastStr(): No forecast data available.")
         return null
     }
-    val minStr = getTemperatureStr(
+    val minTempStr = getTemperatureStr(
         context,
         weather.dailyTempMinCelsius.getOrNull(idx),
         tempUnit,
         false
     )
-    val maxStr = getTemperatureStr(
+    val maxTempStr = getTemperatureStr(
         context,
         weather.dailyTempMaxCelsius.getOrNull(idx),
         tempUnit,
@@ -307,11 +307,18 @@ private fun getForecastStr(
     )
     val dayStrId = if (today) R.string.today else R.string.tomorrow
 
-    if (minStr == null || maxStr == null || codeStrId == null) {
+    if (minTempStr == null || maxTempStr == null || codeStrId == null) {
         Timber.w("getForecastStr(): Unexpected null return.")
         return null
     }
-    return "   · ${context.getString(dayStrId)} $maxStr / $minStr · ${context.getString(codeStrId)}"
+
+    return context.getString(
+        R.string.forecast_line,
+        context.getString(dayStrId),
+        context.getString(codeStrId),
+        maxTempStr,
+        minTempStr
+    )
 }
 
 private fun getTemperatureStr(

@@ -6,18 +6,6 @@
     <!-- Short description of the widget shown in the widget drawer -->
     <string name="widget_label">Datum &amp; Wetter</string>
 
-    <!-- Empty string to be shown when no weather data is available -->
-    <string name="widget_temp">""</string>
-
-    <!-- Example temperature value for widget preview -->
-    <string name="widget_date_prev">"So., 3. Oct."</string>
-
-    <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">"22\u2103"</string>
-
-    <!-- Default date format for current language -->
-    <string name="widget_date_format">"E, d. MMM"</string>
-
     <!-- Title of the button for updating the widget from the config screen -->
     <string name="config_button">Widget aktualisieren</string>
 
@@ -126,20 +114,34 @@
     <!-- String for describing the link to source code location -->
     <string name="config_source_code_descr">Quellcode und Dokumentation auf GitHub anzeigen</string>
 
-    <!-- Symbol for Celsius -->
-    <string name="celsius">\u2103</string>
+    <!-- Plurals definition for days -->
+    <plurals name="days">
+        <item quantity="one">1 Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
 
-    <!-- Symbol for Fahrenheit -->
-    <string name="fahrenheit">\u2109</string>
+    <!-- Plurals definition for hours -->
+    <plurals name="hours">
+        <item quantity="one">1 Stunde</item>
+        <item quantity="other">%d Stunden</item>
+    </plurals>
 
-    <!-- Symbol for degree -->
-    <string name="degree">\u00B0</string>
+    <!-- Plurals definition for minutes -->
+    <plurals name="minutes">
+        <item quantity="one">1 Minute</item>
+        <item quantity="other">%d Minuten</item>
+    </plurals>
 
-    <!-- String saying today -->
-    <string name="today">Heute</string>
+    <!-- Strings visible on widget -->
 
-    <!-- String saying tomorrow -->
-    <string name="tomorrow">Morgen</string>
+    <!-- Example temperature value for widget preview -->
+    <string name="widget_date_prev">"So., 3. Oct."</string>
+
+    <!-- Example temperature including unit for widget preview -->
+    <string name="widget_temp_prev">"21\u2103   · Morgen 19\u00B0 / 13\u00B0 · Bewölkt"</string>
+
+    <!-- Default date format for current language -->
+    <string name="widget_date_format">"E, d. MMM"</string>
 
     <!-- Strings defining weather conditions -->
     <string name="w0">Wolkenlos</string>
@@ -166,22 +168,10 @@
     <string name="w86">Schneeschauer</string>
     <string name="w95">Gewitter</string>
 
-    <!-- Plurals definition for days -->
-    <plurals name="days">
-        <item quantity="one">1 Tag</item>
-        <item quantity="other">%d Tage</item>
-    </plurals>
+    <!-- String saying today -->
+    <string name="today">Heute</string>
 
-    <!-- Plurals definition for hours -->
-    <plurals name="hours">
-        <item quantity="one">1 Stunde</item>
-        <item quantity="other">%d Stunden</item>
-    </plurals>
-
-    <!-- Plurals definition for minutes -->
-    <plurals name="minutes">
-        <item quantity="one">1 Minute</item>
-        <item quantity="other">%d Minuten</item>
-    </plurals>
+    <!-- String saying tomorrow -->
+    <string name="tomorrow">Morgen</string>
 
 </resources>
