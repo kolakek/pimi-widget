@@ -275,9 +275,9 @@ private fun getForecastStr(
     val date = zoned.toLocalDate()
     val hour = zoned.hour
 
-    val today = when {
-        hour <= DAILY_FORECAST_BEFORE_HOUR -> true
-        hour >= DAILY_FORECAST_AFTER_HOUR -> false
+     val today = when (hour) {
+        in FORECAST_TODAY_HOUR_ON..<FORECAST_TODAY_HOUR_OFF -> true
+        in FORECAST_TOMORROW_HOUR_ON..<FORECAST_TOMORROW_HOUR_OFF -> false
         else -> return null
     }
     val targetDate = if (today) date else date.plusDays(1)
