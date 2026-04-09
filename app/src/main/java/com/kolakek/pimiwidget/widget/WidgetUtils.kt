@@ -260,7 +260,6 @@ private fun getCurrentWeatherStrAndIcon(
     if (str == null || id == null) {
         Timber.w("getCurrentWeatherStrAndIcon(): Unexpected null return.")
     }
-
     return str to id
 }
 
@@ -276,12 +275,12 @@ private fun getForecastStr(
     val date = zoned.toLocalDate()
     val hour = zoned.hour
 
-    val targetDate = when {
-        hour <= DAILY_FORECAST_BEFORE_HOUR -> date
-        hour >= DAILY_FORECAST_AFTER_HOUR -> date.plusDays(1)
+    val today = when {
+        hour <= DAILY_FORECAST_BEFORE_HOUR -> true
+        hour >= DAILY_FORECAST_AFTER_HOUR -> false
         else -> return null
     }
-
+    val targetDate = if (today) date else date.plusDays(1)
     val idx = weather.dailyTimeMillis.indexOfFirst {
         Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
     }
@@ -291,38 +290,28 @@ private fun getForecastStr(
         Timber.w("getForecastStr(): No forecast data available.")
         return null
     }
-
     val minStr = getTemperatureStr(
         context,
         weather.dailyTempMinCelsius.getOrNull(idx),
         tempUnit,
         false
     )
-
     val maxStr = getTemperatureStr(
         context,
         weather.dailyTempMaxCelsius.getOrNull(idx),
         tempUnit,
         false
     )
-
-    val codeStr = getWeatherCodeStr(
-        context,
+    val codeStrId = getWeatherCodeId(
         weather.dailyWeatherCode.getOrNull(idx)
     )
+    val dayStrId = if (today) R.string.today else R.string.tomorrow
 
-    if (minStr == null || maxStr == null || codeStr == null) {
+    if (minStr == null || maxStr == null || codeStrId == null) {
         Timber.w("getForecastStr(): Unexpected null return.")
         return null
     }
-
-    val dayStr = if (hour < DAILY_FORECAST_BEFORE_HOUR) {
-        context.getString(R.string.today)
-    } else {
-        context.getString(R.string.tomorrow)
-    }
-
-    return " · $dayStr $maxStr / $minStr · $codeStr"
+    return "   · ${context.getString(dayStrId)} $maxStr / $minStr · ${context.getString(codeStrId)}"
 }
 
 private fun getTemperatureStr(
@@ -343,8 +332,8 @@ private fun getTemperatureStr(
     return "$temp$unit"
 }
 
-private fun getWeatherCodeStr(context: Context, code: Int?): String? {
-    val resId = when (code) {
+private fun getWeatherCodeId(code: Int?): Int? {
+    return when (code) {
 
         0 -> R.string.w0
         1 -> R.string.w1
@@ -371,11 +360,10 @@ private fun getWeatherCodeStr(context: Context, code: Int?): String? {
         95, 96, 99 -> R.string.w95
 
         else -> {
-            Timber.w("getWeatherCodeStr(): Invalid weather code.")
-            return null
+            Timber.w("getWeatherCodeId(): Invalid weather code.")
+            null
         }
     }
-    return context.getString(resId)
 }
 
 private fun mapWeatherId(
