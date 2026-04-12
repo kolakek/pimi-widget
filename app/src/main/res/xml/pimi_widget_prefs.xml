@@ -49,7 +49,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="color_light"
+            android:defaultValue="color_auto"
             android:entries="@array/colors"
             android:entryValues="@array/colors_vals"
             android:key="text_color_list"

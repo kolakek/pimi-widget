@@ -28,7 +28,7 @@ fun getDailyForecastPreference(context: Context): Boolean {
 
 fun getTextColorPreference(context: Context): String {
     return PreferenceManager.getDefaultSharedPreferences(context)
-        .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_LIGHT) ?: KEY_COLOR_LIGHT
+        .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_AUTO) ?: KEY_COLOR_AUTO
 }
 
 fun getIconStylePreference(context: Context): String {
