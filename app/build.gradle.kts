@@ -13,8 +13,6 @@ android {
         targetSdk = 36
         versionCode = 15
         versionName = "1.6.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     dependenciesInfo {
         includeInApk = false
