@@ -24,6 +24,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
@@ -31,9 +32,7 @@ import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.data.WeatherData
 import timber.log.Timber
 import java.time.Instant
-import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 internal fun updateAppWidgetLoop(
@@ -64,19 +63,8 @@ internal fun updateAppWidget(
     val lightText = useLightText(context, textColor)
     val views = getRemoteViews(context, iconStyle, lightText)
 
-    val weatherData = PimiData.weather
-
     if (updateMode == WidgetUpdateMode.APP_WIDGET) {
-        pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
-            views.setOnClickPendingIntent(R.id.widget_text_clock, it)
-        }
-        val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
-            ?: pendingAltWeatherAppIntent(context, appWidgetId)
-
-        pendingIntent?.let {
-            views.setOnClickPendingIntent(R.id.widget_temp, it)
-        }
-        appWidgetManager.updateAppWidget(appWidgetId, views)
+        updateAppWidgetFull(context, views, appWidgetManager, appWidgetId)
     }
     if (updateMode == WidgetUpdateMode.APP_WIDGET ||
         updateMode == WidgetUpdateMode.LOCALE
@@ -92,7 +80,7 @@ internal fun updateAppWidget(
             views,
             appWidgetManager,
             appWidgetId,
-            weatherData,
+            PimiData.weather,
             showWeather,
             showForecast,
             tempUnit,
@@ -100,6 +88,24 @@ internal fun updateAppWidget(
             lightText
         )
     }
+}
+
+private fun updateAppWidgetFull(
+    context: Context,
+    views: RemoteViews,
+    appWidgetManager: AppWidgetManager,
+    appWidgetId: Int
+) {
+    pendingCategoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
+        views.setOnClickPendingIntent(R.id.widget_text_clock, it)
+    }
+    val pendingIntent = pendingCategoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
+        ?: pendingAltWeatherAppIntent(context, appWidgetId)
+
+    pendingIntent?.let {
+        views.setOnClickPendingIntent(R.id.widget_temp, it)
+    }
+    appWidgetManager.updateAppWidget(appWidgetId, views)
 }
 
 private fun updateAppWidgetDate(
@@ -110,11 +116,15 @@ private fun updateAppWidgetDate(
 ) {
     Timber.d("updateAppWidgetDate(): Begin Function.")
 
-    val datePattern = context.getString(R.string.widget_date_format)
-    val formatter = DateTimeFormatter.ofPattern(datePattern, Locale.getDefault())
-    val formattedDate = LocalDateTime.now().format(formatter)
+    val pattern = DateFormat.getBestDateTimePattern(
+        Locale.getDefault(),
+        context.getString(R.string.widget_date_format)
+    )
 
-    views.setTextViewText(R.id.widget_text_clock, formattedDate)
+    Timber.d("updateAppWidgetDate(): Set pattern $pattern.")
+
+    views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
+    views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
     appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 }

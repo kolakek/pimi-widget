@@ -37,4 +37,4 @@ internal const val WORKER_INIT_DELAY_MILLIS = 2 * 60 * 1000L
 internal const val FORECAST_TODAY_HOUR_ON = 6
 internal const val FORECAST_TODAY_HOUR_OFF = 10
 internal const val FORECAST_TOMORROW_HOUR_ON = 20
-internal const val FORECAST_TOMORROW_HOUR_OFF = 23
+internal const val FORECAST_TOMORROW_HOUR_OFF = 24
