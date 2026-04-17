@@ -144,29 +144,20 @@
     <string name="widget_date_format">"E, d. MMM"</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="w0">Wolkenlos</string>
-    <string name="w1">Meist heiter</string>
-    <string name="w2">Teilweise bewölkt</string>
-    <string name="w3">Bewölkt</string>
-    <string name="w48">Nebel</string>
-    <string name="w51">Leichter Niesel</string>
-    <string name="w53">Nieselregen</string>
-    <string name="w55">Starker Niesel</string>
-    <string name="w56">Gefrierender Niesel</string>
-    <string name="w61">Leichter Regen</string>
-    <string name="w63">Regen</string>
-    <string name="w65">Starker Regen</string>
-    <string name="w66">Gefrierender Regen</string>
-    <string name="w71">Leichter Schnee</string>
-    <string name="w73">Schneefall</string>
-    <string name="w75">Starker Schnee</string>
-    <string name="w77">Schneekörner</string>
-    <string name="w80">Leichte Schauer</string>
-    <string name="w81">Regenschauer</string>
-    <string name="w82">Starke Schauer</string>
-    <string name="w85">Schneeschauer</string>
-    <string name="w86">Schneeschauer</string>
-    <string name="w95">Gewitter</string>
+    <string name="thunderstorms">Gewitter</string>
+    <string name="freezing_rain">Gefrierender Regen</string>
+    <string name="freezing_drizzle">Gefrierender Nieselregen</string>
+    <string name="heavy_rain">Starker Regen</string>
+    <string name="heavy_snow">Starker Schneefall</string>
+    <string name="rain_showers">Regenschauer</string>
+    <string name="snow_showers">Schneeschauer</string>
+    <string name="drizzle">Nieselregen</string>
+    <string name="flurries">Leichter Schneefall</string>
+    <string name="clear">Wolkenlos</string>
+    <string name="mostly_clear">Meist heiter</string>
+    <string name="partly_cloudy">Teilweise bewölkt</string>
+    <string name="cloudy">Bewölkt</string>
+    <string name="foggy">Nebel</string>
 
     <!-- String saying today -->
     <string name="today">Heute</string>

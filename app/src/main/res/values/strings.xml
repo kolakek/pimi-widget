@@ -144,30 +144,20 @@
     <string name="widget_date_format">"E, MMM d"</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="w0">Clear</string>                <!-- clear                    wolkenlos                     -->
-    <string name="w1">Mostly clear</string>         <!-- mostly clear             meist heiter                  -->
-    <string name="w2">Partly cloudy</string>        <!-- partly cloudy            teilweise bewölkt             -->
-    <string name="w3">Cloudy</string>               <!-- cloudy                   bewölkt                       -->
-    <string name="w48">Fog</string>                 <!-- fog                      nebel                         -->
-    <string name="w51">Light drizzle</string>       <!-- 61                                                     -->
-    <string name="w53">Drizzle</string>             <!-- 63                                                     -->
-    <string name="w55">Heavy drizzle</string>       <!-- 55                                                     -->
-    <string name="w56">Freezing drizzle</string>
-    <string name="w61">Light rain</string>          <!-- drizzle                  nieselregen                   -->
-    <string name="w63">Rain</string>                <!-- rain showers             regenschauer                  -->
-    <string name="w65">Heavy rain</string>          <!-- heavy rain               starker regen                 -->
-    <string name="w66">Freezing rain</string>
-    <string name="w71">Light snow</string>          <!-- flurries                 leichter schneefall           -->
-    <string name="w73">Snow</string>                <!-- snow showers             schneeschauer                 -->
-    <string name="w75">Heavy snow</string>          <!-- heavy snow               starker schneefall            -->
-    <string name="w77">Snow grains</string>
-    <string name="w80">Light showers</string>       <!-- scattered drizzle        vereinzelter nieselregen      -->
-    <string name="w81">Rain Showers</string>        <!-- scattered rain showers   vereinzelte regenschauer      -->
-    <string name="w82">Heavy showers</string>       <!-- scattered heavy rain     vereinzelter starker regen    -->
-    <string name="w85">Snow showers</string>        <!-- scattered flurries       vereinzelter schneefall       -->
-    <string name="w86">Snow showers</string>        <!-- scattered snow showers   vereinzelte schneeschauer     -->
-    <string name="w95">Thunderstorms</string>       <!-- scattered thunderstorms  vereinzelte gewitter          -->
-                                                    <!-- 99 strong thunderstorms  starke gewitter               -->
+    <string name="thunderstorms">Thunderstorms</string>
+    <string name="freezing_rain">Freezing rain</string>
+    <string name="freezing_drizzle">Freezing drizzle</string>
+    <string name="heavy_rain">Heavy rain</string>
+    <string name="heavy_snow">Heavy snow</string>
+    <string name="rain_showers">Rain Showers</string>
+    <string name="snow_showers">Snow showers</string>
+    <string name="drizzle">Drizzle</string>
+    <string name="flurries">Flurries</string>
+    <string name="clear">Clear</string>
+    <string name="mostly_clear">Mostly clear</string>
+    <string name="partly_cloudy">Partly cloudy</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="foggy">Foggy</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>

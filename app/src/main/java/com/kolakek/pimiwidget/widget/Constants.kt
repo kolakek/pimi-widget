@@ -38,3 +38,14 @@ internal const val FORECAST_TODAY_HOUR_ON = 6
 internal const val FORECAST_TODAY_HOUR_OFF = 10
 internal const val FORECAST_TOMORROW_HOUR_ON = 20
 internal const val FORECAST_TOMORROW_HOUR_OFF = 24
+
+internal const val FLURRIES_CM = 0.1
+internal const val SNOW_SHOWERS_CM = 1.0
+internal const val HEAVY_SNOW_CM = 5.0
+internal const val DRIZZLE_MM = 0.1
+internal const val RAIN_SHOWERS_MM = 2.5
+internal const val HEAVY_RAIN_MM = 10.0
+internal const val FOG_VISIBILITY_M = 5000.0
+internal const val CLOUDY_RATIO = 0.3
+internal const val PARTLY_CLOUDY_RATIO = 0.6
+internal const val MOSTLY_CLEAR_RATIO = 0.9

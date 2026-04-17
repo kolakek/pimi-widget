@@ -75,6 +75,12 @@ class WeatherWorker {
                     it.hourly.is_day,
                     it.daily.temperature_2m_min,
                     it.daily.temperature_2m_max,
+                    it.daily.rain_sum,
+                    it.daily.showers_sum,
+                    it.daily.snowfall_sum,
+                    it.daily.daylight_duration,
+                    it.daily.sunshine_duration,
+                    it.daily.visibility_mean,
                     it.daily.weather_code,
                     it.daily.time.map { v -> v * 1000L }
                 )

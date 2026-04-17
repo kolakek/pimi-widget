@@ -24,6 +24,12 @@ data class WeatherData (
     var hourlyIsDay: List<Int>,
     var dailyTempMinCelsius: List<Double>,
     var dailyTempMaxCelsius: List<Double>,
+    var dailyRainSum: List<Double>,
+    var dailyShowersSum: List<Double>,
+    var dailySnowfallSum: List<Double>,
+    var dailyDaylightDuration: List<Double>,
+    var dailySunshineDuration: List<Double>,
+    var dailyVisibilityMean: List<Double>,
     var dailyWeatherCode: List<Int>,
     var dailyTimeMillis: List<Long>
 )

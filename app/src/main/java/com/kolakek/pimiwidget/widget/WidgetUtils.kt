@@ -313,7 +313,13 @@ private fun getForecastStr(
         false
     )
     val codeStrId = getWeatherCodeId(
-        weather.dailyWeatherCode.getOrNull(idx)
+        weather.dailyWeatherCode.getOrNull(idx),
+        weather.dailyRainSum.getOrNull(idx),
+        weather.dailyShowersSum.getOrNull(idx),
+        weather.dailySnowfallSum.getOrNull(idx),
+        weather.dailyDaylightDuration.getOrNull(idx),
+        weather.dailySunshineDuration.getOrNull(idx),
+        weather.dailyVisibilityMean.getOrNull(idx)
     )
     val dayStrId = if (today) R.string.today else R.string.tomorrow
 
@@ -349,37 +355,41 @@ private fun getTemperatureStr(
     return "$temp$unit"
 }
 
-private fun getWeatherCodeId(code: Int?): Int? {
-    return when (code) {
+private fun getWeatherCodeId(
+    code: Int?,
+    rainSum: Double?,
+    showersSum: Double?,
+    snowTotal: Double?,
+    daylightDur: Double?,
+    sunshineDur: Double?,
+    visibility: Double?,
+): Int? {
+    val rain = (rainSum ?: return null) + (showersSum ?: return null)
+    val snow = snowTotal ?: return null
+    val daylight = daylightDur ?: return null
+    val sunshine = sunshineDur ?: return null
+    val sun = if (daylight > 0) sunshine / daylight else 0.0
+    val vis = visibility ?: return null
 
-        0 -> R.string.w0
-        1 -> R.string.w1
-        2 -> R.string.w2
-        3 -> R.string.w3
-        45, 48 -> R.string.w48
-        51 -> R.string.w51
-        53 -> R.string.w53
-        55 -> R.string.w55
-        56, 57 -> R.string.w56
-        61 -> R.string.w61
-        63 -> R.string.w63
-        65 -> R.string.w65
-        66, 67 -> R.string.w66
-        71 -> R.string.w71
-        73 -> R.string.w73
-        75 -> R.string.w75
-        77 -> R.string.w77
-        80 -> R.string.w80
-        81 -> R.string.w81
-        82 -> R.string.w82
-        85 -> R.string.w85
-        86 -> R.string.w86
-        95, 96, 99 -> R.string.w95
+    Timber.d("getWeatherCodeId(): code = $code, rain = $rain, snow = $snow, sun = $sun, vis = $vis")
 
-        else -> {
-            Timber.w("getWeatherCodeId(): Invalid weather code.")
-            null
-        }
+    return when {
+
+        code in setOf(95, 96, 99) -> R.string.thunderstorms
+        code in setOf(57, 67) -> R.string.freezing_rain
+        code in setOf(56, 66) -> R.string.freezing_drizzle
+        snow > HEAVY_SNOW_CM -> R.string.heavy_snow
+        rain > HEAVY_RAIN_MM -> R.string.heavy_rain
+        snow > SNOW_SHOWERS_CM -> R.string.snow_showers
+        rain > RAIN_SHOWERS_MM -> R.string.rain_showers
+        snow > FLURRIES_CM -> R.string.flurries
+        rain > DRIZZLE_MM -> R.string.drizzle
+        vis < FOG_VISIBILITY_M -> R.string.foggy
+        sun < CLOUDY_RATIO -> R.string.cloudy
+        sun < PARTLY_CLOUDY_RATIO -> R.string.partly_cloudy
+        sun < MOSTLY_CLEAR_RATIO -> R.string.mostly_clear
+
+        else -> R.string.clear
     }
 }
 
