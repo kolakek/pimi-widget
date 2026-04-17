@@ -356,7 +356,7 @@ private fun getWeatherCodeId(code: Int?): Int? {
         1 -> R.string.w1
         2 -> R.string.w2
         3 -> R.string.w3
-        45, 48 -> R.string.w45
+        45, 48 -> R.string.w48
         51 -> R.string.w51
         53 -> R.string.w53
         55 -> R.string.w55
