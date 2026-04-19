@@ -138,7 +138,7 @@
     <string name="widget_date_prev">"Sun, Jul 4"</string>
 
     <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">"71\u2109   · Tomorrow 67\u00B0 / 52\u00B0 · Cloudy"</string>
+    <string name="widget_temp_prev">"71\u2109   · Tomorrow 67\u00B0 / 52\u00B0 · Thunderstorms"</string>
 
     <!-- Default date format for current language -->
     <string name="widget_date_format">"E, MMM d"</string>
