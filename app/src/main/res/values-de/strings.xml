@@ -146,7 +146,7 @@
     <!-- Strings defining weather conditions -->
     <string name="thunderstorms">Gewitter</string>
     <string name="freezing_rain">Gefrierender Regen</string>
-    <string name="freezing_drizzle">Gefrierender Nieselregen</string>
+    <string name="freezing_drizzle">Gefrierender Niesel</string>
     <string name="heavy_rain">Starker Regen</string>
     <string name="heavy_snow">Starker Schneefall</string>
     <string name="rain_showers">Regenschauer</string>
