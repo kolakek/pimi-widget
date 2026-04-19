@@ -156,6 +156,7 @@
     <string name="clear">Wolkenlos</string>
     <string name="mostly_clear">Meist heiter</string>
     <string name="partly_cloudy">Teilweise bewölkt</string>
+    <string name="mostly_cloudy">Meist bewölkt</string>
     <string name="cloudy">Bewölkt</string>
     <string name="foggy">Nebel</string>
 

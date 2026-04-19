@@ -149,13 +149,14 @@
     <string name="freezing_drizzle">Freezing drizzle</string>
     <string name="heavy_rain">Heavy rain</string>
     <string name="heavy_snow">Heavy snow</string>
-    <string name="rain_showers">Rain Showers</string>
+    <string name="rain_showers">Rain showers</string>
     <string name="snow_showers">Snow showers</string>
     <string name="drizzle">Drizzle</string>
     <string name="flurries">Flurries</string>
     <string name="clear">Clear</string>
     <string name="mostly_clear">Mostly clear</string>
     <string name="partly_cloudy">Partly cloudy</string>
+    <string name="mostly_cloudy">Mostly cloudy</string>
     <string name="cloudy">Cloudy</string>
     <string name="foggy">Foggy</string>
 

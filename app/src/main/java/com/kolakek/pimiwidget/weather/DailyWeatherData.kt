@@ -27,9 +27,8 @@ internal data class DailyWeatherData (
     val rain_sum: List<Double>,
     val showers_sum: List<Double>,
     val snowfall_sum: List<Double>,
-    val daylight_duration: List<Double>,
-    val sunshine_duration: List<Double>,
     val visibility_mean: List<Double>,
+    val cloud_cover_mean: List<Int>,
     val time: List<Long>,
     val weather_code: List<Int>
 )

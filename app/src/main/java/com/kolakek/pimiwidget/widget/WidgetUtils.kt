@@ -317,9 +317,8 @@ private fun getForecastStr(
         weather.dailyRainSum.getOrNull(idx),
         weather.dailyShowersSum.getOrNull(idx),
         weather.dailySnowfallSum.getOrNull(idx),
-        weather.dailyDaylightDuration.getOrNull(idx),
-        weather.dailySunshineDuration.getOrNull(idx),
-        weather.dailyVisibilityMean.getOrNull(idx)
+        weather.dailyVisibilityMean.getOrNull(idx),
+        weather.dailyCloudCoverMean.getOrNull(idx)
     )
     val dayStrId = if (today) R.string.today else R.string.tomorrow
 
@@ -359,19 +358,17 @@ private fun getWeatherCodeId(
     code: Int?,
     rainSum: Double?,
     showersSum: Double?,
-    snowTotal: Double?,
-    daylightDur: Double?,
-    sunshineDur: Double?,
+    snowSum: Double?,
     visibility: Double?,
+    cloudCover: Int?
 ): Int? {
     val rain = (rainSum ?: return null) + (showersSum ?: return null)
-    val snow = snowTotal ?: return null
-    val daylight = daylightDur ?: return null
-    val sunshine = sunshineDur ?: return null
-    val sun = if (daylight > 0) sunshine / daylight else 0.0
+    val snow = snowSum ?: return null
+    val cloudy = cloudCover ?: return null
     val vis = visibility ?: return null
 
-    Timber.d("getWeatherCodeId(): code = $code, rain = $rain, snow = $snow, sun = $sun, vis = $vis")
+    Timber.d("getWeatherCodeId(): code = $code, rain = $rain, snow = $snow, " +
+            "cloud = $cloudy, vis = $vis")
 
     return when {
 
@@ -380,14 +377,15 @@ private fun getWeatherCodeId(
         code in setOf(56, 66) -> R.string.freezing_drizzle
         snow > HEAVY_SNOW_CM -> R.string.heavy_snow
         rain > HEAVY_RAIN_MM -> R.string.heavy_rain
-        snow > SNOW_SHOWERS_CM -> R.string.snow_showers
-        rain > RAIN_SHOWERS_MM -> R.string.rain_showers
+        snow > SNOW_CM -> R.string.snow_showers
+        rain > RAIN_MM -> R.string.rain_showers
         snow > FLURRIES_CM -> R.string.flurries
         rain > DRIZZLE_MM -> R.string.drizzle
         vis < FOG_VISIBILITY_M -> R.string.foggy
-        sun < CLOUDY_RATIO -> R.string.cloudy
-        sun < PARTLY_CLOUDY_RATIO -> R.string.partly_cloudy
-        sun < MOSTLY_CLEAR_RATIO -> R.string.mostly_clear
+        cloudy > CLOUDY_PERCENT -> R.string.cloudy
+        cloudy > MOSTLY_CLOUDY_PERCENT -> R.string.mostly_cloudy
+        cloudy > PARTLY_CLOUDY_PERCENT -> R.string.partly_cloudy
+        cloudy > MOSTLY_CLEAR_PERCENT -> R.string.mostly_clear
 
         else -> R.string.clear
     }

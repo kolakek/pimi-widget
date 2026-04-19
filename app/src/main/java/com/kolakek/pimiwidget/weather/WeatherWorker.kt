@@ -60,7 +60,7 @@ class WeatherWorker {
                 Timber.d("getWeather(): Get weather data.")
                 providerData = client.get(str).body()
             } catch (_: Throwable) {
-                Timber.d("getWeather(): Catch exception.")
+                Timber.w("getWeather(): Catch exception.")
                 providerData = null
             } finally {
                 Timber.d("getWeather(): Close client.")
@@ -78,9 +78,8 @@ class WeatherWorker {
                     it.daily.rain_sum,
                     it.daily.showers_sum,
                     it.daily.snowfall_sum,
-                    it.daily.daylight_duration,
-                    it.daily.sunshine_duration,
                     it.daily.visibility_mean,
+                    it.daily.cloud_cover_mean,
                     it.daily.weather_code,
                     it.daily.time.map { v -> v * 1000L }
                 )

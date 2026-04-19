@@ -27,9 +27,8 @@ data class WeatherData (
     var dailyRainSum: List<Double>,
     var dailyShowersSum: List<Double>,
     var dailySnowfallSum: List<Double>,
-    var dailyDaylightDuration: List<Double>,
-    var dailySunshineDuration: List<Double>,
     var dailyVisibilityMean: List<Double>,
+    var dailyCloudCoverMean: List<Int>,
     var dailyWeatherCode: List<Int>,
     var dailyTimeMillis: List<Long>
 )
