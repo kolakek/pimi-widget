@@ -25,7 +25,7 @@ All download options provide the same APK file, signed with the same signing key
 
 <div>
     <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen1.png" alt="Screen 1" style="width: 250px"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen2.png" alt="Screen 2" style="width: 250px"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen4.png" alt="Screen 2" style="width: 250px"/>
     <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen3.png" alt="Screen 3" style="width: 250px"/>
 </div>
 
