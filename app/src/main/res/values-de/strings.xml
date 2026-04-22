@@ -160,6 +160,10 @@
     <string name="cloudy">Bewölkt</string>
     <string name="foggy">Nebel</string>
 
+    <!-- Strings defining weather warnings -->
+    <string name="uvi_very_high">Sehr starke UV-Strahlung</string>
+    <string name="uvi_extreme">Extreme UV-Strahlung</string>
+
     <!-- String saying today -->
     <string name="today">Heute</string>
 

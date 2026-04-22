@@ -23,6 +23,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class HourlyWeatherData (
     val temperature_2m: List<Double>,
+    val uv_index: List<Double>,
     val time: List<Long>,
     val weather_code: List<Int>,
     val is_day: List<Int>

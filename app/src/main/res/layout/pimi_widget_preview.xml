@@ -9,6 +9,7 @@
 
     <TextView
         style="@style/Widget.PimiWidget.AppWidget.Weather"
+        android:layout_width="wrap_content"
         android:text="@string/widget_temp_prev"
         android:maxLines="1"
         android:ellipsize="end"

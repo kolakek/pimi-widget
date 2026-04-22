@@ -50,3 +50,6 @@ internal const val CLOUDY_PERCENT = 90
 internal const val MOSTLY_CLOUDY_PERCENT = 65
 internal const val PARTLY_CLOUDY_PERCENT = 35
 internal const val MOSTLY_CLEAR_PERCENT = 10
+
+internal const val UVI_VERY_HIGH = 8.0
+internal const val UVI_EXTREME = 11.0

@@ -151,7 +151,7 @@ private fun updateAppWidgetWeather(
             Timber.d("updateAppWidgetWeather(): Refreshing weather display.")
 
             val timeMillis = System.currentTimeMillis()
-            val (str, iconId) = getCurrentWeatherStrAndIcon(
+            val (weatherStr, weatherIcon) = getCurrentWeatherStrAndIcon(
                 context,
                 weather,
                 timeMillis,
@@ -159,14 +159,27 @@ private fun updateAppWidgetWeather(
                 iconStyle,
                 lightText
             )
-            val displayStr = str?.run {
-                if (showForecast) {
-                    this + (getForecastStr(context, timeMillis, weather, tempUnit) ?: "")
-                } else this
-            }
-            if (displayStr != null && iconId != null) {
+            val (warnStr, warnIcon) = getCurrentWarnStrAndIcon(
+                context,
+                weather,
+                timeMillis,
+                lightText
+            )
+            val forecastStr = if (showForecast && warnStr == null) {
+                getForecastStr(context, timeMillis, weather, tempUnit)
+            } else null
+
+            val displayStr = (weatherStr ?: "") + (forecastStr ?: "") + (warnStr ?: "")
+
+            if (displayStr.isNotEmpty()) {
                 views.setTextViewText(R.id.widget_temp, displayStr)
-                views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
+                views.setTextViewCompoundDrawables(
+                    R.id.widget_temp,
+                    weatherIcon ?: 0,
+                    0,
+                    warnIcon ?: 0,
+                    0
+                )
                 views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
             } else {
                 Timber.w("updateAppWidgetWeather(): Null displayStr or iconId.")
@@ -271,6 +284,35 @@ private fun getCurrentWeatherStrAndIcon(
         Timber.w("getCurrentWeatherStrAndIcon(): Unexpected null return.")
     }
     return str to id
+}
+
+private fun getCurrentWarnStrAndIcon(
+    context: Context,
+    weather: WeatherData,
+    timeMillis: Long,
+    lightText: Boolean
+): Pair<String?, Int?> {
+    val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
+
+    if (idx == -1) {
+        Timber.w("getCurrentWarnStrAndIcon(): No data available for the next hour.")
+        return null to null
+    }
+    val uvIndex = weather.hourlyUvIndex.getOrNull(idx) ?: 0.0
+
+    Timber.d("getCurrentWarnStrAndIcon(): uvIndex = $uvIndex")
+
+    val (str, isExtreme) = when {
+        uvIndex >= UVI_EXTREME -> context.getString(R.string.uvi_extreme) to true
+        uvIndex >= UVI_VERY_HIGH -> context.getString(R.string.uvi_very_high) to false
+        else -> null to false
+    }
+    val id = when {
+        isExtreme -> R.drawable.warn_extreme
+        lightText -> R.drawable.warn_light
+        else -> R.drawable.warn_dark
+    }
+    return str?.let { context.getString(R.string.warn_line,it) to id } ?: (null to null)
 }
 
 private fun getForecastStr(

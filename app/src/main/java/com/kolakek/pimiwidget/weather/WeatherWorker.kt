@@ -70,6 +70,7 @@ class WeatherWorker {
             val weatherData = providerData?.let {
                 WeatherData(
                     it.hourly.temperature_2m,
+                    it.hourly.uv_index,
                     it.hourly.weather_code,
                     it.hourly.time.map { v -> v * 1000L },
                     it.hourly.is_day,

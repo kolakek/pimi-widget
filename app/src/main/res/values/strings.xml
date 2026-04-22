@@ -160,6 +160,10 @@
     <string name="cloudy">Cloudy</string>
     <string name="foggy">Foggy</string>
 
+    <!-- Strings defining weather warnings -->
+    <string name="uvi_very_high">Very high UV levels</string>
+    <string name="uvi_extreme">Extreme UV levels</string>
+
     <!-- String saying today -->
     <string name="today">Today</string>
 
@@ -179,5 +183,8 @@
 
     <!-- Widget forecast string template -->
     <string name="forecast_line" translatable="false">" · %1$s %3$s / %4$s · %2$s"</string>
+
+    <!-- Widget warning string template -->
+    <string name="warn_line" translatable="false">" · %1$s"</string>
 
 </resources>

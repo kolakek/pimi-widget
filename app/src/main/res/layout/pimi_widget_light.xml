@@ -11,6 +11,7 @@
     <TextView
         style="@style/Widget.PimiWidget.AppWidget.WeatherLight"
         android:id="@+id/widget_temp"
+        android:layout_width="wrap_content"
         android:visibility="invisible"
         android:maxLines="1"
         android:ellipsize="end" />
