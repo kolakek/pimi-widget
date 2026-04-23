@@ -69,6 +69,12 @@
     <!-- String explaining when the forecast is shown -->
     <string name="config_daily_forecast_descr">In the morning and evening</string>
 
+    <!-- Title of the option to show weather warnings -->
+    <string name="config_weather_warnings">Show weather warnings</string>
+
+    <!-- String explaining details for the weather warnings -->
+    <string name="config_weather_warnings_descr">For extreme weather conditions</string>
+
     <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Location permission required</string>
 

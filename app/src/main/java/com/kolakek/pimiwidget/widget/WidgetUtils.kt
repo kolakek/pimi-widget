@@ -56,6 +56,7 @@ internal fun updateAppWidget(
 
     val showWeather = getWeatherPreference(context)
     val showForecast = getDailyForecastPreference(context)
+    val showWarnings = getWeatherWarningsPreference(context)
     val tempUnit = getTempPreference(context)
     val iconStyle = getIconStylePreference(context)
     val textColor = getTextColorPreference(context)
@@ -83,6 +84,7 @@ internal fun updateAppWidget(
             PimiData.weather,
             showWeather,
             showForecast,
+            showWarnings,
             tempUnit,
             iconStyle,
             lightText
@@ -137,6 +139,7 @@ private fun updateAppWidgetWeather(
     weatherData: WeatherData?,
     showWeather: Boolean,
     showForecast: Boolean,
+    showWarnings: Boolean,
     tempUnit: String,
     iconStyle: String,
     lightText: Boolean
@@ -159,13 +162,16 @@ private fun updateAppWidgetWeather(
                 iconStyle,
                 lightText
             )
-            val (warnStr, warnIcon) = getCurrentWarnStrAndIcon(
-                context,
-                weather,
-                timeMillis,
-                iconStyle,
-                lightText
-            )
+            val (warnStr, warnIcon) = if (showWarnings) {
+                getCurrentWarnStrAndIcon(
+                    context,
+                    weather,
+                    timeMillis,
+                    iconStyle,
+                    lightText
+                )
+            } else null to null
+
             val forecastStr = if (showForecast && warnStr == null) {
                 getForecastStr(context, timeMillis, weather, tempUnit)
             } else null

@@ -30,6 +30,13 @@
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
 
+        <CheckBoxPreference
+            android:key="weather_warnings"
+            android:title="@string/config_weather_warnings"
+            android:summary="@string/config_weather_warnings_descr"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
         <ListPreference
             android:defaultValue="temp_unit_celsius"
             android:entries="@array/temp_units"

@@ -21,6 +21,11 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
+fun getWeatherWarningsPreference(context: Context): Boolean {
+    return PreferenceManager.getDefaultSharedPreferences(context)
+        .getBoolean(KEY_WEATHER_WARNINGS, true)
+}
+
 fun getDailyForecastPreference(context: Context): Boolean {
     return PreferenceManager.getDefaultSharedPreferences(context)
         .getBoolean(KEY_DAILY_FORECAST, true)
