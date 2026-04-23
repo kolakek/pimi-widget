@@ -163,6 +163,7 @@ private fun updateAppWidgetWeather(
                 context,
                 weather,
                 timeMillis,
+                iconStyle,
                 lightText
             )
             val forecastStr = if (showForecast && warnStr == null) {
@@ -290,6 +291,7 @@ private fun getCurrentWarnStrAndIcon(
     context: Context,
     weather: WeatherData,
     timeMillis: Long,
+    iconStyle: String,
     lightText: Boolean
 ): Pair<String?, Int?> {
     val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
@@ -308,11 +310,19 @@ private fun getCurrentWarnStrAndIcon(
         else -> null to false
     }
     val id = when {
-        isExtreme -> R.drawable.warn_extreme
-        lightText -> R.drawable.warn_light
-        else -> R.drawable.warn_dark
+        isExtreme && lightText && iconStyle == KEY_ICON_STYLE_FILLED -> R.drawable.warn_abse
+        isExtreme && lightText && iconStyle == KEY_ICON_STYLE_OUTLINED -> R.drawable.warn_abe
+        isExtreme -> R.drawable.warn_ace
+        lightText && iconStyle == KEY_ICON_STYLE_FILLED -> R.drawable.warn_abs
+        lightText && iconStyle == KEY_ICON_STYLE_OUTLINED -> R.drawable.warn_ab
+        else -> R.drawable.warn_ac
     }
-    return str?.let { context.getString(R.string.warn_line,it) to id } ?: (null to null)
+    return str?.let {
+        context.getString(
+            R.string.warn_line,
+            if (isExtreme) it.uppercase() else it
+        ) to id
+    } ?: (null to null)
 }
 
 private fun getForecastStr(
