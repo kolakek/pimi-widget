@@ -22,16 +22,21 @@ import android.content.Context
 import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import timber.log.Timber
 
 internal class PimiWorker(
-    private val context: Context,
+    appContext: Context,
     workerParams: WorkerParameters,
-) :
-    CoroutineWorker(context, workerParams) {
+) : CoroutineWorker(appContext, workerParams) {
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
-        DataUpdater.update(context)
-        return Result.success()
+        return try {
+            DataUpdater.update(applicationContext)
+            Result.success()
+        } catch (e: Exception) {
+            Timber.e(e, "Error in PimiWorker.")
+            Result.failure()
+        }
     }
 }

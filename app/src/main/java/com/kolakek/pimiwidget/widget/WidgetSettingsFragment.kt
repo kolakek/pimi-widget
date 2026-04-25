@@ -33,7 +33,6 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.worker.DataUpdater
-import com.kolakek.pimiwidget.worker.DataUpdater.Companion.enqueueOneTimeWorker
 import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -168,7 +167,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         builder.apply {
             if (weatherEnabled == true) {
                 setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
-                    enqueueOneTimeWorker(context)
+                    DataUpdater.enqueueOneTimeWorker(context)
                     dialog.dismiss()
                 }
             }

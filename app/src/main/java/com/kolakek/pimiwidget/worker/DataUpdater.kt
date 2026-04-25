@@ -32,142 +32,142 @@ import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.PimiData
-import com.kolakek.pimiwidget.location.LocationWorker
+import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherRepository
-import com.kolakek.pimiwidget.weather.WeatherWorker
+import com.kolakek.pimiwidget.weather.WeatherService
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-class DataUpdater {
+object DataUpdater {
 
-    companion object {
+    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
+    internal suspend fun update(context: Context) {
+        Timber.d("update(): Begin function.")
 
-        @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-        internal suspend fun update(context: Context) {
-            Timber.d("update(): Begin function.")
-
-            if (permissionsDenied(context)) return
-
-            Timber.d("update(): Update location.")
-
-            val location = LocationWorker.getLocation(context)
-            PimiData.locationState = if (location == null) STATUS_FAILED else STATUS_SUCCESS
-
-            Timber.d("update(): Update weather.")
-
-            val weather = WeatherWorker.getWeather(location)
-            PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
-            weather?.let { PimiData.weather = it }
-
-            weather?.let {
-                Timber.d("update(): Store weather data.")
-                WeatherRepository.saveWeather(context, weather)
-            }
-
-            Timber.d("update(): Set refresh time.")
-
-            PimiData.timeMillis = System.currentTimeMillis()
-
-            Timber.d("update(): Update widgets.")
-            val ids = AppWidgetManager.getInstance(context)
-                .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
-
-            val intent = Intent(context, PimiWidget::class.java).apply {
-                action = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
-                putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-            }
-            context.sendBroadcast(intent)
-
-            Timber.d("update(): End function.")
+        if (permissionsDenied(context)) {
+            Timber.w("update(): Permissions denied, return.")
+            return
         }
 
-        fun enqueuePeriodicWorker(
-            context: Context,
-            initialDelayMillis: Long,
-            existingWorkPolicy: ExistingPeriodicWorkPolicy
-        ) {
-            Timber.d("enqueuePeriodicWorker(): Begin function.")
+        Timber.d("update(): Update location.")
 
-            val request = PeriodicWorkRequestBuilder<PimiWorker>(
-                UPDATE_INTERVAL_MILLIS,
-                TimeUnit.MILLISECONDS
-            ).setInitialDelay(
-                initialDelayMillis,
-                TimeUnit.MILLISECONDS
-            ).build()
+        val location = LocationService.getLocation(context)
+        PimiData.locationState = if (location == null) STATUS_FAILED else STATUS_SUCCESS
 
-            WorkManager
-                .getInstance(context)
-                .enqueueUniquePeriodicWork(
-                    WORK_NAME,
-                    existingWorkPolicy,
-                    request
-                )
-            Timber.d("enqueuePeriodicWorker(): End function.")
+        Timber.d("update(): Update weather.")
+
+        val weather = WeatherService.getWeather(location)
+        PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
+        weather?.let { PimiData.weather = it }
+
+        weather?.let {
+            Timber.d("update(): Store weather data.")
+            WeatherRepository.saveWeather(context, it)
         }
 
-        fun cancelPeriodicWorker(context: Context) {
-            Timber.d("cancelPeriodicWorker(): Begin function.")
+        Timber.d("update(): Set refresh time.")
 
-            WorkManager
-                .getInstance(context)
-                .cancelUniqueWork(WORK_NAME)
+        PimiData.timeMillis = System.currentTimeMillis()
 
-            PimiData.reset()
+        Timber.d("update(): Update widgets.")
+        val ids = AppWidgetManager.getInstance(context)
+            .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
-            Timber.d("cancelPeriodicWorker(): End function.")
+        val intent = Intent(context, PimiWidget::class.java).apply {
+            action = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
+        context.sendBroadcast(intent)
 
-        fun enqueueOneTimeWorker(context: Context) {
-            Timber.d("enqueueOneTimeWorker(): Begin function.")
+        Timber.d("update(): End function.")
+    }
 
-            val request = OneTimeWorkRequestBuilder<PimiWorker>()
-                .build()
+    fun enqueuePeriodicWorker(
+        context: Context,
+        initialDelayMillis: Long,
+        existingWorkPolicy: ExistingPeriodicWorkPolicy
+    ) {
+        Timber.d("enqueuePeriodicWorker(): Begin function.")
 
-            WorkManager
-                .getInstance(context)
-                .enqueueUniqueWork(
-                    ONE_TIME_WORK_NAME,
-                    ExistingWorkPolicy.REPLACE,
-                    request
-                )
-            Timber.d("enqueueOneTimeWorker(): End function.")
+        val request = PeriodicWorkRequestBuilder<PimiWorker>(
+            UPDATE_INTERVAL_MILLIS,
+            TimeUnit.MILLISECONDS
+        ).setInitialDelay(
+            initialDelayMillis,
+            TimeUnit.MILLISECONDS
+        ).build()
+
+        WorkManager
+            .getInstance(context)
+            .enqueueUniquePeriodicWork(
+                WORK_NAME,
+                existingWorkPolicy,
+                request
+            )
+        Timber.d("enqueuePeriodicWorker(): End function.")
+    }
+
+    fun cancelPeriodicWorker(context: Context) {
+        Timber.d("cancelPeriodicWorker(): Begin function.")
+
+        WorkManager
+            .getInstance(context)
+            .cancelUniqueWork(WORK_NAME)
+
+        PimiData.reset()
+
+        Timber.d("cancelPeriodicWorker(): End function.")
+    }
+
+    fun enqueueOneTimeWorker(context: Context) {
+        Timber.d("enqueueOneTimeWorker(): Begin function.")
+
+        val request = OneTimeWorkRequestBuilder<PimiWorker>()
+            .build()
+
+        WorkManager
+            .getInstance(context)
+            .enqueueUniqueWork(
+                ONE_TIME_WORK_NAME,
+                ExistingWorkPolicy.REPLACE,
+                request
+            )
+        Timber.d("enqueueOneTimeWorker(): End function.")
+    }
+
+    fun permissionsDenied(context: Context): Boolean {
+        return context.checkSelfPermission(REQUIRED_PERMISSION) == PackageManager
+            .PERMISSION_DENIED
+    }
+
+    fun getWeatherStatus(): String {
+        return PimiData.weatherState ?: STATUS_NAN
+    }
+
+    fun getLocationStatus(): String {
+        return PimiData.locationState ?: STATUS_NAN
+    }
+
+    fun getWorkerStatus(context: Context): String {
+        val workInfos = WorkManager
+            .getInstance(context)
+            .getWorkInfosForUniqueWork(WORK_NAME)
+            .get()
+
+        return if (workInfos.isNotEmpty()) {
+            workInfos[0].state.name
+        } else {
+            STATUS_NAN
         }
+    }
 
-        fun permissionsDenied(context: Context): Boolean {
-            return context.checkSelfPermission(REQUIRED_PERMISSION) == PackageManager
-                .PERMISSION_DENIED
-        }
+    fun getNextScheduleMillis(context: Context): Long? {
+        val workInfos = WorkManager
+            .getInstance(context)
+            .getWorkInfosForUniqueWork(WORK_NAME)
+            .get()
 
-        fun getWeatherStatus(): String {
-            return PimiData.weatherState ?: STATUS_NAN
-        }
-
-        fun getLocationStatus(): String {
-            return PimiData.locationState ?: STATUS_NAN
-        }
-
-        fun getWorkerStatus(context: Context): String {
-            val workInfos = WorkManager
-                .getInstance(context)
-                .getWorkInfosForUniqueWork(WORK_NAME)
-                .get()
-
-            return if (workInfos.isNotEmpty()) {
-                workInfos[0].state.name
-            } else {
-                STATUS_NAN
-            }
-        }
-
-        fun getNextScheduleMillis(context: Context): Long? {
-            val workInfos = WorkManager
-                .getInstance(context)
-                .getWorkInfosForUniqueWork(WORK_NAME)
-                .get()
-
-            return workInfos.firstOrNull { it.state == WorkInfo.State.ENQUEUED }
-                ?.nextScheduleTimeMillis
-        }
+        return workInfos.firstOrNull { it.state == WorkInfo.State.ENQUEUED }
+            ?.nextScheduleTimeMillis
     }
 }

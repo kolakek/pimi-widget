@@ -28,7 +28,7 @@ import com.kolakek.pimiwidget.data.LocationData
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 
-object LocationWorker {
+object LocationService {
 
     private lateinit var locationManager: LocationManager
 
