@@ -17,19 +17,13 @@
 
 package com.kolakek.pimiwidget.data
 
-import com.kolakek.pimiwidget.weather.WeatherData
+import android.content.Context
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 
-object PimiData {
+val Context.dataStore by preferencesDataStore(name = "cache")
 
-    var weather: WeatherData? = null
-    var locationState: String? = null
-    var weatherState: String? = null
-    var timeMillis: Long? = null
-
-    fun reset(){
-        weather = null
-        locationState = null
-        weatherState = null
-        timeMillis = null
-    }
+object DataKeys {
+    val DATA_WEATHER_KEY = stringPreferencesKey("weather_json")
+    val DATA_DEBUG_KEY = stringPreferencesKey("debug_json")
 }

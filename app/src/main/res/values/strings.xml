@@ -168,16 +168,14 @@
 
     <!-- Non-translatables -->
 
-    <!-- Symbol for Celsius -->
+    <string name="config_alert_debug_na" translatable="false">N/A</string>
+    <string name="config_alert_debug_success" translatable="false">SUCCESS</string>
+    <string name="config_alert_debug_failed" translatable="false">FAILED</string>
+
     <string name="celsius" translatable="false">\u2103</string>
-
-    <!-- Symbol for Fahrenheit -->
     <string name="fahrenheit" translatable="false">\u2109</string>
-
-    <!-- Symbol for degree -->
     <string name="degree" translatable="false">\u00B0</string>
 
-    <!-- Widget forecast string template -->
     <string name="forecast_line" translatable="false">" · %1$s %3$s / %4$s · %2$s"</string>
 
 </resources>

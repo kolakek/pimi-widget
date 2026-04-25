@@ -28,8 +28,9 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.weather.WeatherData
-import com.kolakek.pimiwidget.weather.WeatherRepository
 import timber.log.Timber
 import java.time.Instant
 import java.time.ZoneId
@@ -144,7 +145,7 @@ private fun updateAppWidgetWeather(
     views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
     if (showWeather) {
-        val weatherData = WeatherRepository.loadWeatherSync(context)
+        val weatherData: WeatherData? = JsonDataStore.loadSync(context, DataKeys.DATA_WEATHER_KEY)
 
         weatherData?.let { weather ->
 

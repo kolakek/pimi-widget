@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.weather
 
-import com.kolakek.pimiwidget.data.LocationData
+import com.kolakek.pimiwidget.location.LocationData
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO

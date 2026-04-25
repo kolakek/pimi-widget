@@ -31,8 +31,10 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.PimiData
+import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.worker.DataUpdater
+import com.kolakek.pimiwidget.worker.DebugData
 import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -138,8 +140,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         weatherEnabled: Boolean?
     ) {
         val builder = AlertDialog.Builder(context)
+        val debugData: DebugData? = JsonDataStore.loadSync(context, DataKeys.DATA_DEBUG_KEY)
 
-        val updateStr = PimiData.timeMillis?.let {
+        val updateStr = debugData?.timeMillis?.let {
             "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
         } ?: ""
 
@@ -151,10 +154,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${DataUpdater.getLocationStatus()}"
+                " ${statusString(debugData?.locationFailed)}"
 
         val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${DataUpdater.getWeatherStatus()}"
+                " ${statusString(debugData?.weatherFailed)}"
 
         builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)
@@ -200,6 +203,14 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         val alertDialog = builder.create()
         alertDialog.show()
+    }
+
+    private fun statusString(isFail: Boolean?): String {
+        return when (isFail) {
+            true -> getString(R.string.config_alert_debug_failed)
+            false -> getString(R.string.config_alert_debug_success)
+            null -> getString(R.string.config_alert_debug_na)
+        }
     }
 
     private fun ageString(timeMillis: Long): String {

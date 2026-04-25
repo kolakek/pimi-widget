@@ -23,7 +23,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.datastore.preferences.core.edit
 import androidx.work.ExistingPeriodicWorkPolicy
-import com.kolakek.pimiwidget.weather.dataStore
+import com.kolakek.pimiwidget.data.dataStore
 import com.kolakek.pimiwidget.worker.DataUpdater
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber

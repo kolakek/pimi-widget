@@ -24,20 +24,18 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
-import androidx.datastore.preferences.core.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
-import com.kolakek.pimiwidget.data.PimiData
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
-import com.kolakek.pimiwidget.weather.WeatherRepository
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.weather.dataStore
-import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -53,24 +51,21 @@ object DataUpdater {
         }
 
         Timber.d("update(): Update location.")
-
         val location = LocationService.getLocation(context)
-        PimiData.locationState = if (location == null) STATUS_FAILED else STATUS_SUCCESS
 
         Timber.d("update(): Update weather.")
-
         val weather = WeatherService.getWeather(location)
-        PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
-        weather?.let { PimiData.weather = it }
 
         weather?.let {
             Timber.d("update(): Store weather data.")
-            WeatherRepository.saveWeather(context, it)
+            JsonDataStore.save(context, DataKeys.DATA_WEATHER_KEY, it)
         }
-
-        Timber.d("update(): Set refresh time.")
-
-        PimiData.timeMillis = System.currentTimeMillis()
+        val debugData = DebugData(
+            location == null,
+            weather == null,
+            System.currentTimeMillis()
+        )
+        JsonDataStore.save(context, DataKeys.DATA_DEBUG_KEY, debugData)
 
         Timber.d("update(): Update widgets.")
         val ids = AppWidgetManager.getInstance(context)
@@ -117,8 +112,6 @@ object DataUpdater {
             .getInstance(context)
             .cancelUniqueWork(WORK_NAME)
 
-        PimiData.reset()
-
         Timber.d("cancelPeriodicWorker(): End function.")
     }
 
@@ -143,14 +136,6 @@ object DataUpdater {
             .PERMISSION_DENIED
     }
 
-    fun getWeatherStatus(): String {
-        return PimiData.weatherState ?: STATUS_NAN
-    }
-
-    fun getLocationStatus(): String {
-        return PimiData.locationState ?: STATUS_NAN
-    }
-
     fun getWorkerStatus(context: Context): String {
         val workInfos = WorkManager
             .getInstance(context)
@@ -160,7 +145,7 @@ object DataUpdater {
         return if (workInfos.isNotEmpty()) {
             workInfos[0].state.name
         } else {
-            STATUS_NAN
+            context.getString(R.string.config_alert_debug_na)
         }
     }
 

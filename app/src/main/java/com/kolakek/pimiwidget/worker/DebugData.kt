@@ -15,10 +15,13 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.data
+package com.kolakek.pimiwidget.worker
 
-data class LocationData (
-    var lat: Double,
-    var long: Double,
-    var timeMillis: Long
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class DebugData (
+    val locationFailed: Boolean,
+    val weatherFailed: Boolean,
+    val timeMillis: Long
 )

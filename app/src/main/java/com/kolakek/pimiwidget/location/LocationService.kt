@@ -24,7 +24,6 @@ import android.location.LocationManager
 import android.os.CancellationSignal
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
-import com.kolakek.pimiwidget.data.LocationData
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 
