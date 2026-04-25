@@ -29,7 +29,7 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
-import com.kolakek.pimiwidget.data.WeatherData
+import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
 import java.time.ZoneId

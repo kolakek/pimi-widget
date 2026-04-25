@@ -33,6 +33,7 @@ import androidx.work.WorkManager
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.location.LocationWorker
+import com.kolakek.pimiwidget.weather.WeatherRepository
 import com.kolakek.pimiwidget.weather.WeatherWorker
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -57,6 +58,11 @@ class DataUpdater {
             val weather = WeatherWorker.getWeather(location)
             PimiData.weatherState = if (weather == null) STATUS_FAILED else STATUS_SUCCESS
             weather?.let { PimiData.weather = it }
+
+            weather?.let {
+                Timber.d("update(): Store weather data.")
+                WeatherRepository.saveWeather(context, weather)
+            }
 
             Timber.d("update(): Set refresh time.")
 

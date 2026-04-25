@@ -17,6 +17,8 @@
 
 package com.kolakek.pimiwidget.data
 
+import com.kolakek.pimiwidget.weather.WeatherData
+
 object PimiData {
 
     var weather: WeatherData? = null
