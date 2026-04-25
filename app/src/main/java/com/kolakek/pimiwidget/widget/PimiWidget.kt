@@ -22,7 +22,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import androidx.work.ExistingPeriodicWorkPolicy
-import com.kolakek.pimiwidget.worker.WidgetUpdater
+import com.kolakek.pimiwidget.worker.DataUpdater
 import timber.log.Timber
 
 class PimiWidget : AppWidgetProvider() {
@@ -38,7 +38,7 @@ class PimiWidget : AppWidgetProvider() {
     }
 
     override fun onDisabled(context: Context) {
-        WidgetUpdater.cancelPeriodicWorker(context)
+        DataUpdater.cancelPeriodicWorker(context)
         setWeatherPreference(context, false)
     }
 
@@ -52,7 +52,7 @@ class PimiWidget : AppWidgetProvider() {
             updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
 
             if (getWeatherPreference(context)) {
-                WidgetUpdater.enqueuePeriodicWorker(
+                DataUpdater.enqueuePeriodicWorker(
                     context,
                     WORKER_INIT_DELAY_MILLIS,
                     ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE

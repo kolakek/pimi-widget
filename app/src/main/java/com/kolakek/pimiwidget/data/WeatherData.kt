@@ -18,17 +18,17 @@
 package com.kolakek.pimiwidget.data
 
 data class WeatherData (
-    var hourlyTempCelsius: List<Double>,
-    var hourlyWeatherCode: List<Int>,
-    var hourlyTimeMillis: List<Long>,
-    var hourlyIsDay: List<Int>,
-    var dailyTempMinCelsius: List<Double>,
-    var dailyTempMaxCelsius: List<Double>,
-    var dailyRainSum: List<Double>,
-    var dailyShowersSum: List<Double>,
-    var dailySnowfallSum: List<Double>,
-    var dailyVisibilityMean: List<Double>,
-    var dailyCloudCoverMean: List<Int>,
-    var dailyWeatherCode: List<Int>,
-    var dailyTimeMillis: List<Long>
+    val hourlyTempCelsius: List<Double>,
+    val hourlyWeatherCode: List<Int>,
+    val hourlyTimeMillis: List<Long>,
+    val hourlyIsDay: List<Int>,
+    val dailyTempMinCelsius: List<Double>,
+    val dailyTempMaxCelsius: List<Double>,
+    val dailyRainSum: List<Double>,
+    val dailyShowersSum: List<Double>,
+    val dailySnowfallSum: List<Double>,
+    val dailyVisibilityMean: List<Double>,
+    val dailyCloudCoverMean: List<Int>,
+    val dailyWeatherCode: List<Int>,
+    val dailyTimeMillis: List<Long>
 )

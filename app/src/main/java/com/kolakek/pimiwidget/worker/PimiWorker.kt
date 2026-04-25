@@ -31,7 +31,7 @@ internal class PimiWorker(
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
-        WidgetUpdater.update(context)
+        DataUpdater.update(context)
         return Result.success()
     }
 }

@@ -32,8 +32,8 @@ import androidx.preference.SwitchPreferenceCompat
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.PimiData
-import com.kolakek.pimiwidget.worker.WidgetUpdater
-import com.kolakek.pimiwidget.worker.WidgetUpdater.Companion.enqueueOneTimeWorker
+import com.kolakek.pimiwidget.worker.DataUpdater
+import com.kolakek.pimiwidget.worker.DataUpdater.Companion.enqueueOneTimeWorker
 import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -53,9 +53,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val debugField: Preference? = findPreference(KEY_DATA_INFO)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
-        if (WidgetUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
+        if (DataUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
-            WidgetUpdater.cancelPeriodicWorker(context)
+            DataUpdater.cancelPeriodicWorker(context)
         }
 
         debugField?.setOnPreferenceClickListener {
@@ -70,12 +70,12 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             when (newValue) {
-                true if WidgetUpdater.permissionsDenied(context) -> {
+                true if DataUpdater.permissionsDenied(context) -> {
                     requestNextPermission(context)
                     false
                 }
                 true -> {
-                    WidgetUpdater.enqueuePeriodicWorker(
+                    DataUpdater.enqueuePeriodicWorker(
                         context,
                         0,
                         ExistingPeriodicWorkPolicy.KEEP
@@ -83,7 +83,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     true
                 }
                 else -> {
-                    WidgetUpdater.cancelPeriodicWorker(context)
+                    DataUpdater.cancelPeriodicWorker(context)
                     true
                 }
             }
@@ -117,7 +117,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) {
             findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.apply {
                 isChecked = true
-                WidgetUpdater.enqueuePeriodicWorker(
+                DataUpdater.enqueuePeriodicWorker(
                     context,
                     0,
                     ExistingPeriodicWorkPolicy.KEEP
@@ -145,17 +145,17 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         } ?: ""
 
         var workerStr = getString(R.string.config_alert_debug_worker) +
-                " ${WidgetUpdater.getWorkerStatus(context)}"
+                " ${DataUpdater.getWorkerStatus(context)}"
 
-        WidgetUpdater.getNextScheduleMillis(context)?.let {
+        DataUpdater.getNextScheduleMillis(context)?.let {
             workerStr += " (${DateFormat.getTimeFormat(context).format(Date(it))})"
         }
 
         val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${WidgetUpdater.getLocationStatus()}"
+                " ${DataUpdater.getLocationStatus()}"
 
         val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${WidgetUpdater.getWeatherStatus()}"
+                " ${DataUpdater.getWeatherStatus()}"
 
         builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)

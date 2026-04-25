@@ -37,7 +37,7 @@ import com.kolakek.pimiwidget.weather.WeatherWorker
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-class WidgetUpdater {
+class DataUpdater {
 
     companion object {
 
