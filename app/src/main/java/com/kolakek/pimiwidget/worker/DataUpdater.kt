@@ -24,6 +24,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
+import androidx.datastore.preferences.core.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
@@ -35,6 +36,8 @@ import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherRepository
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.weather.dataStore
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
