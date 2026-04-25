@@ -28,8 +28,8 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.PimiData
 import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.weather.WeatherRepository
 import timber.log.Timber
 import java.time.Instant
 import java.time.ZoneId
@@ -80,7 +80,6 @@ internal fun updateAppWidget(
             views,
             appWidgetManager,
             appWidgetId,
-            PimiData.weather,
             showWeather,
             showForecast,
             tempUnit,
@@ -134,7 +133,6 @@ private fun updateAppWidgetWeather(
     views: RemoteViews,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int,
-    weatherData: WeatherData?,
     showWeather: Boolean,
     showForecast: Boolean,
     tempUnit: String,
@@ -146,6 +144,8 @@ private fun updateAppWidgetWeather(
     views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
     if (showWeather) {
+        val weatherData = WeatherRepository.loadWeatherSync(context)
+
         weatherData?.let { weather ->
 
             Timber.d("updateAppWidgetWeather(): Refreshing weather display.")
