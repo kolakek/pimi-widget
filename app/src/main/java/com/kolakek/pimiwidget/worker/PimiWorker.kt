@@ -32,7 +32,7 @@ internal class PimiWorker(
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
         return try {
-            DataUpdater.update(applicationContext)
+            WidgetUpdater.update(applicationContext)
             Result.success()
         } catch (e: Exception) {
             Timber.e(e, "Error in PimiWorker.")

@@ -27,6 +27,8 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 
+// ToDO: Missing check
+
 object LocationService {
 
     private lateinit var locationManager: LocationManager

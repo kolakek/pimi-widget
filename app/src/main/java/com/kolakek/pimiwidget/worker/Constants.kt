@@ -17,9 +17,6 @@
 
 package com.kolakek.pimiwidget.worker
 
-import android.Manifest
-
 internal const val WORK_NAME = "update-kolakek-pimi-widget"
 internal const val ONE_TIME_WORK_NAME = "onetime-update-kolakek-pimi-widget"
 internal const val UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
-internal const val REQUIRED_PERMISSION = Manifest.permission.ACCESS_BACKGROUND_LOCATION

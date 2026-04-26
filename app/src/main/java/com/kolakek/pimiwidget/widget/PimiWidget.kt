@@ -24,7 +24,7 @@ import android.content.Intent
 import androidx.datastore.preferences.core.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.dataStore
-import com.kolakek.pimiwidget.worker.DataUpdater
+import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
@@ -42,7 +42,7 @@ class PimiWidget : AppWidgetProvider() {
 
     override fun onDisabled(context: Context) {
         Timber.d("onDisabled(): Begin function.")
-        DataUpdater.cancelPeriodicWorker(context)
+        WorkManagerHelper.cancelPeriodicWorker(context)
         setWeatherPreference(context, false)
         runBlocking {
             context.dataStore.edit { it.clear() }
@@ -59,7 +59,7 @@ class PimiWidget : AppWidgetProvider() {
             updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
 
             if (getWeatherPreference(context)) {
-                DataUpdater.enqueuePeriodicWorker(
+                WorkManagerHelper.enqueuePeriodicWorker(
                     context,
                     WORKER_INIT_DELAY_MILLIS,
                     ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE

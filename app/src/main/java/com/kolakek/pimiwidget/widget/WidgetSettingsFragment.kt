@@ -25,6 +25,7 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -33,8 +34,8 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.worker.DataUpdater
 import com.kolakek.pimiwidget.worker.DebugData
+import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -54,9 +55,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val debugField: Preference? = findPreference(KEY_DATA_INFO)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
-        if (DataUpdater.permissionsDenied(context) && weatherSwitch?.isChecked == true) {
+        if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
-            DataUpdater.cancelPeriodicWorker(context)
+            WorkManagerHelper.cancelPeriodicWorker(context)
         }
 
         debugField?.setOnPreferenceClickListener {
@@ -71,12 +72,12 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             when (newValue) {
-                true if DataUpdater.permissionsDenied(context) -> {
+                true if permissionsDenied(context) -> {
                     requestNextPermission(context)
                     false
                 }
                 true -> {
-                    DataUpdater.enqueuePeriodicWorker(
+                    WorkManagerHelper.enqueuePeriodicWorker(
                         context,
                         0,
                         ExistingPeriodicWorkPolicy.KEEP
@@ -84,7 +85,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     true
                 }
                 else -> {
-                    DataUpdater.cancelPeriodicWorker(context)
+                    WorkManagerHelper.cancelPeriodicWorker(context)
                     true
                 }
             }
@@ -118,7 +119,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) {
             findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.apply {
                 isChecked = true
-                DataUpdater.enqueuePeriodicWorker(
+                WorkManagerHelper.enqueuePeriodicWorker(
                     context,
                     0,
                     ExistingPeriodicWorkPolicy.KEEP
@@ -135,6 +136,12 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    private fun permissionsDenied(context: Context): Boolean =
+        ContextCompat.checkSelfPermission(
+            context,
+            REQUIRED_PERMISSION
+        ) == PackageManager.PERMISSION_DENIED
+
     private fun showDebugDialog(
         context: Context,
         weatherEnabled: Boolean?
@@ -146,10 +153,11 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
         } ?: ""
 
-        var workerStr = getString(R.string.config_alert_debug_worker) +
-                " ${DataUpdater.getWorkerStatus(context)}"
+        var workerStr = getString(R.string.config_alert_debug_worker) + " " +
+                (WorkManagerHelper.getWorkerStatus(context)
+                    ?: getString(R.string.config_alert_debug_na))
 
-        DataUpdater.getNextScheduleMillis(context)?.let {
+        WorkManagerHelper.getNextScheduleMillis(context)?.let {
             workerStr += " (${DateFormat.getTimeFormat(context).format(Date(it))})"
         }
 
@@ -170,7 +178,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         builder.apply {
             if (weatherEnabled == true) {
                 setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
-                    DataUpdater.enqueueOneTimeWorker(context)
+                    WorkManagerHelper.enqueueOneTimeWorker(context)
                     dialog.dismiss()
                 }
             }

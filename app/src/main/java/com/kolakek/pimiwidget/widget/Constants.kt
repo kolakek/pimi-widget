@@ -17,6 +17,10 @@
 
 package com.kolakek.pimiwidget.widget
 
+import android.Manifest
+
+internal const val REQUIRED_PERMISSION = Manifest.permission.ACCESS_BACKGROUND_LOCATION
+
 internal const val KEY_TEMP_UNITS = "temp_list"
 internal const val KEY_CELSIUS = "temp_unit_celsius"
 internal const val KEY_FAHRENHEIT = "temp_unit_fahrenheit"
