@@ -19,5 +19,5 @@ package com.kolakek.pimiwidget.location
 
 import android.location.LocationManager
 
-internal const val LAST_LOCATION_MAX_AGE_MILLIS = 60 * 60 * 1000L
+internal const val LOCATION_MAX_AGE_MILLIS = 60 * 60 * 1000L
 internal const val LOCATION_PROVIDER = LocationManager.FUSED_PROVIDER

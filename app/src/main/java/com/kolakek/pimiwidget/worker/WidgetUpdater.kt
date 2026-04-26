@@ -38,16 +38,22 @@ object WidgetUpdater {
     internal suspend fun update(context: Context) {
         Timber.d("update: Start widget update")
 
-        val locationGranted = hasLocationPermission(context)
-        val location = if (locationGranted) LocationService.getLocation(context) else null
-        val weather = location?.let { WeatherService.getWeather(it) }
-
-        if (!locationGranted) Timber.w("Location permission denied")
-        if (location == null) Timber.w("No location available")
-        if (weather == null) Timber.w("No weather data available")
-
-        weather?.let {
-            JsonDataStore.save(context, DataKeys.DATA_WEATHER_KEY, it)
+        val location = if (hasLocationPermission(context)) {
+            LocationService.getLocation(context)
+        } else {
+            Timber.w("Location permission denied")
+            null
+        }
+        val weather = if (location != null) {
+            WeatherService.getWeather(location)
+        } else {
+            Timber.w("No location available")
+            null
+        }
+        if (weather != null) {
+            JsonDataStore.save(context, DataKeys.DATA_WEATHER_KEY, weather)
+        } else {
+            Timber.w("No weather data available")
         }
         JsonDataStore.save(
             context,

@@ -27,41 +27,35 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 
-// ToDO: Missing check
-
 object LocationService {
-
-    private lateinit var locationManager: LocationManager
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     suspend fun getLocation(context: Context): LocationData? {
-        Timber.d("getLocation(): Begin Function.")
+        Timber.d("getLocation: Get location")
 
-        if (!::locationManager.isInitialized) {
-            locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager = context.getSystemService(LocationManager::class.java)
+
+        val lastLocation = try {
+            locationManager.getLastKnownLocation(LOCATION_PROVIDER)
+        } catch (e: SecurityException) {
+            Timber.e(e, "getLocation: Missing location permission")
+            null
         }
-
-        Timber.d("getLocation(): Get last location.")
-        var location = locationManager.getLastKnownLocation(LOCATION_PROVIDER)
-        val ageMillis = System.currentTimeMillis() - (location?.time ?: 0)
-
-        if (location == null) {
-            Timber.d("getLocation(): Last location null.")
+        val location = if (
+            lastLocation == null ||
+            System.currentTimeMillis() - lastLocation.time > LOCATION_MAX_AGE_MILLIS
+        ) {
+            Timber.d("getLocation: No valid last location, get current location")
+            getCurrentLocation(locationManager, LOCATION_PROVIDER, context)
         } else {
-            Timber.d("getLocation(): Last location: " +
-                    "${ageMillis / 1000L / 60} min old.")
+            lastLocation
         }
-
-        if (location == null || ageMillis > LAST_LOCATION_MAX_AGE_MILLIS) {
-            Timber.d("getLocation(): Get current location.")
-            location = getCurrentLocation(locationManager, LOCATION_PROVIDER, context)
-            location ?: Timber.d("getLocation(): Current location null.")
+        if (location == null) {
+            Timber.w("getLocation: Failed to determine location")
+        } else {
+            Timber.d("getLocation: Location obtained successfully")
         }
-        Timber.d("getLocation(): Store data.")
-        val data = location?.let { LocationData(it.latitude, it.longitude, it.time) }
-
-        Timber.d("getLocation(): End function.")
-        return data
+        return location?.let { LocationData(it.latitude, it.longitude, it.time) }
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
@@ -70,12 +64,17 @@ object LocationService {
         provider: String,
         context: Context
     ): Location? = suspendCancellableCoroutine { cont ->
-
         val cancellationSignal = CancellationSignal()
         val executor = ContextCompat.getMainExecutor(context)
 
-        manager.getCurrentLocation(provider, cancellationSignal, executor) { location ->
-            cont.resume(location) { _, _, _ -> }
+        try {
+            manager.getCurrentLocation(provider, cancellationSignal, executor) { location ->
+                cont.resume(location) { _, _, _ -> }
+            }
+        } catch (e: SecurityException) {
+            Timber.e(e, "getCurrentLocation: Missing location permission")
+            cont.resume(null) { _, _, _ -> }
+            return@suspendCancellableCoroutine
         }
         cont.invokeOnCancellation {
             cancellationSignal.cancel()

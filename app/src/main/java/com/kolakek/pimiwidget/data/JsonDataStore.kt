@@ -56,7 +56,7 @@ object JsonDataStore {
         return try {
             json.decodeFromString<T>(jsonString)
         } catch (e: Exception) {
-            Timber.e(e, "loadSync(): Failed to decode ${T::class.simpleName}.")
+            Timber.e(e, "loadSync: Failed to decode ${T::class.simpleName}")
             null
         }
     }
