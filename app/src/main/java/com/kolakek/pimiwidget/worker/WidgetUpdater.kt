@@ -36,24 +36,25 @@ object WidgetUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context) {
-        Timber.d("update: Start widget update")
-
+        Timber.d("update: Get location")
         val location = if (hasLocationPermission(context)) {
             LocationService.getLocation(context)
         } else {
-            Timber.w("Location permission denied")
+            Timber.w("update: Location permission denied")
             null
         }
+        Timber.d("update: Get weather data")
         val weather = if (location != null) {
             WeatherService.getWeather(location)
         } else {
-            Timber.w("No location available")
+            Timber.w("update: No location available")
             null
         }
         if (weather != null) {
+            Timber.d("update: Store weather data")
             JsonDataStore.save(context, DataKeys.DATA_WEATHER_KEY, weather)
         } else {
-            Timber.w("No weather data available")
+            Timber.w("update: No weather data available")
         }
         JsonDataStore.save(
             context,
@@ -64,6 +65,7 @@ object WidgetUpdater {
                 System.currentTimeMillis()
             )
         )
+        Timber.d("update: Update widget")
         updateWidget(context)
     }
 
@@ -81,7 +83,6 @@ object WidgetUpdater {
             action = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
-
         context.sendBroadcast(intent)
     }
 }

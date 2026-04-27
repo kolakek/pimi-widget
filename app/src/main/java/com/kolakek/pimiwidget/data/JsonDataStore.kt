@@ -50,13 +50,14 @@ object JsonDataStore {
         val prefs = runBlocking {
             context.dataStore.data.first()
         }
-
-        val jsonString = prefs[key] ?: return null
-
+        val jsonString = prefs[key] ?: run {
+            Timber.w("loadSync: No value found for key: $key")
+            return null
+        }
         return try {
             json.decodeFromString<T>(jsonString)
-        } catch (e: Exception) {
-            Timber.e(e, "loadSync: Failed to decode ${T::class.simpleName}")
+        } catch (_: Exception) {
+            Timber.e("loadSync: Failed to decode: ${T::class.simpleName}")
             null
         }
     }
