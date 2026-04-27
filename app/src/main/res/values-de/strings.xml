@@ -1,8 +1,5 @@
 <resources>
 
-    <!-- Name of the app, should not be translated -->
-    <string name="app_name">Pimi Widget</string>
-
     <!-- Short description of the widget shown in the widget drawer -->
     <string name="widget_label">Datum &amp; Wetter</string>
 

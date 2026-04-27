@@ -1,8 +1,5 @@
 <resources>
 
-    <!-- Name of the app, should not be translated -->
-    <string name="app_name">Pimi Widget</string>
-
     <!-- Short description of the widget shown in the widget drawer -->
     <string name="widget_label">Date &amp; Weather</string>
 
@@ -167,6 +164,9 @@
     <string name="tomorrow">Tomorrow</string>
 
     <!-- Non-translatables -->
+
+    <!-- Name of the app, should not be translated -->
+    <string name="app_name" translatable="false">Pimi Widget</string>
 
     <!-- Symbol for Celsius -->
     <string name="celsius" translatable="false">\u2103</string>

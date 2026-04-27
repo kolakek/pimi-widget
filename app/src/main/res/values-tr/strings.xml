@@ -1,7 +1,5 @@
 <resources>
 
-    <string name="app_name">Pimi Widget</string>
-
     <string name="widget_label">Tarih ve Hava Durumu</string>
 
     <string name="config_button">Widget\'ı Güncelle</string>
@@ -91,25 +89,25 @@
         <item quantity="other">%d Dakika</item>
     </plurals>
 
-    <string name="widget_date_prev">"Paz, 3 Eki"</string>
+    <string name="widget_date_prev">"29 Eki Paz"</string>
 
     <string name="widget_temp_prev">"21\u2103 · Yarın 19\u00B0 / 13\u00B0 · Parçalı bulutlu"</string>
 
-    <string name="widget_date_format">"E, d MMM"</string>
+    <string name="widget_date_format">"d MMM E"</string>
 
-    <string name="thunderstorms">Gök Gürültülü Fırtına</string>
-    <string name="freezing_rain">Dondurucu Yağmur</string>
-    <string name="freezing_drizzle">Dondurucu Çiseleme</string>
-    <string name="heavy_rain">Şiddetli Yağmur</string>
-    <string name="heavy_snow">Yoğun Kar</string>
-    <string name="rain_showers">Sağanak Yağış</string>
-    <string name="snow_showers">Kar Geçişleri</string>
-    <string name="drizzle">Çiseleyen Yağmur</string>
-    <string name="flurries">Hafif Kar</string>
+    <string name="thunderstorms">Gök gürültülü fırtına</string>
+    <string name="freezing_rain">Dondurucu yağmur</string>
+    <string name="freezing_drizzle">Dondurucu çiseleme</string>
+    <string name="heavy_rain">Şiddetli yağmur</string>
+    <string name="heavy_snow">Yoğun kar</string>
+    <string name="rain_showers">Sağanak yağış</string>
+    <string name="snow_showers">Kar geçişleri</string>
+    <string name="drizzle">Çiseleyen yağmur</string>
+    <string name="flurries">Hafif kar</string>
     <string name="clear">Açık</string>
-    <string name="mostly_clear">Çoğunlukla Açık</string>
-    <string name="partly_cloudy">Parçalı Bulutlu</string>
-    <string name="mostly_cloudy">Çoğunlukla Bulutlu</string>
+    <string name="mostly_clear">Çoğunlukla açık</string>
+    <string name="partly_cloudy">Parçalı bulutlu</string>
+    <string name="mostly_cloudy">Çoğunlukla bulutlu</string>
     <string name="cloudy">Bulutlu</string>
     <string name="foggy">Sisli</string>
 
