@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.weather
 
 import com.kolakek.pimiwidget.location.LocationData
-import com.kolakek.pimiwidget.weather.HttpClientProvider.client
 import kotlinx.coroutines.CancellationException
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -43,7 +42,7 @@ object WeatherService {
 
         Timber.d("getWeather: Get data for URL: $url")
         return try {
-            val result = mapProviderData(client.get(url).body())
+            val result = mapProviderData(HttpClientProvider.client.get(url).body())
             Timber.d("getWeather: Data successfully retrieved")
             result
         } catch (e: Exception) {

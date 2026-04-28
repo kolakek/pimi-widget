@@ -21,7 +21,7 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
-object PreferencesHelper {
+internal object PreferencesHelper {
 
     fun getDailyForecastPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)

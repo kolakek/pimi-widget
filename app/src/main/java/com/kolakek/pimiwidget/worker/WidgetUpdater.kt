@@ -32,7 +32,7 @@ import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import timber.log.Timber
 
-object WidgetUpdater {
+internal object WidgetUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context) {

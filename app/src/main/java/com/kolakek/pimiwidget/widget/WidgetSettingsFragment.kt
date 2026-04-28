@@ -38,7 +38,7 @@ import com.kolakek.pimiwidget.worker.DebugData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.util.Date
 
-class WidgetSettingsFragment : PreferenceFragmentCompat() {
+internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private val coarseLocationPermission = Manifest.permission.ACCESS_COARSE_LOCATION
     private val backgroundLocationPermission = Manifest.permission.ACCESS_BACKGROUND_LOCATION

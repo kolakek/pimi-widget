@@ -23,6 +23,7 @@ import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import timber.log.Timber
+import kotlinx.coroutines.CancellationException
 
 internal class PimiWorker(
     appContext: Context,
@@ -34,6 +35,8 @@ internal class PimiWorker(
         return try {
             WidgetUpdater.update(applicationContext)
             Result.success()
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             Timber.e(e, "Error in PimiWorker.")
             Result.failure()

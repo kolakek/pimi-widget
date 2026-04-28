@@ -24,7 +24,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import timber.log.Timber
 
-object HttpClientProvider {
+internal object HttpClientProvider {
 
     val client: HttpClient by lazy {
         Timber.d("HttpClientProvider: Create client")
