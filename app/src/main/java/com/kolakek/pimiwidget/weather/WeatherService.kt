@@ -18,70 +18,56 @@
 package com.kolakek.pimiwidget.weather
 
 import com.kolakek.pimiwidget.location.LocationData
-import io.ktor.client.HttpClient
+import com.kolakek.pimiwidget.weather.HttpClientProvider.client
+import kotlinx.coroutines.CancellationException
 import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
-import io.ktor.serialization.kotlinx.json.json
-import kotlinx.serialization.json.Json
+import io.ktor.http.URLBuilder
 import timber.log.Timber
 
 object WeatherService {
 
-    suspend fun getWeather(location: LocationData?): WeatherData? {
-        Timber.d("getWeather(): Begin function.")
+    suspend fun getWeather(location: LocationData): WeatherData? {
+        val url = URLBuilder(BASE_URL).apply {
+            parameters.append("latitude", location.lat.toString())
+            parameters.append("longitude", location.long.toString())
 
-        if (location == null) {
-            Timber.d("getWeather(): Return null.")
-            return null
-        }
-        Timber.d("getWeather(): Instantiate client.")
-        val client = HttpClient(CIO) {
-            expectSuccess = true
-            install(ContentNegotiation) {
-                json(
-                    Json {
-                        isLenient = true
-                        ignoreUnknownKeys = true
-                    }
-                )
-            }
-        }
-        var providerData: ProviderData?
+            parameters.append(DAILY_KEY, DAILY_VALUE)
+            parameters.append(HOURLY_KEY, HOURLY_VALUE)
 
-        val str = "$URL?latitude=${location.lat}&longitude=${location.long}&$DAT1&$DAT2&$OPTS"
-        Timber.d("getWeather(): $str")
+            parameters.append(TIMEZONE_KEY, TIMEZONE_VALUE)
+            parameters.append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
+            parameters.append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
+            parameters.append(TIMEFORMAT_KEY, TIMEFORMAT_VALUE)
+        }.build()
 
-        try {
-            Timber.d("getWeather(): Get weather data.")
-            providerData = client.get(str).body()
-        } catch (_: Throwable) {
-            Timber.w("getWeather(): Catch exception.")
-            providerData = null
-        } finally {
-            Timber.d("getWeather(): Close client.")
-            client.close()
+        Timber.d("getWeather: Get data for URL: $url")
+        return try {
+            val result = mapProviderData(client.get(url).body())
+            Timber.d("getWeather: Data successfully retrieved")
+            result
+        } catch (e: Exception) {
+            if (e is CancellationException) throw e
+            Timber.w("getWeather: Failed")
+            null
         }
-        Timber.d("getWeather(): Store data.")
-        val weatherData = providerData?.let {
-            WeatherData(
-                it.hourly.temperature_2m,
-                it.hourly.weather_code,
-                it.hourly.time.map { v -> v * 1000L },
-                it.hourly.is_day,
-                it.daily.temperature_2m_min,
-                it.daily.temperature_2m_max,
-                it.daily.rain_sum,
-                it.daily.showers_sum,
-                it.daily.snowfall_sum,
-                it.daily.visibility_mean,
-                it.daily.cloud_cover_mean,
-                it.daily.weather_code,
-                it.daily.time.map { v -> v * 1000L }
-            )
-        }
-        Timber.d("getWeather(): End function.")
-        return weatherData
+    }
+
+    private fun mapProviderData(providerData: ProviderData): WeatherData {
+        return WeatherData(
+            providerData.hourly.temperature_2m,
+            providerData.hourly.weather_code,
+            providerData.hourly.time.map { v -> v * 1000L },
+            providerData.hourly.is_day,
+            providerData.daily.temperature_2m_min,
+            providerData.daily.temperature_2m_max,
+            providerData.daily.rain_sum,
+            providerData.daily.showers_sum,
+            providerData.daily.snowfall_sum,
+            providerData.daily.visibility_mean,
+            providerData.daily.cloud_cover_mean,
+            providerData.daily.weather_code,
+            providerData.daily.time.map { v -> v * 1000L }
+        )
     }
 }

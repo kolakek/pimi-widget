@@ -17,7 +17,22 @@
 
 package com.kolakek.pimiwidget.weather
 
-internal const val URL = "https://api.open-meteo.com/v1/forecast"
-internal const val DAT1 = "daily=weather_code,temperature_2m_max,temperature_2m_min,rain_sum,showers_sum,snowfall_sum,visibility_mean,cloud_cover_mean"
-internal const val DAT2 = "hourly=temperature_2m,weather_code,is_day"
-internal const val OPTS = "timezone=auto&forecast_days=2&forecast_hours=4&timeformat=unixtime"
+internal const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
+
+internal const val HOURLY_KEY = "hourly"
+internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day"
+
+internal const val DAILY_KEY = "daily"
+internal const val DAILY_VALUE = "weather_code,temperature_2m_max,temperature_2m_min,rain_sum,showers_sum,snowfall_sum,visibility_mean,cloud_cover_mean"
+
+internal const val TIMEZONE_KEY = "timezone"
+internal const val TIMEZONE_VALUE = "auto"
+
+internal const val FORECAST_DAYS_KEY = "forecast_days"
+internal const val FORECAST_DAYS_VALUE = "2"
+
+internal const val FORECAST_HOURS_KEY = "forecast_hours"
+internal const val FORECAST_HOURS_VALUE = "4"
+
+internal const val TIMEFORMAT_KEY = "timeformat"
+internal const val TIMEFORMAT_VALUE = "unixtime"
