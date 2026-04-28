@@ -51,30 +51,30 @@ internal fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int,
-    updateMode: WidgetUpdateMode = WidgetUpdateMode.APP_WIDGET
+    updateMode: WidgetUpdateMode = WidgetUpdateMode.FULL_WIDGET_UPDATE
 ) {
     Timber.d("updateAppWidget(): Begin Function, update mode $updateMode.")
 
-    val showWeather = getWeatherPreference(context)
-    val showForecast = getDailyForecastPreference(context)
-    val tempUnit = getTempPreference(context)
-    val iconStyle = getIconStylePreference(context)
-    val textColor = getTextColorPreference(context)
+    val showWeather = PreferencesHelper.getWeatherPreference(context)
+    val showForecast = PreferencesHelper.getDailyForecastPreference(context)
+    val tempUnit = PreferencesHelper.getTempPreference(context)
+    val iconStyle = PreferencesHelper.getIconStylePreference(context)
+    val textColor = PreferencesHelper.getTextColorPreference(context)
 
     val lightText = useLightText(context, textColor)
     val views = getRemoteViews(context, iconStyle, lightText)
 
-    if (updateMode == WidgetUpdateMode.APP_WIDGET) {
+    if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE) {
         updateAppWidgetFull(context, views, appWidgetManager, appWidgetId)
     }
-    if (updateMode == WidgetUpdateMode.APP_WIDGET ||
-        updateMode == WidgetUpdateMode.LOCALE
+    if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE ||
+        updateMode == WidgetUpdateMode.LOCALE_UPDATE
     ) {
         updateAppWidgetDate(context, views, appWidgetManager, appWidgetId)
     }
-    if (updateMode == WidgetUpdateMode.APP_WIDGET ||
-        updateMode == WidgetUpdateMode.LOCALE ||
-        updateMode == WidgetUpdateMode.WEATHER
+    if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE ||
+        updateMode == WidgetUpdateMode.LOCALE_UPDATE ||
+        updateMode == WidgetUpdateMode.WEATHER_UPDATE
     ) {
         updateAppWidgetWeather(
             context,

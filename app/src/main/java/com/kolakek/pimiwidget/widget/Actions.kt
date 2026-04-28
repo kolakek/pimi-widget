@@ -17,8 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-enum class WidgetUpdateMode {
-    FULL_WIDGET_UPDATE,
-    LOCALE_UPDATE,
-    WEATHER_UPDATE
+object Actions {
+    const val WEATHER_UPDATE = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
+    const val APPWIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
 }

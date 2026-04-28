@@ -49,20 +49,15 @@ class WidgetConfigureActivity : FragmentActivity() {
         val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener { finishWidgetConfigureActivity() }
-
-        val intent = intent
-        val extras = intent.extras
-
-        if (extras != null) {
-            appWidgetId = extras.getInt(
-                AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID
-            )
-        }
+        appWidgetId = intent?.extras?.getInt(
+            AppWidgetManager.EXTRA_APPWIDGET_ID,
+            AppWidgetManager.INVALID_APPWIDGET_ID
+        ) ?: AppWidgetManager.INVALID_APPWIDGET_ID
 
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish()
             return
         }
+        binding.button.setOnClickListener { finishWidgetConfigureActivity() }
     }
 }

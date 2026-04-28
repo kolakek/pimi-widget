@@ -21,11 +21,8 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import androidx.datastore.preferences.core.edit
 import androidx.work.ExistingPeriodicWorkPolicy
-import com.kolakek.pimiwidget.data.dataStore
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
-import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
 class PimiWidget : AppWidgetProvider() {
@@ -41,43 +38,40 @@ class PimiWidget : AppWidgetProvider() {
     }
 
     override fun onDisabled(context: Context) {
-        Timber.d("onDisabled(): Begin function.")
+        Timber.d("onDisabled: Deactivate weather service, cancel workers")
+
+        PreferencesHelper.setWeatherPreference(context, false)
         WorkManagerHelper.cancelWorkers(context)
-        setWeatherPreference(context, false)
-        runBlocking {
-            context.dataStore.edit { it.clear() }
-        }
     }
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
 
-        if (intent.action == "android.intent.action.BOOT_COMPLETED" ||
-            intent.action == "android.intent.action.MY_PACKAGE_REPLACED"
-        ) {
-            Timber.d("onReceive(): Update APP_WIDGET.")
-            updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
+        when (intent.action) {
+            Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
+                Timber.d("onReceive: Enable worker, full widget update")
+                updateAppWidgetLoop(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
 
-            if (getWeatherPreference(context)) {
-                WorkManagerHelper.enqueuePeriodicWorker(
-                    context,
-                    WORKER_INIT_DELAY_MILLIS,
-                    ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
-                )
+                if (PreferencesHelper.getWeatherPreference(context)) {
+                    WorkManagerHelper.enqueuePeriodicWorker(
+                        context,
+                        WORKER_INIT_DELAY_MILLIS,
+                        ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+                    )
+                }
             }
-        } else if (intent.action == "android.intent.action.LOCALE_CHANGED") {
-            Timber.d("onReceive(): Update LOCALE.")
-            updateAppWidgetLoop(context, WidgetUpdateMode.LOCALE)
-
-        } else if (intent.action == "com.kolakek.pimiwidget.action.WEATHER_UPDATE") {
-            Timber.d("onReceive(): Update WEATHER_UPDATE.")
-            updateAppWidgetLoop(context, WidgetUpdateMode.WEATHER)
-
-        } else if (intent.action == "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ||
-            intent.action == "android.intent.action.WALLPAPER_CHANGED"
-        ) {
-            Timber.d("onReceive(): Update APP_WIDGET.")
-            updateAppWidgetLoop(context, WidgetUpdateMode.APP_WIDGET)
+            Actions.APPWIDGET_UPDATE -> {
+                Timber.d("onReceive: Full widget update")
+                updateAppWidgetLoop(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+            }
+            Intent.ACTION_LOCALE_CHANGED -> {
+                Timber.d("onReceive: Update locale")
+                updateAppWidgetLoop(context, WidgetUpdateMode.LOCALE_UPDATE)
+            }
+            Actions.WEATHER_UPDATE -> {
+                Timber.d("onReceive: Update weather")
+                updateAppWidgetLoop(context, WidgetUpdateMode.WEATHER_UPDATE)
+            }
         }
     }
 }
