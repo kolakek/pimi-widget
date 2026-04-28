@@ -57,7 +57,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
-            WorkManagerHelper.cancelPeriodicWorker(context)
+            WorkManagerHelper.cancelWorkers(context)
         }
 
         debugField?.setOnPreferenceClickListener {
@@ -85,7 +85,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     true
                 }
                 else -> {
-                    WorkManagerHelper.cancelPeriodicWorker(context)
+                    WorkManagerHelper.cancelWorkers(context)
                     true
                 }
             }

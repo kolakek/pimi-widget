@@ -37,20 +37,20 @@ object WorkManagerHelper {
             .build()
 
         WorkManager
-            .getInstance(context)
+            .getInstance(context.applicationContext)
             .enqueueUniqueWork(
                 ONE_TIME_WORK_NAME,
-                ExistingWorkPolicy.REPLACE,
+                ExistingWorkPolicy.KEEP,
                 request
             )
     }
 
-    fun cancelPeriodicWorker(context: Context) {
-        Timber.d("cancelPeriodicWorker: Cancel worker")
+    fun cancelWorkers(context: Context) {
+        Timber.d("cancelWorkers: Cancel all workers")
+        val workManager = WorkManager.getInstance(context.applicationContext)
 
-        WorkManager
-            .getInstance(context)
-            .cancelUniqueWork(WORK_NAME)
+        workManager.cancelUniqueWork(PERIODIC_WORK_NAME)
+        workManager.cancelUniqueWork(ONE_TIME_WORK_NAME)
     }
 
     fun enqueuePeriodicWorker(
@@ -58,7 +58,7 @@ object WorkManagerHelper {
         initialDelayMillis: Long,
         existingWorkPolicy: ExistingPeriodicWorkPolicy
     ) {
-        Timber.d("enqueuePeriodicWorker: Enqueue worker")
+        Timber.d("enqueuePeriodicWorker: Enqueue worker with ${initialDelayMillis / 1000L}s delay")
 
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
             UPDATE_INTERVAL_MILLIS,
@@ -69,30 +69,30 @@ object WorkManagerHelper {
         ).build()
 
         WorkManager
-            .getInstance(context)
+            .getInstance(context.applicationContext)
             .enqueueUniquePeriodicWork(
-                WORK_NAME,
+                PERIODIC_WORK_NAME,
                 existingWorkPolicy,
                 request
             )
     }
 
-    fun getNextScheduleMillis(context: Context): Long? {
-        val workInfos = WorkManager
-            .getInstance(context)
-            .getWorkInfosForUniqueWork(WORK_NAME)
-            .get()
+    fun getNextScheduleMillis(context: Context): Long? =
+        runCatching {
+            WorkManager.getInstance(context.applicationContext)
+                .getWorkInfosForUniqueWork(PERIODIC_WORK_NAME)
+                .get()
+                .firstOrNull { it.state == WorkInfo.State.ENQUEUED }
+                ?.nextScheduleTimeMillis
+        }.getOrNull()
 
-        return workInfos.firstOrNull { it.state == WorkInfo.State.ENQUEUED }
-            ?.nextScheduleTimeMillis
-    }
-
-    fun getWorkerStatus(context: Context): String? {
-        val workInfos = WorkManager
-            .getInstance(context)
-            .getWorkInfosForUniqueWork(WORK_NAME)
-            .get()
-
-        return workInfos.firstOrNull()?.state?.name
-    }
+    fun getWorkerStatus(context: Context): String? =
+        runCatching {
+            WorkManager.getInstance(context.applicationContext)
+                .getWorkInfosForUniqueWork(PERIODIC_WORK_NAME)
+                .get()
+                .firstOrNull()
+                ?.state
+                ?.name
+        }.getOrNull()
 }

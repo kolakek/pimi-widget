@@ -42,7 +42,7 @@ class PimiWidget : AppWidgetProvider() {
 
     override fun onDisabled(context: Context) {
         Timber.d("onDisabled(): Begin function.")
-        WorkManagerHelper.cancelPeriodicWorker(context)
+        WorkManagerHelper.cancelWorkers(context)
         setWeatherPreference(context, false)
         runBlocking {
             context.dataStore.edit { it.clear() }
