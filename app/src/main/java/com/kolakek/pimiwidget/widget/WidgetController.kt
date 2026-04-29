@@ -43,13 +43,8 @@ internal object WidgetController {
     ) {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
-        val showWeather = PreferencesHelper.getWeatherPreference(context)
-        val showForecast = PreferencesHelper.getDailyForecastPreference(context)
-        val tempUnit = PreferencesHelper.getTempPreference(context)
-        val iconStyle = PreferencesHelper.getIconStylePreference(context)
-        val textColor = PreferencesHelper.getTextColorPreference(context)
-
-        val views = WidgetRenderer.buildRemoteViews(context, iconStyle, textColor)
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val views = WidgetRenderer.buildRemoteViews(context, prefs)
 
         if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE) {
             WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
@@ -63,17 +58,7 @@ internal object WidgetController {
             updateMode == WidgetUpdateMode.LOCALE_UPDATE ||
             updateMode == WidgetUpdateMode.WEATHER_UPDATE
         ) {
-            WidgetRenderer.updateWeather(
-                context,
-                views,
-                appWidgetManager,
-                appWidgetId,
-                showWeather,
-                showForecast,
-                tempUnit,
-                iconStyle,
-                textColor
-            )
+            WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
         }
     }
 }

@@ -78,17 +78,13 @@ internal object WidgetRenderer {
         views: RemoteViews,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
-        showWeather: Boolean,
-        showForecast: Boolean,
-        tempUnit: String,
-        iconStyle: String,
-        textColor: String
+        prefs: WidgetPreferences
     ) {
         Timber.d("updateAppWidgetWeather: Begin Function")
 
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-        if (showWeather) {
+        if (prefs.showWeather) {
             val weatherData: WeatherData? = JsonDataStore.loadSync(context, DataKeys.DATA_WEATHER_KEY)
 
             weatherData?.let { weather ->
@@ -100,17 +96,17 @@ internal object WidgetRenderer {
                     context,
                     weather,
                     timeMillis,
-                    tempUnit,
-                    iconStyle,
-                    useLightText(context, textColor)
+                    prefs.tempUnit,
+                    prefs.iconStyle,
+                    useLightText(context, prefs.textColor)
                 )
                 val displayStr = str?.run {
-                    if (showForecast) {
+                    if (prefs.showForecast) {
                         this + (WeatherFormatter.getForecastStr(
                             context,
                             timeMillis,
                             weather,
-                            tempUnit
+                            prefs.tempUnit
                         ) ?: "")
                     } else this
                 }
@@ -128,13 +124,12 @@ internal object WidgetRenderer {
 
     internal fun buildRemoteViews(
         context: Context,
-        iconStyle: String,
-        textColor: String
+        prefs: WidgetPreferences
     ): RemoteViews {
-        val lightText = useLightText(context, textColor)
+        val lightText = useLightText(context, prefs.textColor)
 
         val layout = when {
-            lightText && iconStyle == KEY_ICON_STYLE_OUTLINED ->
+            lightText && prefs.iconStyle == KEY_ICON_STYLE_OUTLINED ->
                 R.layout.pimi_widget_light
 
             lightText ->
@@ -143,7 +138,6 @@ internal object WidgetRenderer {
             else ->
                 R.layout.pimi_widget_dark
         }
-
         return RemoteViews(context.packageName, layout)
     }
 

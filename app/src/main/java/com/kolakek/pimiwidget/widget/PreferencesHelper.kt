@@ -23,35 +23,44 @@ import androidx.preference.PreferenceManager
 
 internal object PreferencesHelper {
 
-    fun getDailyForecastPreference(context: Context): Boolean {
+    internal fun getDailyForecastPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)
     }
 
-    fun getTextColorPreference(context: Context): String {
+    internal fun getTextColorPreference(context: Context): String {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_AUTO) ?: KEY_COLOR_AUTO
     }
 
-    fun getIconStylePreference(context: Context): String {
+    internal fun getIconStylePreference(context: Context): String {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_STYLE_LIST, KEY_ICON_STYLE_OUTLINED) ?: KEY_ICON_STYLE_OUTLINED
     }
 
-    fun getTempPreference(context: Context): String {
+    internal fun getTempPreference(context: Context): String {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
     }
 
-    fun getWeatherPreference(context: Context): Boolean {
+    internal fun getWeatherPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)
     }
 
-    fun setWeatherPreference(context: Context, value: Boolean) {
+    internal fun setWeatherPreference(context: Context, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putBoolean(KEY_WEATHER_SWITCH, value)
         }
     }
 
+    internal fun getWidgetPreferences(context: Context): WidgetPreferences {
+        return WidgetPreferences(
+            getWeatherPreference(context),
+            getDailyForecastPreference(context),
+            getTempPreference(context),
+            getIconStylePreference(context),
+            getTextColorPreference(context)
+        )
+    }
 }
