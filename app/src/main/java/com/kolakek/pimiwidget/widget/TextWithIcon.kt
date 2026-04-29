@@ -18,6 +18,6 @@
 package com.kolakek.pimiwidget.widget
 
 internal data class TextWithIcon (
-    val text: String?,
-    val iconId: Int?
+    val text: String,
+    val iconId: Int
 )

@@ -58,14 +58,11 @@ internal object WidgetRenderer {
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int
     ) {
-        Timber.d("updateAppWidgetDate: Begin Function")
-
         val pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
         )
-
-        Timber.d("updateAppWidgetDate: Set pattern $pattern")
+        Timber.d("updateDate: Set pattern $pattern")
 
         views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
         views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
@@ -80,48 +77,50 @@ internal object WidgetRenderer {
         appWidgetId: Int,
         prefs: WidgetPreferences
     ) {
-        Timber.d("updateAppWidgetWeather: Begin Function")
-
+        Timber.d("updateWeather: Update weather display")
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
         if (prefs.showWeather) {
-            val weatherData: WeatherData? = JsonDataStore.loadSync(context, DataKeys.DATA_WEATHER_KEY)
-
-            weatherData?.let { weather ->
-
-                Timber.d("updateAppWidgetWeather: Refreshing weather display")
+            val weatherData: WeatherData? = JsonDataStore.loadSync(
+                context,
+                DataKeys.DATA_WEATHER_KEY
+            )
+            weatherData?.let { data ->
+                Timber.d("updateWeather: Weather data available")
 
                 val timeMillis = System.currentTimeMillis()
                 val weatherStrIcon = WeatherFormatter.getCurrentWeatherStrAndIcon(
                     context,
-                    weather,
+                    data,
                     timeMillis,
                     prefs.tempUnit,
                     prefs.iconStyle,
                     useLightText(context, prefs.textColor)
                 )
-                val displayStr = weatherStrIcon.text?.run {
-                    if (prefs.showForecast) {
-                        this + (WeatherFormatter.getForecastStr(
+                weatherStrIcon?.let {
+                    Timber.d("updateWeather: Valid weather data found")
+
+                    val forecastStr = if (prefs.showForecast) {
+                        WeatherFormatter.getForecastStr(
                             context,
                             timeMillis,
-                            weather,
+                            data,
                             prefs.tempUnit
-                        ) ?: "")
-                    } else this
-                }
-                if (displayStr != null && weatherStrIcon.iconId != null) {
-                    views.setTextViewText(R.id.widget_temp, displayStr)
+                        ) ?: ""
+                    } else ""
+
+                    views.setTextViewText(
+                        R.id.widget_temp,
+                        it.text + forecastStr
+                    )
                     views.setTextViewCompoundDrawables(
                         R.id.widget_temp,
-                        weatherStrIcon.iconId,
+                        it.iconId,
                         0,
                         0,
                         0
                     )
                     views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
-                } else {
-                    Timber.w("updateAppWidgetWeather: Null displayStr or iconId")
                 }
             }
         }

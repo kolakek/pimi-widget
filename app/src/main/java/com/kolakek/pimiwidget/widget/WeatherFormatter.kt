@@ -33,27 +33,20 @@ internal object WeatherFormatter {
         tempUnit: String,
         iconStyle: String,
         lightText: Boolean
-    ): TextWithIcon {
+    ): TextWithIcon? {
         val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
         if (idx == -1) {
             Timber.w("getCurrentWeatherStrAndIcon: No data available for the next hour")
-            return TextWithIcon(null, null)
+            return null
         }
-        val str = getTemperatureStr(
-            context,
-            weather.hourlyTempCelsius.getOrNull(idx),
-            tempUnit
-        )
-        val id = mapWeatherId(
-            weather.hourlyWeatherCode.getOrNull(idx),
-            weather.hourlyIsDay.getOrNull(idx),
-            iconStyle,
-            lightText
-        )
-        if (str == null || id == null) {
-            Timber.w("getCurrentWeatherStrAndIcon: Unexpected null return")
-        }
+        val tempCelsius = weather.hourlyTempCelsius.getOrNull(idx) ?: return null
+        val weatherCode = weather.hourlyWeatherCode.getOrNull(idx) ?: return null
+        val isDay = weather.hourlyIsDay.getOrNull(idx) ?: return null
+
+        val str = getTemperatureStr(context, tempCelsius, tempUnit)
+        val id = mapWeatherId(weatherCode, isDay, iconStyle, lightText) ?: return null
+
         return TextWithIcon(str, id)
     }
 
@@ -69,12 +62,13 @@ internal object WeatherFormatter {
         val date = zoned.toLocalDate()
         val hour = zoned.hour
 
-        val today = when (hour) {
+        val isToday = when (hour) {
             in FORECAST_TODAY_HOUR_ON..<FORECAST_TODAY_HOUR_OFF -> true
             in FORECAST_TOMORROW_HOUR_ON..<FORECAST_TOMORROW_HOUR_OFF -> false
+
             else -> return null
         }
-        val targetDate = if (today) date else date.plusDays(1)
+        val targetDate = if (isToday) date else date.plusDays(1)
         val idx = weather.dailyTimeMillis.indexOfFirst {
             Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
         }
@@ -84,32 +78,27 @@ internal object WeatherFormatter {
             Timber.w("getForecastStr: No forecast data available")
             return null
         }
-        val minTempStr = getTemperatureStr(
-            context,
-            weather.dailyTempMinCelsius.getOrNull(idx),
-            tempUnit,
-            false
-        )
-        val maxTempStr = getTemperatureStr(
-            context,
-            weather.dailyTempMaxCelsius.getOrNull(idx),
-            tempUnit,
-            false
-        )
-        val codeStrId = getWeatherCodeId(
-            weather.dailyWeatherCode.getOrNull(idx),
-            weather.dailyRainSum.getOrNull(idx),
-            weather.dailyShowersSum.getOrNull(idx),
-            weather.dailySnowfallSum.getOrNull(idx),
-            weather.dailyVisibilityMean.getOrNull(idx),
-            weather.dailyCloudCoverMean.getOrNull(idx)
-        )
-        val dayStrId = if (today) R.string.today else R.string.tomorrow
+        val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
+        val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
+        val weatherCode = weather.hourlyWeatherCode.getOrNull(idx) ?: return null
+        val rainSum = weather.dailyRainSum.getOrNull(idx) ?: return null
+        val showersSum = weather.dailyShowersSum.getOrNull(idx) ?: return null
+        val snowSum = weather.dailySnowfallSum.getOrNull(idx) ?: return null
+        val visibilityMean = weather.dailyVisibilityMean.getOrNull(idx) ?: return null
+        val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
 
-        if (minTempStr == null || maxTempStr == null || codeStrId == null) {
-            Timber.w("getForecastStr: Unexpected null return")
-            return null
-        }
+        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnit, false)
+        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnit, false)
+
+        val codeStrId = getWeatherCodeId(
+            weatherCode,
+            rainSum,
+            showersSum,
+            snowSum,
+            visibilityMean,
+            cloudCoverMean
+        )
+        val dayStrId = if (isToday) R.string.today else R.string.tomorrow
 
         return context.getString(
             R.string.forecast_line,
@@ -122,76 +111,66 @@ internal object WeatherFormatter {
 
     private fun getTemperatureStr(
         context: Context,
-        tempCelsius: Double?,
+        tempCelsius: Double,
         tempUnit: String,
         fullUnit: Boolean = true
-    ): String? {
-        tempCelsius ?: return null
+    ): String {
 
-        val useFahrenheit = (tempUnit == KEY_FAHRENHEIT)
-        val temp = (if (useFahrenheit) tempCelsius * 1.8 + 32.5 else tempCelsius + 0.5).toInt()
+        val isFahrenheit = (tempUnit == KEY_FAHRENHEIT)
+        val temp = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
         val unit = when {
-            fullUnit && useFahrenheit -> context.getString(R.string.fahrenheit)
+            fullUnit && isFahrenheit -> context.getString(R.string.fahrenheit)
             fullUnit -> context.getString(R.string.celsius)
             else -> context.getString(R.string.degree)
         }
-        return "$temp$unit"
+        return "${(temp+0.5).toInt()}$unit"
     }
 
     private fun getWeatherCodeId(
-        code: Int?,
-        rainSum: Double?,
-        showersSum: Double?,
-        snowSum: Double?,
-        visibility: Double?,
-        cloudCover: Int?
-    ): Int? {
-        val rain = (rainSum ?: return null) + (showersSum ?: return null)
-        val snow = snowSum ?: return null
-        val cloudy = cloudCover ?: return null
-        val vis = visibility ?: return null
+        code: Int,
+        rainSum: Double,
+        showersSum: Double,
+        snowSum: Double,
+        visibility: Double,
+        cloudCover: Int
+    ): Int {
+        val rainShowerSum = rainSum  + showersSum
 
-        Timber.d("getWeatherCodeId: code = $code, rain = $rain, snow = $snow, " +
-                "cloud = $cloudy, vis = $vis")
+        Timber.d("getWeatherCodeId: code = $code, rain = $rainShowerSum, snow = $snowSum, " +
+                "cloud = $cloudCover, vis = $visibility")
 
         return when {
 
             code in setOf(95, 96, 99) -> R.string.thunderstorms
             code in setOf(57, 67) -> R.string.freezing_rain
             code in setOf(56, 66) -> R.string.freezing_drizzle
-            snow > HEAVY_SNOW_CM -> R.string.heavy_snow
-            rain > HEAVY_RAIN_MM -> R.string.heavy_rain
-            snow > SNOW_CM -> R.string.snow_showers
-            rain > RAIN_MM -> R.string.rain_showers
-            snow > FLURRIES_CM -> R.string.flurries
-            rain > DRIZZLE_MM -> R.string.drizzle
-            vis < FOG_VISIBILITY_M -> R.string.foggy
-            cloudy > CLOUDY_PERCENT -> R.string.cloudy
-            cloudy > MOSTLY_CLOUDY_PERCENT -> R.string.mostly_cloudy
-            cloudy > PARTLY_CLOUDY_PERCENT -> R.string.partly_cloudy
-            cloudy > MOSTLY_CLEAR_PERCENT -> R.string.mostly_clear
+            snowSum > HEAVY_SNOW_CM -> R.string.heavy_snow
+            rainShowerSum > HEAVY_RAIN_MM -> R.string.heavy_rain
+            snowSum > SNOW_CM -> R.string.snow_showers
+            rainShowerSum > RAIN_MM -> R.string.rain_showers
+            snowSum > FLURRIES_CM -> R.string.flurries
+            rainShowerSum > DRIZZLE_MM -> R.string.drizzle
+            visibility < FOG_VISIBILITY_M -> R.string.foggy
+            cloudCover > CLOUDY_PERCENT -> R.string.cloudy
+            cloudCover > MOSTLY_CLOUDY_PERCENT -> R.string.mostly_cloudy
+            cloudCover > PARTLY_CLOUDY_PERCENT -> R.string.partly_cloudy
+            cloudCover > MOSTLY_CLEAR_PERCENT -> R.string.mostly_clear
 
             else -> R.string.clear
         }
     }
 
     private fun mapWeatherId(
-        code: Int?,
-        isDay: Int?,
+        code: Int,
+        isDay: Int,
         style: String,
         darkColor: Boolean
     ): Int? {
         return when {
-
-            code == null || isDay == null -> {
-                Timber.w("mapWeatherId: Invalid weather code or isDay value")
-                null
-            }
-
-            style == KEY_ICON_STYLE_FILLED && darkColor -> iconIdFilledDark(code, isDay)
-            style == KEY_ICON_STYLE_FILLED -> iconIdFilled(code, isDay)
-            style == KEY_ICON_STYLE_OUTLINED && darkColor -> iconIdOutlinedDark(code, isDay)
-            style == KEY_ICON_STYLE_OUTLINED -> iconIdOutlined(code, isDay)
+            (style == KEY_ICON_STYLE_FILLED && darkColor) -> iconIdFilledDark(code, isDay)
+            (style == KEY_ICON_STYLE_FILLED) -> iconIdFilled(code, isDay)
+            (style == KEY_ICON_STYLE_OUTLINED && darkColor) -> iconIdOutlinedDark(code, isDay)
+            (style == KEY_ICON_STYLE_OUTLINED) -> iconIdOutlined(code, isDay)
 
             else -> {
                 Timber.w("mapWeatherId: Unexpected null return")
