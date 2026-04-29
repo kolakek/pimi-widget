@@ -26,7 +26,7 @@ internal object WidgetController {
 
     internal fun updateAllWidgets(
         context: Context,
-        updateMode: WidgetUpdateMode
+        updateMode: WidgetUpdateModes
     ) {
         val manager = AppWidgetManager.getInstance(context)
         manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
@@ -39,26 +39,26 @@ internal object WidgetController {
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
-        updateMode: WidgetUpdateMode = WidgetUpdateMode.FULL_WIDGET_UPDATE
+        updateMode: WidgetUpdateModes = WidgetUpdateModes.FULL_WIDGET_UPDATE
     ) {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val views = WidgetRenderer.buildRemoteViews(context, prefs)
 
-        if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE) {
-            WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
-        }
-        if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE ||
-            updateMode == WidgetUpdateMode.LOCALE_UPDATE
-        ) {
-            WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
-        }
-        if (updateMode == WidgetUpdateMode.FULL_WIDGET_UPDATE ||
-            updateMode == WidgetUpdateMode.LOCALE_UPDATE ||
-            updateMode == WidgetUpdateMode.WEATHER_UPDATE
-        ) {
-            WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+        when (updateMode) {
+            WidgetUpdateModes.FULL_WIDGET_UPDATE -> {
+                WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
+                WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
+                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+            }
+            WidgetUpdateModes.LOCALE_UPDATE -> {
+                WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
+                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+            }
+            WidgetUpdateModes.WEATHER_UPDATE -> {
+                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+            }
         }
     }
 }

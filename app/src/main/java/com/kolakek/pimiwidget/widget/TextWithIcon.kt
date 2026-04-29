@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-internal object Actions {
-    const val WEATHER_UPDATE = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
-    const val APPWIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
-}
+internal data class TextWithIcon (
+    val text: String?,
+    val iconId: Int?
+)

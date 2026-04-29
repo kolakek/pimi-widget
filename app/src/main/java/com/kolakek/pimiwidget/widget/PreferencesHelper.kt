@@ -23,24 +23,14 @@ import androidx.preference.PreferenceManager
 
 internal object PreferencesHelper {
 
-    internal fun getDailyForecastPreference(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_DAILY_FORECAST, true)
-    }
-
-    internal fun getTextColorPreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_AUTO) ?: KEY_COLOR_AUTO
-    }
-
-    internal fun getIconStylePreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_ICON_STYLE_LIST, KEY_ICON_STYLE_OUTLINED) ?: KEY_ICON_STYLE_OUTLINED
-    }
-
-    internal fun getTempPreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
+    internal fun getWidgetPreferences(context: Context): WidgetPreferences {
+        return WidgetPreferences(
+            getWeatherPreference(context),
+            getDailyForecastPreference(context),
+            getTempPreference(context),
+            getIconStylePreference(context),
+            getTextColorPreference(context)
+        )
     }
 
     internal fun getWeatherPreference(context: Context): Boolean {
@@ -54,13 +44,23 @@ internal object PreferencesHelper {
         }
     }
 
-    internal fun getWidgetPreferences(context: Context): WidgetPreferences {
-        return WidgetPreferences(
-            getWeatherPreference(context),
-            getDailyForecastPreference(context),
-            getTempPreference(context),
-            getIconStylePreference(context),
-            getTextColorPreference(context)
-        )
+    private fun getDailyForecastPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_DAILY_FORECAST, true)
+    }
+
+    private fun getTextColorPreference(context: Context): String {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_AUTO) ?: KEY_COLOR_AUTO
+    }
+
+    private fun getIconStylePreference(context: Context): String {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_ICON_STYLE_LIST, KEY_ICON_STYLE_OUTLINED) ?: KEY_ICON_STYLE_OUTLINED
+    }
+
+    private fun getTempPreference(context: Context): String {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
     }
 }

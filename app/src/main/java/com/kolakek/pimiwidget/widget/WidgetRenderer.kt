@@ -92,7 +92,7 @@ internal object WidgetRenderer {
                 Timber.d("updateAppWidgetWeather: Refreshing weather display")
 
                 val timeMillis = System.currentTimeMillis()
-                val (str, iconId) = WeatherFormatter.getCurrentWeatherStrAndIcon(
+                val weatherStrIcon = WeatherFormatter.getCurrentWeatherStrAndIcon(
                     context,
                     weather,
                     timeMillis,
@@ -100,7 +100,7 @@ internal object WidgetRenderer {
                     prefs.iconStyle,
                     useLightText(context, prefs.textColor)
                 )
-                val displayStr = str?.run {
+                val displayStr = weatherStrIcon.text?.run {
                     if (prefs.showForecast) {
                         this + (WeatherFormatter.getForecastStr(
                             context,
@@ -110,9 +110,15 @@ internal object WidgetRenderer {
                         ) ?: "")
                     } else this
                 }
-                if (displayStr != null && iconId != null) {
+                if (displayStr != null && weatherStrIcon.iconId != null) {
                     views.setTextViewText(R.id.widget_temp, displayStr)
-                    views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
+                    views.setTextViewCompoundDrawables(
+                        R.id.widget_temp,
+                        weatherStrIcon.iconId,
+                        0,
+                        0,
+                        0
+                    )
                     views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
                 } else {
                     Timber.w("updateAppWidgetWeather: Null displayStr or iconId")

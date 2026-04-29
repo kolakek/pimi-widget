@@ -50,7 +50,7 @@ class PimiWidget : AppWidgetProvider() {
         when (intent.action) {
             Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
                 Timber.d("onReceive: Enable worker, full widget update")
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateModes.FULL_WIDGET_UPDATE)
 
                 if (PreferencesHelper.getWeatherPreference(context)) {
                     WorkManagerHelper.enqueuePeriodicWorker(
@@ -60,17 +60,17 @@ class PimiWidget : AppWidgetProvider() {
                     )
                 }
             }
-            Actions.APPWIDGET_UPDATE -> {
+            WidgetActions.APPWIDGET_UPDATE -> {
                 Timber.d("onReceive: Full widget update")
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateModes.FULL_WIDGET_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
                 Timber.d("onReceive: Update locale")
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateModes.LOCALE_UPDATE)
             }
-            Actions.WEATHER_UPDATE -> {
+            WidgetActions.WEATHER_UPDATE -> {
                 Timber.d("onReceive: Update weather")
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.WEATHER_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateModes.WEATHER_UPDATE)
             }
         }
     }

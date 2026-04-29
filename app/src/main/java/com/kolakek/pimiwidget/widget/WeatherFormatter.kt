@@ -33,12 +33,12 @@ internal object WeatherFormatter {
         tempUnit: String,
         iconStyle: String,
         lightText: Boolean
-    ): Pair<String?, Int?> {
+    ): TextWithIcon {
         val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
 
         if (idx == -1) {
             Timber.w("getCurrentWeatherStrAndIcon: No data available for the next hour")
-            return null to null
+            return TextWithIcon(null, null)
         }
         val str = getTemperatureStr(
             context,
@@ -54,7 +54,7 @@ internal object WeatherFormatter {
         if (str == null || id == null) {
             Timber.w("getCurrentWeatherStrAndIcon: Unexpected null return")
         }
-        return str to id
+        return TextWithIcon(str, id)
     }
 
     internal fun getForecastStr(
