@@ -30,7 +30,7 @@ class WidgetConfigureActivity : FragmentActivity() {
     private fun finishWidgetConfigureActivity() {
         val context = this@WidgetConfigureActivity
 
-        updateAppWidget(
+        WidgetController.updateWidget(
             context,
             AppWidgetManager.getInstance(context),
             appWidgetId

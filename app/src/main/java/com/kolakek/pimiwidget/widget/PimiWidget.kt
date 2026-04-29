@@ -33,7 +33,7 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            WidgetController.updateWidget(context, appWidgetManager, appWidgetId)
         }
     }
 
@@ -50,7 +50,7 @@ class PimiWidget : AppWidgetProvider() {
         when (intent.action) {
             Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
                 Timber.d("onReceive: Enable worker, full widget update")
-                updateAppWidgetLoop(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
 
                 if (PreferencesHelper.getWeatherPreference(context)) {
                     WorkManagerHelper.enqueuePeriodicWorker(
@@ -62,15 +62,15 @@ class PimiWidget : AppWidgetProvider() {
             }
             Actions.APPWIDGET_UPDATE -> {
                 Timber.d("onReceive: Full widget update")
-                updateAppWidgetLoop(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
                 Timber.d("onReceive: Update locale")
-                updateAppWidgetLoop(context, WidgetUpdateMode.LOCALE_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
             }
             Actions.WEATHER_UPDATE -> {
                 Timber.d("onReceive: Update weather")
-                updateAppWidgetLoop(context, WidgetUpdateMode.WEATHER_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.WEATHER_UPDATE)
             }
         }
     }
