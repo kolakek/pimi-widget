@@ -20,7 +20,7 @@ package com.kolakek.pimiwidget.worker
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class WorkerStatusData (
+data class UpdateStatusData (
     val isLocationSuccess: Boolean,
     val isWeatherSuccess: Boolean,
     val lastUpdateTimeMillis: Long

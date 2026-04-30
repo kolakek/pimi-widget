@@ -34,7 +34,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.worker.WorkerStatusData
+import com.kolakek.pimiwidget.worker.UpdateStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.util.Date
 
@@ -147,10 +147,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         weatherEnabled: Boolean?
     ) {
         val builder = AlertDialog.Builder(context)
-        val workerStatusData: WorkerStatusData? = JsonDataStore.loadSync(
-            context, DataKeys.WORKER_STATUS_DATA_KEY
+        val dataUpdateStatus: UpdateStatusData? = JsonDataStore.loadSync(
+            context, DataKeys.UPDATE_STATUS_DATA_KEY
         )
-        val updateStr = workerStatusData?.lastUpdateTimeMillis?.let {
+        val updateStr = dataUpdateStatus?.lastUpdateTimeMillis?.let {
             "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
         } ?: ""
 
@@ -163,10 +163,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${statusString(workerStatusData?.isLocationSuccess)}"
+                " ${statusString(dataUpdateStatus?.isLocationSuccess)}"
 
         val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${statusString(workerStatusData?.isWeatherSuccess)}"
+                " ${statusString(dataUpdateStatus?.isWeatherSuccess)}"
 
         builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)

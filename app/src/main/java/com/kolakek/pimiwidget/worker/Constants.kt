@@ -20,3 +20,4 @@ package com.kolakek.pimiwidget.worker
 internal const val PERIODIC_WORK_NAME = "periodic-update-kolakek-pimi-widget"
 internal const val ONE_TIME_WORK_NAME = "one-time-update-kolakek-pimi-widget"
 internal const val UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
+internal const val WEATHER_MIN_AGE_MILLIS = 60 * 60 * 1000L
