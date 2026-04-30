@@ -24,16 +24,18 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import androidx.work.workDataOf
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import kotlin.collections.firstOrNull
 
 object WorkManagerHelper {
 
-    fun enqueueOneTimeWorker(context: Context) {
+    fun enqueueOneTimeWorker(context: Context, forceUpdate: Boolean = false) {
         Timber.d("enqueueOneTimeWorker: Enqueue worker")
 
         val request = OneTimeWorkRequestBuilder<PimiWorker>()
+            .setInputData(workDataOf(FORCE_UPDATE_KEY to forceUpdate))
             .build()
 
         WorkManager

@@ -35,9 +35,9 @@ import timber.log.Timber
 internal object WidgetUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context) {
+    internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
-        if (needsUpdate(context)) {
+        if (needsUpdate(context) || forceUpdate) {
             Timber.d("update: Get location")
             val location = if (hasLocationPermission(context)) {
                 LocationService.getLocation(context)
@@ -63,9 +63,9 @@ internal object WidgetUpdater {
                 context,
                 DataKeys.UPDATE_STATUS_DATA_KEY,
                 UpdateStatusData(
-                    location != null,
-                    weather != null,
-                    System.currentTimeMillis()
+                    isLocationSuccess = location != null,
+                    isWeatherSuccess = weather != null,
+                    lastUpdateTimeMillis = System.currentTimeMillis()
                 )
             )
         }

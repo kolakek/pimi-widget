@@ -179,7 +179,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         builder.apply {
             if (weatherEnabled == true) {
                 setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
-                    WorkManagerHelper.enqueueOneTimeWorker(context)
+                    WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
                     dialog.dismiss()
                 }
             }
