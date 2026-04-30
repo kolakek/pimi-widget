@@ -52,16 +52,16 @@ internal object WidgetUpdater {
         }
         if (weather != null) {
             Timber.d("update: Store weather data")
-            JsonDataStore.save(context, DataKeys.DATA_WEATHER_KEY, weather)
+            JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
         } else {
             Timber.w("update: No weather data available")
         }
         JsonDataStore.save(
             context,
-            DataKeys.DATA_DEBUG_KEY,
-            DebugData(
-                location == null,
-                weather == null,
+            DataKeys.WORKER_STATUS_DATA_KEY,
+            WorkerStatusData(
+                location != null,
+                weather != null,
                 System.currentTimeMillis()
             )
         )

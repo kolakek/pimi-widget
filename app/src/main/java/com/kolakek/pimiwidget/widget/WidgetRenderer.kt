@@ -83,7 +83,7 @@ internal object WidgetRenderer {
         if (prefs.showWeather) {
             val weatherData: WeatherData? = JsonDataStore.loadSync(
                 context,
-                DataKeys.DATA_WEATHER_KEY
+                DataKeys.WEATHER_DATA_KEY
             )
             weatherData?.let { data ->
                 Timber.d("updateWeather: Weather data available")

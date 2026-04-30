@@ -34,7 +34,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.worker.DebugData
+import com.kolakek.pimiwidget.worker.WorkerStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.util.Date
 
@@ -147,9 +147,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         weatherEnabled: Boolean?
     ) {
         val builder = AlertDialog.Builder(context)
-        val debugData: DebugData? = JsonDataStore.loadSync(context, DataKeys.DATA_DEBUG_KEY)
-
-        val updateStr = debugData?.timeMillis?.let {
+        val workerStatusData: WorkerStatusData? = JsonDataStore.loadSync(
+            context, DataKeys.WORKER_STATUS_DATA_KEY
+        )
+        val updateStr = workerStatusData?.lastUpdateTimeMillis?.let {
             "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
         } ?: ""
 
@@ -162,10 +163,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${statusString(debugData?.locationFailed)}"
+                " ${statusString(workerStatusData?.isLocationSuccess)}"
 
         val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${statusString(debugData?.weatherFailed)}"
+                " ${statusString(workerStatusData?.isWeatherSuccess)}"
 
         builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
         builder.setTitle(R.string.config_alert_debug_title)
@@ -213,10 +214,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         alertDialog.show()
     }
 
-    private fun statusString(isFail: Boolean?): String {
-        return when (isFail) {
-            true -> getString(R.string.config_alert_debug_failed)
-            false -> getString(R.string.config_alert_debug_success)
+    private fun statusString(success: Boolean?): String {
+        return when (success) {
+            true -> getString(R.string.config_alert_debug_success)
+            false -> getString(R.string.config_alert_debug_failed)
             null -> getString(R.string.config_alert_debug_na)
         }
     }
