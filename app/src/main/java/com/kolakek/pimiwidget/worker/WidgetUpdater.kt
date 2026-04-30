@@ -37,7 +37,7 @@ internal object WidgetUpdater {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
-        if (needsUpdate(context) || forceUpdate) {
+        if (forceUpdate || needsUpdate(context)) {
             Timber.d("update: Get location")
             val location = if (hasLocationPermission(context)) {
                 LocationService.getLocation(context)
@@ -73,8 +73,8 @@ internal object WidgetUpdater {
         updateWidget(context)
     }
 
-    private fun needsUpdate(context: Context): Boolean {
-        val dataUpdateStatus: UpdateStatusData = JsonDataStore.loadSync(
+    private suspend fun needsUpdate(context: Context): Boolean {
+        val dataUpdateStatus: UpdateStatusData = JsonDataStore.load(
             context, DataKeys.UPDATE_STATUS_DATA_KEY
         ) ?: return true
 

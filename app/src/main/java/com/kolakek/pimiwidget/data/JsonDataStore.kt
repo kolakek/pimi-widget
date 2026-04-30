@@ -36,11 +36,19 @@ object JsonDataStore {
         key: Preferences.Key<String>,
         value: T
     ) {
-        val jsonString = json.encodeToString(value)
-
         context.dataStore.edit { prefs ->
-            prefs[key] = jsonString
+            prefs[key] = json.encodeToString(value)
         }
+    }
+
+    suspend inline fun <reified T> load(
+        context: Context,
+        key: Preferences.Key<String>
+    ): T? {
+        return decodeFromPrefs(
+            context.dataStore.data.first(),
+            key
+        )
     }
 
     inline fun <reified T> loadSync(
@@ -50,14 +58,21 @@ object JsonDataStore {
         val prefs = runBlocking {
             context.dataStore.data.first()
         }
+        return decodeFromPrefs(prefs, key)
+    }
+
+    inline fun <reified T> decodeFromPrefs(
+        prefs: Preferences,
+        key: Preferences.Key<String>
+    ): T? {
         val jsonString = prefs[key] ?: run {
-            Timber.w("loadSync: No value found for key: $key")
+            Timber.w("decodeFromPrefs: No value found for key: $key")
             return null
         }
         return try {
             json.decodeFromString<T>(jsonString)
         } catch (_: Exception) {
-            Timber.e("loadSync: Failed to decode: ${T::class.simpleName}")
+            Timber.e("decodeFromPrefs: Failed to decode: ${T::class.simpleName}")
             null
         }
     }
