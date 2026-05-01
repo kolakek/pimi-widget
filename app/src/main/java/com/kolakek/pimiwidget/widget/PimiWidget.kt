@@ -47,9 +47,9 @@ class PimiWidget : AppWidgetProvider() {
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
 
+        Timber.d("onReceive: ${intent.action}")
         when (intent.action) {
             Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                Timber.d("onReceive: Enable worker, full widget update")
                 WidgetController.updateAllWidgets(context, WidgetUpdateModes.FULL_WIDGET_UPDATE)
 
                 if (PreferencesHelper.getWeatherPreference(context)) {
@@ -61,15 +61,12 @@ class PimiWidget : AppWidgetProvider() {
                 }
             }
             WidgetActions.APPWIDGET_UPDATE -> {
-                Timber.d("onReceive: Full widget update")
                 WidgetController.updateAllWidgets(context, WidgetUpdateModes.FULL_WIDGET_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
-                Timber.d("onReceive: Update locale")
                 WidgetController.updateAllWidgets(context, WidgetUpdateModes.LOCALE_UPDATE)
             }
             WidgetActions.WEATHER_UPDATE -> {
-                Timber.d("onReceive: Update weather")
                 WidgetController.updateAllWidgets(context, WidgetUpdateModes.WEATHER_UPDATE)
             }
         }
