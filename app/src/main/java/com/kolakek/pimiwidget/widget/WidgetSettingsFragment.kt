@@ -53,7 +53,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
-        val debugField: Preference? = findPreference(KEY_DATA_INFO)
+        val debugField: Preference? = findPreference(KEY_DEBUG_INFO)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
         if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {

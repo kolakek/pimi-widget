@@ -9,17 +9,20 @@
     <!-- Title of the button for updating the widget from the config screen -->
     <string name="config_button">Update widget</string>
 
+    <!-- Short privacy note to be displayed above the weatehr switch -->
+    <string name="config_privacy_note">Enabling weather shares your location with the weather provider</string>
+
     <!-- Short description of the weather switch used in config screen -->
-    <string name="config_weather_switch">Weather service</string>
+    <string name="config_weather_switch">Enable weather</string>
 
     <!-- Additional information for the weather switch in config screen -->
-    <string name="config_weather_descr">Enabling the weather service shares your location with the weather provider</string>
+    <string name="config_weather_descr">Weather data by Open-Meteo.com</string>
 
-    <!-- Title for the weather provider config option -->
-    <string name="config_weather_data">Data</string>
+    <!-- Title for the debug config option -->
+    <string name="config_debug_data">Debug info</string>
 
-    <!-- Short description of weather provider config option -->
-    <string name="config_provider_descr">Weather data by Open-Meteo.com</string>
+    <!-- Short description of the debug config option -->
+    <string name="config_debug_data_descr">View widget status</string>
 
     <!-- Title for the config option to adjust the widget text colors -->
     <string name="config_text_color">Text color</string>

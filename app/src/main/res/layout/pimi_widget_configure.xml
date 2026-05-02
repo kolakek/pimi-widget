@@ -15,11 +15,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="280dp"
         android:text="@string/config_button"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_gravity="center"
         android:layout_margin="16dp"/>
 
     <androidx.fragment.app.FragmentContainerView
