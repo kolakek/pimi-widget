@@ -1,0 +1,116 @@
+<resources>
+
+    <string name="widget_label">Tarih ve Hava Durumu</string>
+
+    <string name="config_button">Widget\'ı Güncelle</string>
+
+    <string name="config_privacy_note">Hava durumu etkinleştirildiğinde konumunuz hava durumu sağlayıcısıyla paylaşılır</string>
+
+    <string name="config_weather_switch">Hava durumunu etkinleştir</string>
+
+    <string name="config_weather_descr">Open-Meteo.com\'dan hava durumu verileri</string>
+
+    <string name="config_debug_data">Hata ayıklama bilgileri</string>
+
+    <string name="config_debug_data_descr">Widget durumunu görüntüle</string>
+
+    <string name="config_text_color">Metin Rengi</string>
+
+    <string name="config_icon_style">İkon Stili</string>
+
+    <string name="config_icon_style_filled">Gölgeli ve Geçişli</string>
+
+    <string name="config_icon_style_outlined">Düz</string>
+
+    <string name="config_color_light">Açık</string>
+
+    <string name="config_color_dark">Koyu</string>
+
+    <string name="config_color_auto">Otomatik</string>
+
+    <string name="config_temp">Sıcaklık</string>
+
+    <string name="config_temp_celsius">Santigrat</string>
+
+    <string name="config_temp_fahrenheit">Fahrenheit</string>
+
+    <string name="config_settings_sec">Ayarlar</string>
+
+    <string name="config_about_sec">Hakkında</string>
+
+    <string name="config_daily_forecast">Günlük Tahmini Göster</string>
+
+    <string name="config_daily_forecast_descr">Sabah ve Akşam</string>
+
+    <string name="config_loc_perm_alert_title">Konum İzni Gerekli</string>
+
+    <string name="config_loc_perm_alert">Mevcut bölgenizdeki hava durumunu göstermek için bu uygulamanın konumunuza erişmesi gerekiyor.</string>
+
+    <string name="config_bg_perm_alert_title">Arka Plan Konum İzni</string>
+
+    <string name="config_bg_perm_alert">Güvenilir hava durumu güncellemeleri, arka planda konumunuza erişim gerektirir. Lütfen sonraki ekranda "%s" seçeneğini seçin.</string>
+
+    <string name="config_alert_button_ok">Tamam</string>
+
+    <string name="config_alert_button_cancel">İptal</string>
+
+    <string name="config_alert_debug_title">Veri Güncellemesi</string>
+
+    <string name="config_alert_debug_worker">İşlem</string>
+
+    <string name="config_alert_debug_location">Konum</string>
+
+    <string name="config_alert_debug_weather">Hava Durumu</string>
+
+    <string name="config_alert_debug_last_update">%s önce</string>
+
+    <string name="config_alert_button_close">Kapat</string>
+
+    <string name="config_alert_button_update">Güncellemeye Zorla</string>
+
+    <string name="config_source_code">Kaynak Kod</string>
+
+    <string name="config_source_code_descr">Kaynak kodu ve belgeleri GitHub\'da görüntüleyin</string>
+
+    <plurals name="days">
+        <item quantity="one">1 Gün</item>
+        <item quantity="other">%d Gün</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 Saat</item>
+        <item quantity="other">%d Saat</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 Dakika</item>
+        <item quantity="other">%d Dakika</item>
+    </plurals>
+
+    <string name="widget_date_prev">"29 Eki Paz"</string>
+
+    <string name="widget_temp_prev">"21\u2103 · Yarın 19\u00B0 / 13\u00B0 · Parçalı bulutlu"</string>
+
+    <string name="widget_date_format">"d MMM E"</string>
+
+    <string name="thunderstorms">Gök gürültülü fırtına</string>
+    <string name="freezing_rain">Dondurucu yağmur</string>
+    <string name="freezing_drizzle">Dondurucu çiseleme</string>
+    <string name="heavy_rain">Şiddetli yağmur</string>
+    <string name="heavy_snow">Yoğun kar</string>
+    <string name="rain_showers">Sağanak yağış</string>
+    <string name="snow_showers">Kar geçişleri</string>
+    <string name="drizzle">Çiseleyen yağmur</string>
+    <string name="flurries">Hafif kar</string>
+    <string name="clear">Açık</string>
+    <string name="mostly_clear">Çoğunlukla açık</string>
+    <string name="partly_cloudy">Parçalı bulutlu</string>
+    <string name="mostly_cloudy">Çoğunlukla bulutlu</string>
+    <string name="cloudy">Bulutlu</string>
+    <string name="foggy">Sisli</string>
+
+    <string name="today">Bugün</string>
+
+    <string name="tomorrow">Yarın</string>
+
+</resources>

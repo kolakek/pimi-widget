@@ -1,0 +1,2 @@
+* Turkish translation (thanks to Sype0)
+* Update dependencies
