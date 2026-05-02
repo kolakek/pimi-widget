@@ -16,7 +16,7 @@
     <string name="config_weather_descr">Weather data by Open-Meteo.com</string>
 
     <!-- Title for the debug config option -->
-    <string name="config_debug_data">Debug info</string>
+    <string name="config_debug_data">Debug information</string>
 
     <!-- Short description of the debug config option -->
     <string name="config_debug_data_descr">View widget status</string>
