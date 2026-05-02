@@ -33,7 +33,11 @@ All download options provide the same APK file, signed with the same signing key
 
 ### Privacy Information
 
-The widget collects your location approximately every 30 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. No location data is permanently stored on your device.
+The widget collects your location approximately every 60 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. No location data is stored on your device.
+
+### Usage
+
+This app does not provide a launcher icon. It is a widget-only application. To use it, add the widget to your home screen via the Android widget picker.
 
 ### Widget Configuration
 
@@ -41,7 +45,7 @@ Normally, your home app should allow you to reconfigure the widget (e.g., by lon
 
 ### Weather Display
 
-The widget displays the hourly weather forecast. If it cannot access your location or retrieve weather data for more than 180 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
+The widget displays the 15-minutely weather forecast. It refreshes every 30 minutes. New forecast data is downloaded approximately every 60 minutes and remains valid for 180 minutes. If the widget cannot update your location and retrieve new weather data for more than 180 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
 
 ### Location Access
 
