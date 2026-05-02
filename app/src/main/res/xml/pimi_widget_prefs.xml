@@ -17,12 +17,6 @@
             android:widgetLayout="@layout/preference_switch"
             app:iconSpaceReserved="false" />
 
-        <Preference
-            android:key="weather_view"
-            android:summary="@string/config_weather_view_descr"
-            android:title="@string/config_weather_view"
-            app:iconSpaceReserved="false" />
-
         <CheckBoxPreference
             android:key="daily_forecast"
             android:title="@string/config_daily_forecast"

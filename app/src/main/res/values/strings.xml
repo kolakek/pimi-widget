@@ -57,12 +57,6 @@
     <!-- Section title in the config screen for additional information -->
     <string name="config_about_sec">About</string>
 
-    <!-- Title of the info field what weather date is displayed -->
-    <string name="config_weather_view">Weather view</string>
-
-    <!-- String indicating hourly forecast -->
-    <string name="config_weather_view_descr">Hourly forecast</string>
-
     <!-- Title of the option to show a daily forecast -->
     <string name="config_daily_forecast">Show daily forecast</string>
 

@@ -29,20 +29,22 @@ internal object WeatherFormatter {
     internal fun getCurrentWeatherStrAndIcon(
         context: Context,
         weather: WeatherData,
-        timeMillis: Long,
+        nowTimeMillis: Long,
         tempUnit: String,
         iconStyle: String,
         lightText: Boolean
     ): TextWithIcon? {
-        val idx = weather.hourlyTimeMillis.indexOfFirst { it > timeMillis }
+        val idx = weather.minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
 
         if (idx == -1) {
-            Timber.w("getCurrentWeatherStrAndIcon: No data available for the next hour")
+            Timber.w("getCurrentWeatherStrAndIcon: No data available for the next 15min")
             return null
         }
-        val tempCelsius = weather.hourlyTempCelsius.getOrNull(idx) ?: return null
-        val weatherCode = weather.hourlyWeatherCode.getOrNull(idx) ?: return null
-        val isDay = weather.hourlyIsDay.getOrNull(idx) ?: return null
+        Timber.d("getCurrentWeatherStrAndIcon: Current weather at index $idx")
+
+        val tempCelsius = weather.minutelyTempCelsius.getOrNull(idx) ?: return null
+        val weatherCode = weather.minutelyWeatherCode.getOrNull(idx) ?: return null
+        val isDay = weather.minutelyIsDay.getOrNull(idx) ?: return null
 
         val str = getTemperatureStr(context, tempCelsius, tempUnit)
         val id = mapWeatherId(weatherCode, isDay, iconStyle, lightText) ?: return null
@@ -52,13 +54,13 @@ internal object WeatherFormatter {
 
     internal fun getForecastStr(
         context: Context,
-        timeMillis: Long,
+        nowTimeMillis: Long,
         weather: WeatherData,
         tempUnit: String
     ): String? {
 
         val zone = ZoneId.systemDefault()
-        val zoned = Instant.ofEpochMilli(timeMillis).atZone(zone)
+        val zoned = Instant.ofEpochMilli(nowTimeMillis).atZone(zone)
         val date = zoned.toLocalDate()
         val hour = zoned.hour
 

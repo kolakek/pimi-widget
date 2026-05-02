@@ -31,13 +31,15 @@ object WeatherService {
             parameters.append("latitude", location.lat.toString())
             parameters.append("longitude", location.long.toString())
 
+            parameters.append(MINUTELY_KEY, MINUTELY_VALUE)
             parameters.append(DAILY_KEY, DAILY_VALUE)
             parameters.append(HOURLY_KEY, HOURLY_VALUE)
 
-            parameters.append(TIMEZONE_KEY, TIMEZONE_VALUE)
-            parameters.append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
+            parameters.append(FORECAST_MINUTES_KEY, FORECAST_MINUTES_VALUE)
             parameters.append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
+            parameters.append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
             parameters.append(TIMEFORMAT_KEY, TIMEFORMAT_VALUE)
+            parameters.append(TIMEZONE_KEY, TIMEZONE_VALUE)
         }.build()
 
         Timber.d("getWeather: Get data for URL: $url")
@@ -54,6 +56,10 @@ object WeatherService {
 
     private fun mapProviderData(providerData: ProviderData): WeatherData {
         return WeatherData(
+            minutelyTempCelsius = providerData.minutely_15.temperature_2m,
+            minutelyWeatherCode = providerData.minutely_15.weather_code,
+            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
+            minutelyIsDay = providerData.minutely_15.is_day,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
             hourlyWeatherCode = providerData.hourly.weather_code,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },

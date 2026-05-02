@@ -21,6 +21,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class WeatherData (
+    val minutelyTempCelsius: List<Double>,
+    val minutelyWeatherCode: List<Int>,
+    val minutelyTimeMillis: List<Long>,
+    val minutelyIsDay: List<Int>,
     val hourlyTempCelsius: List<Double>,
     val hourlyWeatherCode: List<Int>,
     val hourlyTimeMillis: List<Long>,
