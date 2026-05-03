@@ -59,7 +59,7 @@ Supported weather apps (among others): Google Weather, Breezy Weather.
 
 ### Further Troubleshooting
 
-If weather information does not appear, you can find debug information by tapping the **Data** field in the widget configuration. Try the following actions based on the displayed status:
+If weather information does not appear, you can find debug information by tapping the **Debug information** field in the widget configuration. Try the following actions based on the displayed status:
 
 - **Location FAILED**: The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
 
