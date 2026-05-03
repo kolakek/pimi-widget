@@ -54,7 +54,7 @@
 
     <string name="config_alert_button_cancel">Abbrechen</string>
 
-    <string name="config_alert_debug_title">Datenaktualisierung</string>
+    <string name="config_alert_debug_title">Letzter Daten-Download</string>
 
     <string name="config_alert_debug_worker">Prozess</string>
 

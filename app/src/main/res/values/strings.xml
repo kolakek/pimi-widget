@@ -82,7 +82,7 @@
     <string name="config_alert_button_cancel">Cancel</string>
 
     <!-- Title of the alert box for showing data debug information -->
-    <string name="config_alert_debug_title">Data update</string>
+    <string name="config_alert_debug_title">Last data download</string>
 
     <!-- String for the widget background worker, 1 word -->
     <string name="config_alert_debug_worker">Worker</string>

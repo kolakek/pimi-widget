@@ -6,11 +6,11 @@
 
     <string name="config_privacy_note">Hava durumu etkinleştirildiğinde konumunuz hava durumu sağlayıcısıyla paylaşılır</string>
 
-    <string name="config_weather_switch">Hava durumunu etkinleştir</string>
+    <string name="config_weather_switch">Hava Durumunu Etkinleştir</string>
 
     <string name="config_weather_descr">Open-Meteo.com\'dan hava durumu verileri</string>
 
-    <string name="config_debug_data">Hata ayıklama bilgileri</string>
+    <string name="config_debug_data">Hata Ayıklama Bilgileri</string>
 
     <string name="config_debug_data_descr">Widget durumunu görüntüle</string>
 
@@ -40,7 +40,7 @@
 
     <string name="config_daily_forecast">Günlük Tahmini Göster</string>
 
-    <string name="config_daily_forecast_descr">Sabah ve Akşam</string>
+    <string name="config_daily_forecast_descr">Sabah ve akşam</string>
 
     <string name="config_loc_perm_alert_title">Konum İzni Gerekli</string>
 
@@ -54,7 +54,7 @@
 
     <string name="config_alert_button_cancel">İptal</string>
 
-    <string name="config_alert_debug_title">Veri Güncellemesi</string>
+    <string name="config_alert_debug_title">Son Veri İndirme</string>
 
     <string name="config_alert_debug_worker">İşlem</string>
 
