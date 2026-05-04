@@ -2,7 +2,7 @@
 
     <string name="widget_label">Datum &amp; Wetter</string>
 
-    <string name="config_button">Widget aktualisieren</string>
+    <string name="config_button">Einstellungen übernehmen</string>
 
     <string name="config_privacy_note">Durch das Aktivieren des Wetters wird dein Standort an den Wetterdienst übermittelt</string>
 
@@ -87,11 +87,11 @@
         <item quantity="other">%d Minuten</item>
     </plurals>
 
-    <string name="widget_date_prev">"So., 3. Oct."</string>
+    <string name="widget_date_prev">So., 3. Oct.</string>
 
-    <string name="widget_temp_prev">"21\u2103 · Morgen 19\u00B0 / 13\u00B0 · Teilweise bewölkt"</string>
+    <string name="widget_temp_prev">21\u2103 · Morgen 19\u00B0 / 13\u00B0 · Teilweise bewölkt</string>
 
-    <string name="widget_date_format">"E, d. MMM"</string>
+    <string name="widget_date_format">E, d. MMM</string>
 
     <string name="thunderstorms">Gewitter</string>
     <string name="freezing_rain">Gefrierender Regen</string>

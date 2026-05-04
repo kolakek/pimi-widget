@@ -4,7 +4,7 @@
     <string name="widget_label">Date &amp; Weather</string>
 
     <!-- Title of the button for updating the widget from the config screen -->
-    <string name="config_button">Update widget</string>
+    <string name="config_button">Apply settings</string>
 
     <!-- Short privacy note to be displayed above the weatehr switch -->
     <string name="config_privacy_note">Enabling weather shares your location with the weather provider</string>
@@ -129,13 +129,13 @@
     <!-- Strings visible on widget -->
 
     <!-- Example temperature value for widget preview -->
-    <string name="widget_date_prev">"Sun, Jul 4"</string>
+    <string name="widget_date_prev">Sun, Jul 4</string>
 
     <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">"71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Thunderstorms"</string>
+    <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Thunderstorms</string>
 
     <!-- Default date format for current language -->
-    <string name="widget_date_format">"E, MMM d"</string>
+    <string name="widget_date_format">E, MMM d</string>
 
     <!-- Strings defining weather conditions -->
     <string name="thunderstorms">Thunderstorms</string>
@@ -172,6 +172,6 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
 
-    <string name="forecast_line" translatable="false">" · %1$s %3$s / %4$s · %2$s"</string>
+    <string name="forecast_line" translatable="false">\u00A0· %1$s %3$s / %4$s · %2$s</string>
 
 </resources>
