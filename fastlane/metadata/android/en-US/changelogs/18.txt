@@ -1,5 +1,5 @@
 Major code rewrite to improve maintainability and overall software quality
 Improved caching of weather data to avoid weather not showing due to aggressive Android battery optimizations
-Show 15-minute weather data instead of hourly data for a more up-to-date weather display
+Show 15-minutely forecast data instead of hourly data for a more up-to-date weather display
 Optimized weather download cycle to further reduce battery consumption
 Various minor bug fixes
