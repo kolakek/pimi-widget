@@ -20,6 +20,8 @@ package com.kolakek.pimiwidget.widget
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentActivity
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
 
@@ -46,9 +48,6 @@ class WidgetConfigureActivity : FragmentActivity() {
 
         setResult(RESULT_CANCELED)
 
-        val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         appWidgetId = intent?.extras?.getInt(
             AppWidgetManager.EXTRA_APPWIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID
@@ -57,6 +56,22 @@ class WidgetConfigureActivity : FragmentActivity() {
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish()
             return
+        }
+        val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.root.post {
+            val statusBarHeight =
+                ViewCompat.getRootWindowInsets(binding.root)
+                    ?.getInsets(WindowInsetsCompat.Type.statusBars())
+                    ?.top ?: 0
+
+            binding.configTitleText.setPadding(
+                binding.configTitleText.paddingLeft,
+                binding.configTitleText.paddingTop,
+                binding.configTitleText.paddingRight,
+                statusBarHeight
+            )
         }
         binding.button.setOnClickListener { finishWidgetConfigureActivity() }
     }

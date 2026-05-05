@@ -14,11 +14,11 @@
         android:background="?attr/colorSurface">
 
         <TextView
+            android:id="@+id/config_title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="64dp"
-            android:paddingBottom="24dp"
-            android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+            android:paddingTop="?attr/actionBarSize"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
             android:text="@string/app_name"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
 
@@ -26,10 +26,10 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="280dp"
-            android:text="@string/config_button"
             android:layout_gravity="center"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:minWidth="280dp"
+            android:text="@string/config_button"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
