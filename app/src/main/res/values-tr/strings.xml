@@ -68,6 +68,20 @@
 
     <string name="config_alert_button_update">Güncellemeye zorla</string>
 
+    <string name="config_alert_button_dismiss">Kapat</string>
+
+    <string name="config_shared_data">Paylaşılan veriler</string>
+
+    <string name="config_shared_data_descr">Hava durumu sağlayıcısıyla paylaşılan verileri görüntüle</string>
+
+    <string name="config_shared_data_alert_no_loc">Konum verisi mevcut değil</string>
+
+    <string name="config_shared_data_alert_text">Son konum veya hava durumu API isteğini görüntüle\n\nKonum OpenStreetMap üzerinde gösterilir\n\nHava durumu isteği Open-Meteo üzerinden yapılır</string>
+
+    <string name="config_shared_data_alert_but_weather">Hava durumu</string>
+
+    <string name="config_shared_data_alert_but_location">Konum</string>
+
     <string name="config_source_code">Kaynak kod</string>
 
     <string name="config_source_code_descr">Kaynak kodu ve belgeleri GitHub\'da görüntüleyin</string>

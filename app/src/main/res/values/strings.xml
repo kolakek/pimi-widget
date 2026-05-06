@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Short description of the widget shown in the widget drawer -->
-    <string name="widget_label">Date &amp; Weather</string>
+    <string name="widget_label">Date &amp; weather</string>
 
     <!-- Title of the button for updating the widget from the config screen -->
     <string name="config_button">Apply settings</string>
@@ -101,6 +101,27 @@
 
     <!-- String for the button of an alert box to force an update -->
     <string name="config_alert_button_update">Force update</string>
+
+    <!-- String for the button of an alert box to dismiss -->
+    <string name="config_alert_button_dismiss">Dismiss</string>
+
+    <!-- String for the title of a config option to show the shared data -->
+    <string name="config_shared_data">Shared data</string>
+
+    <!-- String for the description of the config option to show the shared data -->
+    <string name="config_shared_data_descr">View data exchanged with the weather provider</string>
+
+    <!-- String for the alert text in case no location data is available -->
+    <string name="config_shared_data_alert_no_loc">No location data available</string>
+
+    <!-- String for the alert text in case location data is available -->
+    <string name="config_shared_data_alert_text">View last location or weather API request\n\nLocation is shown on OpenStreeMap\n\nWeather request is shown on Open-Meteo</string>
+
+    <!-- String for the button of an alert box to show weather (data) -->
+    <string name="config_shared_data_alert_but_weather">Weather</string>
+
+    <!-- String for the button of an alert box to show location (data) -->
+    <string name="config_shared_data_alert_but_location">Location</string>
 
     <!-- String for preference title that links to source code location -->
     <string name="config_source_code">Source code</string>

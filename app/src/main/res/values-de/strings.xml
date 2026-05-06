@@ -68,6 +68,20 @@
 
     <string name="config_alert_button_update">Aktualisierung erzwingen</string>
 
+    <string name="config_alert_button_dismiss">Schließen</string>
+
+    <string name="config_shared_data">Geteilte Daten</string>
+
+    <string name="config_shared_data_descr">Mit dem Wetterdienst geteilte Daten anzeigen</string>
+
+    <string name="config_shared_data_alert_no_loc">Keine Standortdaten vorhanden</string>
+
+    <string name="config_shared_data_alert_text">Letzten Standort oder Wetteranfrage anzeigen\n\nStandort wird in OpenStreetMap dargestellt\n\nWetteranfrage wird auf Open-Meteo angezeigt</string>
+
+    <string name="config_shared_data_alert_but_weather">Wetteranfrage</string>
+
+    <string name="config_shared_data_alert_but_location">Standort</string>
+
     <string name="config_source_code">Quellcode</string>
 
     <string name="config_source_code_descr">Quellcode und Dokumentation auf GitHub anzeigen</string>

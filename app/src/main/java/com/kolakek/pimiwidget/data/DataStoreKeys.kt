@@ -25,5 +25,6 @@ val Context.dataStore by preferencesDataStore(name = "cache")
 
 object DataKeys {
     val WEATHER_DATA_KEY = stringPreferencesKey("weather_json")
+    val LOCATION_DATA_KEY = stringPreferencesKey("location_json")
     val UPDATE_STATUS_DATA_KEY = stringPreferencesKey("update_status_json")
 }

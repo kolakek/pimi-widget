@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:fitsSystemWindows="true"
-        android:background="?attr/colorSurface">
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:text="@string/widget_label" />
 
-        <TextView
-            android:id="@+id/config_title_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="?attr/actionBarSize"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
-            android:text="@string/app_name"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:minWidth="280dp"
-            android:text="@string/config_button"/>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:minWidth="280dp"
+        android:text="@string/config_button" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/widget_settings_fragment"
@@ -39,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:paddingEnd="8dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

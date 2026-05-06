@@ -19,6 +19,9 @@ package com.kolakek.pimiwidget.weather
 
 internal const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
 
+internal const val LATITUDE_KEY = "latitude"
+internal const val LONGITUDE_KEY = "longitude"
+
 internal const val MINUTELY_KEY = "minutely_15"
 internal const val MINUTELY_VALUE = "temperature_2m,weather_code,is_day"
 

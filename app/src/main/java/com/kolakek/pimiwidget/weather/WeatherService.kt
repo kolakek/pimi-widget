@@ -22,25 +22,13 @@ import kotlinx.coroutines.CancellationException
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.URLBuilder
+import io.ktor.http.Url
 import timber.log.Timber
 
 object WeatherService {
 
     suspend fun getWeather(location: LocationData): WeatherData? {
-        val url = URLBuilder(BASE_URL).apply {
-            parameters.append("latitude", location.lat.toString())
-            parameters.append("longitude", location.long.toString())
-
-            parameters.append(MINUTELY_KEY, MINUTELY_VALUE)
-            parameters.append(DAILY_KEY, DAILY_VALUE)
-            parameters.append(HOURLY_KEY, HOURLY_VALUE)
-
-            parameters.append(FORECAST_MINUTES_KEY, FORECAST_MINUTES_VALUE)
-            parameters.append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
-            parameters.append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
-            parameters.append(TIMEFORMAT_KEY, TIMEFORMAT_VALUE)
-            parameters.append(TIMEZONE_KEY, TIMEZONE_VALUE)
-        }.build()
+        val url = weatherUrl(location, TIMEFORMAT_VALUE)
 
         Timber.d("getWeather: Get data for URL: $url")
         return try {
@@ -52,6 +40,26 @@ object WeatherService {
             Timber.w("getWeather: Failed")
             null
         }
+    }
+
+    fun weatherUrl(location: LocationData, timeFormat: String): Url {
+        return URLBuilder(BASE_URL).apply {
+            parameters.apply {
+                append(LATITUDE_KEY, location.lat.toString())
+                append(LONGITUDE_KEY, location.long.toString())
+
+                append(MINUTELY_KEY, MINUTELY_VALUE)
+                append(DAILY_KEY, DAILY_VALUE)
+                append(HOURLY_KEY, HOURLY_VALUE)
+
+                append(FORECAST_MINUTES_KEY, FORECAST_MINUTES_VALUE)
+                append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
+                append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
+
+                append(TIMEFORMAT_KEY, timeFormat)
+                append(TIMEZONE_KEY, TIMEZONE_VALUE)
+            }
+        }.build()
     }
 
     private fun mapProviderData(providerData: ProviderData): WeatherData {

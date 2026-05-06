@@ -31,13 +31,18 @@ internal const val KEY_COLOR_AUTO = "color_auto"
 internal const val KEY_ICON_STYLE_OUTLINED = "icon_style_outlined"
 internal const val KEY_ICON_STYLE_FILLED = "icon_style_filled"
 internal const val KEY_DEBUG_INFO = "debug_info"
+internal const val KEY_SHARED_DATA = "shared_data"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 internal const val KEY_SOURCE_CODE = "source_code"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
 
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
+internal const val LOCATION_URL = "https://www.openstreetmap.org"
+internal const val LOCATION_URL_ZOOM = 13
+
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
 internal const val WORKER_INIT_DELAY_MILLIS = 2 * 60 * 1000L
+
 internal const val FORECAST_TODAY_HOUR_ON = 6
 internal const val FORECAST_TODAY_HOUR_OFF = 10
 internal const val FORECAST_TOMORROW_HOUR_ON = 20

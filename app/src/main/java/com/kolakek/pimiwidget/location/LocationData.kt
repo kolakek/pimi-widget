@@ -17,6 +17,9 @@
 
 package com.kolakek.pimiwidget.location
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class LocationData (
     var lat: Double,
     var long: Double,

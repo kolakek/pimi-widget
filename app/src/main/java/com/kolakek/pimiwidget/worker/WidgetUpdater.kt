@@ -45,6 +45,12 @@ internal object WidgetUpdater {
                 Timber.w("update: Location permission denied")
                 null
             }
+            if (location != null) {
+                Timber.d("update: Store location data")
+                JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
+            } else {
+                Timber.w("update: No location data available")
+            }
             Timber.d("update: Get weather data")
             val weather = if (location != null) {
                 WeatherService.getWeather(location)

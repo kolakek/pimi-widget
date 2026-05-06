@@ -34,8 +34,11 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
+import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.worker.UpdateStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
+import io.ktor.http.URLBuilder
 import java.util.Date
 
 internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -53,23 +56,25 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val debugField: Preference? = findPreference(KEY_DEBUG_INFO)
+        val sharedDataField: Preference? = findPreference(KEY_SHARED_DATA)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
         if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {
             weatherSwitch.isChecked = false
             WorkManagerHelper.cancelWorkers(context)
         }
-
         debugField?.setOnPreferenceClickListener {
             showDebugDialog(context, weatherSwitch?.isChecked)
             true
         }
-
-        sourceCodeField?.setOnPreferenceClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, SOURCE_CODE_URL.toUri()))
+        sharedDataField?.setOnPreferenceClickListener {
+            showDataInfoDialog(context)
             true
         }
-
+        sourceCodeField?.setOnPreferenceClickListener {
+            openUrl(SOURCE_CODE_URL)
+            true
+        }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             when (newValue) {
                 true if permissionsDenied(context) -> {
@@ -146,7 +151,6 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         context: Context,
         weatherEnabled: Boolean?
     ) {
-        val builder = AlertDialog.Builder(context)
         val dataUpdateStatus: UpdateStatusData? = JsonDataStore.loadSync(
             context, DataKeys.UPDATE_STATUS_DATA_KEY
         )
@@ -168,24 +172,72 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherStr = getString(R.string.config_alert_debug_weather) +
                 " ${statusString(dataUpdateStatus?.isWeatherSuccess)}"
 
-        builder.setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
-        builder.setTitle(R.string.config_alert_debug_title)
-        builder.setCancelable(true)
-        builder.setPositiveButton(
-            getString(R.string.config_alert_button_close)
-        ) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.apply {
-            if (weatherEnabled == true) {
-                setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
-                    WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
-                    dialog.dismiss()
+        AlertDialog.Builder(context)
+            .setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
+            .setTitle(R.string.config_alert_debug_title)
+            .setCancelable(true)
+            .setPositiveButton(
+                getString(R.string.config_alert_button_close)
+            ) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .apply {
+                if (weatherEnabled == true) {
+                    setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
+                        WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
+                        dialog.dismiss()
+                    }
                 }
             }
+            .show()
+    }
+
+    private fun showDataInfoDialog(
+        context: Context
+    ) {
+        val locationData: LocationData? = JsonDataStore.loadSync(
+            context,
+            DataKeys.LOCATION_DATA_KEY
+        )
+        val message = if (locationData == null) {
+            getString(R.string.config_shared_data_alert_no_loc)
+        } else {
+            getString(R.string.config_shared_data_alert_text)
         }
-        val alertDialog = builder.create()
-        alertDialog.show()
+        AlertDialog.Builder(context)
+            .setTitle(getString(R.string.config_shared_data))
+            .setMessage(message)
+            .setCancelable(true)
+            .apply {
+                locationData?.let {
+                    setPositiveButton(getString(R.string.config_shared_data_alert_but_weather)) {
+                        _, _ ->
+                        openUrl(WeatherService.weatherUrl(it, "iso8601").toString())
+                    }
+                    setNegativeButton(getString(R.string.config_shared_data_alert_but_location)) {
+                        _, _ ->
+                        openUrl(locationUrl(it))
+                    }
+                }
+            }
+            .setNeutralButton(getString(R.string.config_alert_button_dismiss)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun openUrl(url: String) {
+        startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+    }
+
+    private fun locationUrl(location: LocationData): String {
+        return URLBuilder(LOCATION_URL).apply {
+            parameters.apply {
+                append("mlat", location.lat.toString())
+                append("mlon", location.long.toString())
+            }
+            fragment = "map=$LOCATION_URL_ZOOM/${location.lat}/${location.long}"
+        }.build().toString()
     }
 
     private fun showRationaleDialog(

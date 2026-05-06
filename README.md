@@ -33,7 +33,7 @@ All download options provide the same APK file, signed with the same signing key
 
 ### Privacy Information
 
-The widget collects your location approximately every 60 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. No location data is stored on your device.
+The widget collects your location approximately every 60 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on the device. You can view the data that is exchanged with the weather provider by tapping the **Shared data** option in the widget settings.
 
 ### Usage
 
