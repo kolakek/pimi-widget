@@ -1,6 +1,6 @@
-* Code rewrites to improve maintainability and overall software quality
-* More robust data caching to deal with Android's aggressive battery optimizations
+* Code refactoring to improve maintainability and overall software quality
+* More robust data caching to handle Android's aggressive battery optimizations
 * Optimized weather download cycle to further reduce battery consumption
-* Use 15-minutely forecast data for a more up-to-date weather display
+* Use 15-minute forecast data for a more up-to-date weather display
 * Option to show the data exchanged with the weather provider
 * Various minor bug fixes
