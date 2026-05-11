@@ -23,13 +23,28 @@ import androidx.preference.PreferenceManager
 
 internal object PreferencesHelper {
 
+    enum class IconStyle(val key: String) {
+        FLAT_OUTLINED(KEY_ICON_STYLE_OUTLINED)
+    }
+
+    enum class TempUnit(val key: String) {
+        CELSIUS(KEY_CELSIUS),
+        FAHRENHEIT(KEY_FAHRENHEIT)
+    }
+
+    enum class TextColor(val key: String) {
+        AUTO(KEY_COLOR_AUTO),
+        LIGHT(KEY_COLOR_LIGHT),
+        DARK(KEY_COLOR_DARK)
+    }
+
     internal fun getWidgetPreferences(context: Context): WidgetPreferences {
         return WidgetPreferences(
-            getWeatherPreference(context),
-            getDailyForecastPreference(context),
-            getTempPreference(context),
-            getIconStylePreference(context),
-            getTextColorPreference(context)
+            showWeather = getWeatherPreference(context),
+            showForecast = getDailyForecastPreference(context),
+            tempUnit = getTempUnitPreference(context),
+            iconStyle = getIconStylePreference(context),
+            textColor = getTextColorPreference(context)
         )
     }
 
@@ -49,18 +64,22 @@ internal object PreferencesHelper {
             .getBoolean(KEY_DAILY_FORECAST, true)
     }
 
-    private fun getTextColorPreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEXT_COLOR_LIST, KEY_COLOR_AUTO) ?: KEY_COLOR_AUTO
+    private fun getTextColorPreference(context: Context): TextColor {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_TEXT_COLOR_LIST, null)
+        return TextColor.entries.find { it.key == key } ?: TextColor.AUTO
     }
 
-    private fun getIconStylePreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_ICON_STYLE_LIST, KEY_ICON_STYLE_OUTLINED) ?: KEY_ICON_STYLE_OUTLINED
+    private fun getIconStylePreference(context: Context): IconStyle {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_ICON_STYLE_LIST, null)
+        return IconStyle.entries.find { it.key == key } ?: IconStyle.FLAT_OUTLINED
+
     }
 
-    private fun getTempPreference(context: Context): String {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEMP_UNITS, KEY_CELSIUS) ?: KEY_CELSIUS
+    private fun getTempUnitPreference(context: Context): TempUnit {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_TEMP_UNITS, null)
+        return TempUnit.entries.find { it.key == key } ?: TempUnit.CELSIUS
     }
 }

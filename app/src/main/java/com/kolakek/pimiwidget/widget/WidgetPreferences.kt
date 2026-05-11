@@ -20,7 +20,7 @@ package com.kolakek.pimiwidget.widget
 internal data class WidgetPreferences (
     val showWeather: Boolean,
     val showForecast: Boolean,
-    val tempUnit: String,
-    val iconStyle: String,
-    val textColor: String
+    val tempUnit: PreferencesHelper.TempUnit,
+    val iconStyle: PreferencesHelper.IconStyle,
+    val textColor: PreferencesHelper.TextColor
 )

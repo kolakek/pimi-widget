@@ -32,8 +32,8 @@ internal object WeatherFormatter {
         context: Context,
         weather: WeatherData,
         nowTimeMillis: Long,
-        tempUnitPref: String,
-        iconStylePref: String,
+        tempUnitPref: PreferencesHelper.TempUnit,
+        iconStylePref: PreferencesHelper.IconStyle,
         lightColor: Boolean
     ): TextWithIcon? {
         val idx = weather.minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
@@ -51,13 +51,8 @@ internal object WeatherFormatter {
         val str = getTemperatureStr(context, tempCelsius, tempUnitPref)
 
         val iconStyle = when (iconStylePref) {
-            KEY_ICON_STYLE_OUTLINED ->
+            PreferencesHelper.IconStyle.FLAT_OUTLINED ->
                 if (lightColor) IconStyles.FLAT_OUTLINED_LIGHT else IconStyles.FLAT_OUTLINED_DARK
-
-            else -> {
-                Timber.w("getCurrentWeatherStrAndIcon: Unexpected null return")
-                return null
-            }
         }
         val id = WeatherIcons.getWeatherIconId(weatherCode, isDay, 0, iconStyle) ?: return null // ToDo cloud cover
 
@@ -68,7 +63,7 @@ internal object WeatherFormatter {
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        tempUnit: String
+        tempUnitPref: PreferencesHelper.TempUnit
     ): String? {
 
         val zone = ZoneId.systemDefault()
@@ -101,8 +96,8 @@ internal object WeatherFormatter {
         val visibilityMean = weather.dailyVisibilityMean.getOrNull(idx) ?: return null
         val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
 
-        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnit, false)
-        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnit, false)
+        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
+        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
 
         val codeStrId = getWeatherCodeId(
             weatherCode,
@@ -126,11 +121,11 @@ internal object WeatherFormatter {
     private fun getTemperatureStr(
         context: Context,
         tempCelsius: Double,
-        tempUnit: String,
+        tempUnitPref: PreferencesHelper.TempUnit,
         fullUnit: Boolean = true
     ): String {
 
-        val isFahrenheit = (tempUnit == KEY_FAHRENHEIT)
+        val isFahrenheit = (tempUnitPref == PreferencesHelper.TempUnit.FAHRENHEIT)
         val temp = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
         val unit = when {
             fullUnit && isFahrenheit -> context.getString(R.string.fahrenheit)

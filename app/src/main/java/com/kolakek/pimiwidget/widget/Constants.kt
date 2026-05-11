@@ -24,12 +24,16 @@ internal const val REQUIRED_PERMISSION = Manifest.permission.ACCESS_BACKGROUND_L
 internal const val KEY_TEMP_UNITS = "temp_list"
 internal const val KEY_CELSIUS = "temp_unit_celsius"
 internal const val KEY_FAHRENHEIT = "temp_unit_fahrenheit"
+
 internal const val KEY_TEXT_COLOR_LIST = "text_color_list"
-internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_COLOR_LIGHT = "color_light"
+internal const val KEY_COLOR_DARK = "color_dark"
 internal const val KEY_COLOR_AUTO = "color_auto"
+
+internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_ICON_STYLE_OUTLINED = "icon_style_outlined"
 internal const val KEY_ICON_STYLE_FILLED = "icon_style_filled"
+
 internal const val KEY_DEBUG_INFO = "debug_info"
 internal const val KEY_SHARED_DATA = "shared_data"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"

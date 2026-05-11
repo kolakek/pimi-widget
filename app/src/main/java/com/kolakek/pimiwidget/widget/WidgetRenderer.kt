@@ -134,7 +134,7 @@ internal object WidgetRenderer {
         val lightText = useLightText(context, prefs.textColor)
 
         val layout = when {
-            lightText && prefs.iconStyle == KEY_ICON_STYLE_OUTLINED ->
+            lightText && prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_OUTLINED ->
                 R.layout.pimi_widget_light
 
             lightText ->
@@ -146,14 +146,16 @@ internal object WidgetRenderer {
         return RemoteViews(context.packageName, layout)
     }
 
-    private fun useLightText(context: Context, textColor: String): Boolean =
+    private fun useLightText(context: Context, textColor: PreferencesHelper.TextColor): Boolean =
         when (textColor) {
-            KEY_COLOR_AUTO -> WallpaperManager.getInstance(context)
-                .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-                ?.colorHints
-                ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
+            PreferencesHelper.TextColor.AUTO ->
+                WallpaperManager
+                    .getInstance(context)
+                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+                    ?.colorHints
+                    ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
 
-            KEY_COLOR_LIGHT -> true
-            else -> false
+            PreferencesHelper.TextColor.LIGHT -> true
+            PreferencesHelper.TextColor.DARK -> false
         }
 }
