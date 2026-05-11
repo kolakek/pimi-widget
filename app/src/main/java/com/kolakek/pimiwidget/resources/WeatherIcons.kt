@@ -31,9 +31,9 @@ object WeatherIcons {
 
         return when (iconStyle) {
             IconStyles.FLAT_OUTLINED_DARK -> IconsFlatOutlinedDark.getIconId(weatherCode)
-            IconStyles.FLAT_OUTLINED_LIGHT -> null
-            IconStyles.SOLID_3D_DARK -> null
-            IconStyles.SOLID_3D_LIGHT -> null
+            IconStyles.FLAT_OUTLINED_LIGHT -> null // ToDo
+            IconStyles.SOLID_3D_DARK -> null // ToDo
+            IconStyles.SOLID_3D_LIGHT -> null // ToDo
         }
     }
 

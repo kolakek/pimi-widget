@@ -23,7 +23,7 @@ internal const val LATITUDE_KEY = "latitude"
 internal const val LONGITUDE_KEY = "longitude"
 
 internal const val MINUTELY_KEY = "minutely_15"
-internal const val MINUTELY_VALUE = "temperature_2m,weather_code,is_day"
+internal const val MINUTELY_VALUE = "temperature_2m,weather_code,is_day,cloud_cover"
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day"

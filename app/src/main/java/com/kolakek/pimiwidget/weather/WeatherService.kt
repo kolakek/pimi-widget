@@ -68,6 +68,7 @@ object WeatherService {
             minutelyWeatherCode = providerData.minutely_15.weather_code,
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
             minutelyIsDay = providerData.minutely_15.is_day,
+            minutelyCloudCover = providerData.minutely_15.cloud_cover,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
             hourlyWeatherCode = providerData.hourly.weather_code,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },

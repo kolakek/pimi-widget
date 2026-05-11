@@ -46,6 +46,7 @@ internal object WeatherFormatter {
 
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(idx) ?: return null
         val weatherCode = weather.minutelyWeatherCode.getOrNull(idx) ?: return null
+        val cloudCover = weather.minutelyCloudCover.getOrNull(idx) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(idx) ?: return null
 
         val str = getTemperatureStr(context, tempCelsius, tempUnitPref)
@@ -54,7 +55,11 @@ internal object WeatherFormatter {
             PreferencesHelper.IconStyle.FLAT_OUTLINED ->
                 if (lightColor) IconStyles.FLAT_OUTLINED_LIGHT else IconStyles.FLAT_OUTLINED_DARK
         }
-        val id = WeatherIcons.getWeatherIconId(weatherCode, isDay, 0, iconStyle) ?: return null // ToDo cloud cover
+        val id = WeatherIcons.getWeatherIconId(
+            weatherCode,
+            isDay,
+            cloudCover,
+            iconStyle) ?: return null
 
         return TextWithIcon(str, id)
     }
