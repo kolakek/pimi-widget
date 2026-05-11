@@ -19,6 +19,8 @@ package com.kolakek.pimiwidget.widget
 
 import android.content.Context
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.resources.IconStyles
+import com.kolakek.pimiwidget.resources.WeatherIcons
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -30,9 +32,9 @@ internal object WeatherFormatter {
         context: Context,
         weather: WeatherData,
         nowTimeMillis: Long,
-        tempUnit: String,
-        iconStyle: String,
-        lightText: Boolean
+        tempUnitPref: String,
+        iconStylePref: String,
+        lightColor: Boolean
     ): TextWithIcon? {
         val idx = weather.minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
 
@@ -46,8 +48,18 @@ internal object WeatherFormatter {
         val weatherCode = weather.minutelyWeatherCode.getOrNull(idx) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(idx) ?: return null
 
-        val str = getTemperatureStr(context, tempCelsius, tempUnit)
-        val id = mapWeatherId(weatherCode, isDay, iconStyle, lightText) ?: return null
+        val str = getTemperatureStr(context, tempCelsius, tempUnitPref)
+
+        val iconStyle = when (iconStylePref) {
+            KEY_ICON_STYLE_OUTLINED ->
+                if (lightColor) IconStyles.FLAT_OUTLINED_LIGHT else IconStyles.FLAT_OUTLINED_DARK
+
+            else -> {
+                Timber.w("getCurrentWeatherStrAndIcon: Unexpected null return")
+                return null
+            }
+        }
+        val id = WeatherIcons.getWeatherIconId(weatherCode, isDay, 0, iconStyle) ?: return null // ToDo cloud cover
 
         return TextWithIcon(str, id)
     }
@@ -265,7 +277,7 @@ internal object WeatherFormatter {
             81 -> if (isDay == 1) R.drawable.ub_81d else R.drawable.ub_81n
             82 -> if (isDay == 1) R.drawable.ub_82d else R.drawable.ub_82n
             85 -> if (isDay == 1) R.drawable.ub_85d else R.drawable.ub_85n
-            86 -> if (isDay == 1) R.drawable.ub_86d else R.drawable.ub_86n
+            86 -> if (isDay == 1) R.drawable.ub_87d else R.drawable.ub_87n
             95 -> if (isDay == 1) R.drawable.ub_95d else R.drawable.ub_95n
             96 -> if (isDay == 1) R.drawable.ub_96d else R.drawable.ub_96n
             99 -> R.drawable.ub_99
