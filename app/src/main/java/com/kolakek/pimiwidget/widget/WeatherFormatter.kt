@@ -21,6 +21,7 @@ import android.content.Context
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyles
 import com.kolakek.pimiwidget.resources.WeatherIcons
+import com.kolakek.pimiwidget.resources.WeatherStrings
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -37,7 +38,7 @@ internal object WeatherFormatter {
         lightColor: Boolean
     ): TextWithIcon? {
         val nowTimeMillis = System.currentTimeMillis()
-        val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis)?: return null
+        val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
         val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
@@ -54,7 +55,8 @@ internal object WeatherFormatter {
             weatherCode,
             isDay,
             cloudCover,
-            iconStyle) ?: return null
+            iconStyle
+        ) ?: return null
 
         val forecastStr = if (showForecast) {
             getForecastStr(
@@ -114,30 +116,24 @@ internal object WeatherFormatter {
         }
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
-        val weatherCode = weather.hourlyWeatherCode.getOrNull(idx) ?: return null
-        val rainSum = weather.dailyRainSum.getOrNull(idx) ?: return null
-        val showersSum = weather.dailyShowersSum.getOrNull(idx) ?: return null
-        val snowSum = weather.dailySnowfallSum.getOrNull(idx) ?: return null
-        val visibilityMean = weather.dailyVisibilityMean.getOrNull(idx) ?: return null
         val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
+        val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null
 
         val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
         val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
 
-        val codeStrId = getWeatherCodeId(
+        val weatherStrId = WeatherStrings.getShortWeatherStrId(
             weatherCode,
-            rainSum,
-            showersSum,
-            snowSum,
-            visibilityMean,
+            isDay = 1,
             cloudCoverMean
-        )
+        ) ?: return null
+
         val dayStrId = if (isToday) R.string.today else R.string.tomorrow
 
         return context.getString(
             R.string.forecast_line,
             context.getString(dayStrId),
-            context.getString(codeStrId),
+            context.getString(weatherStrId),
             maxTempStr,
             minTempStr
         )
@@ -160,41 +156,7 @@ internal object WeatherFormatter {
         } else {
             context.getString(R.string.degree)
         }
-        return "${(tempValue+0.5).toInt()}$unit"
-    }
-
-    private fun getWeatherCodeId(
-        code: Int,
-        rainSum: Double,
-        showersSum: Double,
-        snowSum: Double,
-        visibility: Double,
-        cloudCover: Int
-    ): Int {
-        val rainShowerSum = rainSum  + showersSum
-
-        Timber.d("getWeatherCodeId: code = $code, rain = $rainShowerSum, snow = $snowSum, " +
-                "cloud = $cloudCover, vis = $visibility")
-
-        return when {
-
-            code in setOf(95, 96, 99) -> R.string.thunderstorms
-            code in setOf(57, 67) -> R.string.freezing_rain
-            code in setOf(56, 66) -> R.string.freezing_drizzle
-            snowSum > HEAVY_SNOW_CM -> R.string.heavy_snow
-            rainShowerSum > HEAVY_RAIN_MM -> R.string.heavy_rain
-            snowSum > SNOW_CM -> R.string.snow_showers
-            rainShowerSum > RAIN_MM -> R.string.rain_showers
-            snowSum > FLURRIES_CM -> R.string.flurries
-            rainShowerSum > DRIZZLE_MM -> R.string.drizzle
-            visibility < FOG_VISIBILITY_M -> R.string.foggy
-            cloudCover > CLOUDY_PERCENT -> R.string.cloudy
-            cloudCover > MOSTLY_CLOUDY_PERCENT -> R.string.mostly_cloudy
-            cloudCover > PARTLY_CLOUDY_PERCENT -> R.string.partly_cloudy
-            cloudCover > MOSTLY_CLEAR_PERCENT -> R.string.mostly_clear
-
-            else -> R.string.clear
-        }
+        return "${(tempValue + 0.5).toInt()}$unit"
     }
 
     private fun mapWeatherId(

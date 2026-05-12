@@ -32,10 +32,6 @@ data class WeatherData (
     val hourlyIsDay: List<Int>,
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
-    val dailyRainSum: List<Double>,
-    val dailyShowersSum: List<Double>,
-    val dailySnowfallSum: List<Double>,
-    val dailyVisibilityMean: List<Double>,
     val dailyCloudCoverMean: List<Int>,
     val dailyWeatherCode: List<Int>,
     val dailyTimeMillis: List<Long>

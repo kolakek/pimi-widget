@@ -24,10 +24,6 @@ import kotlinx.serialization.Serializable
 internal data class ProviderDataDaily (
     val temperature_2m_min: List<Double>,
     val temperature_2m_max: List<Double>,
-    val rain_sum: List<Double>,
-    val showers_sum: List<Double>,
-    val snowfall_sum: List<Double>,
-    val visibility_mean: List<Double>,
     val cloud_cover_mean: List<Int>,
     val time: List<Long>,
     val weather_code: List<Int>

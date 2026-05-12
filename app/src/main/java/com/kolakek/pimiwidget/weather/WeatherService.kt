@@ -75,10 +75,6 @@ object WeatherService {
             hourlyIsDay = providerData.hourly.is_day,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
-            dailyRainSum = providerData.daily.rain_sum,
-            dailyShowersSum = providerData.daily.showers_sum,
-            dailySnowfallSum = providerData.daily.snowfall_sum,
-            dailyVisibilityMean = providerData.daily.visibility_mean,
             dailyCloudCoverMean = providerData.daily.cloud_cover_mean,
             dailyWeatherCode = providerData.daily.weather_code,
             dailyTimeMillis = providerData.daily.time.map { v -> v * 1000L }
