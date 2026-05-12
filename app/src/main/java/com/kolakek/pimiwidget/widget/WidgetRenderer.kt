@@ -29,7 +29,6 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.weather.WeatherData
-import timber.log.Timber
 import java.util.Locale
 
 internal object WidgetRenderer {
@@ -62,8 +61,6 @@ internal object WidgetRenderer {
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
         )
-        Timber.d("updateDate: Set pattern $pattern")
-
         views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
         views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
@@ -77,49 +74,23 @@ internal object WidgetRenderer {
         appWidgetId: Int,
         prefs: WidgetPreferences
     ) {
-        Timber.d("updateWeather: Update weather display")
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
         if (prefs.showWeather) {
-            val weatherData: WeatherData? = JsonDataStore.loadSync(
+            JsonDataStore.loadSync<WeatherData>(
                 context,
                 DataKeys.WEATHER_DATA_KEY
-            )
-            weatherData?.let { data ->
-                Timber.d("updateWeather: Weather data available")
-
-                val timeMillis = System.currentTimeMillis()
-                val weatherStrIcon = WeatherFormatter.getCurrentWeatherStrAndIcon(
+            )?.let { data ->
+                WeatherFormatter.getWeatherStrAndIcon(
                     context,
                     data,
-                    timeMillis,
+                    prefs.showForecast,
                     prefs.tempUnit,
                     prefs.iconStyle,
                     useLightText(context, prefs.textColor)
-                )
-                weatherStrIcon?.let {
-                    Timber.d("updateWeather: Valid weather data found")
-
-                    val forecastStr = if (prefs.showForecast) {
-                        WeatherFormatter.getForecastStr(
-                            context,
-                            timeMillis,
-                            data,
-                            prefs.tempUnit
-                        ) ?: ""
-                    } else ""
-
-                    views.setTextViewText(
-                        R.id.widget_temp,
-                        it.text + forecastStr
-                    )
-                    views.setTextViewCompoundDrawables(
-                        R.id.widget_temp,
-                        it.iconId,
-                        0,
-                        0,
-                        0
-                    )
+                )?.let { (text, iconId) ->
+                    views.setTextViewText(R.id.widget_temp, text)
+                    views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
                     views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
                 }
             }
@@ -131,17 +102,14 @@ internal object WidgetRenderer {
         context: Context,
         prefs: WidgetPreferences
     ): RemoteViews {
-        val lightText = useLightText(context, prefs.textColor)
-
-        val layout = when {
-            lightText && prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_OUTLINED ->
+        val layout = if (useLightText(context, prefs.textColor)) {
+            if (prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_OUTLINED) {
                 R.layout.pimi_widget_light
-
-            lightText ->
+            } else {
                 R.layout.pimi_widget_light_shadow
-
-            else ->
-                R.layout.pimi_widget_dark
+            }
+        } else {
+            R.layout.pimi_widget_dark
         }
         return RemoteViews(context.packageName, layout)
     }

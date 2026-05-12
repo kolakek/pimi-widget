@@ -28,43 +28,63 @@ import java.time.ZoneId
 
 internal object WeatherFormatter {
 
-    internal fun getCurrentWeatherStrAndIcon(
+    internal fun getWeatherStrAndIcon(
         context: Context,
         weather: WeatherData,
-        nowTimeMillis: Long,
+        showForecast: Boolean,
         tempUnitPref: PreferencesHelper.TempUnit,
         iconStylePref: PreferencesHelper.IconStyle,
         lightColor: Boolean
     ): TextWithIcon? {
-        val idx = weather.minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
+        val nowTimeMillis = System.currentTimeMillis()
+        val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis)?: return null
 
-        if (idx == -1) {
-            Timber.w("getCurrentWeatherStrAndIcon: No data available for the next 15min")
-            return null
-        }
-        Timber.d("getCurrentWeatherStrAndIcon: Current weather at index $idx")
+        val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
+        val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
+        val cloudCover = weather.minutelyCloudCover.getOrNull(currentIndex) ?: return null
+        val isDay = weather.minutelyIsDay.getOrNull(currentIndex) ?: return null
 
-        val tempCelsius = weather.minutelyTempCelsius.getOrNull(idx) ?: return null
-        val weatherCode = weather.minutelyWeatherCode.getOrNull(idx) ?: return null
-        val cloudCover = weather.minutelyCloudCover.getOrNull(idx) ?: return null
-        val isDay = weather.minutelyIsDay.getOrNull(idx) ?: return null
-
-        val str = getTemperatureStr(context, tempCelsius, tempUnitPref)
+        val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
 
         val iconStyle = when (iconStylePref) {
             PreferencesHelper.IconStyle.FLAT_OUTLINED ->
                 if (lightColor) IconStyles.FLAT_OUTLINED_LIGHT else IconStyles.FLAT_OUTLINED_DARK
         }
-        val id = WeatherIcons.getWeatherIconId(
+        val weatherIconId = WeatherIcons.getWeatherIconId(
             weatherCode,
             isDay,
             cloudCover,
             iconStyle) ?: return null
 
-        return TextWithIcon(str, id)
+        val forecastStr = if (showForecast) {
+            getForecastStr(
+                context,
+                nowTimeMillis,
+                weather,
+                tempUnitPref
+            )
+        } else null
+
+        val weatherStr = forecastStr?.let { temperatureStr + it } ?: temperatureStr
+
+        return TextWithIcon(weatherStr, weatherIconId)
     }
 
-    internal fun getForecastStr(
+    private fun getCurrentIndex(
+        minutelyTimeMillis: List<Long>,
+        nowTimeMillis: Long
+    ): Int? {
+        val idx = minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
+
+        if (idx == -1) {
+            Timber.w("getCurrentIndex: No data available at current time")
+            return null
+        }
+        Timber.d("getCurrentIndex: Current index $idx")
+        return idx
+    }
+
+    private fun getForecastStr(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
@@ -129,15 +149,18 @@ internal object WeatherFormatter {
         tempUnitPref: PreferencesHelper.TempUnit,
         fullUnit: Boolean = true
     ): String {
-
         val isFahrenheit = (tempUnitPref == PreferencesHelper.TempUnit.FAHRENHEIT)
-        val temp = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
-        val unit = when {
-            fullUnit && isFahrenheit -> context.getString(R.string.fahrenheit)
-            fullUnit -> context.getString(R.string.celsius)
-            else -> context.getString(R.string.degree)
+        val tempValue = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
+        val unit = if (fullUnit) {
+            if (isFahrenheit) {
+                context.getString(R.string.fahrenheit)
+            } else {
+                context.getString(R.string.celsius)
+            }
+        } else {
+            context.getString(R.string.degree)
         }
-        return "${(temp+0.5).toInt()}$unit"
+        return "${(tempValue+0.5).toInt()}$unit"
     }
 
     private fun getWeatherCodeId(
