@@ -31,7 +31,7 @@ internal object IconsFlatOutlinedLight {
             WeatherCodes.PARTLY_CLOUDY_NIGHT -> R.drawable.uc_2n
             WeatherCodes.CLOUDY -> R.drawable.uc_3
 
-            WeatherCodes.FOG -> R.drawable.uc_45
+            WeatherCodes.FOGGY -> R.drawable.uc_45
 
             WeatherCodes.DRIZZLE,
             WeatherCodes.LIGHT_RAIN,

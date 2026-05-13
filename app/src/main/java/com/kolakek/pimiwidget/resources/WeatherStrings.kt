@@ -35,18 +35,18 @@ object WeatherStrings {
 
     private fun getShortStrId(weatherCode: WeatherCodes): Int {
         return when (weatherCode) {
-            WeatherCodes.CLEAR_SKY_DAY,
-            WeatherCodes.CLEAR_SKY_NIGHT -> R.string.clear
+            WeatherCodes.CLEAR_SKY_DAY -> R.string.clear_sky_day
+            WeatherCodes.CLEAR_SKY_NIGHT -> R.string.clear_sky_night
 
-            WeatherCodes.MAINLY_CLEAR_DAY,
-            WeatherCodes.MAINLY_CLEAR_NIGHT -> R.string.mostly_clear
+            WeatherCodes.MAINLY_CLEAR_DAY -> R.string.mainly_clear_day
+            WeatherCodes.MAINLY_CLEAR_NIGHT -> R.string.mainly_clear_night
 
-            WeatherCodes.PARTLY_CLOUDY_DAY,
-            WeatherCodes.PARTLY_CLOUDY_NIGHT -> R.string.partly_cloudy
+            WeatherCodes.PARTLY_CLOUDY_DAY -> R.string.partly_cloudy_day
+            WeatherCodes.PARTLY_CLOUDY_NIGHT -> R.string.partly_cloudy_night
 
             WeatherCodes.CLOUDY -> R.string.cloudy
 
-            WeatherCodes.FOG -> R.string.foggy
+            WeatherCodes.FOGGY -> R.string.foggy
 
             WeatherCodes.DRIZZLE,
             WeatherCodes.DRIZZLE_AND_SKY_DAY,
@@ -54,15 +54,15 @@ object WeatherStrings {
 
             WeatherCodes.LIGHT_RAIN,
             WeatherCodes.LIGHT_RAIN_AND_SKY_DAY,
-            WeatherCodes.LIGHT_RAIN_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.LIGHT_RAIN_AND_SKY_NIGHT -> R.string.light_rain
 
             WeatherCodes.LIGHT_RAIN_SHOWERS,
             WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.light_rain_showers
 
             WeatherCodes.RAIN,
             WeatherCodes.RAIN_AND_SKY_DAY,
-            WeatherCodes.RAIN_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.RAIN_AND_SKY_NIGHT -> R.string.rain
 
             WeatherCodes.RAIN_SHOWERS,
             WeatherCodes.RAIN_SHOWERS_AND_SKY_DAY,
@@ -74,19 +74,19 @@ object WeatherStrings {
 
             WeatherCodes.HEAVY_RAIN_SHOWERS,
             WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.heavy_rain_showers
 
             WeatherCodes.LIGHT_SNOW,
             WeatherCodes.LIGHT_SNOW_AND_SKY_DAY,
-            WeatherCodes.LIGHT_SNOW_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.LIGHT_SNOW_AND_SKY_NIGHT -> R.string.light_snow
 
             WeatherCodes.LIGHT_SNOW_SHOWERS,
             WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.light_snow_showers
 
             WeatherCodes.SNOW,
             WeatherCodes.SNOW_AND_SKY_DAY,
-            WeatherCodes.SNOW_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.SNOW_AND_SKY_NIGHT -> R.string.snow
 
             WeatherCodes.HEAVY_SNOW,
             WeatherCodes.HEAVY_SNOW_AND_SKY_DAY,
@@ -94,19 +94,20 @@ object WeatherStrings {
 
             WeatherCodes.HEAVY_SNOW_SHOWERS,
             WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.clear // ToDo
+            WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.heavy_snow_showers
 
-            WeatherCodes.SNOW_GRAINS -> R.string.clear // ToDo
+            WeatherCodes.SNOW_GRAINS -> R.string.snow_grains
 
             WeatherCodes.FREEZING_DRIZZLE -> R.string.freezing_drizzle
 
-            WeatherCodes.LIGHT_FREEZING_RAIN -> R.string.clear // ToDo
+            WeatherCodes.LIGHT_FREEZING_RAIN -> R.string.light_freezing_rain
 
             WeatherCodes.FREEZING_RAIN -> R.string.freezing_rain
 
-            WeatherCodes.THUNDERSTORM,
+            WeatherCodes.THUNDERSTORM -> R.string.thunderstorm
+
             WeatherCodes.THUNDERSTORM_AND_SKY_DAY,
-            WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.string.thunderstorms
+            WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.string.scattered_thunderstorms
         }
     }
 }

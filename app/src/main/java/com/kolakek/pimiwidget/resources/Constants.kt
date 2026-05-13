@@ -17,6 +17,6 @@
 
 package com.kolakek.pimiwidget.resources
 
-internal const val MIN_CLOUD_COVER_CLOUDY = 90
+internal const val MIN_CLOUD_COVER_CLOUDY = 85
 internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 50
 internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 10

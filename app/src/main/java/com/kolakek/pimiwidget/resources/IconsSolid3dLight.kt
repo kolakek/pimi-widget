@@ -31,7 +31,7 @@ internal object IconsSolid3dLight {
             WeatherCodes.PARTLY_CLOUDY_NIGHT -> R.drawable.wc_2n
             WeatherCodes.CLOUDY -> R.drawable.wc_3
 
-            WeatherCodes.FOG -> R.drawable.wc_45
+            WeatherCodes.FOGGY -> R.drawable.wc_45
 
             WeatherCodes.DRIZZLE,
             WeatherCodes.LIGHT_RAIN,

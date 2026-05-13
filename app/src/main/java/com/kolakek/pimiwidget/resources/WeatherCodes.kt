@@ -25,7 +25,7 @@ internal enum class WeatherCodes {
     PARTLY_CLOUDY_DAY,
     PARTLY_CLOUDY_NIGHT,
     CLOUDY,
-    FOG,
+    FOGGY,
     DRIZZLE,
     DRIZZLE_AND_SKY_DAY,
     DRIZZLE_AND_SKY_NIGHT,

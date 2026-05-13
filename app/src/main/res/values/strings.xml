@@ -159,19 +159,30 @@
     <string name="widget_date_format">E, MMM d</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="thunderstorms">Thunderstorms</string>
+    <string name="thunderstorm">Thunderstorm</string>
+    <string name="scattered_thunderstorms">Scattered thunderstorms</string>
     <string name="freezing_rain">Freezing rain</string>
+    <string name="light_freezing_rain">Light freezing rain</string>
     <string name="freezing_drizzle">Freezing drizzle</string>
+    <string name="heavy_rain_showers">Heavy rain showers</string>
     <string name="heavy_rain">Heavy rain</string>
+    <string name="heavy_snow_showers">Heavy snow showers</string>
     <string name="heavy_snow">Heavy snow</string>
+    <string name="snow">Snow</string>
+    <string name="light_snow">Light snow</string>
     <string name="rain_showers">Rain showers</string>
-    <string name="snow_showers">Snow showers</string>
+    <string name="light_snow_showers">Light snow showers</string>
+    <string name="rain">Rain</string>
+    <string name="light_rain_showers">Light rain showers</string>
+    <string name="light_rain">Light rain</string>
+    <string name="snow_grains">Snow grains</string>
     <string name="drizzle">Drizzle</string>
-    <string name="flurries">Flurries</string>
-    <string name="clear">Clear</string>
-    <string name="mostly_clear">Mostly clear</string>
-    <string name="partly_cloudy">Partly cloudy</string>
-    <string name="mostly_cloudy">Mostly cloudy</string>
+    <string name="clear_sky_day">Sunny</string>
+    <string name="clear_sky_night">Clear</string>
+    <string name="mainly_clear_day">Mostly sunny</string>
+    <string name="mainly_clear_night">Mostly clear</string>
+    <string name="partly_cloudy_day">Partly sunny</string>
+    <string name="partly_cloudy_night">Partly cloudy</string>
     <string name="cloudy">Cloudy</string>
     <string name="foggy">Foggy</string>
 
@@ -181,7 +192,7 @@
     <!-- String saying tomorrow -->
     <string name="tomorrow">Tomorrow</string>
 
-    <!-- Non-translatables -->
+    <!-- Non-translatable -->
 
     <string name="app_name" translatable="false">Pimi Widget</string>
 

@@ -37,7 +37,7 @@ object WeatherCodeMapper {
                     if (isDay) WeatherCodes.CLEAR_SKY_DAY else WeatherCodes.CLEAR_SKY_NIGHT
             }
 
-            45, 48 -> WeatherCodes.FOG
+            45, 48 -> WeatherCodes.FOGGY
 
             51, 53, 55 -> when {
                 hasSky && isDay -> WeatherCodes.DRIZZLE_AND_SKY_DAY

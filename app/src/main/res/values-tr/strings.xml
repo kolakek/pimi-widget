@@ -107,19 +107,30 @@
 
     <string name="widget_date_format">d MMM E</string>
 
-    <string name="thunderstorms">Gök gürültülü fırtına</string>
+    <string name="thunderstorm">Gök gürültülü fırtına</string>
+    <string name="scattered_thunderstorms">Yer yer gök gürültülü fırtına</string>
     <string name="freezing_rain">Dondurucu yağmur</string>
+    <string name="light_freezing_rain">Hafif donan yağmur</string>
     <string name="freezing_drizzle">Dondurucu çiseleme</string>
-    <string name="heavy_rain">Şiddetli yağmur</string>
+    <string name="heavy_rain_showers">Yoğun yağmur sağanağı</string>
+    <string name="heavy_rain">Yoğun yağmur</string>
+    <string name="heavy_snow_showers">Yoğun kar sağanağı</string>
     <string name="heavy_snow">Yoğun kar</string>
-    <string name="rain_showers">Sağanak yağış</string>
-    <string name="snow_showers">Kar geçişleri</string>
+    <string name="snow">Kar</string>
+    <string name="light_snow">Hafif kar</string>
+    <string name="rain_showers">Yağmur sağanağı</string>
+    <string name="light_snow_showers">Hafif kar sağanağı</string>
+    <string name="rain">Yağmur</string>
+    <string name="light_rain_showers">Hafif yağmur sağanağı</string>
+    <string name="light_rain">Hafif yağmur</string>
+    <string name="snow_grains">Taneli kar yağışı</string>
     <string name="drizzle">Çiseleyen yağmur</string>
-    <string name="flurries">Hafif kar</string>
-    <string name="clear">Açık</string>
-    <string name="mostly_clear">Çoğunlukla açık</string>
-    <string name="partly_cloudy">Parçalı bulutlu</string>
-    <string name="mostly_cloudy">Çoğunlukla bulutlu</string>
+    <string name="clear_sky_day">Güneşli</string>
+    <string name="clear_sky_night">Açık</string>
+    <string name="mainly_clear_day">Genellikle güneşli</string>
+    <string name="mainly_clear_night">Az bulutlu</string>
+    <string name="partly_cloudy_night">Parçalı bulutlu</string>
+    <string name="partly_cloudy_day">Parçalı bulutlu</string>
     <string name="cloudy">Bulutlu</string>
     <string name="foggy">Sisli</string>
 
