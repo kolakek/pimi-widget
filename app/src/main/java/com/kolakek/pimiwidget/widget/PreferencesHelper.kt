@@ -24,7 +24,8 @@ import androidx.preference.PreferenceManager
 internal object PreferencesHelper {
 
     enum class IconStyle(val key: String) {
-        FLAT_OUTLINED(KEY_ICON_STYLE_OUTLINED) // ToDo
+        FLAT_OUTLINED(KEY_ICON_STYLE_FLAT_OUTLINED),
+        SOLID_3D(KEY_ICON_STYLE_SOLID_3D)
     }
 
     enum class TempUnit(val key: String) {

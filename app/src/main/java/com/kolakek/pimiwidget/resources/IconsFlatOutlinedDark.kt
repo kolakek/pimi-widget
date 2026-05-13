@@ -98,6 +98,5 @@ internal object IconsFlatOutlinedDark {
 
             WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.drawable.ub_95n
         }
-
     }
 }
