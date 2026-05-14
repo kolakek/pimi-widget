@@ -104,10 +104,9 @@ object WeatherStrings {
 
             WeatherCodes.FREEZING_RAIN -> R.string.freezing_rain
 
-            WeatherCodes.THUNDERSTORM -> R.string.thunderstorm
-
+            WeatherCodes.THUNDERSTORM,
             WeatherCodes.THUNDERSTORM_AND_SKY_DAY,
-            WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.string.scattered_thunderstorms
+            WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.string.thunderstorm
         }
     }
 }

@@ -159,32 +159,36 @@
     <string name="widget_date_format">E, MMM d</string>
 
     <!-- Strings defining weather conditions -->
+    <!-- heavy_thunderstorm Heavy thunderstorms -->
     <string name="thunderstorm">Thunderstorm</string>
-    <string name="scattered_thunderstorms">Scattered thunderstorms</string>
+    <!-- potential_thunderstorm Potential thunderstorm -->
     <string name="freezing_rain">Freezing rain</string>
     <string name="light_freezing_rain">Light freezing rain</string>
     <string name="freezing_drizzle">Freezing drizzle</string>
     <string name="heavy_rain_showers">Heavy rain showers</string>
-    <string name="heavy_rain">Heavy rain</string>
+    <string name="rain_showers">Rain showers</string>
+    <string name="light_rain_showers">Light rain showers</string>
     <string name="heavy_snow_showers">Heavy snow showers</string>
+    <!-- snow_showers Snow showers -->
+    <string name="light_snow_showers">Light snow showers</string>
+    <string name="heavy_rain">Heavy rain</string>
+    <string name="rain">Rain</string>
+    <string name="light_rain">Light rain</string>
+    <string name="drizzle">Drizzle</string>
     <string name="heavy_snow">Heavy snow</string>
     <string name="snow">Snow</string>
     <string name="light_snow">Light snow</string>
-    <string name="rain_showers">Rain showers</string>
-    <string name="light_snow_showers">Light snow showers</string>
-    <string name="rain">Rain</string>
-    <string name="light_rain_showers">Light rain showers</string>
-    <string name="light_rain">Light rain</string>
+    <!-- flurries Flurries -->
     <string name="snow_grains">Snow grains</string>
-    <string name="drizzle">Drizzle</string>
-    <string name="clear_sky_day">Sunny</string>
-    <string name="clear_sky_night">Clear</string>
-    <string name="mainly_clear_day">Mostly sunny</string>
-    <string name="mainly_clear_night">Mostly clear</string>
+    <string name="foggy">Foggy</string>
+    <string name="cloudy">Cloudy</string>
+    <!-- mostly_cloudy Mostly cloudy -->
     <string name="partly_cloudy_day">Partly sunny</string>
     <string name="partly_cloudy_night">Partly cloudy</string>
-    <string name="cloudy">Cloudy</string>
-    <string name="foggy">Foggy</string>
+    <string name="mainly_clear_day">Mostly sunny</string>
+    <string name="mainly_clear_night">Mostly clear</string>
+    <string name="clear_sky_day">Sunny</string>
+    <string name="clear_sky_night">Clear</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>

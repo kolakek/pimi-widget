@@ -107,32 +107,36 @@
 
     <string name="widget_date_format">E, d. MMM</string>
 
+    <!-- heavy_thunderstorm Schwere Gewitter -->
     <string name="thunderstorm">Gewitter</string>
-    <string name="scattered_thunderstorms">Vereinzelte Gewitter</string>
+    <!-- potential_thunderstorm Gewitterneigung -->
     <string name="freezing_rain">Gefrierender Regen</string>
     <string name="light_freezing_rain">Leichter gefrierender Regen</string>
     <string name="freezing_drizzle">Gefrierender Nieselregen</string>
     <string name="heavy_rain_showers">Starke Regenschauer</string>
-    <string name="heavy_rain">Starker Regen</string>
+    <string name="rain_showers">Regenschauer</string>
+    <string name="light_rain_showers">Leichte Regenschauer</string>
     <string name="heavy_snow_showers">Starke Schneeschauer</string>
+    <!-- snow_showers Schneeschauer -->
+    <string name="light_snow_showers">Leichte Schneeschauer</string>
+    <string name="heavy_rain">Starker Regen</string>
+    <string name="rain">Regen</string>
+    <string name="light_rain">Leichter Regen</string>
+    <string name="drizzle">Nieselregen</string>
     <string name="heavy_snow">Starker Schneefall</string>
     <string name="snow">Schnee</string>
     <string name="light_snow">Leichter Schneefall</string>
-    <string name="rain_showers">Regenschauer</string>
-    <string name="light_snow_showers">Leichte Schneeschauer</string>
-    <string name="rain">Regen</string>
-    <string name="light_rain_showers">Leichte Regenschauer</string>
-    <string name="light_rain">Leichter Regen</string>
+    <!-- flurries Schneeflocken -->
     <string name="snow_grains">Schneegriesel</string>
-    <string name="drizzle">Nieselregen</string>
-    <string name="clear_sky_day">Sonnig</string>
-    <string name="clear_sky_night">Klar</string>
-    <string name="mainly_clear_day">Überwiegend sonnig</string>
-    <string name="mainly_clear_night">Überwiegend klar</string>
+    <string name="foggy">Nebel</string>
+    <string name="cloudy">Bewölkt</string>
+    <!-- mostly_cloudy Überwiegend bewölkt -->
     <string name="partly_cloudy_day">Teilweise sonnig</string>
     <string name="partly_cloudy_night">Teilweise bewölkt</string>
-    <string name="cloudy">Bewölkt</string>
-    <string name="foggy">Nebel</string>
+    <string name="mainly_clear_day">Überwiegend sonnig</string>
+    <string name="mainly_clear_night">Überwiegend klar</string>
+    <string name="clear_sky_day">Sonnig</string>
+    <string name="clear_sky_night">Klar</string>
 
     <string name="today">Heute</string>
 
