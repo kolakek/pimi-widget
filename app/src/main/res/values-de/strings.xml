@@ -117,7 +117,6 @@
     <string name="rain_showers">Regenschauer</string>
     <string name="light_rain_showers">Leichte Regenschauer</string>
     <string name="heavy_snow_showers">Starke Schneeschauer</string>
-    <!-- snow_showers Schneeschauer -->
     <string name="light_snow_showers">Leichte Schneeschauer</string>
     <string name="heavy_rain">Starker Regen</string>
     <string name="rain">Regen</string>
@@ -126,7 +125,6 @@
     <string name="heavy_snow">Starker Schneefall</string>
     <string name="snow">Schnee</string>
     <string name="light_snow">Leichter Schneefall</string>
-    <!-- flurries Schneeflocken -->
     <string name="snow_grains">Schneegriesel</string>
     <string name="foggy">Nebel</string>
     <string name="cloudy">Bewölkt</string>

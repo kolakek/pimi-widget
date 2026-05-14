@@ -117,7 +117,6 @@
     <string name="rain_showers">Yağmur sağanağı</string>
     <string name="light_rain_showers">Hafif yağmur sağanağı</string>
     <string name="heavy_snow_showers">Yoğun kar sağanağı</string>
-    <!-- snow_showers Kar sağanağı -->
     <string name="light_snow_showers">Hafif kar sağanağı</string>
     <string name="heavy_rain">Yoğun yağmur</string>
     <string name="rain">Yağmur</string>
@@ -126,7 +125,6 @@
     <string name="heavy_snow">Yoğun kar</string>
     <string name="snow">Kar</string>
     <string name="light_snow">Hafif kar</string>
-    <!-- flurries Hafif kar taneleri -->
     <string name="snow_grains">Taneli kar yağışı</string>
     <string name="foggy">Sisli</string>
     <string name="cloudy">Bulutlu</string>

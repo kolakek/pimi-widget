@@ -169,7 +169,6 @@
     <string name="rain_showers">Rain showers</string>
     <string name="light_rain_showers">Light rain showers</string>
     <string name="heavy_snow_showers">Heavy snow showers</string>
-    <!-- snow_showers Snow showers -->
     <string name="light_snow_showers">Light snow showers</string>
     <string name="heavy_rain">Heavy rain</string>
     <string name="rain">Rain</string>
@@ -178,7 +177,6 @@
     <string name="heavy_snow">Heavy snow</string>
     <string name="snow">Snow</string>
     <string name="light_snow">Light snow</string>
-    <!-- flurries Flurries -->
     <string name="snow_grains">Snow grains</string>
     <string name="foggy">Foggy</string>
     <string name="cloudy">Cloudy</string>

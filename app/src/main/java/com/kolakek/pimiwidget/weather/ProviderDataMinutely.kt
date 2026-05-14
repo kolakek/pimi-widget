@@ -23,6 +23,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class ProviderDataMinutely (
     val temperature_2m: List<Double>,
+    val cape: List<Double>,
     val cloud_cover: List<Int>,
     val time: List<Long>,
     val weather_code: List<Int>,
