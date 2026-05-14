@@ -43,6 +43,7 @@ internal object WeatherFormatter {
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
         val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
         val cloudCover = weather.minutelyCloudCover.getOrNull(currentIndex) ?: return null
+        val precipProb = weather.minutelyPrecipProb.getOrNull(currentIndex) ?: return null
         val cape = weather.minutelyCape.getOrNull(currentIndex) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(currentIndex) ?: return null
 
@@ -58,6 +59,7 @@ internal object WeatherFormatter {
             weatherCode,
             isDay,
             cloudCover,
+            precipProb,
             cape,
             iconStyle
         ) ?: return null
@@ -121,6 +123,7 @@ internal object WeatherFormatter {
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
         val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
+        val precipProbMax = weather.dailyPrecipProbMax.getOrNull(idx) ?: return null
         val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null
         val capeMax = weather.dailyCapeMax.getOrNull(idx) ?: return null
 
@@ -131,6 +134,7 @@ internal object WeatherFormatter {
             weatherCode,
             isDay = 1,
             cloudCoverMean,
+            precipProbMax,
             capeMax
         ) ?: return null
 

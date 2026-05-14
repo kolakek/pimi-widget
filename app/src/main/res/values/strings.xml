@@ -179,8 +179,8 @@
     <string name="light_snow">Light snow</string>
     <string name="snow_grains">Snow grains</string>
     <string name="foggy">Foggy</string>
-    <string name="cloudy">Cloudy</string>
-    <!-- mostly_cloudy Mostly cloudy -->
+    <string name="overcast">Cloudy</string>
+    <string name="mostly_cloudy">Mostly cloudy</string>
     <string name="partly_cloudy_day">Partly sunny</string>
     <string name="partly_cloudy_night">Partly cloudy</string>
     <string name="mainly_clear_day">Mostly sunny</string>

@@ -27,6 +27,7 @@ data class WeatherData (
     val minutelyTimeMillis: List<Long>,
     val minutelyIsDay: List<Int>,
     val minutelyCloudCover: List<Int>,
+    val minutelyPrecipProb: List<Int>,
     val hourlyTempCelsius: List<Double>,
     val hourlyWeatherCode: List<Int>,
     val hourlyTimeMillis: List<Long>,
@@ -35,6 +36,7 @@ data class WeatherData (
     val dailyTempMaxCelsius: List<Double>,
     val dailyCapeMax: List<Double>,
     val dailyCloudCoverMean: List<Int>,
+    val dailyPrecipProbMax: List<Int>,
     val dailyWeatherCode: List<Int>,
     val dailyTimeMillis: List<Long>
 )

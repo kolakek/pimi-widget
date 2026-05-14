@@ -25,9 +25,14 @@ object WeatherStrings {
         wmoCode: Int,
         isDay: Int,
         cloudCover: Int,
+        precipProb: Int,
         cape: Double
     ): Int? {
-        val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode, cloudCover, cape) ?: return null
+        val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode,
+            cloudCover,
+            precipProb,
+            cape
+        ) ?: return null
         return getShortStrId(weatherCode, isDay == 1)
     }
 
@@ -42,7 +47,9 @@ object WeatherStrings {
             WeatherCodes.PARTLY_CLOUDY ->
                 if (isDay) R.string.partly_cloudy_day else R.string.partly_cloudy_night
 
-            WeatherCodes.CLOUDY -> R.string.cloudy
+            WeatherCodes.MOSTLY_CLOUDY -> R.string.mostly_cloudy
+
+            WeatherCodes.OVERCAST -> R.string.overcast
 
             WeatherCodes.FOGGY -> R.string.foggy
 
@@ -90,14 +97,14 @@ object WeatherStrings {
 
             WeatherCodes.FREEZING_RAIN -> R.string.freezing_rain
 
+            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY,
             WeatherCodes.POTENTIAL_THUNDERSTORM,
-            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY -> R.string.potential_thunderstorms
+            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_RAIN -> R.string.potential_thunderstorms
 
-            WeatherCodes.THUNDERSTORM,
-            WeatherCodes.THUNDERSTORM_AND_SKY -> R.string.thunderstorm
+            WeatherCodes.THUNDERSTORM_AND_SKY,
+            WeatherCodes.THUNDERSTORM -> R.string.thunderstorm
 
-            WeatherCodes.HEAVY_THUNDERSTORM,
-            WeatherCodes.HEAVY_THUNDERSTORM_AND_SKY -> R.string.heavy_thunderstorms
+            WeatherCodes.HEAVY_THUNDERSTORM -> R.string.heavy_thunderstorms
         }
     }
 }

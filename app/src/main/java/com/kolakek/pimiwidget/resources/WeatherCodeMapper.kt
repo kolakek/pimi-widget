@@ -22,15 +22,17 @@ object WeatherCodeMapper {
     internal fun mapWmoCode(
         wmoCode: Int,
         cloudCover: Int,
+        precipProb: Int,
         cape: Double
     ): WeatherCodes? {
-        val hasSky = cloudCover < MIN_CLOUD_COVER_CLOUDY
+        val hasSky = cloudCover < MIN_CLOUD_COVER_OVERCAST
 
         return when (wmoCode) {
 
             0, 1, 2, 3 ->
                 when {
-                    cloudCover > MIN_CLOUD_COVER_CLOUDY -> WeatherCodes.CLOUDY
+                    cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCodes.OVERCAST
+                    cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCodes.MOSTLY_CLOUDY
                     cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCodes.PARTLY_CLOUDY
                     cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCodes.MAINLY_CLEAR
 
@@ -100,20 +102,32 @@ object WeatherCodeMapper {
                 if (hasSky) WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY
                 else WeatherCodes.HEAVY_SNOW_SHOWERS
 
-            95, 96, 99 ->
-                when {
-                    cape > MIN_CAPE_HEAVY_THUNDERSTORM ->
-                        if (hasSky) WeatherCodes.HEAVY_THUNDERSTORM_AND_SKY
-                        else WeatherCodes.HEAVY_THUNDERSTORM
-
-                    cape > MIN_CAPE_THUNDERSTORM ->
-                        if (hasSky) WeatherCodes.THUNDERSTORM_AND_SKY
-                        else WeatherCodes.THUNDERSTORM
-
-                    else ->
-                        if (hasSky) WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY
-                        else WeatherCodes.POTENTIAL_THUNDERSTORM
+            95, 96 ->
+                if (
+                    cape > MIN_CAPE_THUNDERSTORM &&
+                    precipProb > MIN_PROB_PRECIPITATION &&
+                    cloudCover > MIN_CLOUD_COVER_OVERCAST
+                ) {
+                    WeatherCodes.THUNDERSTORM
+                } else if (
+                    cape > MIN_CAPE_THUNDERSTORM &&
+                    precipProb > MIN_PROB_PRECIPITATION
+                ) {
+                    WeatherCodes.THUNDERSTORM_AND_SKY
+                } else if (
+                    precipProb > MIN_PROB_PRECIPITATION
+                ) {
+                    WeatherCodes.POTENTIAL_THUNDERSTORM_AND_RAIN
+                } else if (
+                    cloudCover < MIN_CLOUD_COVER_OVERCAST
+                ) {
+                    WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY
+                } else {
+                    WeatherCodes.POTENTIAL_THUNDERSTORM
                 }
+
+            99 ->
+                WeatherCodes.HEAVY_THUNDERSTORM
 
             else -> {
                 null

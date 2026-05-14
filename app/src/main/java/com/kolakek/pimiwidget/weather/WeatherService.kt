@@ -70,6 +70,7 @@ object WeatherService {
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
             minutelyIsDay = providerData.minutely_15.is_day,
             minutelyCloudCover = providerData.minutely_15.cloud_cover,
+            minutelyPrecipProb = providerData.minutely_15.precipitation_probability,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
             hourlyWeatherCode = providerData.hourly.weather_code,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
@@ -78,6 +79,7 @@ object WeatherService {
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
             dailyCapeMax = providerData.daily.cape_max,
             dailyCloudCoverMean = providerData.daily.cloud_cover_mean,
+            dailyPrecipProbMax = providerData.daily.precipitation_probability_max,
             dailyWeatherCode = providerData.daily.weather_code,
             dailyTimeMillis = providerData.daily.time.map { v -> v * 1000L }
         )

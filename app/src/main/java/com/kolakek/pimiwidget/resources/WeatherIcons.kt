@@ -23,10 +23,16 @@ object WeatherIcons {
         wmoCode: Int,
         isDay: Int,
         cloudCover: Int,
+        precipProb: Int,
         cape: Double,
         iconStyle: IconStyles,
     ): Int? {
-        val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode, cloudCover, cape) ?: return null
+        val weatherCode = WeatherCodeMapper.mapWmoCode(
+            wmoCode,
+            cloudCover,
+            precipProb,
+            cape
+        ) ?: return null
 
         return when (iconStyle) {
             IconStyles.FLAT_OUTLINED_DARK ->

@@ -26,6 +26,7 @@ internal data class ProviderDataDaily (
     val temperature_2m_max: List<Double>,
     val cape_max: List<Double>,
     val cloud_cover_mean: List<Int>,
+    val precipitation_probability_max: List<Int>,
     val time: List<Long>,
     val weather_code: List<Int>
 )

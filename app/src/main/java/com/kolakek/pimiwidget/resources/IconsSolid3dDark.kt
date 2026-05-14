@@ -35,8 +35,12 @@ internal object IconsSolid3dDark {
                 if (isDay) R.drawable.wb_2d
                 else R.drawable.wb_2n
 
-            WeatherCodes.CLOUDY ->
-                R.drawable.wb_3
+            WeatherCodes.MOSTLY_CLOUDY ->
+                if (isDay) R.drawable.wb_3d
+                else R.drawable.wb_3n
+
+            WeatherCodes.OVERCAST ->
+                R.drawable.wb_35
 
             WeatherCodes.FOGGY ->
                 R.drawable.wb_45
@@ -103,16 +107,23 @@ internal object IconsSolid3dDark {
             WeatherCodes.FREEZING_RAIN ->
                 R.drawable.wb_67
 
-            WeatherCodes.POTENTIAL_THUNDERSTORM,
+            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY ->
+                if (isDay) R.drawable.wb_91d
+                else R.drawable.wb_91n
+
+            WeatherCodes.POTENTIAL_THUNDERSTORM ->
+                R.drawable.wb_92
+
+            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_RAIN ->
+                R.drawable.wb_93
+
+            WeatherCodes.THUNDERSTORM_AND_SKY ->
+                if (isDay) R.drawable.wb_95d
+                else R.drawable.wb_95n
+
             WeatherCodes.THUNDERSTORM,
             WeatherCodes.HEAVY_THUNDERSTORM ->
                 R.drawable.wb_99
-
-            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY,
-            WeatherCodes.THUNDERSTORM_AND_SKY,
-            WeatherCodes.HEAVY_THUNDERSTORM_AND_SKY ->
-                if (isDay) R.drawable.wb_95d
-                else R.drawable.wb_95n
         }
     }
 }
