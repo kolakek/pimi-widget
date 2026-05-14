@@ -159,9 +159,9 @@
     <string name="widget_date_format">E, MMM d</string>
 
     <!-- Strings defining weather conditions -->
-    <!-- heavy_thunderstorm Heavy thunderstorms -->
+    <string name="heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="thunderstorm">Thunderstorm</string>
-    <!-- potential_thunderstorm Potential thunderstorm -->
+    <string name="potential_thunderstorms">Potential thunderstorms</string>
     <string name="freezing_rain">Freezing rain</string>
     <string name="light_freezing_rain">Light freezing rain</string>
     <string name="freezing_drizzle">Freezing drizzle</string>

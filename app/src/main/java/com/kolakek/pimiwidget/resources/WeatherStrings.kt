@@ -25,76 +25,62 @@ object WeatherStrings {
         wmoCode: Int,
         isDay: Int,
         cloudCover: Int,
+        cape: Double
     ): Int? {
-        val weatherCode = WeatherCodeMapper.mapWmoCode(
-            wmoCode,
-            isDay == 1,
-            cloudCover) ?: return null
-        return getShortStrId(weatherCode)
+        val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode, cloudCover, cape) ?: return null
+        return getShortStrId(weatherCode, isDay == 1)
     }
 
-    private fun getShortStrId(weatherCode: WeatherCodes): Int {
+    private fun getShortStrId(weatherCode: WeatherCodes, isDay: Boolean): Int {
         return when (weatherCode) {
-            WeatherCodes.CLEAR_SKY_DAY -> R.string.clear_sky_day
-            WeatherCodes.CLEAR_SKY_NIGHT -> R.string.clear_sky_night
+            WeatherCodes.CLEAR_SKY ->
+                if (isDay) R.string.clear_sky_day else R.string.clear_sky_night
 
-            WeatherCodes.MAINLY_CLEAR_DAY -> R.string.mainly_clear_day
-            WeatherCodes.MAINLY_CLEAR_NIGHT -> R.string.mainly_clear_night
+            WeatherCodes.MAINLY_CLEAR ->
+                if (isDay) R.string.mainly_clear_day else R.string.mainly_clear_night
 
-            WeatherCodes.PARTLY_CLOUDY_DAY -> R.string.partly_cloudy_day
-            WeatherCodes.PARTLY_CLOUDY_NIGHT -> R.string.partly_cloudy_night
+            WeatherCodes.PARTLY_CLOUDY ->
+                if (isDay) R.string.partly_cloudy_day else R.string.partly_cloudy_night
 
             WeatherCodes.CLOUDY -> R.string.cloudy
 
             WeatherCodes.FOGGY -> R.string.foggy
 
             WeatherCodes.DRIZZLE,
-            WeatherCodes.DRIZZLE_AND_SKY_DAY,
-            WeatherCodes.DRIZZLE_AND_SKY_NIGHT -> R.string.drizzle
+            WeatherCodes.DRIZZLE_AND_SKY -> R.string.drizzle
 
             WeatherCodes.LIGHT_RAIN,
-            WeatherCodes.LIGHT_RAIN_AND_SKY_DAY,
-            WeatherCodes.LIGHT_RAIN_AND_SKY_NIGHT -> R.string.light_rain
+            WeatherCodes.LIGHT_RAIN_AND_SKY -> R.string.light_rain
 
             WeatherCodes.LIGHT_RAIN_SHOWERS,
-            WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.light_rain_showers
+            WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY -> R.string.light_rain_showers
 
             WeatherCodes.RAIN,
-            WeatherCodes.RAIN_AND_SKY_DAY,
-            WeatherCodes.RAIN_AND_SKY_NIGHT -> R.string.rain
+            WeatherCodes.RAIN_AND_SKY -> R.string.rain
 
             WeatherCodes.RAIN_SHOWERS,
-            WeatherCodes.RAIN_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.rain_showers
+            WeatherCodes.RAIN_SHOWERS_AND_SKY -> R.string.rain_showers
 
             WeatherCodes.HEAVY_RAIN,
-            WeatherCodes.HEAVY_RAIN_AND_SKY_DAY,
-            WeatherCodes.HEAVY_RAIN_AND_SKY_NIGHT -> R.string.heavy_rain
+            WeatherCodes.HEAVY_RAIN_AND_SKY -> R.string.heavy_rain
 
             WeatherCodes.HEAVY_RAIN_SHOWERS,
-            WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_NIGHT -> R.string.heavy_rain_showers
+            WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY -> R.string.heavy_rain_showers
 
             WeatherCodes.LIGHT_SNOW,
-            WeatherCodes.LIGHT_SNOW_AND_SKY_DAY,
-            WeatherCodes.LIGHT_SNOW_AND_SKY_NIGHT -> R.string.light_snow
+            WeatherCodes.LIGHT_SNOW_AND_SKY -> R.string.light_snow
 
             WeatherCodes.LIGHT_SNOW_SHOWERS,
-            WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.light_snow_showers
+            WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY -> R.string.light_snow_showers
 
             WeatherCodes.SNOW,
-            WeatherCodes.SNOW_AND_SKY_DAY,
-            WeatherCodes.SNOW_AND_SKY_NIGHT -> R.string.snow
+            WeatherCodes.SNOW_AND_SKY -> R.string.snow
 
             WeatherCodes.HEAVY_SNOW,
-            WeatherCodes.HEAVY_SNOW_AND_SKY_DAY,
-            WeatherCodes.HEAVY_SNOW_AND_SKY_NIGHT -> R.string.heavy_snow
+            WeatherCodes.HEAVY_SNOW_AND_SKY -> R.string.heavy_snow
 
             WeatherCodes.HEAVY_SNOW_SHOWERS,
-            WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_DAY,
-            WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_NIGHT -> R.string.heavy_snow_showers
+            WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY -> R.string.heavy_snow_showers
 
             WeatherCodes.SNOW_GRAINS -> R.string.snow_grains
 
@@ -104,9 +90,14 @@ object WeatherStrings {
 
             WeatherCodes.FREEZING_RAIN -> R.string.freezing_rain
 
+            WeatherCodes.POTENTIAL_THUNDERSTORM,
+            WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY -> R.string.potential_thunderstorms
+
             WeatherCodes.THUNDERSTORM,
-            WeatherCodes.THUNDERSTORM_AND_SKY_DAY,
-            WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT -> R.string.thunderstorm
+            WeatherCodes.THUNDERSTORM_AND_SKY -> R.string.thunderstorm
+
+            WeatherCodes.HEAVY_THUNDERSTORM,
+            WeatherCodes.HEAVY_THUNDERSTORM_AND_SKY -> R.string.heavy_thunderstorms
         }
     }
 }

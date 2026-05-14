@@ -19,110 +19,101 @@ package com.kolakek.pimiwidget.resources
 
 object WeatherCodeMapper {
 
-    internal fun mapWmoCode(wmoCode: Int, isDay: Boolean, cloudCover: Int): WeatherCodes? {
+    internal fun mapWmoCode(
+        wmoCode: Int,
+        cloudCover: Int,
+        cape: Double
+    ): WeatherCodes? {
         val hasSky = cloudCover < MIN_CLOUD_COVER_CLOUDY
 
         return when (wmoCode) {
 
-            0, 1, 2, 3 -> when {
-                cloudCover > MIN_CLOUD_COVER_CLOUDY -> WeatherCodes.CLOUDY
+            0, 1, 2, 3 ->
+                when {
+                    cloudCover > MIN_CLOUD_COVER_CLOUDY -> WeatherCodes.CLOUDY
+                    cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCodes.PARTLY_CLOUDY
+                    cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCodes.MAINLY_CLEAR
 
-                cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY ->
-                    if (isDay) WeatherCodes.PARTLY_CLOUDY_DAY else WeatherCodes.PARTLY_CLOUDY_NIGHT
+                    else -> WeatherCodes.CLEAR_SKY
+                }
 
-                cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR ->
-                    if (isDay) WeatherCodes.MAINLY_CLEAR_DAY else WeatherCodes.MAINLY_CLEAR_NIGHT
+            45, 48 ->
+                WeatherCodes.FOGGY
 
-                else ->
-                    if (isDay) WeatherCodes.CLEAR_SKY_DAY else WeatherCodes.CLEAR_SKY_NIGHT
-            }
+            51, 53, 55 ->
+                if (hasSky) WeatherCodes.DRIZZLE_AND_SKY
+                else WeatherCodes.DRIZZLE
 
-            45, 48 -> WeatherCodes.FOGGY
+            56, 57 ->
+                WeatherCodes.FREEZING_DRIZZLE
 
-            51, 53, 55 -> when {
-                hasSky && isDay -> WeatherCodes.DRIZZLE_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.DRIZZLE_AND_SKY_NIGHT
-                else -> WeatherCodes.DRIZZLE
-            }
+            61 ->
+                if (hasSky) WeatherCodes.LIGHT_RAIN_AND_SKY
+                else WeatherCodes.LIGHT_RAIN
 
-            56, 57 -> WeatherCodes.FREEZING_DRIZZLE
+            63 ->
+                if (hasSky) WeatherCodes.RAIN_AND_SKY
+                else WeatherCodes.RAIN
 
-            61 -> when {
-                hasSky && isDay -> WeatherCodes.LIGHT_RAIN_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.LIGHT_RAIN_AND_SKY_NIGHT
-                else -> WeatherCodes.LIGHT_RAIN
-            }
+            65 ->
+                if (hasSky) WeatherCodes.HEAVY_RAIN_AND_SKY
+                else WeatherCodes.HEAVY_RAIN
 
-            63 -> when {
-                hasSky && isDay -> WeatherCodes.RAIN_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.RAIN_AND_SKY_NIGHT
-                else -> WeatherCodes.RAIN
-            }
+            66 ->
+                WeatherCodes.LIGHT_FREEZING_RAIN
 
-            65 -> when {
-                hasSky && isDay -> WeatherCodes.HEAVY_RAIN_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.HEAVY_RAIN_AND_SKY_NIGHT
-                else -> WeatherCodes.HEAVY_RAIN
-            }
+            67 ->
+                WeatherCodes.FREEZING_RAIN
 
-            66 -> WeatherCodes.LIGHT_FREEZING_RAIN
-            67 -> WeatherCodes.FREEZING_RAIN
+            71 ->
+                if (hasSky) WeatherCodes.LIGHT_SNOW_AND_SKY
+                else WeatherCodes.LIGHT_SNOW
 
-            71 -> when {
-                hasSky && isDay -> WeatherCodes.LIGHT_SNOW_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.LIGHT_SNOW_AND_SKY_NIGHT
-                else -> WeatherCodes.LIGHT_SNOW
-            }
+            73 ->
+                if (hasSky) WeatherCodes.SNOW_AND_SKY
+                else WeatherCodes.SNOW
 
-            73 -> when {
-                hasSky && isDay -> WeatherCodes.SNOW_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.SNOW_AND_SKY_NIGHT
-                else -> WeatherCodes.SNOW
-            }
+            75 ->
+                if (hasSky) WeatherCodes.HEAVY_SNOW_AND_SKY
+                else WeatherCodes.HEAVY_SNOW
 
-            75 -> when {
-                hasSky && isDay -> WeatherCodes.HEAVY_SNOW_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.HEAVY_SNOW_AND_SKY_NIGHT
-                else -> WeatherCodes.HEAVY_SNOW
-            }
+            77 ->
+                WeatherCodes.SNOW_GRAINS
 
-            77 -> WeatherCodes.SNOW_GRAINS
+            80 ->
+                if (hasSky) WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY
+                else WeatherCodes.LIGHT_RAIN_SHOWERS
 
-            80 -> when {
-                hasSky && isDay -> WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY_NIGHT
-                else -> WeatherCodes.LIGHT_RAIN_SHOWERS
-            }
+            81 ->
+                if (hasSky) WeatherCodes.RAIN_SHOWERS_AND_SKY
+                else WeatherCodes.RAIN_SHOWERS
 
-            81 -> when {
-                hasSky && isDay -> WeatherCodes.RAIN_SHOWERS_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.RAIN_SHOWERS_AND_SKY_NIGHT
-                else -> WeatherCodes.RAIN_SHOWERS
-            }
+            82 ->
+                if (hasSky) WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY
+                else WeatherCodes.HEAVY_RAIN_SHOWERS
 
-            82 -> when {
-                hasSky && isDay -> WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY_NIGHT
-                else -> WeatherCodes.HEAVY_RAIN_SHOWERS
-            }
+            85 ->
+                if (hasSky) WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY
+                else WeatherCodes.LIGHT_SNOW_SHOWERS
 
-            85 -> when {
-                hasSky && isDay -> WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY_NIGHT
-                else -> WeatherCodes.LIGHT_SNOW_SHOWERS
-            }
+            86 ->
+                if (hasSky) WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY
+                else WeatherCodes.HEAVY_SNOW_SHOWERS
 
-            86 -> when {
-                hasSky && isDay -> WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY_NIGHT
-                else -> WeatherCodes.HEAVY_SNOW_SHOWERS
-            }
+            95, 96, 99 ->
+                when {
+                    cape > MIN_CAPE_HEAVY_THUNDERSTORM ->
+                        if (hasSky) WeatherCodes.HEAVY_THUNDERSTORM_AND_SKY
+                        else WeatherCodes.HEAVY_THUNDERSTORM
 
-            95, 96, 99 -> when {
-                hasSky && isDay -> WeatherCodes.THUNDERSTORM_AND_SKY_DAY
-                hasSky && !isDay -> WeatherCodes.THUNDERSTORM_AND_SKY_NIGHT
-                else -> WeatherCodes.THUNDERSTORM
-            }
+                    cape > MIN_CAPE_THUNDERSTORM ->
+                        if (hasSky) WeatherCodes.THUNDERSTORM_AND_SKY
+                        else WeatherCodes.THUNDERSTORM
+
+                    else ->
+                        if (hasSky) WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY
+                        else WeatherCodes.POTENTIAL_THUNDERSTORM
+                }
 
             else -> {
                 null

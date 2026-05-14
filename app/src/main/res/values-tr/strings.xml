@@ -107,9 +107,9 @@
 
     <string name="widget_date_format">d MMM E</string>
 
-    <!-- heavy_thunderstorm Şiddetli gök gürültülü fırtına -->
+    <string name="heavy_thunderstorms">Şiddetli gök gürültülü fırtına</string>
     <string name="thunderstorm">Gök gürültülü fırtına</string>
-    <!-- potential_thunderstorm Gök gürültülü sağanak eğilimi -->
+    <string name="potential_thunderstorms">Gök gürültülü sağanak eğilimi</string>
     <string name="freezing_rain">Dondurucu yağmur</string>
     <string name="light_freezing_rain">Hafif donan yağmur</string>
     <string name="freezing_drizzle">Dondurucu çiseleme</string>

@@ -23,18 +23,23 @@ object WeatherIcons {
         wmoCode: Int,
         isDay: Int,
         cloudCover: Int,
+        cape: Double,
         iconStyle: IconStyles,
     ): Int? {
-        val weatherCode = WeatherCodeMapper.mapWmoCode(
-            wmoCode,
-            isDay == 1,
-            cloudCover) ?: return null
+        val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode, cloudCover, cape) ?: return null
 
         return when (iconStyle) {
-            IconStyles.FLAT_OUTLINED_DARK -> IconsFlatOutlinedDark.getIconId(weatherCode)
-            IconStyles.FLAT_OUTLINED_LIGHT -> IconsFlatOutlinedLight.getIconId(weatherCode)
-            IconStyles.SOLID_3D_DARK -> IconsSolid3dDark.getIconId(weatherCode)
-            IconStyles.SOLID_3D_LIGHT -> IconsSolid3dLight.getIconId(weatherCode)
+            IconStyles.FLAT_OUTLINED_DARK ->
+                IconsFlatOutlinedDark.getIconId(weatherCode, isDay == 1)
+
+            IconStyles.FLAT_OUTLINED_LIGHT ->
+                IconsFlatOutlinedLight.getIconId(weatherCode, isDay == 1)
+
+            IconStyles.SOLID_3D_DARK ->
+                IconsSolid3dDark.getIconId(weatherCode, isDay == 1)
+
+            IconStyles.SOLID_3D_LIGHT ->
+                IconsSolid3dLight.getIconId(weatherCode, isDay == 1)
         }
     }
 }

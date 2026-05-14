@@ -43,6 +43,7 @@ internal object WeatherFormatter {
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
         val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
         val cloudCover = weather.minutelyCloudCover.getOrNull(currentIndex) ?: return null
+        val cape = weather.minutelyCape.getOrNull(currentIndex) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(currentIndex) ?: return null
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
@@ -57,6 +58,7 @@ internal object WeatherFormatter {
             weatherCode,
             isDay,
             cloudCover,
+            cape,
             iconStyle
         ) ?: return null
 
@@ -120,6 +122,7 @@ internal object WeatherFormatter {
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
         val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
         val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null
+        val capeMax = weather.dailyCapeMax.getOrNull(idx) ?: return null
 
         val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
         val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
@@ -127,7 +130,8 @@ internal object WeatherFormatter {
         val weatherStrId = WeatherStrings.getShortWeatherStrId(
             weatherCode,
             isDay = 1,
-            cloudCoverMean
+            cloudCoverMean,
+            capeMax
         ) ?: return null
 
         val dayStrId = if (isToday) R.string.today else R.string.tomorrow
