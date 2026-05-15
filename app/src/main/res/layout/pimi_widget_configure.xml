@@ -24,7 +24,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/widget_settings_fragment"
-        android:name="com.kolakek.pimiwidget.widget.WidgetSettingsFragment"
+        android:name="com.kolakek.pimiwidget.settings.WidgetSettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="8dp"

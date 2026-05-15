@@ -22,6 +22,7 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyles
 import com.kolakek.pimiwidget.resources.WeatherIcons
 import com.kolakek.pimiwidget.resources.WeatherStrings
+import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant

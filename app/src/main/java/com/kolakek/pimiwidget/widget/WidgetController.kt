@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.widget
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
+import com.kolakek.pimiwidget.settings.PreferencesHelper
 import timber.log.Timber
 
 internal object WidgetController {

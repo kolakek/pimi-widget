@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.settings
 
 import android.Manifest
 import android.content.Context
@@ -234,7 +234,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 append("mlat", location.lat.toString())
                 append("mlon", location.long.toString())
             }
-            fragment = "map=$LOCATION_URL_ZOOM/${location.lat}/${location.long}"
+            fragment = "map=${LOCATION_URL_ZOOM}/${location.lat}/${location.long}"
         }.build().toString()
     }
 

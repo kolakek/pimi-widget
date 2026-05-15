@@ -22,6 +22,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import androidx.work.ExistingPeriodicWorkPolicy
+import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import timber.log.Timber
 

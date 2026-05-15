@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.kolakek.pimiwidget.widget.WidgetConfigureActivity"
+    android:configure="com.kolakek.pimiwidget.settings.WidgetConfigureActivity"
     android:widgetFeatures="reconfigurable"
     android:initialKeyguardLayout="@layout/pimi_widget_light"
     android:initialLayout="@layout/pimi_widget_light"
