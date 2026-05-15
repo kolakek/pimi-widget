@@ -50,10 +50,10 @@ internal object WeatherFormatter {
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
 
         val iconStyle = when (iconStylePref) {
-            PreferencesHelper.IconStyle.FLAT_OUTLINED ->
-                if (lightColor) IconStyles.FLAT_OUTLINED_LIGHT else IconStyles.FLAT_OUTLINED_DARK
-            PreferencesHelper.IconStyle.SOLID_3D ->
-                if (lightColor) IconStyles.SOLID_3D_LIGHT else IconStyles.SOLID_3D_DARK
+            PreferencesHelper.IconStyle.FLAT_SKETCH ->
+                if (lightColor) IconStyles.FLAT_SKETCH_LIGHT else IconStyles.FLAT_SKETCH_DARK
+            PreferencesHelper.IconStyle.TWINKLE_SHADOW ->
+                if (lightColor) IconStyles.TWINKLE_SHADOW_LIGHT else IconStyles.TWINKLE_SHADOW_DARK
         }
         val weatherIconId = WeatherIcons.getWeatherIconId(
             weatherCode,

@@ -18,8 +18,8 @@
 package com.kolakek.pimiwidget.resources
 
 enum class IconStyles {
-    FLAT_OUTLINED_DARK,
-    FLAT_OUTLINED_LIGHT,
-    SOLID_3D_DARK,
-    SOLID_3D_LIGHT
+    FLAT_SKETCH_DARK,
+    FLAT_SKETCH_LIGHT,
+    TWINKLE_SHADOW_DARK,
+    TWINKLE_SHADOW_LIGHT
 }

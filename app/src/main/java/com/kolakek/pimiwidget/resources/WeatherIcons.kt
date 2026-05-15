@@ -35,17 +35,17 @@ object WeatherIcons {
         ) ?: return null
 
         return when (iconStyle) {
-            IconStyles.FLAT_OUTLINED_DARK ->
-                IconsFlatOutlinedDark.getIconId(weatherCode, isDay == 1)
+            IconStyles.FLAT_SKETCH_DARK ->
+                IconsFlatSketchDark.getIconId(weatherCode, isDay == 1)
 
-            IconStyles.FLAT_OUTLINED_LIGHT ->
-                IconsFlatOutlinedLight.getIconId(weatherCode, isDay == 1)
+            IconStyles.FLAT_SKETCH_LIGHT ->
+                IconsFlatSketchLight.getIconId(weatherCode, isDay == 1)
 
-            IconStyles.SOLID_3D_DARK ->
-                IconsSolid3dDark.getIconId(weatherCode, isDay == 1)
+            IconStyles.TWINKLE_SHADOW_DARK ->
+                IconsTwinkleShadowDark.getIconId(weatherCode, isDay == 1)
 
-            IconStyles.SOLID_3D_LIGHT ->
-                IconsSolid3dLight.getIconId(weatherCode, isDay == 1)
+            IconStyles.TWINKLE_SHADOW_LIGHT ->
+                IconsTwinkleShadowLight.getIconId(weatherCode, isDay == 1)
         }
     }
 }

@@ -4,7 +4,8 @@
 
     <string name="config_button">Einstellungen übernehmen</string>
 
-    <string name="config_privacy_note">Durch das Aktivieren des Wetters wird dein Standort an den Wetterdienst übermittelt</string>
+    <string name="config_privacy_note">
+        Durch das Aktivieren des Wetters wird dein Standort an den Wetterdienst übermittelt</string>
 
     <string name="config_weather_switch">Wetter aktivieren</string>
 
@@ -17,10 +18,6 @@
     <string name="config_text_color">Textfarbe</string>
 
     <string name="config_icon_style">Symbolstil</string>
-
-    <string name="config_icon_style_filled">Schatten &amp; Verläufe</string>
-
-    <string name="config_icon_style_outlined">Flach</string>
 
     <string name="config_color_light">Hell</string>
 
@@ -44,11 +41,15 @@
 
     <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
 
-    <string name="config_loc_perm_alert">Um das Wetter für Ihre aktuelle Region anzuzeigen, benötigt diese App Zugriff auf Ihren Standort.</string>
+    <string name="config_loc_perm_alert">
+        Um das Wetter für deine aktuelle Region anzuzeigen, benötigt diese App Zugriff
+        auf deinen Standort.</string>
 
     <string name="config_bg_perm_alert_title">Hintergrund-Standortberechtigung</string>
 
-    <string name="config_bg_perm_alert">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf Ihren Standort im Hintergrund. Bitte wählen Sie „%s“ im nächsten Bildschirm.</string>
+    <string name="config_bg_perm_alert">
+        Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf deinen Standort im
+        Hintergrund. Bitte wähle „%s“ im nächsten Bildschirm.</string>
 
     <string name="config_alert_button_ok">OK</string>
 
@@ -70,13 +71,15 @@
 
     <string name="config_alert_button_dismiss">Schließen</string>
 
-    <string name="config_shared_data">Geteilte Daten</string>
+    <string name="config_shared_data">Datentransparenz</string>
 
     <string name="config_shared_data_descr">Mit dem Wetterdienst geteilte Daten anzeigen</string>
 
     <string name="config_shared_data_alert_no_loc">Keine Standortdaten vorhanden</string>
 
-    <string name="config_shared_data_alert_text">Letzten Standort oder Wetteranfrage anzeigen\n\nStandort wird in OpenStreetMap dargestellt\n\nWetteranfrage wird auf Open-Meteo angezeigt</string>
+    <string name="config_shared_data_alert_text">
+        Du kannst deinen zuletzt abgerufenen Standort oder die Wetter-API-Anfrage im Browser anzeigen.
+        Dabei wird dein Standort mit dem Dienstanbieter geteilt (Open-Meteo, OpenStreetMap).</string>
 
     <string name="config_shared_data_alert_but_weather">Wetteranfrage</string>
 
@@ -103,7 +106,7 @@
 
     <string name="widget_date_prev">So., 3. Oct.</string>
 
-    <string name="widget_temp_prev">21\u2103 · Morgen 19\u00B0 / 13\u00B0 · Teilweise bewölkt</string>
+    <string name="widget_temp_prev">21\u2103 · Morgen 19\u00B0 / 13\u00B0 · Leichter Regen</string>
 
     <string name="widget_date_format">E, d. MMM</string>
 

@@ -19,111 +19,111 @@ package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
 
-internal object IconsFlatOutlinedDark {
+internal object IconsFlatSketchLight {
 
     fun getIconId(weatherCode: WeatherCodes, isDay: Boolean): Int {
         return when (weatherCode) {
             WeatherCodes.CLEAR_SKY ->
-                if (isDay) R.drawable.ub_0d
-                else R.drawable.ub_0n
+                if (isDay) R.drawable.uc_0d
+                else R.drawable.uc_0n
 
             WeatherCodes.MAINLY_CLEAR ->
-                if (isDay) R.drawable.ub_1d
-                else R.drawable.ub_1n
+                if (isDay) R.drawable.uc_1d
+                else R.drawable.uc_1n
 
             WeatherCodes.PARTLY_CLOUDY ->
-                if (isDay) R.drawable.ub_2d
-                else R.drawable.ub_2n
+                if (isDay) R.drawable.uc_2d
+                else R.drawable.uc_2n
 
             WeatherCodes.MOSTLY_CLOUDY ->
-                if (isDay) R.drawable.ub_3d
-                else R.drawable.ub_3n
+                if (isDay) R.drawable.uc_3d
+                else R.drawable.uc_3n
 
             WeatherCodes.OVERCAST ->
-                R.drawable.ub_35
+                R.drawable.uc_35
 
             WeatherCodes.FOGGY ->
-                R.drawable.ub_45
+                R.drawable.uc_45
 
             WeatherCodes.DRIZZLE,
             WeatherCodes.LIGHT_RAIN,
             WeatherCodes.LIGHT_RAIN_SHOWERS ->
-                R.drawable.ub_61
+                R.drawable.uc_61
 
             WeatherCodes.DRIZZLE_AND_SKY,
             WeatherCodes.LIGHT_RAIN_AND_SKY,
             WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY ->
-                if (isDay) R.drawable.ub_80d
-                else R.drawable.ub_80n
+                if (isDay) R.drawable.uc_80d
+                else R.drawable.uc_80n
 
             WeatherCodes.RAIN,
             WeatherCodes.RAIN_SHOWERS ->
-                R.drawable.ub_63
+                R.drawable.uc_63
 
             WeatherCodes.RAIN_AND_SKY,
             WeatherCodes.RAIN_SHOWERS_AND_SKY ->
-                if (isDay) R.drawable.ub_81d
-                else R.drawable.ub_81n
+                if (isDay) R.drawable.uc_81d
+                else R.drawable.uc_81n
 
             WeatherCodes.HEAVY_RAIN,
             WeatherCodes.HEAVY_RAIN_SHOWERS ->
-                R.drawable.ub_65
+                R.drawable.uc_65
 
             WeatherCodes.HEAVY_RAIN_AND_SKY,
             WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY ->
-                if (isDay) R.drawable.ub_82d
-                else R.drawable.ub_82n
+                if (isDay) R.drawable.uc_82d
+                else R.drawable.uc_82n
 
             WeatherCodes.LIGHT_SNOW,
             WeatherCodes.LIGHT_SNOW_SHOWERS ->
-                R.drawable.ub_71
+                R.drawable.uc_71
 
             WeatherCodes.LIGHT_SNOW_AND_SKY,
             WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY ->
-                if (isDay) R.drawable.ub_85d
-                else R.drawable.ub_85n
+                if (isDay) R.drawable.uc_85d
+                else R.drawable.uc_85n
 
             WeatherCodes.SNOW ->
-                R.drawable.ub_73
+                R.drawable.uc_73
 
             WeatherCodes.SNOW_AND_SKY ->
-                if (isDay) R.drawable.ub_86d
-                else R.drawable.ub_86n
+                if (isDay) R.drawable.uc_86d
+                else R.drawable.uc_86n
 
             WeatherCodes.HEAVY_SNOW,
             WeatherCodes.HEAVY_SNOW_SHOWERS ->
-                R.drawable.ub_75
+                R.drawable.uc_75
 
             WeatherCodes.HEAVY_SNOW_AND_SKY,
             WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY ->
-                if (isDay) R.drawable.ub_87d
-                else R.drawable.ub_87n
+                if (isDay) R.drawable.uc_87d
+                else R.drawable.uc_87n
 
             WeatherCodes.SNOW_GRAINS ->
-                R.drawable.ub_77
+                R.drawable.uc_77
 
             WeatherCodes.FREEZING_DRIZZLE,
             WeatherCodes.LIGHT_FREEZING_RAIN,
             WeatherCodes.FREEZING_RAIN ->
-                R.drawable.ub_67
+                R.drawable.uc_67
 
             WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY ->
-                if (isDay) R.drawable.ub_91d
-                else R.drawable.ub_91n
+                if (isDay) R.drawable.uc_91d
+                else R.drawable.uc_91n
 
             WeatherCodes.POTENTIAL_THUNDERSTORM ->
-                R.drawable.ub_92
+                R.drawable.uc_92
 
             WeatherCodes.POTENTIAL_THUNDERSTORM_AND_RAIN ->
-                R.drawable.ub_93
+                R.drawable.uc_93
 
             WeatherCodes.THUNDERSTORM_AND_SKY ->
-                if (isDay) R.drawable.ub_95d
-                else R.drawable.ub_95n
+                if (isDay) R.drawable.uc_95d
+                else R.drawable.uc_95n
 
             WeatherCodes.THUNDERSTORM,
             WeatherCodes.HEAVY_THUNDERSTORM ->
-                R.drawable.ub_99
+                R.drawable.uc_99
         }
     }
 }

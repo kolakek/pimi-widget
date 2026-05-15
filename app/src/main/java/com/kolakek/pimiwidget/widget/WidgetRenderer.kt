@@ -103,7 +103,7 @@ internal object WidgetRenderer {
         prefs: WidgetPreferences
     ): RemoteViews {
         val layout = if (useLightText(context, prefs.textColor)) {
-            if (prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_OUTLINED) {
+            if (prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_SKETCH) {
                 R.layout.pimi_widget_light
             } else {
                 R.layout.pimi_widget_light_shadow

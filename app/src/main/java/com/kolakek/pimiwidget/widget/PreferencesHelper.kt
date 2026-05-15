@@ -24,8 +24,8 @@ import androidx.preference.PreferenceManager
 internal object PreferencesHelper {
 
     enum class IconStyle(val key: String) {
-        FLAT_OUTLINED(KEY_ICON_STYLE_FLAT_OUTLINED),
-        SOLID_3D(KEY_ICON_STYLE_SOLID_3D)
+        FLAT_SKETCH(KEY_ICON_STYLE_FLAT_SKETCH),
+        TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
     }
 
     enum class TempUnit(val key: String) {
@@ -74,7 +74,7 @@ internal object PreferencesHelper {
     private fun getIconStylePreference(context: Context): IconStyle {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_STYLE_LIST, null)
-        return IconStyle.entries.find { it.key == key } ?: IconStyle.FLAT_OUTLINED
+        return IconStyle.entries.find { it.key == key } ?: IconStyle.FLAT_SKETCH
 
     }
 

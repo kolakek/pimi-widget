@@ -7,7 +7,8 @@
     <string name="config_button">Apply settings</string>
 
     <!-- Short privacy note to be displayed above the weatehr switch -->
-    <string name="config_privacy_note">Enabling weather shares your location with the weather provider</string>
+    <string name="config_privacy_note">
+        Enabling weather shares your location with the weather provider</string>
 
     <!-- Short description of the weather switch used in config screen -->
     <string name="config_weather_switch">Enable weather</string>
@@ -26,12 +27,6 @@
 
     <!-- Title for the config option to adjust the widget icon style -->
     <string name="config_icon_style">Icon style</string>
-
-    <!-- Config option for selecting filled icon style -->
-    <string name="config_icon_style_filled">Shadows &amp; gradients</string>
-
-    <!-- Config option for selecting outlined icon style -->
-    <string name="config_icon_style_outlined">Flat</string>
 
     <!-- Config option for selecting light colors -->
     <string name="config_color_light">Light</string>
@@ -67,13 +62,17 @@
     <string name="config_loc_perm_alert_title">Location permission required</string>
 
     <!-- Explanation show in the alert box explaining why location access is needed -->
-    <string name="config_loc_perm_alert">To show the weather for your current area, this app requires access to your location.</string>
+    <string name="config_loc_perm_alert">
+        To show the weather for your current area,
+        this app requires access to your location.</string>
 
     <!-- Title of the alert box for explaining that background location access is needed -->
     <string name="config_bg_perm_alert_title">Background location permission</string>
 
     <!-- Explanation shown in the alert box explaining why background location access is needed -->
-    <string name="config_bg_perm_alert">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
+    <string name="config_bg_perm_alert">
+        Reliable weather updates require to access your location in the background.
+        Please select \"%s\" in the next screen.</string>
 
     <!-- Text of the alert box OK button -->
     <string name="config_alert_button_ok">OK</string>
@@ -106,7 +105,7 @@
     <string name="config_alert_button_dismiss">Dismiss</string>
 
     <!-- String for the title of a config option to show the shared data -->
-    <string name="config_shared_data">Shared data</string>
+    <string name="config_shared_data">Data Transparency</string>
 
     <!-- String for the description of the config option to show the shared data -->
     <string name="config_shared_data_descr">View data exchanged with the weather provider</string>
@@ -115,7 +114,9 @@
     <string name="config_shared_data_alert_no_loc">No location data available</string>
 
     <!-- String for the alert text in case location data is available -->
-    <string name="config_shared_data_alert_text">View last location or weather API request\n\nLocation is shown on OpenStreeMap\n\nWeather request is shown on Open-Meteo</string>
+    <string name="config_shared_data_alert_text">
+        You can view your last retrieved location or weather API request in the browser.
+        This will share your location with the service provider (Open-Meteo, OpenStreetMap).</string>
 
     <!-- String for the button of an alert box to show weather (data) -->
     <string name="config_shared_data_alert_but_weather">Weather</string>
@@ -153,7 +154,7 @@
     <string name="widget_date_prev">Sun, Jul 4</string>
 
     <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Thunderstorms</string>
+    <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
 
     <!-- Default date format for current language -->
     <string name="widget_date_format">E, MMM d</string>
@@ -197,6 +198,9 @@
     <!-- Non-translatable -->
 
     <string name="app_name" translatable="false">Pimi Widget</string>
+
+    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
+    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
 
     <string name="config_alert_debug_na" translatable="false">N/A</string>
     <string name="config_alert_debug_success" translatable="false">SUCCESS</string>

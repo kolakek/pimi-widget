@@ -220,9 +220,6 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     }
                 }
             }
-            .setNeutralButton(getString(R.string.config_alert_button_dismiss)) { dialog, _ ->
-                dialog.dismiss()
-            }
             .show()
     }
 
