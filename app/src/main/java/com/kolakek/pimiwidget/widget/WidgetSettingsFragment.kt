@@ -36,6 +36,7 @@ import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.worker.UpdateStatus
 import com.kolakek.pimiwidget.worker.UpdateStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -167,10 +168,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
 
         val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${statusString(dataUpdateStatus?.isLocationSuccess)}"
+                " ${statusString(dataUpdateStatus?.locationStatus)}"
 
         val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${statusString(dataUpdateStatus?.isWeatherSuccess)}"
+                " ${statusString(dataUpdateStatus?.weatherStatus)}"
 
         AlertDialog.Builder(context)
             .setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
@@ -263,10 +264,11 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         alertDialog.show()
     }
 
-    private fun statusString(success: Boolean?): String {
+    private fun statusString(success: UpdateStatus?): String {
         return when (success) {
-            true -> getString(R.string.config_alert_debug_success)
-            false -> getString(R.string.config_alert_debug_failed)
+            UpdateStatus.SUCCESS -> getString(R.string.config_alert_debug_success)
+            UpdateStatus.FAILED -> getString(R.string.config_alert_debug_failed)
+            UpdateStatus.RUNNING -> getString(R.string.config_alert_debug_running)
             null -> getString(R.string.config_alert_debug_na)
         }
     }

@@ -38,6 +38,16 @@ internal object WidgetUpdater {
     internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
         if (forceUpdate || needsDataUpdate(context)) {
+            Timber.d("update: Start log")
+            JsonDataStore.save(
+                context,
+                DataKeys.UPDATE_STATUS_DATA_KEY,
+                UpdateStatusData(
+                    locationStatus = UpdateStatus.RUNNING,
+                    weatherStatus = UpdateStatus.RUNNING,
+                    lastUpdateTimeMillis = System.currentTimeMillis()
+                )
+            )
             Timber.d("update: Get location")
             val location = if (hasLocationPermission(context)) {
                 LocationService.getLocation(context)
@@ -69,8 +79,10 @@ internal object WidgetUpdater {
                 context,
                 DataKeys.UPDATE_STATUS_DATA_KEY,
                 UpdateStatusData(
-                    isLocationSuccess = location != null,
-                    isWeatherSuccess = weather != null,
+                    locationStatus = if (location == null) UpdateStatus.FAILED
+                    else UpdateStatus.SUCCESS,
+                    weatherStatus = if (weather == null) UpdateStatus.FAILED
+                    else UpdateStatus.SUCCESS,
                     lastUpdateTimeMillis = System.currentTimeMillis()
                 )
             )
@@ -84,7 +96,7 @@ internal object WidgetUpdater {
             context, DataKeys.UPDATE_STATUS_DATA_KEY
         ) ?: return true
 
-        val lastRunSuccess = dataUpdateStatus.isWeatherSuccess
+        val lastRunSuccess = dataUpdateStatus.weatherStatus == UpdateStatus.SUCCESS
         val dataAge = System.currentTimeMillis() - dataUpdateStatus.lastUpdateTimeMillis
         val isFreshData = (dataAge < WEATHER_MIN_AGE_MILLIS) && lastRunSuccess
 

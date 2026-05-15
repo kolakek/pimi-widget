@@ -17,11 +17,8 @@
 
 package com.kolakek.pimiwidget.worker
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class UpdateStatusData (
-    val locationStatus: UpdateStatus,
-    val weatherStatus: UpdateStatus,
-    val lastUpdateTimeMillis: Long
-)
+enum class UpdateStatus {
+    RUNNING,
+    FAILED,
+    SUCCESS
+}
