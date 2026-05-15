@@ -69,8 +69,6 @@
 
     <string name="config_alert_button_update">Güncellemeye zorla</string>
 
-    <string name="config_alert_button_dismiss">Kapat</string>
-
     <string name="config_shared_data">Veri şeffaflığı</string>
 
     <string name="config_shared_data_descr">

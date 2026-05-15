@@ -69,8 +69,6 @@
 
     <string name="config_alert_button_update">Aktualisierung erzwingen</string>
 
-    <string name="config_alert_button_dismiss">Schließen</string>
-
     <string name="config_shared_data">Datentransparenz</string>
 
     <string name="config_shared_data_descr">Mit dem Wetterdienst geteilte Daten anzeigen</string>

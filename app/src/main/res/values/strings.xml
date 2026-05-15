@@ -101,9 +101,6 @@
     <!-- String for the button of an alert box to force an update -->
     <string name="config_alert_button_update">Force update</string>
 
-    <!-- String for the button of an alert box to dismiss -->
-    <string name="config_alert_button_dismiss">Dismiss</string>
-
     <!-- String for the title of a config option to show the shared data -->
     <string name="config_shared_data">Data Transparency</string>
 
