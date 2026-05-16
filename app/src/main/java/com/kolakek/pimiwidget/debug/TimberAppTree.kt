@@ -15,22 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget
+package com.kolakek.pimiwidget.debug
 
-import android.app.Application
-import com.google.android.material.color.DynamicColors
-import com.kolakek.pimiwidget.debug.TimberAppTree
 import timber.log.Timber
 
-class PimiApplication : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-
-        DynamicColors.applyToActivitiesIfAvailable(this)
-
-        if (BuildConfig.DEBUG) {
-            Timber.plant(TimberAppTree())
-        }
+class TimberAppTree: Timber.DebugTree() {
+    override fun createStackElementTag(element: StackTraceElement): String {
+        return "PimiTag:${super.createStackElementTag(element)}"
     }
 }
