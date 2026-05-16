@@ -22,7 +22,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 
-internal object WidgetIntents {
+internal object WidgetIntent {
 
     internal fun categoryIntent(
         context: Context,

@@ -27,7 +27,7 @@ internal object WidgetController {
 
     internal fun updateAllWidgets(
         context: Context,
-        updateMode: WidgetUpdateModes
+        updateMode: WidgetUpdateMode
     ) {
         val manager = AppWidgetManager.getInstance(context)
         manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
@@ -40,7 +40,7 @@ internal object WidgetController {
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
-        updateMode: WidgetUpdateModes = WidgetUpdateModes.FULL_WIDGET_UPDATE
+        updateMode: WidgetUpdateMode = WidgetUpdateMode.FULL_WIDGET_UPDATE
     ) {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
@@ -48,16 +48,16 @@ internal object WidgetController {
         val views = WidgetRenderer.buildRemoteViews(context, prefs)
 
         when (updateMode) {
-            WidgetUpdateModes.FULL_WIDGET_UPDATE -> {
+            WidgetUpdateMode.FULL_WIDGET_UPDATE -> {
                 WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
                 WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
-            WidgetUpdateModes.LOCALE_UPDATE -> {
+            WidgetUpdateMode.LOCALE_UPDATE -> {
                 WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
-            WidgetUpdateModes.WEATHER_UPDATE -> {
+            WidgetUpdateMode.WEATHER_UPDATE -> {
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
         }

@@ -21,24 +21,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class WeatherData (
+    val minutelyWeatherCode: List<WeatherCode>,
     val minutelyTempCelsius: List<Double>,
-    val minutelyVisibility: List<Double>,
-    val minutelyCape: List<Double>,
-    val minutelyWmoCode: List<Int>,
-    val minutelyTimeMillis: List<Long>,
     val minutelyIsDay: List<Boolean>,
-    val minutelyCloudCover: List<Int>,
-    val minutelyPrecipProb: List<Int>,
+    val minutelyTimeMillis: List<Long>,
     val hourlyTempCelsius: List<Double>,
-    val hourlyWmoCode: List<Int>,
-    val hourlyTimeMillis: List<Long>,
     val hourlyIsDay: List<Boolean>,
+    val hourlyTimeMillis: List<Long>,
+    val dailyWeatherCode: List<WeatherCode>,
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
-    val dailyVisibilityMean: List<Double>,
-    val dailyCapeMax: List<Double>,
-    val dailyCloudCoverMean: List<Int>,
-    val dailyPrecipProbMax: List<Int>,
-    val dailyWmoCode: List<Int>,
     val dailyTimeMillis: List<Long>
 )

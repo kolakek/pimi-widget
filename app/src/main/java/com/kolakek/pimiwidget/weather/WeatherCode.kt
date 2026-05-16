@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.resources
+package com.kolakek.pimiwidget.weather
 
 enum class WeatherCode {
     CLEAR_SKY,

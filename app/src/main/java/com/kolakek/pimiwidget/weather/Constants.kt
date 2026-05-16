@@ -23,16 +23,15 @@ internal const val LATITUDE_KEY = "latitude"
 internal const val LONGITUDE_KEY = "longitude"
 
 internal const val MINUTELY_KEY = "minutely_15"
-internal const val MINUTELY_VALUE =
-    "temperature_2m,weather_code,is_day,cloud_cover,cape,precipitation_probability,visibility"
+internal const val MINUTELY_VALUE = "temperature_2m,weather_code,is_day,cloud_cover,cape," +
+        "precipitation_probability,visibility"
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day"
 
 internal const val DAILY_KEY = "daily"
-internal const val DAILY_VALUE =
-    "weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean,cape_max," +
-            "precipitation_probability_max,visibility_mean"
+internal const val DAILY_VALUE = "weather_code,temperature_2m_max,temperature_2m_min," +
+        "cloud_cover_mean,cape_max,precipitation_probability_max,visibility_mean"
 
 internal const val FORECAST_MINUTES_KEY = "forecast_minutely_15"
 internal const val FORECAST_MINUTES_VALUE = "12"
@@ -48,3 +47,11 @@ internal const val TIMEFORMAT_VALUE = "unixtime"
 
 internal const val TIMEZONE_KEY = "timezone"
 internal const val TIMEZONE_VALUE = "auto"
+
+internal const val MIN_CLOUD_COVER_OVERCAST = 85
+internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 60
+internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 30
+internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 10
+internal const val MIN_CAPE_THUNDERSTORM = 1500
+internal const val MIN_PROB_PRECIPITATION = 80
+internal const val MAX_VISIBILITY_FOG = 1000

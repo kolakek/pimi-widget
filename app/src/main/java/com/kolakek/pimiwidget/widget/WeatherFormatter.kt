@@ -20,7 +20,6 @@ package com.kolakek.pimiwidget.widget
 import android.content.Context
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyle
-import com.kolakek.pimiwidget.resources.WeatherCodeMapper
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.PreferencesHelper
@@ -42,23 +41,11 @@ internal object WeatherFormatter {
         val nowTimeMillis = System.currentTimeMillis()
         val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
+        val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
-        val wmoCode = weather.minutelyWmoCode.getOrNull(currentIndex) ?: return null
-        val cloudCover = weather.minutelyCloudCover.getOrNull(currentIndex) ?: return null
-        val precipProb = weather.minutelyPrecipProb.getOrNull(currentIndex) ?: return null
-        val visibility = weather.minutelyVisibility.getOrNull(currentIndex) ?: return null
-        val cape = weather.minutelyCape.getOrNull(currentIndex) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(currentIndex) ?: return null
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
-
-        val weatherCode = WeatherCodeMapper.mapWmoCode(
-            wmoCode,
-            cloudCover,
-            precipProb,
-            visibility,
-            cape
-        ) ?: return null
 
         val iconStyle = when (iconStylePref) {
             PreferencesHelper.IconStyle.FLAT_SKETCH ->
@@ -127,24 +114,12 @@ internal object WeatherFormatter {
             Timber.w("getForecastStr: No forecast data available")
             return null
         }
+        val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
-        val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
-        val precipProbMax = weather.dailyPrecipProbMax.getOrNull(idx) ?: return null
-        val wmoCode = weather.dailyWmoCode.getOrNull(idx) ?: return null
-        val visibilityMean = weather.dailyVisibilityMean.getOrNull(idx) ?: return null
-        val capeMax = weather.dailyCapeMax.getOrNull(idx) ?: return null
 
         val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
         val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
-
-        val weatherCode = WeatherCodeMapper.mapWmoCode(
-            wmoCode,
-            cloudCoverMean,
-            precipProbMax,
-            visibilityMean,
-            capeMax
-        ) ?: return null
 
         val weatherStrId = WeatherString.getShortWeatherStrId(
             weatherCode,

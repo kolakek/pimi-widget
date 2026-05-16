@@ -33,7 +33,7 @@ object WeatherService {
         Timber.d("getWeather: Get data for URL: $url")
         return try {
             val result = mapProviderData(HttpClientProvider.client.get(url).body())
-            Timber.d("getWeather: Data successfully retrieved")
+            Timber.d("getWeather: Data retrieved")
             result
         } catch (e: Exception) {
             if (e is CancellationException) throw e
@@ -62,27 +62,46 @@ object WeatherService {
         }.build()
     }
 
-    private fun mapProviderData(providerData: ProviderData): WeatherData {
+    private fun mapProviderData(providerData: ProviderData): WeatherData? {
+        val minutelyWeatherCode = try {
+            providerData.minutely_15.weather_code.indices.map { i ->
+                WeatherCodeMapper.mapWmoCode(
+                    providerData.minutely_15.weather_code[i],
+                    providerData.minutely_15.cloud_cover[i],
+                    providerData.minutely_15.precipitation_probability[i],
+                    providerData.minutely_15.visibility[i],
+                    providerData.minutely_15.cape[i],
+                ) ?: return null
+            }
+        } catch (_: ArrayIndexOutOfBoundsException) {
+            Timber.w("mapProviderData: Minutely data index out of bounds")
+            return null
+        }
+        val dailyWeatherCode = try {
+            providerData.daily.weather_code.indices.map { i ->
+                WeatherCodeMapper.mapWmoCode(
+                    providerData.daily.weather_code[i],
+                    providerData.daily.cloud_cover_mean[i],
+                    providerData.daily.precipitation_probability_max[i],
+                    providerData.daily.visibility_mean[i],
+                    providerData.daily.cape_max[i],
+                ) ?: return null
+            }
+        } catch (_: ArrayIndexOutOfBoundsException) {
+            Timber.w("mapProviderData: Daily data index out of bounds")
+            return null
+        }
         return WeatherData(
+            minutelyWeatherCode = minutelyWeatherCode,
             minutelyTempCelsius = providerData.minutely_15.temperature_2m,
-            minutelyVisibility = providerData.minutely_15.visibility,
-            minutelyCape = providerData.minutely_15.cape,
-            minutelyWmoCode = providerData.minutely_15.weather_code,
-            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
             minutelyIsDay = providerData.minutely_15.is_day.map { v -> v == 1 },
-            minutelyCloudCover = providerData.minutely_15.cloud_cover,
-            minutelyPrecipProb = providerData.minutely_15.precipitation_probability,
+            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
             hourlyTempCelsius = providerData.hourly.temperature_2m,
-            hourlyWmoCode = providerData.hourly.weather_code,
-            hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
             hourlyIsDay = providerData.hourly.is_day.map { v -> v == 1 },
+            hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
+            dailyWeatherCode = dailyWeatherCode,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
-            dailyVisibilityMean = providerData.daily.visibility_mean,
-            dailyCapeMax = providerData.daily.cape_max,
-            dailyCloudCoverMean = providerData.daily.cloud_cover_mean,
-            dailyPrecipProbMax = providerData.daily.precipitation_probability_max,
-            dailyWmoCode = providerData.daily.weather_code,
             dailyTimeMillis = providerData.daily.time.map { v -> v * 1000L }
         )
     }

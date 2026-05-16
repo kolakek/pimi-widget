@@ -17,6 +17,8 @@
 
 package com.kolakek.pimiwidget.resources
 
+import com.kolakek.pimiwidget.weather.WeatherCode
+
 object WeatherIcon {
 
     fun getWeatherIconId(
