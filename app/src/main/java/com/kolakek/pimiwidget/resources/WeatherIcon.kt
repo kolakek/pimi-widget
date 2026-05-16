@@ -17,9 +17,25 @@
 
 package com.kolakek.pimiwidget.resources
 
-enum class IconStyles {
-    FLAT_SKETCH_DARK,
-    FLAT_SKETCH_LIGHT,
-    TWINKLE_SHADOW_DARK,
-    TWINKLE_SHADOW_LIGHT
+object WeatherIcon {
+
+    fun getWeatherIconId(
+        weatherCode: WeatherCode,
+        isDay: Boolean,
+        iconStyle: IconStyle,
+    ): Int {
+        return when (iconStyle) {
+            IconStyle.FLAT_SKETCH_DARK ->
+                IconsFlatSketchDark.getIconId(weatherCode, isDay)
+
+            IconStyle.FLAT_SKETCH_LIGHT ->
+                IconsFlatSketchLight.getIconId(weatherCode, isDay)
+
+            IconStyle.TWINKLE_SHADOW_DARK ->
+                IconsTwinkleShadowDark.getIconId(weatherCode, isDay)
+
+            IconStyle.TWINKLE_SHADOW_LIGHT ->
+                IconsTwinkleShadowLight.getIconId(weatherCode, isDay)
+        }
+    }
 }

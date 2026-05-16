@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.resources
 
-internal enum class WeatherCodes {
+enum class WeatherCode {
     CLEAR_SKY,
     MAINLY_CLEAR,
     PARTLY_CLOUDY,

@@ -25,81 +25,81 @@ object WeatherCodeMapper {
         precipProb: Int,
         visibility: Double,
         cape: Double
-    ): WeatherCodes? {
+    ): WeatherCode? {
         val hasSky = cloudCover < MIN_CLOUD_COVER_OVERCAST
 
         return when (wmoCode) {
 
             0, 1, 2, 3, 45, 48 ->
                 when {
-                    visibility < MAX_VISIBILITY_FOG -> WeatherCodes.FOG
-                    cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCodes.OVERCAST
-                    cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCodes.MOSTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCodes.PARTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCodes.MAINLY_CLEAR
+                    visibility < MAX_VISIBILITY_FOG -> WeatherCode.FOG
+                    cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCode.OVERCAST
+                    cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCode.MOSTLY_CLOUDY
+                    cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCode.PARTLY_CLOUDY
+                    cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCode.MAINLY_CLEAR
 
-                    else -> WeatherCodes.CLEAR_SKY
+                    else -> WeatherCode.CLEAR_SKY
                 }
 
             51, 53, 55 ->
-                if (hasSky) WeatherCodes.DRIZZLE_AND_SKY
-                else WeatherCodes.DRIZZLE
+                if (hasSky) WeatherCode.DRIZZLE_AND_SKY
+                else WeatherCode.DRIZZLE
 
             56, 57 ->
-                WeatherCodes.FREEZING_DRIZZLE
+                WeatherCode.FREEZING_DRIZZLE
 
             61 ->
-                if (hasSky) WeatherCodes.LIGHT_RAIN_AND_SKY
-                else WeatherCodes.LIGHT_RAIN
+                if (hasSky) WeatherCode.LIGHT_RAIN_AND_SKY
+                else WeatherCode.LIGHT_RAIN
 
             63 ->
-                if (hasSky) WeatherCodes.RAIN_AND_SKY
-                else WeatherCodes.RAIN
+                if (hasSky) WeatherCode.RAIN_AND_SKY
+                else WeatherCode.RAIN
 
             65 ->
-                if (hasSky) WeatherCodes.HEAVY_RAIN_AND_SKY
-                else WeatherCodes.HEAVY_RAIN
+                if (hasSky) WeatherCode.HEAVY_RAIN_AND_SKY
+                else WeatherCode.HEAVY_RAIN
 
             66 ->
-                WeatherCodes.LIGHT_FREEZING_RAIN
+                WeatherCode.LIGHT_FREEZING_RAIN
 
             67 ->
-                WeatherCodes.FREEZING_RAIN
+                WeatherCode.FREEZING_RAIN
 
             71 ->
-                if (hasSky) WeatherCodes.LIGHT_SNOW_AND_SKY
-                else WeatherCodes.LIGHT_SNOW
+                if (hasSky) WeatherCode.LIGHT_SNOW_AND_SKY
+                else WeatherCode.LIGHT_SNOW
 
             73 ->
-                if (hasSky) WeatherCodes.SNOW_AND_SKY
-                else WeatherCodes.SNOW
+                if (hasSky) WeatherCode.SNOW_AND_SKY
+                else WeatherCode.SNOW
 
             75 ->
-                if (hasSky) WeatherCodes.HEAVY_SNOW_AND_SKY
-                else WeatherCodes.HEAVY_SNOW
+                if (hasSky) WeatherCode.HEAVY_SNOW_AND_SKY
+                else WeatherCode.HEAVY_SNOW
 
             77 ->
-                WeatherCodes.SNOW_GRAINS
+                WeatherCode.SNOW_GRAINS
 
             80 ->
-                if (hasSky) WeatherCodes.LIGHT_RAIN_SHOWERS_AND_SKY
-                else WeatherCodes.LIGHT_RAIN_SHOWERS
+                if (hasSky) WeatherCode.LIGHT_RAIN_SHOWERS_AND_SKY
+                else WeatherCode.LIGHT_RAIN_SHOWERS
 
             81 ->
-                if (hasSky) WeatherCodes.RAIN_SHOWERS_AND_SKY
-                else WeatherCodes.RAIN_SHOWERS
+                if (hasSky) WeatherCode.RAIN_SHOWERS_AND_SKY
+                else WeatherCode.RAIN_SHOWERS
 
             82 ->
-                if (hasSky) WeatherCodes.HEAVY_RAIN_SHOWERS_AND_SKY
-                else WeatherCodes.HEAVY_RAIN_SHOWERS
+                if (hasSky) WeatherCode.HEAVY_RAIN_SHOWERS_AND_SKY
+                else WeatherCode.HEAVY_RAIN_SHOWERS
 
             85 ->
-                if (hasSky) WeatherCodes.LIGHT_SNOW_SHOWERS_AND_SKY
-                else WeatherCodes.LIGHT_SNOW_SHOWERS
+                if (hasSky) WeatherCode.LIGHT_SNOW_SHOWERS_AND_SKY
+                else WeatherCode.LIGHT_SNOW_SHOWERS
 
             86 ->
-                if (hasSky) WeatherCodes.HEAVY_SNOW_SHOWERS_AND_SKY
-                else WeatherCodes.HEAVY_SNOW_SHOWERS
+                if (hasSky) WeatherCode.HEAVY_SNOW_SHOWERS_AND_SKY
+                else WeatherCode.HEAVY_SNOW_SHOWERS
 
             95, 96 ->
                 if (
@@ -107,26 +107,26 @@ object WeatherCodeMapper {
                     precipProb > MIN_PROB_PRECIPITATION &&
                     cloudCover > MIN_CLOUD_COVER_OVERCAST
                 ) {
-                    WeatherCodes.THUNDERSTORM
+                    WeatherCode.THUNDERSTORM
                 } else if (
                     cape > MIN_CAPE_THUNDERSTORM &&
                     precipProb > MIN_PROB_PRECIPITATION
                 ) {
-                    WeatherCodes.THUNDERSTORM_AND_SKY
+                    WeatherCode.THUNDERSTORM_AND_SKY
                 } else if (
                     precipProb > MIN_PROB_PRECIPITATION
                 ) {
-                    WeatherCodes.POTENTIAL_THUNDERSTORM_AND_RAIN
+                    WeatherCode.POTENTIAL_THUNDERSTORM_AND_RAIN
                 } else if (
                     cloudCover < MIN_CLOUD_COVER_OVERCAST
                 ) {
-                    WeatherCodes.POTENTIAL_THUNDERSTORM_AND_SKY
+                    WeatherCode.POTENTIAL_THUNDERSTORM_AND_SKY
                 } else {
-                    WeatherCodes.POTENTIAL_THUNDERSTORM
+                    WeatherCode.POTENTIAL_THUNDERSTORM
                 }
 
             99 ->
-                WeatherCodes.HEAVY_THUNDERSTORM
+                WeatherCode.HEAVY_THUNDERSTORM
 
             else -> {
                 null

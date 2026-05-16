@@ -19,9 +19,10 @@ package com.kolakek.pimiwidget.widget
 
 import android.content.Context
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.resources.IconStyles
-import com.kolakek.pimiwidget.resources.WeatherIcons
-import com.kolakek.pimiwidget.resources.WeatherStrings
+import com.kolakek.pimiwidget.resources.IconStyle
+import com.kolakek.pimiwidget.resources.WeatherCodeMapper
+import com.kolakek.pimiwidget.resources.WeatherIcon
+import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
@@ -42,7 +43,7 @@ internal object WeatherFormatter {
         val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
-        val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
+        val wmoCode = weather.minutelyWmoCode.getOrNull(currentIndex) ?: return null
         val cloudCover = weather.minutelyCloudCover.getOrNull(currentIndex) ?: return null
         val precipProb = weather.minutelyPrecipProb.getOrNull(currentIndex) ?: return null
         val visibility = weather.minutelyVisibility.getOrNull(currentIndex) ?: return null
@@ -51,22 +52,25 @@ internal object WeatherFormatter {
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
 
-        val iconStyle = when (iconStylePref) {
-            PreferencesHelper.IconStyle.FLAT_SKETCH ->
-                if (lightColor) IconStyles.FLAT_SKETCH_LIGHT else IconStyles.FLAT_SKETCH_DARK
-            PreferencesHelper.IconStyle.TWINKLE_SHADOW ->
-                if (lightColor) IconStyles.TWINKLE_SHADOW_LIGHT else IconStyles.TWINKLE_SHADOW_DARK
-        }
-        val weatherIconId = WeatherIcons.getWeatherIconId(
-            weatherCode,
-            isDay,
+        val weatherCode = WeatherCodeMapper.mapWmoCode(
+            wmoCode,
             cloudCover,
             precipProb,
             visibility,
-            cape,
-            iconStyle
+            cape
         ) ?: return null
 
+        val iconStyle = when (iconStylePref) {
+            PreferencesHelper.IconStyle.FLAT_SKETCH ->
+                if (lightColor) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
+            PreferencesHelper.IconStyle.TWINKLE_SHADOW ->
+                if (lightColor) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
+        }
+        val weatherIconId = WeatherIcon.getWeatherIconId(
+            weatherCode,
+            isDay,
+            iconStyle
+        )
         val forecastStr = if (showForecast) {
             getForecastStr(
                 context,
@@ -127,22 +131,25 @@ internal object WeatherFormatter {
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
         val cloudCoverMean = weather.dailyCloudCoverMean.getOrNull(idx) ?: return null
         val precipProbMax = weather.dailyPrecipProbMax.getOrNull(idx) ?: return null
-        val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null
+        val wmoCode = weather.dailyWmoCode.getOrNull(idx) ?: return null
         val visibilityMean = weather.dailyVisibilityMean.getOrNull(idx) ?: return null
         val capeMax = weather.dailyCapeMax.getOrNull(idx) ?: return null
 
         val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
         val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
 
-        val weatherStrId = WeatherStrings.getShortWeatherStrId(
-            weatherCode,
-            isDay = 1,
+        val weatherCode = WeatherCodeMapper.mapWmoCode(
+            wmoCode,
             cloudCoverMean,
             precipProbMax,
             visibilityMean,
             capeMax
         ) ?: return null
 
+        val weatherStrId = WeatherString.getShortWeatherStrId(
+            weatherCode,
+            isDay = true,
+        )
         val dayStrId = if (isToday) R.string.today else R.string.tomorrow
 
         return context.getString(
