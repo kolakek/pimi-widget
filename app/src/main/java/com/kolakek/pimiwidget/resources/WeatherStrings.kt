@@ -26,11 +26,13 @@ object WeatherStrings {
         isDay: Int,
         cloudCover: Int,
         precipProb: Int,
+        visibility: Double,
         cape: Double
     ): Int? {
         val weatherCode = WeatherCodeMapper.mapWmoCode(wmoCode,
             cloudCover,
             precipProb,
+            visibility,
             cape
         ) ?: return null
         return getShortStrId(weatherCode, isDay == 1)
@@ -51,7 +53,7 @@ object WeatherStrings {
 
             WeatherCodes.OVERCAST -> R.string.overcast
 
-            WeatherCodes.FOGGY -> R.string.foggy
+            WeatherCodes.FOG -> R.string.fog
 
             WeatherCodes.DRIZZLE,
             WeatherCodes.DRIZZLE_AND_SKY -> R.string.drizzle

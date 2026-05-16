@@ -23,14 +23,16 @@ object WeatherCodeMapper {
         wmoCode: Int,
         cloudCover: Int,
         precipProb: Int,
+        visibility: Double,
         cape: Double
     ): WeatherCodes? {
         val hasSky = cloudCover < MIN_CLOUD_COVER_OVERCAST
 
         return when (wmoCode) {
 
-            0, 1, 2, 3 ->
+            0, 1, 2, 3, 45, 48 ->
                 when {
+                    visibility < MAX_VISIBILITY_FOG -> WeatherCodes.FOG
                     cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCodes.OVERCAST
                     cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCodes.MOSTLY_CLOUDY
                     cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCodes.PARTLY_CLOUDY
@@ -38,9 +40,6 @@ object WeatherCodeMapper {
 
                     else -> WeatherCodes.CLEAR_SKY
                 }
-
-            45, 48 ->
-                WeatherCodes.FOGGY
 
             51, 53, 55 ->
                 if (hasSky) WeatherCodes.DRIZZLE_AND_SKY

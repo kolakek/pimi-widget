@@ -42,7 +42,7 @@ internal object IconsFlatSketchDark {
             WeatherCodes.OVERCAST ->
                 R.drawable.ub_35
 
-            WeatherCodes.FOGGY ->
+            WeatherCodes.FOG ->
                 R.drawable.ub_45
 
             WeatherCodes.DRIZZLE,

@@ -24,6 +24,7 @@ object WeatherIcons {
         isDay: Int,
         cloudCover: Int,
         precipProb: Int,
+        visibility: Double,
         cape: Double,
         iconStyle: IconStyles,
     ): Int? {
@@ -31,6 +32,7 @@ object WeatherIcons {
             wmoCode,
             cloudCover,
             precipProb,
+            visibility,
             cape
         ) ?: return null
 

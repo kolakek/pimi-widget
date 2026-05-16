@@ -21,6 +21,6 @@ internal const val MIN_CLOUD_COVER_OVERCAST = 85
 internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 60
 internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 30
 internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 10
-
 internal const val MIN_CAPE_THUNDERSTORM = 1500
 internal const val MIN_PROB_PRECIPITATION = 80
+internal const val MAX_VISIBILITY_FOG = 1000

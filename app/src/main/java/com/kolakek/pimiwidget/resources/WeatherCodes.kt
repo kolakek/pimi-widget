@@ -23,7 +23,7 @@ internal enum class WeatherCodes {
     PARTLY_CLOUDY,
     MOSTLY_CLOUDY,
     OVERCAST,
-    FOGGY,
+    FOG,
     DRIZZLE,
     DRIZZLE_AND_SKY,
     LIGHT_RAIN,

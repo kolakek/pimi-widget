@@ -65,6 +65,7 @@ object WeatherService {
     private fun mapProviderData(providerData: ProviderData): WeatherData {
         return WeatherData(
             minutelyTempCelsius = providerData.minutely_15.temperature_2m,
+            minutelyVisibility = providerData.minutely_15.visibility,
             minutelyCape = providerData.minutely_15.cape,
             minutelyWeatherCode = providerData.minutely_15.weather_code,
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
@@ -77,6 +78,7 @@ object WeatherService {
             hourlyIsDay = providerData.hourly.is_day,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
+            dailyVisibilityMean = providerData.daily.visibility_mean,
             dailyCapeMax = providerData.daily.cape_max,
             dailyCloudCoverMean = providerData.daily.cloud_cover_mean,
             dailyPrecipProbMax = providerData.daily.precipitation_probability_max,

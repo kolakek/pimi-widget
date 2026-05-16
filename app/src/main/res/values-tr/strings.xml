@@ -128,7 +128,7 @@
     <string name="snow">Kar</string>
     <string name="light_snow">Hafif kar</string>
     <string name="snow_grains">Taneli kar yağışı</string>
-    <string name="foggy">Sisli</string>
+    <string name="fog">Sisli</string>
     <string name="overcast">Bulutlu</string>
     <string name="mostly_cloudy">Çok bulutlu</string>
     <string name="partly_cloudy_night">Parçalı bulutlu</string>

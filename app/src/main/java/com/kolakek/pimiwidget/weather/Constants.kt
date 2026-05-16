@@ -23,13 +23,16 @@ internal const val LATITUDE_KEY = "latitude"
 internal const val LONGITUDE_KEY = "longitude"
 
 internal const val MINUTELY_KEY = "minutely_15"
-internal const val MINUTELY_VALUE = "temperature_2m,weather_code,is_day,cloud_cover,cape,precipitation_probability"
+internal const val MINUTELY_VALUE =
+    "temperature_2m,weather_code,is_day,cloud_cover,cape,precipitation_probability,visibility"
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day"
 
 internal const val DAILY_KEY = "daily"
-internal const val DAILY_VALUE = "weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean,cape_max,precipitation_probability_max"
+internal const val DAILY_VALUE =
+    "weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean,cape_max," +
+            "precipitation_probability_max,visibility_mean"
 
 internal const val FORECAST_MINUTES_KEY = "forecast_minutely_15"
 internal const val FORECAST_MINUTES_VALUE = "12"

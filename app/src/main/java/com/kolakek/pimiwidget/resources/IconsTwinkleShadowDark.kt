@@ -42,7 +42,7 @@ internal object IconsTwinkleShadowDark {
             WeatherCodes.OVERCAST ->
                 R.drawable.wb_35
 
-            WeatherCodes.FOGGY ->
+            WeatherCodes.FOG ->
                 R.drawable.wb_45
 
             WeatherCodes.DRIZZLE,

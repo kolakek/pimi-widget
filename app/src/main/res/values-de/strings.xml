@@ -127,7 +127,7 @@
     <string name="snow">Schnee</string>
     <string name="light_snow">Leichter Schneefall</string>
     <string name="snow_grains">Schneegriesel</string>
-    <string name="foggy">Nebel</string>
+    <string name="fog">Nebel</string>
     <string name="overcast">Bewölkt</string>
     <string name="mostly_cloudy">Überwiegend bewölkt</string>
     <string name="partly_cloudy_day">Teilweise sonnig</string>
