@@ -1,0 +1,143 @@
+<resources>
+
+    <string name="widget_label">Datum och väder</string>
+
+    <string name="config_button">Tillämpa inställningar</string>
+
+    <string name="config_privacy_note">
+        När väder aktiveras delas din plats med vädertjänsten</string>
+
+    <string name="config_weather_switch">Aktivera väder</string>
+
+    <string name="config_weather_descr">Väderdata från Open-Meteo.com</string>
+
+    <string name="config_debug_data">Felsökningsinformation</string>
+
+    <string name="config_debug_data_descr">Visa widgetstatus</string>
+
+    <string name="config_text_color">Textfärg</string>
+
+    <string name="config_icon_style">Ikonstil</string>
+
+    <string name="config_color_light">Ljus</string>
+
+    <string name="config_color_dark">Mörk</string>
+
+    <string name="config_color_auto">Automatisk</string>
+
+    <string name="config_temp">Temperatur</string>
+
+    <string name="config_temp_celsius">Celsius</string>
+
+    <string name="config_temp_fahrenheit">Fahrenheit</string>
+
+    <string name="config_settings_sec">Inställningar</string>
+
+    <string name="config_about_sec">Om</string>
+
+    <string name="config_daily_forecast">Visa dygnsprognos</string>
+
+    <string name="config_daily_forecast_descr">På morgonen och kvällen</string>
+
+    <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
+
+    <string name="config_loc_perm_alert">
+        För att visa vädret i ditt område
+        behöver appen åtkomst till din plats.</string>
+
+    <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>
+
+    <string name="config_bg_perm_alert">
+        Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden.
+        Välj "%s" på nästa skärm.</string>
+
+    <string name="config_alert_button_ok">OK</string>
+
+    <string name="config_alert_button_cancel">Avbryt</string>
+
+    <string name="config_alert_debug_title">Senaste datanedladdning</string>
+
+    <string name="config_alert_debug_worker">Process</string>
+
+    <string name="config_alert_debug_location">Plats</string>
+
+    <string name="config_alert_debug_weather">Väder</string>
+
+    <string name="config_alert_debug_last_update">%s sedan</string>
+
+    <string name="config_alert_button_close">Stäng</string>
+
+    <string name="config_alert_button_update">Tvinga uppdatering</string>
+
+    <string name="config_shared_data">Datatransparens</string>
+
+    <string name="config_shared_data_descr">Visa data som delas med vädertjänsten</string>
+
+    <string name="config_shared_data_alert_no_loc">Ingen platsdata tillgänglig</string>
+
+    <string name="config_shared_data_alert_text">
+        Du kan visa din senast hämtade plats eller väder-API-förfrågan i webbläsaren.
+        Detta delar din plats med tjänsteleverantören (Open-Meteo, OpenStreetMap).</string>
+
+    <string name="config_shared_data_alert_but_weather">Väder</string>
+
+    <string name="config_shared_data_alert_but_location">Plats</string>
+
+    <string name="config_source_code">Källkod</string>
+
+    <string name="config_source_code_descr">Visa källkod och dokumentation på GitHub</string>
+
+    <plurals name="days">
+        <item quantity="one">1 dag</item>
+        <item quantity="other">%d dagar</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 timme</item>
+        <item quantity="other">%d timmar</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minut</item>
+        <item quantity="other">%d minuter</item>
+    </plurals>
+
+    <string name="widget_date_prev">Fre 6 jun</string>
+
+    <string name="widget_temp_prev">21\u2103 · Imorgon 19\u00B0 / 13\u00B0 · Lätt regn</string>
+
+    <string name="widget_date_format">EEE d MMM</string>
+
+    <string name="heavy_thunderstorms">Kraftiga åskväder</string>
+    <string name="thunderstorm">Åskväder</string>
+    <string name="potential_thunderstorms">Risk för åska</string>
+    <string name="freezing_rain">Underkylt regn</string>
+    <string name="light_freezing_rain">Svagt underkylt regn</string>
+    <string name="freezing_drizzle">Underkyld duggregn</string>
+    <string name="heavy_rain_showers">Kraftiga regnskurar</string>
+    <string name="rain_showers">Regnskurar</string>
+    <string name="light_rain_showers">Lätta regnskurar</string>
+    <string name="heavy_snow_showers">Kraftiga snöbyar</string>
+    <string name="light_snow_showers">Lätta snöbyar</string>
+    <string name="heavy_rain">Kraftigt regn</string>
+    <string name="rain">Regn</string>
+    <string name="light_rain">Lätt regn</string>
+    <string name="drizzle">Duggregn</string>
+    <string name="heavy_snow">Kraftigt snöfall</string>
+    <string name="snow">Snö</string>
+    <string name="light_snow">Lätt snöfall</string>
+    <string name="snow_grains">Snögryn</string>
+    <string name="fog">Dimma</string>
+    <string name="overcast">Mulet</string>
+    <string name="mostly_cloudy">Till största delen molnigt</string>
+    <string name="partly_cloudy_day">Delvis soligt</string>
+    <string name="partly_cloudy_night">Delvis molnigt</string>
+    <string name="mainly_clear_day">Mestadels klart</string>
+    <string name="mainly_clear_night">Mestadels klart</string>
+    <string name="clear_sky_day">Klart</string>
+    <string name="clear_sky_night">Klart</string>
+
+    <string name="today">Idag</string>
+    <string name="tomorrow">Imorgon</string>
+
+</resources>

@@ -1,0 +1,149 @@
+<resources>
+
+    <string name="widget_label">Дата та погода</string>
+
+    <string name="config_button">Застосувати налаштування</string>
+
+    <string name="config_privacy_note">
+        Увімкнення погоди передає вашу геолокацію постачальнику погоди</string>
+
+    <string name="config_weather_switch">Увімкнути погоду</string>
+
+    <string name="config_weather_descr">Дані погоди від Open-Meteo.com</string>
+
+    <string name="config_debug_data">Інформація для налагодження</string>
+
+    <string name="config_debug_data_descr">Переглянути стан віджета</string>
+
+    <string name="config_text_color">Колір тексту</string>
+
+    <string name="config_icon_style">Стиль іконок</string>
+
+    <string name="config_color_light">Світлий</string>
+
+    <string name="config_color_dark">Темний</string>
+
+    <string name="config_color_auto">Автоматично</string>
+
+    <string name="config_temp">Температура</string>
+
+    <string name="config_temp_celsius">Цельсій</string>
+
+    <string name="config_temp_fahrenheit">Фаренгейт</string>
+
+    <string name="config_settings_sec">Налаштування</string>
+
+    <string name="config_about_sec">Про застосунок</string>
+
+    <string name="config_daily_forecast">Показувати щоденний прогноз</string>
+
+    <string name="config_daily_forecast_descr">Вранці та ввечері</string>
+
+    <string name="config_loc_perm_alert_title">Потрібен доступ до геолокації</string>
+
+    <string name="config_loc_perm_alert">
+        Щоб показувати погоду у вашому регіоні,
+        цьому застосунку потрібен доступ до вашої геолокації.</string>
+
+    <string name="config_bg_perm_alert_title">Доступ до геолокації у фоні</string>
+
+    <string name="config_bg_perm_alert">
+        Надійні оновлення погоди потребують доступу до вашої геолокації у фоновому режимі.
+        Оберіть "%s" на наступному екрані.</string>
+
+    <string name="config_alert_button_ok">OK</string>
+
+    <string name="config_alert_button_cancel">Скасувати</string>
+
+    <string name="config_alert_debug_title">Останнє завантаження даних</string>
+
+    <string name="config_alert_debug_worker">Процес</string>
+
+    <string name="config_alert_debug_location">Геолокація</string>
+
+    <string name="config_alert_debug_weather">Погода</string>
+
+    <string name="config_alert_debug_last_update">%s тому</string>
+
+    <string name="config_alert_button_close">Закрити</string>
+
+    <string name="config_alert_button_update">Примусове оновлення</string>
+
+    <string name="config_shared_data">Прозорість даних</string>
+
+    <string name="config_shared_data_descr">Переглянути дані, що передаються постачальнику погоди</string>
+
+    <string name="config_shared_data_alert_no_loc">Дані про місцезнаходження відсутні</string>
+
+    <string name="config_shared_data_alert_text">
+        Ви можете переглянути останню отриману геолокацію або запит до API погоди у браузері.
+        Це передає вашу геолокацію постачальнику послуг (Open-Meteo, OpenStreetMap).</string>
+
+    <string name="config_shared_data_alert_but_weather">Погода</string>
+
+    <string name="config_shared_data_alert_but_location">Геолокація</string>
+
+    <string name="config_source_code">Вихідний код</string>
+
+    <string name="config_source_code_descr">Переглянути вихідний код і документацію на GitHub</string>
+
+    <plurals name="days">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d днів</item>
+        <item quantity="other">%d днів</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%d година</item>
+        <item quantity="few">%d години</item>
+        <item quantity="many">%d годин</item>
+        <item quantity="other">%d годин</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">%d хвилина</item>
+        <item quantity="few">%d хвилини</item>
+        <item quantity="many">%d хвилин</item>
+        <item quantity="other">%d хвилин</item>
+    </plurals>
+
+    <string name="widget_date_prev">Нд, 24 сер</string>
+
+    <string name="widget_temp_prev">21\u2103 · Завтра 19\u00B0 / 13\u00B0 · Легкий дощ</string>
+
+    <string name="widget_date_format">EEE, d MMM</string>
+
+    <string name="heavy_thunderstorms">Сильні грози</string>
+    <string name="thunderstorm">Гроза</string>
+    <string name="potential_thunderstorms">Можливі грози</string>
+    <string name="freezing_rain">Ожеледиця</string>
+    <string name="light_freezing_rain">Слабка ожеледиця</string>
+    <string name="freezing_drizzle">Ожеледний мряка</string>
+    <string name="heavy_rain_showers">Сильні зливи</string>
+    <string name="rain_showers">Зливи</string>
+    <string name="light_rain_showers">Слабкі зливи</string>
+    <string name="heavy_snow_showers">Сильний сніг</string>
+    <string name="light_snow_showers">Слабкий сніг</string>
+    <string name="heavy_rain">Сильний дощ</string>
+    <string name="rain">Дощ</string>
+    <string name="light_rain">Слабкий дощ</string>
+    <string name="drizzle">Мряка</string>
+    <string name="heavy_snow">Сильний снігопад</string>
+    <string name="snow">Сніг</string>
+    <string name="light_snow">Слабкий сніг</string>
+    <string name="snow_grains">Снігові зерна</string>
+    <string name="fog">Туман</string>
+    <string name="overcast">Хмарно</string>
+    <string name="mostly_cloudy">Переважно хмарно</string>
+    <string name="partly_cloudy_day">Мінлива хмарність</string>
+    <string name="partly_cloudy_night">Мінлива хмарність</string>
+    <string name="mainly_clear_day">Переважно ясно</string>
+    <string name="mainly_clear_night">Переважно ясно</string>
+    <string name="clear_sky_day">Ясно</string>
+    <string name="clear_sky_night">Ясно</string>
+
+    <string name="today">Сьогодні</string>
+    <string name="tomorrow">Завтра</string>
+
+</resources>

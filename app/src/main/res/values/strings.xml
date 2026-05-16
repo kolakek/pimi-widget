@@ -154,7 +154,7 @@
     <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
 
     <!-- Default date format for current language -->
-    <string name="widget_date_format">E, MMM d</string>
+    <string name="widget_date_format">EEE, MMM d</string>
 
     <!-- Strings defining weather conditions -->
     <string name="heavy_thunderstorms">Heavy thunderstorms</string>

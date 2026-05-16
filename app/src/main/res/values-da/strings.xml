@@ -1,0 +1,143 @@
+<resources>
+
+    <string name="widget_label">Dato og vejr</string>
+
+    <string name="config_button">Anvend indstillinger</string>
+
+    <string name="config_privacy_note">
+        Når vejret aktiveres, deles din placering med vejrudbyderen</string>
+
+    <string name="config_weather_switch">Aktivér vejr</string>
+
+    <string name="config_weather_descr">Vejrdata fra Open-Meteo.com</string>
+
+    <string name="config_debug_data">Fejlfindingsoplysninger</string>
+
+    <string name="config_debug_data_descr">Vis widget-status</string>
+
+    <string name="config_text_color">Tekstfarve</string>
+
+    <string name="config_icon_style">Ikonstil</string>
+
+    <string name="config_color_light">Lys</string>
+
+    <string name="config_color_dark">Mørk</string>
+
+    <string name="config_color_auto">Automatisk</string>
+
+    <string name="config_temp">Temperatur</string>
+
+    <string name="config_temp_celsius">Celsius</string>
+
+    <string name="config_temp_fahrenheit">Fahrenheit</string>
+
+    <string name="config_settings_sec">Indstillinger</string>
+
+    <string name="config_about_sec">Om</string>
+
+    <string name="config_daily_forecast">Vis daglig prognose</string>
+
+    <string name="config_daily_forecast_descr">Morgen og aften</string>
+
+    <string name="config_loc_perm_alert_title">Placeringstilladelse kræves</string>
+
+    <string name="config_loc_perm_alert">
+        For at vise vejret i dit område
+        har appen brug for adgang til din placering.</string>
+
+    <string name="config_bg_perm_alert_title">Baggrundsplaceringstilladelse</string>
+
+    <string name="config_bg_perm_alert">
+        Pålidelige vejr-opdateringer kræver adgang til din placering i baggrunden.
+        Vælg "%s" på næste skærm.</string>
+
+    <string name="config_alert_button_ok">OK</string>
+
+    <string name="config_alert_button_cancel">Annuller</string>
+
+    <string name="config_alert_debug_title">Seneste data-download</string>
+
+    <string name="config_alert_debug_worker">Proces</string>
+
+    <string name="config_alert_debug_location">Placering</string>
+
+    <string name="config_alert_debug_weather">Vejr</string>
+
+    <string name="config_alert_debug_last_update">%s siden</string>
+
+    <string name="config_alert_button_close">Luk</string>
+
+    <string name="config_alert_button_update">Tving opdatering</string>
+
+    <string name="config_shared_data">Datagennemsigtighed</string>
+
+    <string name="config_shared_data_descr">Se data delt med vejrudbyderen</string>
+
+    <string name="config_shared_data_alert_no_loc">Ingen placeringsdata tilgængelig</string>
+
+    <string name="config_shared_data_alert_text">
+        Du kan se din senest hentede placering eller vejr-API-forespørgsel i browseren.
+        Dette deler din placering med tjenesteudbyderen (Open-Meteo, OpenStreetMap).</string>
+
+    <string name="config_shared_data_alert_but_weather">Vejr</string>
+
+    <string name="config_shared_data_alert_but_location">Placering</string>
+
+    <string name="config_source_code">Kildekode</string>
+
+    <string name="config_source_code_descr">Se kildekode og dokumentation på GitHub</string>
+
+    <plurals name="days">
+        <item quantity="one">1 dag</item>
+        <item quantity="other">%d dage</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 time</item>
+        <item quantity="other">%d timer</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minut</item>
+        <item quantity="other">%d minutter</item>
+    </plurals>
+
+    <string name="widget_date_prev">Tor 5. jun</string>
+
+    <string name="widget_temp_prev">21\u2103 · I morgen 19\u00B0 / 13\u00B0 · Let regn</string>
+
+    <string name="widget_date_format">EEE d. MMM</string>
+
+    <string name="heavy_thunderstorms">Kraftige tordenbyger</string>
+    <string name="thunderstorm">Tordenbyge</string>
+    <string name="potential_thunderstorms">Mulige tordenbyger</string>
+    <string name="freezing_rain">Isslag</string>
+    <string name="light_freezing_rain">Let isslag</string>
+    <string name="freezing_drizzle">Isslud</string>
+    <string name="heavy_rain_showers">Kraftige regnbyger</string>
+    <string name="rain_showers">Regnbyger</string>
+    <string name="light_rain_showers">Lette regnbyger</string>
+    <string name="heavy_snow_showers">Kraftige snebyger</string>
+    <string name="light_snow_showers">Lette snebyger</string>
+    <string name="heavy_rain">Kraftig regn</string>
+    <string name="rain">Regn</string>
+    <string name="light_rain">Let regn</string>
+    <string name="drizzle">Støvregn</string>
+    <string name="heavy_snow">Kraftigt snefald</string>
+    <string name="snow">Sne</string>
+    <string name="light_snow">Let sne</string>
+    <string name="snow_grains">Snegryn</string>
+    <string name="fog">Tåge</string>
+    <string name="overcast">Overskyet</string>
+    <string name="mostly_cloudy">For det meste skyet</string>
+    <string name="partly_cloudy_day">Delvist skyet</string>
+    <string name="partly_cloudy_night">Delvist skyet</string>
+    <string name="mainly_clear_day">For det meste klart</string>
+    <string name="mainly_clear_night">For det meste klart</string>
+    <string name="clear_sky_day">Klart</string>
+    <string name="clear_sky_night">Klart</string>
+
+    <string name="today">I dag</string>
+    <string name="tomorrow">I morgen</string>
+
+</resources>

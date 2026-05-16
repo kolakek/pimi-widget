@@ -1,0 +1,146 @@
+<resources>
+
+    <string name="widget_label">Date et météo</string>
+
+    <string name="config_button">Appliquer les paramètres</string>
+
+    <string name="config_privacy_note">
+        Activer la météo partage ta position avec le fournisseur météo</string>
+
+    <string name="config_weather_switch">Activer la météo</string>
+
+    <string name="config_weather_descr">Données météo par Open-Meteo.com</string>
+
+    <string name="config_debug_data">Informations de débogage</string>
+
+    <string name="config_debug_data_descr">Afficher l’état du widget</string>
+
+    <string name="config_text_color">Couleur du texte</string>
+
+    <string name="config_icon_style">Style des icônes</string>
+
+    <string name="config_color_light">Clair</string>
+
+    <string name="config_color_dark">Sombre</string>
+
+    <string name="config_color_auto">Automatique</string>
+
+    <string name="config_temp">Température</string>
+
+    <string name="config_temp_celsius">Celsius</string>
+
+    <string name="config_temp_fahrenheit">Fahrenheit</string>
+
+    <string name="config_settings_sec">Paramètres</string>
+
+    <string name="config_about_sec">À propos</string>
+
+    <string name="config_daily_forecast">Afficher les prévisions quotidiennes</string>
+
+    <string name="config_daily_forecast_descr">Le matin et le soir</string>
+
+    <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
+
+    <string name="config_loc_perm_alert">
+        Pour afficher la météo de ta région actuelle,
+        cette application a besoin d’accéder à ta position.</string>
+
+    <string name="config_bg_perm_alert_title">Autorisation de localisation en arrière-plan</string>
+
+    <string name="config_bg_perm_alert">
+        Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan.
+        Veuillez sélectionner « %s » sur l’écran suivant.</string>
+
+    <string name="config_alert_button_ok">OK</string>
+
+    <string name="config_alert_button_cancel">Annuler</string>
+
+    <string name="config_alert_debug_title">Dernier téléchargement des données</string>
+
+    <string name="config_alert_debug_worker">Processus</string>
+
+    <string name="config_alert_debug_location">Position</string>
+
+    <string name="config_alert_debug_weather">Météo</string>
+
+    <string name="config_alert_debug_last_update">Il y a %s</string>
+
+    <string name="config_alert_button_close">Fermer</string>
+
+    <string name="config_alert_button_update">Forcer la mise à jour</string>
+
+    <string name="config_shared_data">Transparence des données</string>
+
+    <string name="config_shared_data_descr">Afficher les données partagées avec le fournisseur météo</string>
+
+    <string name="config_shared_data_alert_no_loc">Aucune donnée de localisation disponible</string>
+
+    <string name="config_shared_data_alert_text">
+        Tu peux afficher ta dernière position récupérée ou la requête API météo dans le navigateur.
+        Cela partagera ta position avec le fournisseur de service (Open-Meteo, OpenStreetMap).</string>
+
+    <string name="config_shared_data_alert_but_weather">Météo</string>
+
+    <string name="config_shared_data_alert_but_location">Position</string>
+
+    <string name="config_source_code">Code source</string>
+
+    <string name="config_source_code_descr">Afficher le code source et la documentation sur GitHub</string>
+
+    <plurals name="days">
+        <item quantity="one">%d jour</item>
+        <item quantity="many">%d jours</item>
+        <item quantity="other">%d jours</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%d heure</item>
+        <item quantity="many">%d heures</item>
+        <item quantity="other">%d heures</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="many">%d minutes</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+
+    <string name="widget_date_prev">Dim. 14 juil.</string>
+
+    <string name="widget_temp_prev">21\u2103 · Demain 19\u00B0 / 13\u00B0 · Pluie légère</string>
+
+    <string name="widget_date_format">EEE d MMM</string>
+
+    <string name="heavy_thunderstorms">Violents orages</string>
+    <string name="thunderstorm">Orage</string>
+    <string name="potential_thunderstorms">Risque d’orages</string>
+    <string name="freezing_rain">Pluie verglaçante</string>
+    <string name="light_freezing_rain">Légère pluie verglaçante</string>
+    <string name="freezing_drizzle">Bruine verglaçante</string>
+    <string name="heavy_rain_showers">Fortes averses</string>
+    <string name="rain_showers">Averses</string>
+    <string name="light_rain_showers">Légères averses</string>
+    <string name="heavy_snow_showers">Fortes averses de neige</string>
+    <string name="light_snow_showers">Légères averses de neige</string>
+    <string name="heavy_rain">Forte pluie</string>
+    <string name="rain">Pluie</string>
+    <string name="light_rain">Pluie légère</string>
+    <string name="drizzle">Bruine</string>
+    <string name="heavy_snow">Fortes chutes de neige</string>
+    <string name="snow">Neige</string>
+    <string name="light_snow">Faible neige</string>
+    <string name="snow_grains">Neige en grains</string>
+    <string name="fog">Brouillard</string>
+    <string name="overcast">Couvert</string>
+    <string name="mostly_cloudy">Très nuageux</string>
+    <string name="partly_cloudy_day">Partiellement ensoleillé</string>
+    <string name="partly_cloudy_night">Partiellement nuageux</string>
+    <string name="mainly_clear_day">Plutôt ensoleillé</string>
+    <string name="mainly_clear_night">Plutôt dégagé</string>
+    <string name="clear_sky_day">Ensoleillé</string>
+    <string name="clear_sky_night">Dégagé</string>
+
+    <string name="today">Aujourd’hui</string>
+    <string name="tomorrow">Demain</string>
+
+</resources>
