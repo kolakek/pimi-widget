@@ -159,7 +159,6 @@
     <!-- Strings defining weather conditions -->
     <string name="heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="thunderstorm">Thunderstorm</string>
-    <string name="potential_thunderstorms">Potential thunderstorms</string>
     <string name="freezing_rain">Freezing rain</string>
     <string name="light_freezing_rain">Light freezing rain</string>
     <string name="freezing_drizzle">Freezing drizzle</string>

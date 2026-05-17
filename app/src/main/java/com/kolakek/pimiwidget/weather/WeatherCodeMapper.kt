@@ -24,17 +24,32 @@ object WeatherCodeMapper {
     internal fun mapWmoCode(
         wmoCode: Int,
         cloudCover: Int,
-        precipProb: Int,
+        precipitationProbability: Int,
         visibility: Double,
         cape: Double
     ): WeatherCode? {
         val hasSky = cloudCover < MIN_CLOUD_COVER_OVERCAST
+        val isNoPrecipitation = precipitationProbability < MIN_PROBABILITY_PRECIPITATION
+        val isNoFog = visibility > MAX_VISIBILITY_FOG
+        val isNoThunderstorm = cape < MIN_CAPE_THUNDERSTORM
 
-        return when (wmoCode) {
+        val adjustedWmoCode = when (wmoCode) {
+            in 45..48 -> if (isNoFog) CODE_NO_PRECIPITATION else wmoCode
 
-            0, 1, 2, 3, 45, 48 ->
+            in 51..86 -> if (isNoPrecipitation) CODE_NO_PRECIPITATION else wmoCode
+
+            in 95..99 -> if (isNoThunderstorm) {
+                if (isNoPrecipitation) CODE_NO_PRECIPITATION else CODE_LIGHT_SHOWERS
+            } else {
+                wmoCode
+            }
+
+            else -> wmoCode
+        }
+        return when (adjustedWmoCode) {
+
+            0, 1, 2, 3, CODE_NO_PRECIPITATION ->
                 when {
-                    visibility < MAX_VISIBILITY_FOG -> WeatherCode.FOG
                     cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCode.OVERCAST
                     cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCode.MOSTLY_CLOUDY
                     cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCode.PARTLY_CLOUDY
@@ -42,6 +57,9 @@ object WeatherCodeMapper {
 
                     else -> WeatherCode.CLEAR_SKY
                 }
+
+            45, 48 ->
+                WeatherCode.FOG
 
             51, 53, 55 ->
                 if (hasSky) WeatherCode.DRIZZLE_AND_SKY
@@ -83,7 +101,7 @@ object WeatherCodeMapper {
             77 ->
                 WeatherCode.SNOW_GRAINS
 
-            80 ->
+            80, CODE_LIGHT_SHOWERS ->
                 if (hasSky) WeatherCode.LIGHT_RAIN_SHOWERS_AND_SKY
                 else WeatherCode.LIGHT_RAIN_SHOWERS
 
@@ -104,28 +122,8 @@ object WeatherCodeMapper {
                 else WeatherCode.HEAVY_SNOW_SHOWERS
 
             95, 96 ->
-                if (
-                    cape > MIN_CAPE_THUNDERSTORM &&
-                    precipProb > MIN_PROB_PRECIPITATION &&
-                    cloudCover > MIN_CLOUD_COVER_OVERCAST
-                ) {
-                    WeatherCode.THUNDERSTORM
-                } else if (
-                    cape > MIN_CAPE_THUNDERSTORM &&
-                    precipProb > MIN_PROB_PRECIPITATION
-                ) {
-                    WeatherCode.THUNDERSTORM_AND_SKY
-                } else if (
-                    precipProb > MIN_PROB_PRECIPITATION
-                ) {
-                    WeatherCode.POTENTIAL_THUNDERSTORM_AND_RAIN
-                } else if (
-                    cloudCover < MIN_CLOUD_COVER_OVERCAST
-                ) {
-                    WeatherCode.POTENTIAL_THUNDERSTORM_AND_SKY
-                } else {
-                    WeatherCode.POTENTIAL_THUNDERSTORM
-                }
+                if (hasSky) WeatherCode.THUNDERSTORM_AND_SKY
+                else WeatherCode.THUNDERSTORM
 
             99 ->
                 WeatherCode.HEAVY_THUNDERSTORM

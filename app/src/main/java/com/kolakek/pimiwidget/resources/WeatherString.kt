@@ -83,10 +83,6 @@ object WeatherString {
 
             WeatherCode.FREEZING_RAIN -> R.string.freezing_rain
 
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_SKY,
-            WeatherCode.POTENTIAL_THUNDERSTORM,
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_RAIN -> R.string.potential_thunderstorms
-
             WeatherCode.THUNDERSTORM_AND_SKY,
             WeatherCode.THUNDERSTORM -> R.string.thunderstorm
 

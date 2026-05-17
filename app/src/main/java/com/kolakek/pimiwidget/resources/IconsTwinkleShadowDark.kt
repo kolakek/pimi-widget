@@ -108,16 +108,6 @@ internal object IconsTwinkleShadowDark {
             WeatherCode.FREEZING_RAIN ->
                 R.drawable.wb_67
 
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_SKY ->
-                if (isDay) R.drawable.wb_91d
-                else R.drawable.wb_91n
-
-            WeatherCode.POTENTIAL_THUNDERSTORM ->
-                R.drawable.wb_92
-
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_RAIN ->
-                R.drawable.wb_93
-
             WeatherCode.THUNDERSTORM_AND_SKY ->
                 if (isDay) R.drawable.wb_95d
                 else R.drawable.wb_95n

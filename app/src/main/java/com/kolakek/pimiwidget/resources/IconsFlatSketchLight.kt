@@ -108,16 +108,6 @@ internal object IconsFlatSketchLight {
             WeatherCode.FREEZING_RAIN ->
                 R.drawable.uc_67
 
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_SKY ->
-                if (isDay) R.drawable.uc_91d
-                else R.drawable.uc_91n
-
-            WeatherCode.POTENTIAL_THUNDERSTORM ->
-                R.drawable.uc_92
-
-            WeatherCode.POTENTIAL_THUNDERSTORM_AND_RAIN ->
-                R.drawable.uc_93
-
             WeatherCode.THUNDERSTORM_AND_SKY ->
                 if (isDay) R.drawable.uc_95d
                 else R.drawable.uc_95n
