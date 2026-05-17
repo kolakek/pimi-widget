@@ -108,42 +108,42 @@
         <item quantity="other">%d minut</item>
     </plurals>
 
-    <string name="widget_date_prev">Út 28. 10.</string>
+    <string name="widget_date_prev">út 28. 10.</string>
 
-    <string name="widget_temp_prev">21\u2103 · Zítra 19\u00B0 / 13\u00B0 · Slabý déšť</string>
+    <string name="widget_temp_prev">21\u2103 · zítra 19\u00B0 / 13\u00B0 · slabý déšť</string>
 
     <string name="widget_date_format">EEE d. M.</string>
 
-    <string name="heavy_thunderstorms">Silné bouřky</string>
-    <string name="thunderstorm">Bouřka</string>
-    <string name="potential_thunderstorms">Možné bouřky</string>
-    <string name="freezing_rain">Mrznoucí déšť</string>
-    <string name="light_freezing_rain">Slabý mrznoucí déšť</string>
-    <string name="freezing_drizzle">Mrznoucí mrholení</string>
-    <string name="heavy_rain_showers">Silné přeháňky</string>
-    <string name="rain_showers">Přeháňky</string>
-    <string name="light_rain_showers">Slabé přeháňky</string>
-    <string name="heavy_snow_showers">Silné sněhové přeháňky</string>
-    <string name="light_snow_showers">Slabé sněhové přeháňky</string>
-    <string name="heavy_rain">Silný déšť</string>
-    <string name="rain">Déšť</string>
-    <string name="light_rain">Slabý déšť</string>
-    <string name="drizzle">Mrholení</string>
-    <string name="heavy_snow">Silné sněžení</string>
-    <string name="snow">Sníh</string>
-    <string name="light_snow">Slabé sněžení</string>
-    <string name="snow_grains">Sněhová zrna</string>
-    <string name="fog">Mlha</string>
-    <string name="overcast">Zataženo</string>
-    <string name="mostly_cloudy">Převážně oblačno</string>
-    <string name="partly_cloudy_day">Polojasno</string>
-    <string name="partly_cloudy_night">Polojasno</string>
-    <string name="mainly_clear_day">Skoro jasno</string>
-    <string name="mainly_clear_night">Skoro jasno</string>
-    <string name="clear_sky_day">Jasno</string>
-    <string name="clear_sky_night">Jasno</string>
+    <string name="heavy_thunderstorms">silné bouřky</string>
+    <string name="thunderstorm">bouřka</string>
+    <string name="potential_thunderstorms">možné bouřky</string>
+    <string name="freezing_rain">mrznoucí déšť</string>
+    <string name="light_freezing_rain">slabý mrznoucí déšť</string>
+    <string name="freezing_drizzle">mrznoucí mrholení</string>
+    <string name="heavy_rain_showers">silné přeháňky</string>
+    <string name="rain_showers">přeháňky</string>
+    <string name="light_rain_showers">slabé přeháňky</string>
+    <string name="heavy_snow_showers">silné sněhové přeháňky</string>
+    <string name="light_snow_showers">slabé sněhové přeháňky</string>
+    <string name="heavy_rain">silný déšť</string>
+    <string name="rain">déšť</string>
+    <string name="light_rain">slabý déšť</string>
+    <string name="drizzle">mrholení</string>
+    <string name="heavy_snow">silné sněžení</string>
+    <string name="snow">sníh</string>
+    <string name="light_snow">slabé sněžení</string>
+    <string name="snow_grains">sněhová zrna</string>
+    <string name="fog">mlha</string>
+    <string name="overcast">zataženo</string>
+    <string name="mostly_cloudy">spíše zataženo</string>
+    <string name="partly_cloudy_day">částečně slunečno</string>
+    <string name="partly_cloudy_night">částečně zataženo</string>
+    <string name="mainly_clear_day">spíše slunečno</string>
+    <string name="mainly_clear_night">spíše jasno</string>
+    <string name="clear_sky_day">slunečno</string>
+    <string name="clear_sky_night">jasno</string>
 
-    <string name="today">Dnes</string>
-    <string name="tomorrow">Zítra</string>
+    <string name="today">dnes</string>
+    <string name="tomorrow">zítra</string>
 
 </resources>

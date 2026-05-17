@@ -108,42 +108,42 @@
         <item quantity="other">%d хвилин</item>
     </plurals>
 
-    <string name="widget_date_prev">Нд, 24 сер</string>
+    <string name="widget_date_prev">нд, 24 сер.</string>
 
-    <string name="widget_temp_prev">21\u2103 · Завтра 19\u00B0 / 13\u00B0 · Легкий дощ</string>
+    <string name="widget_temp_prev">21\u2103 · завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
 
-    <string name="heavy_thunderstorms">Сильні грози</string>
-    <string name="thunderstorm">Гроза</string>
-    <string name="potential_thunderstorms">Можливі грози</string>
-    <string name="freezing_rain">Ожеледиця</string>
-    <string name="light_freezing_rain">Слабка ожеледиця</string>
-    <string name="freezing_drizzle">Ожеледний мряка</string>
-    <string name="heavy_rain_showers">Сильні зливи</string>
-    <string name="rain_showers">Зливи</string>
-    <string name="light_rain_showers">Слабкі зливи</string>
-    <string name="heavy_snow_showers">Сильний сніг</string>
-    <string name="light_snow_showers">Слабкий сніг</string>
-    <string name="heavy_rain">Сильний дощ</string>
-    <string name="rain">Дощ</string>
-    <string name="light_rain">Слабкий дощ</string>
-    <string name="drizzle">Мряка</string>
-    <string name="heavy_snow">Сильний снігопад</string>
-    <string name="snow">Сніг</string>
-    <string name="light_snow">Слабкий сніг</string>
-    <string name="snow_grains">Снігові зерна</string>
-    <string name="fog">Туман</string>
-    <string name="overcast">Хмарно</string>
-    <string name="mostly_cloudy">Переважно хмарно</string>
-    <string name="partly_cloudy_day">Мінлива хмарність</string>
-    <string name="partly_cloudy_night">Мінлива хмарність</string>
-    <string name="mainly_clear_day">Переважно ясно</string>
-    <string name="mainly_clear_night">Переважно ясно</string>
-    <string name="clear_sky_day">Ясно</string>
-    <string name="clear_sky_night">Ясно</string>
+    <string name="heavy_thunderstorms">сильні грози</string>
+    <string name="thunderstorm">гроза</string>
+    <string name="potential_thunderstorms">можливі грози</string>
+    <string name="freezing_rain">ожеледь</string>
+    <string name="light_freezing_rain">слабка ожеледь</string>
+    <string name="freezing_drizzle">паморозь</string>
+    <string name="heavy_rain_showers">сильні зливи</string>
+    <string name="rain_showers">зливи</string>
+    <string name="light_rain_showers">слабкі зливи</string>
+    <string name="heavy_snow_showers">сильні снігопади</string>
+    <string name="light_snow_showers">слабкі снігопади</string>
+    <string name="heavy_rain">сильний дощ</string>
+    <string name="rain">дощ</string>
+    <string name="light_rain">слабкий дощ</string>
+    <string name="drizzle">мряка</string>
+    <string name="heavy_snow">сильний снігопад</string>
+    <string name="snow">сніг</string>
+    <string name="light_snow">слабкий сніг</string>
+    <string name="snow_grains">снігові зерна</string>
+    <string name="fog">туман</string>
+    <string name="overcast">хмарно</string>
+    <string name="mostly_cloudy">переважно хмарно</string>
+    <string name="partly_cloudy_day">мінлива хмарність із сонцем</string>
+    <string name="partly_cloudy_night">мінлива хмарність</string>
+    <string name="mainly_clear_day">переважно сонячно</string>
+    <string name="mainly_clear_night">переважно ясно</string>
+    <string name="clear_sky_day">сонячно</string>
+    <string name="clear_sky_night">ясно</string>
 
-    <string name="today">Сьогодні</string>
-    <string name="tomorrow">Завтра</string>
+    <string name="today">сьогодні</string>
+    <string name="tomorrow">завтра</string>
 
 </resources>

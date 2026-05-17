@@ -105,42 +105,42 @@
         <item quantity="other">%d de minute</item>
     </plurals>
 
-    <string name="widget_date_prev">Lun, 1 dec</string>
+    <string name="widget_date_prev">lun., 1 dec.</string>
 
-    <string name="widget_temp_prev">21\u2103 · Mâine 19\u00B0 / 13\u00B0 · Ploaie ușoară</string>
+    <string name="widget_temp_prev">21\u2103 · mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
 
-    <string name="heavy_thunderstorms">Furtuni puternice</string>
-    <string name="thunderstorm">Furtună</string>
-    <string name="potential_thunderstorms">Posibile furtuni</string>
-    <string name="freezing_rain">Ploaie înghețată</string>
-    <string name="light_freezing_rain">Ploaie înghețată slabă</string>
-    <string name="freezing_drizzle">Burniță înghețată</string>
-    <string name="heavy_rain_showers">Averse puternice</string>
-    <string name="rain_showers">Averse</string>
-    <string name="light_rain_showers">Averse slabe</string>
-    <string name="heavy_snow_showers">Ninsori abundente</string>
-    <string name="light_snow_showers">Ninsori slabe</string>
-    <string name="heavy_rain">Ploaie torențială</string>
-    <string name="rain">Ploaie</string>
-    <string name="light_rain">Ploaie slabă</string>
-    <string name="drizzle">Burniță</string>
-    <string name="heavy_snow">Zăpadă abundentă</string>
-    <string name="snow">Zăpadă</string>
-    <string name="light_snow">Zăpadă slabă</string>
-    <string name="snow_grains">Grăunțe de zăpadă</string>
-    <string name="fog">Ceață</string>
-    <string name="overcast">Înnorat</string>
-    <string name="mostly_cloudy">Parțial noros</string>
-    <string name="partly_cloudy_day">Parțial senin</string>
-    <string name="partly_cloudy_night">Parțial noros</string>
-    <string name="mainly_clear_day">În mare parte senin</string>
-    <string name="mainly_clear_night">În mare parte senin</string>
-    <string name="clear_sky_day">Senin</string>
-    <string name="clear_sky_night">Senin</string>
+    <string name="heavy_thunderstorms">furtuni puternice</string>
+    <string name="thunderstorm">furtună</string>
+    <string name="potential_thunderstorms">posibile furtuni</string>
+    <string name="freezing_rain">ploaie înghețată</string>
+    <string name="light_freezing_rain">ploaie înghețată slabă</string>
+    <string name="freezing_drizzle">burniță înghețată</string>
+    <string name="heavy_rain_showers">averse puternice</string>
+    <string name="rain_showers">averse</string>
+    <string name="light_rain_showers">averse slabe</string>
+    <string name="heavy_snow_showers">averse de ninsoare abundente</string>
+    <string name="light_snow_showers">averse de ninsoare slabe</string>
+    <string name="heavy_rain">ploaie torențială</string>
+    <string name="rain">ploaie</string>
+    <string name="light_rain">ploaie slabă</string>
+    <string name="drizzle">burniță</string>
+    <string name="heavy_snow">ninsoare abundentă</string>
+    <string name="snow">ninsoare</string>
+    <string name="light_snow">ninsoare slabă</string>
+    <string name="snow_grains">grăunțe de zăpadă</string>
+    <string name="fog">ceață</string>
+    <string name="overcast">înnorat</string>
+    <string name="mostly_cloudy">mai mult înnorat</string>
+    <string name="partly_cloudy_day">parțial însorit</string>
+    <string name="partly_cloudy_night">parțial înnorat</string>
+    <string name="mainly_clear_day">în mare parte însorit</string>
+    <string name="mainly_clear_night">în mare parte senin</string>
+    <string name="clear_sky_day">însorit</string>
+    <string name="clear_sky_night">senin</string>
 
-    <string name="today">Astăzi</string>
-    <string name="tomorrow">Mâine</string>
+    <string name="today">astăzi</string>
+    <string name="tomorrow">mâine</string>
 
 </resources>

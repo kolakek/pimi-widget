@@ -102,42 +102,42 @@
         <item quantity="other">%d minuta</item>
     </plurals>
 
-    <string name="widget_date_prev">Enj, 28 nën</string>
+    <string name="widget_date_prev">enj, 28 nën</string>
 
-    <string name="widget_temp_prev">21\u2103 · Nesër 19\u00B0 / 13\u00B0 · Shi i lehtë</string>
+    <string name="widget_temp_prev">21\u2103 · nesër 19\u00B0 / 13\u00B0 · shi i lehtë</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
 
-    <string name="heavy_thunderstorms">Stuhí të forta</string>
-    <string name="thunderstorm">Stuhi</string>
-    <string name="potential_thunderstorms">Rrezik stuhish</string>
-    <string name="freezing_rain">Shi i ngrirë</string>
-    <string name="light_freezing_rain">Shi i ngrirë i lehtë</string>
-    <string name="freezing_drizzle">Shi i imët i ngrirë</string>
-    <string name="heavy_rain_showers">Rrebeshe të forta shiu</string>
-    <string name="rain_showers">Rrebeshe shiu</string>
-    <string name="light_rain_showers">Rrebeshe të lehta shiu</string>
-    <string name="heavy_snow_showers">Reshje të forta dëbore</string>
-    <string name="light_snow_showers">Reshje të lehta dëbore</string>
-    <string name="heavy_rain">Shi i fortë</string>
-    <string name="rain">Shi</string>
-    <string name="light_rain">Shi i lehtë</string>
-    <string name="drizzle">Shi i imët</string>
-    <string name="heavy_snow">Dëborë e fortë</string>
-    <string name="snow">Dëborë</string>
-    <string name="light_snow">Dëborë e lehtë</string>
-    <string name="snow_grains">Kokrra dëbore</string>
-    <string name="fog">Mjegull</string>
-    <string name="overcast">I vranët</string>
-    <string name="mostly_cloudy">Kryesisht me re</string>
-    <string name="partly_cloudy_day">Pjesërisht me diell</string>
-    <string name="partly_cloudy_night">Pjesërisht me re</string>
-    <string name="mainly_clear_day">Kryesisht kthjellët</string>
-    <string name="mainly_clear_night">Kryesisht kthjellët</string>
-    <string name="clear_sky_day">Qiell i kthjellët</string>
-    <string name="clear_sky_night">Qiell i kthjellët</string>
+    <string name="heavy_thunderstorms">stuhi të forta</string>
+    <string name="thunderstorm">stuhi</string>
+    <string name="potential_thunderstorms">rrezik stuhish</string>
+    <string name="freezing_rain">shi i ngrirë</string>
+    <string name="light_freezing_rain">shi i ngrirë i lehtë</string>
+    <string name="freezing_drizzle">shi i imët i ngrirë</string>
+    <string name="heavy_rain_showers">rrebeshe të forta shiu</string>
+    <string name="rain_showers">rrebeshe shiu</string>
+    <string name="light_rain_showers">rrebeshe të lehta shiu</string>
+    <string name="heavy_snow_showers">rrebeshe të forta dëbore</string>
+    <string name="light_snow_showers">rrebeshe të lehta dëbore</string>
+    <string name="heavy_rain">shi i fortë</string>
+    <string name="rain">shi</string>
+    <string name="light_rain">shi i lehtë</string>
+    <string name="drizzle">shi i imët</string>
+    <string name="heavy_snow">dëborë e fortë</string>
+    <string name="snow">dëborë</string>
+    <string name="light_snow">dëborë e lehtë</string>
+    <string name="snow_grains">kokrra dëbore</string>
+    <string name="fog">mjegull</string>
+    <string name="overcast">me vranësira</string>
+    <string name="mostly_cloudy">kryesisht me vranësira</string>
+    <string name="partly_cloudy_day">pjesërisht me diell</string>
+    <string name="partly_cloudy_night">pjesërisht me vranësira</string>
+    <string name="mainly_clear_day">kryesisht me diell</string>
+    <string name="mainly_clear_night">kryesisht i kthjellët</string>
+    <string name="clear_sky_day">me diell</string>
+    <string name="clear_sky_night">i kthjellët</string>
 
-    <string name="today">Sot</string>
-    <string name="tomorrow">Nesër</string>
+    <string name="today">sot</string>
+    <string name="tomorrow">nesër</string>
 
 </resources>

@@ -105,40 +105,40 @@
 
     <string name="widget_date_prev">29 Eki Paz</string>
 
-    <string name="widget_temp_prev">21\u2103 · Yarın 19\u00B0 / 13\u00B0 · Hafif yağmur</string>
+    <string name="widget_temp_prev">21\u2103 · yarın 19\u00B0 / 13\u00B0 · hafif yağmur</string>
 
     <string name="widget_date_format">d MMM E</string>
 
-    <string name="heavy_thunderstorms">Şiddetli gök gürültülü fırtına</string>
-    <string name="thunderstorm">Gök gürültülü fırtına</string>
-    <string name="potential_thunderstorms">Gök gürültülü sağanak eğilimi</string>
-    <string name="freezing_rain">Dondurucu yağmur</string>
-    <string name="light_freezing_rain">Hafif donan yağmur</string>
-    <string name="freezing_drizzle">Dondurucu çiseleme</string>
-    <string name="heavy_rain_showers">Yoğun yağmur sağanağı</string>
-    <string name="rain_showers">Yağmur sağanağı</string>
-    <string name="light_rain_showers">Hafif yağmur sağanağı</string>
-    <string name="heavy_snow_showers">Yoğun kar sağanağı</string>
-    <string name="light_snow_showers">Hafif kar sağanağı</string>
-    <string name="heavy_rain">Yoğun yağmur</string>
-    <string name="rain">Yağmur</string>
-    <string name="light_rain">Hafif yağmur</string>
-    <string name="drizzle">Çiseleyen yağmur</string>
-    <string name="heavy_snow">Yoğun kar</string>
-    <string name="snow">Kar</string>
-    <string name="light_snow">Hafif kar</string>
-    <string name="snow_grains">Taneli kar yağışı</string>
-    <string name="fog">Sisli</string>
-    <string name="overcast">Bulutlu</string>
-    <string name="mostly_cloudy">Çok bulutlu</string>
-    <string name="partly_cloudy_night">Parçalı bulutlu</string>
-    <string name="partly_cloudy_day">Parçalı bulutlu</string>
-    <string name="mainly_clear_day">Az bulutlu</string>
-    <string name="mainly_clear_night">Az bulutlu</string>
-    <string name="clear_sky_day">Güneşli</string>
-    <string name="clear_sky_night">Açık</string>
+    <string name="heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>
+    <string name="thunderstorm">gök gürültülü fırtına</string>
+    <string name="potential_thunderstorms">gök gürültülü sağanak ihtimali</string>
+    <string name="freezing_rain">dondurucu yağmur</string>
+    <string name="light_freezing_rain">hafif dondurucu yağmur</string>
+    <string name="freezing_drizzle">dondurucu çisenti</string>
+    <string name="heavy_rain_showers">kuvvetli sağanak yağış</string>
+    <string name="rain_showers">sağanak yağış</string>
+    <string name="light_rain_showers">hafif sağanak yağış</string>
+    <string name="heavy_snow_showers">kuvvetli kar yağışı</string>
+    <string name="light_snow_showers">hafif kar yağışı</string>
+    <string name="heavy_rain">kuvvetli yağmur</string>
+    <string name="rain">yağmur</string>
+    <string name="light_rain">hafif yağmur</string>
+    <string name="drizzle">çisenti</string>
+    <string name="heavy_snow">kuvvetli kar</string>
+    <string name="snow">kar</string>
+    <string name="light_snow">hafif kar</string>
+    <string name="snow_grains">kar taneleri</string>
+    <string name="fog">sis</string>
+    <string name="overcast">bulutlu</string>
+    <string name="mostly_cloudy">çok bulutlu</string>
+    <string name="partly_cloudy_day">parçalı güneşli</string>
+    <string name="partly_cloudy_night">parçalı bulutlu</string>
+    <string name="mainly_clear_day">çoğunlukla güneşli</string>
+    <string name="mainly_clear_night">az bulutlu</string>
+    <string name="clear_sky_day">güneşli</string>
+    <string name="clear_sky_night">açık</string>
 
-    <string name="today">Bugün</string>
-    <string name="tomorrow">Yarın</string>
+    <string name="today">bugün</string>
+    <string name="tomorrow">yarın</string>
 
 </resources>

@@ -104,40 +104,40 @@
 
     <string name="widget_date_prev">Τρι 25 Μαρ</string>
 
-    <string name="widget_temp_prev">21\u2103 · Αύριο 19\u00B0 / 13\u00B0 · Ελαφριά βροχή</string>
+    <string name="widget_temp_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">Ισχυρές καταιγίδες</string>
-    <string name="thunderstorm">Καταιγίδα</string>
-    <string name="potential_thunderstorms">Πιθανές καταιγίδες</string>
-    <string name="freezing_rain">Παγωμένη βροχή</string>
-    <string name="light_freezing_rain">Ασθενής παγωμένη βροχή</string>
-    <string name="freezing_drizzle">Παγωμένο ψιλόβροχο</string>
-    <string name="heavy_rain_showers">Ισχυρές βροχοπτώσεις</string>
-    <string name="rain_showers">Βροχοπτώσεις</string>
-    <string name="light_rain_showers">Ασθενείς βροχοπτώσεις</string>
-    <string name="heavy_snow_showers">Ισχυρές χιονοπτώσεις</string>
-    <string name="light_snow_showers">Ασθενείς χιονοπτώσεις</string>
-    <string name="heavy_rain">Ισχυρή βροχή</string>
-    <string name="rain">Βροχή</string>
-    <string name="light_rain">Ασθενής βροχή</string>
-    <string name="drizzle">Ψιλόβροχο</string>
-    <string name="heavy_snow">Ισχυρή χιονόπτωση</string>
-    <string name="snow">Χιόνι</string>
-    <string name="light_snow">Ασθενές χιόνι</string>
-    <string name="snow_grains">Κόκκοι χιονιού</string>
-    <string name="fog">Ομίχλη</string>
-    <string name="overcast">Συννεφιά</string>
-    <string name="mostly_cloudy">Κυρίως συννεφιά</string>
-    <string name="partly_cloudy_day">Μερικώς ηλιοφάνεια</string>
-    <string name="partly_cloudy_night">Μερικώς συννεφιά</string>
-    <string name="mainly_clear_day">Κυρίως αίθριος</string>
-    <string name="mainly_clear_night">Κυρίως αίθριος</string>
-    <string name="clear_sky_day">Αίθριος</string>
-    <string name="clear_sky_night">Αίθριος</string>
+    <string name="heavy_thunderstorms">ισχυρές καταιγίδες</string>
+    <string name="thunderstorm">καταιγίδα</string>
+    <string name="potential_thunderstorms">πιθανές καταιγίδες</string>
+    <string name="freezing_rain">παγωμένη βροχή</string>
+    <string name="light_freezing_rain">ασθενής παγωμένη βροχή</string>
+    <string name="freezing_drizzle">παγωμένο ψιλόβροχο</string>
+    <string name="heavy_rain_showers">ισχυρές βροχοπτώσεις</string>
+    <string name="rain_showers">βροχοπτώσεις</string>
+    <string name="light_rain_showers">ασθενείς βροχοπτώσεις</string>
+    <string name="heavy_snow_showers">ισχυρές χιονοπτώσεις</string>
+    <string name="light_snow_showers">ασθενείς χιονοπτώσεις</string>
+    <string name="heavy_rain">ισχυρή βροχή</string>
+    <string name="rain">βροχή</string>
+    <string name="light_rain">ασθενής βροχή</string>
+    <string name="drizzle">ψιλόβροχο</string>
+    <string name="heavy_snow">ισχυρή χιονόπτωση</string>
+    <string name="snow">χιόνι</string>
+    <string name="light_snow">ασθενές χιόνι</string>
+    <string name="snow_grains">κόκκοι χιονιού</string>
+    <string name="fog">ομίχλη</string>
+    <string name="overcast">συννεφιά</string>
+    <string name="mostly_cloudy">κυρίως συννεφιά</string>
+    <string name="partly_cloudy_day">μερική ηλιοφάνεια</string>
+    <string name="partly_cloudy_night">μερική συννεφιά</string>
+    <string name="mainly_clear_day">κυρίως ηλιοφάνεια</string>
+    <string name="mainly_clear_night">κυρίως αίθριος</string>
+    <string name="clear_sky_day">ηλιοφάνεια</string>
+    <string name="clear_sky_night">αίθριος</string>
 
-    <string name="today">Σήμερα</string>
-    <string name="tomorrow">Αύριο</string>
+    <string name="today">σήμερα</string>
+    <string name="tomorrow">αύριο</string>
 
 </resources>

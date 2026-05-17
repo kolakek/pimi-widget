@@ -102,42 +102,42 @@
         <item quantity="other">%d minutter</item>
     </plurals>
 
-    <string name="widget_date_prev">Tor 5. jun</string>
+    <string name="widget_date_prev">tors. 5. jun.</string>
 
-    <string name="widget_temp_prev">21\u2103 · I morgen 19\u00B0 / 13\u00B0 · Let regn</string>
+    <string name="widget_temp_prev">21\u2103 · i morgen 19\u00B0 / 13\u00B0 · let regn</string>
 
     <string name="widget_date_format">EEE d. MMM</string>
 
-    <string name="heavy_thunderstorms">Kraftige tordenbyger</string>
-    <string name="thunderstorm">Tordenbyge</string>
-    <string name="potential_thunderstorms">Mulige tordenbyger</string>
-    <string name="freezing_rain">Isslag</string>
-    <string name="light_freezing_rain">Let isslag</string>
-    <string name="freezing_drizzle">Isslud</string>
-    <string name="heavy_rain_showers">Kraftige regnbyger</string>
-    <string name="rain_showers">Regnbyger</string>
-    <string name="light_rain_showers">Lette regnbyger</string>
-    <string name="heavy_snow_showers">Kraftige snebyger</string>
-    <string name="light_snow_showers">Lette snebyger</string>
-    <string name="heavy_rain">Kraftig regn</string>
-    <string name="rain">Regn</string>
-    <string name="light_rain">Let regn</string>
-    <string name="drizzle">Støvregn</string>
-    <string name="heavy_snow">Kraftigt snefald</string>
-    <string name="snow">Sne</string>
-    <string name="light_snow">Let sne</string>
-    <string name="snow_grains">Snegryn</string>
-    <string name="fog">Tåge</string>
-    <string name="overcast">Overskyet</string>
-    <string name="mostly_cloudy">For det meste skyet</string>
-    <string name="partly_cloudy_day">Delvist skyet</string>
-    <string name="partly_cloudy_night">Delvist skyet</string>
-    <string name="mainly_clear_day">For det meste klart</string>
-    <string name="mainly_clear_night">For det meste klart</string>
-    <string name="clear_sky_day">Klart</string>
-    <string name="clear_sky_night">Klart</string>
+    <string name="heavy_thunderstorms">kraftige tordenbyger</string>
+    <string name="thunderstorm">tordenbyge</string>
+    <string name="potential_thunderstorms">mulige tordenbyger</string>
+    <string name="freezing_rain">isslag</string>
+    <string name="light_freezing_rain">let isslag</string>
+    <string name="freezing_drizzle">frysende finregn</string>
+    <string name="heavy_rain_showers">kraftige regnbyger</string>
+    <string name="rain_showers">regnbyger</string>
+    <string name="light_rain_showers">lette regnbyger</string>
+    <string name="heavy_snow_showers">kraftige snebyger</string>
+    <string name="light_snow_showers">lette snebyger</string>
+    <string name="heavy_rain">kraftig regn</string>
+    <string name="rain">regn</string>
+    <string name="light_rain">let regn</string>
+    <string name="drizzle">finregn</string>
+    <string name="heavy_snow">kraftigt snefald</string>
+    <string name="snow">sne</string>
+    <string name="light_snow">let sne</string>
+    <string name="snow_grains">snegryn</string>
+    <string name="fog">tåge</string>
+    <string name="overcast">overskyet</string>
+    <string name="mostly_cloudy">mest overskyet</string>
+    <string name="partly_cloudy_day">delvist solrigt</string>
+    <string name="partly_cloudy_night">delvist skyet</string>
+    <string name="mainly_clear_day">mest solrigt</string>
+    <string name="mainly_clear_night">overvejende klart</string>
+    <string name="clear_sky_day">solrigt</string>
+    <string name="clear_sky_night">klart</string>
 
-    <string name="today">I dag</string>
-    <string name="tomorrow">I morgen</string>
+    <string name="today">i dag</string>
+    <string name="tomorrow">i morgen</string>
 
 </resources>

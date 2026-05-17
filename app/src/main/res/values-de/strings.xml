@@ -129,11 +129,11 @@
     <string name="snow_grains">Schneegriesel</string>
     <string name="fog">Nebel</string>
     <string name="overcast">Bewölkt</string>
-    <string name="mostly_cloudy">Überwiegend bewölkt</string>
+    <string name="mostly_cloudy">Meist bewölkt</string>
     <string name="partly_cloudy_day">Teilweise sonnig</string>
     <string name="partly_cloudy_night">Teilweise bewölkt</string>
-    <string name="mainly_clear_day">Überwiegend sonnig</string>
-    <string name="mainly_clear_night">Überwiegend klar</string>
+    <string name="mainly_clear_day">Meist sonnig</string>
+    <string name="mainly_clear_night">Meist klar</string>
     <string name="clear_sky_day">Sonnig</string>
     <string name="clear_sky_night">Klar</string>
 

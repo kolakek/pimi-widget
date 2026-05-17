@@ -102,42 +102,42 @@
         <item quantity="other">%d minuter</item>
     </plurals>
 
-    <string name="widget_date_prev">Fre 6 jun</string>
+    <string name="widget_date_prev">fre 6 jun</string>
 
-    <string name="widget_temp_prev">21\u2103 · Imorgon 19\u00B0 / 13\u00B0 · Lätt regn</string>
+    <string name="widget_temp_prev">21\u2103 · imorgon 19\u00B0 / 13\u00B0 · lätt regn</string>
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">Kraftiga åskväder</string>
-    <string name="thunderstorm">Åskväder</string>
-    <string name="potential_thunderstorms">Risk för åska</string>
-    <string name="freezing_rain">Underkylt regn</string>
-    <string name="light_freezing_rain">Svagt underkylt regn</string>
-    <string name="freezing_drizzle">Underkyld duggregn</string>
-    <string name="heavy_rain_showers">Kraftiga regnskurar</string>
-    <string name="rain_showers">Regnskurar</string>
-    <string name="light_rain_showers">Lätta regnskurar</string>
-    <string name="heavy_snow_showers">Kraftiga snöbyar</string>
-    <string name="light_snow_showers">Lätta snöbyar</string>
-    <string name="heavy_rain">Kraftigt regn</string>
-    <string name="rain">Regn</string>
-    <string name="light_rain">Lätt regn</string>
-    <string name="drizzle">Duggregn</string>
-    <string name="heavy_snow">Kraftigt snöfall</string>
-    <string name="snow">Snö</string>
-    <string name="light_snow">Lätt snöfall</string>
-    <string name="snow_grains">Snögryn</string>
-    <string name="fog">Dimma</string>
-    <string name="overcast">Mulet</string>
-    <string name="mostly_cloudy">Till största delen molnigt</string>
-    <string name="partly_cloudy_day">Delvis soligt</string>
-    <string name="partly_cloudy_night">Delvis molnigt</string>
-    <string name="mainly_clear_day">Mestadels klart</string>
-    <string name="mainly_clear_night">Mestadels klart</string>
-    <string name="clear_sky_day">Klart</string>
-    <string name="clear_sky_night">Klart</string>
+    <string name="heavy_thunderstorms">kraftiga åskväder</string>
+    <string name="thunderstorm">åskväder</string>
+    <string name="potential_thunderstorms">risk för åska</string>
+    <string name="freezing_rain">underkylt regn</string>
+    <string name="light_freezing_rain">svagt underkylt regn</string>
+    <string name="freezing_drizzle">underkylt duggregn</string>
+    <string name="heavy_rain_showers">kraftiga regnskurar</string>
+    <string name="rain_showers">regnskurar</string>
+    <string name="light_rain_showers">lätta regnskurar</string>
+    <string name="heavy_snow_showers">kraftiga snöbyar</string>
+    <string name="light_snow_showers">lätta snöbyar</string>
+    <string name="heavy_rain">kraftigt regn</string>
+    <string name="rain">regn</string>
+    <string name="light_rain">lätt regn</string>
+    <string name="drizzle">duggregn</string>
+    <string name="heavy_snow">kraftigt snöfall</string>
+    <string name="snow">snö</string>
+    <string name="light_snow">lätt snöfall</string>
+    <string name="snow_grains">snögryn</string>
+    <string name="fog">dimma</string>
+    <string name="overcast">mulet</string>
+    <string name="mostly_cloudy">mest mulet</string>
+    <string name="partly_cloudy_day">delvis soligt</string>
+    <string name="partly_cloudy_night">delvis molnigt</string>
+    <string name="mainly_clear_day">mest soligt</string>
+    <string name="mainly_clear_night">mest klart</string>
+    <string name="clear_sky_day">soligt</string>
+    <string name="clear_sky_night">klart</string>
 
-    <string name="today">Idag</string>
-    <string name="tomorrow">Imorgon</string>
+    <string name="today">idag</string>
+    <string name="tomorrow">imorgon</string>
 
 </resources>

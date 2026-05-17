@@ -105,42 +105,42 @@
         <item quantity="other">%d minuti</item>
     </plurals>
 
-    <string name="widget_date_prev">Dom 2 giu</string>
+    <string name="widget_date_prev">dom 2 giu</string>
 
-    <string name="widget_temp_prev">21\u2103 · Domani 19\u00B0 / 13\u00B0 · Pioggia leggera</string>
+    <string name="widget_temp_prev">21\u2103 · domani 19\u00B0 / 13\u00B0 · pioggia debole</string>
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">Forti temporali</string>
-    <string name="thunderstorm">Temporale</string>
-    <string name="potential_thunderstorms">Possibili temporali</string>
-    <string name="freezing_rain">Pioggia gelata</string>
-    <string name="light_freezing_rain">Pioggia gelata debole</string>
-    <string name="freezing_drizzle">Pioviggine gelata</string>
-    <string name="heavy_rain_showers">Forti rovesci</string>
-    <string name="rain_showers">Rovesci</string>
-    <string name="light_rain_showers">Rovesci deboli</string>
-    <string name="heavy_snow_showers">Forti nevicate</string>
-    <string name="light_snow_showers">Nevicate deboli</string>
-    <string name="heavy_rain">Pioggia intensa</string>
-    <string name="rain">Pioggia</string>
-    <string name="light_rain">Pioggia debole</string>
-    <string name="drizzle">Pioviggine</string>
-    <string name="heavy_snow">Nevicata intensa</string>
-    <string name="snow">Neve</string>
-    <string name="light_snow">Neve debole</string>
-    <string name="snow_grains">Granuli di neve</string>
-    <string name="fog">Nebbia</string>
-    <string name="overcast">Coperto</string>
-    <string name="mostly_cloudy">Molto nuvoloso</string>
-    <string name="partly_cloudy_day">Parzialmente soleggiato</string>
-    <string name="partly_cloudy_night">Parzialmente nuvoloso</string>
-    <string name="mainly_clear_day">Prevalentemente soleggiato</string>
-    <string name="mainly_clear_night">Prevalentemente sereno</string>
-    <string name="clear_sky_day">Soleggiato</string>
-    <string name="clear_sky_night">Sereno</string>
+    <string name="heavy_thunderstorms">forti temporali</string>
+    <string name="thunderstorm">temporale</string>
+    <string name="potential_thunderstorms">possibili temporali</string>
+    <string name="freezing_rain">pioggia gelata</string>
+    <string name="light_freezing_rain">debole pioggia gelata</string>
+    <string name="freezing_drizzle">pioviggine gelata</string>
+    <string name="heavy_rain_showers">forti rovesci</string>
+    <string name="rain_showers">rovesci</string>
+    <string name="light_rain_showers">rovesci deboli</string>
+    <string name="heavy_snow_showers">forti rovesci di neve</string>
+    <string name="light_snow_showers">deboli rovesci di neve</string>
+    <string name="heavy_rain">pioggia intensa</string>
+    <string name="rain">pioggia</string>
+    <string name="light_rain">pioggia debole</string>
+    <string name="drizzle">pioviggine</string>
+    <string name="heavy_snow">forti nevicate</string>
+    <string name="snow">neve</string>
+    <string name="light_snow">deboli nevicate</string>
+    <string name="snow_grains">granuli di neve</string>
+    <string name="fog">nebbia</string>
+    <string name="overcast">coperto</string>
+    <string name="mostly_cloudy">prevalentemente nuvoloso</string>
+    <string name="partly_cloudy_day">parzialmente soleggiato</string>
+    <string name="partly_cloudy_night">parzialmente nuvoloso</string>
+    <string name="mainly_clear_day">per lo più soleggiato</string>
+    <string name="mainly_clear_night">per lo più sereno</string>
+    <string name="clear_sky_day">soleggiato</string>
+    <string name="clear_sky_night">sereno</string>
 
-    <string name="today">Oggi</string>
-    <string name="tomorrow">Domani</string>
+    <string name="today">oggi</string>
+    <string name="tomorrow">domani</string>
 
 </resources>

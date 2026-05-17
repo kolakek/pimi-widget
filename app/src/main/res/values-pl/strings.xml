@@ -108,42 +108,42 @@
         <item quantity="other">%d minut</item>
     </plurals>
 
-    <string name="widget_date_prev">Śr., 3 maj</string>
+    <string name="widget_date_prev">śr., 3 maj</string>
 
-    <string name="widget_temp_prev">21\u2103 · Jutro 19\u00B0 / 13\u00B0 · Lekki deszcz</string>
+    <string name="widget_temp_prev">21\u2103 · jutro 19\u00B0 / 13\u00B0 · słaby deszcz</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
 
-    <string name="heavy_thunderstorms">Silne burze</string>
-    <string name="thunderstorm">Burza</string>
-    <string name="potential_thunderstorms">Możliwe burze</string>
-    <string name="freezing_rain">Marznący deszcz</string>
-    <string name="light_freezing_rain">Słaby marznący deszcz</string>
-    <string name="freezing_drizzle">Marznąca mżawka</string>
-    <string name="heavy_rain_showers">Ulewy</string>
-    <string name="rain_showers">Przelotne opady deszczu</string>
-    <string name="light_rain_showers">Słabe przelotne opady deszczu</string>
-    <string name="heavy_snow_showers">Silne opady śniegu</string>
-    <string name="light_snow_showers">Słabe opady śniegu</string>
-    <string name="heavy_rain">Ulewny deszcz</string>
-    <string name="rain">Deszcz</string>
-    <string name="light_rain">Słaby deszcz</string>
-    <string name="drizzle">Mżawka</string>
-    <string name="heavy_snow">Silne opady śniegu</string>
-    <string name="snow">Śnieg</string>
-    <string name="light_snow">Słaby śnieg</string>
-    <string name="snow_grains">Ziarnisty śnieg</string>
-    <string name="fog">Mgła</string>
-    <string name="overcast">Pochmurno</string>
-    <string name="mostly_cloudy">Przeważnie pochmurno</string>
-    <string name="partly_cloudy_day">Częściowe zachmurzenie</string>
-    <string name="partly_cloudy_night">Częściowe zachmurzenie</string>
-    <string name="mainly_clear_day">Przeważnie słonecznie</string>
-    <string name="mainly_clear_night">Przeważnie bezchmurnie</string>
-    <string name="clear_sky_day">Słonecznie</string>
-    <string name="clear_sky_night">Bezchmurnie</string>
+    <string name="heavy_thunderstorms">silne burze</string>
+    <string name="thunderstorm">burza</string>
+    <string name="potential_thunderstorms">możliwe burze</string>
+    <string name="freezing_rain">marznący deszcz</string>
+    <string name="light_freezing_rain">słaby marznący deszcz</string>
+    <string name="freezing_drizzle">marznąca mżawka</string>
+    <string name="heavy_rain_showers">ulewne opady deszczu</string>
+    <string name="rain_showers">przelotne opady deszczu</string>
+    <string name="light_rain_showers">słabe przelotne opady deszczu</string>
+    <string name="heavy_snow_showers">intensywne przelotne opady śniegu</string>
+    <string name="light_snow_showers">słabe przelotne opady śniegu</string>
+    <string name="heavy_rain">ulewny deszcz</string>
+    <string name="rain">deszcz</string>
+    <string name="light_rain">słaby deszcz</string>
+    <string name="drizzle">mżawka</string>
+    <string name="heavy_snow">intensywne opady śniegu</string>
+    <string name="snow">śnieg</string>
+    <string name="light_snow">słabe opady śniegu</string>
+    <string name="snow_grains">ziarnisty śnieg</string>
+    <string name="fog">mgła</string>
+    <string name="overcast">pochmurno</string>
+    <string name="mostly_cloudy">przeważnie pochmurno</string>
+    <string name="partly_cloudy_day">częściowo słonecznie</string>
+    <string name="partly_cloudy_night">częściowo pochmurno</string>
+    <string name="mainly_clear_day">przeważnie słonecznie</string>
+    <string name="mainly_clear_night">przeważnie pogodnie</string>
+    <string name="clear_sky_day">słonecznie</string>
+    <string name="clear_sky_night">pogodnie</string>
 
-    <string name="today">Dzisiaj</string>
-    <string name="tomorrow">Jutro</string>
+    <string name="today">dzisiaj</string>
+    <string name="tomorrow">jutro</string>
 
 </resources>

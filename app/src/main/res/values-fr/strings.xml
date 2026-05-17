@@ -105,42 +105,42 @@
         <item quantity="other">%d minutes</item>
     </plurals>
 
-    <string name="widget_date_prev">Dim. 14 juil.</string>
+    <string name="widget_date_prev">dim. 14 juil.</string>
 
-    <string name="widget_temp_prev">21\u2103 · Demain 19\u00B0 / 13\u00B0 · Pluie légère</string>
+    <string name="widget_temp_prev">21\u2103 · demain 19\u00B0 / 13\u00B0 · faible pluie</string>
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">Violents orages</string>
-    <string name="thunderstorm">Orage</string>
-    <string name="potential_thunderstorms">Risque d’orages</string>
-    <string name="freezing_rain">Pluie verglaçante</string>
-    <string name="light_freezing_rain">Légère pluie verglaçante</string>
-    <string name="freezing_drizzle">Bruine verglaçante</string>
-    <string name="heavy_rain_showers">Fortes averses</string>
-    <string name="rain_showers">Averses</string>
-    <string name="light_rain_showers">Légères averses</string>
-    <string name="heavy_snow_showers">Fortes averses de neige</string>
-    <string name="light_snow_showers">Légères averses de neige</string>
-    <string name="heavy_rain">Forte pluie</string>
-    <string name="rain">Pluie</string>
-    <string name="light_rain">Pluie légère</string>
-    <string name="drizzle">Bruine</string>
-    <string name="heavy_snow">Fortes chutes de neige</string>
-    <string name="snow">Neige</string>
-    <string name="light_snow">Faible neige</string>
-    <string name="snow_grains">Neige en grains</string>
-    <string name="fog">Brouillard</string>
-    <string name="overcast">Couvert</string>
-    <string name="mostly_cloudy">Très nuageux</string>
-    <string name="partly_cloudy_day">Partiellement ensoleillé</string>
-    <string name="partly_cloudy_night">Partiellement nuageux</string>
-    <string name="mainly_clear_day">Plutôt ensoleillé</string>
-    <string name="mainly_clear_night">Plutôt dégagé</string>
-    <string name="clear_sky_day">Ensoleillé</string>
-    <string name="clear_sky_night">Dégagé</string>
+    <string name="heavy_thunderstorms">violents orages</string>
+    <string name="thunderstorm">orage</string>
+    <string name="potential_thunderstorms">risque d’orages</string>
+    <string name="freezing_rain">pluie verglaçante</string>
+    <string name="light_freezing_rain">faible pluie verglaçante</string>
+    <string name="freezing_drizzle">bruine verglaçante</string>
+    <string name="heavy_rain_showers">fortes averses</string>
+    <string name="rain_showers">averses</string>
+    <string name="light_rain_showers">faibles averses</string>
+    <string name="heavy_snow_showers">fortes averses de neige</string>
+    <string name="light_snow_showers">faibles averses de neige</string>
+    <string name="heavy_rain">forte pluie</string>
+    <string name="rain">pluie</string>
+    <string name="light_rain">faible pluie</string>
+    <string name="drizzle">bruine</string>
+    <string name="heavy_snow">fortes chutes de neige</string>
+    <string name="snow">neige</string>
+    <string name="light_snow">faibles chutes de neige</string>
+    <string name="snow_grains">neige en grains</string>
+    <string name="fog">brouillard</string>
+    <string name="overcast">couvert</string>
+    <string name="mostly_cloudy">plutôt nuageux</string>
+    <string name="partly_cloudy_day">partiellement ensoleillé</string>
+    <string name="partly_cloudy_night">partiellement nuageux</string>
+    <string name="mainly_clear_day">plutôt ensoleillé</string>
+    <string name="mainly_clear_night">plutôt dégagé</string>
+    <string name="clear_sky_day">ensoleillé</string>
+    <string name="clear_sky_night">dégagé</string>
 
-    <string name="today">Aujourd’hui</string>
-    <string name="tomorrow">Demain</string>
+    <string name="today">aujourd’hui</string>
+    <string name="tomorrow">demain</string>
 
 </resources>

@@ -102,42 +102,42 @@
         <item quantity="other">%d minuten</item>
     </plurals>
 
-    <string name="widget_date_prev">Zat 27 apr</string>
+    <string name="widget_date_prev">zat 27 apr</string>
 
-    <string name="widget_temp_prev">21\u2103 · Morgen 19\u00B0 / 13\u00B0 · Lichte regen</string>
+    <string name="widget_temp_prev">21\u2103 · morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">Zware onweersbuien</string>
-    <string name="thunderstorm">Onweersbui</string>
-    <string name="potential_thunderstorms">Mogelijke onweersbuien</string>
-    <string name="freezing_rain">IJzelregen</string>
-    <string name="light_freezing_rain">Lichte ijzelregen</string>
-    <string name="freezing_drizzle">IJzelmotregen</string>
-    <string name="heavy_rain_showers">Zware regenbuien</string>
-    <string name="rain_showers">Regenbuien</string>
-    <string name="light_rain_showers">Lichte regenbuien</string>
-    <string name="heavy_snow_showers">Zware sneeuwbuien</string>
-    <string name="light_snow_showers">Lichte sneeuwbuien</string>
-    <string name="heavy_rain">Zware regen</string>
-    <string name="rain">Regen</string>
-    <string name="light_rain">Lichte regen</string>
-    <string name="drizzle">Motregen</string>
-    <string name="heavy_snow">Zware sneeuw</string>
-    <string name="snow">Sneeuw</string>
-    <string name="light_snow">Lichte sneeuw</string>
-    <string name="snow_grains">Sneeuwkorrels</string>
-    <string name="fog">Mist</string>
-    <string name="overcast">Bewolkt</string>
-    <string name="mostly_cloudy">Grotendeels bewolkt</string>
-    <string name="partly_cloudy_day">Gedeeltelijk bewolkt</string>
-    <string name="partly_cloudy_night">Gedeeltelijk bewolkt</string>
-    <string name="mainly_clear_day">Overwegend helder</string>
-    <string name="mainly_clear_night">Overwegend helder</string>
-    <string name="clear_sky_day">Helder</string>
-    <string name="clear_sky_night">Helder</string>
+    <string name="heavy_thunderstorms">zware onweersbuien</string>
+    <string name="thunderstorm">onweersbui</string>
+    <string name="potential_thunderstorms">kans op onweersbuien</string>
+    <string name="freezing_rain">ijzel</string>
+    <string name="light_freezing_rain">lichte ijzel</string>
+    <string name="freezing_drizzle">motijzel</string>
+    <string name="heavy_rain_showers">zware regenbuien</string>
+    <string name="rain_showers">regenbuien</string>
+    <string name="light_rain_showers">lichte regenbuien</string>
+    <string name="heavy_snow_showers">zware sneeuwbuien</string>
+    <string name="light_snow_showers">lichte sneeuwbuien</string>
+    <string name="heavy_rain">hevige regen</string>
+    <string name="rain">regen</string>
+    <string name="light_rain">lichte regen</string>
+    <string name="drizzle">motregen</string>
+    <string name="heavy_snow">hevige sneeuwval</string>
+    <string name="snow">sneeuw</string>
+    <string name="light_snow">lichte sneeuwval</string>
+    <string name="snow_grains">sneeuwkorrels</string>
+    <string name="fog">mist</string>
+    <string name="overcast">bewolkt</string>
+    <string name="mostly_cloudy">meestal bewolkt</string>
+    <string name="partly_cloudy_day">deels zonnig</string>
+    <string name="partly_cloudy_night">deels bewolkt</string>
+    <string name="mainly_clear_day">meestal zonnig</string>
+    <string name="mainly_clear_night">meestal helder</string>
+    <string name="clear_sky_day">zonnig</string>
+    <string name="clear_sky_night">helder</string>
 
-    <string name="today">Vandaag</string>
-    <string name="tomorrow">Morgen</string>
+    <string name="today">vandaag</string>
+    <string name="tomorrow">morgen</string>
 
 </resources>
