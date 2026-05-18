@@ -17,20 +17,8 @@
 
 package com.kolakek.pimiwidget.weather
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class WeatherData (
-    val minutelyWeatherCode: List<WeatherCode>,
-    val minutelyTempCelsius: List<Double>,
-    val minutelyIsDay: List<Boolean>,
-    val minutelyTimeMillis: List<Long>,
-    val hourlyTempCelsius: List<Double>,
-    val hourlyIsDay: List<Boolean>,
-    val hourlyWarningCode: List<WarningCode>,
-    val hourlyTimeMillis: List<Long>,
-    val dailyWeatherCode: List<WeatherCode>,
-    val dailyTempMinCelsius: List<Double>,
-    val dailyTempMaxCelsius: List<Double>,
-    val dailyTimeMillis: List<Long>
-)
+enum class WarningCode {
+    NO_WARNING,
+    SEVERE_UV,
+    EXTREME_UV
+}

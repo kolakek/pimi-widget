@@ -21,7 +21,7 @@ import timber.log.Timber
 
 object WeatherCodeMapper {
 
-    internal fun mapWmoCode(
+    internal fun getWeatherCode(
         wmoCode: Int,
         cloudCover: Int,
         precipProb: Int,

@@ -65,12 +65,12 @@ object WeatherService {
     private fun mapProviderData(providerData: ProviderData): WeatherData? {
         val minutelyWeatherCode = try {
             providerData.minutely_15.weather_code.indices.map { i ->
-                WeatherCodeMapper.mapWmoCode(
-                    providerData.minutely_15.weather_code[i],
-                    providerData.minutely_15.cloud_cover[i],
-                    providerData.minutely_15.precipitation_probability[i],
-                    providerData.minutely_15.visibility[i],
-                    providerData.minutely_15.cape[i],
+                WeatherCodeMapper.getWeatherCode(
+                    wmoCode = providerData.minutely_15.weather_code[i],
+                    cloudCover = providerData.minutely_15.cloud_cover[i],
+                    precipProb = providerData.minutely_15.precipitation_probability[i],
+                    visibility = providerData.minutely_15.visibility[i],
+                    cape = providerData.minutely_15.cape[i]
                 ) ?: return null
             }
         } catch (_: ArrayIndexOutOfBoundsException) {
@@ -79,16 +79,28 @@ object WeatherService {
         }
         val dailyWeatherCode = try {
             providerData.daily.weather_code.indices.map { i ->
-                WeatherCodeMapper.mapWmoCode(
-                    providerData.daily.weather_code[i],
-                    providerData.daily.cloud_cover_mean[i],
-                    providerData.daily.precipitation_probability_max[i],
-                    providerData.daily.visibility_mean[i],
-                    providerData.daily.cape_max[i],
+                WeatherCodeMapper.getWeatherCode(
+                    wmoCode = providerData.daily.weather_code[i],
+                    cloudCover = providerData.daily.cloud_cover_mean[i],
+                    precipProb = providerData.daily.precipitation_probability_max[i],
+                    visibility = providerData.daily.visibility_mean[i],
+                    cape = providerData.daily.cape_max[i]
                 ) ?: return null
             }
         } catch (_: ArrayIndexOutOfBoundsException) {
             Timber.w("mapProviderData: Daily data index out of bounds")
+            return null
+        }
+        val hourlyWarningCode = try {
+            providerData.hourly.weather_code.indices.map { i ->
+                WarningCodeMapper.getWarningCode(
+                    uvIndex = providerData.hourly.uv_index[i],
+                    uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i],
+                    cloudCover = providerData.hourly.cloud_cover[i]
+                )
+            }
+        } catch (_: ArrayIndexOutOfBoundsException) {
+            Timber.w("mapProviderData: Hourly data index out of bounds")
             return null
         }
         return WeatherData(
@@ -98,6 +110,7 @@ object WeatherService {
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
             hourlyTempCelsius = providerData.hourly.temperature_2m,
             hourlyIsDay = providerData.hourly.is_day.map { v -> v == 1 },
+            hourlyWarningCode = hourlyWarningCode,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
             dailyWeatherCode = dailyWeatherCode,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,

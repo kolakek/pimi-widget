@@ -17,20 +17,25 @@
 
 package com.kolakek.pimiwidget.weather
 
-import kotlinx.serialization.Serializable
+object WarningCodeMapper {
 
-@Serializable
-data class WeatherData (
-    val minutelyWeatherCode: List<WeatherCode>,
-    val minutelyTempCelsius: List<Double>,
-    val minutelyIsDay: List<Boolean>,
-    val minutelyTimeMillis: List<Long>,
-    val hourlyTempCelsius: List<Double>,
-    val hourlyIsDay: List<Boolean>,
-    val hourlyWarningCode: List<WarningCode>,
-    val hourlyTimeMillis: List<Long>,
-    val dailyWeatherCode: List<WeatherCode>,
-    val dailyTempMinCelsius: List<Double>,
-    val dailyTempMaxCelsius: List<Double>,
-    val dailyTimeMillis: List<Long>
-)
+    internal fun getWarningCode(
+        uvIndex: Double,
+        uvIndexClearSky: Double,
+        cloudCover: Double
+    ): WarningCode {
+        val extremeUv = (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
+                (uvIndexClearSky >= EXTR_UV_MIN_UV_INDEX && cloudCover < EXTR_UV_MAX_CLOUD_COVER)
+
+        val severeUv = (uvIndex >= SEVR_UV_MIN_UV_INDEX) ||
+                (uvIndexClearSky >= SEVR_UV_MIN_UV_INDEX && cloudCover < SEVR_UV_MAX_CLOUD_COVER)
+
+        return when {
+            extremeUv -> WarningCode.EXTREME_UV
+
+            severeUv -> WarningCode.SEVERE_UV
+
+            else -> WarningCode.NO_WARNING
+        }
+    }
+}

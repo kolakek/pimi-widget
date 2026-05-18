@@ -61,3 +61,8 @@ internal const val MIN_PROBABILITY_PRECIP = 30
 
 internal const val CODE_LIGHT_SHOWERS = 237
 internal const val CODE_NO_PRECIP = 1138
+
+internal const val EXTR_UV_MIN_UV_INDEX = 11
+internal const val EXTR_UV_MAX_CLOUD_COVER = 50
+internal const val SEVR_UV_MIN_UV_INDEX = 8
+internal const val SEVR_UV_MAX_CLOUD_COVER = 70
