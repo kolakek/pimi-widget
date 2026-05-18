@@ -44,8 +44,11 @@ internal object WidgetRenderer {
         WidgetIntent.categoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
             views.setOnClickPendingIntent(R.id.widget_text_clock, it)
         }
-        val pendingIntent = WidgetIntent.categoryIntent(context, Intent.CATEGORY_APP_WEATHER, appWidgetId)
-            ?: WidgetIntent.altWeatherAppIntent(context, appWidgetId)
+        val pendingIntent = WidgetIntent.categoryIntent(
+            context,
+            Intent.CATEGORY_APP_WEATHER,
+            appWidgetId
+        ) ?: WidgetIntent.altWeatherAppIntent(context, appWidgetId)
 
         pendingIntent?.let {
             views.setOnClickPendingIntent(R.id.widget_temp, it)
@@ -83,7 +86,7 @@ internal object WidgetRenderer {
                 context,
                 DataKeys.WEATHER_DATA_KEY
             )?.let { data ->
-                WeatherFormatter.getWeatherStrAndIcon(
+                WeatherFormatter.getWidgetWeatherStrAndIcons(
                     context,
                     data,
                     prefs.showForecast,

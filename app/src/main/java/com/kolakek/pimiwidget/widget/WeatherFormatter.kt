@@ -30,7 +30,7 @@ import java.time.ZoneId
 
 internal object WeatherFormatter {
 
-    internal fun getWeatherStrAndIcon(
+    internal fun getWidgetWeatherStrAndIcons(
         context: Context,
         weather: WeatherData,
         showForecast: Boolean,
@@ -38,8 +38,45 @@ internal object WeatherFormatter {
         iconStylePref: PreferencesHelper.IconStyle,
         lightColor: Boolean
     ): TextWithIcon? {
+
         val nowTimeMillis = System.currentTimeMillis()
-        val currentIndex = getCurrentIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
+
+        val currentWeatherInfo = getCurrentWeatherStrAndIcon(
+            context,
+            nowTimeMillis,
+            weather,
+            tempUnitPref,
+            iconStylePref,
+            lightColor
+        ) ?: return null
+
+        val forecastStr = if (showForecast) {
+            getForecastStr(
+                context,
+                nowTimeMillis,
+                weather,
+                tempUnitPref
+            )
+        } else null
+
+        val widgetStr = forecastStr?.let {
+            currentWeatherInfo.text + it
+        } ?: currentWeatherInfo.text
+
+        return TextWithIcon(widgetStr, currentWeatherInfo.iconId)
+    }
+
+    private fun getCurrentWeatherStrAndIcon(
+        context: Context,
+        nowTimeMillis: Long,
+        weather: WeatherData,
+        tempUnitPref: PreferencesHelper.TempUnit,
+        iconStylePref: PreferencesHelper.IconStyle,
+        lightColor: Boolean
+    ): TextWithIcon? {
+        val currentIndex = getTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
+
+        Timber.d("getCurrentWeatherStrAndIcon: Time index $currentIndex")
 
         val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
@@ -58,31 +95,19 @@ internal object WeatherFormatter {
             isDay,
             iconStyle
         )
-        val forecastStr = if (showForecast) {
-            getForecastStr(
-                context,
-                nowTimeMillis,
-                weather,
-                tempUnitPref
-            )
-        } else null
-
-        val weatherStr = forecastStr?.let { temperatureStr + it } ?: temperatureStr
-
-        return TextWithIcon(weatherStr, weatherIconId)
+        return TextWithIcon(temperatureStr, weatherIconId)
     }
 
-    private fun getCurrentIndex(
-        minutelyTimeMillis: List<Long>,
+    private fun getTimeIndex(
+        timeMillis: List<Long>,
         nowTimeMillis: Long
     ): Int? {
-        val idx = minutelyTimeMillis.indexOfFirst { it > nowTimeMillis }
+        val idx = timeMillis.indexOfFirst { it > nowTimeMillis }
 
         if (idx == -1) {
-            Timber.w("getCurrentIndex: No data available at current time")
+            Timber.w("getTimeIndex: No data available at given time")
             return null
         }
-        Timber.d("getCurrentIndex: Current index $idx")
         return idx
     }
 
