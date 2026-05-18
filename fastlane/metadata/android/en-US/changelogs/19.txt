@@ -1,0 +1,4 @@
+* Language support: cs, da, el, es, fi, fr, it, nl, pl, pt, ro, sq, sv, uk
+* Better weather thresholds for more reliable daily forecasts
+* Code refactoring to improve maintainability
+* Various minor bug fixes
