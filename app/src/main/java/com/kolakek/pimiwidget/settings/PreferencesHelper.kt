@@ -17,35 +17,71 @@
 
 package com.kolakek.pimiwidget.settings
 
+import android.app.WallpaperColors
+import android.app.WallpaperManager
 import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.kolakek.pimiwidget.resources.IconStyle
+import com.kolakek.pimiwidget.widget.TempUnit
+import com.kolakek.pimiwidget.widget.TextStyle
 
 internal object PreferencesHelper {
 
-    enum class IconStyle(val key: String) {
+    internal enum class IconStylePref(val key: String) {
         FLAT_SKETCH(KEY_ICON_STYLE_FLAT_SKETCH),
         TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
     }
 
-    enum class TempUnit(val key: String) {
+    internal enum class TempUnitPref(val key: String) {
         CELSIUS(KEY_CELSIUS),
         FAHRENHEIT(KEY_FAHRENHEIT)
     }
 
-    enum class TextColor(val key: String) {
+    internal enum class TextColorPref(val key: String) {
         AUTO(KEY_COLOR_AUTO),
         LIGHT(KEY_COLOR_LIGHT),
         DARK(KEY_COLOR_DARK)
     }
 
     internal fun getWidgetPreferences(context: Context): WidgetPreferences {
+        val textColorPref = getTextColorPreference(context)
+        val iconStylePref = getIconStylePreference(context)
+        val tempUnitPref = getTempUnitPreference(context)
+
+        val isLightText = when (textColorPref) {
+            TextColorPref.AUTO ->
+                WallpaperManager
+                    .getInstance(context)
+                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+                    ?.colorHints
+                    ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
+            TextColorPref.LIGHT -> true
+            TextColorPref.DARK -> false
+        }
+        val iconStyle = when (iconStylePref) {
+            IconStylePref.FLAT_SKETCH ->
+                if (isLightText) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
+
+            IconStylePref.TWINKLE_SHADOW ->
+                if (isLightText) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
+        }
+        val textStyle = when (isLightText to iconStylePref) {
+            true to IconStylePref.FLAT_SKETCH -> TextStyle.LIGHT
+            true to IconStylePref.TWINKLE_SHADOW -> TextStyle.LIGHT_SHADOW
+            else -> TextStyle.DARK
+        }
+        val tempUnit = when (tempUnitPref) {
+            TempUnitPref.CELSIUS -> TempUnit.CELSIUS
+            TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
+        }
+
         return WidgetPreferences(
             showWeather = getWeatherPreference(context),
             showForecast = getDailyForecastPreference(context),
-            tempUnit = getTempUnitPreference(context),
-            iconStyle = getIconStylePreference(context),
-            textColor = getTextColorPreference(context)
+            tempUnit = tempUnit,
+            iconStyle = iconStyle,
+            textStyle = textStyle
         )
     }
 
@@ -65,22 +101,22 @@ internal object PreferencesHelper {
             .getBoolean(KEY_DAILY_FORECAST, true)
     }
 
-    private fun getTextColorPreference(context: Context): TextColor {
+    private fun getTextColorPreference(context: Context): TextColorPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEXT_COLOR_LIST, null)
-        return TextColor.entries.find { it.key == key } ?: TextColor.AUTO
+        return TextColorPref.entries.find { it.key == key } ?: TextColorPref.AUTO
     }
 
-    private fun getIconStylePreference(context: Context): IconStyle {
+    private fun getIconStylePreference(context: Context): IconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_STYLE_LIST, null)
-        return IconStyle.entries.find { it.key == key } ?: IconStyle.FLAT_SKETCH
+        return IconStylePref.entries.find { it.key == key } ?: IconStylePref.FLAT_SKETCH
 
     }
 
-    private fun getTempUnitPreference(context: Context): TempUnit {
+    private fun getTempUnitPreference(context: Context): TempUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNITS, null)
-        return TempUnit.entries.find { it.key == key } ?: TempUnit.CELSIUS
+        return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.CELSIUS
     }
 }

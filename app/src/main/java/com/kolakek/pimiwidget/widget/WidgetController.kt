@@ -45,7 +45,7 @@ internal object WidgetController {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val views = WidgetRenderer.buildRemoteViews(context, prefs)
+        val views = WidgetRenderer.buildRemoteViews(context, prefs.textStyle)
 
         when (updateMode) {
             WidgetUpdateMode.FULL_WIDGET_UPDATE -> {

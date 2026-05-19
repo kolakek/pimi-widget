@@ -22,7 +22,6 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyle
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
-import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
@@ -36,9 +35,8 @@ internal object WeatherFormatter {
         weather: WeatherData,
         showWarning: Boolean,
         showForecast: Boolean,
-        tempUnitPref: PreferencesHelper.TempUnit,
-        iconStylePref: PreferencesHelper.IconStyle,
-        lightColor: Boolean
+        tempUnit: TempUnit,
+        iconStyle: IconStyle
     ): TextWithTwoIcons? {
 
         val nowTimeMillis = System.currentTimeMillis()
@@ -47,9 +45,8 @@ internal object WeatherFormatter {
             context,
             nowTimeMillis,
             weather,
-            tempUnitPref,
-            iconStylePref,
-            lightColor
+            tempUnit,
+            iconStyle
         ) ?: return null
 
         val warningStrAndIcon = if (showWarning) {
@@ -65,7 +62,7 @@ internal object WeatherFormatter {
                 context,
                 nowTimeMillis,
                 weather,
-                tempUnitPref
+                tempUnit
             )
         } else null
 
@@ -80,9 +77,8 @@ internal object WeatherFormatter {
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        tempUnitPref: PreferencesHelper.TempUnit,
-        iconStylePref: PreferencesHelper.IconStyle,
-        lightColor: Boolean
+        tempUnit: TempUnit,
+        iconStyle: IconStyle
     ): TextWithOneIcon? {
         val timeIndex = getNextTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
@@ -92,14 +88,8 @@ internal object WeatherFormatter {
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(timeIndex) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(timeIndex) ?: return null
 
-        val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
+        val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnit)
 
-        val iconStyle = when (iconStylePref) {
-            PreferencesHelper.IconStyle.FLAT_SKETCH ->
-                if (lightColor) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
-            PreferencesHelper.IconStyle.TWINKLE_SHADOW ->
-                if (lightColor) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
-        }
         val weatherIconId = WeatherIcon.getWeatherIconId(
             weatherCode,
             isDay,
@@ -145,7 +135,7 @@ internal object WeatherFormatter {
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        tempUnitPref: PreferencesHelper.TempUnit
+        tempUnit: TempUnit
     ): String? {
 
         val zone = ZoneId.systemDefault()
@@ -173,8 +163,8 @@ internal object WeatherFormatter {
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
 
-        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnitPref, false)
-        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnitPref, false)
+        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnit, false)
+        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnit, false)
 
         val weatherStrId = WeatherString.getShortWeatherStrId(
             weatherCode,
@@ -194,10 +184,10 @@ internal object WeatherFormatter {
     private fun getTemperatureStr(
         context: Context,
         tempCelsius: Double,
-        tempUnitPref: PreferencesHelper.TempUnit,
+        tempUnit: TempUnit,
         fullUnit: Boolean = true
     ): String {
-        val isFahrenheit = (tempUnitPref == PreferencesHelper.TempUnit.FAHRENHEIT)
+        val isFahrenheit = (tempUnit == TempUnit.FAHRENHEIT)
         val tempValue = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
         val unit = if (fullUnit) {
             if (isFahrenheit) {

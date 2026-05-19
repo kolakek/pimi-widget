@@ -15,16 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.widget
 
-import com.kolakek.pimiwidget.resources.IconStyle
-import com.kolakek.pimiwidget.widget.TempUnit
-import com.kolakek.pimiwidget.widget.TextStyle
-
-internal data class WidgetPreferences (
-    val showWeather: Boolean,
-    val showForecast: Boolean,
-    val iconStyle: IconStyle,
-    val textStyle: TextStyle,
-    val tempUnit: TempUnit
-)
+enum class TextStyle {
+    DARK,
+    LIGHT,
+    LIGHT_SHADOW
+}

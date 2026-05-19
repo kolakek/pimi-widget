@@ -17,8 +17,6 @@
 
 package com.kolakek.pimiwidget.widget
 
-import android.app.WallpaperColors
-import android.app.WallpaperManager
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
@@ -28,7 +26,6 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
 import java.util.Locale
@@ -92,8 +89,7 @@ internal object WidgetRenderer {
                     showWarning = true, // ToDo
                     prefs.showForecast,
                     prefs.tempUnit,
-                    prefs.iconStyle,
-                    useLightText(context, prefs.textColor)
+                    prefs.iconStyle
                 )?.let { (text, iconId1, iconId2) ->
                     views.setTextViewText(R.id.widget_temp, text)
                     views.setTextViewCompoundDrawables(R.id.widget_temp, iconId1, 0, iconId2, 0)
@@ -106,30 +102,13 @@ internal object WidgetRenderer {
 
     internal fun buildRemoteViews(
         context: Context,
-        prefs: WidgetPreferences
+        textStyle: TextStyle
     ): RemoteViews {
-        val layout = if (useLightText(context, prefs.textColor)) {
-            if (prefs.iconStyle == PreferencesHelper.IconStyle.FLAT_SKETCH) {
-                R.layout.pimi_widget_light
-            } else {
-                R.layout.pimi_widget_light_shadow
-            }
-        } else {
-            R.layout.pimi_widget_dark
+        val layout = when (textStyle) {
+            TextStyle.DARK -> R.layout.pimi_widget_dark
+            TextStyle.LIGHT -> R.layout.pimi_widget_light
+            TextStyle.LIGHT_SHADOW -> R.layout.pimi_widget_light_shadow
         }
         return RemoteViews(context.packageName, layout)
     }
-
-    private fun useLightText(context: Context, textColor: PreferencesHelper.TextColor): Boolean =
-        when (textColor) {
-            PreferencesHelper.TextColor.AUTO ->
-                WallpaperManager
-                    .getInstance(context)
-                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-                    ?.colorHints
-                    ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
-
-            PreferencesHelper.TextColor.LIGHT -> true
-            PreferencesHelper.TextColor.DARK -> false
-        }
 }
