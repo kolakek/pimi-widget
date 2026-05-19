@@ -28,6 +28,8 @@ object WarningIcon {
         textStyle: TextStyle
     ): Int {
         return when (warningLevel) {
+            WarningLevel.NONE -> 0
+
             WarningLevel.SEVERE ->
                 when (textStyle) {
                     TextStyle.DARK -> R.drawable.warn_sevr_dark

@@ -25,7 +25,7 @@ import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningCode
-import com.kolakek.pimiwidget.weather.WarningLevel
+import com.kolakek.pimiwidget.weather.WarningCodeMapper
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -103,22 +103,21 @@ internal object WeatherFormatter {
         weather: WeatherData,
         textStyle: TextStyle
     ): TextWithOneIcon? {
-        val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
+        val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null // ToDo also look into past hour
 
         Timber.d("getWarningStrAndIcon: Time index $timeIndex")
 
         val warningCode = weather.hourlyWarningCode.getOrNull(timeIndex) ?: return null
+        val warningLevel = WarningCodeMapper.getWarningLevelFromCode(warningCode)
 
         Timber.d("getWarningStrAndIcon: Warning $warningCode")
 
-        return if (warningCode == WarningCode.NO_WARNING) {
-            null
-        } else {
-            TextWithOneIcon(
-                " · Very high UV levels", // ToDo
-                WarningIcon.getWarningIconId(WarningLevel.SEVERE, textStyle) // ToDo
-            )
-        }
+        if (warningCode == WarningCode.NO_WARNING) return null
+
+        return TextWithOneIcon(
+            " · Very high UV levels", // ToDo
+            WarningIcon.getWarningIconId(warningLevel, textStyle)
+        )
     }
 
     private fun getNextTimeIndex(
