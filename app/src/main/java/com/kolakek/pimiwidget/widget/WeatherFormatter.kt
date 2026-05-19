@@ -20,9 +20,12 @@ package com.kolakek.pimiwidget.widget
 import android.content.Context
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyle
+import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningCode
+import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -33,10 +36,7 @@ internal object WeatherFormatter {
     internal fun getWidgetWeatherStrAndIcons(
         context: Context,
         weather: WeatherData,
-        showWarning: Boolean,
-        showForecast: Boolean,
-        tempUnit: TempUnit,
-        iconStyle: IconStyle
+        prefs: WidgetPreferences
     ): TextWithTwoIcons? {
 
         val nowTimeMillis = System.currentTimeMillis()
@@ -45,24 +45,24 @@ internal object WeatherFormatter {
             context,
             nowTimeMillis,
             weather,
-            tempUnit,
-            iconStyle
+            prefs.tempUnit,
+            prefs.iconStyle
         ) ?: return null
 
-        val warningStrAndIcon = if (showWarning) {
+        val warningStrAndIcon = if (true) { // ToDo showWarnings
             getWarningStrAndIcon(
-                context,
                 nowTimeMillis,
-                weather
+                weather,
+                prefs.textStyle
             )
         } else null
 
-        val forecastStr = if (warningStrAndIcon == null && showForecast) {
+        val forecastStr = if (warningStrAndIcon == null && prefs.showForecast) {
             getForecastStr(
                 context,
                 nowTimeMillis,
                 weather,
-                tempUnit
+                prefs.tempUnit
             )
         } else null
 
@@ -99,9 +99,9 @@ internal object WeatherFormatter {
     }
 
     private fun getWarningStrAndIcon(
-        context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
+        textStyle: TextStyle
     ): TextWithOneIcon? {
         val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
 
@@ -114,7 +114,10 @@ internal object WeatherFormatter {
         return if (warningCode == WarningCode.NO_WARNING) {
             null
         } else {
-            TextWithOneIcon(" · Very high UV levels", R.drawable.warn_sevr_light) // ToDo
+            TextWithOneIcon(
+                " · Very high UV levels", // ToDo
+                WarningIcon.getWarningIconId(WarningLevel.SEVERE, textStyle) // ToDo
+            )
         }
     }
 
