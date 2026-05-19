@@ -89,13 +89,14 @@ internal object WidgetRenderer {
                 WeatherFormatter.getWidgetWeatherStrAndIcons(
                     context,
                     data,
+                    showWarning = true, // ToDo
                     prefs.showForecast,
                     prefs.tempUnit,
                     prefs.iconStyle,
                     useLightText(context, prefs.textColor)
-                )?.let { (text, iconId) ->
+                )?.let { (text, iconId1, iconId2) ->
                     views.setTextViewText(R.id.widget_temp, text)
-                    views.setTextViewCompoundDrawables(R.id.widget_temp, iconId, 0, 0, 0)
+                    views.setTextViewCompoundDrawables(R.id.widget_temp, iconId1, 0, iconId2, 0)
                     views.setViewVisibility(R.id.widget_temp, View.VISIBLE)
                 }
             }

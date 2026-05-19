@@ -23,6 +23,7 @@ import com.kolakek.pimiwidget.resources.IconStyle
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -33,11 +34,12 @@ internal object WeatherFormatter {
     internal fun getWidgetWeatherStrAndIcons(
         context: Context,
         weather: WeatherData,
+        showWarning: Boolean,
         showForecast: Boolean,
         tempUnitPref: PreferencesHelper.TempUnit,
         iconStylePref: PreferencesHelper.IconStyle,
         lightColor: Boolean
-    ): TextWithIcon? {
+    ): TextWithTwoIcons? {
 
         val nowTimeMillis = System.currentTimeMillis()
 
@@ -50,7 +52,15 @@ internal object WeatherFormatter {
             lightColor
         ) ?: return null
 
-        val forecastStr = if (showForecast) {
+        val warningStrAndIcon = if (showWarning) {
+            getWarningStrAndIcon(
+                context,
+                nowTimeMillis,
+                weather
+            )
+        } else null
+
+        val forecastStr = if (warningStrAndIcon == null && showForecast) {
             getForecastStr(
                 context,
                 nowTimeMillis,
@@ -59,11 +69,11 @@ internal object WeatherFormatter {
             )
         } else null
 
-        val widgetStr = forecastStr?.let {
-            currentWeatherInfo.text + it
-        } ?: currentWeatherInfo.text
+        val extraIconId = warningStrAndIcon?.iconId ?: 0
+        val extraText = warningStrAndIcon?.text ?: forecastStr ?: ""
+        val widgetStr = currentWeatherInfo.text + extraText
 
-        return TextWithIcon(widgetStr, currentWeatherInfo.iconId)
+        return TextWithTwoIcons(widgetStr, currentWeatherInfo.iconId, extraIconId)
     }
 
     private fun getCurrentWeatherStrAndIcon(
@@ -73,14 +83,14 @@ internal object WeatherFormatter {
         tempUnitPref: PreferencesHelper.TempUnit,
         iconStylePref: PreferencesHelper.IconStyle,
         lightColor: Boolean
-    ): TextWithIcon? {
-        val currentIndex = getTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
+    ): TextWithOneIcon? {
+        val timeIndex = getNextTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
-        Timber.d("getCurrentWeatherStrAndIcon: Time index $currentIndex")
+        Timber.d("getCurrentWeatherStrAndIcon: Time index $timeIndex")
 
-        val weatherCode = weather.minutelyWeatherCode.getOrNull(currentIndex) ?: return null
-        val tempCelsius = weather.minutelyTempCelsius.getOrNull(currentIndex) ?: return null
-        val isDay = weather.minutelyIsDay.getOrNull(currentIndex) ?: return null
+        val weatherCode = weather.minutelyWeatherCode.getOrNull(timeIndex) ?: return null
+        val tempCelsius = weather.minutelyTempCelsius.getOrNull(timeIndex) ?: return null
+        val isDay = weather.minutelyIsDay.getOrNull(timeIndex) ?: return null
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnitPref)
 
@@ -95,10 +105,30 @@ internal object WeatherFormatter {
             isDay,
             iconStyle
         )
-        return TextWithIcon(temperatureStr, weatherIconId)
+        return TextWithOneIcon(temperatureStr, weatherIconId)
     }
 
-    private fun getTimeIndex(
+    private fun getWarningStrAndIcon(
+        context: Context,
+        nowTimeMillis: Long,
+        weather: WeatherData,
+    ): TextWithOneIcon? {
+        val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
+
+        Timber.d("getWarningStrAndIcon: Time index $timeIndex")
+
+        val warningCode = weather.hourlyWarningCode.getOrNull(timeIndex) ?: return null
+
+        Timber.d("getWarningStrAndIcon: Warning $warningCode")
+
+        return if (warningCode == WarningCode.NO_WARNING) {
+            null
+        } else {
+            TextWithOneIcon(" · Very high UV levels", R.drawable.warn_sevr_light) // ToDo
+        }
+    }
+
+    private fun getNextTimeIndex(
         timeMillis: List<Long>,
         nowTimeMillis: Long
     ): Int? {
