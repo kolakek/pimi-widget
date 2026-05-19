@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.widget
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
+import android.widget.RemoteViews
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import timber.log.Timber
 
@@ -45,8 +46,10 @@ internal object WidgetController {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val views = WidgetRenderer.buildRemoteViews(context, prefs.textStyle)
-
+        val views = RemoteViews(
+            context.packageName,
+            WidgetRenderer.getWidgetLayout(prefs.textStyle)
+        )
         when (updateMode) {
             WidgetUpdateMode.FULL_WIDGET_UPDATE -> {
                 WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)

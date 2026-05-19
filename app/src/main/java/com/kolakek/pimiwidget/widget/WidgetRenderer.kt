@@ -100,15 +100,11 @@ internal object WidgetRenderer {
         appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
-    internal fun buildRemoteViews(
-        context: Context,
-        textStyle: TextStyle
-    ): RemoteViews {
-        val layout = when (textStyle) {
+    internal fun getWidgetLayout(textStyle: TextStyle): Int {
+        return when (textStyle) {
             TextStyle.DARK -> R.layout.pimi_widget_dark
             TextStyle.LIGHT -> R.layout.pimi_widget_light
             TextStyle.LIGHT_SHADOW -> R.layout.pimi_widget_light_shadow
         }
-        return RemoteViews(context.packageName, layout)
     }
 }
