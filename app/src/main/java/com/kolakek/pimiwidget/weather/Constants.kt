@@ -51,9 +51,9 @@ internal const val TIMEZONE_KEY = "timezone"
 internal const val TIMEZONE_VALUE = "auto"
 
 internal const val MIN_CLOUD_COVER_OVERCAST = 85
-internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 60
-internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 30
-internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 10
+internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 65
+internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 40
+internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 20
 internal const val MIN_CAPE_THUNDERSTORM = 500
 internal const val MIN_POP_THUNDERSTORM = 40
 internal const val MAX_VISIBILITY_FOG = 1000
