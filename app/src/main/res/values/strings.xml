@@ -191,6 +191,11 @@
     <string name="clear_sky_day">Sunny</string>
     <string name="clear_sky_night">Clear</string>
 
+    <!-- Strings defining weather warnings -->
+    <string name="no_warning">No active warnings</string>
+    <string name="severe_uv">Very high UV levels</string>
+    <string name="extreme_uv">Extreme UV levels</string>
+
     <!-- String saying today -->
     <string name="today">Today</string>
 

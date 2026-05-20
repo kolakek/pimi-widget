@@ -21,6 +21,7 @@ import android.content.Context
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.IconStyle
 import com.kolakek.pimiwidget.resources.WarningIcon
+import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.WidgetPreferences
@@ -51,6 +52,7 @@ internal object WeatherFormatter {
 
         val warningStrAndIcon = if (prefs.showWeatherWarning) {
             getWarningStrAndIcon(
+                context,
                 nowTimeMillis,
                 weather,
                 prefs.textStyle
@@ -100,6 +102,7 @@ internal object WeatherFormatter {
     }
 
     private fun getWarningStrAndIcon(
+        context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
         textStyle: TextStyle
@@ -116,7 +119,7 @@ internal object WeatherFormatter {
         if (warningCode == WarningCode.NO_WARNING) return null
 
         return TextWithOneIcon(
-            "Very high UV levels", // ToDo
+            context.getString(WarningString.getWarningStrId(warningCode)),
             WarningIcon.getWarningIconId(warningLevel, textStyle)
         )
     }
