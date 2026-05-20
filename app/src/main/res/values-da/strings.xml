@@ -137,8 +137,11 @@
     <string name="clear_sky_day">solrigt</string>
     <string name="clear_sky_night">klart</string>
 
+    <string name="extreme_uv">ekstrem UV-stråling</string>
     <string name="today">i dag</string>
     <string name="tomorrow">i morgen</string>
     <string name="config_weather_warnings">Vis vejralarmer</string>
+    <string name="no_warning">ingen advarsler</string>
+    <string name="severe_uv">meget høj UV-stråling</string>
 
 </resources>

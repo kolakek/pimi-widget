@@ -137,8 +137,11 @@
     <string name="clear_sky_day">zonnig</string>
     <string name="clear_sky_night">helder</string>
 
+    <string name="extreme_uv">extreme UV-straling</string>
     <string name="today">vandaag</string>
     <string name="tomorrow">morgen</string>
     <string name="config_weather_warnings">Weerwaarschuwingen tonen</string>
+    <string name="no_warning">geen waarschuwingen</string>
+    <string name="severe_uv">zeer hoge UV-straling</string>
 
 </resources>

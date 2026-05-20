@@ -137,8 +137,11 @@
     <string name="clear_sky_day">ηλιοφάνεια</string>
     <string name="clear_sky_night">αίθριος</string>
 
+    <string name="extreme_uv">ακραία υπεριώδης ακτινοβολία</string>
     <string name="today">σήμερα</string>
     <string name="tomorrow">αύριο</string>
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
+    <string name="no_warning">καμία προειδοποίηση</string>
+    <string name="severe_uv">πολύ υψηλή υπεριώδης ακτινοβολία</string>
 
 </resources>

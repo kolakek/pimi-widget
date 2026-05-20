@@ -138,8 +138,11 @@
     <string name="clear_sky_day">güneşli</string>
     <string name="clear_sky_night">açık</string>
 
+    <string name="extreme_uv">aşırı UV radyasyonu</string>
     <string name="today">bugün</string>
     <string name="tomorrow">yarın</string>
     <string name="config_weather_warnings">Hava uyarılarını göster</string>
+    <string name="no_warning">uyarı yok</string>
+    <string name="severe_uv">çok yüksek UV radyasyonu</string>
 
 </resources>

@@ -140,8 +140,11 @@
     <string name="clear_sky_day">soleggiato</string>
     <string name="clear_sky_night">sereno</string>
 
+    <string name="extreme_uv">radiazione UV estrema</string>
     <string name="today">oggi</string>
     <string name="tomorrow">domani</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
+    <string name="no_warning">nessun avviso</string>
+    <string name="severe_uv">radiazione UV molto alta</string>
 
 </resources>

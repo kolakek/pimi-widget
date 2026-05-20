@@ -139,7 +139,10 @@
     <string name="clear_sky_day">Sonnig</string>
     <string name="clear_sky_night">Klar</string>
 
+    <string name="extreme_uv">Extreme UV-Strahlung</string>
     <string name="today">Heute</string>
     <string name="tomorrow">Morgen</string>
+    <string name="no_warning">Keine Warnungen</string>
+    <string name="severe_uv">Sehr starke UV-Strahlung</string>
 
 </resources>
