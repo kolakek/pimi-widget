@@ -39,6 +39,7 @@
 
     <string name="config_daily_forecast_descr">Ochtend en avond</string>
 
+    <string name="config_weather_warnings_descr">Bij extreme weersomstandigheden</string>
     <string name="config_loc_perm_alert_title">Locatietoestemming vereist</string>
 
     <string name="config_loc_perm_alert">
@@ -138,5 +139,6 @@
 
     <string name="today">vandaag</string>
     <string name="tomorrow">morgen</string>
+    <string name="config_weather_warnings">Weerwaarschuwingen tonen</string>
 
 </resources>

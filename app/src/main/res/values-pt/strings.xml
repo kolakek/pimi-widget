@@ -39,6 +39,7 @@
 
     <string name="config_daily_forecast_descr">De manhã e à noite</string>
 
+    <string name="config_weather_warnings_descr">Para condições climáticas severas</string>
     <string name="config_loc_perm_alert_title">Permissão de localização necessária</string>
 
     <string name="config_loc_perm_alert">
@@ -141,5 +142,6 @@
 
     <string name="today">hoje</string>
     <string name="tomorrow">amanhã</string>
+    <string name="config_weather_warnings">Exibir alertas de tempo</string>
 
 </resources>

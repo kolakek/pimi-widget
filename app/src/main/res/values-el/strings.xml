@@ -39,6 +39,7 @@
 
     <string name="config_daily_forecast_descr">Το πρωί και το βράδυ</string>
 
+    <string name="config_weather_warnings_descr">Για ακραίες καιρικές συνθήκες</string>
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
 
     <string name="config_loc_perm_alert">
@@ -138,5 +139,6 @@
 
     <string name="today">σήμερα</string>
     <string name="tomorrow">αύριο</string>
+    <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
 
 </resources>

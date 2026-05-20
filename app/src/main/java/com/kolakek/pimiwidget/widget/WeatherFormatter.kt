@@ -49,7 +49,7 @@ internal object WeatherFormatter {
             prefs.iconStyle
         ) ?: return null
 
-        val warningStrAndIcon = if (true) { // ToDo showWarnings
+        val warningStrAndIcon = if (prefs.showWeatherWarning) {
             getWarningStrAndIcon(
                 nowTimeMillis,
                 weather,
@@ -57,7 +57,7 @@ internal object WeatherFormatter {
             )
         } else null
 
-        val forecastStr = if (warningStrAndIcon == null && prefs.showForecast) {
+        val forecastStr = if (warningStrAndIcon == null && prefs.showDailyForecast) {
             getForecastStr(
                 context,
                 nowTimeMillis,

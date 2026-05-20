@@ -23,7 +23,8 @@ import com.kolakek.pimiwidget.widget.TextStyle
 
 internal data class WidgetPreferences (
     val showWeather: Boolean,
-    val showForecast: Boolean,
+    val showDailyForecast: Boolean,
+    val showWeatherWarning: Boolean,
     val iconStyle: IconStyle,
     val textStyle: TextStyle,
     val tempUnit: TempUnit

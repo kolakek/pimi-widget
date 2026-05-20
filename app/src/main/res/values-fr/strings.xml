@@ -39,6 +39,7 @@
 
     <string name="config_daily_forecast_descr">Le matin et le soir</string>
 
+    <string name="config_weather_warnings_descr">Pour les conditions météorologiques extrêmes</string>
     <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
 
     <string name="config_loc_perm_alert">
@@ -141,5 +142,6 @@
 
     <string name="today">aujourd’hui</string>
     <string name="tomorrow">demain</string>
+    <string name="config_weather_warnings">Afficher les alertes météo</string>
 
 </resources>

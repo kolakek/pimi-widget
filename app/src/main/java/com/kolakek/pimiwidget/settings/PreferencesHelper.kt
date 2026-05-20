@@ -78,7 +78,8 @@ internal object PreferencesHelper {
 
         return WidgetPreferences(
             showWeather = getWeatherPreference(context),
-            showForecast = getDailyForecastPreference(context),
+            showDailyForecast = getDailyForecastPreference(context),
+            showWeatherWarning = getWeatherWarningPreference(context),
             tempUnit = tempUnit,
             iconStyle = iconStyle,
             textStyle = textStyle
@@ -99,6 +100,11 @@ internal object PreferencesHelper {
     private fun getDailyForecastPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)
+    }
+
+    private fun getWeatherWarningPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_WEATHER_WARNING, true)
     }
 
     private fun getTextColorPreference(context: Context): TextColorPref {

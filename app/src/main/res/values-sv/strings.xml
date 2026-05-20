@@ -39,6 +39,7 @@
 
     <string name="config_daily_forecast_descr">På morgonen och kvällen</string>
 
+    <string name="config_weather_warnings_descr">Vid extrema väderförhållanden</string>
     <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
 
     <string name="config_loc_perm_alert">
@@ -138,5 +139,6 @@
 
     <string name="today">idag</string>
     <string name="tomorrow">imorgon</string>
+    <string name="config_weather_warnings">Visa vädervarningar</string>
 
 </resources>

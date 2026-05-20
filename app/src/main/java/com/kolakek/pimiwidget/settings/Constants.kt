@@ -40,6 +40,7 @@ internal const val KEY_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
 
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
+internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
 internal const val KEY_DEBUG_INFO = "debug_info"
 internal const val KEY_SHARED_DATA = "shared_data"
