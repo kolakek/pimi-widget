@@ -213,6 +213,4 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
 
-    <string name="forecast_line" translatable="false">\u00A0· %1$s %3$s / %4$s · %2$s</string>
-
 </resources>

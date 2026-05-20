@@ -67,7 +67,8 @@ internal object WeatherFormatter {
         } else null
 
         val extraIconId = warningStrAndIcon?.iconId ?: 0
-        val extraText = warningStrAndIcon?.text ?: forecastStr ?: ""
+
+        val extraText = (warningStrAndIcon?.text ?: forecastStr)?.prependIndent(" · ").orEmpty()
         val widgetStr = currentWeatherInfo.text + extraText
 
         return TextWithTwoIcons(widgetStr, currentWeatherInfo.iconId, extraIconId)
@@ -115,7 +116,7 @@ internal object WeatherFormatter {
         if (warningCode == WarningCode.NO_WARNING) return null
 
         return TextWithOneIcon(
-            " · Very high UV levels", // ToDo
+            "Very high UV levels", // ToDo
             WarningIcon.getWarningIconId(warningLevel, textStyle)
         )
     }
@@ -168,19 +169,13 @@ internal object WeatherFormatter {
         val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnit, false)
         val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnit, false)
 
-        val weatherStrId = WeatherString.getShortWeatherStrId(
-            weatherCode,
-            isDay = true,
+        val weatherStr = context.getString(
+            WeatherString.getShortWeatherStrId(weatherCode, isDay = true)
         )
-        val dayStrId = if (isToday) R.string.today else R.string.tomorrow
-
-        return context.getString(
-            R.string.forecast_line,
-            context.getString(dayStrId),
-            context.getString(weatherStrId),
-            maxTempStr,
-            minTempStr
+        val dayStr = context.getString(
+            if (isToday) R.string.today else R.string.tomorrow
         )
+        return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
     }
 
     private fun getTemperatureStr(
