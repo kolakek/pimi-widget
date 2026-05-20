@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.weather
 
+// Ordering expresses warning level
 enum class WarningCode {
     NO_WARNING,
     SEVERE_UV,
