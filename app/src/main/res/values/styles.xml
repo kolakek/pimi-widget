@@ -1,5 +1,14 @@
 <resources>
 
+    <style name="Widget.PimiWidget.Configure.Coordinator" parent="">
+        <item name="android:background">?attr/configBackgroundColor</item>
+    </style>
+
+    <style name="Widget.PimiWidget.Configure.AppBar" parent="">
+        <item name="android:background">?attr/configBackgroundColor</item>
+        <item name="liftOnScrollColor">?attr/colorSurfaceContainerHighest</item>
+    </style>
+
     <style name="Widget.PimiWidget.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>
         <item name="android:padding">?attr/appWidgetPadding</item>

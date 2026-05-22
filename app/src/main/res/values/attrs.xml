@@ -3,5 +3,6 @@
         <attr name="appWidgetPadding" format="dimension" />
         <attr name="appWidgetInnerRadius" format="dimension" />
         <attr name="appWidgetRadius" format="dimension" />
+        <attr name="configBackgroundColor" format="color"/>
     </declare-styleable>
 </resources>
