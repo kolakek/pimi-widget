@@ -42,8 +42,8 @@ object WarningCodeMapper {
     fun getWarningLevelFromCode(warningCode: WarningCode): WarningLevel {
         return when (warningCode) {
             WarningCode.NO_WARNING -> WarningLevel.NONE
-            WarningCode.SEVERE_UV -> WarningLevel.SEVERE
-            WarningCode.EXTREME_UV -> WarningLevel.EXTREME
+            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
+            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
         }
     }
 }

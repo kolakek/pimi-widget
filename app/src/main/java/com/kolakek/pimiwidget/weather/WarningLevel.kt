@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.weather
 
 enum class WarningLevel {
     NONE,
-    SEVERE,
-    EXTREME
+    NORMAL,
+    HIGH,
+    HIGHEST
 }

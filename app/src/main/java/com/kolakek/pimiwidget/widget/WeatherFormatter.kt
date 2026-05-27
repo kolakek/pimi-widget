@@ -25,6 +25,7 @@ import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WarningCodeMapper
 import com.kolakek.pimiwidget.weather.WeatherData
@@ -118,9 +119,10 @@ internal object WeatherFormatter {
         val warningCode = maxOf(warningCodePrev, warningCodeNext)
         val warningLevel = WarningCodeMapper.getWarningLevelFromCode(warningCode)
 
-        Timber.d("getWarningStrAndIcon: Warning $warningCode")
+        Timber.d("getWarningStrAndIcon: Warning $warningCode, level $warningLevel")
 
-        if (warningCode == WarningCode.NO_WARNING) return null
+        if (warningCode == WarningCode.NO_WARNING || warningLevel == WarningLevel.NONE)
+            return null
 
         return TextWithOneIcon(
             context.getString(WarningString.getWarningStrId(warningCode)),
