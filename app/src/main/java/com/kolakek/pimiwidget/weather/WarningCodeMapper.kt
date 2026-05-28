@@ -19,31 +19,57 @@ package com.kolakek.pimiwidget.weather
 
 object WarningCodeMapper {
 
+    fun getWarningLevel(warningCode: WarningCode): WarningLevel {
+        return when (warningCode) {
+            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
+            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
+            WarningCode.NO_WARNING -> WarningLevel.NONE
+        }
+    }
+
+    fun maxPriorityWarning(
+        firstWarningCode: WarningCode,
+        secondWarningCode: WarningCode
+    ): WarningCode {
+        return minOf(firstWarningCode, secondWarningCode)
+    }
+
     internal fun getWarningCode(
         uvIndex: Double,
         uvIndexClearSky: Double,
         cloudCover: Double
     ): WarningCode {
-        val extremeUv = (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
-                (uvIndexClearSky >= EXTR_UV_MIN_UV_INDEX && cloudCover < EXTR_UV_MAX_CLOUD_COVER)
-
-        val severeUv = (uvIndex >= SEVR_UV_MIN_UV_INDEX) ||
-                (uvIndexClearSky >= SEVR_UV_MIN_UV_INDEX && cloudCover < SEVR_UV_MAX_CLOUD_COVER)
-
-        return when {
-            extremeUv -> WarningCode.EXTREME_UV
-
-            severeUv -> WarningCode.SEVERE_UV
-
-            else -> WarningCode.NO_WARNING
+        for (warningCode in WarningCode.entries) {
+            if (matchesWarning(
+                    warningCode,
+                    uvIndex,
+                    uvIndexClearSky,
+                    cloudCover
+                )
+            ) return warningCode
         }
+        return WarningCode.NO_WARNING
     }
 
-    fun getWarningLevelFromCode(warningCode: WarningCode): WarningLevel {
+    private fun matchesWarning(
+        warningCode: WarningCode,
+        uvIndex: Double,
+        uvIndexClearSky: Double,
+        cloudCover: Double
+    ): Boolean {
         return when (warningCode) {
-            WarningCode.NO_WARNING -> WarningLevel.NONE
-            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
-            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
+
+            WarningCode.EXTREME_UV ->
+                (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
+                        (uvIndexClearSky >= EXTR_UV_MIN_UV_INDEX &&
+                                cloudCover < EXTR_UV_MAX_CLOUD_COVER)
+
+            WarningCode.SEVERE_UV ->
+                (uvIndex >= SEVR_UV_MIN_UV_INDEX) ||
+                        (uvIndexClearSky >= SEVR_UV_MIN_UV_INDEX &&
+                                cloudCover < SEVR_UV_MAX_CLOUD_COVER)
+
+            WarningCode.NO_WARNING -> false
         }
     }
 }

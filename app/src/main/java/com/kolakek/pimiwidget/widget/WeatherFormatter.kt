@@ -116,8 +116,10 @@ internal object WeatherFormatter {
         val warningCodeNext = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
         val warningCodePrev = weather.hourlyWarningCode.getOrNull(prevIndex) ?: return null
 
-        val warningCode = maxOf(warningCodePrev, warningCodeNext)
-        val warningLevel = WarningCodeMapper.getWarningLevelFromCode(warningCode)
+        Timber.d("getWarningStrAndIcon: prev $warningCodePrev, next $warningCodeNext")
+
+        val warningCode = WarningCodeMapper.maxPriorityWarning(warningCodePrev, warningCodeNext)
+        val warningLevel = WarningCodeMapper.getWarningLevel(warningCode)
 
         Timber.d("getWarningStrAndIcon: Warning $warningCode, level $warningLevel")
 
