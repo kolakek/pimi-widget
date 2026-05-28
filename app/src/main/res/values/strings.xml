@@ -108,7 +108,7 @@
     <string name="config_alert_button_update">Force update</string>
 
     <!-- String for the title of a config option to show the shared data -->
-    <string name="config_shared_data">Data Transparency</string>
+    <string name="config_shared_data">Data transparency</string>
 
     <!-- String for the description of the config option to show the shared data -->
     <string name="config_shared_data_descr">View data exchanged with the weather provider</string>
