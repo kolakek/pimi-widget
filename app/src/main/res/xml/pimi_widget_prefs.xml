@@ -92,10 +92,6 @@
             android:title="@string/config_debug_data"
             app:iconSpaceReserved="false" />
 
-        <Preference
-            android:key="bottom_spacer"
-            android:layout="@layout/preference_spacer" />
-
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
