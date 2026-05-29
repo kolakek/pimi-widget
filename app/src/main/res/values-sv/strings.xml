@@ -138,10 +138,12 @@
     <string name="clear_sky_night">klart</string>
 
     <string name="extreme_uv">extrem UV-strålning</string>
+    <string name="extreme_heat">extrem värme</string>
     <string name="today">idag</string>
     <string name="tomorrow">imorgon</string>
     <string name="config_weather_warnings">Visa vädervarningar</string>
     <string name="no_warning">inga varningar</string>
     <string name="severe_uv">mycket stark UV-strålning</string>
+    <string name="severe_heat">kraftig värme</string>
 
 </resources>

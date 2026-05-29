@@ -144,10 +144,12 @@
     <string name="clear_sky_night">jasno</string>
 
     <string name="extreme_uv">extrémní UV záření</string>
+    <string name="extreme_heat">extrémní vedro</string>
     <string name="today">dnes</string>
     <string name="tomorrow">zítra</string>
     <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
     <string name="no_warning">žádná varování</string>
     <string name="severe_uv">velmi vysoké UV záření</string>
+    <string name="severe_heat">silné vedro</string>
 
 </resources>

@@ -27,6 +27,8 @@ object WarningString {
             WarningCode.NO_WARNING -> R.string.no_warning
             WarningCode.SEVERE_UV -> R.string.severe_uv
             WarningCode.EXTREME_UV -> R.string.extreme_uv
+            WarningCode.SEVERE_HEAT -> R.string.severe_heat
+            WarningCode.EXTREME_HEAT -> R.string.extreme_heat
         }
     }
 }

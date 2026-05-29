@@ -19,38 +19,49 @@ package com.kolakek.pimiwidget.weather
 
 object WarningCodeMapper {
 
-    fun getWarningLevel(warningCode: WarningCode): WarningLevel {
-        return when (warningCode) {
-            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
-            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
-            WarningCode.NO_WARNING -> WarningLevel.NONE
-        }
-    }
-
     internal fun getWarningCode(
         uvIndex: Double,
         uvIndexClearSky: Double,
-        cloudCover: Double
+        cloudCover: Double,
+        apparentTemp: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
             if (matchesWarning(
                     warningCode,
                     uvIndex,
                     uvIndexClearSky,
-                    cloudCover
+                    cloudCover,
+                    apparentTemp
                 )
             ) return warningCode
         }
         return WarningCode.NO_WARNING
     }
 
+    fun getWarningLevel(warningCode: WarningCode): WarningLevel {
+        return when (warningCode) {
+            WarningCode.EXTREME_HEAT -> WarningLevel.HIGHEST
+            WarningCode.SEVERE_HEAT -> WarningLevel.NORMAL
+            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
+            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
+            WarningCode.NO_WARNING -> WarningLevel.NONE
+        }
+    }
+
     private fun matchesWarning(
         warningCode: WarningCode,
         uvIndex: Double,
         uvIndexClearSky: Double,
-        cloudCover: Double
+        cloudCover: Double,
+        apparentTemp: Double
     ): Boolean {
         return when (warningCode) {
+
+            WarningCode.EXTREME_HEAT ->
+                apparentTemp >= EXTR_HEAT_MIN_APPARENT_TEMP
+
+            WarningCode.SEVERE_HEAT ->
+                apparentTemp >= SEVR_HEAT_MIN_APPARENT_TEMP
 
             WarningCode.EXTREME_UV ->
                 (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||

@@ -141,10 +141,12 @@
     <string name="clear_sky_night">senin</string>
 
     <string name="extreme_uv">radiație UV extremă</string>
+    <string name="extreme_heat">căldură extremă</string>
     <string name="today">astăzi</string>
     <string name="tomorrow">mâine</string>
     <string name="config_weather_warnings">Afișează alertă meteorologică</string>
     <string name="no_warning">fără avertizări</string>
     <string name="severe_uv">radiație UV foarte ridicată</string>
+    <string name="severe_heat">căldură puternică</string>
 
 </resources>

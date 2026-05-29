@@ -141,10 +141,12 @@
     <string name="clear_sky_night">céu limpo</string>
 
     <string name="extreme_uv">radiação UV extrema</string>
+    <string name="extreme_heat">calor extremo</string>
     <string name="today">hoje</string>
     <string name="tomorrow">amanhã</string>
     <string name="config_weather_warnings">Exibir alertas de tempo</string>
     <string name="no_warning">sem alertas</string>
     <string name="severe_uv">radiação UV muito alta</string>
+    <string name="severe_heat">calor intenso</string>
 
 </resources>

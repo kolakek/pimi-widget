@@ -144,10 +144,12 @@
     <string name="clear_sky_night">pogodnie</string>
 
     <string name="extreme_uv">ekstremalne promieniowanie UV</string>
+    <string name="extreme_heat">ekstremalny upał</string>
     <string name="today">dzisiaj</string>
     <string name="tomorrow">jutro</string>
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
     <string name="no_warning">brak ostrzeżeń</string>
     <string name="severe_uv">bardzo wysokie promieniowanie UV</string>
+    <string name="severe_heat">silny upał</string>
 
 </resources>

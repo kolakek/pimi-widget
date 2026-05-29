@@ -138,10 +138,12 @@
     <string name="clear_sky_night">selkeää</string>
 
     <string name="extreme_uv">äärimmäinen UV-säteily</string>
+    <string name="extreme_heat">äärimmäinen helle</string>
     <string name="today">tänään</string>
     <string name="tomorrow">huomenna</string>
     <string name="config_weather_warnings">Näytä säävaroitukset</string>
     <string name="no_warning">ei varoituksia</string>
     <string name="severe_uv">erittäin korkea UV-säteily</string>
+    <string name="severe_heat">kova helle</string>
 
 </resources>

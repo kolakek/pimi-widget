@@ -96,7 +96,8 @@ object WeatherService {
                 WarningCodeMapper.getWarningCode(
                     uvIndex = providerData.hourly.uv_index[i],
                     uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i],
-                    cloudCover = providerData.hourly.cloud_cover[i]
+                    cloudCover = providerData.hourly.cloud_cover[i],
+                    apparentTemp = providerData.hourly.apparent_temperature[i]
                 )
             }
         } catch (_: ArrayIndexOutOfBoundsException) {

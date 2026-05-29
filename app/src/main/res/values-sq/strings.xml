@@ -138,10 +138,12 @@
     <string name="clear_sky_night">i kthjellët</string>
 
     <string name="extreme_uv">rrezatim UV ekstrem</string>
+    <string name="extreme_heat">nxehtësi ekstreme</string>
     <string name="today">sot</string>
     <string name="tomorrow">nesër</string>
     <string name="config_weather_warnings">Shfaq paralajmërime moti</string>
     <string name="no_warning">pa paralajmërime</string>
     <string name="severe_uv">rrezatim UV shumë i lartë</string>
+    <string name="severe_heat">nxehtësi e madhe</string>
 
 </resources>

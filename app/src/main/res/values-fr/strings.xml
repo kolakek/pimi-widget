@@ -141,10 +141,12 @@
     <string name="clear_sky_night">dégagé</string>
 
     <string name="extreme_uv">rayonnement UV extrême</string>
+    <string name="extreme_heat">chaleur extrême</string>
     <string name="today">aujourd’hui</string>
     <string name="tomorrow">demain</string>
     <string name="config_weather_warnings">Afficher les alertes météo</string>
     <string name="no_warning">aucune alerte</string>
     <string name="severe_uv">rayonnement UV très élevé</string>
+    <string name="severe_heat">forte chaleur</string>
 
 </resources>

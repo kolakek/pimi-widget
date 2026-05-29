@@ -19,6 +19,8 @@ package com.kolakek.pimiwidget.weather
 
 // Ordering expresses priority, highest ... lowest
 enum class WarningCode {
+    EXTREME_HEAT,
+    SEVERE_HEAT,
     EXTREME_UV,
     SEVERE_UV,
     NO_WARNING

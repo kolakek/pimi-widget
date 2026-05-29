@@ -28,7 +28,7 @@ internal const val MINUTELY_VALUE =
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day,uv_index," +
-        "uv_index_clear_sky,cloud_cover"
+        "uv_index_clear_sky,cloud_cover,apparent_temperature"
 
 internal const val DAILY_KEY = "daily"
 internal const val DAILY_VALUE =
@@ -66,3 +66,5 @@ internal const val EXTR_UV_MIN_UV_INDEX = 11
 internal const val EXTR_UV_MAX_CLOUD_COVER = 50
 internal const val SEVR_UV_MIN_UV_INDEX = 8
 internal const val SEVR_UV_MAX_CLOUD_COVER = 70
+internal const val SEVR_HEAT_MIN_APPARENT_TEMP = 40.6
+internal const val EXTR_HEAT_MIN_APPARENT_TEMP = 46.1
