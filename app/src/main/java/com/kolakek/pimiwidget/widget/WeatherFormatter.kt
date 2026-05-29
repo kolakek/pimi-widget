@@ -25,9 +25,7 @@ import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.weather.WarningCode
-import com.kolakek.pimiwidget.weather.WarningCodeMapper
 import com.kolakek.pimiwidget.weather.WeatherData
 import timber.log.Timber
 import java.time.Instant
@@ -113,16 +111,15 @@ internal object WeatherFormatter {
         Timber.d("getWarningStrAndIcon: Time index $nextIndex")
 
         val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
-        val warningLevel = WarningCodeMapper.getWarningLevel(warningCode)
 
-        Timber.d("getWarningStrAndIcon: Warning $warningCode, level $warningLevel")
+        Timber.d("getWarningStrAndIcon: Warning $warningCode, level ${warningCode.level}")
 
-        if (warningCode == WarningCode.NO_WARNING || warningLevel == WarningLevel.NONE)
+        if (warningCode == WarningCode.NO_WARNING)
             return null
 
         return TextWithOneIcon(
             context.getString(WarningString.getWarningStrId(warningCode)),
-            WarningIcon.getWarningIconId(warningLevel, textStyle)
+            WarningIcon.getWarningIconId(warningCode.level, textStyle)
         )
     }
 

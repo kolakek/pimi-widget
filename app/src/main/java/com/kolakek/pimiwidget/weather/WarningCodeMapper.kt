@@ -38,16 +38,6 @@ object WarningCodeMapper {
         return WarningCode.NO_WARNING
     }
 
-    fun getWarningLevel(warningCode: WarningCode): WarningLevel {
-        return when (warningCode) {
-            WarningCode.EXTREME_HEAT -> WarningLevel.HIGHEST
-            WarningCode.SEVERE_HEAT -> WarningLevel.NORMAL
-            WarningCode.EXTREME_UV -> WarningLevel.HIGHEST
-            WarningCode.SEVERE_UV -> WarningLevel.NORMAL
-            WarningCode.NO_WARNING -> WarningLevel.NONE
-        }
-    }
-
     private fun matchesWarning(
         warningCode: WarningCode,
         uvIndex: Double,
