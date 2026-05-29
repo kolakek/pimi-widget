@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Ráno a večer</string>
 
-    <string name="config_weather_warnings_descr">Pro extrémní povětrnostní podmínky</string>
+    <string name="config_weather_warnings_descr">Pro extrémní povětrnostní podmínky během následující hodiny</string>
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
 
     <string name="config_loc_perm_alert">

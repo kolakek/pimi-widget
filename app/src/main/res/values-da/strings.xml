@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Morgen og aften</string>
 
-    <string name="config_weather_warnings_descr">Ved ekstreme vejrforhold</string>
+    <string name="config_weather_warnings_descr">Ved ekstreme vejrforhold inden for den næste time</string>
     <string name="config_loc_perm_alert_title">Placeringstilladelse kræves</string>
 
     <string name="config_loc_perm_alert">

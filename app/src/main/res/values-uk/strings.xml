@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Вранці та ввечері</string>
 
-    <string name="config_weather_warnings_descr">Для екстремальних погодних умов</string>
+    <string name="config_weather_warnings_descr">Для екстремальних погодних умов протягом наступної години</string>
     <string name="config_loc_perm_alert_title">Потрібен доступ до геолокації</string>
 
     <string name="config_loc_perm_alert">

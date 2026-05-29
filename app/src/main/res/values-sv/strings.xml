@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">På morgonen och kvällen</string>
 
-    <string name="config_weather_warnings_descr">Vid extrema väderförhållanden</string>
+    <string name="config_weather_warnings_descr">Vid extrema väderförhållanden inom den närmaste timmen</string>
     <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
 
     <string name="config_loc_perm_alert">

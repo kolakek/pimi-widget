@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Le matin et le soir</string>
 
-    <string name="config_weather_warnings_descr">Pour les conditions météorologiques extrêmes</string>
+    <string name="config_weather_warnings_descr">Pour les conditions météorologiques extrêmes dans l’heure à venir</string>
     <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
 
     <string name="config_loc_perm_alert">

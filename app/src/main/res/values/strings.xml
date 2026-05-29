@@ -62,7 +62,7 @@
     <string name="config_weather_warnings">Show weather alerts</string>
 
     <!-- String explaining details for the weather warnings -->
-    <string name="config_weather_warnings_descr">For severe weather conditions</string>
+    <string name="config_weather_warnings_descr">For severe weather conditions within the hour</string>
 
     <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Location permission required</string>

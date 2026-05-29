@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Sabah ve akşam</string>
 
-    <string name="config_weather_warnings_descr">Aşırı hava koşulları için</string>
+    <string name="config_weather_warnings_descr">Aşırı hava koşulları için önümüzdeki bir saat içinde</string>
     <string name="config_loc_perm_alert_title">Konum izni gerekli</string>
 
     <string name="config_loc_perm_alert">

@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Dimineața și seara</string>
 
-    <string name="config_weather_warnings_descr">Pentru condiții meteo severe</string>
+    <string name="config_weather_warnings_descr">Pentru condiții meteo severe în următoarea oră</string>
     <string name="config_loc_perm_alert_title">Permisiune de locație necesară</string>
 
     <string name="config_loc_perm_alert">

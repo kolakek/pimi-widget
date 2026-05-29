@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Mattina e sera</string>
 
-    <string name="config_weather_warnings_descr">Per condizioni meteorologiche avverse</string>
+    <string name="config_weather_warnings_descr">Per condizioni meteorologiche avverse entro la prossima ora</string>
     <string name="config_loc_perm_alert_title">Permesso di posizione richiesto</string>
 
     <string name="config_loc_perm_alert">

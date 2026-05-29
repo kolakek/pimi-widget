@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Në mëngjes dhe në mbrëmje</string>
 
-    <string name="config_weather_warnings_descr">Për kushtet e rënda të motit</string>
+    <string name="config_weather_warnings_descr">Për kushte të rënda të motit brenda orës së ardhshme</string>
     <string name="config_loc_perm_alert_title">Kërkohet leje për vendndodhjen</string>
 
     <string name="config_loc_perm_alert">

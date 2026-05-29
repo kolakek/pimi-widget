@@ -39,7 +39,7 @@
 
     <string name="config_daily_forecast_descr">Aamulla ja illalla</string>
 
-    <string name="config_weather_warnings_descr">Äärisääoloissa</string>
+    <string name="config_weather_warnings_descr">Äärisääoloissa seuraavan tunnin aikana</string>
     <string name="config_loc_perm_alert_title">Sijaintilupa vaaditaan</string>
 
     <string name="config_loc_perm_alert">

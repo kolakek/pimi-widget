@@ -27,13 +27,6 @@ object WarningCodeMapper {
         }
     }
 
-    fun maxPriorityWarning(
-        firstWarningCode: WarningCode,
-        secondWarningCode: WarningCode
-    ): WarningCode {
-        return minOf(firstWarningCode, secondWarningCode)
-    }
-
     internal fun getWarningCode(
         uvIndex: Double,
         uvIndexClearSky: Double,

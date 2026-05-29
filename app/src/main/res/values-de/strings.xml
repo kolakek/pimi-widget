@@ -40,7 +40,7 @@
     <string name="config_daily_forecast_descr">Am Morgen und Abend</string>
 
     <string name="config_weather_warnings">Wetterwarnungen anzeigen</string>
-    <string name="config_weather_warnings_descr">Bei extremen Wetterbedingungen</string>
+    <string name="config_weather_warnings_descr">Bei extremen Wetterbedingungen innerhalb der nächsten Stunde</string>
 
     <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
 

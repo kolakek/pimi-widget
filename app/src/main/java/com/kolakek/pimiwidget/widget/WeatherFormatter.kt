@@ -109,16 +109,10 @@ internal object WeatherFormatter {
         textStyle: TextStyle
     ): TextWithOneIcon? {
         val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
-        val prevIndex = getPrevTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
 
-        Timber.d("getWarningStrAndIcon: prevIndex $prevIndex, nextIndex $nextIndex")
+        Timber.d("getWarningStrAndIcon: Time index $nextIndex")
 
-        val warningCodeNext = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
-        val warningCodePrev = weather.hourlyWarningCode.getOrNull(prevIndex) ?: return null
-
-        Timber.d("getWarningStrAndIcon: prev $warningCodePrev, next $warningCodeNext")
-
-        val warningCode = WarningCodeMapper.maxPriorityWarning(warningCodePrev, warningCodeNext)
+        val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
         val warningLevel = WarningCodeMapper.getWarningLevel(warningCode)
 
         Timber.d("getWarningStrAndIcon: Warning $warningCode, level $warningLevel")
@@ -140,19 +134,6 @@ internal object WeatherFormatter {
 
         if (idx == -1) {
             Timber.w("getNextTimeIndex: No data available at given time")
-            return null
-        }
-        return idx
-    }
-
-    private fun getPrevTimeIndex(
-        timeMillis: List<Long>,
-        nowTimeMillis: Long
-    ): Int? {
-        val idx = timeMillis.indexOfLast { it <= nowTimeMillis }
-
-        if (idx == -1) {
-            Timber.w("getPrevTimeIndex: No data available at given time")
             return null
         }
         return idx
