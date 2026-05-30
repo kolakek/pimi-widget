@@ -58,6 +58,7 @@ object WeatherService {
 
                 append(TIMEFORMAT_KEY, timeFormat)
                 append(TIMEZONE_KEY, TIMEZONE_VALUE)
+                append(TEMPUNIT_KEY, TEMPUNIT_VALUE)
             }
         }.build()
     }
@@ -97,7 +98,7 @@ object WeatherService {
                     uvIndex = providerData.hourly.uv_index[i],
                     uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i],
                     cloudCover = providerData.hourly.cloud_cover[i],
-                    apparentTemp = providerData.hourly.apparent_temperature[i]
+                    apparentTempCelsius = providerData.hourly.apparent_temperature[i]
                 )
             }
         } catch (_: ArrayIndexOutOfBoundsException) {

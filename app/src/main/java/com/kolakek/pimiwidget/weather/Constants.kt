@@ -50,6 +50,9 @@ internal const val TIMEFORMAT_VALUE = "unixtime"
 internal const val TIMEZONE_KEY = "timezone"
 internal const val TIMEZONE_VALUE = "auto"
 
+internal const val TEMPUNIT_KEY = "temperature_unit"
+internal const val TEMPUNIT_VALUE = "celsius"
+
 internal const val MIN_CLOUD_COVER_OVERCAST = 90
 internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 70
 internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 40
@@ -66,5 +69,5 @@ internal const val EXTR_UV_MIN_UV_INDEX = 11
 internal const val EXTR_UV_MAX_CLOUD_COVER = 50
 internal const val SEVR_UV_MIN_UV_INDEX = 8
 internal const val SEVR_UV_MAX_CLOUD_COVER = 70
-internal const val SEVR_HEAT_MIN_APPARENT_TEMP = 40.6
-internal const val EXTR_HEAT_MIN_APPARENT_TEMP = 46.1
+internal const val SEVR_HEAT_MIN_APPARENT_TEMP_C = 40.6
+internal const val EXTR_HEAT_MIN_APPARENT_TEMP_C = 46.1

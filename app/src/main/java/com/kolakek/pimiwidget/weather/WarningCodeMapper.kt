@@ -23,7 +23,7 @@ object WarningCodeMapper {
         uvIndex: Double,
         uvIndexClearSky: Double,
         cloudCover: Double,
-        apparentTemp: Double
+        apparentTempCelsius: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
             if (matchesWarning(
@@ -31,7 +31,7 @@ object WarningCodeMapper {
                     uvIndex,
                     uvIndexClearSky,
                     cloudCover,
-                    apparentTemp
+                    apparentTempCelsius
                 )
             ) return warningCode
         }
@@ -43,15 +43,15 @@ object WarningCodeMapper {
         uvIndex: Double,
         uvIndexClearSky: Double,
         cloudCover: Double,
-        apparentTemp: Double
+        apparentTempCelsius: Double
     ): Boolean {
         return when (warningCode) {
 
             WarningCode.EXTREME_HEAT ->
-                apparentTemp >= EXTR_HEAT_MIN_APPARENT_TEMP
+                apparentTempCelsius >= EXTR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.SEVERE_HEAT ->
-                apparentTemp >= SEVR_HEAT_MIN_APPARENT_TEMP
+                apparentTempCelsius >= SEVR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.EXTREME_UV ->
                 (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
