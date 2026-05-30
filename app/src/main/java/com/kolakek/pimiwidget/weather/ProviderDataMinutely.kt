@@ -25,9 +25,9 @@ internal data class ProviderDataMinutely (
     val temperature_2m: List<Double>,
     val visibility: List<Double>,
     val cape: List<Double>,
-    val cloud_cover: List<Int>,
-    val precipitation_probability: List<Int>,
-    val time: List<Long>,
-    val weather_code: List<Int>,
-    val is_day: List<Int>
+    val cloud_cover: List<Double>,
+    val precipitation_probability: List<Double>,
+    val time: List<Double>,
+    val weather_code: List<Double>,
+    val is_day: List<Double>
 )

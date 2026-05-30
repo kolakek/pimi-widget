@@ -67,7 +67,7 @@ object WeatherService {
         val minutelyWeatherCode = try {
             providerData.minutely_15.weather_code.indices.map { i ->
                 WeatherCodeMapper.getWeatherCode(
-                    wmoCode = providerData.minutely_15.weather_code[i],
+                    wmoCode = providerData.minutely_15.weather_code[i].toInt(),
                     cloudCover = providerData.minutely_15.cloud_cover[i],
                     precipProb = providerData.minutely_15.precipitation_probability[i],
                     visibility = providerData.minutely_15.visibility[i],
@@ -81,7 +81,7 @@ object WeatherService {
         val dailyWeatherCode = try {
             providerData.daily.weather_code.indices.map { i ->
                 WeatherCodeMapper.getWeatherCode(
-                    wmoCode = providerData.daily.weather_code[i],
+                    wmoCode = providerData.daily.weather_code[i].toInt(),
                     cloudCover = providerData.daily.cloud_cover_mean[i],
                     precipProb = providerData.daily.precipitation_probability_max[i],
                     visibility = providerData.daily.visibility_mean[i],
@@ -95,10 +95,13 @@ object WeatherService {
         val hourlyWarningCode = try {
             providerData.hourly.weather_code.indices.map { i ->
                 WarningCodeMapper.getWarningCode(
-                    uvIndex = providerData.hourly.uv_index[i],
-                    uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i],
+                    uvIndex = providerData.hourly.uv_index[i].toInt(),
+                    uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i].toInt(),
                     cloudCover = providerData.hourly.cloud_cover[i],
-                    apparentTempCelsius = providerData.hourly.apparent_temperature[i]
+                    apparentTempCelsius = providerData.hourly.apparent_temperature[i],
+                    rain = providerData.hourly.rain[i],
+                    showers = providerData.hourly.showers[i],
+                    precipProb = providerData.hourly.precipitation_probability[i]
                 )
             }
         } catch (_: ArrayIndexOutOfBoundsException) {
@@ -108,16 +111,16 @@ object WeatherService {
         return WeatherData(
             minutelyWeatherCode = minutelyWeatherCode,
             minutelyTempCelsius = providerData.minutely_15.temperature_2m,
-            minutelyIsDay = providerData.minutely_15.is_day.map { v -> v == 1 },
-            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
+            minutelyIsDay = providerData.minutely_15.is_day.map { v -> v.toInt() == 1 },
+            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v.toLong() * 1000L },
             hourlyTempCelsius = providerData.hourly.temperature_2m,
-            hourlyIsDay = providerData.hourly.is_day.map { v -> v == 1 },
+            hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
             hourlyWarningCode = hourlyWarningCode,
-            hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
+            hourlyTimeMillis = providerData.hourly.time.map { v -> v.toLong() * 1000L },
             dailyWeatherCode = dailyWeatherCode,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
-            dailyTimeMillis = providerData.daily.time.map { v -> v * 1000L }
+            dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L }
         )
     }
 }

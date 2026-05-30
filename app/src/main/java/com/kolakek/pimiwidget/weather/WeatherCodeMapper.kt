@@ -23,8 +23,8 @@ object WeatherCodeMapper {
 
     internal fun getWeatherCode(
         wmoCode: Int,
-        cloudCover: Int,
-        precipProb: Int,
+        cloudCover: Double,
+        precipProb: Double,
         visibility: Double,
         cape: Double
     ): WeatherCode? {

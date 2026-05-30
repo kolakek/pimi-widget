@@ -20,10 +20,13 @@ package com.kolakek.pimiwidget.weather
 object WarningCodeMapper {
 
     internal fun getWarningCode(
-        uvIndex: Double,
-        uvIndexClearSky: Double,
+        uvIndex: Int,
+        uvIndexClearSky: Int,
         cloudCover: Double,
-        apparentTempCelsius: Double
+        apparentTempCelsius: Double,
+        rain: Double,
+        showers: Double,
+        precipProb: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
             if (matchesWarning(
@@ -31,7 +34,10 @@ object WarningCodeMapper {
                     uvIndex,
                     uvIndexClearSky,
                     cloudCover,
-                    apparentTempCelsius
+                    apparentTempCelsius,
+                    rain,
+                    showers,
+                    precipProb
                 )
             ) return warningCode
         }
@@ -40,10 +46,13 @@ object WarningCodeMapper {
 
     private fun matchesWarning(
         warningCode: WarningCode,
-        uvIndex: Double,
-        uvIndexClearSky: Double,
+        uvIndex: Int,
+        uvIndexClearSky: Int,
         cloudCover: Double,
-        apparentTempCelsius: Double
+        apparentTempCelsius: Double,
+        rain: Double,
+        showers: Double,
+        precipProb: Double
     ): Boolean {
         return when (warningCode) {
 

@@ -27,7 +27,10 @@ internal data class ProviderDataHourly (
     val uv_index: List<Double>,
     val uv_index_clear_sky: List<Double>,
     val cloud_cover: List<Double>,
-    val time: List<Long>,
-    val weather_code: List<Int>,
-    val is_day: List<Int>
+    val rain: List<Double>,
+    val showers: List<Double>,
+    val precipitation_probability: List<Double>,
+    val time: List<Double>,
+    val weather_code: List<Double>,
+    val is_day: List<Double>
 )
