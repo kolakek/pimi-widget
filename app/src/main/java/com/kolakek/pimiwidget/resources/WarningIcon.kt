@@ -30,16 +30,14 @@ object WarningIcon {
         return when (warningLevel) {
             WarningLevel.NONE -> 0
 
-            WarningLevel.NORMAL -> 0
-
-            WarningLevel.HIGH ->
+            WarningLevel.SEVERE ->
                 when (textStyle) {
                     TextStyle.DARK -> R.drawable.warn_sevr_dark
                     TextStyle.LIGHT -> R.drawable.warn_sevr_light
                     TextStyle.LIGHT_SHADOW -> R.drawable.warn_sevr_light_shadow
                 }
 
-            WarningLevel.HIGHEST ->
+            WarningLevel.EXTREME ->
                 when (textStyle) {
                     TextStyle.DARK -> R.drawable.warn_extr
                     TextStyle.LIGHT -> R.drawable.warn_extr
