@@ -112,7 +112,7 @@
 
     <string name="widget_date_format">EEE d MMM</string>
 
-    <string name="heavy_thunderstorms">violents orages</string>
+    <string name="heavy_thunderstorms">orages violents</string>
     <string name="thunderstorm">orage</string>
     <string name="freezing_rain">pluie verglaçante</string>
     <string name="light_freezing_rain">faible pluie verglaçante</string>
@@ -122,9 +122,9 @@
     <string name="light_rain_showers">faibles averses</string>
     <string name="heavy_snow_showers">fortes averses de neige</string>
     <string name="light_snow_showers">faibles averses de neige</string>
-    <string name="heavy_rain">forte pluie</string>
+    <string name="heavy_rain">pluie forte</string>
     <string name="rain">pluie</string>
-    <string name="light_rain">faible pluie</string>
+    <string name="light_rain">pluie faible</string>
     <string name="drizzle">bruine</string>
     <string name="heavy_snow">fortes chutes de neige</string>
     <string name="snow">neige</string>
@@ -142,11 +142,13 @@
 
     <string name="extreme_uv">rayonnement UV extrême</string>
     <string name="extreme_heat">chaleur extrême</string>
+    <string name="extreme_rain">pluie extrême</string>
     <string name="today">aujourd’hui</string>
     <string name="tomorrow">demain</string>
     <string name="config_weather_warnings">Afficher les alertes météo</string>
     <string name="no_warning">aucune alerte</string>
     <string name="severe_uv">rayonnement UV très élevé</string>
-    <string name="severe_heat">forte chaleur</string>
+    <string name="severe_heat">chaleur intense</string>
+    <string name="severe_rain">pluie intense</string>
 
 </resources>

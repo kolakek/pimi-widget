@@ -56,11 +56,14 @@ object WarningCodeMapper {
     ): Boolean {
         return when (warningCode) {
 
+            WarningCode.SEVERE_RAIN ->
+                (rain + showers) > SEVR_RAIN_MIN_MM && precipProb > SEVR_RAIN_MIN_PRECIP_PROB
+
             WarningCode.EXTREME_HEAT ->
-                apparentTempCelsius >= EXTR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius > EXTR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.SEVERE_HEAT ->
-                apparentTempCelsius >= SEVR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius > SEVR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.EXTREME_UV ->
                 (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||

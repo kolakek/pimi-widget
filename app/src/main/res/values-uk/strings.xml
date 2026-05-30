@@ -145,11 +145,13 @@
 
     <string name="extreme_uv">надзвичайно високий рівень УФ-випромінювання</string>
     <string name="extreme_heat">екстремальна спека</string>
+    <string name="extreme_rain">екстремальний дощ</string>
     <string name="today">сьогодні</string>
     <string name="tomorrow">завтра</string>
     <string name="config_weather_warnings">Показувати попередження про погоду</string>
     <string name="no_warning">немає попереджень</string>
     <string name="severe_uv">дуже високий рівень УФ-випромінювання</string>
     <string name="severe_heat">сильна спека</string>
+    <string name="severe_rain">інтенсивний дощ</string>
 
 </resources>

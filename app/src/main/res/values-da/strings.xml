@@ -139,11 +139,13 @@
 
     <string name="extreme_uv">ekstrem UV-stråling</string>
     <string name="extreme_heat">ekstrem varme</string>
+    <string name="extreme_rain">ekstrem regn</string>
     <string name="today">i dag</string>
     <string name="tomorrow">i morgen</string>
     <string name="config_weather_warnings">Vis vejralarmer</string>
     <string name="no_warning">ingen advarsler</string>
     <string name="severe_uv">meget høj UV-stråling</string>
     <string name="severe_heat">kraftig varme</string>
+    <string name="severe_rain">intens regn</string>
 
 </resources>

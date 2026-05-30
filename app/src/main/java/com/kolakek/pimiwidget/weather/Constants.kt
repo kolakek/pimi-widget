@@ -71,3 +71,5 @@ internal const val SEVR_UV_MIN_UV_INDEX = 8
 internal const val SEVR_UV_MAX_CLOUD_COVER = 70
 internal const val SEVR_HEAT_MIN_APPARENT_TEMP_C = 40.6
 internal const val EXTR_HEAT_MIN_APPARENT_TEMP_C = 46.1
+internal const val SEVR_RAIN_MIN_MM = 25
+internal const val SEVR_RAIN_MIN_PRECIP_PROB = 70

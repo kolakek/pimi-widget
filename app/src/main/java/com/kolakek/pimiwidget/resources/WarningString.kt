@@ -29,6 +29,7 @@ object WarningString {
             WarningCode.EXTREME_UV -> R.string.extreme_uv
             WarningCode.SEVERE_HEAT -> R.string.severe_heat
             WarningCode.EXTREME_HEAT -> R.string.extreme_heat
+            WarningCode.SEVERE_RAIN -> R.string.severe_rain
         }
     }
 }

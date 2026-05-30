@@ -142,11 +142,13 @@
 
     <string name="extreme_uv">radiazione UV estrema</string>
     <string name="extreme_heat">caldo estremo</string>
+    <string name="extreme_rain">pioggia estrema</string>
     <string name="today">oggi</string>
     <string name="tomorrow">domani</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
     <string name="no_warning">nessun avviso</string>
     <string name="severe_uv">radiazione UV molto alta</string>
     <string name="severe_heat">caldo intenso</string>
+    <string name="severe_rain">pioggia intensa</string>
 
 </resources>

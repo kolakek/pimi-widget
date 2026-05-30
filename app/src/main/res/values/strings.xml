@@ -197,6 +197,8 @@
     <string name="extreme_uv">Extreme UV radiation</string>
     <string name="severe_heat">Excessive heat</string>
     <string name="extreme_heat">Extreme heat</string>
+    <string name="severe_rain">Heavy rain warning</string>
+    <string name="extreme_rain">Extreme rain warning</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>
