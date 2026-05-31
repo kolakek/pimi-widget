@@ -24,13 +24,13 @@ object WarningString {
 
     fun getWarningStrId(warningCode: WarningCode): Int {
         return when (warningCode) {
-            WarningCode.NO_WARNING -> R.string.no_warning
-            WarningCode.SEVERE_UV -> R.string.severe_uv
-            WarningCode.EXTREME_UV -> R.string.extreme_uv
-            WarningCode.SEVERE_HEAT -> R.string.severe_heat
-            WarningCode.EXTREME_HEAT -> R.string.extreme_heat
-            WarningCode.SEVERE_RAIN -> R.string.severe_rain
-            WarningCode.EXTREME_RAIN -> R.string.extreme_rain
+            WarningCode.NO_WARNING -> R.string.warn_no_warning
+            WarningCode.SEVERE_UV -> R.string.warn_uv_severe
+            WarningCode.EXTREME_UV -> R.string.warn_uv_extreme
+            WarningCode.SEVERE_HEAT -> R.string.warn_heat_severe
+            WarningCode.EXTREME_HEAT -> R.string.warn_heat_extreme
+            WarningCode.SEVERE_RAIN -> R.string.warn_rain_severe
+            WarningCode.EXTREME_RAIN -> R.string.warn_rain_extreme
         }
     }
 }

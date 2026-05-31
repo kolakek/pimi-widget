@@ -163,42 +163,42 @@
     <string name="widget_date_format">EEE, MMM d</string>
 
     <!-- Strings defining weather conditions -->
-    <string name="heavy_thunderstorms">Heavy thunderstorms</string>
-    <string name="thunderstorm">Thunderstorm</string>
-    <string name="freezing_rain">Freezing rain</string>
-    <string name="light_freezing_rain">Light freezing rain</string>
-    <string name="freezing_drizzle">Freezing drizzle</string>
-    <string name="heavy_rain_showers">Heavy rain showers</string>
-    <string name="rain_showers">Rain showers</string>
-    <string name="light_rain_showers">Light rain showers</string>
-    <string name="heavy_snow_showers">Heavy snow showers</string>
-    <string name="light_snow_showers">Light snow showers</string>
-    <string name="heavy_rain">Heavy rain</string>
-    <string name="rain">Rain</string>
-    <string name="light_rain">Light rain</string>
-    <string name="drizzle">Drizzle</string>
-    <string name="heavy_snow">Heavy snow</string>
-    <string name="snow">Snow</string>
-    <string name="light_snow">Light snow</string>
-    <string name="snow_grains">Snow grains</string>
-    <string name="fog">Foggy</string>
-    <string name="overcast">Cloudy</string>
-    <string name="mostly_cloudy">Mostly cloudy</string>
-    <string name="partly_cloudy_day">Partly sunny</string>
-    <string name="partly_cloudy_night">Partly cloudy</string>
-    <string name="mainly_clear_day">Mostly sunny</string>
-    <string name="mainly_clear_night">Mostly clear</string>
-    <string name="clear_sky_day">Sunny</string>
-    <string name="clear_sky_night">Clear</string>
+    <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
+    <string name="wc_thunderstorm">Thunderstorm</string>
+    <string name="wc_freezing_rain">Freezing rain</string>
+    <string name="wc_light_freezing_rain">Light freezing rain</string>
+    <string name="wc_freezing_drizzle">Freezing drizzle</string>
+    <string name="wc_heavy_rain_showers">Heavy rain showers</string>
+    <string name="wc_rain_showers">Rain showers</string>
+    <string name="wc_light_rain_showers">Light rain showers</string>
+    <string name="wc_heavy_snow_showers">Heavy snow showers</string>
+    <string name="wc_light_snow_showers">Light snow showers</string>
+    <string name="wc_heavy_rain">Heavy rain</string>
+    <string name="wc_rain">Rain</string>
+    <string name="wc_light_rain">Light rain</string>
+    <string name="wc_drizzle">Drizzle</string>
+    <string name="wc_heavy_snow">Heavy snow</string>
+    <string name="wc_snow">Snow</string>
+    <string name="wc_light_snow">Light snow</string>
+    <string name="wc_snow_grains">Snow grains</string>
+    <string name="wc_fog">Foggy</string>
+    <string name="wc_overcast">Cloudy</string>
+    <string name="wc_mostly_cloudy">Mostly cloudy</string>
+    <string name="wc_partly_cloudy_day">Partly sunny</string>
+    <string name="wc_partly_cloudy_night">Partly cloudy</string>
+    <string name="wc_mainly_clear_day">Mostly sunny</string>
+    <string name="wc_mainly_clear_night">Mostly clear</string>
+    <string name="wc_clear_sky_day">Sunny</string>
+    <string name="wc_clear_sky_night">Clear</string>
 
     <!-- Strings defining weather warnings -->
-    <string name="no_warning">No warnings</string>
-    <string name="severe_uv">Very high UV radiation</string>
-    <string name="extreme_uv">Extreme UV radiation</string>
-    <string name="severe_heat">Excessive heat</string>
-    <string name="extreme_heat">Extreme heat</string>
-    <string name="severe_rain">Heavy rain warning</string>
-    <string name="extreme_rain">Extreme rain warning</string>
+    <string name="warn_no_warning">No warnings</string>
+    <string name="warn_uv_severe">Very high UV radiation</string>
+    <string name="warn_uv_extreme">Extreme UV radiation</string>
+    <string name="warn_heat_severe">Excessive heat</string>
+    <string name="warn_heat_extreme">Extreme heat</string>
+    <string name="warn_rain_severe">Heavy rain warning</string>
+    <string name="warn_rain_extreme">Extreme rain warning</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>
