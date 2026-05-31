@@ -137,15 +137,15 @@
     <string name="wc_clear_sky_day">soligt</string>
     <string name="wc_clear_sky_night">klart</string>
 
-    <string name="warn_uv_extreme">extrem UV-strålning</string>
-    <string name="warn_heat_extreme">extrem värme</string>
-    <string name="warn_rain_extreme">extremt regn</string>
+    <string name="warn_uv_extreme">varning för extrem UV-strålning</string>
+    <string name="warn_heat_extreme">varning för extrem värme</string>
+    <string name="warn_rain_extreme">varning för extremt regn</string>
     <string name="today">idag</string>
     <string name="tomorrow">imorgon</string>
     <string name="config_weather_warnings">Visa vädervarningar</string>
     <string name="warn_no_warning">inga varningar</string>
-    <string name="warn_uv_severe">mycket stark UV-strålning</string>
-    <string name="warn_heat_severe">kraftig värme</string>
-    <string name="warn_rain_severe">intensivt regn</string>
+    <string name="warn_uv_severe">varning för hög UV-strålning</string>
+    <string name="warn_heat_severe">varning för intensiv värme</string>
+    <string name="warn_rain_severe">varning för intensivt regn</string>
 
 </resources>

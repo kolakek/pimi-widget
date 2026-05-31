@@ -140,15 +140,15 @@
     <string name="wc_clear_sky_day">soleggiato</string>
     <string name="wc_clear_sky_night">sereno</string>
 
-    <string name="warn_uv_extreme">radiazione UV estrema</string>
-    <string name="warn_heat_extreme">caldo estremo</string>
-    <string name="warn_rain_extreme">pioggia estrema</string>
+    <string name="warn_uv_extreme">avviso di radiazione UV estrema</string>
+    <string name="warn_heat_extreme">avviso di caldo estremo</string>
+    <string name="warn_rain_extreme">avviso di pioggia estrema</string>
     <string name="today">oggi</string>
     <string name="tomorrow">domani</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
     <string name="warn_no_warning">nessun avviso</string>
-    <string name="warn_uv_severe">radiazione UV molto alta</string>
-    <string name="warn_heat_severe">caldo intenso</string>
-    <string name="warn_rain_severe">pioggia intensa</string>
+    <string name="warn_uv_severe">avviso di forte radiazione UV</string>
+    <string name="warn_heat_severe">avviso di caldo intenso</string>
+    <string name="warn_rain_severe">avviso di pioggia intensa</string>
 
 </resources>

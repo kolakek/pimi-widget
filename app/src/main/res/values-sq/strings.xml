@@ -137,15 +137,15 @@
     <string name="wc_clear_sky_day">me diell</string>
     <string name="wc_clear_sky_night">i kthjellët</string>
 
-    <string name="warn_uv_extreme">rrezatim UV ekstrem</string>
-    <string name="warn_heat_extreme">nxehtësi ekstreme</string>
-    <string name="warn_rain_extreme">shi ekstrem</string>
+    <string name="warn_uv_extreme">paralajmërim për rrezatim ekstrem UV</string>
+    <string name="warn_heat_extreme">paralajmërim për nxehtësi ekstreme</string>
+    <string name="warn_rain_extreme">paralajmërim për shi ekstrem</string>
     <string name="today">sot</string>
     <string name="tomorrow">nesër</string>
     <string name="config_weather_warnings">Shfaq paralajmërime moti</string>
     <string name="warn_no_warning">pa paralajmërime</string>
-    <string name="warn_uv_severe">rrezatim UV shumë i lartë</string>
-    <string name="warn_heat_severe">nxehtësi e madhe</string>
-    <string name="warn_rain_severe">shi intensiv</string>
+    <string name="warn_uv_severe">paralajmërim për rrezatim të fortë UV</string>
+    <string name="warn_heat_severe">paralajmërim për nxehtësi të madhe</string>
+    <string name="warn_rain_severe">paralajmërim për shi intensiv</string>
 
 </resources>

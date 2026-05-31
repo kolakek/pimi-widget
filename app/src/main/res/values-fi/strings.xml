@@ -137,15 +137,15 @@
     <string name="wc_clear_sky_day">aurinkoista</string>
     <string name="wc_clear_sky_night">selkeää</string>
 
-    <string name="warn_uv_extreme">äärimmäinen UV-säteily</string>
-    <string name="warn_heat_extreme">äärimmäinen helle</string>
-    <string name="warn_rain_extreme">äärimmäinen sade</string>
+    <string name="warn_uv_extreme">äärimmäinen UV-varoitus</string>
+    <string name="warn_heat_extreme">äärimmäinen hellevaroitus</string>
+    <string name="warn_rain_extreme">äärimmäinen sadevaroitus</string>
     <string name="today">tänään</string>
     <string name="tomorrow">huomenna</string>
     <string name="config_weather_warnings">Näytä säävaroitukset</string>
     <string name="warn_no_warning">ei varoituksia</string>
-    <string name="warn_uv_severe">erittäin korkea UV-säteily</string>
-    <string name="warn_heat_severe">kova helle</string>
-    <string name="warn_rain_severe">voimakas sade</string>
+    <string name="warn_uv_severe">voimakas UV-varoitus</string>
+    <string name="warn_heat_severe">voimakas hellevaroitus</string>
+    <string name="warn_rain_severe">voimakas sadevaroitus</string>
 
 </resources>

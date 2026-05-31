@@ -137,15 +137,15 @@
     <string name="wc_clear_sky_day">zonnig</string>
     <string name="wc_clear_sky_night">helder</string>
 
-    <string name="warn_uv_extreme">extreme UV-straling</string>
-    <string name="warn_heat_extreme">extreme hitte</string>
-    <string name="warn_rain_extreme">extreme regen</string>
+    <string name="warn_uv_extreme">waarschuwing voor extreme UV-straling</string>
+    <string name="warn_heat_extreme">waarschuwing voor extreme hitte</string>
+    <string name="warn_rain_extreme">waarschuwing voor extreme regen</string>
     <string name="today">vandaag</string>
     <string name="tomorrow">morgen</string>
     <string name="config_weather_warnings">Weerwaarschuwingen tonen</string>
     <string name="warn_no_warning">geen waarschuwingen</string>
-    <string name="warn_uv_severe">zeer hoge UV-straling</string>
-    <string name="warn_heat_severe">ernstige hitte</string>
-    <string name="warn_rain_severe">intense regen</string>
+    <string name="warn_uv_severe">waarschuwing voor hoge UV-straling</string>
+    <string name="warn_heat_severe">waarschuwing voor zeer hoge hitte</string>
+    <string name="warn_rain_severe">waarschuwing voor intense regen</string>
 
 </resources>

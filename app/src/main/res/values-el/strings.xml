@@ -137,15 +137,15 @@
     <string name="wc_clear_sky_day">ηλιοφάνεια</string>
     <string name="wc_clear_sky_night">αίθριος</string>
 
-    <string name="warn_uv_extreme">ακραία υπεριώδης ακτινοβολία</string>
-    <string name="warn_heat_extreme">ακραία ζέστη</string>
-    <string name="warn_rain_extreme">ακραία βροχή</string>
+    <string name="warn_uv_extreme">προειδοποίηση ακραίας UV</string>
+    <string name="warn_heat_extreme">προειδοποίηση ακραίας ζέστης</string>
+    <string name="warn_rain_extreme">προειδοποίηση ακραίας βροχής</string>
     <string name="today">σήμερα</string>
     <string name="tomorrow">αύριο</string>
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
     <string name="warn_no_warning">καμία προειδοποίηση</string>
-    <string name="warn_uv_severe">πολύ υψηλή υπεριώδης ακτινοβολία</string>
-    <string name="warn_heat_severe">ισχυρή ζέστη</string>
-    <string name="warn_rain_severe">έντονη βροχή</string>
+    <string name="warn_uv_severe">προειδοποίηση έντονης UV</string>
+    <string name="warn_heat_severe">προειδοποίηση έντονης ζέστης</string>
+    <string name="warn_rain_severe">προειδοποίηση έντονης βροχής</string>
 
 </resources>

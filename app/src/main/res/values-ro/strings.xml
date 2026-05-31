@@ -140,15 +140,15 @@
     <string name="wc_clear_sky_day">însorit</string>
     <string name="wc_clear_sky_night">senin</string>
 
-    <string name="warn_uv_extreme">radiație UV extremă</string>
-    <string name="warn_heat_extreme">căldură extremă</string>
-    <string name="warn_rain_extreme">ploaie extremă</string>
+    <string name="warn_uv_extreme">avertizare de radiații UV extreme</string>
+    <string name="warn_heat_extreme">avertizare de caniculă extremă</string>
+    <string name="warn_rain_extreme">avertizare de ploaie extremă</string>
     <string name="today">astăzi</string>
     <string name="tomorrow">mâine</string>
     <string name="config_weather_warnings">Afișează alertă meteorologică</string>
     <string name="warn_no_warning">fără avertizări</string>
-    <string name="warn_uv_severe">radiație UV foarte ridicată</string>
-    <string name="warn_heat_severe">căldură puternică</string>
-    <string name="warn_rain_severe">ploaie intensă</string>
+    <string name="warn_uv_severe">avertizare de radiații UV ridicate</string>
+    <string name="warn_heat_severe">avertizare de caniculă intensă</string>
+    <string name="warn_rain_severe">avertizare de ploaie intensă</string>
 
 </resources>

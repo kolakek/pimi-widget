@@ -143,15 +143,15 @@
     <string name="wc_clear_sky_day">slunečno</string>
     <string name="wc_clear_sky_night">jasno</string>
 
-    <string name="warn_uv_extreme">extrémní UV záření</string>
-    <string name="warn_heat_extreme">extrémní vedro</string>
-    <string name="warn_rain_extreme">extrémní déšť</string>
+    <string name="warn_uv_extreme">výstraha před extrémním UV zářením</string>
+    <string name="warn_heat_extreme">výstraha před extrémními teplotami</string>
+    <string name="warn_rain_extreme">výstraha před extrémním deštěm</string>
     <string name="today">dnes</string>
     <string name="tomorrow">zítra</string>
     <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
     <string name="warn_no_warning">žádná varování</string>
-    <string name="warn_uv_severe">velmi vysoké UV záření</string>
-    <string name="warn_heat_severe">silné vedro</string>
-    <string name="warn_rain_severe">intenzivní déšť</string>
+    <string name="warn_uv_severe">výstraha před silným UV zářením</string>
+    <string name="warn_heat_severe">výstraha před vysokými teplotami</string>
+    <string name="warn_rain_severe">výstraha před intenzivním deštěm</string>
 
 </resources>

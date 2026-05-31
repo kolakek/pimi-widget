@@ -143,15 +143,15 @@
     <string name="wc_clear_sky_day">słonecznie</string>
     <string name="wc_clear_sky_night">pogodnie</string>
 
-    <string name="warn_uv_extreme">ekstremalne promieniowanie UV</string>
-    <string name="warn_heat_extreme">ekstremalny upał</string>
-    <string name="warn_rain_extreme">ekstremalny deszcz</string>
+    <string name="warn_uv_extreme">ostrzeżenie UV ekstremalne</string>
+    <string name="warn_heat_extreme">ostrzeżenie upał ekstremalny</string>
+    <string name="warn_rain_extreme">ostrzeżenie deszcz ekstremalny</string>
     <string name="today">dzisiaj</string>
     <string name="tomorrow">jutro</string>
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
     <string name="warn_no_warning">brak ostrzeżeń</string>
-    <string name="warn_uv_severe">bardzo wysokie promieniowanie UV</string>
-    <string name="warn_heat_severe">silny upał</string>
-    <string name="warn_rain_severe">intensywny deszcz</string>
+    <string name="warn_uv_severe">ostrzeżenie UV silne</string>
+    <string name="warn_heat_severe">ostrzeżenie upał silny</string>
+    <string name="warn_rain_severe">ostrzeżenie deszcz intensywny</string>
 
 </resources>

@@ -138,15 +138,15 @@
     <string name="wc_clear_sky_day">güneşli</string>
     <string name="wc_clear_sky_night">açık</string>
 
-    <string name="warn_uv_extreme">aşırı UV radyasyonu</string>
-    <string name="warn_heat_extreme">aşırı sıcaklık</string>
-    <string name="warn_rain_extreme">aşırı yağmur</string>
+    <string name="warn_uv_extreme">aşırı UV uyarısı</string>
+    <string name="warn_heat_extreme">aşırı sıcaklık uyarısı</string>
+    <string name="warn_rain_extreme">aşırı yağmur uyarısı</string>
     <string name="today">bugün</string>
     <string name="tomorrow">yarın</string>
     <string name="config_weather_warnings">Hava uyarılarını göster</string>
     <string name="warn_no_warning">uyarı yok</string>
-    <string name="warn_uv_severe">çok yüksek UV radyasyonu</string>
-    <string name="warn_heat_severe">şiddetli sıcaklık</string>
-    <string name="warn_rain_severe">yoğun yağmur</string>
+    <string name="warn_uv_severe">yüksek UV uyarısı</string>
+    <string name="warn_heat_severe">aşırı sıcak uyarısı</string>
+    <string name="warn_rain_severe">şiddetli yağmur uyarısı</string>
 
 </resources>

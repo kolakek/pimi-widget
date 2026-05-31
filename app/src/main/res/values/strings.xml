@@ -193,11 +193,11 @@
 
     <!-- Strings defining weather warnings -->
     <string name="warn_no_warning">No warnings</string>
-    <string name="warn_uv_severe">Very high UV radiation</string>
-    <string name="warn_uv_extreme">Extreme UV radiation</string>
-    <string name="warn_heat_severe">Excessive heat</string>
-    <string name="warn_heat_extreme">Extreme heat</string>
-    <string name="warn_rain_severe">Heavy rain warning</string>
+    <string name="warn_uv_severe">Severe UV warning</string>
+    <string name="warn_uv_extreme">Extreme UV warning</string>
+    <string name="warn_heat_severe">Excessive heat warning</string>
+    <string name="warn_heat_extreme">Extreme heat warning</string>
+    <string name="warn_rain_severe">Intense rain warning</string>
     <string name="warn_rain_extreme">Extreme rain warning</string>
 
     <!-- String saying today -->

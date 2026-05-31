@@ -143,15 +143,15 @@
     <string name="wc_clear_sky_day">сонячно</string>
     <string name="wc_clear_sky_night">ясно</string>
 
-    <string name="warn_uv_extreme">надзвичайно високий рівень УФ-випромінювання</string>
-    <string name="warn_heat_extreme">екстремальна спека</string>
-    <string name="warn_rain_extreme">екстремальний дощ</string>
+    <string name="warn_uv_extreme">попередження про екстремальний УФ-рівень</string>
+    <string name="warn_heat_extreme">попередження про екстремальну спеку</string>
+    <string name="warn_rain_extreme">попередження про екстремальний дощ</string>
     <string name="today">сьогодні</string>
     <string name="tomorrow">завтра</string>
     <string name="config_weather_warnings">Показувати попередження про погоду</string>
     <string name="warn_no_warning">немає попереджень</string>
-    <string name="warn_uv_severe">дуже високий рівень УФ-випромінювання</string>
-    <string name="warn_heat_severe">сильна спека</string>
-    <string name="warn_rain_severe">інтенсивний дощ</string>
+    <string name="warn_uv_severe">попередження про високий УФ-рівень</string>
+    <string name="warn_heat_severe">попередження про сильну спеку</string>
+    <string name="warn_rain_severe">попередження про інтенсивний дощ</string>
 
 </resources>
