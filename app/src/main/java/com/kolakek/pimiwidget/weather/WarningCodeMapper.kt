@@ -56,6 +56,9 @@ object WarningCodeMapper {
     ): Boolean {
         return when (warningCode) {
 
+            WarningCode.EXTREME_RAIN ->
+                (rain + showers) > EXTR_RAIN_MIN_MM && precipProb > EXTR_RAIN_MIN_PRECIP_PROB
+
             WarningCode.SEVERE_RAIN ->
                 (rain + showers) > SEVR_RAIN_MIN_MM && precipProb > SEVR_RAIN_MIN_PRECIP_PROB
 

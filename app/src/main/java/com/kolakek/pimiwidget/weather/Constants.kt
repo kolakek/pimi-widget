@@ -73,3 +73,5 @@ internal const val SEVR_HEAT_MIN_APPARENT_TEMP_C = 40.6
 internal const val EXTR_HEAT_MIN_APPARENT_TEMP_C = 46.1
 internal const val SEVR_RAIN_MIN_MM = 25
 internal const val SEVR_RAIN_MIN_PRECIP_PROB = 70
+internal const val EXTR_RAIN_MIN_MM = 40
+internal const val EXTR_RAIN_MIN_PRECIP_PROB = 90
