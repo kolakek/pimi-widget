@@ -51,8 +51,14 @@ internal const val TIMEFORMAT_VALUE = "unixtime"
 internal const val TIMEZONE_KEY = "timezone"
 internal const val TIMEZONE_VALUE = "auto"
 
-internal const val TEMPUNIT_KEY = "temperature_unit"
-internal const val TEMPUNIT_VALUE = "celsius"
+internal const val TEMP_UNIT_KEY = "temperature_unit"
+internal const val TEMP_UNIT_VALUE = "celsius"
+
+internal const val PRECIP_UNIT_KEY = "precipitation_unit"
+internal const val PRECIP_UNIT_VALUE = "mm"
+
+internal const val WIND_SPEED_UNIT_KEY = "wind_speed_unit"
+internal const val WIND_SPEED_UNIT_VALUE = "kmh"
 
 internal const val MIN_CLOUD_COVER_OVERCAST = 90
 internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 70

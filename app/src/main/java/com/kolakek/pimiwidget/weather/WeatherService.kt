@@ -58,7 +58,10 @@ object WeatherService {
 
                 append(TIMEFORMAT_KEY, timeFormat)
                 append(TIMEZONE_KEY, TIMEZONE_VALUE)
-                append(TEMPUNIT_KEY, TEMPUNIT_VALUE)
+
+                append(TEMP_UNIT_KEY, TEMP_UNIT_VALUE)
+                append(PRECIP_UNIT_KEY, PRECIP_UNIT_VALUE)
+                append(WIND_SPEED_UNIT_KEY, WIND_SPEED_UNIT_VALUE)
             }
         }.build()
     }
