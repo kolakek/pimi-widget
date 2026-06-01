@@ -60,32 +60,32 @@ object WarningCodeMapper {
         return when (warningCode) {
 
             WarningCode.EXTREME_GUSTS ->
-                windGusts > EXTR_GUSTS_MIN_KMH
+                windGusts >= EXTR_GUSTS_MIN_KMH
 
             WarningCode.SEVERE_GUSTS ->
-                windGusts > SEVR_GUSTS_MIN_KMH
+                windGusts >= SEVR_GUSTS_MIN_KMH
 
             WarningCode.EXTREME_RAIN ->
-                (rain + showers) > EXTR_RAIN_MIN_MM && precipProb > EXTR_RAIN_MIN_PRECIP_PROB
+                (rain + showers) >= EXTR_RAIN_MIN_MM && precipProb >= EXTR_RAIN_MIN_PRECIP_PROB
 
             WarningCode.SEVERE_RAIN ->
-                (rain + showers) > SEVR_RAIN_MIN_MM && precipProb > SEVR_RAIN_MIN_PRECIP_PROB
+                (rain + showers) >= SEVR_RAIN_MIN_MM && precipProb >= SEVR_RAIN_MIN_PRECIP_PROB
 
             WarningCode.EXTREME_HEAT ->
-                apparentTempCelsius > EXTR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius >= EXTR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.SEVERE_HEAT ->
-                apparentTempCelsius > SEVR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius >= SEVR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.EXTREME_UV ->
                 (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
                         (uvIndexClearSky >= EXTR_UV_MIN_UV_INDEX &&
-                                cloudCover < EXTR_UV_MAX_CLOUD_COVER)
+                                cloudCover <= EXTR_UV_MAX_CLOUD_COVER)
 
             WarningCode.SEVERE_UV ->
                 (uvIndex >= SEVR_UV_MIN_UV_INDEX) ||
                         (uvIndexClearSky >= SEVR_UV_MIN_UV_INDEX &&
-                                cloudCover < SEVR_UV_MAX_CLOUD_COVER)
+                                cloudCover <= SEVR_UV_MAX_CLOUD_COVER)
 
             WarningCode.NO_WARNING -> false
         }
