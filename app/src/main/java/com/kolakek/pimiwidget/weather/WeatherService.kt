@@ -102,9 +102,8 @@ object WeatherService {
                     uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i].toInt(),
                     cloudCover = providerData.hourly.cloud_cover[i],
                     apparentTempCelsius = providerData.hourly.apparent_temperature[i],
-                    rain = providerData.hourly.rain[i],
-                    showers = providerData.hourly.showers[i],
-                    precipProb = providerData.hourly.precipitation_probability[i],
+                    rain = providerData.hourly.rain[i] + providerData.hourly.showers[i],
+                    rainProb = providerData.hourly.precipitation_probability[i],
                     windGusts = providerData.hourly.wind_gusts_10m[i]
                 )
             }

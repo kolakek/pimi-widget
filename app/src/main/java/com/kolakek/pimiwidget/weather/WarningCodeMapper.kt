@@ -25,8 +25,7 @@ object WarningCodeMapper {
         cloudCover: Double,
         apparentTempCelsius: Double,
         rain: Double,
-        showers: Double,
-        precipProb: Double,
+        rainProb: Double,
         windGusts: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
@@ -37,8 +36,7 @@ object WarningCodeMapper {
                     cloudCover,
                     apparentTempCelsius,
                     rain,
-                    showers,
-                    precipProb,
+                    rainProb,
                     windGusts
                 )
             ) return warningCode
@@ -53,41 +51,52 @@ object WarningCodeMapper {
         cloudCover: Double,
         apparentTempCelsius: Double,
         rain: Double,
-        showers: Double,
-        precipProb: Double,
+        rainProb: Double,
         windGusts: Double
     ): Boolean {
         return when (warningCode) {
 
             WarningCode.EXTREME_GUSTS ->
-                windGusts >= EXTR_GUSTS_MIN_KMH
+                isExtremeGusts(windGusts)
 
             WarningCode.SEVERE_GUSTS ->
-                windGusts >= SEVR_GUSTS_MIN_KMH
+                isSevereGusts(windGusts)
 
             WarningCode.EXTREME_RAIN ->
-                (rain + showers) >= EXTR_RAIN_MIN_MM && precipProb >= EXTR_RAIN_MIN_PRECIP_PROB
+                isExtremeRain(rain, rainProb)
 
             WarningCode.SEVERE_RAIN ->
-                (rain + showers) >= SEVR_RAIN_MIN_MM && precipProb >= SEVR_RAIN_MIN_PRECIP_PROB
+                isSevereRain(rain, rainProb)
 
             WarningCode.EXTREME_HEAT ->
-                apparentTempCelsius >= EXTR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius >= WARN_XTR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.SEVERE_HEAT ->
-                apparentTempCelsius >= SEVR_HEAT_MIN_APPARENT_TEMP_C
+                apparentTempCelsius >= WARN_SVR_HEAT_MIN_APPARENT_TEMP_C
 
             WarningCode.EXTREME_UV ->
-                (uvIndex >= EXTR_UV_MIN_UV_INDEX) ||
-                        (uvIndexClearSky >= EXTR_UV_MIN_UV_INDEX &&
-                                cloudCover <= EXTR_UV_MAX_CLOUD_COVER)
+                (uvIndex >= WARN_XTR_UV_MIN_UV_INDEX) ||
+                        (uvIndexClearSky >= WARN_XTR_UV_MIN_UV_INDEX &&
+                                cloudCover <= WARN_XTR_UV_MAX_CLOUD_COVER)
 
             WarningCode.SEVERE_UV ->
-                (uvIndex >= SEVR_UV_MIN_UV_INDEX) ||
-                        (uvIndexClearSky >= SEVR_UV_MIN_UV_INDEX &&
-                                cloudCover <= SEVR_UV_MAX_CLOUD_COVER)
+                (uvIndex >= WARN_SVR_UV_MIN_UV_INDEX) ||
+                        (uvIndexClearSky >= WARN_SVR_UV_MIN_UV_INDEX &&
+                                cloudCover <= WARN_SVR_UV_MAX_CLOUD_COVER)
 
             WarningCode.NO_WARNING -> false
         }
     }
+
+    private fun isExtremeRain(rain: Double, rainProb: Double) =
+        rain >= WARN_XTR_RAIN_MIN_MM && rainProb >= WARN_XTR_RAIN_MIN_PROB
+
+    private fun isSevereRain(rain: Double, rainProb: Double) =
+        rain >= WARN_SVR_RAIN_MIN_MM && rainProb >= WARN_SVR_RAIN_MIN_PROB
+
+    private fun isExtremeGusts(windGusts: Double) =
+        windGusts >= WARN_XTR_GUSTS_MIN_KMH
+
+    private fun isSevereGusts(windGusts: Double) =
+        windGusts >= WARN_SVR_GUSTS_MIN_KMH
 }
