@@ -140,6 +140,7 @@
     <string name="warn_uv_extreme">äärimmäinen UV-varoitus</string>
     <string name="warn_heat_extreme">äärimmäinen hellevaroitus</string>
     <string name="warn_rain_extreme">äärimmäinen sadevaroitus</string>
+    <string name="warn_gusts_extreme">äärimmäinen puuskatuulivaroitus</string>
     <string name="today">tänään</string>
     <string name="tomorrow">huomenna</string>
     <string name="config_weather_warnings">Näytä säävaroitukset</string>
@@ -147,5 +148,6 @@
     <string name="warn_uv_severe">voimakas UV-varoitus</string>
     <string name="warn_heat_severe">voimakas hellevaroitus</string>
     <string name="warn_rain_severe">voimakas sadevaroitus</string>
+    <string name="warn_gusts_severe">voimakas puuskatuulivaroitus</string>
 
 </resources>

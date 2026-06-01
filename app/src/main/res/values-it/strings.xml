@@ -143,6 +143,7 @@
     <string name="warn_uv_extreme">avviso di radiazione UV estrema</string>
     <string name="warn_heat_extreme">avviso di caldo estremo</string>
     <string name="warn_rain_extreme">avviso di pioggia estrema</string>
+    <string name="warn_gusts_extreme">avviso di raffiche di vento estreme</string>
     <string name="today">oggi</string>
     <string name="tomorrow">domani</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
@@ -150,5 +151,6 @@
     <string name="warn_uv_severe">avviso di forte radiazione UV</string>
     <string name="warn_heat_severe">avviso di caldo intenso</string>
     <string name="warn_rain_severe">avviso di pioggia intensa</string>
+    <string name="warn_gusts_severe">avviso di forti raffiche di vento</string>
 
 </resources>

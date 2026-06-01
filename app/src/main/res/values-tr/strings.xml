@@ -141,6 +141,7 @@
     <string name="warn_uv_extreme">aşırı UV uyarısı</string>
     <string name="warn_heat_extreme">aşırı sıcaklık uyarısı</string>
     <string name="warn_rain_extreme">aşırı yağmur uyarısı</string>
+    <string name="warn_gusts_extreme">aşırı rüzgar uyarısı</string>
     <string name="today">bugün</string>
     <string name="tomorrow">yarın</string>
     <string name="config_weather_warnings">Hava uyarılarını göster</string>
@@ -148,5 +149,6 @@
     <string name="warn_uv_severe">yüksek UV uyarısı</string>
     <string name="warn_heat_severe">aşırı sıcak uyarısı</string>
     <string name="warn_rain_severe">şiddetli yağmur uyarısı</string>
+    <string name="warn_gusts_severe">şiddetli rüzgar uyarısı</string>
 
 </resources>

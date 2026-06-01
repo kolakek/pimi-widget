@@ -26,7 +26,8 @@ object WarningCodeMapper {
         apparentTempCelsius: Double,
         rain: Double,
         showers: Double,
-        precipProb: Double
+        precipProb: Double,
+        windGusts: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
             if (matchesWarning(
@@ -37,7 +38,8 @@ object WarningCodeMapper {
                     apparentTempCelsius,
                     rain,
                     showers,
-                    precipProb
+                    precipProb,
+                    windGusts
                 )
             ) return warningCode
         }
@@ -52,9 +54,16 @@ object WarningCodeMapper {
         apparentTempCelsius: Double,
         rain: Double,
         showers: Double,
-        precipProb: Double
+        precipProb: Double,
+        windGusts: Double
     ): Boolean {
         return when (warningCode) {
+
+            WarningCode.EXTREME_GUSTS ->
+                windGusts > EXTR_GUSTS_MIN_KMH
+
+            WarningCode.SEVERE_GUSTS ->
+                windGusts > SEVR_GUSTS_MIN_KMH
 
             WarningCode.EXTREME_RAIN ->
                 (rain + showers) > EXTR_RAIN_MIN_MM && precipProb > EXTR_RAIN_MIN_PRECIP_PROB

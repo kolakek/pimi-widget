@@ -146,6 +146,7 @@
     <string name="warn_uv_extreme">попередження про екстремальний УФ-рівень</string>
     <string name="warn_heat_extreme">попередження про екстремальну спеку</string>
     <string name="warn_rain_extreme">попередження про екстремальний дощ</string>
+    <string name="warn_gusts_extreme">попередження про екстремальні пориви вітру</string>
     <string name="today">сьогодні</string>
     <string name="tomorrow">завтра</string>
     <string name="config_weather_warnings">Показувати попередження про погоду</string>
@@ -153,5 +154,6 @@
     <string name="warn_uv_severe">попередження про високий УФ-рівень</string>
     <string name="warn_heat_severe">попередження про сильну спеку</string>
     <string name="warn_rain_severe">попередження про інтенсивний дощ</string>
+    <string name="warn_gusts_severe">попередження про сильні пориви вітру</string>
 
 </resources>

@@ -143,6 +143,7 @@
     <string name="warn_uv_extreme">alerta de radiação UV extrema</string>
     <string name="warn_heat_extreme">alerta de calor extremo</string>
     <string name="warn_rain_extreme">alerta de chuva extrema</string>
+    <string name="warn_gusts_extreme">alerta de ventos extremos</string>
     <string name="today">hoje</string>
     <string name="tomorrow">amanhã</string>
     <string name="config_weather_warnings">Exibir alertas de tempo</string>
@@ -150,5 +151,6 @@
     <string name="warn_uv_severe">alerta de radiação UV alta</string>
     <string name="warn_heat_severe">alerta de calor intenso</string>
     <string name="warn_rain_severe">alerta de chuva intensa</string>
+    <string name="warn_gusts_severe">alerta de ventos fortes</string>
 
 </resources>

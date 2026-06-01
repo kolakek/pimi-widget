@@ -199,6 +199,8 @@
     <string name="warn_heat_extreme">Extreme heat warning</string>
     <string name="warn_rain_severe">Intense rain warning</string>
     <string name="warn_rain_extreme">Extreme rain warning</string>
+    <string name="warn_gusts_severe">Severe wind gust warning</string>
+    <string name="warn_gusts_extreme">Extreme wind gust warning</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>

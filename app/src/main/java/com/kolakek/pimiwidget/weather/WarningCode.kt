@@ -21,6 +21,8 @@ package com.kolakek.pimiwidget.weather
 enum class WarningCode(val level: WarningLevel) {
     EXTREME_RAIN(WarningLevel.EXTREME),
     SEVERE_RAIN(WarningLevel.SEVERE),
+    EXTREME_GUSTS(WarningLevel.EXTREME),
+    SEVERE_GUSTS(WarningLevel.SEVERE),
     EXTREME_HEAT(WarningLevel.EXTREME),
     SEVERE_HEAT(WarningLevel.SEVERE),
     EXTREME_UV(WarningLevel.EXTREME),

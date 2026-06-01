@@ -28,7 +28,8 @@ internal const val MINUTELY_VALUE =
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day,cloud_cover,uv_index," +
-        "uv_index_clear_sky,apparent_temperature,rain,showers,precipitation_probability"
+        "uv_index_clear_sky,apparent_temperature,rain,showers,precipitation_probability," +
+        "wind_gusts_10m"
 
 internal const val DAILY_KEY = "daily"
 internal const val DAILY_VALUE =
@@ -75,3 +76,5 @@ internal const val SEVR_RAIN_MIN_MM = 25
 internal const val SEVR_RAIN_MIN_PRECIP_PROB = 70
 internal const val EXTR_RAIN_MIN_MM = 40
 internal const val EXTR_RAIN_MIN_PRECIP_PROB = 90
+internal const val SEVR_GUSTS_MIN_KMH = 105
+internal const val EXTR_GUSTS_MIN_KMH = 140

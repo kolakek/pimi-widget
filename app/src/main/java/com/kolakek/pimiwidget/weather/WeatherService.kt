@@ -101,7 +101,8 @@ object WeatherService {
                     apparentTempCelsius = providerData.hourly.apparent_temperature[i],
                     rain = providerData.hourly.rain[i],
                     showers = providerData.hourly.showers[i],
-                    precipProb = providerData.hourly.precipitation_probability[i]
+                    precipProb = providerData.hourly.precipitation_probability[i],
+                    windGusts = providerData.hourly.wind_gusts_10m[i]
                 )
             }
         } catch (_: ArrayIndexOutOfBoundsException) {
