@@ -36,7 +36,7 @@ object WeatherCodeMapper {
         val adjustedWmoCode = when (wmoCode) {
             in 45..48 -> if (noFog) CODE_NO_PRECIP else wmoCode
 
-            in 51..86 -> if (noPrecip) CODE_NO_PRECIP else wmoCode
+            in 53..86 -> if (noPrecip) CODE_NO_PRECIP else wmoCode
 
             in 95..99 -> if (noThunderstorm) {
                 if (noPrecip) CODE_NO_PRECIP else CODE_LIGHT_SHOWERS
@@ -48,7 +48,7 @@ object WeatherCodeMapper {
         }
         return when (adjustedWmoCode) {
 
-            0, 1, 2, 3, CODE_NO_PRECIP ->
+            0, 1, 2, 3, 51, CODE_NO_PRECIP ->
                 when {
                     cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCode.OVERCAST
                     cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCode.MOSTLY_CLOUDY
@@ -61,7 +61,7 @@ object WeatherCodeMapper {
             45, 48 ->
                 WeatherCode.FOG
 
-            51, 53, 55 ->
+            53, 55 ->
                 if (noSky) WeatherCode.DRIZZLE
                 else WeatherCode.DRIZZLE_AND_SKY
 
