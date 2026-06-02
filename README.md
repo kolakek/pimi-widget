@@ -61,25 +61,25 @@ Supported weather apps (among others): Google Weather, Breezy Weather.
 
 Severe and extreme weather alerts are shown if the following weather conditions are met:
 
-- **Severe UV warning:** Ultraviolet (UV) index of 8 or higher, according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index) (very high UV level)
+- **Severe UV warning:** UV index ≥ 8 (very high), according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index)
 
-- **Extreme UV warning:** Ultraviolet (UV) index of 11 or higher, according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index) (extreme UV level)
+- **Extreme UV warning:** UV index ≥ 11 (extreme), according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index)
 
-- **Excessive heat warning:** Apparent temperature exceeding 38 degrees Celsius, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+- **Excessive heat warning:** Apparent temperature ≥ 38°C (warning level 3), according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html)
 
-- **Extreme heat warning:** Apparent temperature exceeding 43 degrees Celsius, inspired by [NWS](https://www.weather.gov/ama/heatindex) (dangerous heat index)
+- **Extreme heat warning:** Apparent temperature ≥ 43°C (dangerous heat), according to [NWS](https://www.weather.gov/ama/heatindex)
 
-- **Excessive rain warning:** Rain exceeding 25 mm/h and precipitation probability of at least 70%, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+- **Excessive rain warning:** Rainfall ≥ 25 mm/h (warning level 3), according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html)
 
-- **Extreme rain warning:** Rain exceeding 40 mm/h and precipitation probability of at least 90%, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+- **Extreme rain warning:** Rainfall ≥ 40 mm/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
 
-- **Severe wind gust warning:** Wind gusts exceeding 105 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+- **Severe wind gust warning:** Wind gusts ≥ 105 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
 
-- **Extreme wind gust warning:** Wind gusts exceeding 140 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+- **Extreme wind gust warning:** Wind gusts ≥ 140 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
 
-- **Severe thunderstorm warning:** Thunderstorm with severe rain or severe wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+- **Severe thunderstorm warning:** Thunderstorms with severe rain or wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
 
-- **Extreme thunderstorm warning:** Thunderstorm with extreme rain or extreme wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+- **Extreme thunderstorm warning:** Thunderstorms with extreme rain or wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
 
 ### Troubleshooting
 
