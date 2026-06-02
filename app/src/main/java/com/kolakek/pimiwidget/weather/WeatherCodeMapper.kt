@@ -28,7 +28,7 @@ object WeatherCodeMapper {
         visibility: Double,
         cape: Double
     ): WeatherCode? {
-        val noSky = cloudCover > MIN_CLOUD_COVER_OVERCAST
+        val noSky = cloudCover >= MIN_CLOUD_COVER_OVERCAST
         val noPrecip = precipProb < MIN_PROBABILITY_PRECIP
         val noFog = visibility > MAX_VISIBILITY_FOG
         val noThunderstorm = (cape < MIN_CAPE_THUNDERSTORM) || (precipProb < MIN_POP_THUNDERSTORM)
@@ -50,12 +50,19 @@ object WeatherCodeMapper {
 
             0, 1, 2, 3, 51, CODE_NO_PRECIP ->
                 when {
-                    cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCode.OVERCAST
-                    cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCode.MOSTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCode.PARTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCode.MAINLY_CLEAR
+                    (adjustedWmoCode == 0) || (cloudCover <= MAX_CLOUD_COVER_CLEAR_SKY) ->
+                        WeatherCode.CLEAR_SKY
 
-                    else -> WeatherCode.CLEAR_SKY
+                    (adjustedWmoCode == 1) || (cloudCover <= MAX_CLOUD_COVER_MAINLY_CLEAR) ->
+                        WeatherCode.MAINLY_CLEAR
+
+                    cloudCover <= MAX_CLOUD_COVER_PARTLY_CLOUDY ->
+                        WeatherCode.PARTLY_CLOUDY
+
+                    (adjustedWmoCode == 3) || (cloudCover < MIN_CLOUD_COVER_OVERCAST) ->
+                        WeatherCode.MOSTLY_CLOUDY
+
+                    else -> WeatherCode.OVERCAST
                 }
 
             45, 48 ->

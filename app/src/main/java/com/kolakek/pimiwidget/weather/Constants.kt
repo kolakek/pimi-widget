@@ -60,10 +60,11 @@ internal const val PRECIP_UNIT_VALUE = "mm"
 internal const val WIND_SPEED_UNIT_KEY = "wind_speed_unit"
 internal const val WIND_SPEED_UNIT_VALUE = "kmh"
 
+internal const val MAX_CLOUD_COVER_CLEAR_SKY = 20
+internal const val MAX_CLOUD_COVER_MAINLY_CLEAR = 50
+internal const val MAX_CLOUD_COVER_PARTLY_CLOUDY = 70
 internal const val MIN_CLOUD_COVER_OVERCAST = 90
-internal const val MIN_CLOUD_COVER_MOSTLY_CLOUDY = 70
-internal const val MIN_CLOUD_COVER_PARTLY_CLOUDY = 40
-internal const val MIN_CLOUD_COVER_MAINLY_CLEAR = 20
+
 internal const val MIN_CAPE_THUNDERSTORM = 500
 internal const val MIN_POP_THUNDERSTORM = 40
 internal const val MAX_VISIBILITY_FOG = 1000
