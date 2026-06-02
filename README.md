@@ -59,7 +59,7 @@ Supported weather apps (among others): Google Weather, Breezy Weather.
 
 ### Weather Alerts
 
-Severe and extreme weather alerts are shown if the following weather conditions are met:
+Severe and extreme weather alerts for the current hour are shown if the following conditions are met:
 
 - **Severe UV warning:** UV index ≥ 8 (very high), according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index)
 
