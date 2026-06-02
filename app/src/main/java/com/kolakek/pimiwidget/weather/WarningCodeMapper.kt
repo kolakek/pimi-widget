@@ -20,24 +20,28 @@ package com.kolakek.pimiwidget.weather
 object WarningCodeMapper {
 
     internal fun getWarningCode(
+        wmoCode: Int,
         uvIndex: Int,
         uvIndexClearSky: Int,
         cloudCover: Double,
         apparentTempCelsius: Double,
         rain: Double,
         rainProb: Double,
+        cape: Double,
         windGusts: Double
     ): WarningCode {
         for (warningCode in WarningCode.entries) {
             if (matchesWarning(
-                    warningCode,
-                    uvIndex,
-                    uvIndexClearSky,
-                    cloudCover,
-                    apparentTempCelsius,
-                    rain,
-                    rainProb,
-                    windGusts
+                    warningCode = warningCode,
+                    wmoCode = wmoCode,
+                    uvIndex = uvIndex,
+                    uvIndexClearSky = uvIndexClearSky,
+                    cloudCover = cloudCover,
+                    apparentTempCelsius = apparentTempCelsius,
+                    rain = rain,
+                    rainProb = rainProb,
+                    cape = cape,
+                    windGusts = windGusts
                 )
             ) return warningCode
         }
@@ -46,15 +50,25 @@ object WarningCodeMapper {
 
     private fun matchesWarning(
         warningCode: WarningCode,
+        wmoCode: Int,
         uvIndex: Int,
         uvIndexClearSky: Int,
         cloudCover: Double,
         apparentTempCelsius: Double,
         rain: Double,
         rainProb: Double,
+        cape: Double,
         windGusts: Double
     ): Boolean {
         return when (warningCode) {
+
+            WarningCode.EXTREME_TSTORM ->
+                (isExtremeGusts(windGusts) || isExtremeRain(rain, rainProb)) &&
+                        (cape >= WARN_XTR_TSTORM_MIN_CAPE) && (wmoCode in 95..99)
+
+            WarningCode.SEVERE_TSTORM ->
+                (isSevereGusts(windGusts) || isSevereRain(rain, rainProb)) &&
+                        (cape >= WARN_SVR_TSTORM_MIN_CAPE) && (wmoCode in 95..99)
 
             WarningCode.EXTREME_GUSTS ->
                 isExtremeGusts(windGusts)

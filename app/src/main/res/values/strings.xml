@@ -201,6 +201,8 @@
     <string name="warn_rain_extreme">Extreme rain warning</string>
     <string name="warn_gusts_severe">Severe wind gust warning</string>
     <string name="warn_gusts_extreme">Extreme wind gust warning</string>
+    <string name="warn_tstorm_severe">Severe thunderstorm warning</string>
+    <string name="warn_tstorm_extreme">Extreme thunderstorm warning</string>
 
     <!-- String saying today -->
     <string name="today">Today</string>

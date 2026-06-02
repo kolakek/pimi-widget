@@ -147,6 +147,7 @@
     <string name="warn_heat_extreme">ostrzeżenie upał ekstremalny</string>
     <string name="warn_rain_extreme">ostrzeżenie deszcz ekstremalny</string>
     <string name="warn_gusts_extreme">ostrzeżenie ekstremalnych porywów wiatru</string>
+    <string name="warn_tstorm_extreme">ostrzeżenie przed ekstremalnymi burzami</string>
     <string name="today">dzisiaj</string>
     <string name="tomorrow">jutro</string>
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
@@ -155,5 +156,6 @@
     <string name="warn_heat_severe">ostrzeżenie upał silny</string>
     <string name="warn_rain_severe">ostrzeżenie deszcz intensywny</string>
     <string name="warn_gusts_severe">ostrzeżenie silnych porywów wiatru</string>
+    <string name="warn_tstorm_severe">ostrzeżenie przed silnymi burzami</string>
 
 </resources>

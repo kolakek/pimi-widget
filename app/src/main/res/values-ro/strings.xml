@@ -144,6 +144,7 @@
     <string name="warn_heat_extreme">avertizare de caniculă extremă</string>
     <string name="warn_rain_extreme">avertizare de ploaie extremă</string>
     <string name="warn_gusts_extreme">avertizare de vânt extrem</string>
+    <string name="warn_tstorm_extreme">avertizare de furtuni extreme</string>
     <string name="today">astăzi</string>
     <string name="tomorrow">mâine</string>
     <string name="config_weather_warnings">Afișează alertă meteorologică</string>
@@ -152,5 +153,6 @@
     <string name="warn_heat_severe">avertizare de caniculă intensă</string>
     <string name="warn_rain_severe">avertizare de ploaie intensă</string>
     <string name="warn_gusts_severe">avertizare de vânt puternic</string>
+    <string name="warn_tstorm_severe">avertizare de furtuni puternice</string>
 
 </resources>

@@ -141,6 +141,7 @@
     <string name="warn_heat_extreme">varsel om ekstrem varme</string>
     <string name="warn_rain_extreme">varsel om ekstrem regn</string>
     <string name="warn_gusts_extreme">varsel om ekstreme vindstød</string>
+    <string name="warn_tstorm_extreme">varsel om ekstremt tordenvejr</string>
     <string name="today">i dag</string>
     <string name="tomorrow">i morgen</string>
     <string name="config_weather_warnings">Vis vejralarmer</string>
@@ -149,5 +150,6 @@
     <string name="warn_heat_severe">varsel om intens varme</string>
     <string name="warn_rain_severe">varsel om kraftig regn</string>
     <string name="warn_gusts_severe">varsel om kraftige vindstød</string>
+    <string name="warn_tstorm_severe">varsel om kraftigt tordenvejr</string>
 
 </resources>

@@ -141,6 +141,7 @@
     <string name="warn_heat_extreme">paralajmërim për nxehtësi ekstreme</string>
     <string name="warn_rain_extreme">paralajmërim për shi ekstrem</string>
     <string name="warn_gusts_extreme">paralajmërim për erëra ekstreme</string>
+    <string name="warn_tstorm_extreme">paralajmërim për stuhi ekstreme</string>
     <string name="today">sot</string>
     <string name="tomorrow">nesër</string>
     <string name="config_weather_warnings">Shfaq paralajmërime moti</string>
@@ -149,5 +150,6 @@
     <string name="warn_heat_severe">paralajmërim për nxehtësi të madhe</string>
     <string name="warn_rain_severe">paralajmërim për shi intensiv</string>
     <string name="warn_gusts_severe">paralajmërim për erëra të forta</string>
+    <string name="warn_tstorm_severe">paralajmërim për stuhi të forta</string>
 
 </resources>

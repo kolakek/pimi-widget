@@ -27,9 +27,9 @@ internal const val MINUTELY_VALUE =
     "temperature_2m,weather_code,is_day,cloud_cover,cape,precipitation_probability,visibility"
 
 internal const val HOURLY_KEY = "hourly"
-internal const val HOURLY_VALUE = "temperature_2m,weather_code,is_day,cloud_cover,uv_index," +
-        "uv_index_clear_sky,apparent_temperature,rain,showers,precipitation_probability," +
-        "wind_gusts_10m"
+internal const val HOURLY_VALUE =
+    "temperature_2m,weather_code,is_day,cloud_cover,uv_index,uv_index_clear_sky," +
+            "apparent_temperature,rain,showers,precipitation_probability,wind_gusts_10m,cape"
 
 internal const val DAILY_KEY = "daily"
 internal const val DAILY_VALUE =
@@ -84,3 +84,5 @@ internal const val WARN_XTR_RAIN_MIN_MM = 40
 internal const val WARN_XTR_RAIN_MIN_PROB = 90
 internal const val WARN_SVR_GUSTS_MIN_KMH = 105
 internal const val WARN_XTR_GUSTS_MIN_KMH = 140
+internal const val WARN_SVR_TSTORM_MIN_CAPE = 1500
+internal const val WARN_XTR_TSTORM_MIN_CAPE = 2500

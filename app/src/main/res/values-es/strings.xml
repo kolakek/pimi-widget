@@ -144,6 +144,7 @@
     <string name="warn_heat_extreme">aviso de calor extremo</string>
     <string name="warn_rain_extreme">aviso de lluvia extrema</string>
     <string name="warn_gusts_extreme">aviso de viento extremo</string>
+    <string name="warn_tstorm_extreme">aviso de tormentas extremas</string>
     <string name="today">hoy</string>
     <string name="tomorrow">mañana</string>
     <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
@@ -152,5 +153,6 @@
     <string name="warn_heat_severe">aviso de calor intenso</string>
     <string name="warn_rain_severe">aviso de lluvia intensa</string>
     <string name="warn_gusts_severe">aviso de viento fuerte</string>
+    <string name="warn_tstorm_severe">aviso de tormentas fuertes</string>
 
 </resources>

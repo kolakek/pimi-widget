@@ -141,6 +141,7 @@
     <string name="warn_heat_extreme">προειδοποίηση ακραίας ζέστης</string>
     <string name="warn_rain_extreme">προειδοποίηση ακραίας βροχής</string>
     <string name="warn_gusts_extreme">προειδοποίηση ακραίων ριπών ανέμου</string>
+    <string name="warn_tstorm_extreme">προειδοποίηση ακραίας καταιγίδας</string>
     <string name="today">σήμερα</string>
     <string name="tomorrow">αύριο</string>
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
@@ -149,5 +150,6 @@
     <string name="warn_heat_severe">προειδοποίηση έντονης ζέστης</string>
     <string name="warn_rain_severe">προειδοποίηση έντονης βροχής</string>
     <string name="warn_gusts_severe">προειδοποίηση ισχυρών ριπών ανέμου</string>
+    <string name="warn_tstorm_severe">προειδοποίηση ισχυρής καταιγίδας</string>
 
 </resources>

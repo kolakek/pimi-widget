@@ -141,6 +141,7 @@
     <string name="warn_heat_extreme">waarschuwing voor extreme hitte</string>
     <string name="warn_rain_extreme">waarschuwing voor extreme regen</string>
     <string name="warn_gusts_extreme">waarschuwing voor extreme windstoten</string>
+    <string name="warn_tstorm_extreme">waarschuwing voor extreme onweer</string>
     <string name="today">vandaag</string>
     <string name="tomorrow">morgen</string>
     <string name="config_weather_warnings">Weerwaarschuwingen tonen</string>
@@ -149,5 +150,6 @@
     <string name="warn_heat_severe">waarschuwing voor zeer hoge hitte</string>
     <string name="warn_rain_severe">waarschuwing voor intense regen</string>
     <string name="warn_gusts_severe">waarschuwing voor sterke windstoten</string>
+    <string name="warn_tstorm_severe">waarschuwing voor zware onweer</string>
 
 </resources>

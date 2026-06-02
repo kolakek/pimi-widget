@@ -98,12 +98,14 @@ object WeatherService {
         val hourlyWarningCode = try {
             providerData.hourly.weather_code.indices.map { i ->
                 WarningCodeMapper.getWarningCode(
+                    wmoCode = providerData.hourly.weather_code[i].toInt(),
                     uvIndex = providerData.hourly.uv_index[i].toInt(),
                     uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i].toInt(),
                     cloudCover = providerData.hourly.cloud_cover[i],
                     apparentTempCelsius = providerData.hourly.apparent_temperature[i],
                     rain = providerData.hourly.rain[i] + providerData.hourly.showers[i],
                     rainProb = providerData.hourly.precipitation_probability[i],
+                    cape = providerData.hourly.cape[i],
                     windGusts = providerData.hourly.wind_gusts_10m[i]
                 )
             }

@@ -141,6 +141,7 @@
     <string name="warn_heat_extreme">varning för extrem värme</string>
     <string name="warn_rain_extreme">varning för extremt regn</string>
     <string name="warn_gusts_extreme">varning för extrema vindbyar</string>
+    <string name="warn_tstorm_extreme">varning för extrema åskväder</string>
     <string name="today">idag</string>
     <string name="tomorrow">imorgon</string>
     <string name="config_weather_warnings">Visa vädervarningar</string>
@@ -149,5 +150,6 @@
     <string name="warn_heat_severe">varning för intensiv värme</string>
     <string name="warn_rain_severe">varning för intensivt regn</string>
     <string name="warn_gusts_severe">varning för kraftiga vindbyar</string>
+    <string name="warn_tstorm_severe">varning för kraftiga åskväder</string>
 
 </resources>

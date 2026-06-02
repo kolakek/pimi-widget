@@ -145,10 +145,12 @@
     <string name="warn_rain_extreme">Warnung vor extremem Regen</string>
     <string name="warn_gusts_severe">Warnung vor Orkanböen</string>
     <string name="warn_gusts_extreme">Warnung vor extremen Orkanböen</string>
+    <string name="warn_tstorm_extreme">Warnung vor extremen Gewittern</string>
     <string name="today">Heute</string>
     <string name="tomorrow">Morgen</string>
     <string name="warn_no_warning">Keine Warnungen</string>
     <string name="warn_uv_severe">Warnung vor starker UV-Strahlung</string>
     <string name="warn_heat_severe">Warnung vor starker Hitze</string>
+    <string name="warn_tstorm_severe">Warnung vor schweren Gewittern</string>
 
 </resources>
