@@ -59,7 +59,7 @@ object WeatherCodeMapper {
                     cloudCover <= MAX_CLOUD_COVER_PARTLY_CLOUDY ->
                         WeatherCode.PARTLY_CLOUDY
 
-                    (adjustedWmoCode == 3) || (cloudCover < MIN_CLOUD_COVER_OVERCAST) ->
+                    (adjustedWmoCode == 2) || (cloudCover < MIN_CLOUD_COVER_OVERCAST) ->
                         WeatherCode.MOSTLY_CLOUDY
 
                     else -> WeatherCode.OVERCAST
