@@ -57,17 +57,41 @@ Tapping the date or weather area on the widget will open the default calendar or
 
 Supported weather apps (among others): Google Weather, Breezy Weather.
 
-### Further Troubleshooting
+### Weather Alerts
+
+Severe and extreme weather alerts are shown if the following weather conditions are met:
+
+- **Severe UV warning:** Ultraviolet (UV) index of 8 or higher, according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index) (very high UV level)
+
+- **Extreme UV warning:** Ultraviolet (UV) index of 11 or higher, according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index) (extreme UV level)
+
+- **Excessive heat warning:** Apparent temperature exceeding 38 degrees Celsius, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme heat warning:** Apparent temperature exceeding 43 degrees Celsius, inspired by [NWS](https://www.weather.gov/ama/heatindex) (dangerous heat index)
+
+- **Excessive rain warning:** Rain exceeding 25 mm/h and precipitation probability of at least 70%, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme rain warning:** Rain exceeding 40 mm/h and precipitation probability of at least 90%, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+- **Severe wind gust warning:** Wind gusts exceeding 105 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme wind gust warning:** Wind gusts exceeding 140 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+- **Severe thunderstorm warning:** Thunderstorm with severe rain or severe wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme thunderstorm warning:** Thunderstorm with extreme rain or extreme wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+### Troubleshooting
 
 If weather information does not appear, you can find debug information by tapping the **Debug information** field in the widget configuration. Try the following actions based on the displayed status:
 
-- **Location FAILED**: The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
+- **Location FAILED:** The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
 
-- **Location FAILED & Weather FAILED**: The widget failed to retrieve your location and thus, was not able to obtain weather data. Ensure that location services are enabled. Refer to the Location Access section above.
+- **Location FAILED & Weather FAILED:** The widget failed to retrieve your location and thus, was not able to obtain weather data. Ensure that location services are enabled. Refer to the Location Access section above.
 
-- **Location SUCCESS & Weather FAILED**: The widget retrieved your location but could not reach the weather provider. Ensure that your device is connected to the internet.
+- **Location SUCCESS & Weather FAILED:** The widget retrieved your location but could not reach the weather provider. Ensure that your device is connected to the internet.
 
-- **Worker ENQUEUED or RUNNING**: The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
+- **Worker ENQUEUED or RUNNING:** The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
 
 ## Donations
 
