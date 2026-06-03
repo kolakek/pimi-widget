@@ -31,6 +31,7 @@ import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -40,10 +41,10 @@ import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.UpdateStatus
 import com.kolakek.pimiwidget.worker.UpdateStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
+import kotlinx.coroutines.launch
 import java.util.Date
 
 internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
@@ -124,7 +125,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) {
             permission = coarseLocationPermission
             title = getString(R.string.config_loc_perm_alert_title)
-            message = getString(R.string.config_loc_perm_alert)
+            message = getString(R.string.config_loc_perm_alert_message)
 
         } else if (context.checkSelfPermission(backgroundLocationPermission) == PackageManager
                 .PERMISSION_DENIED
@@ -132,7 +133,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             permission = backgroundLocationPermission
             title = getString(R.string.config_bg_perm_alert_title)
             message = getString(
-                R.string.config_bg_perm_alert,
+                R.string.config_bg_perm_alert_message,
                 context.packageManager.backgroundPermissionOptionLabel
             )
 
@@ -168,45 +169,50 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         context: Context,
         weatherEnabled: Boolean?
     ) {
-        val dataUpdateStatus: UpdateStatusData? = JsonDataStore.loadSync(
-            context, DataKeys.UPDATE_STATUS_DATA_KEY
-        )
-        val updateStr = dataUpdateStatus?.lastUpdateTimeMillis?.let {
-            "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
-        } ?: ""
-
-        var workerStr = getString(R.string.config_alert_debug_worker) + " " +
-                (WorkManagerHelper.getWorkerStatus(context)
-                    ?: getString(R.string.config_alert_debug_na))
-
-        WorkManagerHelper.getNextScheduleMillis(context)?.let {
-            workerStr += " (${DateFormat.getTimeFormat(context).format(Date(it))})"
-        }
-
-        val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${statusString(dataUpdateStatus?.locationStatus)}"
-
-        val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${statusString(dataUpdateStatus?.weatherStatus)}"
-
-        AlertDialog.Builder(context)
-            .setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
-            .setTitle(R.string.config_alert_debug_title)
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.config_debug_info)
+            .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-"))
             .setCancelable(true)
-            .setPositiveButton(
-                getString(R.string.config_alert_button_close)
-            ) { dialog, _ ->
-                dialog.dismiss()
-            }
             .apply {
                 if (weatherEnabled == true) {
-                    setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
+                    setPositiveButton(R.string.config_debug_alert_button_update) { dialog, _ ->
                         WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
                         dialog.dismiss()
                     }
                 }
             }
             .show()
+
+        lifecycleScope.launch {
+            val dataUpdateStatus: UpdateStatusData? = JsonDataStore.load(
+                context, DataKeys.UPDATE_STATUS_DATA_KEY
+            )
+            val dataAgeStr = dataUpdateStatus?.statusTimeMillis?.let {
+                ageString(it)
+            } ?: "-"
+
+            val statusStr = dataUpdateStatus?.let {
+                getString(
+                    R.string.config_debug_alert_status_time,
+                    it.updateStatus,
+                    DateFormat.getTimeFormat(context).format(Date(it.statusTimeMillis))
+                )
+            } ?: "-"
+
+            val workerStatusStr = WorkManagerHelper.getWorkerStatus(context) ?: "-"
+
+            val workerStr = WorkManagerHelper.getNextScheduleMillis(context)?.let {
+                getString(
+                    R.string.config_debug_alert_status_time,
+                    workerStatusStr,
+                    DateFormat.getTimeFormat(context).format(Date(it))
+                )
+            } ?: workerStatusStr
+
+            dialog.setMessage(
+                getString(R.string.config_debug_alert_message, dataAgeStr, statusStr, workerStr)
+            )
+        }
     }
 
     private fun showDataInfoDialog(
@@ -217,9 +223,9 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             DataKeys.LOCATION_DATA_KEY
         )
         val message = if (locationData == null) {
-            getString(R.string.config_shared_data_alert_no_loc)
+            getString(R.string.config_shared_data_alert_fallback)
         } else {
-            getString(R.string.config_shared_data_alert_text)
+            getString(R.string.config_shared_data_alert_message)
         }
         AlertDialog.Builder(context)
             .setTitle(getString(R.string.config_shared_data))
@@ -278,15 +284,6 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         val alertDialog = builder.create()
         alertDialog.show()
-    }
-
-    private fun statusString(success: UpdateStatus?): String {
-        return when (success) {
-            UpdateStatus.SUCCESS -> getString(R.string.config_alert_debug_success)
-            UpdateStatus.FAILED -> getString(R.string.config_alert_debug_failed)
-            UpdateStatus.RUNNING -> getString(R.string.config_alert_debug_running)
-            null -> getString(R.string.config_alert_debug_na)
-        }
     }
 
     private fun ageString(timeMillis: Long): String {

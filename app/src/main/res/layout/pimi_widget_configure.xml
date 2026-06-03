@@ -31,7 +31,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:minWidth="280dp"
-                android:text="@string/config_button" />
+                android:text="@string/config_button_apply" />
 
         </LinearLayout>
 

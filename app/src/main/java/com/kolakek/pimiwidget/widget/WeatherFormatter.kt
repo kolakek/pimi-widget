@@ -175,7 +175,7 @@ internal object WeatherFormatter {
             WeatherString.getShortWeatherStrId(weatherCode, isDay = true)
         )
         val dayStr = context.getString(
-            if (isToday) R.string.today else R.string.tomorrow
+            if (isToday) R.string.widget_today else R.string.widget_tomorrow
         )
         return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
     }

@@ -2,18 +2,17 @@
 
     <string name="widget_label">Datum a počasí</string>
 
-    <string name="config_button">Použít nastavení</string>
+    <string name="config_button_apply">Použít nastavení</string>
 
-    <string name="config_privacy_note">
-        Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
+    <string name="config_privacy_note">Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
 
     <string name="config_weather_switch">Zapnout počasí</string>
 
-    <string name="config_weather_descr">Meteorologická data z Open-Meteo.com</string>
+    <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
 
-    <string name="config_debug_data">Ladicí informace</string>
+    <string name="config_debug_info">Ladicí informace</string>
 
-    <string name="config_debug_data_descr">Zobrazit stav widgetu</string>
+    <string name="config_debug_info_summary">Zobrazit stav widgetu</string>
 
     <string name="config_text_color">Barva textu</string>
 
@@ -31,54 +30,37 @@
 
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
-    <string name="config_settings_sec">Nastavení</string>
+    <string name="config_section_settings">Nastavení</string>
 
-    <string name="config_about_sec">O aplikaci</string>
+    <string name="config_section_about">O aplikaci</string>
 
     <string name="config_daily_forecast">Zobrazit denní předpověď</string>
 
-    <string name="config_daily_forecast_descr">Ráno a večer</string>
+    <string name="config_daily_forecast_summary">Ráno a večer</string>
 
-    <string name="config_weather_warnings_descr">Pro extrémní povětrnostní podmínky během následující hodiny</string>
+    <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
+
+    <string name="config_weather_warnings_summary">Pro extrémní povětrnostní podmínky během následující hodiny</string>
+
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
 
-    <string name="config_loc_perm_alert">
-        Pro zobrazení počasí ve vaší oblasti
-        tato aplikace potřebuje přístup k vaší poloze.</string>
+    <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve vaší oblasti tato aplikace potřebuje přístup k vaší poloze.</string>
 
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>
 
-    <string name="config_bg_perm_alert">
-        Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí.
-        V dalším kroku vyberte „%s“.</string>
+    <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
 
     <string name="config_alert_button_ok">OK</string>
 
     <string name="config_alert_button_cancel">Zrušit</string>
 
-    <string name="config_alert_debug_title">Poslední stažení dat</string>
-
-    <string name="config_alert_debug_worker">Proces</string>
-
-    <string name="config_alert_debug_location">Poloha</string>
-
-    <string name="config_alert_debug_weather">Počasí</string>
-
-    <string name="config_alert_debug_last_update">Před %s</string>
-
-    <string name="config_alert_button_close">Zavřít</string>
-
-    <string name="config_alert_button_update">Vynutit aktualizaci</string>
-
     <string name="config_shared_data">Transparentnost dat</string>
 
-    <string name="config_shared_data_descr">Zobrazit data sdílená s poskytovatelem počasí</string>
+    <string name="config_shared_data_summary">Zobrazit data sdílená s poskytovatelem počasí</string>
 
-    <string name="config_shared_data_alert_no_loc">Nejsou k dispozici žádná data o poloze</string>
+    <string name="config_shared_data_alert_fallback">Nejsou k dispozici žádná data o poloze</string>
 
-    <string name="config_shared_data_alert_text">
-        Můžeš zobrazit svou naposledy získanou polohu nebo požadavek na API počasí v prohlížeči.
-        Tím dojde ke sdílení tvé polohy s poskytovatelem služby (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_message">Můžeš zobrazit svou naposledy získanou polohu nebo požadavek na API počasí v prohlížeči. Tím dojde ke sdílení tvé polohy s poskytovatelem služby (Open-Meteo, OpenStreetMap).</string>
 
     <string name="config_shared_data_alert_but_weather">Počasí</string>
 
@@ -86,34 +68,17 @@
 
     <string name="config_source_code">Zdrojový kód</string>
 
-    <string name="config_source_code_descr">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
-
-    <plurals name="days">
-        <item quantity="one">1 den</item>
-        <item quantity="few">%d dny</item>
-        <item quantity="many">%d dne</item>
-        <item quantity="other">%d dní</item>
-    </plurals>
-
-    <plurals name="hours">
-        <item quantity="one">1 hodina</item>
-        <item quantity="few">%d hodiny</item>
-        <item quantity="many">%d hodiny</item>
-        <item quantity="other">%d hodin</item>
-    </plurals>
-
-    <plurals name="minutes">
-        <item quantity="one">1 minuta</item>
-        <item quantity="few">%d minuty</item>
-        <item quantity="many">%d minut</item>
-        <item quantity="other">%d minut</item>
-    </plurals>
+    <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
 
     <string name="widget_date_prev">út 28. 10.</string>
 
     <string name="widget_temp_prev">21\u2103 · zítra 19\u00B0 / 13\u00B0 · slabý déšť</string>
 
     <string name="widget_date_format">EEE d. M.</string>
+
+    <string name="widget_today">dnes</string>
+
+    <string name="widget_tomorrow">zítra</string>
 
     <string name="wc_heavy_thunderstorms">silné bouřky</string>
     <string name="wc_thunderstorm">bouřka</string>
@@ -148,9 +113,6 @@
     <string name="warn_rain_extreme">výstraha před extrémním deštěm</string>
     <string name="warn_gusts_extreme">výstraha před extrémními poryvy větru</string>
     <string name="warn_tstorm_extreme">výstraha před extrémními bouřkami</string>
-    <string name="today">dnes</string>
-    <string name="tomorrow">zítra</string>
-    <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
     <string name="warn_no_warning">žádná varování</string>
     <string name="warn_uv_severe">výstraha před silným UV zářením</string>
     <string name="warn_heat_severe">výstraha před vysokými teplotami</string>

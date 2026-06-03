@@ -21,6 +21,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UpdateStatusData (
+    val updateStatus: UpdateStatus,
+    val statusTimeMillis: Long,
+    val successTimeMillis: Long?,
+
+    // ToDo: deprecated
     val locationStatus: UpdateStatus,
     val weatherStatus: UpdateStatus,
     val lastUpdateTimeMillis: Long

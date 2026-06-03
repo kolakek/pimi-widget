@@ -38,71 +38,75 @@ internal object DataUpdater {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
-        if (forceUpdate || needsDataUpdate(context)) {
-            Timber.d("update: Start log")
-            JsonDataStore.save(
-                context,
-                DataKeys.UPDATE_STATUS_DATA_KEY,
-                UpdateStatusData(
-                    locationStatus = UpdateStatus.RUNNING,
-                    weatherStatus = UpdateStatus.RUNNING,
-                    lastUpdateTimeMillis = System.currentTimeMillis()
-                )
-            )
-            Timber.d("update: Get location")
-            val location = if (hasLocationPermission(context)) {
-                LocationService.getLocation(context)
-            } else {
-                Timber.w("update: Location permission denied")
-                null
-            }
-            if (location != null) {
-                Timber.d("update: Store location data")
-                JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
-            } else {
-                Timber.w("update: No location data available")
-            }
-            Timber.d("update: Get weather data")
-            val weather = if (location != null) {
-                WeatherService.getWeather(location)
-            } else {
-                Timber.w("update: No location available")
-                null
-            }
-            if (weather != null) {
-                Timber.d("update: Store weather data")
-                JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
-            } else {
-                Timber.w("update: No weather data available")
-            }
-            Timber.d("update: Store status data")
-            JsonDataStore.save(
-                context,
-                DataKeys.UPDATE_STATUS_DATA_KEY,
-                UpdateStatusData(
-                    locationStatus = if (location == null) UpdateStatus.FAILED
-                    else UpdateStatus.SUCCESS,
-                    weatherStatus = if (weather == null) UpdateStatus.FAILED
-                    else UpdateStatus.SUCCESS,
-                    lastUpdateTimeMillis = System.currentTimeMillis()
-                )
-            )
+        val lastSuccessTimeMillis = getLastSuccessTimeMillis(context)
+
+        saveUpdateStatusData(context, UpdateStatus.RUNNING, lastSuccessTimeMillis)
+
+        if (!hasLocationPermission(context)) {
+            Timber.w("update: Location permission denied")
+            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            return
         }
-        Timber.d("update: Update widget")
-        updateWidget(context) // ToDo: Only if needed (outdated data or forced update)
+
+        Timber.d("update: Get location")
+        val location = LocationService.getLocation(context)
+
+        if (location == null) {
+            Timber.w("update: No location data available")
+            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            return
+        }
+
+        Timber.d("update: Store location data")
+        JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
+
+        Timber.d("update: Get weather data")
+        val weather = WeatherService.getWeather(location)
+
+        if (weather == null) {
+            Timber.w("update: No weather data available")
+            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            return
+        }
+
+        Timber.d("update: Store weather data")
+        JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
+
+        Timber.d("update: Store status data")
+        val currentTimeMillis = System.currentTimeMillis()
+        saveUpdateStatusData(context, UpdateStatus.SUCCESS, currentTimeMillis)
+
+        val widgetDataAge = currentTimeMillis - (lastSuccessTimeMillis ?: 0L)
+        if (forceUpdate || widgetDataAge > 120 * 60 * 1000L) { // ToDo derive const
+            Timber.d("update: Update widget")
+            updateWidget(context)
+        }
     }
 
-    private suspend fun needsDataUpdate(context: Context): Boolean {
-        val dataUpdateStatus: UpdateStatusData = JsonDataStore.load(
+    private suspend fun getLastSuccessTimeMillis(context: Context): Long? {
+        return JsonDataStore.load<UpdateStatusData?>(
             context, DataKeys.UPDATE_STATUS_DATA_KEY
-        ) ?: return true
+        )?.successTimeMillis
+    }
 
-        val lastRunSuccess = dataUpdateStatus.weatherStatus == UpdateStatus.SUCCESS
-        val dataAge = System.currentTimeMillis() - dataUpdateStatus.lastUpdateTimeMillis
-        val isFreshData = (dataAge < WEATHER_MIN_AGE_MILLIS) && lastRunSuccess
+    private suspend fun saveUpdateStatusData(
+        context: Context,
+        updateStatus: UpdateStatus,
+        successTimeMillis: Long?
+    ) {
+        JsonDataStore.save(
+            context,
+            DataKeys.UPDATE_STATUS_DATA_KEY,
+            UpdateStatusData(
+                updateStatus = updateStatus,
+                statusTimeMillis = System.currentTimeMillis(),
+                successTimeMillis = successTimeMillis,
+                locationStatus = UpdateStatus.FAILED,
+                weatherStatus = UpdateStatus.FAILED,
+                lastUpdateTimeMillis = 0L
 
-        Timber.d("needsUpdate: ${!isFreshData}, dataAge: ${dataAge / 1000L / 60L }min")
-        return !isFreshData
+            )
+        )
     }
 
     private fun hasLocationPermission(context: Context): Boolean =

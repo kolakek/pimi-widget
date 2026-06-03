@@ -1,168 +1,68 @@
 <resources>
 
-    <!-- Short description of the widget shown in the widget drawer -->
     <string name="widget_label">Date &amp; weather</string>
 
-    <!-- Title of the button for updating the widget from the config screen -->
-    <string name="config_button">Apply settings</string>
+    <string name="config_button_apply">Apply settings</string>
+    <string name="config_privacy_note">Enabling weather shares your location with the weather provider</string>
 
-    <!-- Short privacy note to be displayed above the weatehr switch -->
-    <string name="config_privacy_note">
-        Enabling weather shares your location with the weather provider</string>
+    <string name="config_section_settings">Settings</string>
+    <string name="config_section_about">About</string>
 
-    <!-- Short description of the weather switch used in config screen -->
     <string name="config_weather_switch">Enable weather</string>
+    <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
 
-    <!-- Additional information for the weather switch in config screen -->
-    <string name="config_weather_descr">Weather data by Open-Meteo.com</string>
+    <string name="config_debug_info">Debug information</string>
+    <string name="config_debug_info_summary">View widget status</string>
 
-    <!-- Title for the debug config option -->
-    <string name="config_debug_data">Debug information</string>
-
-    <!-- Short description of the debug config option -->
-    <string name="config_debug_data_descr">View widget status</string>
-
-    <!-- Title for the config option to adjust the widget text colors -->
-    <string name="config_text_color">Text color</string>
-
-    <!-- Title for the config option to adjust the widget icon style -->
     <string name="config_icon_style">Icon style</string>
 
-    <!-- Config option for selecting light colors -->
+    <string name="config_text_color">Text color</string>
+
     <string name="config_color_light">Light</string>
-
-    <!-- Config option for selecting dark colors -->
     <string name="config_color_dark">Dark</string>
-
-    <!-- Config option for selecting colors automatically based on wallpaper -->
     <string name="config_color_auto">Automatic</string>
 
-    <!-- Title of the config option for selecting the temperature unit -->
     <string name="config_temp">Temperature</string>
 
-    <!-- Celsius temperature unit -->
     <string name="config_temp_celsius">Celsius</string>
-
-    <!-- Fahrenheit temperature unit -->
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
-    <!-- Section title in the config screen for widget settings -->
-    <string name="config_settings_sec">Settings</string>
-
-    <!-- Section title in the config screen for additional information -->
-    <string name="config_about_sec">About</string>
-
-    <!-- Title of the option to show a daily forecast -->
     <string name="config_daily_forecast">Show daily forecast</string>
+    <string name="config_daily_forecast_summary">In the morning and evening</string>
 
-    <!-- String explaining when the forecast is shown -->
-    <string name="config_daily_forecast_descr">In the morning and evening</string>
-
-    <!-- Title of the option to show weather warnings -->
     <string name="config_weather_warnings">Show weather alerts</string>
+    <string name="config_weather_warnings_summary">For severe weather conditions within the hour</string>
 
-    <!-- String explaining details for the weather warnings -->
-    <string name="config_weather_warnings_descr">For severe weather conditions within the hour</string>
-
-    <!-- Title of the alert box for explaining that location access is needed -->
     <string name="config_loc_perm_alert_title">Location permission required</string>
+    <string name="config_loc_perm_alert_message">To show the weather for your current area, this app requires access to your location.</string>
 
-    <!-- Explanation show in the alert box explaining why location access is needed -->
-    <string name="config_loc_perm_alert">
-        To show the weather for your current area,
-        this app requires access to your location.</string>
-
-    <!-- Title of the alert box for explaining that background location access is needed -->
     <string name="config_bg_perm_alert_title">Background location permission</string>
+    <string name="config_bg_perm_alert_message">Reliable weather updates require to access your location in the background. Please select \"%s\" in the next screen.</string>
 
-    <!-- Explanation shown in the alert box explaining why background location access is needed -->
-    <string name="config_bg_perm_alert">
-        Reliable weather updates require to access your location in the background.
-        Please select \"%s\" in the next screen.</string>
-
-    <!-- Text of the alert box OK button -->
     <string name="config_alert_button_ok">OK</string>
-
-    <!-- Text of the alert box cancel button -->
     <string name="config_alert_button_cancel">Cancel</string>
 
-    <!-- Title of the alert box for showing data debug information -->
-    <string name="config_alert_debug_title">Last data download</string>
-
-    <!-- String for the widget background worker, 1 word -->
-    <string name="config_alert_debug_worker">Worker</string>
-
-    <!-- String for the location data, 1 word -->
-    <string name="config_alert_debug_location">Location</string>
-
-    <!-- String for the weather data, 1 word -->
-    <string name="config_alert_debug_weather">Weather</string>
-
-    <!-- String for showing when the last refresh took place -->
-    <string name="config_alert_debug_last_update">%s ago</string>
-
-    <!-- String for the close button of an alert box -->
-    <string name="config_alert_button_close">Close</string>
-
-    <!-- String for the button of an alert box to force an update -->
-    <string name="config_alert_button_update">Force update</string>
-
-    <!-- String for the title of a config option to show the shared data -->
     <string name="config_shared_data">Data transparency</string>
+    <string name="config_shared_data_summary">View data exchanged with the weather provider</string>
 
-    <!-- String for the description of the config option to show the shared data -->
-    <string name="config_shared_data_descr">View data exchanged with the weather provider</string>
-
-    <!-- String for the alert text in case no location data is available -->
-    <string name="config_shared_data_alert_no_loc">No location data available</string>
-
-    <!-- String for the alert text in case location data is available -->
-    <string name="config_shared_data_alert_text">
-        You can view your last retrieved location or weather API request in the browser.
-        This will share your location with the service provider (Open-Meteo, OpenStreetMap).</string>
-
-    <!-- String for the button of an alert box to show weather (data) -->
+    <string name="config_shared_data_alert_message">You can view your last retrieved location or weather API request in the browser. This will share your location with the service provider (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_fallback">No location data available</string>
     <string name="config_shared_data_alert_but_weather">Weather</string>
-
-    <!-- String for the button of an alert box to show location (data) -->
     <string name="config_shared_data_alert_but_location">Location</string>
 
-    <!-- String for preference title that links to source code location -->
     <string name="config_source_code">Source code</string>
-
-    <!-- String for describing the link to source code location -->
-    <string name="config_source_code_descr">View source code and documentation on GitHub</string>
-
-    <!-- Plurals definition for days -->
-    <plurals name="days">
-        <item quantity="one">1 day</item>
-        <item quantity="other">%d days</item>
-    </plurals>
-
-    <!-- Plurals definition for hours -->
-    <plurals name="hours">
-        <item quantity="one">1 hour</item>
-        <item quantity="other">%d hours</item>
-    </plurals>
-
-    <!-- Plurals definition for minutes -->
-    <plurals name="minutes">
-        <item quantity="one">1 minute</item>
-        <item quantity="other">%d minutes</item>
-    </plurals>
+    <string name="config_source_code_summary">View source code and documentation on GitHub</string>
 
     <!-- Strings visible on widget -->
 
-    <!-- Example temperature value for widget preview -->
-    <string name="widget_date_prev">Sun, Jul 4</string>
-
-    <!-- Example temperature including unit for widget preview -->
-    <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
-
-    <!-- Default date format for current language -->
     <string name="widget_date_format">EEE, MMM d</string>
 
-    <!-- Strings defining weather conditions -->
+    <string name="widget_date_prev">Sun, Jul 4</string>
+    <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
+
+    <string name="widget_today">Today</string>
+    <string name="widget_tomorrow">Tomorrow</string>
+
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>
     <string name="wc_freezing_rain">Freezing rain</string>
@@ -191,7 +91,6 @@
     <string name="wc_clear_sky_day">Sunny</string>
     <string name="wc_clear_sky_night">Clear</string>
 
-    <!-- Strings defining weather warnings -->
     <string name="warn_no_warning">No warnings</string>
     <string name="warn_uv_severe">Severe UV warning</string>
     <string name="warn_uv_extreme">Extreme UV warning</string>
@@ -204,12 +103,6 @@
     <string name="warn_tstorm_severe">Severe thunderstorm warning</string>
     <string name="warn_tstorm_extreme">Extreme thunderstorm warning</string>
 
-    <!-- String saying today -->
-    <string name="today">Today</string>
-
-    <!-- String saying tomorrow -->
-    <string name="tomorrow">Tomorrow</string>
-
     <!-- Non-translatable -->
 
     <string name="app_name" translatable="false">Pimi Widget</string>
@@ -217,13 +110,27 @@
     <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
     <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
 
-    <string name="config_alert_debug_na" translatable="false">N/A</string>
-    <string name="config_alert_debug_success" translatable="false">SUCCESS</string>
-    <string name="config_alert_debug_failed" translatable="false">FAILED</string>
-    <string name="config_alert_debug_running" translatable="false">RUNNING</string>
+    <string name="config_debug_alert_button_update" translatable="false">Force data update</string>
+    <string name="config_debug_alert_status_time" translatable="false">%1$s (%2$s)</string>
+    <string name="config_debug_alert_message" translatable="false">\nWeather data age\n%1$s\n\nLast data download\n%2$s\n\nBackground service\n%3$s</string>
 
     <string name="celsius" translatable="false">\u2103</string>
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
+
+    <plurals name="days" translatable="false">
+        <item quantity="one">1 day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
+    <plurals name="hours" translatable="false">
+        <item quantity="one">1 hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+
+    <plurals name="minutes" translatable="false">
+        <item quantity="one">1 minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
 
 </resources>

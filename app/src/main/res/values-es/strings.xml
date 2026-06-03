@@ -2,18 +2,17 @@
 
     <string name="widget_label">Fecha y clima</string>
 
-    <string name="config_button">Aplicar ajustes</string>
+    <string name="config_button_apply">Aplicar ajustes</string>
 
-    <string name="config_privacy_note">
-        Al activar el clima, tu ubicación se comparte con el proveedor del tiempo</string>
+    <string name="config_privacy_note">Al activar el clima, tu ubicación se comparte con el proveedor del tiempo</string>
 
     <string name="config_weather_switch">Activar clima</string>
 
-    <string name="config_weather_descr">Datos meteorológicos de Open-Meteo.com</string>
+    <string name="config_weather_switch_summary">Datos meteorológicos de Open-Meteo.com</string>
 
-    <string name="config_debug_data">Información de depuración</string>
+    <string name="config_debug_info">Información de depuración</string>
 
-    <string name="config_debug_data_descr">Ver estado del widget</string>
+    <string name="config_debug_info_summary">Ver estado del widget</string>
 
     <string name="config_text_color">Color del texto</string>
 
@@ -31,54 +30,37 @@
 
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
-    <string name="config_settings_sec">Ajustes</string>
+    <string name="config_section_settings">Ajustes</string>
 
-    <string name="config_about_sec">Acerca de</string>
+    <string name="config_section_about">Acerca de</string>
 
     <string name="config_daily_forecast">Mostrar previsión diaria</string>
 
-    <string name="config_daily_forecast_descr">Por la mañana y por la noche</string>
+    <string name="config_daily_forecast_summary">Por la mañana y por la noche</string>
 
-    <string name="config_weather_warnings_descr">Para condiciones climáticas adversas en la próxima hora</string>
+    <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
+
+    <string name="config_weather_warnings_summary">Para condiciones climáticas adversas en la próxima hora</string>
+
     <string name="config_loc_perm_alert_title">Permiso de ubicación requerido</string>
 
-    <string name="config_loc_perm_alert">
-        Para mostrar el clima de tu zona actual,
-        esta app necesita acceder a tu ubicación.</string>
+    <string name="config_loc_perm_alert_message">Para mostrar el clima de tu zona actual, esta app necesita acceder a tu ubicación.</string>
 
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>
 
-    <string name="config_bg_perm_alert">
-        Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano.
-        Selecciona “%s” en la siguiente pantalla.</string>
+    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano. Selecciona “%s” en la siguiente pantalla.</string>
 
     <string name="config_alert_button_ok">OK</string>
 
     <string name="config_alert_button_cancel">Cancelar</string>
 
-    <string name="config_alert_debug_title">Última descarga de datos</string>
-
-    <string name="config_alert_debug_worker">Proceso</string>
-
-    <string name="config_alert_debug_location">Ubicación</string>
-
-    <string name="config_alert_debug_weather">Clima</string>
-
-    <string name="config_alert_debug_last_update">Hace %s</string>
-
-    <string name="config_alert_button_close">Cerrar</string>
-
-    <string name="config_alert_button_update">Forzar actualización</string>
-
     <string name="config_shared_data">Transparencia de datos</string>
 
-    <string name="config_shared_data_descr">Ver datos compartidos con el proveedor del clima</string>
+    <string name="config_shared_data_summary">Ver datos compartidos con el proveedor del clima</string>
 
-    <string name="config_shared_data_alert_no_loc">No hay datos de ubicación disponibles</string>
+    <string name="config_shared_data_alert_fallback">No hay datos de ubicación disponibles</string>
 
-    <string name="config_shared_data_alert_text">
-        Puedes ver tu última ubicación obtenida o la solicitud de la API del clima en el navegador.
-        Esto compartirá tu ubicación con el proveedor del servicio (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_message">Puedes ver tu última ubicación obtenida o la solicitud de la API del clima en el navegador. Esto compartirá tu ubicación con el proveedor del servicio (Open-Meteo, OpenStreetMap).</string>
 
     <string name="config_shared_data_alert_but_weather">Clima</string>
 
@@ -86,31 +68,17 @@
 
     <string name="config_source_code">Código fuente</string>
 
-    <string name="config_source_code_descr">Ver código fuente y documentación en GitHub</string>
-
-    <plurals name="days">
-        <item quantity="one">1 día</item>
-        <item quantity="many">%d días</item>
-        <item quantity="other">%d días</item>
-    </plurals>
-
-    <plurals name="hours">
-        <item quantity="one">1 hora</item>
-        <item quantity="many">%d horas</item>
-        <item quantity="other">%d horas</item>
-    </plurals>
-
-    <plurals name="minutes">
-        <item quantity="one">1 minuto</item>
-        <item quantity="many">%d minutos</item>
-        <item quantity="other">%d minutos</item>
-    </plurals>
+    <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
 
     <string name="widget_date_prev">sáb, 12 oct</string>
 
     <string name="widget_temp_prev">21\u2103 · mañana 19\u00B0 / 13\u00B0 · lluvia débil</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
+
+    <string name="widget_today">hoy</string>
+
+    <string name="widget_tomorrow">mañana</string>
 
     <string name="wc_heavy_thunderstorms">tormentas fuertes</string>
     <string name="wc_thunderstorm">tormenta</string>
@@ -145,9 +113,6 @@
     <string name="warn_rain_extreme">aviso de lluvia extrema</string>
     <string name="warn_gusts_extreme">aviso de viento extremo</string>
     <string name="warn_tstorm_extreme">aviso de tormentas extremas</string>
-    <string name="today">hoy</string>
-    <string name="tomorrow">mañana</string>
-    <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
     <string name="warn_no_warning">sin avisos</string>
     <string name="warn_uv_severe">aviso de radiación UV alta</string>
     <string name="warn_heat_severe">aviso de calor intenso</string>

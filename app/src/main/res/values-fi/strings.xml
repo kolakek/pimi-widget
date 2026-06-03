@@ -2,18 +2,17 @@
 
     <string name="widget_label">Päivä ja sää</string>
 
-    <string name="config_button">Ota asetukset käyttöön</string>
+    <string name="config_button_apply">Ota asetukset käyttöön</string>
 
-    <string name="config_privacy_note">
-        Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
+    <string name="config_privacy_note">Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
 
     <string name="config_weather_switch">Ota sää käyttöön</string>
 
-    <string name="config_weather_descr">Säätiedot Open-Meteo.comista</string>
+    <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
 
-    <string name="config_debug_data">Vianmääritystiedot</string>
+    <string name="config_debug_info">Vianmääritystiedot</string>
 
-    <string name="config_debug_data_descr">Näytä widgetin tila</string>
+    <string name="config_debug_info_summary">Näytä widgetin tila</string>
 
     <string name="config_text_color">Tekstin väri</string>
 
@@ -31,54 +30,37 @@
 
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
-    <string name="config_settings_sec">Asetukset</string>
+    <string name="config_section_settings">Asetukset</string>
 
-    <string name="config_about_sec">Tietoa</string>
+    <string name="config_section_about">Tietoa</string>
 
     <string name="config_daily_forecast">Näytä päivittäinen ennuste</string>
 
-    <string name="config_daily_forecast_descr">Aamulla ja illalla</string>
+    <string name="config_daily_forecast_summary">Aamulla ja illalla</string>
 
-    <string name="config_weather_warnings_descr">Äärisääoloissa seuraavan tunnin aikana</string>
+    <string name="config_weather_warnings">Näytä säävaroitukset</string>
+
+    <string name="config_weather_warnings_summary">Äärisääoloissa seuraavan tunnin aikana</string>
+
     <string name="config_loc_perm_alert_title">Sijaintilupa vaaditaan</string>
 
-    <string name="config_loc_perm_alert">
-        Sään näyttämiseksi alueellasi
-        sovellus tarvitsee pääsyn sijaintiisi.</string>
+    <string name="config_loc_perm_alert_message">Sään näyttämiseksi alueellasi sovellus tarvitsee pääsyn sijaintiisi.</string>
 
     <string name="config_bg_perm_alert_title">Taustasijaintilupa</string>
 
-    <string name="config_bg_perm_alert">
-        Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla.
-        Valitse seuraavassa näytössä "%s".</string>
+    <string name="config_bg_perm_alert_message">Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla. Valitse seuraavassa näytössä "%s".</string>
 
     <string name="config_alert_button_ok">OK</string>
 
     <string name="config_alert_button_cancel">Peruuta</string>
 
-    <string name="config_alert_debug_title">Viimeisin datan lataus</string>
-
-    <string name="config_alert_debug_worker">Prosessi</string>
-
-    <string name="config_alert_debug_location">Sijainti</string>
-
-    <string name="config_alert_debug_weather">Sää</string>
-
-    <string name="config_alert_debug_last_update">%s sitten</string>
-
-    <string name="config_alert_button_close">Sulje</string>
-
-    <string name="config_alert_button_update">Pakota päivitys</string>
-
     <string name="config_shared_data">Tietojen läpinäkyvyys</string>
 
-    <string name="config_shared_data_descr">Näytä säätarjoajalle jaetut tiedot</string>
+    <string name="config_shared_data_summary">Näytä säätarjoajalle jaetut tiedot</string>
 
-    <string name="config_shared_data_alert_no_loc">Sijaintitietoja ei saatavilla</string>
+    <string name="config_shared_data_alert_fallback">Sijaintitietoja ei saatavilla</string>
 
-    <string name="config_shared_data_alert_text">
-        Voit tarkastella viimeisintä sijaintiasi tai sää-API-pyyntöä selaimessa.
-        Tämä jakaa sijaintisi palveluntarjoajalle (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_message">Voit tarkastella viimeisintä sijaintiasi tai sää-API-pyyntöä selaimessa. Tämä jakaa sijaintisi palveluntarjoajalle (Open-Meteo, OpenStreetMap).</string>
 
     <string name="config_shared_data_alert_but_weather">Sää</string>
 
@@ -86,28 +68,17 @@
 
     <string name="config_source_code">Lähdekoodi</string>
 
-    <string name="config_source_code_descr">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
-
-    <plurals name="days">
-        <item quantity="one">1 päivä</item>
-        <item quantity="other">%d päivää</item>
-    </plurals>
-
-    <plurals name="hours">
-        <item quantity="one">1 tunti</item>
-        <item quantity="other">%d tuntia</item>
-    </plurals>
-
-    <plurals name="minutes">
-        <item quantity="one">1 minuutti</item>
-        <item quantity="other">%d minuuttia</item>
-    </plurals>
+    <string name="config_source_code_summary">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
 
     <string name="widget_date_prev">la 6.12.</string>
 
     <string name="widget_temp_prev">21\u2103 · huomenna 19\u00B0 / 13\u00B0 · heikko sade</string>
 
     <string name="widget_date_format">EEE d.M.</string>
+
+    <string name="widget_today">tänään</string>
+
+    <string name="widget_tomorrow">huomenna</string>
 
     <string name="wc_heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
     <string name="wc_thunderstorm">ukkosmyrsky</string>
@@ -142,9 +113,6 @@
     <string name="warn_rain_extreme">äärimmäinen sadevaroitus</string>
     <string name="warn_gusts_extreme">äärimmäinen puuskatuulivaroitus</string>
     <string name="warn_tstorm_extreme">äärimmäinen ukkosvaroitus</string>
-    <string name="today">tänään</string>
-    <string name="tomorrow">huomenna</string>
-    <string name="config_weather_warnings">Näytä säävaroitukset</string>
     <string name="warn_no_warning">ei varoituksia</string>
     <string name="warn_uv_severe">voimakas UV-varoitus</string>
     <string name="warn_heat_severe">voimakas hellevaroitus</string>

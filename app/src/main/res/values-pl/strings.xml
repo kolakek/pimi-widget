@@ -2,18 +2,17 @@
 
     <string name="widget_label">Data i pogoda</string>
 
-    <string name="config_button">Zastosuj ustawienia</string>
+    <string name="config_button_apply">Zastosuj ustawienia</string>
 
-    <string name="config_privacy_note">
-        Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
+    <string name="config_privacy_note">Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
 
     <string name="config_weather_switch">Włącz pogodę</string>
 
-    <string name="config_weather_descr">Dane pogodowe z Open-Meteo.com</string>
+    <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
 
-    <string name="config_debug_data">Informacje debugowania</string>
+    <string name="config_debug_info">Informacje debugowania</string>
 
-    <string name="config_debug_data_descr">Wyświetl stan widżetu</string>
+    <string name="config_debug_info_summary">Wyświetl stan widżetu</string>
 
     <string name="config_text_color">Kolor tekstu</string>
 
@@ -31,54 +30,37 @@
 
     <string name="config_temp_fahrenheit">Fahrenheit</string>
 
-    <string name="config_settings_sec">Ustawienia</string>
+    <string name="config_section_settings">Ustawienia</string>
 
-    <string name="config_about_sec">O aplikacji</string>
+    <string name="config_section_about">O aplikacji</string>
 
     <string name="config_daily_forecast">Pokaż prognozę dzienną</string>
 
-    <string name="config_daily_forecast_descr">Rano i wieczorem</string>
+    <string name="config_daily_forecast_summary">Rano i wieczorem</string>
 
-    <string name="config_weather_warnings_descr">W przypadku ekstremalnych warunków pogodowych w ciągu najbliższej godziny</string>
+    <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
+
+    <string name="config_weather_warnings_summary">W przypadku ekstremalnych warunków pogodowych w ciągu najbliższej godziny</string>
+
     <string name="config_loc_perm_alert_title">Wymagane uprawnienie lokalizacji</string>
 
-    <string name="config_loc_perm_alert">
-        Aby wyświetlić pogodę w Twojej okolicy,
-        aplikacja potrzebuje dostępu do Twojej lokalizacji.</string>
+    <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w Twojej okolicy, aplikacja potrzebuje dostępu do Twojej lokalizacji.</string>
 
     <string name="config_bg_perm_alert_title">Uprawnienie lokalizacji w tle</string>
 
-    <string name="config_bg_perm_alert">
-        Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle.
-        Wybierz „%s” na następnym ekranie.</string>
+    <string name="config_bg_perm_alert_message">Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle. Wybierz „%s” na następnym ekranie.</string>
 
     <string name="config_alert_button_ok">OK</string>
 
     <string name="config_alert_button_cancel">Anuluj</string>
 
-    <string name="config_alert_debug_title">Ostatnie pobranie danych</string>
-
-    <string name="config_alert_debug_worker">Proces</string>
-
-    <string name="config_alert_debug_location">Lokalizacja</string>
-
-    <string name="config_alert_debug_weather">Pogoda</string>
-
-    <string name="config_alert_debug_last_update">%s temu</string>
-
-    <string name="config_alert_button_close">Zamknij</string>
-
-    <string name="config_alert_button_update">Wymuś aktualizację</string>
-
     <string name="config_shared_data">Przejrzystość danych</string>
 
-    <string name="config_shared_data_descr">Zobacz dane udostępniane dostawcy pogody</string>
+    <string name="config_shared_data_summary">Zobacz dane udostępniane dostawcy pogody</string>
 
-    <string name="config_shared_data_alert_no_loc">Brak danych lokalizacji</string>
+    <string name="config_shared_data_alert_fallback">Brak danych lokalizacji</string>
 
-    <string name="config_shared_data_alert_text">
-        Możesz wyświetlić swoją ostatnio pobraną lokalizację lub zapytanie API pogody w przeglądarce.
-        Spowoduje to udostępnienie Twojej lokalizacji dostawcy usługi (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_message">Możesz wyświetlić swoją ostatnio pobraną lokalizację lub zapytanie API pogody w przeglądarce. Spowoduje to udostępnienie Twojej lokalizacji dostawcy usługi (Open-Meteo, OpenStreetMap).</string>
 
     <string name="config_shared_data_alert_but_weather">Pogoda</string>
 
@@ -86,34 +68,17 @@
 
     <string name="config_source_code">Kod źródłowy</string>
 
-    <string name="config_source_code_descr">Zobacz kod źródłowy i dokumentację na GitHubie</string>
-
-    <plurals name="days">
-        <item quantity="one">1 dzień</item>
-        <item quantity="few">%d dni</item>
-        <item quantity="many">%d dni</item>
-        <item quantity="other">%d dni</item>
-    </plurals>
-
-    <plurals name="hours">
-        <item quantity="one">1 godzina</item>
-        <item quantity="few">%d godziny</item>
-        <item quantity="many">%d godzin</item>
-        <item quantity="other">%d godzin</item>
-    </plurals>
-
-    <plurals name="minutes">
-        <item quantity="one">1 minuta</item>
-        <item quantity="few">%d minuty</item>
-        <item quantity="many">%d minut</item>
-        <item quantity="other">%d minut</item>
-    </plurals>
+    <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>
 
     <string name="widget_date_prev">śr., 3 maj</string>
 
     <string name="widget_temp_prev">21\u2103 · jutro 19\u00B0 / 13\u00B0 · słaby deszcz</string>
 
     <string name="widget_date_format">EEE, d MMM</string>
+
+    <string name="widget_today">dzisiaj</string>
+
+    <string name="widget_tomorrow">jutro</string>
 
     <string name="wc_heavy_thunderstorms">silne burze</string>
     <string name="wc_thunderstorm">burza</string>
@@ -148,9 +113,6 @@
     <string name="warn_rain_extreme">ostrzeżenie deszcz ekstremalny</string>
     <string name="warn_gusts_extreme">ostrzeżenie ekstremalnych porywów wiatru</string>
     <string name="warn_tstorm_extreme">ostrzeżenie przed ekstremalnymi burzami</string>
-    <string name="today">dzisiaj</string>
-    <string name="tomorrow">jutro</string>
-    <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
     <string name="warn_no_warning">brak ostrzeżeń</string>
     <string name="warn_uv_severe">ostrzeżenie UV silne</string>
     <string name="warn_heat_severe">ostrzeżenie upał silny</string>
