@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Ημερομηνία και καιρός</string>
-
     <string name="config_button_apply">Εφαρμογή ρυθμίσεων</string>
-
     <string name="config_privacy_note">Η ενεργοποίηση του καιρού κοινοποιεί την τοποθεσία σας στον πάροχο καιρού</string>
-
     <string name="config_weather_switch">Ενεργοποίηση καιρού</string>
-
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
-
     <string name="config_debug_info">Πληροφορίες αποσφαλμάτωσης</string>
-
     <string name="config_debug_info_summary">Προβολή κατάστασης widget</string>
-
     <string name="config_text_color">Χρώμα κειμένου</string>
-
+    <string name="config_debug_alert_button_update">Αναγκαστική ενημέρωση</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
-
     <string name="config_color_light">Φωτεινό</string>
-
     <string name="config_color_dark">Σκοτεινό</string>
-
     <string name="config_color_auto">Αυτόματο</string>
-
     <string name="config_temp">Θερμοκρασία</string>
-
     <string name="config_temp_celsius">Κελσίου</string>
-
     <string name="config_temp_fahrenheit">Φαρενάιτ</string>
-
     <string name="config_section_settings">Ρυθμίσεις</string>
-
     <string name="config_section_about">Πληροφορίες</string>
-
     <string name="config_daily_forecast">Εμφάνιση ημερήσιας πρόγνωσης</string>
-
     <string name="config_daily_forecast_summary">Το πρωί και το βράδυ</string>
-
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
-
     <string name="config_weather_warnings_summary">Για ακραίες καιρικές συνθήκες μέσα στην επόμενη ώρα</string>
-
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
-
     <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σας η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σας.</string>
-
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>
-
     <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σας στο παρασκήνιο. Επιλέξτε "%s" στην επόμενη οθόνη.</string>
-
     <string name="config_alert_button_ok">ΟΚ</string>
-
     <string name="config_alert_button_cancel">Ακύρωση</string>
-
     <string name="config_shared_data">Διαφάνεια δεδομένων</string>
-
     <string name="config_shared_data_summary">Προβολή δεδομένων που κοινοποιούνται στον πάροχο καιρού</string>
-
     <string name="config_shared_data_alert_fallback">Δεν υπάρχουν διαθέσιμα δεδομένα τοποθεσίας</string>
-
     <string name="config_shared_data_alert_message">Μπορείτε να δείτε την τελευταία τοποθεσία ή το αίτημα API καιρού στο πρόγραμμα περιήγησης. Αυτό κοινοποιεί την τοποθεσία σας στον πάροχο υπηρεσίας (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Καιρός</string>
-
     <string name="config_shared_data_alert_but_location">Τοποθεσία</string>
-
     <string name="config_source_code">Πηγαίος κώδικας</string>
-
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
 
+    <string name="widget_label">Ημερομηνία και καιρός</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>
-
     <string name="widget_temp_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
-
     <string name="widget_date_format">EEE d MMM</string>
-
     <string name="widget_today">σήμερα</string>
-
     <string name="widget_tomorrow">αύριο</string>
 
     <string name="wc_heavy_thunderstorms">ισχυρές καταιγίδες</string>

@@ -188,7 +188,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 context, DataKeys.UPDATE_STATUS_DATA_KEY
             )
             val dataAgeStr = dataUpdateStatus?.statusTimeMillis?.let {
-                ageString(it)
+                createAgeString(it)
             } ?: "-"
 
             val statusStr = dataUpdateStatus?.let {
@@ -223,23 +223,21 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             DataKeys.LOCATION_DATA_KEY
         )
         val message = if (locationData == null) {
-            getString(R.string.config_shared_data_alert_fallback)
+            R.string.config_shared_data_alert_fallback
         } else {
-            getString(R.string.config_shared_data_alert_message)
+            R.string.config_shared_data_alert_message
         }
         AlertDialog.Builder(context)
-            .setTitle(getString(R.string.config_shared_data))
+            .setTitle(R.string.config_shared_data)
             .setMessage(message)
             .setCancelable(true)
             .apply {
                 locationData?.let {
-                    setPositiveButton(getString(R.string.config_shared_data_alert_but_weather)) {
-                        _, _ ->
+                    setPositiveButton(R.string.config_shared_data_alert_but_weather) { _, _ ->
                         openUrl(WeatherService.weatherUrl(it, "iso8601").toString())
                     }
-                    setNegativeButton(getString(R.string.config_shared_data_alert_but_location)) {
-                        _, _ ->
-                        openUrl(locationUrl(it))
+                    setNegativeButton(R.string.config_shared_data_alert_but_location) { _, _ ->
+                        openUrl(createLocationUrl(it))
                     }
                 }
             }
@@ -250,7 +248,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
     }
 
-    private fun locationUrl(location: LocationData): String {
+    private fun createLocationUrl(location: LocationData): String {
         return URLBuilder(LOCATION_URL).apply {
             parameters.apply {
                 append("mlat", location.lat.toString())
@@ -266,27 +264,19 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         title: String,
         message: String
     ) {
-        val builder = AlertDialog.Builder(context)
-
-        builder.setMessage(message)
-        builder.setTitle(title)
-        builder.setCancelable(false)
-        builder.setPositiveButton(
-            getString(R.string.config_alert_button_ok)
-        ) { dialog, _ ->
-            requestPermissionLauncher.launch(permission)
-            dialog.dismiss()
-        }
-        builder.setNegativeButton(
-            getString(R.string.config_alert_button_cancel)
-        ) { dialog, _ ->
-            dialog.dismiss()
-        }
-        val alertDialog = builder.create()
-        alertDialog.show()
+        AlertDialog.Builder(context)
+            .setMessage(message)
+            .setTitle(title)
+            .setCancelable(false)
+            .setPositiveButton(R.string.config_alert_button_ok) { dialog, _ ->
+                requestPermissionLauncher.launch(permission)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .show()
     }
 
-    private fun ageString(timeMillis: Long): String {
+    private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()
         val ageHours = ageMins / 60
         val ageDays = ageHours / 24

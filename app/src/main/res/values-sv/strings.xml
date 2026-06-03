@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Datum och väder</string>
-
     <string name="config_button_apply">Tillämpa inställningar</string>
-
     <string name="config_privacy_note">När väder aktiveras delas din plats med vädertjänsten</string>
-
     <string name="config_weather_switch">Aktivera väder</string>
-
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
-
     <string name="config_debug_info">Felsökningsinformation</string>
-
     <string name="config_debug_info_summary">Visa widgetstatus</string>
-
     <string name="config_text_color">Textfärg</string>
-
+    <string name="config_debug_alert_button_update">Tvinga uppdatering</string>
     <string name="config_icon_style">Ikonstil</string>
-
     <string name="config_color_light">Ljus</string>
-
     <string name="config_color_dark">Mörk</string>
-
     <string name="config_color_auto">Automatisk</string>
-
     <string name="config_temp">Temperatur</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
     <string name="config_section_settings">Inställningar</string>
-
     <string name="config_section_about">Om</string>
-
     <string name="config_daily_forecast">Visa dygnsprognos</string>
-
     <string name="config_daily_forecast_summary">På morgonen och kvällen</string>
-
     <string name="config_weather_warnings">Visa vädervarningar</string>
-
     <string name="config_weather_warnings_summary">Vid extrema väderförhållanden inom den närmaste timmen</string>
-
     <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
-
     <string name="config_loc_perm_alert_message">För att visa vädret i ditt område behöver appen åtkomst till din plats.</string>
-
     <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>
-
     <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj "%s" på nästa skärm.</string>
-
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Avbryt</string>
-
     <string name="config_shared_data">Datatransparens</string>
-
     <string name="config_shared_data_summary">Visa data som delas med vädertjänsten</string>
-
     <string name="config_shared_data_alert_fallback">Ingen platsdata tillgänglig</string>
-
     <string name="config_shared_data_alert_message">Du kan visa din senast hämtade plats eller väder-API-förfrågan i webbläsaren. Detta delar din plats med tjänsteleverantören (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Väder</string>
-
     <string name="config_shared_data_alert_but_location">Plats</string>
-
     <string name="config_source_code">Källkod</string>
-
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>
 
+    <string name="widget_label">Datum och väder</string>
     <string name="widget_date_prev">fre 6 jun</string>
-
     <string name="widget_temp_prev">21\u2103 · imorgon 19\u00B0 / 13\u00B0 · lätt regn</string>
-
     <string name="widget_date_format">EEE d MMM</string>
-
     <string name="widget_today">idag</string>
-
     <string name="widget_tomorrow">imorgon</string>
 
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>

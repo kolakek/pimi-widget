@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Дата та погода</string>
-
     <string name="config_button_apply">Застосувати налаштування</string>
-
     <string name="config_privacy_note">Увімкнення погоди передає вашу геолокацію постачальнику погоди</string>
-
     <string name="config_weather_switch">Увімкнути погоду</string>
-
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
-
     <string name="config_debug_info">Інформація для налагодження</string>
-
     <string name="config_debug_info_summary">Переглянути стан віджета</string>
-
     <string name="config_text_color">Колір тексту</string>
-
+    <string name="config_debug_alert_button_update">Примусове оновлення</string>
     <string name="config_icon_style">Стиль іконок</string>
-
     <string name="config_color_light">Світлий</string>
-
     <string name="config_color_dark">Темний</string>
-
     <string name="config_color_auto">Автоматично</string>
-
     <string name="config_temp">Температура</string>
-
     <string name="config_temp_celsius">Цельсій</string>
-
     <string name="config_temp_fahrenheit">Фаренгейт</string>
-
     <string name="config_section_settings">Налаштування</string>
-
     <string name="config_section_about">Про застосунок</string>
-
     <string name="config_daily_forecast">Показувати щоденний прогноз</string>
-
     <string name="config_daily_forecast_summary">Вранці та ввечері</string>
-
     <string name="config_weather_warnings">Показувати попередження про погоду</string>
-
     <string name="config_weather_warnings_summary">Для екстремальних погодних умов протягом наступної години</string>
-
     <string name="config_loc_perm_alert_title">Потрібен доступ до геолокації</string>
-
     <string name="config_loc_perm_alert_message">Щоб показувати погоду у вашому регіоні, цьому застосунку потрібен доступ до вашої геолокації.</string>
-
     <string name="config_bg_perm_alert_title">Доступ до геолокації у фоні</string>
-
     <string name="config_bg_perm_alert_message">Надійні оновлення погоди потребують доступу до вашої геолокації у фоновому режимі. Оберіть "%s" на наступному екрані.</string>
-
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Скасувати</string>
-
     <string name="config_shared_data">Прозорість даних</string>
-
     <string name="config_shared_data_summary">Переглянути дані, що передаються постачальнику погоди</string>
-
     <string name="config_shared_data_alert_fallback">Дані про місцезнаходження відсутні</string>
-
     <string name="config_shared_data_alert_message">Ви можете переглянути останню отриману геолокацію або запит до API погоди у браузері. Це передає вашу геолокацію постачальнику послуг (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Погода</string>
-
     <string name="config_shared_data_alert_but_location">Геолокація</string>
-
     <string name="config_source_code">Вихідний код</string>
-
     <string name="config_source_code_summary">Переглянути вихідний код і документацію на GitHub</string>
 
+    <string name="widget_label">Дата та погода</string>
     <string name="widget_date_prev">нд, 24 сер.</string>
-
     <string name="widget_temp_prev">21\u2103 · завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
-
     <string name="widget_date_format">EEE, d MMM</string>
-
     <string name="widget_today">сьогодні</string>
-
     <string name="widget_tomorrow">завтра</string>
 
     <string name="wc_heavy_thunderstorms">сильні грози</string>

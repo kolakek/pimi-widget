@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Date et météo</string>
-
     <string name="config_button_apply">Appliquer les paramètres</string>
-
     <string name="config_privacy_note">Activer la météo partage ta position avec le fournisseur météo</string>
-
     <string name="config_weather_switch">Activer la météo</string>
-
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
-
     <string name="config_debug_info">Informations de débogage</string>
-
     <string name="config_debug_info_summary">Afficher l’état du widget</string>
-
     <string name="config_text_color">Couleur du texte</string>
-
+    <string name="config_debug_alert_button_update">Forcer la mise à jour</string>
     <string name="config_icon_style">Style des icônes</string>
-
     <string name="config_color_light">Clair</string>
-
     <string name="config_color_dark">Sombre</string>
-
     <string name="config_color_auto">Automatique</string>
-
     <string name="config_temp">Température</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
     <string name="config_section_settings">Paramètres</string>
-
     <string name="config_section_about">À propos</string>
-
     <string name="config_daily_forecast">Afficher les prévisions quotidiennes</string>
-
     <string name="config_daily_forecast_summary">Le matin et le soir</string>
-
     <string name="config_weather_warnings">Afficher les alertes météo</string>
-
     <string name="config_weather_warnings_summary">Pour les conditions météorologiques extrêmes dans l’heure à venir</string>
-
     <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
-
     <string name="config_loc_perm_alert_message">Pour afficher la météo de ta région actuelle, cette application a besoin d’accéder à ta position.</string>
-
     <string name="config_bg_perm_alert_title">Autorisation de localisation en arrière-plan</string>
-
     <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Veuillez sélectionner « %s » sur l’écran suivant.</string>
-
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Annuler</string>
-
     <string name="config_shared_data">Transparence des données</string>
-
     <string name="config_shared_data_summary">Afficher les données partagées avec le fournisseur météo</string>
-
     <string name="config_shared_data_alert_fallback">Aucune donnée de localisation disponible</string>
-
     <string name="config_shared_data_alert_message">Tu peux afficher ta dernière position récupérée ou la requête API météo dans le navigateur. Cela partagera ta position avec le fournisseur de service (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Météo</string>
-
     <string name="config_shared_data_alert_but_location">Position</string>
-
     <string name="config_source_code">Code source</string>
-
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>
 
+    <string name="widget_label">Date et météo</string>
     <string name="widget_date_prev">dim. 14 juil.</string>
-
     <string name="widget_temp_prev">21\u2103 · demain 19\u00B0 / 13\u00B0 · faible pluie</string>
-
     <string name="widget_date_format">EEE d MMM</string>
-
     <string name="widget_today">aujourd’hui</string>
-
     <string name="widget_tomorrow">demain</string>
 
     <string name="wc_heavy_thunderstorms">orages violents</string>

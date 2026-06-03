@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Data i pogoda</string>
-
     <string name="config_button_apply">Zastosuj ustawienia</string>
-
     <string name="config_privacy_note">Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
-
     <string name="config_weather_switch">Włącz pogodę</string>
-
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
-
     <string name="config_debug_info">Informacje debugowania</string>
-
     <string name="config_debug_info_summary">Wyświetl stan widżetu</string>
-
     <string name="config_text_color">Kolor tekstu</string>
-
+    <string name="config_debug_alert_button_update">Wymuś aktualizację</string>
     <string name="config_icon_style">Styl ikon</string>
-
     <string name="config_color_light">Jasny</string>
-
     <string name="config_color_dark">Ciemny</string>
-
     <string name="config_color_auto">Automatyczny</string>
-
     <string name="config_temp">Temperatura</string>
-
     <string name="config_temp_celsius">Celsjusz</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
     <string name="config_section_settings">Ustawienia</string>
-
     <string name="config_section_about">O aplikacji</string>
-
     <string name="config_daily_forecast">Pokaż prognozę dzienną</string>
-
     <string name="config_daily_forecast_summary">Rano i wieczorem</string>
-
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
-
     <string name="config_weather_warnings_summary">W przypadku ekstremalnych warunków pogodowych w ciągu najbliższej godziny</string>
-
     <string name="config_loc_perm_alert_title">Wymagane uprawnienie lokalizacji</string>
-
     <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w Twojej okolicy, aplikacja potrzebuje dostępu do Twojej lokalizacji.</string>
-
     <string name="config_bg_perm_alert_title">Uprawnienie lokalizacji w tle</string>
-
     <string name="config_bg_perm_alert_message">Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle. Wybierz „%s” na następnym ekranie.</string>
-
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Anuluj</string>
-
     <string name="config_shared_data">Przejrzystość danych</string>
-
     <string name="config_shared_data_summary">Zobacz dane udostępniane dostawcy pogody</string>
-
     <string name="config_shared_data_alert_fallback">Brak danych lokalizacji</string>
-
     <string name="config_shared_data_alert_message">Możesz wyświetlić swoją ostatnio pobraną lokalizację lub zapytanie API pogody w przeglądarce. Spowoduje to udostępnienie Twojej lokalizacji dostawcy usługi (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Pogoda</string>
-
     <string name="config_shared_data_alert_but_location">Lokalizacja</string>
-
     <string name="config_source_code">Kod źródłowy</string>
-
     <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>
 
+    <string name="widget_label">Data i pogoda</string>
     <string name="widget_date_prev">śr., 3 maj</string>
-
     <string name="widget_temp_prev">21\u2103 · jutro 19\u00B0 / 13\u00B0 · słaby deszcz</string>
-
     <string name="widget_date_format">EEE, d MMM</string>
-
     <string name="widget_today">dzisiaj</string>
-
     <string name="widget_tomorrow">jutro</string>
 
     <string name="wc_heavy_thunderstorms">silne burze</string>

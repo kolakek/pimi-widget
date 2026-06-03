@@ -1,83 +1,46 @@
 <resources>
 
-    <string name="widget_label">Dato og vejr</string>
-
     <string name="config_button_apply">Anvend indstillinger</string>
-
     <string name="config_privacy_note">Når vejret aktiveres, deles din placering med vejrudbyderen</string>
-
     <string name="config_weather_switch">Aktivér vejr</string>
-
     <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
-
     <string name="config_debug_info">Fejlfindingsoplysninger</string>
-
     <string name="config_debug_info_summary">Vis widget-status</string>
-
     <string name="config_text_color">Tekstfarve</string>
-
+    <string name="config_debug_alert_button_update">Tving opdatering</string>
     <string name="config_icon_style">Ikonstil</string>
-
     <string name="config_color_light">Lys</string>
-
     <string name="config_color_dark">Mørk</string>
-
     <string name="config_color_auto">Automatisk</string>
-
     <string name="config_temp">Temperatur</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
     <string name="config_section_settings">Indstillinger</string>
-
     <string name="config_section_about">Om</string>
-
     <string name="config_daily_forecast">Vis daglig prognose</string>
-
     <string name="config_daily_forecast_summary">Morgen og aften</string>
-
     <string name="config_weather_warnings">Vis vejralarmer</string>
-
     <string name="config_weather_warnings_summary">Ved ekstreme vejrforhold inden for den næste time</string>
-
     <string name="config_loc_perm_alert_title">Placeringstilladelse kræves</string>
-
     <string name="config_loc_perm_alert_message">For at vise vejret i dit område har appen brug for adgang til din placering.</string>
-
     <string name="config_bg_perm_alert_title">Baggrundsplaceringstilladelse</string>
-
     <string name="config_bg_perm_alert_message">Pålidelige vejr-opdateringer kræver adgang til din placering i baggrunden. Vælg "%s" på næste skærm.</string>
-
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Annuller</string>
-
     <string name="config_shared_data">Datagennemsigtighed</string>
-
     <string name="config_shared_data_summary">Se data delt med vejrudbyderen</string>
-
     <string name="config_shared_data_alert_fallback">Ingen placeringsdata tilgængelig</string>
-
     <string name="config_shared_data_alert_message">Du kan se din senest hentede placering eller vejr-API-forespørgsel i browseren. Dette deler din placering med tjenesteudbyderen (Open-Meteo, OpenStreetMap).</string>
-
     <string name="config_shared_data_alert_but_weather">Vejr</string>
-
     <string name="config_shared_data_alert_but_location">Placering</string>
-
     <string name="config_source_code">Kildekode</string>
-
     <string name="config_source_code_summary">Se kildekode og dokumentation på GitHub</string>
 
+    <string name="widget_label">Dato og vejr</string>
     <string name="widget_date_prev">tors. 5. jun.</string>
-
     <string name="widget_temp_prev">21\u2103 · i morgen 19\u00B0 / 13\u00B0 · let regn</string>
-
     <string name="widget_date_format">EEE d. MMM</string>
-
     <string name="widget_today">i dag</string>
-
     <string name="widget_tomorrow">i morgen</string>
 
     <string name="wc_heavy_thunderstorms">kraftige tordenbyger</string>
