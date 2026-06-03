@@ -27,6 +27,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentActivity
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
 import com.kolakek.pimiwidget.widget.WidgetController
+import com.kolakek.pimiwidget.widget.WidgetUpdateMode
 
 class WidgetConfigureActivity : FragmentActivity() {
 
@@ -38,7 +39,8 @@ class WidgetConfigureActivity : FragmentActivity() {
         WidgetController.updateWidget(
             context,
             AppWidgetManager.getInstance(context),
-            appWidgetId
+            appWidgetId,
+            WidgetUpdateMode.FULL_UPDATE
         )
         val resultValue = Intent()
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)

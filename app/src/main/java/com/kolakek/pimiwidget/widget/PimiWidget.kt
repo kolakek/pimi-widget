@@ -33,8 +33,14 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
+        Timber.d("onUpdate: Begin function")
         for (appWidgetId in appWidgetIds) {
-            WidgetController.updateWidget(context, appWidgetManager, appWidgetId)
+            WidgetController.updateWidget(
+                context,
+                appWidgetManager,
+                appWidgetId,
+                WidgetUpdateMode.DATA_UPDATE
+            )
         }
     }
 
@@ -51,7 +57,7 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
         when (intent.action) {
             Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
 
                 if (PreferencesHelper.getWeatherPreference(context)) {
                     WorkManagerHelper.enqueuePeriodicWorker(
@@ -62,13 +68,13 @@ class PimiWidget : AppWidgetProvider() {
                 }
             }
             WidgetAction.APPWIDGET_UPDATE -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
                 WidgetController.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
             }
-            WidgetAction.WEATHER_UPDATE -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.WEATHER_UPDATE)
+            WidgetAction.DATA_UPDATED -> {
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.DATA_UPDATE)
             }
         }
     }

@@ -30,9 +30,10 @@ import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.widget.WidgetAction
 import timber.log.Timber
 
-internal object WidgetUpdater {
+internal object DataUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context, forceUpdate: Boolean) {
@@ -88,7 +89,7 @@ internal object WidgetUpdater {
             )
         }
         Timber.d("update: Update widget")
-        updateWidget(context)
+        updateWidget(context) // ToDo: Only if needed (outdated data or forced update)
     }
 
     private suspend fun needsDataUpdate(context: Context): Boolean {
@@ -115,7 +116,7 @@ internal object WidgetUpdater {
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
         val intent = Intent(context, PimiWidget::class.java).apply {
-            action = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
+            action = WidgetAction.DATA_UPDATED
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
         context.sendBroadcast(intent)

@@ -18,7 +18,7 @@
 package com.kolakek.pimiwidget.widget
 
 internal enum class WidgetUpdateMode {
-    FULL_WIDGET_UPDATE,
+    FULL_UPDATE,
     LOCALE_UPDATE,
-    WEATHER_UPDATE
+    DATA_UPDATE
 }

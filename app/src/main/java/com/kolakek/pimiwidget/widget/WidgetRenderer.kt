@@ -53,7 +53,7 @@ internal object WidgetRenderer {
         appWidgetManager.updateAppWidget(appWidgetId, views)
     }
 
-    internal fun updateDate(
+    internal fun updateDateFormat(
         context: Context,
         views: RemoteViews,
         appWidgetManager: AppWidgetManager,

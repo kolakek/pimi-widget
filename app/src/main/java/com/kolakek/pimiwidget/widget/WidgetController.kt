@@ -41,7 +41,7 @@ internal object WidgetController {
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
-        updateMode: WidgetUpdateMode = WidgetUpdateMode.FULL_WIDGET_UPDATE
+        updateMode: WidgetUpdateMode
     ) {
         Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
 
@@ -51,16 +51,16 @@ internal object WidgetController {
             WidgetRenderer.getWidgetLayout(prefs.textStyle)
         )
         when (updateMode) {
-            WidgetUpdateMode.FULL_WIDGET_UPDATE -> {
+            WidgetUpdateMode.FULL_UPDATE -> {
                 WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
-                WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
+                WidgetRenderer.updateDateFormat(context, views, appWidgetManager, appWidgetId)
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
             WidgetUpdateMode.LOCALE_UPDATE -> {
-                WidgetRenderer.updateDate(context, views, appWidgetManager, appWidgetId)
+                WidgetRenderer.updateDateFormat(context, views, appWidgetManager, appWidgetId)
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
-            WidgetUpdateMode.WEATHER_UPDATE -> {
+            WidgetUpdateMode.DATA_UPDATE -> {
                 WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
             }
         }

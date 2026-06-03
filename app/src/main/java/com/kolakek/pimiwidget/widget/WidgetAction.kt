@@ -18,6 +18,6 @@
 package com.kolakek.pimiwidget.widget
 
 internal object WidgetAction {
-    const val WEATHER_UPDATE = "com.kolakek.pimiwidget.action.WEATHER_UPDATE"
+    const val DATA_UPDATED = "com.kolakek.pimiwidget.action.DATA_UPDATED"
     const val APPWIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
 }

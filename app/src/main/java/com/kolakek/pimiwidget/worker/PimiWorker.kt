@@ -34,7 +34,7 @@ internal class PimiWorker(
     override suspend fun doWork(): Result {
         val forceUpdate = inputData.getBoolean(FORCE_UPDATE_KEY, false)
         return try {
-            WidgetUpdater.update(applicationContext, forceUpdate)
+            DataUpdater.update(applicationContext, forceUpdate)
             Result.success()
         } catch (e: CancellationException) {
             throw e
