@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Скасувати</string>
     <string name="config_shared_data">Прозорість даних</string>
     <string name="config_shared_data_summary">Переглянути дані, що передаються постачальнику погоди</string>
-    <string name="config_shared_data_alert_fallback">Дані про місцезнаходження відсутні</string>
+    <string name="config_shared_data_alert_no_data">Дані недоступні</string>
     <string name="config_shared_data_alert_message">Ви можете переглянути останню отриману геолокацію або запит до API погоди у браузері. Це передає вашу геолокацію постачальнику послуг (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Завантаження даних…</string>
     <string name="config_shared_data_alert_but_weather">Погода</string>
     <string name="config_shared_data_alert_but_location">Геолокація</string>
     <string name="config_source_code">Вихідний код</string>

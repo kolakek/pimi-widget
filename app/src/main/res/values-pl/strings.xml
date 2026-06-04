@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Anuluj</string>
     <string name="config_shared_data">Przejrzystość danych</string>
     <string name="config_shared_data_summary">Zobacz dane udostępniane dostawcy pogody</string>
-    <string name="config_shared_data_alert_fallback">Brak danych lokalizacji</string>
+    <string name="config_shared_data_alert_no_data">Brak dostępnych danych</string>
     <string name="config_shared_data_alert_message">Możesz wyświetlić swoją ostatnio pobraną lokalizację lub zapytanie API pogody w przeglądarce. Spowoduje to udostępnienie Twojej lokalizacji dostawcy usługi (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Ładowanie danych…</string>
     <string name="config_shared_data_alert_but_weather">Pogoda</string>
     <string name="config_shared_data_alert_but_location">Lokalizacja</string>
     <string name="config_source_code">Kod źródłowy</string>

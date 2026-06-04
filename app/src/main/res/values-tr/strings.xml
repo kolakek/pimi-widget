@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">İptal</string>
     <string name="config_shared_data">Veri şeffaflığı</string>
     <string name="config_shared_data_summary">Hava durumu sağlayıcısıyla paylaşılan verileri görüntüle</string>
-    <string name="config_shared_data_alert_fallback">Konum verisi mevcut değil</string>
+    <string name="config_shared_data_alert_no_data">Veri mevcut değil</string>
     <string name="config_shared_data_alert_message">Son alınan konumunu veya hava durumu API isteğini tarayıcıda görüntüleyebilirsin. Bu işlem, konumunun hizmet sağlayıcıyla paylaşılmasına neden olur (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Veriler yükleniyor…</string>
     <string name="config_shared_data_alert_but_weather">Hava durumu</string>
     <string name="config_shared_data_alert_but_location">Konum</string>
     <string name="config_source_code">Kaynak kod</string>

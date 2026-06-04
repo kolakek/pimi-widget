@@ -30,7 +30,8 @@
     <string name="config_shared_data">Data transparency</string>
     <string name="config_shared_data_summary">View data exchanged with the weather provider</string>
     <string name="config_shared_data_alert_message">You can view your last retrieved location or weather API request in the browser. This will share your location with the service provider (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_fallback">No location data available</string>
+    <string name="config_shared_data_alert_no_data">No data available</string>
+    <string name="config_shared_data_alert_loading">Loading data…</string>
     <string name="config_shared_data_alert_but_weather">Weather</string>
     <string name="config_shared_data_alert_but_location">Location</string>
     <string name="config_source_code">Source code</string>

@@ -236,7 +236,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private fun viewLocationCallback(context: Context, dialog: AlertDialog) {
         lifecycleScope.launch {
-            dialog.setMessage("Loading") // Todo
+            dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
             JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
                 startUrlActivity(
                     URLBuilder(LOCATION_URL).apply {
@@ -246,17 +246,17 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     }.toString()
                 )
                 dialog.dismiss()
-            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_fallback)) // Todo
+            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_no_data))
         }
     }
 
     private fun viewWeatherCallback(context: Context, dialog: AlertDialog) {
         lifecycleScope.launch {
-            dialog.setMessage("Loading") // Todo
+            dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
             JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
                 startUrlActivity(WeatherService.weatherUrl(it, "iso8601").toString())
                 dialog.dismiss()
-            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_fallback)) // Todo
+            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_no_data))
         }
     }
 

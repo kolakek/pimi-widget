@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Anulo</string>
     <string name="config_shared_data">Transparenca e të dhënave</string>
     <string name="config_shared_data_summary">Shiko të dhënat e ndara me ofruesin e motit</string>
-    <string name="config_shared_data_alert_fallback">Nuk ka të dhëna për vendndodhjen</string>
+    <string name="config_shared_data_alert_no_data">Nuk ka të dhëna të disponueshme</string>
     <string name="config_shared_data_alert_message">Mund të shikosh vendndodhjen e fundit ose kërkesën e API-së së motit në shfletues. Kjo ndan vendndodhjen tënde me ofruesin e shërbimit (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Duke ngarkuar të dhënat…</string>
     <string name="config_shared_data_alert_but_weather">Moti</string>
     <string name="config_shared_data_alert_but_location">Vendndodhja</string>
     <string name="config_source_code">Kodi burimor</string>

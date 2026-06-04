@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Annuller</string>
     <string name="config_shared_data">Datagennemsigtighed</string>
     <string name="config_shared_data_summary">Se data delt med vejrudbyderen</string>
-    <string name="config_shared_data_alert_fallback">Ingen placeringsdata tilgængelig</string>
+    <string name="config_shared_data_alert_no_data">Ingen data tilgængelige</string>
     <string name="config_shared_data_alert_message">Du kan se din senest hentede placering eller vejr-API-forespørgsel i browseren. Dette deler din placering med tjenesteudbyderen (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Indlæser data…</string>
     <string name="config_shared_data_alert_but_weather">Vejr</string>
     <string name="config_shared_data_alert_but_location">Placering</string>
     <string name="config_source_code">Kildekode</string>

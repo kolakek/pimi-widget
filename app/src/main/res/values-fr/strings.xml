@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Annuler</string>
     <string name="config_shared_data">Transparence des données</string>
     <string name="config_shared_data_summary">Afficher les données partagées avec le fournisseur météo</string>
-    <string name="config_shared_data_alert_fallback">Aucune donnée de localisation disponible</string>
+    <string name="config_shared_data_alert_no_data">Aucune donnée disponible</string>
     <string name="config_shared_data_alert_message">Tu peux afficher ta dernière position récupérée ou la requête API météo dans le navigateur. Cela partagera ta position avec le fournisseur de service (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Chargement des données…</string>
     <string name="config_shared_data_alert_but_weather">Météo</string>
     <string name="config_shared_data_alert_but_location">Position</string>
     <string name="config_source_code">Code source</string>

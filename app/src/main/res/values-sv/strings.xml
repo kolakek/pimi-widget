@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Avbryt</string>
     <string name="config_shared_data">Datatransparens</string>
     <string name="config_shared_data_summary">Visa data som delas med vädertjänsten</string>
-    <string name="config_shared_data_alert_fallback">Ingen platsdata tillgänglig</string>
+    <string name="config_shared_data_alert_no_data">Ingen data tillgänglig</string>
     <string name="config_shared_data_alert_message">Du kan visa din senast hämtade plats eller väder-API-förfrågan i webbläsaren. Detta delar din plats med tjänsteleverantören (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Laddar data…</string>
     <string name="config_shared_data_alert_but_weather">Väder</string>
     <string name="config_shared_data_alert_but_location">Plats</string>
     <string name="config_source_code">Källkod</string>

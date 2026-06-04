@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Annuleren</string>
     <string name="config_shared_data">Datatransparantie</string>
     <string name="config_shared_data_summary">Bekijk gegevens gedeeld met de weerdienst</string>
-    <string name="config_shared_data_alert_fallback">Geen locatiegegevens beschikbaar</string>
+    <string name="config_shared_data_alert_no_data">Geen gegevens beschikbaar</string>
     <string name="config_shared_data_alert_message">Je kunt je laatst opgehaalde locatie of weer-API-verzoek in de browser bekijken. Dit deelt je locatie met de dienstverlener (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Gegevens laden…</string>
     <string name="config_shared_data_alert_but_weather">Weer</string>
     <string name="config_shared_data_alert_but_location">Locatie</string>
     <string name="config_source_code">Broncode</string>

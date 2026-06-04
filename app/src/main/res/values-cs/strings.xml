@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Zrušit</string>
     <string name="config_shared_data">Transparentnost dat</string>
     <string name="config_shared_data_summary">Zobrazit data sdílená s poskytovatelem počasí</string>
-    <string name="config_shared_data_alert_fallback">Nejsou k dispozici žádná data o poloze</string>
+    <string name="config_shared_data_alert_no_data">Nejsou k dispozici žádná data</string>
     <string name="config_shared_data_alert_message">Můžeš zobrazit svou naposledy získanou polohu nebo požadavek na API počasí v prohlížeči. Tím dojde ke sdílení tvé polohy s poskytovatelem služby (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Načítání dat…</string>
     <string name="config_shared_data_alert_but_weather">Počasí</string>
     <string name="config_shared_data_alert_but_location">Poloha</string>
     <string name="config_source_code">Zdrojový kód</string>

@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Ακύρωση</string>
     <string name="config_shared_data">Διαφάνεια δεδομένων</string>
     <string name="config_shared_data_summary">Προβολή δεδομένων που κοινοποιούνται στον πάροχο καιρού</string>
-    <string name="config_shared_data_alert_fallback">Δεν υπάρχουν διαθέσιμα δεδομένα τοποθεσίας</string>
+    <string name="config_shared_data_alert_no_data">Δεν υπάρχουν διαθέσιμα δεδομένα</string>
     <string name="config_shared_data_alert_message">Μπορείτε να δείτε την τελευταία τοποθεσία ή το αίτημα API καιρού στο πρόγραμμα περιήγησης. Αυτό κοινοποιεί την τοποθεσία σας στον πάροχο υπηρεσίας (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Φόρτωση δεδομένων…</string>
     <string name="config_shared_data_alert_but_weather">Καιρός</string>
     <string name="config_shared_data_alert_but_location">Τοποθεσία</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>

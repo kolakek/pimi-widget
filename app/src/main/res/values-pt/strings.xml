@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Cancelar</string>
     <string name="config_shared_data">Transparência de dados</string>
     <string name="config_shared_data_summary">Ver dados compartilhados com o provedor de clima</string>
-    <string name="config_shared_data_alert_fallback">Nenhum dado de localização disponível</string>
+    <string name="config_shared_data_alert_no_data">Nenhum dado disponível</string>
     <string name="config_shared_data_alert_message">Você pode visualizar sua última localização obtida ou a solicitação da API de clima no navegador. Isso compartilhará sua localização com o provedor de serviço (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Carregando dados…</string>
     <string name="config_shared_data_alert_but_weather">Clima</string>
     <string name="config_shared_data_alert_but_location">Localização</string>
     <string name="config_source_code">Código-fonte</string>

@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Peruuta</string>
     <string name="config_shared_data">Tietojen läpinäkyvyys</string>
     <string name="config_shared_data_summary">Näytä säätarjoajalle jaetut tiedot</string>
-    <string name="config_shared_data_alert_fallback">Sijaintitietoja ei saatavilla</string>
+    <string name="config_shared_data_alert_no_data">Tietoja ei ole saatavilla</string>
     <string name="config_shared_data_alert_message">Voit tarkastella viimeisintä sijaintiasi tai sää-API-pyyntöä selaimessa. Tämä jakaa sijaintisi palveluntarjoajalle (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Ladataan tietoja…</string>
     <string name="config_shared_data_alert_but_weather">Sää</string>
     <string name="config_shared_data_alert_but_location">Sijainti</string>
     <string name="config_source_code">Lähdekoodi</string>

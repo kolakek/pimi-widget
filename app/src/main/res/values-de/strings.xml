@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Abbrechen</string>
     <string name="config_shared_data">Datentransparenz</string>
     <string name="config_shared_data_summary">Mit dem Wetterdienst geteilte Daten anzeigen</string>
-    <string name="config_shared_data_alert_fallback">Keine Standortdaten vorhanden</string>
+    <string name="config_shared_data_alert_no_data">Keine Daten vorhanden</string>
     <string name="config_shared_data_alert_message">Du kannst deinen zuletzt abgerufenen Standort oder die Wetter-API-Anfrage im Browser anzeigen. Dabei wird dein Standort mit dem Dienstanbieter geteilt (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Daten werden geladen…</string>
     <string name="config_shared_data_alert_but_weather">Wetteranfrage</string>
     <string name="config_shared_data_alert_but_location">Standort</string>
     <string name="config_source_code">Quellcode</string>

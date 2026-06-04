@@ -29,8 +29,9 @@
     <string name="config_alert_button_cancel">Anulează</string>
     <string name="config_shared_data">Transparența datelor</string>
     <string name="config_shared_data_summary">Vezi datele partajate cu furnizorul de vreme</string>
-    <string name="config_shared_data_alert_fallback">Nu există date de locație disponibile</string>
+    <string name="config_shared_data_alert_no_data">Nu sunt date disponibile</string>
     <string name="config_shared_data_alert_message">Poți vedea ultima ta locație sau cererea API meteo în browser. Aceasta partajează locația ta cu furnizorul de servicii (Open-Meteo, OpenStreetMap).</string>
+    <string name="config_shared_data_alert_loading">Se încarcă datele…</string>
     <string name="config_shared_data_alert_but_weather">Vreme</string>
     <string name="config_shared_data_alert_but_location">Locație</string>
     <string name="config_source_code">Cod sursă</string>
