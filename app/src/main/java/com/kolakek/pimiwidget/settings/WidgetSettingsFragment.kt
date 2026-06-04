@@ -78,7 +78,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         sourceCodeField?.setOnPreferenceClickListener {
-            openUrl(SOURCE_CODE_URL)
+            startUrlActivity(SOURCE_CODE_URL)
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
@@ -173,6 +173,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             .setTitle(R.string.config_debug_info)
             .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-"))
             .setCancelable(true)
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
             .apply {
                 if (weatherEnabled == true) {
                     setPositiveButton(R.string.config_debug_alert_button_update) { dialog, _ ->
@@ -215,47 +216,52 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun showDataInfoDialog(
-        context: Context
-    ) {
-        val locationData: LocationData? = JsonDataStore.loadSync(
-            context,
-            DataKeys.LOCATION_DATA_KEY
-        )
-        val message = if (locationData == null) {
-            R.string.config_shared_data_alert_fallback
-        } else {
-            R.string.config_shared_data_alert_message
-        }
-        AlertDialog.Builder(context)
+    private fun showDataInfoDialog(context: Context) {
+        val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_shared_data)
-            .setMessage(message)
+            .setMessage(R.string.config_shared_data_alert_message)
             .setCancelable(true)
-            .apply {
-                locationData?.let {
-                    setPositiveButton(R.string.config_shared_data_alert_but_weather) { _, _ ->
-                        openUrl(WeatherService.weatherUrl(it, "iso8601").toString())
-                    }
-                    setNegativeButton(R.string.config_shared_data_alert_but_location) { _, _ ->
-                        openUrl(createLocationUrl(it))
-                    }
-                }
-            }
+            .setNegativeButton(R.string.config_shared_data_alert_but_location, null)
+            .setPositiveButton(R.string.config_shared_data_alert_but_weather, null)
+            .setNeutralButton(R.string.config_alert_button_cancel, null)
             .show()
+
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
+            viewLocationCallback(context, dialog)
+        }
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            viewWeatherCallback(context, dialog)
+        }
     }
 
-    private fun openUrl(url: String) {
+    private fun viewLocationCallback(context: Context, dialog: AlertDialog) {
+        lifecycleScope.launch {
+            dialog.setMessage("Loading") // Todo
+            JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
+                startUrlActivity(
+                    URLBuilder(LOCATION_URL).apply {
+                        parameters.append("mlat", it.lat.toString())
+                        parameters.append("mlon", it.long.toString())
+                        fragment = "map=$LOCATION_URL_ZOOM/${it.lat}/${it.long}"
+                    }.toString()
+                )
+                dialog.dismiss()
+            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_fallback)) // Todo
+        }
+    }
+
+    private fun viewWeatherCallback(context: Context, dialog: AlertDialog) {
+        lifecycleScope.launch {
+            dialog.setMessage("Loading") // Todo
+            JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
+                startUrlActivity(WeatherService.weatherUrl(it, "iso8601").toString())
+                dialog.dismiss()
+            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_fallback)) // Todo
+        }
+    }
+
+    private fun startUrlActivity(url: String) {
         startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
-    }
-
-    private fun createLocationUrl(location: LocationData): String {
-        return URLBuilder(LOCATION_URL).apply {
-            parameters.apply {
-                append("mlat", location.lat.toString())
-                append("mlon", location.long.toString())
-            }
-            fragment = "map=${LOCATION_URL_ZOOM}/${location.lat}/${location.long}"
-        }.build().toString()
     }
 
     private fun showRationaleDialog(
