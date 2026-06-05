@@ -49,12 +49,9 @@ import java.util.Date
 
 internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
-    private val coarseLocationPermission = Manifest.permission.ACCESS_COARSE_LOCATION
-    private val backgroundLocationPermission = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted -> if (isGranted) requestNextPermission(preferenceManager.context) }
+    ) { isGranted -> if (isGranted) ensureLocationPermissions(preferenceManager.context) }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
@@ -65,7 +62,9 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val sharedDataField: Preference? = findPreference(KEY_SHARED_DATA)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
-        if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {
+        if (weatherSwitch?.isChecked == true &&
+            hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        ) {
             weatherSwitch.isChecked = false
             WorkManagerHelper.cancelWorkers(context)
         }
@@ -82,24 +81,19 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            when (newValue) {
-                true if permissionsDenied(context) -> {
-                    requestNextPermission(context)
-                    false
-                }
-                true -> {
-                    WorkManagerHelper.enqueuePeriodicWorker(
-                        context,
-                        0,
-                        ExistingPeriodicWorkPolicy.KEEP
-                    )
-                    true
-                }
-                else -> {
-                    WorkManagerHelper.cancelWorkers(context)
-                    true
-                }
+            if (newValue == false) {
+                WorkManagerHelper.cancelWorkers(context)
+                return@setOnPreferenceChangeListener true
             }
+            if (newValue == true && ensureLocationPermissions(context)) {
+                WorkManagerHelper.enqueuePeriodicWorker(
+                    context,
+                    0,
+                    ExistingPeriodicWorkPolicy.KEEP
+                )
+                return@setOnPreferenceChangeListener true
+            }
+            false
         }
     }
 
@@ -115,54 +109,38 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun requestNextPermission(context: Context) {
+    private fun ensureLocationPermissions(context: Context): Boolean {
         val permission: String
         val title: String
         val message: String
 
-        if (context.checkSelfPermission(coarseLocationPermission) == PackageManager
-                .PERMISSION_DENIED
-        ) {
-            permission = coarseLocationPermission
+        if (hasNoPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            permission = Manifest.permission.ACCESS_COARSE_LOCATION
             title = getString(R.string.config_loc_perm_alert_title)
             message = getString(R.string.config_loc_perm_alert_message)
 
-        } else if (context.checkSelfPermission(backgroundLocationPermission) == PackageManager
-                .PERMISSION_DENIED
-        ) {
-            permission = backgroundLocationPermission
+        } else if (hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+            permission = Manifest.permission.ACCESS_BACKGROUND_LOCATION
             title = getString(R.string.config_bg_perm_alert_title)
             message = getString(
                 R.string.config_bg_perm_alert_message,
                 context.packageManager.backgroundPermissionOptionLabel
             )
-
-        } else if (context.checkSelfPermission(backgroundLocationPermission) == PackageManager
-                .PERMISSION_GRANTED
-        ) {
-            findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.apply {
-                isChecked = true
-                WorkManagerHelper.enqueuePeriodicWorker(
-                    context,
-                    0,
-                    ExistingPeriodicWorkPolicy.KEEP
-                )
-            }
-            return
         } else {
-            return
+            return true
         }
         if (shouldShowRequestPermissionRationale(permission)) {
             showRationaleDialog(context, permission, title, message)
         } else {
             requestPermissionLauncher.launch(permission)
         }
+        return false
     }
 
-    private fun permissionsDenied(context: Context): Boolean =
+    private fun hasNoPermission(context: Context, permission: String): Boolean =
         ContextCompat.checkSelfPermission(
             context,
-            REQUIRED_PERMISSION
+            permission
         ) == PackageManager.PERMISSION_DENIED
 
     private fun showDebugDialog(

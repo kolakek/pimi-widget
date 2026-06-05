@@ -17,10 +17,6 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.Manifest
-
-internal const val REQUIRED_PERMISSION = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val LOCATION_URL = "https://www.openstreetmap.org"
 internal const val LOCATION_URL_ZOOM = 13
