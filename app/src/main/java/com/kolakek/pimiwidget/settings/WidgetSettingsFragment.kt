@@ -35,7 +35,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
@@ -86,11 +85,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 return@setOnPreferenceChangeListener true
             }
             if (newValue == true && ensureLocationPermissions(context)) {
-                WorkManagerHelper.enqueuePeriodicWorker(
-                    context,
-                    0,
-                    ExistingPeriodicWorkPolicy.KEEP
-                )
+                WorkManagerHelper.enqueuePeriodicWorker(context)
                 return@setOnPreferenceChangeListener true
             }
             false

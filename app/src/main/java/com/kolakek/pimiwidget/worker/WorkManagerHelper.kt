@@ -57,8 +57,8 @@ object WorkManagerHelper {
 
     fun enqueuePeriodicWorker(
         context: Context,
-        initialDelayMillis: Long,
-        existingWorkPolicy: ExistingPeriodicWorkPolicy
+        initialDelayMillis: Long = 0,
+        existingWorkPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
     ) {
         Timber.d("enqueuePeriodicWorker: Enqueue worker with ${initialDelayMillis / 1000L}s delay")
 
