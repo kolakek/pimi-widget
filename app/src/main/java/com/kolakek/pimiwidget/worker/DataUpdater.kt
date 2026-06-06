@@ -41,7 +41,7 @@ internal object DataUpdater {
 
         if (!hasLocationPermission(context)) {
             Timber.w("update: Location permission denied")
-            return UpdateStatus.FAILED
+            return UpdateStatus.PERMISSION_ERROR
         }
 
         Timber.d("update: Get location")
@@ -49,7 +49,7 @@ internal object DataUpdater {
 
         if (location == null) {
             Timber.w("update: No location data available")
-            return UpdateStatus.FAILED
+            return UpdateStatus.LOCATION_FAILED
         }
 
         Timber.d("update: Store location data")
@@ -60,7 +60,7 @@ internal object DataUpdater {
 
         if (weather == null) {
             Timber.w("update: No weather data available")
-            return UpdateStatus.FAILED
+            return UpdateStatus.WEATHER_FAILED
         }
         val widgetDataAgeMillis = getDataAgeMillis(context)
 

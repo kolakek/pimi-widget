@@ -18,8 +18,11 @@
 package com.kolakek.pimiwidget.worker
 
 enum class UpdateStatus {
+    SUCCESS,
     RUNNING,
-    FAILED,
     CANCELLED,
-    SUCCESS
+    FAILED,
+    PERMISSION_ERROR,
+    LOCATION_FAILED,
+    WEATHER_FAILED
 }
