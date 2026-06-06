@@ -32,5 +32,6 @@ data class WeatherData (
     val dailyWeatherCode: List<WeatherCode>,
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
-    val dailyTimeMillis: List<Long>
+    val dailyTimeMillis: List<Long>,
+    val timeMillis: Long
 )

@@ -29,6 +29,7 @@ import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
+import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetAction
 import timber.log.Timber
@@ -38,13 +39,11 @@ internal object DataUpdater {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
-        val lastSuccessTimeMillis = getLastSuccessTimeMillis(context)
-
-        saveUpdateStatusData(context, UpdateStatus.RUNNING, lastSuccessTimeMillis)
+        saveUpdateStatusData(context, UpdateStatus.RUNNING)
 
         if (!hasLocationPermission(context)) {
             Timber.w("update: Location permission denied")
-            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            saveUpdateStatusData(context, UpdateStatus.FAILED)
             return
         }
 
@@ -53,7 +52,7 @@ internal object DataUpdater {
 
         if (location == null) {
             Timber.w("update: No location data available")
-            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            saveUpdateStatusData(context, UpdateStatus.FAILED)
             return
         }
 
@@ -65,47 +64,36 @@ internal object DataUpdater {
 
         if (weather == null) {
             Timber.w("update: No weather data available")
-            saveUpdateStatusData(context, UpdateStatus.FAILED, lastSuccessTimeMillis)
+            saveUpdateStatusData(context, UpdateStatus.FAILED)
             return
         }
+        val widgetDataAgeMillis = getDataAgeMillis(context)
 
-        Timber.d("update: Store weather data")
         JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
 
-        Timber.d("update: Store status data")
-        val currentTimeMillis = System.currentTimeMillis()
-        saveUpdateStatusData(context, UpdateStatus.SUCCESS, currentTimeMillis)
+        saveUpdateStatusData(context, UpdateStatus.SUCCESS)
 
-        val widgetDataAge = currentTimeMillis - (lastSuccessTimeMillis ?: 0L)
-        if (forceUpdate || widgetDataAge > 120 * 60 * 1000L) { // ToDo derive const
-            Timber.d("update: Update widget")
-            updateWidget(context)
+        if (forceUpdate || widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
+            Timber.d("update: Trigger widget update")
+            triggerWidgetUpdate(context)
         }
     }
 
-    private suspend fun getLastSuccessTimeMillis(context: Context): Long? {
-        return JsonDataStore.load<UpdateStatusData?>(
-            context, DataKeys.UPDATE_STATUS_DATA_KEY
-        )?.successTimeMillis
+    private suspend fun getDataAgeMillis(context: Context): Long {
+        val dataTimeMillis = JsonDataStore.load<WeatherData?>(
+            context, DataKeys.WEATHER_DATA_KEY
+        )?.timeMillis ?: 0
+        return System.currentTimeMillis() - dataTimeMillis
     }
 
     private suspend fun saveUpdateStatusData(
         context: Context,
-        updateStatus: UpdateStatus,
-        successTimeMillis: Long?
+        updateStatus: UpdateStatus
     ) {
         JsonDataStore.save(
             context,
-            DataKeys.UPDATE_STATUS_DATA_KEY,
-            UpdateStatusData(
-                updateStatus = updateStatus,
-                statusTimeMillis = System.currentTimeMillis(),
-                successTimeMillis = successTimeMillis,
-                locationStatus = UpdateStatus.FAILED,
-                weatherStatus = UpdateStatus.FAILED,
-                lastUpdateTimeMillis = 0L
-
-            )
+            DataKeys.STATUS_DATA_KEY,
+            StatusData(updateStatus, System.currentTimeMillis())
         )
     }
 
@@ -115,7 +103,7 @@ internal object DataUpdater {
             Manifest.permission.ACCESS_COARSE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
 
-    private fun updateWidget(context: Context) {
+    private fun triggerWidgetUpdate(context: Context) {
         val ids = AppWidgetManager.getInstance(context)
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 

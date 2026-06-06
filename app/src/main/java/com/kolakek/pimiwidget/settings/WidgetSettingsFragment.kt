@@ -39,8 +39,9 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.UpdateStatusData
+import com.kolakek.pimiwidget.worker.StatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -158,18 +159,19 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             .show()
 
         lifecycleScope.launch {
-            val dataUpdateStatus: UpdateStatusData? = JsonDataStore.load(
-                context, DataKeys.UPDATE_STATUS_DATA_KEY
+            val weatherData: WeatherData? = JsonDataStore.load(
+                context, DataKeys.WEATHER_DATA_KEY
             )
-            val dataAgeStr = dataUpdateStatus?.statusTimeMillis?.let {
-                createAgeString(it)
-            } ?: "-"
+            val dataAgeStr = weatherData?.timeMillis?.let { createAgeString(it) } ?: "-"
 
-            val statusStr = dataUpdateStatus?.let {
+            val statusData: StatusData? = JsonDataStore.load(
+                context, DataKeys.STATUS_DATA_KEY
+            )
+            val statusStr = statusData?.let {
                 getString(
                     R.string.config_debug_alert_status_time,
-                    it.updateStatus,
-                    DateFormat.getTimeFormat(context).format(Date(it.statusTimeMillis))
+                    it.status,
+                    DateFormat.getTimeFormat(context).format(Date(it.timeMillis))
                 )
             } ?: "-"
 

@@ -20,13 +20,7 @@ package com.kolakek.pimiwidget.worker
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UpdateStatusData (
-    val updateStatus: UpdateStatus,
-    val statusTimeMillis: Long,
-    val successTimeMillis: Long?,
-
-    // ToDo: deprecated
-    val locationStatus: UpdateStatus,
-    val weatherStatus: UpdateStatus,
-    val lastUpdateTimeMillis: Long
+data class StatusData (
+    val status: UpdateStatus,
+    val timeMillis: Long
 )
