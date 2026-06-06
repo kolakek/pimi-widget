@@ -20,5 +20,6 @@ package com.kolakek.pimiwidget.worker
 enum class UpdateStatus {
     RUNNING,
     FAILED,
+    CANCELLED,
     SUCCESS
 }

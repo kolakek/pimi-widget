@@ -37,14 +37,11 @@ import timber.log.Timber
 internal object DataUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context, forceUpdate: Boolean) {
-
-        saveUpdateStatusData(context, UpdateStatus.RUNNING)
+    internal suspend fun update(context: Context, forceUpdate: Boolean): UpdateStatus {
 
         if (!hasLocationPermission(context)) {
             Timber.w("update: Location permission denied")
-            saveUpdateStatusData(context, UpdateStatus.FAILED)
-            return
+            return UpdateStatus.FAILED
         }
 
         Timber.d("update: Get location")
@@ -52,8 +49,7 @@ internal object DataUpdater {
 
         if (location == null) {
             Timber.w("update: No location data available")
-            saveUpdateStatusData(context, UpdateStatus.FAILED)
-            return
+            return UpdateStatus.FAILED
         }
 
         Timber.d("update: Store location data")
@@ -64,29 +60,21 @@ internal object DataUpdater {
 
         if (weather == null) {
             Timber.w("update: No weather data available")
-            saveUpdateStatusData(context, UpdateStatus.FAILED)
-            return
+            return UpdateStatus.FAILED
         }
         val widgetDataAgeMillis = getDataAgeMillis(context)
 
         JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
 
-        saveUpdateStatusData(context, UpdateStatus.SUCCESS)
-
         if (forceUpdate || widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
             Timber.d("update: Trigger widget update")
             triggerWidgetUpdate(context)
         }
+
+        return UpdateStatus.SUCCESS
     }
 
-    private suspend fun getDataAgeMillis(context: Context): Long {
-        val dataTimeMillis = JsonDataStore.load<WeatherData?>(
-            context, DataKeys.WEATHER_DATA_KEY
-        )?.timeMillis ?: 0
-        return System.currentTimeMillis() - dataTimeMillis
-    }
-
-    private suspend fun saveUpdateStatusData(
+    internal suspend fun logUpdateStatus(
         context: Context,
         updateStatus: UpdateStatus
     ) {
@@ -95,6 +83,13 @@ internal object DataUpdater {
             DataKeys.STATUS_DATA_KEY,
             StatusData(updateStatus, System.currentTimeMillis())
         )
+    }
+
+    private suspend fun getDataAgeMillis(context: Context): Long {
+        val dataTimeMillis = JsonDataStore.load<WeatherData?>(
+            context, DataKeys.WEATHER_DATA_KEY
+        )?.timeMillis ?: 0
+        return System.currentTimeMillis() - dataTimeMillis
     }
 
     private fun hasLocationPermission(context: Context): Boolean =

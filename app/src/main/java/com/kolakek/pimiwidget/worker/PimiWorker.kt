@@ -24,6 +24,8 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import timber.log.Timber
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
 
 internal class PimiWorker(
     appContext: Context,
@@ -33,13 +35,27 @@ internal class PimiWorker(
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
         val forceUpdate = inputData.getBoolean(FORCE_UPDATE_KEY, false)
+
         return try {
-            DataUpdater.update(applicationContext, forceUpdate)
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.RUNNING)
+
+            val status = DataUpdater.update(applicationContext, forceUpdate)
+            DataUpdater.logUpdateStatus(applicationContext, status)
+
             Result.success()
         } catch (e: CancellationException) {
+            try {
+                withContext(NonCancellable) {
+                    DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.CANCELLED)
+                }
+            } catch (e: Exception) {
+                Timber.e(e, "doWork: Failed to store cancellation status")
+            }
             throw e
         } catch (e: Exception) {
-            Timber.e(e, "Error in PimiWorker.")
+            Timber.e(e, "doWork: Error in PimiWorker.")
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.FAILED)
+
             Result.failure()
         }
     }
