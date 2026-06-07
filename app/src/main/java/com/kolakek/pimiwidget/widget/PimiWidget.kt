@@ -56,18 +56,16 @@ class PimiWidget : AppWidgetProvider() {
 
         Timber.d("onReceive: ${intent.action}")
         when (intent.action) {
-            Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
-
+            Intent.ACTION_MY_PACKAGE_REPLACED -> {
                 if (PreferencesHelper.getWeatherPreference(context)) {
                     WorkManagerHelper.enqueuePeriodicWorker(
                         context,
-                        WORKER_INIT_DELAY_MILLIS,
-                        ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+                        ExistingPeriodicWorkPolicy.UPDATE
                     )
                 }
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
-            WidgetAction.APPWIDGET_UPDATE -> {
+            Intent.ACTION_BOOT_COMPLETED -> {
                 WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
@@ -75,6 +73,9 @@ class PimiWidget : AppWidgetProvider() {
             }
             WidgetAction.DATA_UPDATED -> {
                 WidgetController.updateAllWidgets(context, WidgetUpdateMode.DATA_UPDATE)
+            }
+            WidgetAction.APPWIDGET_UPDATE -> {
+                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
         }
     }

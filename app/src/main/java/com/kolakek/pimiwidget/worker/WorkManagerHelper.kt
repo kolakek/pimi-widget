@@ -18,8 +18,10 @@
 package com.kolakek.pimiwidget.worker
 
 import android.content.Context
+import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
@@ -57,18 +59,20 @@ object WorkManagerHelper {
 
     fun enqueuePeriodicWorker(
         context: Context,
-        initialDelayMillis: Long = 0,
         existingWorkPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
     ) {
-        Timber.d("enqueuePeriodicWorker: Enqueue worker with ${initialDelayMillis / 1000L}s delay")
+        Timber.d("enqueuePeriodicWorker: Enqueue worker")
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
 
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
             UPDATE_INTERVAL_MILLIS,
             TimeUnit.MILLISECONDS
-        ).setInitialDelay(
-            initialDelayMillis,
-            TimeUnit.MILLISECONDS
-        ).build()
+        )
+            .setConstraints(constraints)
+            .build()
 
         WorkManager
             .getInstance(context.applicationContext)
