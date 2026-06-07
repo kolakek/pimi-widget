@@ -30,6 +30,8 @@
     <style name="Widget.PimiWidget.AppWidget.Date" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:format12Hour">@string/widget_date_format</item>
+        <item name="android:format24Hour">@string/widget_date_format</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.DateDark" parent="Widget.PimiWidget.AppWidget.Date">
@@ -53,6 +55,10 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:drawablePadding">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.WeatherDark" parent="Widget.PimiWidget.AppWidget.Weather">

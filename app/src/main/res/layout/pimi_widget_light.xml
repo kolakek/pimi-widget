@@ -4,16 +4,10 @@
 
     <TextClock
         style="@style/Widget.PimiWidget.AppWidget.DateLight"
-        android:id="@+id/widget_text_clock"
-        android:format12Hour="@string/widget_date_format"
-        android:format24Hour="@string/widget_date_format" />
+        android:id="@+id/widget_text_clock" />
 
     <TextView
         style="@style/Widget.PimiWidget.AppWidget.WeatherLight"
-        android:id="@+id/widget_temp"
-        android:layout_width="wrap_content"
-        android:visibility="invisible"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:id="@+id/widget_temp" />
 
 </LinearLayout>

@@ -10,9 +10,7 @@
     <TextView
         style="@style/Widget.PimiWidget.AppWidget.Weather"
         android:text="@string/widget_temp_prev"
-        android:layout_width="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
+        android:visibility="visible"
         android:drawableStart="@drawable/uc_0d"
         tools:ignore="UseCompatTextViewDrawableXml" />
 

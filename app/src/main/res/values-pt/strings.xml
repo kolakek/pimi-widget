@@ -40,7 +40,7 @@
     <string name="widget_label">Data e clima</string>
     <string name="widget_date_prev">dom., 7 de set.</string>
     <string name="widget_temp_prev">21\u2103 · amanhã 19\u00B0 / 13\u00B0 · chuva fraca</string>
-    <string name="widget_date_format">EEE, d MMM</string>
+    <string name="widget_date_format">EEE, d \'de\' MMM</string>
     <string name="widget_today">hoje</string>
     <string name="widget_tomorrow">amanhã</string>
 
