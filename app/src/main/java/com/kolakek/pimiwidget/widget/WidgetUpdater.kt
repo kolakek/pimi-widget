@@ -24,7 +24,7 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import timber.log.Timber
 
-internal object WidgetController {
+internal object WidgetUpdater {
 
     internal fun updateAllWidgets(
         context: Context,
@@ -52,16 +52,33 @@ internal object WidgetController {
         )
         when (updateMode) {
             WidgetUpdateMode.FULL_UPDATE -> {
-                WidgetRenderer.updateBaseWidget(context, views, appWidgetManager, appWidgetId)
-                WidgetRenderer.updateDateFormat(context, views, appWidgetManager, appWidgetId)
-                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+                appWidgetManager.updateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderBaseWidget(context, views, appWidgetId)
+                )
+                appWidgetManager.partiallyUpdateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderDateFormat(context, views)
+                )
+                appWidgetManager.partiallyUpdateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderWeather(context, views, prefs))
             }
             WidgetUpdateMode.LOCALE_UPDATE -> {
-                WidgetRenderer.updateDateFormat(context, views, appWidgetManager, appWidgetId)
-                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+                appWidgetManager.partiallyUpdateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderDateFormat(context, views)
+                )
+                appWidgetManager.partiallyUpdateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderWeather(context, views, prefs)
+                )
             }
             WidgetUpdateMode.DATA_UPDATE -> {
-                WidgetRenderer.updateWeather(context, views, appWidgetManager, appWidgetId, prefs)
+                appWidgetManager.partiallyUpdateAppWidget(
+                    appWidgetId,
+                    WidgetRenderer.renderWeather(context, views, prefs)
+                )
             }
         }
     }

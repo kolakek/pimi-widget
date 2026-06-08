@@ -17,7 +17,6 @@
 
 package com.kolakek.pimiwidget.widget
 
-import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
 import android.text.format.DateFormat
@@ -32,12 +31,11 @@ import java.util.Locale
 
 internal object WidgetRenderer {
 
-    internal fun updateBaseWidget(
+    internal fun renderBaseWidget(
         context: Context,
         views: RemoteViews,
-        appWidgetManager: AppWidgetManager,
         appWidgetId: Int
-    ) {
+    ): RemoteViews {
         WidgetIntent.categoryIntent(context, Intent.CATEGORY_APP_CALENDAR, appWidgetId)?.let {
             views.setOnClickPendingIntent(R.id.widget_text_clock, it)
         }
@@ -50,15 +48,13 @@ internal object WidgetRenderer {
         pendingIntent?.let {
             views.setOnClickPendingIntent(R.id.widget_temp, it)
         }
-        appWidgetManager.updateAppWidget(appWidgetId, views)
+        return views
     }
 
-    internal fun updateDateFormat(
+    internal fun renderDateFormat(
         context: Context,
         views: RemoteViews,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int
-    ) {
+    ): RemoteViews {
         val pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
@@ -66,16 +62,14 @@ internal object WidgetRenderer {
         views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
         views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
-        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+        return views
     }
 
-    internal fun updateWeather(
+    internal fun renderWeather(
         context: Context,
         views: RemoteViews,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
         prefs: WidgetPreferences
-    ) {
+    ): RemoteViews {
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
         if (prefs.showWeather) {
@@ -94,7 +88,7 @@ internal object WidgetRenderer {
                 }
             }
         }
-        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+        return views
     }
 
     internal fun getWidgetLayout(textStyle: TextStyle): Int {

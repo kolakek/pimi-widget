@@ -35,7 +35,7 @@ class PimiWidget : AppWidgetProvider() {
     ) {
         Timber.d("onUpdate: Begin function")
         for (appWidgetId in appWidgetIds) {
-            WidgetController.updateWidget(
+            WidgetUpdater.updateWidget(
                 context,
                 appWidgetManager,
                 appWidgetId,
@@ -63,19 +63,19 @@ class PimiWidget : AppWidgetProvider() {
                         ExistingPeriodicWorkPolicy.UPDATE
                     )
                 }
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
+                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
             Intent.ACTION_BOOT_COMPLETED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
+                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
             Intent.ACTION_LOCALE_CHANGED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
+                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
             }
             WidgetAction.DATA_UPDATED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.DATA_UPDATE)
+                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.DATA_UPDATE)
             }
             WidgetAction.APPWIDGET_UPDATE -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
+                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
             }
         }
     }
