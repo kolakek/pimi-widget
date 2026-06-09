@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Activarea vremii partajează locația ta cu furnizorul de prognoză</string>
     <string name="config_weather_switch">Activează vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
+    <string name="config_version_title">Versiune de compilare</string>
     <string name="config_debug_info">Informații de depanare</string>
-    <string name="config_debug_info_summary">Afișează starea widgetului</string>
     <string name="config_text_color">Culoarea textului</string>
     <string name="config_debug_alert_button_update">Forțează actualizarea</string>
     <string name="config_icon_style">Stilul pictogramelor</string>

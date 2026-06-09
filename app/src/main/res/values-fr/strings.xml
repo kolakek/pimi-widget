@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Activer la météo partage ta position avec le fournisseur météo</string>
     <string name="config_weather_switch">Activer la météo</string>
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
+    <string name="config_version_title">Version de build</string>
     <string name="config_debug_info">Informations de débogage</string>
-    <string name="config_debug_info_summary">Afficher l’état du widget</string>
     <string name="config_text_color">Couleur du texte</string>
     <string name="config_debug_alert_button_update">Forcer la mise à jour</string>
     <string name="config_icon_style">Style des icônes</string>

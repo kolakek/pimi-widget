@@ -4,8 +4,8 @@
     <string name="config_privacy_note">När väder aktiveras delas din plats med vädertjänsten</string>
     <string name="config_weather_switch">Aktivera väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
+    <string name="config_version_title">Versionsbygge</string>
     <string name="config_debug_info">Felsökningsinformation</string>
-    <string name="config_debug_info_summary">Visa widgetstatus</string>
     <string name="config_text_color">Textfärg</string>
     <string name="config_debug_alert_button_update">Tvinga uppdatering</string>
     <string name="config_icon_style">Ikonstil</string>

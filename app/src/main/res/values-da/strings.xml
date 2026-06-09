@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Når vejret aktiveres, deles din placering med vejrudbyderen</string>
     <string name="config_weather_switch">Aktivér vejr</string>
     <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
+    <string name="config_version_title">Buildversion</string>
     <string name="config_debug_info">Fejlfindingsoplysninger</string>
-    <string name="config_debug_info_summary">Vis widget-status</string>
     <string name="config_text_color">Tekstfarve</string>
     <string name="config_debug_alert_button_update">Tving opdatering</string>
     <string name="config_icon_style">Ikonstil</string>

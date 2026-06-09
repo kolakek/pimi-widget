@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Door weer in te schakelen wordt je locatie gedeeld met de weerdienst</string>
     <string name="config_weather_switch">Weer inschakelen</string>
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
+    <string name="config_version_title">Buildversie</string>
     <string name="config_debug_info">Debug-informatie</string>
-    <string name="config_debug_info_summary">Widgetstatus bekijken</string>
     <string name="config_text_color">Tekstkleur</string>
     <string name="config_debug_alert_button_update">Geforceerd bijwerken</string>
     <string name="config_icon_style">Icoonstijl</string>

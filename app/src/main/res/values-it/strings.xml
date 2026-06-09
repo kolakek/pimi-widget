@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Attivando il meteo, la tua posizione viene condivisa con il fornitore meteo</string>
     <string name="config_weather_switch">Attiva meteo</string>
     <string name="config_weather_switch_summary">Dati meteo da Open-Meteo.com</string>
+    <string name="config_version_title">Versione build</string>
     <string name="config_debug_info">Informazioni di debug</string>
-    <string name="config_debug_info_summary">Visualizza stato del widget</string>
     <string name="config_text_color">Colore del testo</string>
     <string name="config_debug_alert_button_update">Forza aggiornamento</string>
     <string name="config_icon_style">Stile icone</string>

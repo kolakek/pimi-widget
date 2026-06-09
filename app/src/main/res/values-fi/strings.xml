@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
     <string name="config_weather_switch">Ota sää käyttöön</string>
     <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
+    <string name="config_version_title">Koontiversio</string>
     <string name="config_debug_info">Vianmääritystiedot</string>
-    <string name="config_debug_info_summary">Näytä widgetin tila</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_debug_alert_button_update">Pakota päivitys</string>
     <string name="config_icon_style">Kuvaketyyli</string>

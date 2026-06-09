@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Ao ativar o clima, sua localização é compartilhada com o provedor de meteorologia</string>
     <string name="config_weather_switch">Ativar clima</string>
     <string name="config_weather_switch_summary">Dados meteorológicos de Open-Meteo.com</string>
+    <string name="config_version_title">Versão build</string>
     <string name="config_debug_info">Informações de depuração</string>
-    <string name="config_debug_info_summary">Ver status do widget</string>
     <string name="config_text_color">Cor do texto</string>
     <string name="config_debug_alert_button_update">Forçar atualização</string>
     <string name="config_icon_style">Estilo de ícones</string>

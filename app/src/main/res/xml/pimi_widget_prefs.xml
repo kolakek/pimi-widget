@@ -88,8 +88,7 @@
 
         <Preference
             android:key="debug_info"
-            android:summary="@string/config_debug_info_summary"
-            android:title="@string/config_debug_info"
+            android:title="@string/config_version_title"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>

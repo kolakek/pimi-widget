@@ -6,8 +6,8 @@
     <string name="config_section_about">About</string>
     <string name="config_weather_switch">Enable weather</string>
     <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
+    <string name="config_version_title">Build version</string>
     <string name="config_debug_info">Debug information</string>
-    <string name="config_debug_info_summary">View widget status</string>
     <string name="config_debug_alert_button_update">Force update</string>
     <string name="config_icon_style">Icon style</string>
     <string name="config_text_color">Text color</string>

@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Увімкнення погоди передає вашу геолокацію постачальнику погоди</string>
     <string name="config_weather_switch">Увімкнути погоду</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
+    <string name="config_version_title">Версія збірки</string>
     <string name="config_debug_info">Інформація для налагодження</string>
-    <string name="config_debug_info_summary">Переглянути стан віджета</string>
     <string name="config_text_color">Колір тексту</string>
     <string name="config_debug_alert_button_update">Примусове оновлення</string>
     <string name="config_icon_style">Стиль іконок</string>

@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Aktivizimi i motit ndan vendndodhjen tënde me ofruesin e motit</string>
     <string name="config_weather_switch">Aktivizo motin</string>
     <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
+    <string name="config_version_title">Versioni i ndërtimit</string>
     <string name="config_debug_info">Informacione debug</string>
-    <string name="config_debug_info_summary">Shiko gjendjen e widget-it</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
     <string name="config_debug_alert_button_update">Përditëso me forcë</string>
     <string name="config_icon_style">Stili i ikonave</string>

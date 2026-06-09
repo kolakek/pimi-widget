@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
     <string name="config_weather_switch">Włącz pogodę</string>
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
+    <string name="config_version_title">Wersja kompilacji</string>
     <string name="config_debug_info">Informacje debugowania</string>
-    <string name="config_debug_info_summary">Wyświetl stan widżetu</string>
     <string name="config_text_color">Kolor tekstu</string>
     <string name="config_debug_alert_button_update">Wymuś aktualizację</string>
     <string name="config_icon_style">Styl ikon</string>

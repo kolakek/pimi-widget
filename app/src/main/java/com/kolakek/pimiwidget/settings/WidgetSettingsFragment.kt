@@ -35,6 +35,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
@@ -62,6 +63,8 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val sharedDataField: Preference? = findPreference(KEY_SHARED_DATA)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
+        var debugCount = 0
+
         if (weatherSwitch?.isChecked == true &&
             hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
@@ -69,9 +72,14 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             WorkManagerHelper.cancelWorkers(context)
         }
         debugField?.setOnPreferenceClickListener {
-            showDebugDialog(context, weatherSwitch?.isChecked)
+            if (debugCount == 2)
+                showDebugDialog(context, weatherSwitch?.isChecked)
+            else
+                debugCount++
             true
         }
+        debugField?.summary = BuildConfig.VERSION_NAME
+
         sharedDataField?.setOnPreferenceClickListener {
             showDataInfoDialog(context)
             true

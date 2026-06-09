@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
     <string name="config_weather_switch">Zapnout počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
+    <string name="config_version_title">Build verze</string>
     <string name="config_debug_info">Ladicí informace</string>
-    <string name="config_debug_info_summary">Zobrazit stav widgetu</string>
     <string name="config_text_color">Barva textu</string>
     <string name="config_debug_alert_button_update">Vynutit aktualizaci</string>
     <string name="config_icon_style">Styl ikon</string>

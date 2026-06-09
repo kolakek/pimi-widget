@@ -4,8 +4,8 @@
     <string name="config_privacy_note">Η ενεργοποίηση του καιρού κοινοποιεί την τοποθεσία σας στον πάροχο καιρού</string>
     <string name="config_weather_switch">Ενεργοποίηση καιρού</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
+    <string name="config_version_title">Έκδοση build</string>
     <string name="config_debug_info">Πληροφορίες αποσφαλμάτωσης</string>
-    <string name="config_debug_info_summary">Προβολή κατάστασης widget</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
     <string name="config_debug_alert_button_update">Αναγκαστική ενημέρωση</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
