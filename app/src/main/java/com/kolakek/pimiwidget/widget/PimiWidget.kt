@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -34,14 +35,7 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         Timber.d("onUpdate: Begin function")
-        for (appWidgetId in appWidgetIds) {
-            WidgetUpdater.updateWidget(
-                context,
-                appWidgetManager,
-                appWidgetId,
-                WidgetUpdateMode.DATA_UPDATE
-            )
-        }
+        WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
     }
 
     override fun onDisabled(context: Context) {
@@ -55,28 +49,36 @@ class PimiWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
 
         Timber.d("onReceive: ${intent.action}")
+
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            ComponentName(context, PimiWidget::class.java)
+        )
         when (intent.action) {
+
+            Intent.ACTION_BOOT_COMPLETED,
+            Intent.ACTION_LOCALE_CHANGED,
+
+            WidgetAction.APPWIDGET_UPDATE ->
+                WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
+
             Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                if (PreferencesHelper.getWeatherPreference(context)) {
-                    WorkManagerHelper.enqueuePeriodicWorker(
-                        context,
-                        ExistingPeriodicWorkPolicy.UPDATE
-                    )
-                }
-                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
-            }
-            Intent.ACTION_BOOT_COMPLETED -> {
-                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
-            }
-            Intent.ACTION_LOCALE_CHANGED -> {
-                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
-            }
-            WidgetAction.DATA_UPDATED -> {
-                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.DATA_UPDATE)
-            }
-            WidgetAction.APPWIDGET_UPDATE -> {
-                WidgetUpdater.updateAllWidgets(context, WidgetUpdateMode.FULL_UPDATE)
+                handlePackageReplaced(context, appWidgetManager, appWidgetIds)
             }
         }
+    }
+
+    private fun handlePackageReplaced(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        if (PreferencesHelper.getWeatherPreference(context)) {
+            WorkManagerHelper.enqueuePeriodicWorker(
+                context,
+                ExistingPeriodicWorkPolicy.UPDATE
+            )
+        }
+        WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
     }
 }

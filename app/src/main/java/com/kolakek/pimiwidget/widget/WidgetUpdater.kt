@@ -18,68 +18,111 @@
 package com.kolakek.pimiwidget.widget
 
 import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
+import android.text.format.DateFormat
+import android.view.View
 import android.widget.RemoteViews
+import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.settings.PreferencesHelper
-import timber.log.Timber
+import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.weather.WeatherData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import java.util.Locale
 
 internal object WidgetUpdater {
 
-    internal fun updateAllWidgets(
-        context: Context,
-        updateMode: WidgetUpdateMode
-    ) {
-        val manager = AppWidgetManager.getInstance(context)
-        manager.getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
-            .forEach { appWidgetId ->
-                updateWidget(context, manager, appWidgetId, updateMode)
-            }
-    }
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-    internal fun updateWidget(
+    internal fun updateWidgets(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
-        updateMode: WidgetUpdateMode
+        appWidgetIds: IntArray
     ) {
-        Timber.d("updateAppWidget: Begin Function, update mode $updateMode.")
+        scope.launch {
+            for (appWidgetId in appWidgetIds) {
+                val prefs = PreferencesHelper.getWidgetPreferences(context)
+                val views = RemoteViews(
+                    context.packageName,
+                    getWidgetLayout(prefs.textStyle)
+                )
+                updateBaseWidget(context, views, appWidgetId)
+                updateWeather(context, views, prefs)
 
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val views = RemoteViews(
-            context.packageName,
-            WidgetRenderer.getWidgetLayout(prefs.textStyle)
-        )
-        when (updateMode) {
-            WidgetUpdateMode.FULL_UPDATE -> {
-                appWidgetManager.updateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderBaseWidget(context, views, appWidgetId)
-                )
-                appWidgetManager.partiallyUpdateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderDateFormat(context, views)
-                )
-                appWidgetManager.partiallyUpdateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderWeather(context, views, prefs))
-            }
-            WidgetUpdateMode.LOCALE_UPDATE -> {
-                appWidgetManager.partiallyUpdateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderDateFormat(context, views)
-                )
-                appWidgetManager.partiallyUpdateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderWeather(context, views, prefs)
-                )
-            }
-            WidgetUpdateMode.DATA_UPDATE -> {
-                appWidgetManager.partiallyUpdateAppWidget(
-                    appWidgetId,
-                    WidgetRenderer.renderWeather(context, views, prefs)
-                )
+                appWidgetManager.updateAppWidget(appWidgetId, views)
             }
         }
+    }
+
+    private fun getWidgetLayout(textStyle: TextStyle): Int {
+        return when (textStyle) {
+            TextStyle.DARK -> R.layout.pimi_widget_dark
+            TextStyle.LIGHT -> R.layout.pimi_widget_light
+            TextStyle.LIGHT_SHADOW -> R.layout.pimi_widget_light_shadow
+        }
+    }
+
+    private fun updateBaseWidget(
+        context: Context,
+        views: RemoteViews,
+        appWidgetId: Int
+    ): RemoteViews {
+        val pattern = DateFormat.getBestDateTimePattern(
+            Locale.getDefault(),
+            context.getString(R.string.widget_date_format)
+        )
+        views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
+        views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
+
+        WidgetIntent.categoryIntent(
+            context,
+            Intent.CATEGORY_APP_CALENDAR,
+            appWidgetId
+        )?.let {
+            views.setOnClickPendingIntent(R.id.widget_text_clock, it)
+        }
+        val pendingIntent = WidgetIntent.categoryIntent(
+            context,
+            Intent.CATEGORY_APP_WEATHER,
+            appWidgetId
+        ) ?: WidgetIntent.altWeatherAppIntent(context, appWidgetId)
+
+        pendingIntent?.let {
+            views.setOnClickPendingIntent(R.id.widget_temp, it)
+        }
+        return views
+    }
+
+    private suspend fun updateWeather(
+        context: Context,
+        views: RemoteViews,
+        prefs: WidgetPreferences
+    ): RemoteViews {
+        views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
+
+        if (!prefs.showWeather) return views
+
+        val weatherData = JsonDataStore.load<WeatherData>(
+            context,
+            DataKeys.WEATHER_DATA_KEY
+        ) ?: return views
+
+        val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
+            context,
+            weatherData,
+            prefs
+        ) ?: return views
+
+        views.apply {
+            setTextViewText(R.id.widget_temp, strIcons.text)
+            setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
+            setViewVisibility(R.id.widget_temp, View.VISIBLE)
+        }
+        return views
     }
 }

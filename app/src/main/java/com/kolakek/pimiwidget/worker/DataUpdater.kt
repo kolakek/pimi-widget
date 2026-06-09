@@ -103,7 +103,7 @@ internal object DataUpdater {
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
         val intent = Intent(context, PimiWidget::class.java).apply {
-            action = WidgetAction.DATA_UPDATED
+            action = WidgetAction.APPWIDGET_UPDATE
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
         context.sendBroadcast(intent)

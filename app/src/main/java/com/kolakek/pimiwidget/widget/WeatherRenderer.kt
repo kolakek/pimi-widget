@@ -31,7 +31,7 @@ import timber.log.Timber
 import java.time.Instant
 import java.time.ZoneId
 
-internal object WeatherFormatter {
+internal object WeatherRenderer {
 
     internal fun getWidgetWeatherStrAndIcons(
         context: Context,
