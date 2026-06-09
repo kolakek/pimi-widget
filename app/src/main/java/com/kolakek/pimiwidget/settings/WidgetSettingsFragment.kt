@@ -51,7 +51,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted -> if (isGranted) ensureLocationPermissions(preferenceManager.context) }
+    ) { isGranted -> if (isGranted) weatherSwitchCallback(preferenceManager.context, true) }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
@@ -81,14 +81,12 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == false) {
-                WorkManagerHelper.cancelWorkers(context)
-                return@setOnPreferenceChangeListener true
-            }
-            if (newValue == true && ensureLocationPermissions(context)) {
-                WorkManagerHelper.enqueuePeriodicWorker(context)
-                return@setOnPreferenceChangeListener true
-            }
+            if (newValue == true)
+                return@setOnPreferenceChangeListener weatherSwitchCallback(context, true)
+
+            if (newValue == false)
+                return@setOnPreferenceChangeListener weatherSwitchCallback(context, false)
+
             false
         }
     }
@@ -105,32 +103,53 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun ensureLocationPermissions(context: Context): Boolean {
-        val permission: String
-        val title: String
-        val message: String
+    private fun weatherSwitchCallback(context: Context, flag: Boolean): Boolean {
+        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
-        if (hasNoPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            permission = Manifest.permission.ACCESS_COARSE_LOCATION
-            title = getString(R.string.config_loc_perm_alert_title)
-            message = getString(R.string.config_loc_perm_alert_message)
+        if (!flag) {
+            WorkManagerHelper.cancelWorkers(context)
+            weatherSwitch?.isChecked = false
 
-        } else if (hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
-            permission = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-            title = getString(R.string.config_bg_perm_alert_title)
-            message = getString(
-                R.string.config_bg_perm_alert_message,
-                context.packageManager.backgroundPermissionOptionLabel
-            )
-        } else {
             return true
         }
+        if (hasNoPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            askForPermission(
+                context,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                getString(R.string.config_loc_perm_alert_title),
+                getString(R.string.config_loc_perm_alert_message)
+            )
+            return false
+        }
+        if (hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+            askForPermission(
+                context,
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                getString(R.string.config_bg_perm_alert_title),
+                getString(
+                    R.string.config_bg_perm_alert_message,
+                    context.packageManager.backgroundPermissionOptionLabel
+                )
+            )
+            return false
+        }
+        WorkManagerHelper.enqueuePeriodicWorker(context)
+        weatherSwitch?.isChecked = true
+
+        return true
+    }
+
+    private fun askForPermission(
+        context: Context,
+        permission: String,
+        title: String,
+        message: String
+    ) {
         if (shouldShowRequestPermissionRationale(permission)) {
             showRationaleDialog(context, permission, title, message)
         } else {
             requestPermissionLauncher.launch(permission)
         }
-        return false
     }
 
     private fun hasNoPermission(context: Context, permission: String): Boolean =
