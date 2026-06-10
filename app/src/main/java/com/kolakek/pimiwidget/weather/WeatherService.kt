@@ -17,8 +17,8 @@
 
 package com.kolakek.pimiwidget.weather
 
+import com.kolakek.pimiwidget.exception.WeatherMappingException
 import com.kolakek.pimiwidget.location.LocationData
-import kotlinx.coroutines.CancellationException
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.URLBuilder
@@ -27,24 +27,13 @@ import timber.log.Timber
 
 object WeatherService {
 
-    suspend fun getWeather(location: LocationData): WeatherData? {
+    suspend fun getWeather(location: LocationData): WeatherData {
         val url = weatherUrl(location, TIMEFORMAT_VALUE)
 
         Timber.d("getWeather: Get data for URL: $url")
-        return try {
-            val result = mapProviderData(HttpClientProvider.client.get(url).body())
-            Timber.d("getWeather: Data retrieved")
-            result
-        } catch (e: CancellationException) {
-            Timber.d("getWeather: Cancelled")
-            throw e
-        } catch (_: IndexOutOfBoundsException) {
-            Timber.e("getWeather: Index out of bounds")
-            null
-        } catch (_: Exception) {
-            Timber.w("getWeather: Failed")
-            null
-        }
+
+        val providerData = HttpClientProvider.client.get(url).body<ProviderData>()
+        return mapProviderData(providerData)
     }
 
     fun weatherUrl(location: LocationData, timeFormat: String): Url {
@@ -71,7 +60,7 @@ object WeatherService {
         }.build()
     }
 
-    private fun mapProviderData(providerData: ProviderData): WeatherData? {
+    private fun mapProviderData(providerData: ProviderData): WeatherData {
         val minutelyWeatherCode = providerData.minutely_15.weather_code.indices.map { i ->
             WeatherCodeMapper.getWeatherCode(
                 wmoCode = providerData.minutely_15.weather_code[i].toInt(),
@@ -79,7 +68,7 @@ object WeatherService {
                 precipProb = providerData.minutely_15.precipitation_probability[i],
                 visibility = providerData.minutely_15.visibility[i],
                 cape = providerData.minutely_15.cape[i]
-            ) ?: return null
+            ) ?: throw WeatherMappingException("Failed to map minutely data")
         }
         val dailyWeatherCode = providerData.daily.weather_code.indices.map { i ->
             WeatherCodeMapper.getWeatherCode(
@@ -88,7 +77,7 @@ object WeatherService {
                 precipProb = providerData.daily.precipitation_probability_max[i],
                 visibility = providerData.daily.visibility_mean[i],
                 cape = providerData.daily.cape_max[i]
-            ) ?: return null
+            ) ?: throw WeatherMappingException("Failed to map daily data")
         }
         val hourlyWarningCode = providerData.hourly.weather_code.indices.map { i ->
             WarningCodeMapper.getWarningCode(

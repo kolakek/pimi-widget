@@ -22,9 +22,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.annotation.RequiresPermission
-import androidx.core.content.ContextCompat
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
@@ -37,31 +35,16 @@ import timber.log.Timber
 internal object DataUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context, forceUpdate: Boolean): UpdateStatus {
-
-        if (!hasLocationPermission(context)) {
-            Timber.w("update: Location permission denied")
-            return UpdateStatus.PERMISSION_ERROR
-        }
+    internal suspend fun update(context: Context, forceUpdate: Boolean) {
 
         Timber.d("update: Get location")
         val location = LocationService.getLocation(context)
 
-        if (location == null) {
-            Timber.w("update: No location data available")
-            return UpdateStatus.LOCATION_FAILED
-        }
-
-        Timber.d("update: Store location data")
         JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
 
         Timber.d("update: Get weather data")
         val weather = WeatherService.getWeather(location)
 
-        if (weather == null) {
-            Timber.w("update: No weather data available")
-            return UpdateStatus.WEATHER_FAILED
-        }
         val widgetDataAgeMillis = getDataAgeMillis(context)
 
         JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
@@ -70,8 +53,6 @@ internal object DataUpdater {
             Timber.d("update: Trigger widget update")
             triggerWidgetUpdate(context)
         }
-
-        return UpdateStatus.SUCCESS
     }
 
     internal suspend fun logUpdateStatus(
@@ -91,12 +72,6 @@ internal object DataUpdater {
         )?.timeMillis ?: 0
         return System.currentTimeMillis() - dataTimeMillis
     }
-
-    private fun hasLocationPermission(context: Context): Boolean =
-        ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
 
     private fun triggerWidgetUpdate(context: Context) {
         val ids = AppWidgetManager.getInstance(context)

@@ -22,6 +22,9 @@ import android.content.Context
 import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.kolakek.pimiwidget.exception.LocationUnavailableException
+import io.ktor.client.plugins.ServerResponseException
+import kotlinx.io.IOException
 import timber.log.Timber
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.NonCancellable
@@ -38,22 +41,48 @@ internal class PimiWorker(
 
         return try {
             DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.RUNNING)
-
-            val status = DataUpdater.update(applicationContext, forceUpdate)
-            DataUpdater.logUpdateStatus(applicationContext, status)
+            DataUpdater.update(applicationContext, forceUpdate)
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.SUCCESS)
 
             Result.success()
+
         } catch (e: CancellationException) {
             try {
                 withContext(NonCancellable) {
+                    Timber.i(e, "doWork: CancellationException")
                     DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.CANCELLED)
                 }
             } catch (e: Exception) {
                 Timber.e(e, "doWork: Failed to store cancellation status")
             }
             throw e
+
+        } catch (e: ServerResponseException) {
+            Timber.w(e, "doWork: ServerResponseException")
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.WEATHER_FAILED)
+
+            Result.retry()
+
+        } catch (e: IOException) {
+            Timber.w(e, "doWork: IOException")
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.WEATHER_FAILED)
+
+            Result.retry()
+
+        } catch (e: LocationUnavailableException) {
+            Timber.w(e, "doWork: LocationUnavailableException")
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.LOCATION_FAILED)
+
+            Result.failure()
+
+        } catch (e: SecurityException) {
+            Timber.e(e, "doWork: SecurityException")
+            DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.PERMISSION_ERROR)
+
+            Result.failure()
+
         } catch (e: Exception) {
-            Timber.e(e, "doWork: Error in PimiWorker.")
+            Timber.e(e, "doWork: Error in PimiWorker")
             DataUpdater.logUpdateStatus(applicationContext, UpdateStatus.FAILED)
 
             Result.failure()
