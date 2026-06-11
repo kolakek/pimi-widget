@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Геолокація</string>
     <string name="config_source_code">Вихідний код</string>
     <string name="config_source_code_summary">Переглянути вихідний код і документацію на GitHub</string>
+    <string name="config_aux_view_nothing">Не показувати нічого</string>
+    <string name="config_aux_view_update_time">Час оновлення віджета</string>
+    <string name="config_aux_view_title">Показувати додаткову інформацію</string>
 
     <string name="widget_label">Дата та погода</string>
     <string name="widget_date_prev">нд, 24 сер.</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">сьогодні</string>
     <string name="widget_tomorrow">завтра</string>
+    <string name="widget_updated_at">оновлено о</string>
 
     <string name="wc_heavy_thunderstorms">сильні грози</string>
     <string name="wc_thunderstorm">гроза</string>

@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Ubicación</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
+    <string name="config_aux_view_title">Mostrar información adicional</string>
+    <string name="config_aux_view_nothing">No mostrar nada</string>
+    <string name="config_aux_view_update_time">Tiempo de actualización del widget</string>
 
     <string name="widget_label">Fecha y clima</string>
     <string name="widget_date_prev">sáb, 12 oct</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">hoy</string>
     <string name="widget_tomorrow">mañana</string>
+    <string name="widget_updated_at">actualizado a las</string>
 
     <string name="wc_heavy_thunderstorms">tormentas fuertes</string>
     <string name="wc_thunderstorm">tormenta</string>

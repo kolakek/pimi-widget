@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Locatie</string>
     <string name="config_source_code">Broncode</string>
     <string name="config_source_code_summary">Bekijk broncode en documentatie op GitHub</string>
+    <string name="config_aux_view_title">Aanvullende info weergeven</string>
+    <string name="config_aux_view_nothing">Niets weergeven</string>
+    <string name="config_aux_view_update_time">Widget-vernieuwingstijd</string>
 
     <string name="widget_label">Datum en weer</string>
     <string name="widget_date_prev">zat 27 apr</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">vandaag</string>
     <string name="widget_tomorrow">morgen</string>
+    <string name="widget_updated_at">vernieuwd om</string>
 
     <string name="wc_heavy_thunderstorms">zware onweersbuien</string>
     <string name="wc_thunderstorm">onweersbui</string>

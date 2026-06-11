@@ -38,6 +38,15 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
+            android:defaultValue="aux_view_nothing"
+            android:entries="@array/aux_views"
+            android:entryValues="@array/aux_views_vals"
+            android:key="aux_view_list"
+            android:title="@string/config_aux_view_title"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
             android:defaultValue="temp_unit_celsius"
             android:entries="@array/temp_units"
             android:entryValues="@array/temp_units_vals"

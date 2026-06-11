@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Konum</string>
     <string name="config_source_code">Kaynak kod</string>
     <string name="config_source_code_summary">Kaynak kodu ve belgeleri GitHub\'da görüntüleyin</string>
+    <string name="config_aux_view_title">Ek bilgileri göster</string>
+    <string name="config_aux_view_nothing">Hiçbir şey gösterme</string>
+    <string name="config_aux_view_update_time">Widget yenileme süresi</string>
 
     <string name="widget_label">Tarih ve hava durumu</string>
     <string name="widget_date_prev">29 Eki Paz</string>
@@ -44,6 +47,7 @@
     <string name="widget_today">bugün</string>
     <string name="widget_tomorrow">yarın</string>
 
+    <string name="widget_updated_at">yenilendi</string>
     <string name="wc_heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>
     <string name="wc_thunderstorm">gök gürültülü fırtına</string>
     <string name="wc_freezing_rain">dondurucu yağmur</string>

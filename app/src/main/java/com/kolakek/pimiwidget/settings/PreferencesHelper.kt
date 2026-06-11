@@ -23,6 +23,7 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.resources.IconStyle
+import com.kolakek.pimiwidget.widget.AuxDisplay
 import com.kolakek.pimiwidget.widget.TempUnit
 import com.kolakek.pimiwidget.widget.TextStyle
 
@@ -44,10 +45,16 @@ internal object PreferencesHelper {
         DARK(KEY_COLOR_DARK)
     }
 
+    internal enum class AuxDisplayPref(val key: String) {
+        NOTHING(KEY_DISPLAY_NOTHING),
+        UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
+    }
+
     internal fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
+        val auxDisplayPref = getAuxDisplayPreference(context)
 
         val isLightText = when (textColorPref) {
             TextColorPref.AUTO ->
@@ -75,6 +82,10 @@ internal object PreferencesHelper {
             TempUnitPref.CELSIUS -> TempUnit.CELSIUS
             TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
         }
+        val auxDisplay = when (auxDisplayPref) {
+            AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
+            AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
+        }
 
         return WidgetPreferences(
             showWeather = getWeatherPreference(context),
@@ -82,7 +93,8 @@ internal object PreferencesHelper {
             showWeatherWarning = getWeatherWarningPreference(context),
             tempUnit = tempUnit,
             iconStyle = iconStyle,
-            textStyle = textStyle
+            textStyle = textStyle,
+            auxDisplay = auxDisplay
         )
     }
 
@@ -124,5 +136,11 @@ internal object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNITS, null)
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.CELSIUS
+    }
+
+    private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_AUX_DISPLAY_LIST, null)
+        return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.NOTHING
     }
 }

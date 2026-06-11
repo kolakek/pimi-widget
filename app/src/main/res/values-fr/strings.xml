@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Position</string>
     <string name="config_source_code">Code source</string>
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>
+    <string name="config_aux_view_title">Afficher infos supplémentaires</string>
+    <string name="config_aux_view_nothing">Ne rien afficher</string>
+    <string name="config_aux_view_update_time">Temps de rafraîchissement du widget</string>
 
     <string name="widget_label">Date et météo</string>
     <string name="widget_date_prev">dim. 14 juil.</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">aujourd’hui</string>
     <string name="widget_tomorrow">demain</string>
+    <string name="widget_updated_at">rafraîchi à</string>
 
     <string name="wc_heavy_thunderstorms">orages violents</string>
     <string name="wc_thunderstorm">orage</string>

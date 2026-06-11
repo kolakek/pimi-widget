@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Sijainti</string>
     <string name="config_source_code">Lähdekoodi</string>
     <string name="config_source_code_summary">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
+    <string name="config_aux_view_title">Näytä lisätiedot</string>
+    <string name="config_aux_view_nothing">Älä näytä mitään</string>
+    <string name="config_aux_view_update_time">Widgetin päivitysaika</string>
 
     <string name="widget_label">Päivä ja sää</string>
     <string name="widget_date_prev">la 6.12.</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE d.M.</string>
     <string name="widget_today">tänään</string>
     <string name="widget_tomorrow">huomenna</string>
+    <string name="widget_updated_at">päivitetty klo</string>
 
     <string name="wc_heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
     <string name="wc_thunderstorm">ukkosmyrsky</string>

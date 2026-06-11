@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Plats</string>
     <string name="config_source_code">Källkod</string>
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>
+    <string name="config_aux_view_title">Visa extra information</string>
+    <string name="config_aux_view_nothing">Visa inget</string>
+    <string name="config_aux_view_update_time">Widget-uppdateringstid</string>
 
     <string name="widget_label">Datum och väder</string>
     <string name="widget_date_prev">fre 6 jun</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">idag</string>
     <string name="widget_tomorrow">imorgon</string>
+    <string name="widget_updated_at">uppdaterad kl.</string>
 
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>
     <string name="wc_thunderstorm">åskväder</string>

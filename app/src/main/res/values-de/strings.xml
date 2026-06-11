@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Standort</string>
     <string name="config_source_code">Quellcode</string>
     <string name="config_source_code_summary">Quellcode und Dokumentation auf GitHub anzeigen</string>
+    <string name="config_aux_view_title">Zusatzinformationen anzeigen</string>
+    <string name="config_aux_view_nothing">Nichts anzeigen</string>
+    <string name="config_aux_view_update_time">Widget-Aktualisierungszeit</string>
 
     <string name="widget_label">Datum &amp; Wetter</string>
     <string name="widget_date_prev">So., 3. Oct.</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE, d. MMM</string>
     <string name="widget_today">Heute</string>
     <string name="widget_tomorrow">Morgen</string>
+    <string name="widget_updated_at">Aktualisiert um</string>
 
     <string name="wc_heavy_thunderstorms">Schwere Gewitter</string>
     <string name="wc_thunderstorm">Gewitter</string>

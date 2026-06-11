@@ -77,6 +77,18 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
+    <style name="Widget.PimiWidget.AppWidget.AuxDark" parent="Widget.PimiWidget.AppWidget.WeatherDark">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.AuxLight" parent="Widget.PimiWidget.AppWidget.WeatherLight">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.AuxLightShadow" parent="Widget.PimiWidget.AppWidget.WeatherLightShadow">
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="Widget.PimiWidget.AppWidget.MaterialDialogAlert" parent="ThemeOverlay.Material3.Dialog.Alert">
         <item name="dialogCornerRadius">28dp</item>
     </style>

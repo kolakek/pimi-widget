@@ -10,4 +10,8 @@
         style="@style/Widget.PimiWidget.AppWidget.WeatherDark"
         android:id="@+id/widget_temp" />
 
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.AuxDark"
+        android:id="@+id/widget_aux" />
+
 </LinearLayout>

@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Location</string>
     <string name="config_source_code">Source code</string>
     <string name="config_source_code_summary">View source code and documentation on GitHub</string>
+    <string name="config_aux_view_nothing">Show nothing</string>
+    <string name="config_aux_view_update_time">Widget refresh time</string>
+    <string name="config_aux_view_title">Show additional information</string>
 
     <string name="widget_label">Date &amp; weather</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -43,6 +46,7 @@
     <string name="widget_temp_prev">71\u2109 · Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
     <string name="widget_today">Today</string>
     <string name="widget_tomorrow">Tomorrow</string>
+    <string name="widget_updated_at">Refreshed at</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>

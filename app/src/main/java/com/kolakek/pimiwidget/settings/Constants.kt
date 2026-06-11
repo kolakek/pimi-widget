@@ -34,6 +34,10 @@ internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"
 internal const val KEY_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
 
+internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
+internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
+internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
+
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
 internal const val KEY_WEATHER_WARNING = "weather_warnings"

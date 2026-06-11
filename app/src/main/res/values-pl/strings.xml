@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Lokalizacja</string>
     <string name="config_source_code">Kod źródłowy</string>
     <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>
+    <string name="config_aux_view_title">Pokaż dodatkowe informacje</string>
+    <string name="config_aux_view_nothing">Nie pokazuj nic</string>
+    <string name="config_aux_view_update_time">Czas odświeżania widżetu</string>
 
     <string name="widget_label">Data i pogoda</string>
     <string name="widget_date_prev">śr., 3 maj</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">dzisiaj</string>
     <string name="widget_tomorrow">jutro</string>
+    <string name="widget_updated_at">odświeżono o</string>
 
     <string name="wc_heavy_thunderstorms">silne burze</string>
     <string name="wc_thunderstorm">burza</string>

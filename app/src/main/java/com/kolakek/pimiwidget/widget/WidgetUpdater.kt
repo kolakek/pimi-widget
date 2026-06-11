@@ -30,6 +30,7 @@ import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
+import java.util.Date
 import java.util.Locale
 
 internal object WidgetUpdater {
@@ -52,6 +53,7 @@ internal object WidgetUpdater {
             )
             updateBaseWidget(context, views, appWidgetId)
             updateWeather(context, views, prefs, weatherData)
+            updateAuxDisplay(context, views, prefs)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -116,5 +118,29 @@ internal object WidgetUpdater {
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
             setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
+    }
+
+    private fun updateAuxDisplay(
+        context: Context,
+        views: RemoteViews,
+        prefs: WidgetPreferences
+    ) {
+        views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
+
+        if (!prefs.showWeather) return
+
+        val auxStr = when (prefs.auxDisplay) {
+
+            AuxDisplay.NOTHING ->
+                return
+
+            AuxDisplay.UPDATE_TIME ->
+                DateFormat.getTimeFormat(context).format(Date(System.currentTimeMillis()))
+        }
+        views.setTextViewText(
+            R.id.widget_aux,
+            context.getString(R.string.widget_updated_at) + " $auxStr"
+        )
+        views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
     }
 }

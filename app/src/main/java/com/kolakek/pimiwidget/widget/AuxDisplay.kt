@@ -15,19 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.widget
 
-import com.kolakek.pimiwidget.resources.IconStyle
-import com.kolakek.pimiwidget.widget.AuxDisplay
-import com.kolakek.pimiwidget.widget.TempUnit
-import com.kolakek.pimiwidget.widget.TextStyle
-
-internal data class WidgetPreferences (
-    val showWeather: Boolean,
-    val showDailyForecast: Boolean,
-    val showWeatherWarning: Boolean,
-    val iconStyle: IconStyle,
-    val textStyle: TextStyle,
-    val tempUnit: TempUnit,
-    val auxDisplay: AuxDisplay
-)
+enum class AuxDisplay {
+    NOTHING,
+    UPDATE_TIME
+}

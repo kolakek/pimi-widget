@@ -36,6 +36,9 @@
     <string name="config_shared_data_alert_but_location">Vendndodhja</string>
     <string name="config_source_code">Kodi burimor</string>
     <string name="config_source_code_summary">Shiko kodin burimor dhe dokumentacionin në GitHub</string>
+    <string name="config_aux_view_title">Shfaq informacion shtesë</string>
+    <string name="config_aux_view_nothing">Mos shfaq asgjë</string>
+    <string name="config_aux_view_update_time">Koha e rifreskimit të widget-it</string>
 
     <string name="widget_label">Data dhe moti</string>
     <string name="widget_date_prev">enj, 28 nën</string>
@@ -43,6 +46,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">sot</string>
     <string name="widget_tomorrow">nesër</string>
+    <string name="widget_updated_at">rifreskuar në</string>
 
     <string name="wc_heavy_thunderstorms">stuhi të forta</string>
     <string name="wc_thunderstorm">stuhi</string>
