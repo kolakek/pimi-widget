@@ -29,33 +29,31 @@ import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.Locale
 
 internal object WidgetUpdater {
-
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     internal fun updateWidgets(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        scope.launch {
-            for (appWidgetId in appWidgetIds) {
-                val prefs = PreferencesHelper.getWidgetPreferences(context)
-                val views = RemoteViews(
-                    context.packageName,
-                    getWidgetLayout(prefs.textStyle)
-                )
-                updateBaseWidget(context, views, appWidgetId)
-                updateWeather(context, views, prefs)
+        val weatherData = runBlocking {
+            JsonDataStore.load<WeatherData>(context,DataKeys.WEATHER_DATA_KEY)
+        }
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
 
-                appWidgetManager.updateAppWidget(appWidgetId, views)
-            }
+        for (appWidgetId in appWidgetIds) {
+
+            val views = RemoteViews(
+                context.packageName,
+                getWidgetLayout(prefs.textStyle)
+            )
+            updateBaseWidget(context, views, appWidgetId)
+            updateWeather(context, views, prefs, weatherData)
+
+            appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
 
@@ -71,7 +69,7 @@ internal object WidgetUpdater {
         context: Context,
         views: RemoteViews,
         appWidgetId: Int
-    ): RemoteViews {
+    ) {
         val pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
@@ -95,34 +93,28 @@ internal object WidgetUpdater {
         pendingIntent?.let {
             views.setOnClickPendingIntent(R.id.widget_temp, it)
         }
-        return views
     }
 
-    private suspend fun updateWeather(
+    private fun updateWeather(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences
-    ): RemoteViews {
+        prefs: WidgetPreferences,
+        weatherData: WeatherData?
+    ) {
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-        if (!prefs.showWeather) return views
-
-        val weatherData = JsonDataStore.load<WeatherData>(
-            context,
-            DataKeys.WEATHER_DATA_KEY
-        ) ?: return views
+        if (!prefs.showWeather || weatherData == null) return
 
         val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
             context,
             weatherData,
             prefs
-        ) ?: return views
+        ) ?: return
 
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
             setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
-        return views
     }
 }
