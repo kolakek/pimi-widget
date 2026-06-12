@@ -21,6 +21,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class StatusData (
-    val status: UpdateStatus,
+    val status: String,
     val timeMillis: Long
 )

@@ -57,7 +57,7 @@ internal object DataUpdater {
 
     internal suspend fun logUpdateStatus(
         context: Context,
-        updateStatus: UpdateStatus
+        updateStatus: String,
     ) {
         JsonDataStore.save(
             context,

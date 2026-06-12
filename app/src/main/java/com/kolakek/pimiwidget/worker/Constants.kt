@@ -22,3 +22,5 @@ internal const val ONE_TIME_WORK_NAME = "one-time-update-kolakek-pimi-widget"
 internal const val FORCE_UPDATE_KEY = "force_update"
 internal const val UPDATE_INTERVAL_MILLIS = 60 * 60 * 1000L
 internal const val WIDGET_DATA_MAX_AGE_MILLIS = 150 * 60 * 1000L
+internal const val STATUS_STRING_SUCCESS = "Success"
+internal const val STATUS_STRING_RUNNING = "Running"

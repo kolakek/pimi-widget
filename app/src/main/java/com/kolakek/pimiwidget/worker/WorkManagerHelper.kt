@@ -100,5 +100,7 @@ object WorkManagerHelper {
                 .firstOrNull()
                 ?.state
                 ?.name
+                ?.lowercase()
+                ?.replaceFirstChar { it.uppercase() }
         }.getOrNull()
 }
