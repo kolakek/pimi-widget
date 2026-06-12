@@ -7,7 +7,6 @@
     <string name="config_version_title">Build verze</string>
     <string name="config_debug_info">Ladicí informace</string>
     <string name="config_text_color">Barva textu</string>
-    <string name="config_debug_alert_button_update">Vynutit aktualizaci</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Světlý</string>
     <string name="config_color_dark">Tmavý</string>

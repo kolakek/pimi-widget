@@ -73,7 +73,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         debugField?.setOnPreferenceClickListener {
             if (debugCount == 2)
-                showDebugDialog(context, weatherSwitch?.isChecked)
+                showDebugDialog(context)
             else
                 debugCount++
             true
@@ -167,22 +167,13 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) == PackageManager.PERMISSION_DENIED
 
     private fun showDebugDialog(
-        context: Context,
-        weatherEnabled: Boolean?
+        context: Context
     ) {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_debug_info)
             .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-"))
             .setCancelable(true)
-            .setNegativeButton(R.string.config_alert_button_cancel, null)
-            .apply {
-                if (weatherEnabled == true) {
-                    setPositiveButton(R.string.config_debug_alert_button_update) { dialog, _ ->
-                        WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
-                        dialog.dismiss()
-                    }
-                }
-            }
+            .setPositiveButton(R.string.config_alert_button_ok, null)
             .show()
 
         lifecycleScope.launch {

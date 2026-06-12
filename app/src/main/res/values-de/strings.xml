@@ -7,7 +7,6 @@
     <string name="config_version_title">Build-Version</string>
     <string name="config_debug_info">Debug-Informationen</string>
     <string name="config_text_color">Textfarbe</string>
-    <string name="config_debug_alert_button_update">Aktualisierung erzwingen</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>

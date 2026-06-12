@@ -7,7 +7,6 @@
     <string name="config_version_title">Derleme sürümü</string>
     <string name="config_debug_info">Hata ayıklama bilgileri</string>
     <string name="config_text_color">Metin rengi</string>
-    <string name="config_debug_alert_button_update">Güncellemeyi zorla</string>
     <string name="config_icon_style">İkon stili</string>
     <string name="config_color_light">Açık</string>
     <string name="config_color_dark">Koyu</string>

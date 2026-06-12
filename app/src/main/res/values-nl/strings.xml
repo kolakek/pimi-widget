@@ -7,7 +7,6 @@
     <string name="config_version_title">Buildversie</string>
     <string name="config_debug_info">Debug-informatie</string>
     <string name="config_text_color">Tekstkleur</string>
-    <string name="config_debug_alert_button_update">Geforceerd bijwerken</string>
     <string name="config_icon_style">Icoonstijl</string>
     <string name="config_color_light">Licht</string>
     <string name="config_color_dark">Donker</string>

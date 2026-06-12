@@ -7,7 +7,6 @@
     <string name="config_version_title">Koontiversio</string>
     <string name="config_debug_info">Vianmääritystiedot</string>
     <string name="config_text_color">Tekstin väri</string>
-    <string name="config_debug_alert_button_update">Pakota päivitys</string>
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_color_light">Vaalea</string>
     <string name="config_color_dark">Tumma</string>

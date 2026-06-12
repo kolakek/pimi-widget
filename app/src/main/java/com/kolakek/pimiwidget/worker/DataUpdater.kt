@@ -35,7 +35,7 @@ import timber.log.Timber
 internal object DataUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context, forceUpdate: Boolean) {
+    internal suspend fun update(context: Context) {
 
         Timber.d("update: Get location")
         val location = LocationService.getLocation(context)
@@ -49,7 +49,7 @@ internal object DataUpdater {
 
         JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
 
-        if (forceUpdate || widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
+        if (widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
             Timber.d("update: Trigger widget update")
             triggerWidgetUpdate(context)
         }

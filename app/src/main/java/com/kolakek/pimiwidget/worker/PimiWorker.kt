@@ -37,11 +37,9 @@ internal class PimiWorker(
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
-        val forceUpdate = inputData.getBoolean(FORCE_UPDATE_KEY, false)
-
         return try {
             DataUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
-            DataUpdater.update(applicationContext, forceUpdate)
+            DataUpdater.update(applicationContext)
             DataUpdater.logUpdateStatus(applicationContext, STATUS_STRING_SUCCESS)
 
             Result.success()

@@ -7,7 +7,6 @@
     <string name="config_version_title">Versione build</string>
     <string name="config_debug_info">Informazioni di debug</string>
     <string name="config_text_color">Colore del testo</string>
-    <string name="config_debug_alert_button_update">Forza aggiornamento</string>
     <string name="config_icon_style">Stile icone</string>
     <string name="config_color_light">Chiaro</string>
     <string name="config_color_dark">Scuro</string>

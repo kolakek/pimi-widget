@@ -7,7 +7,6 @@
     <string name="config_version_title">Έκδοση build</string>
     <string name="config_debug_info">Πληροφορίες αποσφαλμάτωσης</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
-    <string name="config_debug_alert_button_update">Αναγκαστική ενημέρωση</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
     <string name="config_color_light">Φωτεινό</string>
     <string name="config_color_dark">Σκοτεινό</string>

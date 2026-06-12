@@ -7,7 +7,6 @@
     <string name="config_version_title">Версія збірки</string>
     <string name="config_debug_info">Інформація для налагодження</string>
     <string name="config_text_color">Колір тексту</string>
-    <string name="config_debug_alert_button_update">Примусове оновлення</string>
     <string name="config_icon_style">Стиль іконок</string>
     <string name="config_color_light">Світлий</string>
     <string name="config_color_dark">Темний</string>

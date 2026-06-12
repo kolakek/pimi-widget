@@ -7,7 +7,6 @@
     <string name="config_version_title">Buildversion</string>
     <string name="config_debug_info">Fejlfindingsoplysninger</string>
     <string name="config_text_color">Tekstfarve</string>
-    <string name="config_debug_alert_button_update">Tving opdatering</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Lys</string>
     <string name="config_color_dark">Mørk</string>

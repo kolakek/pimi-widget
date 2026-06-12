@@ -8,7 +8,6 @@
     <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
     <string name="config_version_title">Build version</string>
     <string name="config_debug_info">Debug information</string>
-    <string name="config_debug_alert_button_update">Force update</string>
     <string name="config_icon_style">Icon style</string>
     <string name="config_text_color">Text color</string>
     <string name="config_color_light">Light</string>

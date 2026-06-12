@@ -7,7 +7,6 @@
     <string name="config_version_title">Versionsbygge</string>
     <string name="config_debug_info">Felsökningsinformation</string>
     <string name="config_text_color">Textfärg</string>
-    <string name="config_debug_alert_button_update">Tvinga uppdatering</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>
