@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Posizione</string>
     <string name="config_source_code">Codice sorgente</string>
     <string name="config_source_code_summary">Visualizza codice sorgente e documentazione su GitHub</string>
-    <string name="config_aux_view_title">Mostra informazioni aggiuntive</string>
-    <string name="config_aux_view_nothing">Non mostrare nulla</string>
-    <string name="config_aux_view_update_time">Tempo di aggiornamento del widget</string>
+    <string name="config_aux_view_title">Mostra dettagli</string>
+    <string name="config_aux_view_nothing">Senza dettagli</string>
+    <string name="config_aux_view_update_time">Tempo di aggiornamento</string>
 
     <string name="widget_label">Data e meteo</string>
     <string name="widget_date_prev">dom 2 giu</string>

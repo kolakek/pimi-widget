@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Locatie</string>
     <string name="config_source_code">Broncode</string>
     <string name="config_source_code_summary">Bekijk broncode en documentatie op GitHub</string>
-    <string name="config_aux_view_title">Aanvullende info weergeven</string>
-    <string name="config_aux_view_nothing">Niets weergeven</string>
-    <string name="config_aux_view_update_time">Widget-vernieuwingstijd</string>
+    <string name="config_aux_view_title">Details tonen</string>
+    <string name="config_aux_view_nothing">Geen details</string>
+    <string name="config_aux_view_update_time">Verversingstijd</string>
 
     <string name="widget_label">Datum en weer</string>
     <string name="widget_date_prev">zat 27 apr</string>

@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Τοποθεσία</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
-    <string name="config_aux_view_title">Εμφάνιση πρόσθετων πληροφοριών</string>
-    <string name="config_aux_view_nothing">Να μην εμφανίζεται τίποτα</string>
-    <string name="config_aux_view_update_time">Χρόνος ανανέωσης του widget</string>
+    <string name="config_aux_view_title">Εμφάνιση λεπτομερειών</string>
+    <string name="config_aux_view_nothing">Χωρίς λεπτομέρειες</string>
+    <string name="config_aux_view_update_time">Χρόνος ανανέωσης</string>
 
     <string name="widget_label">Ημερομηνία και καιρός</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>

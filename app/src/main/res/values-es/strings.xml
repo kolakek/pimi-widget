@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Ubicación</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
-    <string name="config_aux_view_title">Mostrar información adicional</string>
-    <string name="config_aux_view_nothing">No mostrar nada</string>
-    <string name="config_aux_view_update_time">Tiempo de actualización del widget</string>
+    <string name="config_aux_view_title">Mostrar detalles</string>
+    <string name="config_aux_view_nothing">Sin detalles</string>
+    <string name="config_aux_view_update_time">Tiempo de actualización</string>
 
     <string name="widget_label">Fecha y clima</string>
     <string name="widget_date_prev">sáb, 12 oct</string>

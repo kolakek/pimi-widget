@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Location</string>
     <string name="config_source_code">Source code</string>
     <string name="config_source_code_summary">View source code and documentation on GitHub</string>
-    <string name="config_aux_view_nothing">Show nothing</string>
-    <string name="config_aux_view_update_time">Widget refresh time</string>
-    <string name="config_aux_view_title">Show additional information</string>
+    <string name="config_aux_view_nothing">No details</string>
+    <string name="config_aux_view_update_time">Refresh time</string>
+    <string name="config_aux_view_title">Show details</string>
 
     <string name="widget_label">Date &amp; weather</string>
     <string name="widget_date_format">EEE, MMM d</string>

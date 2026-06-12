@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Position</string>
     <string name="config_source_code">Code source</string>
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>
-    <string name="config_aux_view_title">Afficher infos supplémentaires</string>
-    <string name="config_aux_view_nothing">Ne rien afficher</string>
-    <string name="config_aux_view_update_time">Temps de rafraîchissement du widget</string>
+    <string name="config_aux_view_title">Afficher les détails</string>
+    <string name="config_aux_view_nothing">Sans détails</string>
+    <string name="config_aux_view_update_time">Temps d’actualisation</string>
 
     <string name="widget_label">Date et météo</string>
     <string name="widget_date_prev">dim. 14 juil.</string>

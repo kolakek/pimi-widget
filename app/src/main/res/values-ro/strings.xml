@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Locație</string>
     <string name="config_source_code">Cod sursă</string>
     <string name="config_source_code_summary">Vezi codul sursă și documentația pe GitHub</string>
-    <string name="config_aux_view_title">Afișează informații suplimentare</string>
-    <string name="config_aux_view_nothing">Nu afișa nimic</string>
-    <string name="config_aux_view_update_time">Timp de actualizare a widgetului</string>
+    <string name="config_aux_view_title">Afișează detalii</string>
+    <string name="config_aux_view_nothing">Fără detalii</string>
+    <string name="config_aux_view_update_time">Timp de actualizare</string>
 
     <string name="widget_label">Data și vremea</string>
     <string name="widget_date_prev">lun., 1 dec.</string>

@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Poloha</string>
     <string name="config_source_code">Zdrojový kód</string>
     <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
-    <string name="config_aux_view_title">Zobrazit doplňující informace</string>
-    <string name="config_aux_view_nothing">Nezobrazovat nic</string>
-    <string name="config_aux_view_update_time">Čas obnovení widgetu</string>
+    <string name="config_aux_view_title">Zobrazit podrobnosti</string>
+    <string name="config_aux_view_nothing">Bez podrobností</string>
+    <string name="config_aux_view_update_time">Čas aktualizace</string>
 
     <string name="widget_label">Datum a počasí</string>
     <string name="widget_date_prev">út 28. 10.</string>

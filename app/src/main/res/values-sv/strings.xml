@@ -35,9 +35,9 @@
     <string name="config_shared_data_alert_but_location">Plats</string>
     <string name="config_source_code">Källkod</string>
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>
-    <string name="config_aux_view_title">Visa extra information</string>
-    <string name="config_aux_view_nothing">Visa inget</string>
-    <string name="config_aux_view_update_time">Widget-uppdateringstid</string>
+    <string name="config_aux_view_title">Visa detaljer</string>
+    <string name="config_aux_view_nothing">Inga detaljer</string>
+    <string name="config_aux_view_update_time">Uppdateringstid</string>
 
     <string name="widget_label">Datum och väder</string>
     <string name="widget_date_prev">fre 6 jun</string>
