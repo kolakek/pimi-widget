@@ -52,8 +52,8 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId)
-            updateWeather(context, views, prefs, weatherData)
-            updateAuxDisplay(context, views, prefs)
+            val isWeatherVisible = updateWeather(context, views, prefs, weatherData)
+            updateAuxDisplay(context, views, prefs, isWeatherVisible)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -102,32 +102,34 @@ internal object WidgetUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ) {
+    ): Boolean {
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-        if (!prefs.showWeather || weatherData == null) return
+        if (!prefs.showWeather || weatherData == null) return false
 
         val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
             context,
             weatherData,
             prefs
-        ) ?: return
+        ) ?: return false
 
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
             setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
+        return true
     }
 
     private fun updateAuxDisplay(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences
+        prefs: WidgetPreferences,
+        isWeatherVisible: Boolean
     ) {
         views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
 
-        if (!prefs.showWeather) return
+        if (!isWeatherVisible) return
 
         val auxStr = when (prefs.auxDisplay) {
 
@@ -142,5 +144,7 @@ internal object WidgetUpdater {
             context.getString(R.string.widget_updated_at) + " $auxStr"
         )
         views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
+
+        return
     }
 }
