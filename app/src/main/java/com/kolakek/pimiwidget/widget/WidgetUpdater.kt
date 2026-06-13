@@ -29,6 +29,7 @@ import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.weather.WeatherService
 import kotlinx.coroutines.runBlocking
 import java.util.Date
 import java.util.Locale
@@ -41,7 +42,7 @@ internal object WidgetUpdater {
         appWidgetIds: IntArray
     ) {
         val weatherData = runBlocking {
-            JsonDataStore.load<WeatherData>(context,DataKeys.WEATHER_DATA_KEY)
+            WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
         }
         val prefs = PreferencesHelper.getWidgetPreferences(context)
 

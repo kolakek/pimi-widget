@@ -177,9 +177,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             .show()
 
         lifecycleScope.launch {
-            val weatherData: WeatherData? = JsonDataStore.load(
-                context, DataKeys.WEATHER_DATA_KEY
-            )
+            val weatherData = WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
             val dataAgeStr = weatherData?.timeMillis?.let { createAgeString(it) } ?: "-"
 
             val statusData: StatusData? = JsonDataStore.load(

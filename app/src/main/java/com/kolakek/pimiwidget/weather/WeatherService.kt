@@ -17,6 +17,9 @@
 
 package com.kolakek.pimiwidget.weather
 
+import android.content.Context
+import androidx.datastore.preferences.core.Preferences
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.exception.WeatherMappingException
 import com.kolakek.pimiwidget.location.LocationData
 import io.ktor.client.call.body
@@ -27,13 +30,26 @@ import timber.log.Timber
 
 object WeatherService {
 
-    suspend fun getWeather(location: LocationData): WeatherData {
+    suspend fun fetchWeatherData(
+        context: Context,
+        location: LocationData,
+        dataKey: Preferences.Key<String>
+    ) {
         val url = weatherUrl(location, TIMEFORMAT_VALUE)
 
         Timber.d("getWeather: Get data for URL: $url")
 
         val providerData = HttpClientProvider.client.get(url).body<ProviderData>()
-        return mapProviderData(providerData)
+        val weatherData = mapProviderData(providerData)
+
+        storeWeatherData(context, weatherData, dataKey)
+    }
+
+    suspend fun getWeatherData(
+        context: Context,
+        dataKey: Preferences.Key<String>
+    ): WeatherData? {
+        return JsonDataStore.load<WeatherData>(context, dataKey)
     }
 
     fun weatherUrl(location: LocationData, timeFormat: String): Url {
@@ -107,5 +123,13 @@ object WeatherService {
             dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L },
             timeMillis = System.currentTimeMillis()
         )
+    }
+
+    private suspend fun storeWeatherData(
+        context: Context,
+        weatherData: WeatherData,
+        dataKey: Preferences.Key<String>
+    ) {
+        JsonDataStore.save(context, dataKey, weatherData)
     }
 }

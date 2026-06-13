@@ -27,7 +27,6 @@ import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
-import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetAction
 import timber.log.Timber
@@ -42,12 +41,10 @@ internal object DataUpdater {
 
         JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
 
-        Timber.d("update: Get weather data")
-        val weather = WeatherService.getWeather(location)
-
         val widgetDataAgeMillis = getDataAgeMillis(context)
 
-        JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weather)
+        Timber.d("update: Fetch weather data")
+        WeatherService.fetchWeatherData(context, location, DataKeys.WEATHER_DATA_KEY)
 
         if (widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
             Timber.d("update: Trigger widget update")
@@ -67,8 +64,9 @@ internal object DataUpdater {
     }
 
     private suspend fun getDataAgeMillis(context: Context): Long {
-        val dataTimeMillis = JsonDataStore.load<WeatherData?>(
-            context, DataKeys.WEATHER_DATA_KEY
+        val dataTimeMillis = WeatherService.getWeatherData(
+            context,
+            DataKeys.WEATHER_DATA_KEY
         )?.timeMillis ?: 0
         return System.currentTimeMillis() - dataTimeMillis
     }
