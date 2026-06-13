@@ -14,4 +14,8 @@
         android:drawableStart="@drawable/uc_0d"
         tools:ignore="UseCompatTextViewDrawableXml" />
 
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.Aux"
+        android:visibility="invisible"/>
+
 </LinearLayout>
