@@ -94,7 +94,7 @@
     <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
     <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
     <string name="config_debug_alert_status_time" translatable="false">%1$s (%2$s)</string>
-    <string name="config_debug_alert_message" translatable="false">\nWeather data age\n%1$s\n\nLast data download\n%2$s\n\nBackground service\n%3$s</string>
+    <string name="config_debug_alert_message" translatable="false">\nWeather data age\n%1$s\n\nLast valid location\n%2$s\n\nLast data download\n%3$s\n\nBackground service\n%4$s</string>
 
     <string name="celsius" translatable="false">\u2103</string>
     <string name="fahrenheit" translatable="false">\u2109</string>

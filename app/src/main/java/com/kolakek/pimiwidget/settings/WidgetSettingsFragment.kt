@@ -38,10 +38,9 @@ import androidx.preference.SwitchPreferenceCompat
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
-import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.StatusData
+import com.kolakek.pimiwidget.worker.DataUpdater
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -170,18 +169,27 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_debug_info)
-            .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-"))
+            .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-", "-"))
             .setCancelable(true)
             .setPositiveButton(R.string.config_alert_button_ok, null)
             .show()
 
         lifecycleScope.launch {
             val weatherData = WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
-            val dataAgeStr = weatherData?.timeMillis?.let { createAgeString(it) } ?: "-"
+            val dataAgeStr = weatherData?.timeMillis?.let {
+                createAgeString(it)
+            } ?: "-"
 
-            val statusData: StatusData? = JsonDataStore.load(
-                context, DataKeys.STATUS_DATA_KEY
-            )
+            val locationData = LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)
+            val locationStr = locationData?.let {
+                getString(
+                    R.string.config_debug_alert_status_time,
+                    it.locationType,
+                    DateFormat.getTimeFormat(context).format(Date(it.timeMillis))
+                )
+            } ?: "-"
+
+            val statusData = DataUpdater.getStatusData(context, DataKeys.STATUS_DATA_KEY)
             val statusStr = statusData?.let {
                 getString(
                     R.string.config_debug_alert_status_time,
@@ -191,7 +199,6 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             } ?: "-"
 
             val workerStatusStr = WorkManagerHelper.getWorkerStatus(context) ?: "-"
-
             val workerStr = WorkManagerHelper.getNextScheduleMillis(context)?.let {
                 getString(
                     R.string.config_debug_alert_status_time,
@@ -201,7 +208,12 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             } ?: workerStatusStr
 
             dialog.setMessage(
-                getString(R.string.config_debug_alert_message, dataAgeStr, statusStr, workerStr)
+                getString(
+                    R.string.config_debug_alert_message,
+                    dataAgeStr,
+                    locationStr,
+                    statusStr,
+                    workerStr)
             )
         }
     }

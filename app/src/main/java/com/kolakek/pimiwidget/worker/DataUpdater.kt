@@ -23,9 +23,11 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.RequiresPermission
+import androidx.datastore.preferences.core.Preferences
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
+import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetAction
@@ -48,6 +50,13 @@ internal object DataUpdater {
             Timber.d("update: Trigger widget update")
             triggerWidgetUpdate(context)
         }
+    }
+
+    suspend fun getStatusData(
+        context: Context,
+        dataKey: Preferences.Key<String>
+    ): StatusData? {
+        return JsonDataStore.load<StatusData>(context, dataKey)
     }
 
     internal suspend fun logUpdateStatus(

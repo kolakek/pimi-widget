@@ -70,7 +70,7 @@ object LocationService {
         locationManager: LocationManager
     ): LocationData? = locationManager.getLastKnownLocation(LOCATION_PROVIDER)?.let {
         if (System.currentTimeMillis() - it.time <= LOCATION_MAX_AGE_MILLIS) {
-            LocationData(it.latitude, it.longitude, it.time)
+            LocationData(it.latitude, it.longitude, it.time, CACHED_LOCATION_NAME)
         } else null
     }
 
@@ -94,7 +94,7 @@ object LocationService {
             }
         }
         location?.let {
-            LocationData(it.latitude, it.longitude, it.time)
+            LocationData(it.latitude, it.longitude, it.time, FRESH_LOCATION_NAME)
         }
     }
 }
