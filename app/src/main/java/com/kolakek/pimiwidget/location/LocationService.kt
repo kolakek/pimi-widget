@@ -28,8 +28,7 @@ import androidx.datastore.preferences.core.Preferences
 import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withTimeoutOrNull
-import timber.log.Timber
+import kotlinx.coroutines.withTimeout
 
 object LocationService {
 
@@ -38,26 +37,17 @@ object LocationService {
         context: Context,
         dataKey: Preferences.Key<String>
     ): LocationData {
-        Timber.d("getLocation: Get location")
-
         val locationManager = context.getSystemService(LocationManager::class.java)
-        val lastLocation = locationManager.getLastKnownLocation(LOCATION_PROVIDER)
 
-        val location = if (isLocationValid(lastLocation)) {
-            Timber.d("getLocation: Use last location")
-            lastLocation
-        } else {
-            Timber.d("getLocation: No valid last location, get current location")
-            withTimeoutOrNull(LOCATION_TIMEOUT_MILLIS) {
-                getCurrentLocation(locationManager, context)
-            }
+        getLastKnownLocation(locationManager)?.let {
+            storeLocationData(context, it, dataKey)
+            return it
         }
-        location ?: throw LocationUnavailableException("Failed to obtain location")
-
-        val locationData = LocationData(location.latitude, location.longitude, location.time)
-
-        storeLocationData(context, locationData, dataKey)
-        return locationData
+        getCurrentLocation(locationManager, context)?.let {
+            storeLocationData(context, it, dataKey)
+            return it
+        }
+        throw LocationUnavailableException("Failed to obtain location")
     }
 
     suspend fun getLocationData(
@@ -65,27 +55,6 @@ object LocationService {
         dataKey: Preferences.Key<String>
     ): LocationData? {
         return JsonDataStore.load<LocationData>(context, dataKey)
-    }
-
-    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    private suspend fun getCurrentLocation(
-        locationManager: LocationManager,
-        context: Context
-    ): Location? = suspendCancellableCoroutine { cont ->
-
-        val cancellationSignal = CancellationSignal()
-        val executor = ContextCompat.getMainExecutor(context)
-
-        locationManager.getCurrentLocation(
-            LOCATION_PROVIDER,
-            cancellationSignal,
-            executor
-        ) { location ->
-            if (cont.isActive) cont.resumeWith(Result.success(location))
-        }
-        cont.invokeOnCancellation {
-            cancellationSignal.cancel()
-        }
     }
 
     private suspend fun storeLocationData(
@@ -96,6 +65,36 @@ object LocationService {
         JsonDataStore.save(context, dataKey, locationData)
     }
 
-    private fun isLocationValid(location: Location?): Boolean =
-        location != null && (System.currentTimeMillis() - location.time <= LOCATION_MAX_AGE_MILLIS)
+    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
+    private fun getLastKnownLocation(
+        locationManager: LocationManager
+    ): LocationData? = locationManager.getLastKnownLocation(LOCATION_PROVIDER)?.let {
+        if (System.currentTimeMillis() - it.time <= LOCATION_MAX_AGE_MILLIS) {
+            LocationData(it.latitude, it.longitude, it.time)
+        } else null
+    }
+
+    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
+    private suspend fun getCurrentLocation(
+        locationManager: LocationManager,
+        context: Context
+    ): LocationData? = withTimeout(LOCATION_TIMEOUT_MILLIS) {
+        val location = suspendCancellableCoroutine<Location?> { cont ->
+            val cancellationSignal = CancellationSignal()
+
+            locationManager.getCurrentLocation(
+                LOCATION_PROVIDER,
+                cancellationSignal,
+                ContextCompat.getMainExecutor(context)
+            ) { location ->
+                cont.resume(location) { _, _, _ -> }
+            }
+            cont.invokeOnCancellation {
+                cancellationSignal.cancel()
+            }
+        }
+        location?.let {
+            LocationData(it.latitude, it.longitude, it.time)
+        }
+    }
 }
