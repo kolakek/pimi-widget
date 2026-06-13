@@ -22,10 +22,9 @@ import android.content.Context
 import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import io.ktor.client.plugins.ServerResponseException
+import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.io.IOException
-import timber.log.Timber
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.withContext
@@ -45,45 +44,24 @@ internal class PimiWorker(
             Result.success()
 
         } catch (e: CancellationException) {
-            try {
+            runCatching {
                 withContext(NonCancellable) {
-                    Timber.i(e, "doWork: CancellationException")
                     DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
                 }
-            } catch (e: Exception) {
-                Timber.e(e, "doWork: Failed to store cancellation status")
             }
             throw e
 
-        } catch (e: ServerResponseException) {
-            Timber.w(e, "doWork: ServerResponseException")
-            DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
-
-            Result.retry()
-
-        } catch (e: IOException) {
-            Timber.w(e, "doWork: IOException")
-            DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
-
-            Result.retry()
-
-        } catch (e: LocationUnavailableException) {
-            Timber.w(e, "doWork: LocationUnavailableException")
-            DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
-
-            Result.failure()
-
-        } catch (e: SecurityException) {
-            Timber.e(e, "doWork: SecurityException")
-            DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
-
-            Result.failure()
-
         } catch (e: Exception) {
-            Timber.e(e, "doWork: Error in PimiWorker")
-            DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+            runCatching {
+                DataUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+            }
+            when (e) {
+                is IOException,
+                is ServerResponseException,
+                is UnresolvedAddressException -> Result.retry()
 
-            Result.failure()
+                else -> Result.failure()
+            }
         }
     }
 }
