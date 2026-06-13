@@ -39,8 +39,7 @@ import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.location.LocationData
-import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.worker.StatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
@@ -228,7 +227,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     private fun viewLocationCallback(context: Context, dialog: AlertDialog) {
         lifecycleScope.launch {
             dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
-            JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
+            LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)?.let {
                 startUrlActivity(
                     URLBuilder(LOCATION_URL).apply {
                         parameters.append("mlat", it.lat.toString())
@@ -244,7 +243,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     private fun viewWeatherCallback(context: Context, dialog: AlertDialog) {
         lifecycleScope.launch {
             dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
-            JsonDataStore.load<LocationData?>(context, DataKeys.LOCATION_DATA_KEY)?.let {
+            LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)?.let {
                 startUrlActivity(WeatherService.weatherUrl(it, "iso8601").toString())
                 dialog.dismiss()
             } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_no_data))

@@ -36,10 +36,8 @@ internal object DataUpdater {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     internal suspend fun update(context: Context) {
 
-        Timber.d("update: Get location")
-        val location = LocationService.getLocation(context)
-
-        JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, location)
+        Timber.d("update: Fetch location")
+        val location = LocationService.fetchLocation(context, DataKeys.LOCATION_DATA_KEY)
 
         val widgetDataAgeMillis = getDataAgeMillis(context)
 

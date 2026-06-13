@@ -25,7 +25,6 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
-import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData

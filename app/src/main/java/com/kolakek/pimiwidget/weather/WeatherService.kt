@@ -34,7 +34,7 @@ object WeatherService {
         context: Context,
         location: LocationData,
         dataKey: Preferences.Key<String>
-    ) {
+    ): WeatherData {
         val url = weatherUrl(location, TIMEFORMAT_VALUE)
 
         Timber.d("getWeather: Get data for URL: $url")
@@ -43,6 +43,7 @@ object WeatherService {
         val weatherData = mapProviderData(providerData)
 
         storeWeatherData(context, weatherData, dataKey)
+        return weatherData
     }
 
     suspend fun getWeatherData(

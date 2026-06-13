@@ -24,6 +24,8 @@ import android.location.LocationManager
 import android.os.CancellationSignal
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
+import androidx.datastore.preferences.core.Preferences
+import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeoutOrNull
@@ -32,7 +34,10 @@ import timber.log.Timber
 object LocationService {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    suspend fun getLocation(context: Context): LocationData {
+    suspend fun fetchLocation(
+        context: Context,
+        dataKey: Preferences.Key<String>
+    ): LocationData {
         Timber.d("getLocation: Get location")
 
         val locationManager = context.getSystemService(LocationManager::class.java)
@@ -49,7 +54,17 @@ object LocationService {
         }
         location ?: throw LocationUnavailableException("Failed to obtain location")
 
-        return LocationData(location.latitude, location.longitude, location.time)
+        val locationData = LocationData(location.latitude, location.longitude, location.time)
+
+        storeLocationData(context, locationData, dataKey)
+        return locationData
+    }
+
+    suspend fun getLocationData(
+        context: Context,
+        dataKey: Preferences.Key<String>
+    ): LocationData? {
+        return JsonDataStore.load<LocationData>(context, dataKey)
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
@@ -71,6 +86,14 @@ object LocationService {
         cont.invokeOnCancellation {
             cancellationSignal.cancel()
         }
+    }
+
+    private suspend fun storeLocationData(
+        context: Context,
+        locationData: LocationData,
+        dataKey: Preferences.Key<String>
+    ) {
+        JsonDataStore.save(context, dataKey, locationData)
     }
 
     private fun isLocationValid(location: Location?): Boolean =
