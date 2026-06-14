@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Activer la météo partage ta position avec le fournisseur météo</string>
     <string name="config_weather_switch">Activer la météo</string>
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
-    <string name="config_version_title">Version de build</string>
-    <string name="config_debug_info">Informations de débogage</string>
+    <string name="config_version_title">Numéro de build</string>
+    <string name="config_debug_info">État des données</string>
+    <string name="config_debug_weather_data_age">Âge des données météo</string>
+    <string name="config_debug_last_valid_location">Dernière localisation valide</string>
+    <string name="config_debug_last_data_download">Dernier téléchargement de données</string>
+    <string name="config_debug_background_service">Service en arrière-plan</string>
+    <string name="config_debug_button_weather">Voir la requête météo</string>
+    <string name="config_debug_button_location">Voir la localisation</string>
     <string name="config_text_color">Couleur du texte</string>
     <string name="config_icon_style">Style des icônes</string>
     <string name="config_color_light">Clair</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Veuillez sélectionner « %s » sur l’écran suivant.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annuler</string>
-    <string name="config_shared_data">Transparence des données</string>
-    <string name="config_shared_data_summary">Afficher les données partagées avec le fournisseur météo</string>
-    <string name="config_shared_data_alert_no_data">Aucune donnée disponible</string>
-    <string name="config_shared_data_alert_message">Tu peux afficher ta dernière position récupérée ou la requête API météo dans le navigateur. Cela partagera ta position avec le fournisseur de service (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Chargement des données…</string>
-    <string name="config_shared_data_alert_but_weather">Météo</string>
-    <string name="config_shared_data_alert_but_location">Position</string>
     <string name="config_source_code">Code source</string>
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>
     <string name="config_aux_view_title">Afficher les détails</string>
@@ -86,5 +85,23 @@
     <string name="warn_rain_severe">alerte pluies intenses</string>
     <string name="warn_gusts_severe">alerte rafales de vent violentes</string>
     <string name="warn_tstorm_severe">alerte orages violents</string>
+
+    <plurals name="days">
+        <item quantity="one">%d jour</item>
+        <item quantity="many">%d jours</item>
+        <item quantity="other">%d jours</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%d heure</item>
+        <item quantity="many">%d heures</item>
+        <item quantity="other">%d heures</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="many">%d minutes</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
 
 </resources>

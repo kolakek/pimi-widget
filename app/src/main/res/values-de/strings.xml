@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Durch das Aktivieren des Wetters wird dein Standort an den Wetterdienst übermittelt</string>
     <string name="config_weather_switch">Wetter aktivieren</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>
-    <string name="config_version_title">Build-Version</string>
-    <string name="config_debug_info">Debug-Informationen</string>
+    <string name="config_version_title">Build-Nummer</string>
+    <string name="config_debug_info">Datenstatus</string>
+    <string name="config_debug_weather_data_age">Wetterdatenalter</string>
+    <string name="config_debug_last_valid_location">Letzter gültiger Standort</string>
+    <string name="config_debug_last_data_download">Letzter Datenabruf</string>
+    <string name="config_debug_background_service">Hintergrunddienst</string>
+    <string name="config_debug_button_weather">Wetterabfrage anzeigen</string>
+    <string name="config_debug_button_location">Standort anzeigen</string>
     <string name="config_text_color">Textfarbe</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf deinen Standort im Hintergrund. Bitte wähle „%s“ im nächsten Bildschirm.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Abbrechen</string>
-    <string name="config_shared_data">Datentransparenz</string>
-    <string name="config_shared_data_summary">Mit dem Wetterdienst geteilte Daten anzeigen</string>
-    <string name="config_shared_data_alert_no_data">Keine Daten vorhanden</string>
-    <string name="config_shared_data_alert_message">Du kannst deinen zuletzt abgerufenen Standort oder die Wetter-API-Anfrage im Browser anzeigen. Dabei wird dein Standort mit dem Dienstanbieter geteilt (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Daten werden geladen…</string>
-    <string name="config_shared_data_alert_but_weather">Wetteranfrage</string>
-    <string name="config_shared_data_alert_but_location">Standort</string>
     <string name="config_source_code">Quellcode</string>
     <string name="config_source_code_summary">Quellcode und Dokumentation auf GitHub anzeigen</string>
     <string name="config_aux_view_title">Details anzeigen</string>
@@ -86,5 +85,20 @@
     <string name="warn_uv_severe">Warnung vor starker UV-Strahlung</string>
     <string name="warn_heat_severe">Warnung vor starker Hitze</string>
     <string name="warn_tstorm_severe">Warnung vor schweren Gewittern</string>
+
+    <plurals name="days">
+        <item quantity="one">1 Tag</item>
+        <item quantity="other">%d Tage</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 Stunde</item>
+        <item quantity="other">%d Stunden</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 Minute</item>
+        <item quantity="other">%d Minuten</item>
+    </plurals>
 
 </resources>

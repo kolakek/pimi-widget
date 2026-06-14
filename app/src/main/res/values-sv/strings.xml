@@ -4,8 +4,14 @@
     <string name="config_privacy_note">När väder aktiveras delas din plats med vädertjänsten</string>
     <string name="config_weather_switch">Aktivera väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
-    <string name="config_version_title">Versionsbygge</string>
-    <string name="config_debug_info">Felsökningsinformation</string>
+    <string name="config_version_title">Byggnummer</string>
+    <string name="config_debug_info">Datastatus</string>
+    <string name="config_debug_weather_data_age">Ålder på väderdata</string>
+    <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
+    <string name="config_debug_last_data_download">Senaste datahämtning</string>
+    <string name="config_debug_background_service">Bakgrundstjänst</string>
+    <string name="config_debug_button_weather">Visa väderfråga</string>
+    <string name="config_debug_button_location">Visa plats</string>
     <string name="config_text_color">Textfärg</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Ljus</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj "%s" på nästa skärm.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Avbryt</string>
-    <string name="config_shared_data">Datatransparens</string>
-    <string name="config_shared_data_summary">Visa data som delas med vädertjänsten</string>
-    <string name="config_shared_data_alert_no_data">Ingen data tillgänglig</string>
-    <string name="config_shared_data_alert_message">Du kan visa din senast hämtade plats eller väder-API-förfrågan i webbläsaren. Detta delar din plats med tjänsteleverantören (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Laddar data…</string>
-    <string name="config_shared_data_alert_but_weather">Väder</string>
-    <string name="config_shared_data_alert_but_location">Plats</string>
     <string name="config_source_code">Källkod</string>
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>
     <string name="config_aux_view_title">Visa detaljer</string>
@@ -86,5 +85,20 @@
     <string name="warn_rain_severe">varning för intensivt regn</string>
     <string name="warn_gusts_severe">varning för kraftiga vindbyar</string>
     <string name="warn_tstorm_severe">varning för kraftiga åskväder</string>
+
+    <plurals name="days">
+        <item quantity="one">1 dag</item>
+        <item quantity="other">%d dagar</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 timme</item>
+        <item quantity="other">%d timmar</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minut</item>
+        <item quantity="other">%d minuter</item>
+    </plurals>
 
 </resources>

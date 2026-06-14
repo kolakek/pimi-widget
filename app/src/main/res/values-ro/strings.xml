@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Activarea vremii partajează locația ta cu furnizorul de prognoză</string>
     <string name="config_weather_switch">Activează vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
-    <string name="config_version_title">Versiune de compilare</string>
-    <string name="config_debug_info">Informații de depanare</string>
+    <string name="config_version_title">Număr build</string>
+    <string name="config_debug_info">Starea datelor</string>
+    <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
+    <string name="config_debug_last_valid_location">Ultima locație validă</string>
+    <string name="config_debug_last_data_download">Ultima descărcare de date</string>
+    <string name="config_debug_background_service">Serviciu în fundal</string>
+    <string name="config_debug_button_weather">Vezi interogarea meteo</string>
+    <string name="config_debug_button_location">Vezi locația</string>
     <string name="config_text_color">Culoarea textului</string>
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Actualizările meteo fiabile necesită acces la locația ta în fundal. Selectează "%s" în ecranul următor.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anulează</string>
-    <string name="config_shared_data">Transparența datelor</string>
-    <string name="config_shared_data_summary">Vezi datele partajate cu furnizorul de vreme</string>
-    <string name="config_shared_data_alert_no_data">Nu sunt date disponibile</string>
-    <string name="config_shared_data_alert_message">Poți vedea ultima ta locație sau cererea API meteo în browser. Aceasta partajează locația ta cu furnizorul de servicii (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Se încarcă datele…</string>
-    <string name="config_shared_data_alert_but_weather">Vreme</string>
-    <string name="config_shared_data_alert_but_location">Locație</string>
     <string name="config_source_code">Cod sursă</string>
     <string name="config_source_code_summary">Vezi codul sursă și documentația pe GitHub</string>
     <string name="config_aux_view_title">Afișează detalii</string>
@@ -86,5 +85,23 @@
     <string name="warn_rain_severe">avertizare de ploaie intensă</string>
     <string name="warn_gusts_severe">avertizare de vânt puternic</string>
     <string name="warn_tstorm_severe">avertizare de furtuni puternice</string>
+
+    <plurals name="days">
+        <item quantity="one">1 zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d de zile</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d de ore</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d de minute</item>
+    </plurals>
 
 </resources>

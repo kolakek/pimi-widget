@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Hava durumu etkinleştirildiğinde konumunuz hava durumu sağlayıcısıyla paylaşılır</string>
     <string name="config_weather_switch">Hava durumunu etkinleştir</string>
     <string name="config_weather_switch_summary">Open-Meteo.com\'dan hava durumu verileri</string>
-    <string name="config_version_title">Derleme sürümü</string>
-    <string name="config_debug_info">Hata ayıklama bilgileri</string>
+    <string name="config_version_title">Yapı numarası</string>
+    <string name="config_debug_info">Veri durumu</string>
+    <string name="config_debug_weather_data_age">Hava durumu verisi yaşı</string>
+    <string name="config_debug_last_valid_location">Son geçerli konum</string>
+    <string name="config_debug_last_data_download">Son veri indirme</string>
+    <string name="config_debug_background_service">Arka plan servisi</string>
+    <string name="config_debug_button_weather">Hava durumu sorgusu</string>
+    <string name="config_debug_button_location">Konumu görüntüle</string>
     <string name="config_text_color">Metin rengi</string>
     <string name="config_icon_style">İkon stili</string>
     <string name="config_color_light">Açık</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Güvenilir hava durumu güncellemeleri, arka planda konumunuza erişim gerektirir. Lütfen sonraki ekranda "%s" seçeneğini seçin.</string>
     <string name="config_alert_button_ok">Tamam</string>
     <string name="config_alert_button_cancel">İptal</string>
-    <string name="config_shared_data">Veri şeffaflığı</string>
-    <string name="config_shared_data_summary">Hava durumu sağlayıcısıyla paylaşılan verileri görüntüle</string>
-    <string name="config_shared_data_alert_no_data">Veri mevcut değil</string>
-    <string name="config_shared_data_alert_message">Son alınan konumunu veya hava durumu API isteğini tarayıcıda görüntüleyebilirsin. Bu işlem, konumunun hizmet sağlayıcıyla paylaşılmasına neden olur (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Veriler yükleniyor…</string>
-    <string name="config_shared_data_alert_but_weather">Hava durumu</string>
-    <string name="config_shared_data_alert_but_location">Konum</string>
     <string name="config_source_code">Kaynak kod</string>
     <string name="config_source_code_summary">Kaynak kodu ve belgeleri GitHub\'da görüntüleyin</string>
     <string name="config_aux_view_title">Detayları göster</string>
@@ -86,5 +85,20 @@
     <string name="warn_rain_severe">şiddetli yağmur uyarısı</string>
     <string name="warn_gusts_severe">şiddetli rüzgar uyarısı</string>
     <string name="warn_tstorm_severe">şiddetli fırtına uyarısı</string>
+
+    <plurals name="days">
+        <item quantity="one">1 gün</item>
+        <item quantity="other">%d gün</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 saat</item>
+        <item quantity="other">%d saat</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 dakika</item>
+        <item quantity="other">%d dakika</item>
+    </plurals>
 
 </resources>

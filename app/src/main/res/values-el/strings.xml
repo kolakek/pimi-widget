@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Η ενεργοποίηση του καιρού κοινοποιεί την τοποθεσία σας στον πάροχο καιρού</string>
     <string name="config_weather_switch">Ενεργοποίηση καιρού</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
-    <string name="config_version_title">Έκδοση build</string>
-    <string name="config_debug_info">Πληροφορίες αποσφαλμάτωσης</string>
+    <string name="config_version_title">Αριθμός έκδοσης</string>
+    <string name="config_debug_info">Κατάσταση δεδομένων</string>
+    <string name="config_debug_weather_data_age">Ηλικία δεδομένων καιρού</string>
+    <string name="config_debug_last_valid_location">Τελευταία έγκυρη τοποθεσία</string>
+    <string name="config_debug_last_data_download">Τελευταία λήψη δεδομένων</string>
+    <string name="config_debug_background_service">Υπηρεσία παρασκηνίου</string>
+    <string name="config_debug_button_weather">Προβολή ερωτήματος καιρού</string>
+    <string name="config_debug_button_location">Προβολή τοποθεσίας</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
     <string name="config_color_light">Φωτεινό</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σας στο παρασκήνιο. Επιλέξτε "%s" στην επόμενη οθόνη.</string>
     <string name="config_alert_button_ok">ΟΚ</string>
     <string name="config_alert_button_cancel">Ακύρωση</string>
-    <string name="config_shared_data">Διαφάνεια δεδομένων</string>
-    <string name="config_shared_data_summary">Προβολή δεδομένων που κοινοποιούνται στον πάροχο καιρού</string>
-    <string name="config_shared_data_alert_no_data">Δεν υπάρχουν διαθέσιμα δεδομένα</string>
-    <string name="config_shared_data_alert_message">Μπορείτε να δείτε την τελευταία τοποθεσία ή το αίτημα API καιρού στο πρόγραμμα περιήγησης. Αυτό κοινοποιεί την τοποθεσία σας στον πάροχο υπηρεσίας (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Φόρτωση δεδομένων…</string>
-    <string name="config_shared_data_alert_but_weather">Καιρός</string>
-    <string name="config_shared_data_alert_but_location">Τοποθεσία</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
     <string name="config_aux_view_title">Εμφάνιση λεπτομερειών</string>
@@ -86,5 +85,20 @@
     <string name="warn_rain_severe">προειδοποίηση έντονης βροχής</string>
     <string name="warn_gusts_severe">προειδοποίηση ισχυρών ριπών ανέμου</string>
     <string name="warn_tstorm_severe">προειδοποίηση ισχυρής καταιγίδας</string>
+
+    <plurals name="days">
+        <item quantity="one">1 ημέρα</item>
+        <item quantity="other">%d ημέρες</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 ώρα</item>
+        <item quantity="other">%d ώρες</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 λεπτό</item>
+        <item quantity="other">%d λεπτά</item>
+    </plurals>
 
 </resources>

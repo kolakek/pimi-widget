@@ -38,6 +38,7 @@ import androidx.preference.SwitchPreferenceCompat
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.worker.DataUpdater
@@ -58,7 +59,6 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val debugField: Preference? = findPreference(KEY_DEBUG_INFO)
-        val sharedDataField: Preference? = findPreference(KEY_SHARED_DATA)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
         var debugCount = 0
@@ -76,12 +76,8 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 debugCount++
             true
         }
-        debugField?.summary = BuildConfig.VERSION_NAME
+        debugField?.summary = BuildConfig.VERSION_CODE.toString()
 
-        sharedDataField?.setOnPreferenceClickListener {
-            showDataInfoDialog(context)
-            true
-        }
         sourceCodeField?.setOnPreferenceClickListener {
             startUrlActivity(SOURCE_CODE_URL)
             true
@@ -169,10 +165,14 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_debug_info)
-            .setMessage(getString(R.string.config_debug_alert_message, "-", "-", "-", "-"))
+            .setMessage(createDebugMessage("-", "-", "-", "-"))
             .setCancelable(true)
-            .setPositiveButton(R.string.config_alert_button_ok, null)
+            .setPositiveButton(R.string.config_debug_button_location, null)
+            .setNeutralButton(R.string.config_debug_button_weather, null)
             .show()
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { }
+        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener { }
 
         lifecycleScope.launch {
             val weatherData = WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
@@ -208,58 +208,39 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             } ?: workerStatusStr
 
             dialog.setMessage(
-                getString(
-                    R.string.config_debug_alert_message,
-                    dataAgeStr,
-                    locationStr,
-                    statusStr,
-                    workerStr)
+                createDebugMessage(dataAgeStr, locationStr, statusStr, workerStr)
             )
+            locationData?.let {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    viewLocationCallback(dialog, locationData)
+                }
+                dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener {
+                    viewWeatherCallback(dialog, locationData)
+                }
+            }
         }
     }
 
-    private fun showDataInfoDialog(context: Context) {
-        val dialog = AlertDialog.Builder(context)
-            .setTitle(R.string.config_shared_data)
-            .setMessage(R.string.config_shared_data_alert_message)
-            .setCancelable(true)
-            .setNegativeButton(R.string.config_shared_data_alert_but_location, null)
-            .setPositiveButton(R.string.config_shared_data_alert_but_weather, null)
-            .setNeutralButton(R.string.config_alert_button_cancel, null)
-            .show()
-
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
-            viewLocationCallback(context, dialog)
-        }
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-            viewWeatherCallback(context, dialog)
-        }
+    private fun viewLocationCallback(
+        dialog: AlertDialog,
+        locationData: LocationData
+    ) {
+        startUrlActivity(
+            URLBuilder(LOCATION_URL).apply {
+                parameters.append("mlat", locationData.lat.toString())
+                parameters.append("mlon", locationData.long.toString())
+                fragment = "map=$LOCATION_URL_ZOOM/${locationData.lat}/${locationData.long}"
+            }.toString()
+        )
+        dialog.dismiss()
     }
 
-    private fun viewLocationCallback(context: Context, dialog: AlertDialog) {
-        lifecycleScope.launch {
-            dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
-            LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)?.let {
-                startUrlActivity(
-                    URLBuilder(LOCATION_URL).apply {
-                        parameters.append("mlat", it.lat.toString())
-                        parameters.append("mlon", it.long.toString())
-                        fragment = "map=$LOCATION_URL_ZOOM/${it.lat}/${it.long}"
-                    }.toString()
-                )
-                dialog.dismiss()
-            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_no_data))
-        }
-    }
-
-    private fun viewWeatherCallback(context: Context, dialog: AlertDialog) {
-        lifecycleScope.launch {
-            dialog.setMessage(getString(R.string.config_shared_data_alert_loading))
-            LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)?.let {
-                startUrlActivity(WeatherService.weatherUrl(it, "iso8601").toString())
-                dialog.dismiss()
-            } ?: dialog.setMessage(getString(R.string.config_shared_data_alert_no_data))
-        }
+    private fun viewWeatherCallback(
+        dialog: AlertDialog,
+        locationData: LocationData
+    ) {
+        startUrlActivity(WeatherService.weatherUrl(locationData, "iso8601").toString())
+        dialog.dismiss()
     }
 
     private fun startUrlActivity(url: String) {
@@ -283,6 +264,12 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             .setNegativeButton(R.string.config_alert_button_cancel, null)
             .show()
     }
+
+    private fun createDebugMessage(s1: String, s2: String, s3: String, s4: String): String =
+        "${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
+                "${getString(R.string.config_debug_last_valid_location)}\n$s2\n\n" +
+                "${getString(R.string.config_debug_last_data_download)}\n$s3\n\n" +
+                "${getString(R.string.config_debug_background_service)}\n$s4"
 
     private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()

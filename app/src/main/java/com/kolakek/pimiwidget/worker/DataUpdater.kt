@@ -27,7 +27,6 @@ import androidx.datastore.preferences.core.Preferences
 import com.kolakek.pimiwidget.data.DataKeys
 import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.data.JsonDataStore
-import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetAction

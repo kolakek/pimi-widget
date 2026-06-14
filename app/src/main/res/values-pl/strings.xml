@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
     <string name="config_weather_switch">Włącz pogodę</string>
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
-    <string name="config_version_title">Wersja kompilacji</string>
-    <string name="config_debug_info">Informacje debugowania</string>
+    <string name="config_version_title">Numer kompilacji</string>
+    <string name="config_debug_info">Stan danych</string>
+    <string name="config_debug_weather_data_age">Wiek danych pogodowych</string>
+    <string name="config_debug_last_valid_location">Ostatnia poprawna lokalizacja</string>
+    <string name="config_debug_last_data_download">Ostatnie pobranie danych</string>
+    <string name="config_debug_background_service">Usługa w tle</string>
+    <string name="config_debug_button_weather">Wyświetl zapytanie pogodowe</string>
+    <string name="config_debug_button_location">Wyświetl lokalizację</string>
     <string name="config_text_color">Kolor tekstu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Jasny</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle. Wybierz „%s” na następnym ekranie.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anuluj</string>
-    <string name="config_shared_data">Przejrzystość danych</string>
-    <string name="config_shared_data_summary">Zobacz dane udostępniane dostawcy pogody</string>
-    <string name="config_shared_data_alert_no_data">Brak dostępnych danych</string>
-    <string name="config_shared_data_alert_message">Możesz wyświetlić swoją ostatnio pobraną lokalizację lub zapytanie API pogody w przeglądarce. Spowoduje to udostępnienie Twojej lokalizacji dostawcy usługi (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Ładowanie danych…</string>
-    <string name="config_shared_data_alert_but_weather">Pogoda</string>
-    <string name="config_shared_data_alert_but_location">Lokalizacja</string>
     <string name="config_source_code">Kod źródłowy</string>
     <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>
     <string name="config_aux_view_title">Pokaż szczegóły</string>
@@ -86,5 +85,26 @@
     <string name="warn_rain_severe">ostrzeżenie deszcz intensywny</string>
     <string name="warn_gusts_severe">ostrzeżenie silnych porywów wiatru</string>
     <string name="warn_tstorm_severe">ostrzeżenie przed silnymi burzami</string>
+
+    <plurals name="days">
+        <item quantity="one">1 dzień</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 godzina</item>
+        <item quantity="few">%d godziny</item>
+        <item quantity="many">%d godzin</item>
+        <item quantity="other">%d godzin</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
 
 </resources>

@@ -43,5 +43,4 @@ internal const val KEY_DAILY_FORECAST = "daily_forecast"
 internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
 internal const val KEY_DEBUG_INFO = "debug_info"
-internal const val KEY_SHARED_DATA = "shared_data"
 internal const val KEY_SOURCE_CODE = "source_code"

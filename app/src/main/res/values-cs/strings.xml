@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
     <string name="config_weather_switch">Zapnout počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
-    <string name="config_version_title">Build verze</string>
-    <string name="config_debug_info">Ladicí informace</string>
+    <string name="config_version_title">Číslo sestavení</string>
+    <string name="config_debug_info">Stav dat</string>
+    <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
+    <string name="config_debug_last_valid_location">Poslední platná poloha</string>
+    <string name="config_debug_last_data_download">Poslední stažení dat</string>
+    <string name="config_debug_background_service">Služba na pozadí</string>
+    <string name="config_debug_button_weather">Zobrazit dotaz na počasí</string>
+    <string name="config_debug_button_location">Zobrazit polohu</string>
     <string name="config_text_color">Barva textu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Světlý</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Zrušit</string>
-    <string name="config_shared_data">Transparentnost dat</string>
-    <string name="config_shared_data_summary">Zobrazit data sdílená s poskytovatelem počasí</string>
-    <string name="config_shared_data_alert_no_data">Nejsou k dispozici žádná data</string>
-    <string name="config_shared_data_alert_message">Můžeš zobrazit svou naposledy získanou polohu nebo požadavek na API počasí v prohlížeči. Tím dojde ke sdílení tvé polohy s poskytovatelem služby (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Načítání dat…</string>
-    <string name="config_shared_data_alert_but_weather">Počasí</string>
-    <string name="config_shared_data_alert_but_location">Poloha</string>
     <string name="config_source_code">Zdrojový kód</string>
     <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
     <string name="config_aux_view_title">Zobrazit podrobnosti</string>
@@ -86,5 +85,26 @@
     <string name="warn_rain_severe">výstraha před intenzivním deštěm</string>
     <string name="warn_gusts_severe">výstraha před silnými poryvy větru</string>
     <string name="warn_tstorm_severe">výstraha před silnými bouřkami</string>
+
+    <plurals name="days">
+        <item quantity="one">1 den</item>
+        <item quantity="few">%d dny</item>
+        <item quantity="many">%d dne</item>
+        <item quantity="other">%d dní</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 hodina</item>
+        <item quantity="few">%d hodiny</item>
+        <item quantity="many">%d hodiny</item>
+        <item quantity="other">%d hodin</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
 
 </resources>

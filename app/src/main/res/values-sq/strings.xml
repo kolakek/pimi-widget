@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Aktivizimi i motit ndan vendndodhjen tënde me ofruesin e motit</string>
     <string name="config_weather_switch">Aktivizo motin</string>
     <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
-    <string name="config_version_title">Versioni i ndërtimit</string>
-    <string name="config_debug_info">Informacione debug</string>
+    <string name="config_version_title">Numri i build-it</string>
+    <string name="config_debug_info">Statusi i të dhënave</string>
+    <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
+    <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
+    <string name="config_debug_last_data_download">Shkarkimi i fundit i të dhënave</string>
+    <string name="config_debug_background_service">Shërbimi në sfond</string>
+    <string name="config_debug_button_weather">Shiko kërkesën e motit</string>
+    <string name="config_debug_button_location">Shiko vendndodhjen</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Përditësimet e besueshme të motit kërkojnë qasje në vendndodhjen tënde në sfond. Zgjidh "%s" në ekranin tjetër.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anulo</string>
-    <string name="config_shared_data">Transparenca e të dhënave</string>
-    <string name="config_shared_data_summary">Shiko të dhënat e ndara me ofruesin e motit</string>
-    <string name="config_shared_data_alert_no_data">Nuk ka të dhëna të disponueshme</string>
-    <string name="config_shared_data_alert_message">Mund të shikosh vendndodhjen e fundit ose kërkesën e API-së së motit në shfletues. Kjo ndan vendndodhjen tënde me ofruesin e shërbimit (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Duke ngarkuar të dhënat…</string>
-    <string name="config_shared_data_alert_but_weather">Moti</string>
-    <string name="config_shared_data_alert_but_location">Vendndodhja</string>
     <string name="config_source_code">Kodi burimor</string>
     <string name="config_source_code_summary">Shiko kodin burimor dhe dokumentacionin në GitHub</string>
     <string name="config_aux_view_title">Shfaq detajet</string>
@@ -86,5 +85,20 @@
     <string name="warn_rain_severe">paralajmërim për shi intensiv</string>
     <string name="warn_gusts_severe">paralajmërim për erëra të forta</string>
     <string name="warn_tstorm_severe">paralajmërim për stuhi të forta</string>
+
+    <plurals name="days">
+        <item quantity="one">1 ditë</item>
+        <item quantity="other">%d ditë</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 orë</item>
+        <item quantity="other">%d orë</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minutë</item>
+        <item quantity="other">%d minuta</item>
+    </plurals>
 
 </resources>

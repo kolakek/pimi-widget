@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
     <string name="config_weather_switch">Ota sää käyttöön</string>
     <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
-    <string name="config_version_title">Koontiversio</string>
-    <string name="config_debug_info">Vianmääritystiedot</string>
+    <string name="config_version_title">Koontinumero</string>
+    <string name="config_debug_info">Datan tila</string>
+    <string name="config_debug_weather_data_age">Säätiedon ikä</string>
+    <string name="config_debug_last_valid_location">Viimeisin kelvollinen sijainti</string>
+    <string name="config_debug_last_data_download">Viimeisin tietojen lataus</string>
+    <string name="config_debug_background_service">Taustapalvelu</string>
+    <string name="config_debug_button_weather">Näytä säähaku</string>
+    <string name="config_debug_button_location">Näytä sijainti</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_color_light">Vaalea</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla. Valitse seuraavassa näytössä "%s".</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Peruuta</string>
-    <string name="config_shared_data">Tietojen läpinäkyvyys</string>
-    <string name="config_shared_data_summary">Näytä säätarjoajalle jaetut tiedot</string>
-    <string name="config_shared_data_alert_no_data">Tietoja ei ole saatavilla</string>
-    <string name="config_shared_data_alert_message">Voit tarkastella viimeisintä sijaintiasi tai sää-API-pyyntöä selaimessa. Tämä jakaa sijaintisi palveluntarjoajalle (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Ladataan tietoja…</string>
-    <string name="config_shared_data_alert_but_weather">Sää</string>
-    <string name="config_shared_data_alert_but_location">Sijainti</string>
     <string name="config_source_code">Lähdekoodi</string>
     <string name="config_source_code_summary">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
     <string name="config_aux_view_title">Näytä lisätiedot</string>
@@ -86,5 +85,20 @@
     <string name="warn_rain_severe">voimakas sadevaroitus</string>
     <string name="warn_gusts_severe">voimakas puuskatuulivaroitus</string>
     <string name="warn_tstorm_severe">voimakas ukkosvaroitus</string>
+
+    <plurals name="days">
+        <item quantity="one">1 päivä</item>
+        <item quantity="other">%d päivää</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 tunti</item>
+        <item quantity="other">%d tuntia</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minuutti</item>
+        <item quantity="other">%d minuuttia</item>
+    </plurals>
 
 </resources>

@@ -4,8 +4,14 @@
     <string name="config_privacy_note">Al activar el clima, tu ubicación se comparte con el proveedor del tiempo</string>
     <string name="config_weather_switch">Activar clima</string>
     <string name="config_weather_switch_summary">Datos meteorológicos de Open-Meteo.com</string>
-    <string name="config_version_title">Versión de compilación</string>
-    <string name="config_debug_info">Información de depuración</string>
+    <string name="config_version_title">Número de compilación</string>
+    <string name="config_debug_info">Estado de los datos</string>
+    <string name="config_debug_weather_data_age">Antigüedad de los datos meteorológicos</string>
+    <string name="config_debug_last_valid_location">Última ubicación válida</string>
+    <string name="config_debug_last_data_download">Última descarga de datos</string>
+    <string name="config_debug_background_service">Servicio en segundo plano</string>
+    <string name="config_debug_button_weather">Ver consulta meteorológica</string>
+    <string name="config_debug_button_location">Ver ubicación</string>
     <string name="config_text_color">Color del texto</string>
     <string name="config_icon_style">Estilo de iconos</string>
     <string name="config_color_light">Claro</string>
@@ -26,13 +32,6 @@
     <string name="config_bg_perm_alert_message">Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano. Selecciona “%s” en la siguiente pantalla.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Cancelar</string>
-    <string name="config_shared_data">Transparencia de datos</string>
-    <string name="config_shared_data_summary">Ver datos compartidos con el proveedor del clima</string>
-    <string name="config_shared_data_alert_no_data">No hay datos disponibles</string>
-    <string name="config_shared_data_alert_message">Puedes ver tu última ubicación obtenida o la solicitud de la API del clima en el navegador. Esto compartirá tu ubicación con el proveedor del servicio (Open-Meteo, OpenStreetMap).</string>
-    <string name="config_shared_data_alert_loading">Cargando datos…</string>
-    <string name="config_shared_data_alert_but_weather">Clima</string>
-    <string name="config_shared_data_alert_but_location">Ubicación</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
     <string name="config_aux_view_title">Mostrar detalles</string>
@@ -86,5 +85,23 @@
     <string name="warn_rain_severe">aviso de lluvia intensa</string>
     <string name="warn_gusts_severe">aviso de viento fuerte</string>
     <string name="warn_tstorm_severe">aviso de tormentas fuertes</string>
+
+    <plurals name="days">
+        <item quantity="one">1 día</item>
+        <item quantity="many">%d días</item>
+        <item quantity="other">%d días</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">1 hora</item>
+        <item quantity="many">%d horas</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">1 minuto</item>
+        <item quantity="many">%d minutos</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
 
 </resources>
