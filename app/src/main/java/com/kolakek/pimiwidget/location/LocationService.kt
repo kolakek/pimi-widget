@@ -37,8 +37,6 @@ object LocationService {
     ): LocationData {
         val locationManager = context.getSystemService(LocationManager::class.java)
 
-        locationManager.isLocationEnabled
-
         getLastKnownLocation(locationManager)?.let {
             DataRepository.storeLocationData(context, it)
             return it
