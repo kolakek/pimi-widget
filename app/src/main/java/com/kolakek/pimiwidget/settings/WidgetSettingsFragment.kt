@@ -264,7 +264,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun createDebugMessage(s1: String, s2: String, s3: String, s4: String): String =
-        "${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
+        "\n${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
                 "${getString(R.string.config_debug_last_valid_location)}\n$s2\n\n" +
                 "${getString(R.string.config_debug_last_data_download)}\n$s3\n\n" +
                 "${getString(R.string.config_debug_background_service)}\n$s4"
