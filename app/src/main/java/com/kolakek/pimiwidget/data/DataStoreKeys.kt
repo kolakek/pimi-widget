@@ -21,9 +21,9 @@ import android.content.Context
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 
-val Context.dataStore by preferencesDataStore(name = "cache")
+internal val Context.dataStore by preferencesDataStore(name = "cache")
 
-object DataKeys {
+internal object DataKeys {
     val WEATHER_DATA_KEY = stringPreferencesKey("weather_json")
     val LOCATION_DATA_KEY = stringPreferencesKey("location_json")
     val STATUS_DATA_KEY = stringPreferencesKey("update_status_json")

@@ -24,8 +24,7 @@ import android.location.LocationManager
 import android.os.CancellationSignal
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
-import androidx.datastore.preferences.core.Preferences
-import com.kolakek.pimiwidget.data.JsonDataStore
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
@@ -34,35 +33,21 @@ object LocationService {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     suspend fun fetchLocation(
-        context: Context,
-        dataKey: Preferences.Key<String>
+        context: Context
     ): LocationData {
         val locationManager = context.getSystemService(LocationManager::class.java)
 
+        locationManager.isLocationEnabled
+
         getLastKnownLocation(locationManager)?.let {
-            storeLocationData(context, it, dataKey)
+            DataRepository.storeLocationData(context, it)
             return it
         }
         getCurrentLocation(locationManager, context)?.let {
-            storeLocationData(context, it, dataKey)
+            DataRepository.storeLocationData(context, it)
             return it
         }
         throw LocationUnavailableException("Failed to obtain location")
-    }
-
-    suspend fun getLocationData(
-        context: Context,
-        dataKey: Preferences.Key<String>
-    ): LocationData? {
-        return JsonDataStore.load<LocationData>(context, dataKey)
-    }
-
-    private suspend fun storeLocationData(
-        context: Context,
-        locationData: LocationData,
-        dataKey: Preferences.Key<String>
-    ) {
-        JsonDataStore.save(context, dataKey, locationData)
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])

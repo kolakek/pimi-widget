@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.serialization.json.Json
 import timber.log.Timber
 
-object JsonDataStore {
+internal object JsonDataStore {
 
     val json = Json {
         ignoreUnknownKeys = true

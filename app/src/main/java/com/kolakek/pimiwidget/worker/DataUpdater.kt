@@ -23,10 +23,8 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import androidx.annotation.RequiresPermission
-import androidx.datastore.preferences.core.Preferences
-import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.widget.PimiWidget
-import com.kolakek.pimiwidget.data.JsonDataStore
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetAction
@@ -38,12 +36,12 @@ internal object DataUpdater {
     internal suspend fun update(context: Context) {
 
         Timber.d("update: Fetch location")
-        val location = LocationService.fetchLocation(context, DataKeys.LOCATION_DATA_KEY)
+        val location = LocationService.fetchLocation(context)
 
         val widgetDataAgeMillis = getDataAgeMillis(context)
 
         Timber.d("update: Fetch weather data")
-        WeatherService.fetchWeatherData(context, location, DataKeys.WEATHER_DATA_KEY)
+        WeatherService.fetchWeatherData(context, location)
 
         if (widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
             Timber.d("update: Trigger widget update")
@@ -51,29 +49,18 @@ internal object DataUpdater {
         }
     }
 
-    suspend fun getStatusData(
-        context: Context,
-        dataKey: Preferences.Key<String>
-    ): StatusData? {
-        return JsonDataStore.load<StatusData>(context, dataKey)
-    }
-
     internal suspend fun logUpdateStatus(
         context: Context,
         updateStatus: String,
     ) {
-        JsonDataStore.save(
+        DataRepository.storeStatusData(
             context,
-            DataKeys.STATUS_DATA_KEY,
             StatusData(updateStatus, System.currentTimeMillis())
         )
     }
 
     private suspend fun getDataAgeMillis(context: Context): Long {
-        val dataTimeMillis = WeatherService.getWeatherData(
-            context,
-            DataKeys.WEATHER_DATA_KEY
-        )?.timeMillis ?: 0
+        val dataTimeMillis = DataRepository.loadWeatherData(context)?.timeMillis ?: 0
         return System.currentTimeMillis() - dataTimeMillis
     }
 

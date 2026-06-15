@@ -22,12 +22,10 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import timber.log.Timber
 
 internal object HttpClientProvider {
 
     val client: HttpClient by lazy {
-        Timber.d("HttpClientProvider: Create client")
         HttpClient(CIO) {
             expectSuccess = true
             install(ContentNegotiation) {

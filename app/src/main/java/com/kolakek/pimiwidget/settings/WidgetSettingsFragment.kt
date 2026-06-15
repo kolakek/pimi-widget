@@ -37,11 +37,9 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationData
-import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.DataUpdater
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -175,12 +173,12 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener { }
 
         lifecycleScope.launch {
-            val weatherData = WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
+            val weatherData = DataRepository.loadWeatherData(context)
             val dataAgeStr = weatherData?.timeMillis?.let {
                 createAgeString(it)
             } ?: "-"
 
-            val locationData = LocationService.getLocationData(context, DataKeys.LOCATION_DATA_KEY)
+            val locationData = DataRepository.loadLocationData(context)
             val locationStr = locationData?.let {
                 getString(
                     R.string.config_debug_alert_status_time,
@@ -189,7 +187,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 )
             } ?: "-"
 
-            val statusData = DataUpdater.getStatusData(context, DataKeys.STATUS_DATA_KEY)
+            val statusData = DataRepository.loadStatusData(context)
             val statusStr = statusData?.let {
                 getString(
                     R.string.config_debug_alert_status_time,

@@ -24,11 +24,10 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.DataKeys
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
-import com.kolakek.pimiwidget.weather.WeatherService
 import kotlinx.coroutines.runBlocking
 import java.util.Date
 import java.util.Locale
@@ -41,7 +40,7 @@ internal object WidgetUpdater {
         appWidgetIds: IntArray
     ) {
         val weatherData = runBlocking {
-            WeatherService.getWeatherData(context, DataKeys.WEATHER_DATA_KEY)
+            DataRepository.loadWeatherData(context)
         }
         val prefs = PreferencesHelper.getWidgetPreferences(context)
 
