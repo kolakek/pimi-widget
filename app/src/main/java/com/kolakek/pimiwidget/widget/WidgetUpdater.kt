@@ -25,23 +25,27 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
+import kotlinx.coroutines.runBlocking
 import java.util.Date
 import java.util.Locale
 
 internal object WidgetUpdater {
 
     internal fun updateWidgets(
-        context: Context,
-        weatherData: WeatherData?
+        context: Context
     ) {
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
         )
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val weatherData = runBlocking { // ToDo: Use coroutine
+            DataRepository.loadWeatherData(context)
+        }
         for (appWidgetId in appWidgetIds) {
 
             val views = RemoteViews(
@@ -49,10 +53,12 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId)
-            val isWeatherVisible = updateWeather(context, views, prefs, weatherData)
-            updateAuxDisplay(context, views, prefs, isWeatherVisible)
+            updateWeather(context, views, prefs, weatherData)
+            updateAuxDisplay(context, views, prefs)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
+
+            // ToDo: Fetch new data
         }
     }
 
@@ -99,34 +105,31 @@ internal object WidgetUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ): Boolean {
+    ) {
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-        if (!prefs.showWeather || weatherData == null) return false
+        if (!prefs.showWeather || weatherData == null) return
 
         val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
             context,
             weatherData,
             prefs
-        ) ?: return false
+        ) ?: return
 
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
             setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
-        return true
+        return
     }
 
     private fun updateAuxDisplay(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences,
-        isWeatherVisible: Boolean
+        prefs: WidgetPreferences
     ) {
         views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
-
-        if (!isWeatherVisible) return
 
         val auxStr = when (prefs.auxDisplay) {
 

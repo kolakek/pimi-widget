@@ -17,11 +17,7 @@
 
 package com.kolakek.pimiwidget.worker
 
-internal const val ONE_TIME_WIDGET_WORK_NAME = "one-time-widget-work-kolakek-pimi-widget"
-internal const val PERIODIC_WIDGET_WORK_NAME = "periodic-widget-work-kolakek-pimi-widget"
-internal const val PERIODIC_DATA_WORK_NAME = "periodic-data-work-kolakek-pimi-widget"
-internal const val DATA_WORK_INTERVAL_MILLIS = 60 * 60 * 1000L
-internal const val WIDGET_WORK_INTERVAL_MILLIS = 30 * 60 * 1000L
+internal const val DATA_WORK_NAME = "data-work-kolakek-pimi-widget"
 internal const val BACKOFF_DELAY_MILLIS = 10 * 1000L
 internal const val WIDGET_DATA_MAX_AGE_MILLIS = 150 * 60 * 1000L
 internal const val STATUS_STRING_SUCCESS = "Success"

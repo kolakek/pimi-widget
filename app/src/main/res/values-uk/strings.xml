@@ -9,11 +9,9 @@
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>
     <string name="config_debug_last_data_download">Останнє завантаження даних</string>
-    <string name="config_debug_data_service">Сервіс даних</string>
     <string name="config_debug_button_weather">Запит погоди</string>
     <string name="config_debug_button_location">Переглянути локацію</string>
     <string name="config_text_color">Колір тексту</string>
-    <string name="config_debug_widget_service">Сервіс віджета</string>
     <string name="config_icon_style">Стиль іконок</string>
     <string name="config_color_light">Світлий</string>
     <string name="config_color_dark">Темний</string>

@@ -9,11 +9,9 @@
     <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
     <string name="config_debug_last_valid_location">Ultima locație validă</string>
     <string name="config_debug_last_data_download">Ultima descărcare de date</string>
-    <string name="config_debug_data_service">Serviciu de date</string>
     <string name="config_debug_button_weather">Vezi interogarea meteo</string>
     <string name="config_debug_button_location">Vezi locația</string>
     <string name="config_text_color">Culoarea textului</string>
-    <string name="config_debug_widget_service">Serviciu widget</string>
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
     <string name="config_color_dark">Închis</string>

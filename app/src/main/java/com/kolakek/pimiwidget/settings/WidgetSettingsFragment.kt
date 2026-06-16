@@ -40,8 +40,6 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.PERIODIC_DATA_WORK_NAME
-import com.kolakek.pimiwidget.worker.PERIODIC_WIDGET_WORK_NAME
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -135,7 +133,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             )
             return false
         }
-        WorkManagerHelper.enqueuePeriodicDataWork(context)
+        WorkManagerHelper.enqueueDataWork(context)
         weatherSwitch?.isChecked = true
 
         return true
@@ -165,7 +163,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_debug_info)
-            .setMessage(createDebugMessage("-", "-", "-", "-", "-"))
+            .setMessage(createDebugMessage("-", "-", "-"))
             .setCancelable(true)
             .setPositiveButton(R.string.config_debug_button_location, null)
             .setNegativeButton(R.string.config_debug_button_weather, null)
@@ -198,38 +196,8 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 )
             } ?: "-"
 
-            val dataWorkStatusStr = WorkManagerHelper.getWorkerStatus(
-                context,
-                PERIODIC_DATA_WORK_NAME
-            ) ?: "-"
-            val dataWorkStr = WorkManagerHelper.getNextScheduleMillis(
-                context,
-                PERIODIC_DATA_WORK_NAME
-            )?.let {
-                getString(
-                    R.string.config_debug_alert_status_time,
-                    dataWorkStatusStr,
-                    DateFormat.getTimeFormat(context).format(Date(it))
-                )
-            } ?: dataWorkStatusStr
-
-            val widgetWorkStatusStr = WorkManagerHelper.getWorkerStatus(
-                context,
-                PERIODIC_WIDGET_WORK_NAME
-            ) ?: "-"
-            val widgetWorkStr = WorkManagerHelper.getNextScheduleMillis(
-                context,
-                PERIODIC_WIDGET_WORK_NAME
-            )?.let {
-                getString(
-                    R.string.config_debug_alert_status_time,
-                    widgetWorkStatusStr,
-                    DateFormat.getTimeFormat(context).format(Date(it))
-                )
-            } ?: widgetWorkStatusStr
-
             dialog.setMessage(
-                createDebugMessage(dataAgeStr, locationStr, statusStr, dataWorkStr, widgetWorkStr)
+                createDebugMessage(dataAgeStr, locationStr, statusStr)
             )
             locationData?.let {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
@@ -289,14 +257,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     private fun createDebugMessage(
         s1: String,
         s2: String,
-        s3: String,
-        s4: String,
-        s5: String
+        s3: String
     ): String = "\n${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
             "${getString(R.string.config_debug_last_valid_location)}\n$s2\n\n" +
-            "${getString(R.string.config_debug_last_data_download)}\n$s3\n\n" +
-            "${getString(R.string.config_debug_data_service)}\n$s4\n\n" +
-            "${getString(R.string.config_debug_widget_service)}\n$s5"
+            "${getString(R.string.config_debug_last_data_download)}\n$s3"
 
     private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()

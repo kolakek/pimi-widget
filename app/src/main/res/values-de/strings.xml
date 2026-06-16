@@ -9,11 +9,9 @@
     <string name="config_debug_weather_data_age">Wetterdatenalter</string>
     <string name="config_debug_last_valid_location">Letzter gültiger Standort</string>
     <string name="config_debug_last_data_download">Letzter Datenabruf</string>
-    <string name="config_debug_data_service">Datendienst</string>
     <string name="config_debug_button_weather">Wetterabfrage anzeigen</string>
     <string name="config_debug_button_location">Standort anzeigen</string>
     <string name="config_text_color">Textfarbe</string>
-    <string name="config_debug_widget_service">Widget-Dienst</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>

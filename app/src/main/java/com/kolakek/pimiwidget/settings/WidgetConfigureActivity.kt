@@ -26,7 +26,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentActivity
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
-import com.kolakek.pimiwidget.worker.WorkManagerHelper
+import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 class WidgetConfigureActivity : FragmentActivity() {
 
@@ -35,7 +35,7 @@ class WidgetConfigureActivity : FragmentActivity() {
     private fun finishWidgetConfigureActivity() {
         val context = this@WidgetConfigureActivity
 
-        WorkManagerHelper.enqueueOneTimeWidgetWork(context)
+        WidgetUpdater.updateWidgets(context)
 
         val resultValue = Intent()
 

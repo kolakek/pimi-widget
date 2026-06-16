@@ -20,78 +20,28 @@ package com.kolakek.pimiwidget.worker
 import android.content.Context
 import androidx.work.BackoffPolicy
 import androidx.work.Constraints
-import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
-import kotlin.collections.firstOrNull
 
 object WorkManagerHelper {
 
-    fun cancelWidgetWork(context: Context) {
-        Timber.d("cancelWidgetWork: Cancel work")
-        val workManager = WorkManager.getInstance(context.applicationContext)
-        workManager.cancelUniqueWork(PERIODIC_WIDGET_WORK_NAME)
-        workManager.cancelUniqueWork(ONE_TIME_WIDGET_WORK_NAME)
-    }
-
     fun cancelDataWork(context: Context) {
-        Timber.d("cancelDataWork: Cancel work")
         val workManager = WorkManager.getInstance(context.applicationContext)
-        workManager.cancelUniqueWork(PERIODIC_DATA_WORK_NAME)
+        workManager.cancelUniqueWork(DATA_WORK_NAME)
     }
 
-    fun enqueueOneTimeWidgetWork(context: Context) {
-        Timber.d("enqueueOneTimeWidgetWork: Enqueue work")
-        val request = OneTimeWorkRequestBuilder<WidgetWorker>()
-            .build()
-
-        WorkManager
-            .getInstance(context.applicationContext)
-            .enqueueUniqueWork(
-                ONE_TIME_WIDGET_WORK_NAME,
-                ExistingWorkPolicy.KEEP,
-                request
-            )
-    }
-
-    fun enqueuePeriodicWidgetWork(
+    fun enqueueDataWork(
         context: Context,
-        existingWorkPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
+        existingWorkPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP // ToDo: Remove
     ) {
-        Timber.d("enqueuePeriodicWidgetWork: Enqueue work")
-        val request = PeriodicWorkRequestBuilder<WidgetWorker>(
-            WIDGET_WORK_INTERVAL_MILLIS,
-            TimeUnit.MILLISECONDS
-        ).build()
-
-        WorkManager
-            .getInstance(context.applicationContext)
-            .enqueueUniquePeriodicWork(
-                PERIODIC_WIDGET_WORK_NAME,
-                existingWorkPolicy,
-                request
-            )
-    }
-
-    fun enqueuePeriodicDataWork(
-        context: Context,
-        existingWorkPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
-    ) {
-        Timber.d("enqueuePeriodicDataWork: Enqueue work")
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val request = PeriodicWorkRequestBuilder<DataWorker>(
-            DATA_WORK_INTERVAL_MILLIS,
-            TimeUnit.MILLISECONDS
-        )
+        val request = OneTimeWorkRequestBuilder<DataWorker>()
             .setConstraints(constraints)
             .setBackoffCriteria(
                 BackoffPolicy.EXPONENTIAL,
@@ -102,31 +52,10 @@ object WorkManagerHelper {
 
         WorkManager
             .getInstance(context.applicationContext)
-            .enqueueUniquePeriodicWork(
-                PERIODIC_DATA_WORK_NAME,
+            .enqueueUniqueWork(
+                DATA_WORK_NAME,
                 existingWorkPolicy,
                 request
             )
     }
-
-    fun getNextScheduleMillis(context: Context, workName: String): Long? =
-        runCatching {
-            WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(workName)
-                .get()
-                .firstOrNull { it.state == WorkInfo.State.ENQUEUED }
-                ?.nextScheduleTimeMillis
-        }.getOrNull()
-
-    fun getWorkerStatus(context: Context, workName: String): String? =
-        runCatching {
-            WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(workName)
-                .get()
-                .firstOrNull()
-                ?.state
-                ?.name
-                ?.lowercase()
-                ?.replaceFirstChar { it.uppercase() }
-        }.getOrNull()
 }

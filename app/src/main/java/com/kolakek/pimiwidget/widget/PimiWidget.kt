@@ -21,7 +21,6 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import timber.log.Timber
@@ -33,19 +32,12 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        Timber.d("onUpdate: Begin function")
-        WorkManagerHelper.enqueueOneTimeWidgetWork(context)
+        WidgetUpdater.updateWidgets(context)
     }
 
     override fun onDisabled(context: Context) {
         PreferencesHelper.setWeatherPreference(context, false)
         WorkManagerHelper.cancelDataWork(context)
-        WorkManagerHelper.cancelWidgetWork(context)
-    }
-
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-        WorkManagerHelper.enqueuePeriodicWidgetWork(context)
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -53,28 +45,8 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-
-            Intent.ACTION_BOOT_COMPLETED,
-            Intent.ACTION_LOCALE_CHANGED,
-
-            WidgetAction.APPWIDGET_UPDATE ->
-                WorkManagerHelper.enqueueOneTimeWidgetWork(context)
-
-            Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                handlePackageReplaced(context)
-            }
+            Intent.ACTION_LOCALE_CHANGED, WidgetAction.APPWIDGET_UPDATE ->
+                WidgetUpdater.updateWidgets(context)
         }
-    }
-
-    private fun handlePackageReplaced(context: Context) {
-        if (PreferencesHelper.getWeatherPreference(context)) {
-            WorkManagerHelper.enqueuePeriodicDataWork(
-                context,
-                ExistingPeriodicWorkPolicy.UPDATE
-            )
-        }
-        WorkManagerHelper.enqueuePeriodicWidgetWork(
-            context,
-            ExistingPeriodicWorkPolicy.UPDATE)
     }
 }
