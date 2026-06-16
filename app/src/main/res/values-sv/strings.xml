@@ -9,10 +9,11 @@
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
     <string name="config_debug_last_data_download">Senaste datahämtning</string>
-    <string name="config_debug_background_service">Bakgrundstjänst</string>
+    <string name="config_debug_data_service">Datatjänst</string>
     <string name="config_debug_button_weather">Visa väderfråga</string>
     <string name="config_debug_button_location">Visa plats</string>
     <string name="config_text_color">Textfärg</string>
+    <string name="config_debug_widget_service">Widgettjänst</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>

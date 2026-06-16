@@ -9,10 +9,11 @@
     <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
     <string name="config_debug_last_valid_location">Poslední platná poloha</string>
     <string name="config_debug_last_data_download">Poslední stažení dat</string>
-    <string name="config_debug_background_service">Služba na pozadí</string>
+    <string name="config_debug_data_service">Datová služba</string>
     <string name="config_debug_button_weather">Zobrazit dotaz na počasí</string>
     <string name="config_debug_button_location">Zobrazit polohu</string>
     <string name="config_text_color">Barva textu</string>
+    <string name="config_debug_widget_service">Widgetová služba</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Světlý</string>
     <string name="config_color_dark">Tmavý</string>

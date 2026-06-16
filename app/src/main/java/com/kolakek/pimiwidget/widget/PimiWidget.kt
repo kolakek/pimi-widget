@@ -19,7 +19,6 @@ package com.kolakek.pimiwidget.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -35,50 +34,47 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         Timber.d("onUpdate: Begin function")
-        WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
+        WorkManagerHelper.enqueueOneTimeWidgetWork(context)
     }
 
     override fun onDisabled(context: Context) {
-        Timber.d("onDisabled: Deactivate weather service, cancel workers")
-
         PreferencesHelper.setWeatherPreference(context, false)
-        WorkManagerHelper.cancelWorkers(context)
+        WorkManagerHelper.cancelDataWork(context)
+        WorkManagerHelper.cancelWidgetWork(context)
+    }
+
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+        WorkManagerHelper.enqueuePeriodicWidgetWork(context)
     }
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-
         Timber.d("onReceive: ${intent.action}")
 
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(context, PimiWidget::class.java)
-        )
         when (intent.action) {
 
             Intent.ACTION_BOOT_COMPLETED,
             Intent.ACTION_LOCALE_CHANGED,
 
             WidgetAction.APPWIDGET_UPDATE ->
-                WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
+                WorkManagerHelper.enqueueOneTimeWidgetWork(context)
 
             Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                handlePackageReplaced(context, appWidgetManager, appWidgetIds)
+                handlePackageReplaced(context)
             }
         }
     }
 
-    private fun handlePackageReplaced(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
-    ) {
+    private fun handlePackageReplaced(context: Context) {
         if (PreferencesHelper.getWeatherPreference(context)) {
-            WorkManagerHelper.enqueuePeriodicWorker(
+            WorkManagerHelper.enqueuePeriodicDataWork(
                 context,
                 ExistingPeriodicWorkPolicy.UPDATE
             )
         }
-        WidgetUpdater.updateWidgets(context, appWidgetManager, appWidgetIds)
+        WorkManagerHelper.enqueuePeriodicWidgetWork(
+            context,
+            ExistingPeriodicWorkPolicy.UPDATE)
     }
 }

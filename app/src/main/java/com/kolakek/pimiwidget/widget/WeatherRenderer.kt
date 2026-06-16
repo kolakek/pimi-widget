@@ -27,7 +27,6 @@ import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
-import timber.log.Timber
 import java.time.Instant
 import java.time.ZoneId
 
@@ -38,7 +37,6 @@ internal object WeatherRenderer {
         weather: WeatherData,
         prefs: WidgetPreferences
     ): TextWithTwoIcons? {
-
         val nowTimeMillis = System.currentTimeMillis()
 
         val currentWeatherInfo = getCurrentWeatherStrAndIcon(
@@ -84,8 +82,6 @@ internal object WeatherRenderer {
     ): TextWithOneIcon? {
         val timeIndex = getNextTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
 
-        Timber.d("getCurrentWeatherStrAndIcon: Time index $timeIndex")
-
         val weatherCode = weather.minutelyWeatherCode.getOrNull(timeIndex) ?: return null
         val tempCelsius = weather.minutelyTempCelsius.getOrNull(timeIndex) ?: return null
         val isDay = weather.minutelyIsDay.getOrNull(timeIndex) ?: return null
@@ -107,12 +103,7 @@ internal object WeatherRenderer {
         textStyle: TextStyle
     ): TextWithOneIcon? {
         val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
-
-        Timber.d("getWarningStrAndIcon: Time index $nextIndex")
-
         val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
-
-        Timber.d("getWarningStrAndIcon: Warning $warningCode, level ${warningCode.level}")
 
         if (warningCode == WarningCode.NO_WARNING)
             return null
@@ -130,7 +121,6 @@ internal object WeatherRenderer {
         val idx = timeMillis.indexOfFirst { it > nowTimeMillis }
 
         if (idx == -1) {
-            Timber.w("getNextTimeIndex: No data available at given time")
             return null
         }
         return idx
@@ -158,10 +148,7 @@ internal object WeatherRenderer {
         val idx = weather.dailyTimeMillis.indexOfFirst {
             Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
         }
-        Timber.d("getForecastStr: Target date $targetDate at index $idx")
-
         if (idx == -1) {
-            Timber.w("getForecastStr: No forecast data available")
             return null
         }
         val weatherCode = weather.dailyWeatherCode.getOrNull(idx) ?: return null

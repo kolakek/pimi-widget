@@ -9,10 +9,11 @@
     <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
     <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
     <string name="config_debug_last_data_download">Shkarkimi i fundit i të dhënave</string>
-    <string name="config_debug_background_service">Shërbimi në sfond</string>
+    <string name="config_debug_data_service">Shërbimi i të dhënave</string>
     <string name="config_debug_button_weather">Shiko kërkesën e motit</string>
     <string name="config_debug_button_location">Shiko vendndodhjen</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
+    <string name="config_debug_widget_service">Shërbimi i widget-it</string>
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>
