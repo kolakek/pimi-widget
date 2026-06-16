@@ -5,7 +5,7 @@
     <string name="config_weather_switch">Hava durumunu etkinleştir</string>
     <string name="config_weather_switch_summary">Open-Meteo.com\'dan hava durumu verileri</string>
     <string name="config_version_title">Yapı numarası</string>
-    <string name="config_debug_info">Veri durumu</string>
+    <string name="config_debug_info">Uygulama durumu</string>
     <string name="config_debug_weather_data_age">Hava durumu verisi yaşı</string>
     <string name="config_debug_last_valid_location">Son geçerli konum</string>
     <string name="config_debug_last_data_download">Son veri indirme</string>

@@ -5,7 +5,7 @@
     <string name="config_weather_switch">Wetter aktivieren</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>
     <string name="config_version_title">Build-Nummer</string>
-    <string name="config_debug_info">Datenstatus</string>
+    <string name="config_debug_info">App-Status</string>
     <string name="config_debug_weather_data_age">Wetterdatenalter</string>
     <string name="config_debug_last_valid_location">Letzter gültiger Standort</string>
     <string name="config_debug_last_data_download">Letzter Datenabruf</string>

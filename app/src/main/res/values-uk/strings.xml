@@ -5,7 +5,7 @@
     <string name="config_weather_switch">Увімкнути погоду</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
     <string name="config_version_title">Номер збірки</string>
-    <string name="config_debug_info">Стан даних</string>
+    <string name="config_debug_info">Стан застосунку</string>
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>
     <string name="config_debug_last_data_download">Останнє завантаження даних</string>
