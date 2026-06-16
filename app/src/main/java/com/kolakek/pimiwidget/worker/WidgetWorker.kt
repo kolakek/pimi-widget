@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.worker
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 import timber.log.Timber
 
@@ -30,7 +31,9 @@ class WidgetWorker(
 
     override suspend fun doWork(): Result {
         Timber.d("WidgetWorker: Trigger widget update")
-        WidgetUpdater.updateWidgets(applicationContext)
+        WidgetUpdater.updateWidgets(
+            applicationContext,
+            DataRepository.loadWeatherData(applicationContext))
         return Result.success()
     }
 }

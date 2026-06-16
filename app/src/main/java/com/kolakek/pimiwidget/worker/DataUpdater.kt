@@ -37,7 +37,7 @@ internal object DataUpdater {
 
         if (widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
             Timber.d("DataUpdater: Trigger widget update")
-            WidgetUpdater.updateWidgets(context)
+            WidgetUpdater.updateWidgets(context, DataRepository.loadWeatherData(context))
         }
     }
 

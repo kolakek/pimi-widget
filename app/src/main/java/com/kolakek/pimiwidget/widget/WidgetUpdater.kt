@@ -25,7 +25,6 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
@@ -34,16 +33,15 @@ import java.util.Locale
 
 internal object WidgetUpdater {
 
-    internal suspend fun updateWidgets(
-        context: Context
+    internal fun updateWidgets(
+        context: Context,
+        weatherData: WeatherData?
     ) {
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
         )
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val weatherData = if (prefs.showWeather) DataRepository.loadWeatherData(context) else null
-
         for (appWidgetId in appWidgetIds) {
 
             val views = RemoteViews(
