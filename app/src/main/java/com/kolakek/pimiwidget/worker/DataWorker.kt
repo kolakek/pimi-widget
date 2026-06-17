@@ -58,7 +58,9 @@ internal class DataWorker(
             when (e) {
                 is IOException,
                 is ServerResponseException,
-                is UnresolvedAddressException -> Result.retry()
+                is UnresolvedAddressException -> {
+                    if (runAttemptCount > MAX_NUM_RETRIES) Result.failure() else Result.retry()
+                }
 
                 else -> Result.failure()
             }

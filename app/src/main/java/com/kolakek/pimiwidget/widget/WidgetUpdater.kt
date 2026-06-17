@@ -26,9 +26,12 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
 import java.util.Date
 import java.util.Locale
@@ -43,7 +46,7 @@ internal object WidgetUpdater {
             ComponentName(context, PimiWidget::class.java)
         )
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val weatherData = runBlocking { // ToDo: Use coroutine
+        val weatherData = runBlocking {
             DataRepository.loadWeatherData(context)
         }
         for (appWidgetId in appWidgetIds) {
@@ -58,7 +61,12 @@ internal object WidgetUpdater {
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
 
-            // ToDo: Fetch new data
+            val dataTimeMillis = weatherData?.timeMillis ?: 0
+            val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
+
+            if (prefs.showWeather && dataAgeMillis > DATA_UPDATE_INTERVAL_MILLIS) {
+                WorkManagerHelper.enqueueDataWork(context)
+            }
         }
     }
 

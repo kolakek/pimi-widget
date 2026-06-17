@@ -17,11 +17,6 @@
 
 package com.kolakek.pimiwidget.settings
 
-import com.kolakek.pimiwidget.resources.IconStyle
-import com.kolakek.pimiwidget.widget.AuxDisplay
-import com.kolakek.pimiwidget.widget.TempUnit
-import com.kolakek.pimiwidget.widget.TextStyle
-
 internal data class WidgetPreferences (
     val showWeather: Boolean,
     val showDailyForecast: Boolean,

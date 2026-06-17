@@ -22,10 +22,6 @@ import android.app.WallpaperManager
 import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import com.kolakek.pimiwidget.resources.IconStyle
-import com.kolakek.pimiwidget.widget.AuxDisplay
-import com.kolakek.pimiwidget.widget.TempUnit
-import com.kolakek.pimiwidget.widget.TextStyle
 
 internal object PreferencesHelper {
 

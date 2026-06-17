@@ -19,11 +19,13 @@ package com.kolakek.pimiwidget.widget
 
 import android.content.Context
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.resources.IconStyle
+import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.settings.TempUnit
+import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData

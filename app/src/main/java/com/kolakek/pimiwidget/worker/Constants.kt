@@ -18,7 +18,8 @@
 package com.kolakek.pimiwidget.worker
 
 internal const val DATA_WORK_NAME = "data-work-kolakek-pimi-widget"
-internal const val BACKOFF_DELAY_MILLIS = 10 * 1000L
-internal const val WIDGET_DATA_MAX_AGE_MILLIS = 150 * 60 * 1000L
+internal const val BACKOFF_DELAY_MILLIS = 30 * 1000L
+internal const val MAX_NUM_RETRIES = 5
+internal const val WIDGET_DATA_MAX_AGE_MILLIS = 120 * 60 * 1000L
 internal const val STATUS_STRING_SUCCESS = "Success"
 internal const val STATUS_STRING_RUNNING = "Running"

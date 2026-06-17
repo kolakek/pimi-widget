@@ -45,7 +45,7 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-            Intent.ACTION_LOCALE_CHANGED, WidgetAction.APPWIDGET_UPDATE ->
+            Intent.ACTION_LOCALE_CHANGED, ACTION_APPWIDGET_UPDATE ->
                 WidgetUpdater.updateWidgets(context)
         }
     }

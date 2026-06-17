@@ -15,8 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.settings
 
-internal object WidgetAction {
-    const val APPWIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
+enum class TempUnit {
+    CELSIUS,
+    FAHRENHEIT
 }

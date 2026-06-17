@@ -19,7 +19,7 @@ package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.weather.WarningLevel
-import com.kolakek.pimiwidget.widget.TextStyle
+import com.kolakek.pimiwidget.settings.TextStyle
 
 object WarningIcon {
 

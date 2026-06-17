@@ -33,10 +33,7 @@ object WorkManagerHelper {
         workManager.cancelUniqueWork(DATA_WORK_NAME)
     }
 
-    fun enqueueDataWork(
-        context: Context,
-        existingWorkPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP // ToDo: Remove
-    ) {
+    fun enqueueDataWork(context: Context) {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
@@ -54,7 +51,7 @@ object WorkManagerHelper {
             .getInstance(context.applicationContext)
             .enqueueUniqueWork(
                 DATA_WORK_NAME,
-                existingWorkPolicy,
+                ExistingWorkPolicy.KEEP,
                 request
             )
     }

@@ -26,8 +26,8 @@ import androidx.annotation.RequiresPermission
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.widget.ACTION_APPWIDGET_UPDATE
 import com.kolakek.pimiwidget.widget.PimiWidget
-import com.kolakek.pimiwidget.widget.WidgetAction
 
 internal object DataUpdater {
 
@@ -62,8 +62,8 @@ internal object DataUpdater {
         val ids = AppWidgetManager.getInstance(context)
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
-        val intent = Intent(context, PimiWidget::class.java).apply { // ToDo: Use better intent
-            action = WidgetAction.APPWIDGET_UPDATE
+        val intent = Intent(context, PimiWidget::class.java).apply {
+            action = ACTION_APPWIDGET_UPDATE
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
         context.sendBroadcast(intent)
