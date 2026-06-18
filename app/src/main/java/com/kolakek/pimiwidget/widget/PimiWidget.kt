@@ -35,9 +35,15 @@ class PimiWidget : AppWidgetProvider() {
         WidgetUpdater.updateWidgets(context)
     }
 
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+        WorkManagerHelper.enqueuePeriodicWidgetWork(context)
+    }
+
     override fun onDisabled(context: Context) {
         PreferencesHelper.setWeatherPreference(context, false)
         WorkManagerHelper.cancelDataWork(context)
+        WorkManagerHelper.cancelPeriodicWidgetWork(context)
     }
 
     override fun onReceive(context: Context, intent: Intent) {

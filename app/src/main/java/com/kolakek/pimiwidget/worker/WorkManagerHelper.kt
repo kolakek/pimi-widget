@@ -20,9 +20,12 @@ package com.kolakek.pimiwidget.worker
 import android.content.Context
 import androidx.work.BackoffPolicy
 import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import java.util.concurrent.TimeUnit
 
@@ -55,4 +58,45 @@ object WorkManagerHelper {
                 request
             )
     }
+
+    fun cancelPeriodicWidgetWork(context: Context) {
+        val workManager = WorkManager.getInstance(context.applicationContext)
+        workManager.cancelUniqueWork(PERIODIC_WIDGET_WORK_NAME)
+    }
+
+    fun enqueuePeriodicWidgetWork(context: Context) {
+        val request = PeriodicWorkRequestBuilder<PimiWorker>(
+            WIDGET_UPDATE_INTERVAL_MILLIS,
+            TimeUnit.MILLISECONDS
+        ).build()
+
+        WorkManager
+            .getInstance(context.applicationContext)
+            .enqueueUniquePeriodicWork(
+                PERIODIC_WIDGET_WORK_NAME,
+                ExistingPeriodicWorkPolicy.KEEP,
+                request
+            )
+    }
+
+    fun getNextRunMillis(context: Context, workName: String): Long? =
+        runCatching {
+            WorkManager.getInstance(context.applicationContext)
+                .getWorkInfosForUniqueWork(workName)
+                .get()
+                .firstOrNull { it.state == WorkInfo.State.ENQUEUED }
+                ?.nextScheduleTimeMillis
+        }.getOrNull()
+
+    fun getStatus(context: Context, workName: String): String? =
+        runCatching {
+            WorkManager.getInstance(context.applicationContext)
+                .getWorkInfosForUniqueWork(workName)
+                .get()
+                .firstOrNull()
+                ?.state
+                ?.name
+                ?.lowercase()
+                ?.replaceFirstChar { it.uppercase() }
+        }.getOrNull()
 }

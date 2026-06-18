@@ -11,6 +11,7 @@
     <string name="config_debug_last_data_download">Último download de dados</string>
     <string name="config_debug_button_weather">Ver consulta de clima</string>
     <string name="config_debug_button_location">Ver localização</string>
+    <string name="config_debug_background_service">Serviço em segundo plano</string>
     <string name="config_text_color">Cor do texto</string>
     <string name="config_icon_style">Estilo de ícones</string>
     <string name="config_color_light">Claro</string>

@@ -11,6 +11,7 @@
     <string name="config_debug_last_data_download">Laatste data-download</string>
     <string name="config_debug_button_weather">Weerquery bekijken</string>
     <string name="config_debug_button_location">Locatie bekijken</string>
+    <string name="config_debug_background_service">Achtergrondservice</string>
     <string name="config_text_color">Tekstkleur</string>
     <string name="config_icon_style">Icoonstijl</string>
     <string name="config_color_light">Licht</string>

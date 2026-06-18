@@ -11,6 +11,7 @@
     <string name="config_debug_last_data_download">Ultima descărcare de date</string>
     <string name="config_debug_button_weather">Vezi interogarea meteo</string>
     <string name="config_debug_button_location">Vezi locația</string>
+    <string name="config_debug_background_service">Serviciu în fundal</string>
     <string name="config_text_color">Culoarea textului</string>
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>

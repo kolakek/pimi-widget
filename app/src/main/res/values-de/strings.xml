@@ -11,6 +11,7 @@
     <string name="config_debug_last_data_download">Letzter Datenabruf</string>
     <string name="config_debug_button_weather">Wetterabfrage anzeigen</string>
     <string name="config_debug_button_location">Standort anzeigen</string>
+    <string name="config_debug_background_service">Hintergrunddienst</string>
     <string name="config_text_color">Textfarbe</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
