@@ -23,11 +23,10 @@ import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import io.ktor.client.plugins.ServerResponseException
-import io.ktor.util.network.UnresolvedAddressException
-import kotlinx.io.IOException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
 internal class DataWorker(
     appContext: Context,
@@ -57,8 +56,7 @@ internal class DataWorker(
             }
             when (e) {
                 is IOException,
-                is ServerResponseException,
-                is UnresolvedAddressException -> {
+                is ServerResponseException -> {
                     if (runAttemptCount > MAX_NUM_RETRIES) Result.failure() else Result.retry()
                 }
 

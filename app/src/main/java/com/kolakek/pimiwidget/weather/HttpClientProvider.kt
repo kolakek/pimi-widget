@@ -18,24 +18,28 @@
 package com.kolakek.pimiwidget.weather
 
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 internal object HttpClientProvider {
 
-    val client: HttpClient by lazy {
-        HttpClient(CIO) {
-            expectSuccess = true
-            install(ContentNegotiation) {
-                json(
-                    Json {
-                        isLenient = true
-                        ignoreUnknownKeys = true
-                    }
-                )
-            }
+    val client = HttpClient(OkHttp) {
+        expectSuccess = true
+        install(HttpTimeout) {
+            requestTimeoutMillis = REQUEST_TIMEOUT_MS
+            connectTimeoutMillis = CONNECT_TIMEOUT_MS
+            socketTimeoutMillis = SOCKET_TIMEOUT_MS
+        }
+        install(ContentNegotiation) {
+            json(
+                Json {
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                }
+            )
         }
     }
 }

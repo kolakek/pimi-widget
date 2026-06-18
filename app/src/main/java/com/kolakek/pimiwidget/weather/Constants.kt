@@ -17,6 +17,10 @@
 
 package com.kolakek.pimiwidget.weather
 
+internal const val CONNECT_TIMEOUT_MS = 10 * 1000L
+internal const val REQUEST_TIMEOUT_MS = 30 * 1000L
+internal const val SOCKET_TIMEOUT_MS = 30 * 1000L
+
 internal const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
 
 internal const val LATITUDE_KEY = "latitude"
