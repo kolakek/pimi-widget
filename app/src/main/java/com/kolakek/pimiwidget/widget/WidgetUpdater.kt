@@ -47,9 +47,10 @@ internal object WidgetUpdater {
             ComponentName(context, PimiWidget::class.java)
         )
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val weatherData = runBlocking {
-            DataRepository.loadWeatherData(context)
-        }
+        val weatherData = if (prefs.showWeather) {
+            runBlocking { DataRepository.loadWeatherData(context) }
+        } else null
+
         for (appWidgetId in appWidgetIds) {
 
             val views = RemoteViews(
