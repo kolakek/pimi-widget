@@ -35,7 +35,7 @@ class WidgetConfigureActivity : FragmentActivity() {
     private fun finishWidgetConfigureActivity() {
         val context = this@WidgetConfigureActivity
 
-        WidgetUpdater.updateWidgets(context)
+        WidgetUpdater.updateWidgets(context, canEnqueueDataWork = false)
 
         val resultValue = Intent()
 

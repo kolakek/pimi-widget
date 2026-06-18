@@ -15,13 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.worker
+package com.kolakek.pimiwidget.widget
 
-internal const val PERIODIC_WIDGET_WORK_NAME = "periodic-update-kolakek-pimi-widget"
-internal const val DATA_WORK_NAME = "data-work-kolakek-pimi-widget"
-internal const val REFRESH_WIDGET_KEY = "refresh_widget"
-internal const val BACKOFF_DELAY_MILLIS = 30 * 1000L
-internal const val MAX_NUM_RETRIES = 5
-internal const val WIDGET_UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
-internal const val STATUS_STRING_SUCCESS = "Succeeded"
-internal const val STATUS_STRING_RUNNING = "Running"
+enum class WidgetUpdateStatus {
+    SUCCESS,
+    IVALID_DATA
+}

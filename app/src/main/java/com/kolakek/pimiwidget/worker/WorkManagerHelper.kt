@@ -27,6 +27,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import androidx.work.workDataOf
 import java.util.concurrent.TimeUnit
 
 object WorkManagerHelper {
@@ -36,12 +37,13 @@ object WorkManagerHelper {
         workManager.cancelUniqueWork(DATA_WORK_NAME)
     }
 
-    fun enqueueDataWork(context: Context) {
+    fun enqueueDataWork(context: Context, refreshWidget: Boolean) {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
         val request = OneTimeWorkRequestBuilder<DataWorker>()
+            .setInputData(workDataOf(REFRESH_WIDGET_KEY to refreshWidget))
             .setConstraints(constraints)
             .setBackoffCriteria(
                 BackoffPolicy.EXPONENTIAL,

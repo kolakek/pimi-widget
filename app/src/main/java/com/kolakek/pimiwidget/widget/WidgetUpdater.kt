@@ -39,7 +39,8 @@ import java.util.Locale
 internal object WidgetUpdater {
 
     internal fun updateWidgets(
-        context: Context
+        context: Context,
+        canEnqueueDataWork: Boolean
     ) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
@@ -56,7 +57,7 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId)
-            updateWeather(context, views, prefs, weatherData)
+            val status = updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -64,8 +65,13 @@ internal object WidgetUpdater {
             val dataTimeMillis = weatherData?.timeMillis ?: 0
             val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
 
-            if (prefs.showWeather && dataAgeMillis > DATA_UPDATE_INTERVAL_MILLIS) {
-                WorkManagerHelper.enqueueDataWork(context)
+            if (prefs.showWeather && canEnqueueDataWork) {
+                if (status == WidgetUpdateStatus.IVALID_DATA) {
+                    WorkManagerHelper.enqueueDataWork(context, refreshWidget = true)
+
+                } else if (dataAgeMillis > 0 * DATA_UPDATE_INTERVAL_MILLIS) {
+                    WorkManagerHelper.enqueueDataWork(context, refreshWidget = false)
+                }
             }
         }
     }
@@ -113,23 +119,25 @@ internal object WidgetUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ) {
+    ): WidgetUpdateStatus {
         views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
 
-        if (!prefs.showWeather || weatherData == null) return
+        if (!prefs.showWeather) return WidgetUpdateStatus.SUCCESS
+
+        if (weatherData == null) return WidgetUpdateStatus.IVALID_DATA
 
         val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
             context,
             weatherData,
             prefs
-        ) ?: return
+        ) ?: return WidgetUpdateStatus.IVALID_DATA
 
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
             setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
-        return
+        return WidgetUpdateStatus.SUCCESS
     }
 
     private fun updateAuxDisplay(

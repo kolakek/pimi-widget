@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-internal const val ACTION_APPWIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
+internal const val PIMI_ACTION_WIDGET_UPDATE = "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE"
 internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
 internal const val DATA_UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
 internal const val FORECAST_TODAY_HOUR_ON = 6

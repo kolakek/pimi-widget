@@ -37,7 +37,10 @@ internal class DataWorker(
     override suspend fun doWork(): Result {
         return try {
             DataUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
-            DataUpdater.update(applicationContext)
+
+            val refreshWidget = inputData.getBoolean(REFRESH_WIDGET_KEY, false)
+            DataUpdater.update(applicationContext, refreshWidget)
+
             DataUpdater.logUpdateStatus(applicationContext, STATUS_STRING_SUCCESS)
 
             Result.success()

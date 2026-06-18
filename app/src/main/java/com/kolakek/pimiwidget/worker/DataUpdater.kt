@@ -26,21 +26,17 @@ import androidx.annotation.RequiresPermission
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.ACTION_APPWIDGET_UPDATE
+import com.kolakek.pimiwidget.widget.PIMI_ACTION_WIDGET_UPDATE
 import com.kolakek.pimiwidget.widget.PimiWidget
 
 internal object DataUpdater {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context) {
+    internal suspend fun update(context: Context, refreshWidget: Boolean) {
         val location = LocationService.fetchLocation(context)
-        val widgetDataAgeMillis = getDataAgeMillis(context)
-
         WeatherService.fetchWeatherData(context, location)
 
-        if (widgetDataAgeMillis > WIDGET_DATA_MAX_AGE_MILLIS) {
-            triggerWidgetUpdate(context)
-        }
+        if (refreshWidget) triggerWidgetUpdate(context)
     }
 
     internal suspend fun logUpdateStatus(
@@ -53,17 +49,12 @@ internal object DataUpdater {
         )
     }
 
-    private suspend fun getDataAgeMillis(context: Context): Long {
-        val dataTimeMillis = DataRepository.loadWeatherData(context)?.timeMillis ?: 0
-        return System.currentTimeMillis() - dataTimeMillis
-    }
-
     private fun triggerWidgetUpdate(context: Context) {
         val ids = AppWidgetManager.getInstance(context)
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
         val intent = Intent(context, PimiWidget::class.java).apply {
-            action = ACTION_APPWIDGET_UPDATE
+            action = PIMI_ACTION_WIDGET_UPDATE
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
         context.sendBroadcast(intent)
