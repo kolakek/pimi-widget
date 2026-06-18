@@ -100,7 +100,7 @@ object WorkManagerHelper {
                 ?.name
                 ?.lowercase()
                 ?.replaceFirstChar { it.uppercase() }
-        }.getOrNull().let {
+        }.getOrNull()?.let {
             when (workName) {
                 DATA_WORK_NAME -> STATUS_STRING_DATA_UPDATE + it
                 PERIODIC_WIDGET_WORK_NAME -> STATUS_STRING_WIDGET_UPDATE + it
