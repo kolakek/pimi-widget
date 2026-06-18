@@ -25,3 +25,5 @@ internal const val MAX_NUM_RETRIES = 5
 internal const val WIDGET_UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
 internal const val STATUS_STRING_SUCCESS = "Succeeded"
 internal const val STATUS_STRING_RUNNING = "Running"
+internal const val STATUS_STRING_DATA_UPDATE = "DataUpdate"
+internal const val STATUS_STRING_WIDGET_UPDATE = "WidgetUpdate"
