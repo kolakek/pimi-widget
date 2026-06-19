@@ -24,6 +24,7 @@ import android.content.Intent
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
+import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.AuxDisplay
@@ -40,7 +41,7 @@ internal object WidgetUpdater {
 
     internal fun updateWidgets(
         context: Context,
-        canEnqueueDataWork: Boolean
+        canEnqueueDataWork: Boolean = false
     ) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
@@ -68,10 +69,13 @@ internal object WidgetUpdater {
 
             if (prefs.showWeather && canEnqueueDataWork) {
                 if (status == WidgetUpdateStatus.IVALID_DATA) {
-                    WorkManagerHelper.enqueueDataWork(context, refreshWidget = true)
-
-                } else if (dataAgeMillis > 0 * DATA_UPDATE_INTERVAL_MILLIS) {
-                    WorkManagerHelper.enqueueDataWork(context, refreshWidget = false)
+                    WorkManagerHelper.enqueueDataWork(
+                        context,
+                        refreshWidget = true,
+                        existingWorkPolicy = ExistingWorkPolicy.REPLACE
+                    )
+                } else if (dataAgeMillis > DATA_UPDATE_INTERVAL_MILLIS) {
+                    WorkManagerHelper.enqueueDataWork(context)
                 }
             }
         }

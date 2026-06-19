@@ -135,7 +135,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             )
             return false
         }
-        WorkManagerHelper.enqueueDataWork(context, refreshWidget = false)
+        WorkManagerHelper.enqueueDataWork(context)
         weatherSwitch?.isChecked = true
 
         return true

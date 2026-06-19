@@ -23,6 +23,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.kolakek.pimiwidget.widget.PimiAction
 import com.kolakek.pimiwidget.widget.PimiWidget
 import kotlinx.coroutines.CancellationException
 
@@ -47,7 +48,7 @@ internal class PimiWorker(
             .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
 
         val intent = Intent(context, PimiWidget::class.java).apply {
-            action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            action = PimiAction.PERIODIC_WIDGET_REFRESH
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
         }
         context.sendBroadcast(intent)

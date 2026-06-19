@@ -32,7 +32,7 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        WidgetUpdater.updateWidgets(context, canEnqueueDataWork = true)
+        WidgetUpdater.updateWidgets(context)
     }
 
     override fun onEnabled(context: Context) {
@@ -51,8 +51,11 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-            Intent.ACTION_LOCALE_CHANGED, PIMI_ACTION_WIDGET_UPDATE ->
-                WidgetUpdater.updateWidgets(context, canEnqueueDataWork = false)
+            Intent.ACTION_LOCALE_CHANGED, PimiAction.DATA_UPDATED ->
+                WidgetUpdater.updateWidgets(context)
+
+            PimiAction.PERIODIC_WIDGET_REFRESH ->
+                WidgetUpdater.updateWidgets(context, canEnqueueDataWork = true)
         }
     }
 }
