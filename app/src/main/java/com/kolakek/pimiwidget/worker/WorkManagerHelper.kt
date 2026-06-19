@@ -40,7 +40,7 @@ object WorkManagerHelper {
     fun enqueueDataWork(
         context: Context,
         refreshWidget: Boolean = false,
-        existingWorkPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
+        workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
     ) {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -60,7 +60,7 @@ object WorkManagerHelper {
             .getInstance(context.applicationContext)
             .enqueueUniqueWork(
                 DATA_WORK_NAME,
-                existingWorkPolicy,
+                workPolicy,
                 request
             )
     }
@@ -70,7 +70,10 @@ object WorkManagerHelper {
         workManager.cancelUniqueWork(PERIODIC_WIDGET_WORK_NAME)
     }
 
-    fun enqueuePeriodicWidgetWork(context: Context) {
+    fun enqueuePeriodicWidgetWork(
+        context: Context,
+        workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
+    ) {
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
             WIDGET_UPDATE_INTERVAL_MILLIS,
             TimeUnit.MILLISECONDS
@@ -80,7 +83,7 @@ object WorkManagerHelper {
             .getInstance(context.applicationContext)
             .enqueueUniquePeriodicWork(
                 PERIODIC_WIDGET_WORK_NAME,
-                ExistingPeriodicWorkPolicy.KEEP,
+                workPolicy,
                 request
             )
     }

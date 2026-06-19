@@ -21,6 +21,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import timber.log.Timber
@@ -53,6 +54,14 @@ class PimiWidget : AppWidgetProvider() {
         when (intent.action) {
             Intent.ACTION_LOCALE_CHANGED, PimiAction.DATA_UPDATED ->
                 WidgetUpdater.updateWidgets(context)
+
+            Intent.ACTION_MY_PACKAGE_REPLACED -> {
+                WorkManagerHelper.cancelDataWork(context)
+                WorkManagerHelper.enqueuePeriodicWidgetWork(
+                    context,
+                    ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+                )
+            }
 
             PimiAction.PERIODIC_WIDGET_REFRESH ->
                 WidgetUpdater.updateWidgets(context, canEnqueueDataWork = true)

@@ -72,7 +72,7 @@ internal object WidgetUpdater {
                     WorkManagerHelper.enqueueDataWork(
                         context,
                         refreshWidget = true,
-                        existingWorkPolicy = ExistingWorkPolicy.REPLACE
+                        workPolicy = ExistingWorkPolicy.REPLACE
                     )
                 } else if (dataAgeMillis > DATA_UPDATE_INTERVAL_MILLIS) {
                     WorkManagerHelper.enqueueDataWork(context)
