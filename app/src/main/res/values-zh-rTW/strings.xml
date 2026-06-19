@@ -1,1 +1,205 @@
+<resources>
 
+    <!-- Short description of the widget shown in the widget drawer -->
+    <string name="widget_label">日期與天氣</string>
+
+    <!-- Title of the button for updating the widget from the config screen -->
+    <string name="config_button">套用設定</string>
+
+    <!-- Short privacy note to be displayed above the weatehr switch -->
+    <string name="config_privacy_note">啟用天氣功能將會分享您的位置資訊至服務提供者</string>
+
+    <!-- Short description of the weather switch used in config screen -->
+    <string name="config_weather_switch">啟用天氣</string>
+
+    <!-- Additional information for the weather switch in config screen -->
+    <string name="config_weather_descr">由 Open-Meteo.com 提供天氣資料</string>
+
+    <!-- Title for the debug config option -->
+    <string name="config_debug_data">偵錯資訊</string>
+
+    <!-- Short description of the debug config option -->
+    <string name="config_debug_data_descr">檢視小工具資訊</string>
+
+    <!-- Title for the config option to adjust the widget text colors -->
+    <string name="config_text_color">文字色彩</string>
+
+    <!-- Title for the config option to adjust the widget icon style -->
+    <string name="config_icon_style">圖示主題</string>
+
+    <!-- Config option for selecting light colors -->
+    <string name="config_color_light">淺色</string>
+
+    <!-- Config option for selecting dark colors -->
+    <string name="config_color_dark">深色</string>
+
+    <!-- Config option for selecting colors automatically based on wallpaper -->
+    <string name="config_color_auto">自動</string>
+
+    <!-- Title of the config option for selecting the temperature unit -->
+    <string name="config_temp">溫度</string>
+
+    <!-- Celsius temperature unit -->
+    <string name="config_temp_celsius">攝氏</string>
+
+    <!-- Fahrenheit temperature unit -->
+    <string name="config_temp_fahrenheit">華氏</string>
+
+    <!-- Section title in the config screen for widget settings -->
+    <string name="config_settings_sec">設定</string>
+
+    <!-- Section title in the config screen for additional information -->
+    <string name="config_about_sec">關於</string>
+
+    <!-- Title of the option to show a daily forecast -->
+    <string name="config_daily_forecast">顯示每日預報</string>
+
+    <!-- String explaining when the forecast is shown -->
+    <string name="config_daily_forecast_descr">每天早晨和入夜時</string>
+
+    <!-- Title of the alert box for explaining that location access is needed -->
+    <string name="config_loc_perm_alert_title">需要位置資訊權限</string>
+
+    <!-- Explanation show in the alert box explaining why location access is needed -->
+    <string name="config_loc_perm_alert">應用程式需要存取位置資訊，才能顯示您所在地區的天氣。</string>
+
+    <!-- Title of the alert box for explaining that background location access is needed -->
+    <string name="config_bg_perm_alert_title">背景位置存取權限</string>
+
+    <!-- Explanation shown in the alert box explaining why background location access is needed -->
+    <string name="config_bg_perm_alert">需要背景存取您的位置以顯示準確天氣。\n請在下個畫面中輕觸「%s」。</string>
+
+    <!-- Text of the alert box OK button -->
+    <string name="config_alert_button_ok">確定</string>
+
+    <!-- Text of the alert box cancel button -->
+    <string name="config_alert_button_cancel">取消</string>
+
+    <!-- Title of the alert box for showing data debug information -->
+    <string name="config_alert_debug_title">下載最新資料</string>
+
+    <!-- String for the widget background worker, 1 word -->
+    <string name="config_alert_debug_worker">工作者</string>
+
+    <!-- String for the location data, 1 word -->
+    <string name="config_alert_debug_location">位置</string>
+
+    <!-- String for the weather data, 1 word -->
+    <string name="config_alert_debug_weather">天氣</string>
+
+    <!-- String for showing when the last refresh took place -->
+    <string name="config_alert_debug_last_update">%s前</string>
+
+    <!-- String for the close button of an alert box -->
+    <string name="config_alert_button_close">關閉</string>
+
+    <!-- String for the button of an alert box to force an update -->
+    <string name="config_alert_button_update">強制更新</string>
+
+    <!-- String for the title of a config option to show the shared data -->
+    <string name="config_shared_data">資料透明化</string>
+
+    <!-- String for the description of the config option to show the shared data -->
+    <string name="config_shared_data_descr">檢視與天氣提供者交換的資料</string>
+
+    <!-- String for the alert text in case no location data is available -->
+    <string name="config_shared_data_alert_no_loc">沒有可用的位置資料</string>
+
+    <!-- String for the alert text in case location data is available -->
+    <string name="config_shared_data_alert_text">您可透過瀏覽器檢視上次取得的位置資訊或天氣 API 請求狀態。\n這將會向服務提供者分享您的位置 (Open-Meteo、OpenStreetMap)。</string>
+
+    <!-- String for the button of an alert box to show weather (data) -->
+    <string name="config_shared_data_alert_but_weather">天氣</string>
+
+    <!-- String for the button of an alert box to show location (data) -->
+    <string name="config_shared_data_alert_but_location">位置</string>
+
+    <!-- String for preference title that links to source code location -->
+    <string name="config_source_code">原始碼</string>
+
+    <!-- String for describing the link to source code location -->
+    <string name="config_source_code_descr">在 GitHub 查看原始碼和文件</string>
+
+    <!-- Plurals definition for days -->
+    <plurals name="days">
+        <item quantity="one">1 天</item>
+        <item quantity="other">%d 天</item>
+    </plurals>
+
+    <!-- Plurals definition for hours -->
+    <plurals name="hours">
+        <item quantity="one">1 小時</item>
+        <item quantity="other">%d 小時</item>
+    </plurals>
+
+    <!-- Plurals definition for minutes -->
+    <plurals name="minutes">
+        <item quantity="one">1 分鐘</item>
+        <item quantity="other">%d 分鐘</item>
+    </plurals>
+
+    <!-- Strings visible on widget -->
+
+    <!-- Example temperature value for widget preview -->
+    <string name="widget_date_prev">7月4日 週日</string>
+
+    <!-- Example temperature including unit for widget preview -->
+    <string name="widget_temp_prev">71\u2109 · 明天 67\u00B0 / 52\u00B0 · 小雨</string>
+
+    <!-- Default date format for current language -->
+    <string name="widget_date_format">EEE, MMM d</string>
+
+    <!-- Strings defining weather conditions -->
+    <string name="heavy_thunderstorms">大雷雨</string>
+    <string name="thunderstorm">雷雨</string>
+    <string name="freezing_rain">凍雨</string>
+    <string name="light_freezing_rain">小凍雨</string>
+    <string name="freezing_drizzle">凍毛雨</string>
+    <string name="heavy_rain_showers">大陣雨</string>
+    <string name="rain_showers">陣雨</string>
+    <string name="light_rain_showers">小陣雨</string>
+    <string name="heavy_snow_showers">大陣雪</string>
+    <string name="light_snow_showers">小陣雪</string>
+    <string name="heavy_rain">大雨</string>
+    <string name="rain">降雨</string>
+    <string name="light_rain">小雨</string>
+    <string name="drizzle">毛毛雨</string>
+    <string name="heavy_snow">大雪</string>
+    <string name="snow">降雪</string>
+    <string name="light_snow">小雪</string>
+    <string name="snow_grains">雪粒</string>
+    <string name="fog">有霧</string>
+    <string name="overcast">陰天</string>
+    <string name="mostly_cloudy">多雲時陰</string>
+    <string name="partly_cloudy_day">多雲時晴</string>
+    <string name="partly_cloudy_night">多雲時陰</string>
+    <string name="mainly_clear_day">晴時多雲</string>
+    <string name="mainly_clear_night">晴朗少雲</string>
+    <string name="clear_sky_day">晴朗</string>
+    <string name="clear_sky_night">晴朗無雲</string>
+
+    <!-- String saying today -->
+    <string name="today">今天</string>
+
+    <!-- String saying tomorrow -->
+    <string name="tomorrow">明天</string>
+
+    <!-- Non-translatable -->
+
+    <string name="app_name" translatable="false">Pimi Widget</string>
+
+    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
+    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
+
+    <string name="config_alert_debug_na" translatable="false">N/A</string>
+    <string name="config_alert_debug_success" translatable="false">SUCCESS</string>
+    <string name="config_alert_debug_failed" translatable="false">FAILED</string>
+    <string name="config_alert_debug_running" translatable="false">RUNNING</string>
+
+    <string name="celsius" translatable="false">\u2103</string>
+    <string name="fahrenheit" translatable="false">\u2109</string>
+    <string name="degree" translatable="false">\u00B0</string>
+
+    <string name="forecast_line" translatable="false">\u00A0· %1$s %3$s / %4$s · %2$s</string>
+
+</resources>
