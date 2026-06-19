@@ -184,22 +184,4 @@
     <!-- String saying tomorrow -->
     <string name="tomorrow">明天</string>
 
-    <!-- Non-translatable -->
-
-    <string name="app_name" translatable="false">Pimi Widget</string>
-
-    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
-    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
-
-    <string name="config_alert_debug_na" translatable="false">N/A</string>
-    <string name="config_alert_debug_success" translatable="false">SUCCESS</string>
-    <string name="config_alert_debug_failed" translatable="false">FAILED</string>
-    <string name="config_alert_debug_running" translatable="false">RUNNING</string>
-
-    <string name="celsius" translatable="false">\u2103</string>
-    <string name="fahrenheit" translatable="false">\u2109</string>
-    <string name="degree" translatable="false">\u00B0</string>
-
-    <string name="forecast_line" translatable="false">\u00A0· %1$s %3$s / %4$s · %2$s</string>
-
 </resources>
