@@ -75,7 +75,7 @@ object WorkManagerHelper {
         workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
     ) {
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
-            WIDGET_UPDATE_INTERVAL_MILLIS,
+            WIDGET_REFRESH_INTERVAL_MILLIS,
             TimeUnit.MILLISECONDS
         ).build()
 
