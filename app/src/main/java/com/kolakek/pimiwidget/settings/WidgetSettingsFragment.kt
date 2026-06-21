@@ -64,8 +64,9 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (weatherSwitch?.isChecked == true &&
             hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
-            weatherSwitch.isChecked = false
             WorkManagerHelper.cancelWork(context)
+            deleteAllData(context)
+            weatherSwitch.isChecked = false
         }
         debugField?.setOnPreferenceClickListener {
             if (debugCount == 2)
@@ -108,6 +109,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         if (!flag) {
             WorkManagerHelper.cancelWork(context)
+            deleteAllData(context)
             weatherSwitch?.isChecked = false
 
             return true
@@ -206,7 +208,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             } ?: workStatusStr
 
             dialog.setMessage(
-                createDebugMessage(dataAgeStr, workStr, statusStr, locationStr)
+                createDebugMessage(workStr, statusStr, locationStr, dataAgeStr)
             )
             locationData?.let {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
@@ -268,10 +270,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         s2: String,
         s3: String,
         s4: String
-    ): String = "\n${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
-            "${getString(R.string.config_debug_background_service)}\n$s2\n\n" +
-            "${getString(R.string.config_debug_last_work_status)}\n$s3\n\n" +
-            "${getString(R.string.config_debug_last_valid_location)}\n$s4"
+    ): String = "\n${getString(R.string.config_debug_background_service)}\n$s1\n\n" +
+            "${getString(R.string.config_debug_last_work_status)}\n$s2\n\n" +
+            "${getString(R.string.config_debug_last_valid_location)}\n$s3\n\n" +
+            "${getString(R.string.config_debug_weather_data_age)}\n$s4"
 
     private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()
@@ -281,6 +283,12 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             ageMins < 120 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
+        }
+    }
+
+    private fun deleteAllData(context: Context) {
+        lifecycleScope.launch {
+            DataRepository.deleteAllData(context)
         }
     }
 }

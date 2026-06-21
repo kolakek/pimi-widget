@@ -24,6 +24,14 @@ import com.kolakek.pimiwidget.worker.StatusData
 
 object DataRepository {
 
+    suspend fun deleteAllData(
+        context: Context
+    ) {
+        JsonDataStore.delete(context, DataKeys.WEATHER_DATA_KEY)
+        JsonDataStore.delete(context, DataKeys.LOCATION_DATA_KEY)
+        JsonDataStore.delete(context, DataKeys.STATUS_DATA_KEY)
+    }
+
     suspend fun storeWeatherData(
         context: Context,
         weatherData: WeatherData

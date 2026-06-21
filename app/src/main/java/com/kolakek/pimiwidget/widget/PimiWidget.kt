@@ -21,8 +21,10 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
 class PimiWidget : AppWidgetProvider() {
@@ -38,6 +40,7 @@ class PimiWidget : AppWidgetProvider() {
     override fun onDisabled(context: Context) {
         PreferencesHelper.setWeatherPreference(context, false)
         WorkManagerHelper.cancelWork(context)
+        runBlocking { DataRepository.deleteAllData(context) }
     }
 
     override fun onReceive(context: Context, intent: Intent) {

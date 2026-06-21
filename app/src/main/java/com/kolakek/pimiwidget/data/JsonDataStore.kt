@@ -50,6 +50,15 @@ internal object JsonDataStore {
         )
     }
 
+    suspend fun delete(
+        context: Context,
+        key: Preferences.Key<String>
+    ) {
+        context.dataStore.edit { prefs ->
+            prefs.remove(key)
+        }
+    }
+
     inline fun <reified T> decodeFromPrefs(
         prefs: Preferences,
         key: Preferences.Key<String>
