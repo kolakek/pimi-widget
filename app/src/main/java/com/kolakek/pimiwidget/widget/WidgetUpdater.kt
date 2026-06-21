@@ -24,7 +24,6 @@ import android.content.Intent
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
-import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.AuxDisplay
@@ -32,17 +31,16 @@ import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
-import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
+import timber.log.Timber
 import java.util.Date
 import java.util.Locale
 
 internal object WidgetUpdater {
 
-    internal fun updateWidgets(
-        context: Context,
-        canEnqueueDataWork: Boolean = false
-    ) {
+    internal fun updateWidgets(context: Context) {
+        Timber.d("WidgetUpdater: updateWidgets")
+
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
@@ -59,26 +57,40 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId)
-            val status = updateWeather(context, views, prefs, weatherData)
+            updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
-
-            val dataTimeMillis = weatherData?.timeMillis ?: 0
-            val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
-
-            if (prefs.showWeather && canEnqueueDataWork) {
-                if (status == WidgetUpdateStatus.IVALID_DATA) {
-                    WorkManagerHelper.enqueueDataWork(
-                        context,
-                        refreshWidget = true,
-                        workPolicy = ExistingWorkPolicy.REPLACE
-                    )
-                } else if (dataAgeMillis > DATA_UPDATE_INTERVAL_MILLIS) {
-                    WorkManagerHelper.enqueueDataWork(context)
-                }
-            }
         }
+    }
+
+    internal fun partiallyUpdateWidgets(
+        context: Context,
+        prefs: WidgetPreferences,
+        weatherData: WeatherData?
+    ): WidgetUpdateStatus {
+        Timber.d("WidgetUpdater: partiallyUpdateWidgets")
+
+        var status = WidgetUpdateStatus.SUCCESS
+
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            ComponentName(context, PimiWidget::class.java)
+        )
+        for (appWidgetId in appWidgetIds) {
+
+            val views = RemoteViews(
+                context.packageName,
+                getWidgetLayout(prefs.textStyle)
+            )
+            val lastStatus = updateWeather(context, views, prefs, weatherData)
+            updateAuxDisplay(context, views, prefs)
+
+            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+
+            if (lastStatus == WidgetUpdateStatus.INVALID_DATA) status = lastStatus
+        }
+        return status
     }
 
     private fun getWidgetLayout(textStyle: TextStyle): Int {
@@ -129,13 +141,13 @@ internal object WidgetUpdater {
 
         if (!prefs.showWeather) return WidgetUpdateStatus.SUCCESS
 
-        if (weatherData == null) return WidgetUpdateStatus.IVALID_DATA
+        if (weatherData == null) return WidgetUpdateStatus.INVALID_DATA
 
         val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
             context,
             weatherData,
             prefs
-        ) ?: return WidgetUpdateStatus.IVALID_DATA
+        ) ?: return WidgetUpdateStatus.INVALID_DATA
 
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
@@ -152,6 +164,8 @@ internal object WidgetUpdater {
     ) {
         views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
 
+        if (!prefs.showWeather) return
+
         val auxStr = when (prefs.auxDisplay) {
 
             AuxDisplay.NOTHING ->
@@ -165,7 +179,5 @@ internal object WidgetUpdater {
             context.getString(R.string.widget_updated_at) + " $auxStr"
         )
         views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
-
-        return
     }
 }

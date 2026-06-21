@@ -8,7 +8,7 @@
     <string name="config_debug_info">Стан застосунку</string>
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>
-    <string name="config_debug_last_data_download">Останнє завантаження даних</string>
+    <string name="config_debug_last_work_status">Статус останнього виконання</string>
     <string name="config_debug_button_weather">Запит погоди</string>
     <string name="config_debug_button_location">Переглянути локацію</string>
     <string name="config_debug_background_service">Фоновий сервіс</string>

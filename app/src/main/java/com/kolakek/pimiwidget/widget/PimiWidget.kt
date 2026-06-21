@@ -21,7 +21,6 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import timber.log.Timber
@@ -36,15 +35,9 @@ class PimiWidget : AppWidgetProvider() {
         WidgetUpdater.updateWidgets(context)
     }
 
-    override fun onEnabled(context: Context) {
-        super.onEnabled(context)
-        WorkManagerHelper.enqueuePeriodicWidgetWork(context)
-    }
-
     override fun onDisabled(context: Context) {
         PreferencesHelper.setWeatherPreference(context, false)
-        WorkManagerHelper.cancelDataWork(context)
-        WorkManagerHelper.cancelPeriodicWidgetWork(context)
+        WorkManagerHelper.cancelWork(context)
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -52,19 +45,15 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-            Intent.ACTION_LOCALE_CHANGED, PimiAction.DATA_UPDATED ->
+            Intent.ACTION_LOCALE_CHANGED ->
                 WidgetUpdater.updateWidgets(context)
 
             Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                WorkManagerHelper.cancelDataWork(context)
-                WorkManagerHelper.enqueuePeriodicWidgetWork(
-                    context,
-                    ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
-                )
+                WorkManagerHelper.cancelWork(context)
+                if (PreferencesHelper.getWeatherPreference(context)) {
+                    WorkManagerHelper.enqueueWork(context)
+                }
             }
-
-            PimiAction.PERIODIC_WIDGET_REFRESH ->
-                WidgetUpdater.updateWidgets(context, canEnqueueDataWork = true)
         }
     }
 }

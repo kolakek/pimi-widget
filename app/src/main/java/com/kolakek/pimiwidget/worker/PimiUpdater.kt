@@ -18,25 +18,41 @@
 package com.kolakek.pimiwidget.worker
 
 import android.Manifest
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
 import androidx.annotation.RequiresPermission
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
+import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.PimiAction
-import com.kolakek.pimiwidget.widget.PimiWidget
+import com.kolakek.pimiwidget.widget.DATA_UPDATE_INTERVAL_MILLIS
+import com.kolakek.pimiwidget.widget.WidgetUpdateStatus
+import com.kolakek.pimiwidget.widget.WidgetUpdater
 
-internal object DataUpdater {
+internal object PimiUpdater {
 
-    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    internal suspend fun update(context: Context, refreshWidget: Boolean) {
+    @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+    internal suspend fun update(context: Context) {
+
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+
+        val weatherData = if (prefs.showWeather) {
+            DataRepository.loadWeatherData(context)
+        } else null
+
+        val status = WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
+
+        if (!prefs.showWeather) return
+
+        val dataTimeMillis = weatherData?.timeMillis ?: 0
+        val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
+
+        val isDataFresh = dataAgeMillis < DATA_UPDATE_INTERVAL_MILLIS
+        val isDataValid = status == WidgetUpdateStatus.SUCCESS
+
+        if (isDataValid && isDataFresh) return
+
         val location = LocationService.fetchLocation(context)
         WeatherService.fetchWeatherData(context, location)
-
-        if (refreshWidget) triggerWidgetUpdate(context)
     }
 
     internal suspend fun logUpdateStatus(
@@ -47,16 +63,5 @@ internal object DataUpdater {
             context,
             StatusData(updateStatus, System.currentTimeMillis())
         )
-    }
-
-    private fun triggerWidgetUpdate(context: Context) {
-        val ids = AppWidgetManager.getInstance(context)
-            .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
-
-        val intent = Intent(context, PimiWidget::class.java).apply {
-            action = PimiAction.DATA_UPDATED
-            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-        }
-        context.sendBroadcast(intent)
     }
 }

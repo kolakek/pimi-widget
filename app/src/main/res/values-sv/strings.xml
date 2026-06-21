@@ -8,7 +8,7 @@
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
-    <string name="config_debug_last_data_download">Senaste datahämtning</string>
+    <string name="config_debug_last_work_status">Status för nästa arbete</string>
     <string name="config_debug_button_weather">Visa väderfråga</string>
     <string name="config_debug_button_location">Visa plats</string>
     <string name="config_debug_background_service">Bakgrundstjänst</string>

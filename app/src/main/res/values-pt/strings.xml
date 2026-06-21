@@ -8,7 +8,7 @@
     <string name="config_debug_info">Status do app</string>
     <string name="config_debug_weather_data_age">Idade dos dados de clima</string>
     <string name="config_debug_last_valid_location">Última localização válida</string>
-    <string name="config_debug_last_data_download">Último download de dados</string>
+    <string name="config_debug_last_work_status">Status da última execução</string>
     <string name="config_debug_button_weather">Ver consulta de clima</string>
     <string name="config_debug_button_location">Ver localização</string>
     <string name="config_debug_background_service">Serviço em segundo plano</string>

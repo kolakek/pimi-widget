@@ -8,7 +8,7 @@
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Alder på vejrdata</string>
     <string name="config_debug_last_valid_location">Seneste gyldige placering</string>
-    <string name="config_debug_last_data_download">Seneste datahentning</string>
+    <string name="config_debug_last_work_status">Seneste arbejdsstatus</string>
     <string name="config_debug_button_weather">Se vejrforspørgsel</string>
     <string name="config_debug_button_location">Se placering</string>
     <string name="config_debug_background_service">Baggrundstjeneste</string>

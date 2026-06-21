@@ -18,62 +18,26 @@
 package com.kolakek.pimiwidget.worker
 
 import android.content.Context
-import androidx.work.BackoffPolicy
-import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.ExistingWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import androidx.work.workDataOf
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 object WorkManagerHelper {
 
-    fun cancelDataWork(context: Context) {
+    fun cancelWork(context: Context) {
+        Timber.d("WorkManagerHelper: cancelWork")
         val workManager = WorkManager.getInstance(context.applicationContext)
-        workManager.cancelUniqueWork(DATA_WORK_NAME)
+        workManager.cancelUniqueWork(WORK_NAME)
     }
 
-    fun enqueueDataWork(
-        context: Context,
-        refreshWidget: Boolean = false,
-        workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
-    ) {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        val request = OneTimeWorkRequestBuilder<DataWorker>()
-            .setInputData(workDataOf(REFRESH_WIDGET_KEY to refreshWidget))
-            .setConstraints(constraints)
-            .setBackoffCriteria(
-                BackoffPolicy.EXPONENTIAL,
-                BACKOFF_DELAY_MILLIS,
-                TimeUnit.MILLISECONDS
-            )
-            .build()
-
-        WorkManager
-            .getInstance(context.applicationContext)
-            .enqueueUniqueWork(
-                DATA_WORK_NAME,
-                workPolicy,
-                request
-            )
-    }
-
-    fun cancelPeriodicWidgetWork(context: Context) {
-        val workManager = WorkManager.getInstance(context.applicationContext)
-        workManager.cancelUniqueWork(PERIODIC_WIDGET_WORK_NAME)
-    }
-
-    fun enqueuePeriodicWidgetWork(
+    fun enqueueWork(
         context: Context,
         workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
     ) {
+        Timber.d("WorkManagerHelper: enqueueWork")
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
             WIDGET_REFRESH_INTERVAL_MILLIS,
             TimeUnit.MILLISECONDS
@@ -82,36 +46,30 @@ object WorkManagerHelper {
         WorkManager
             .getInstance(context.applicationContext)
             .enqueueUniquePeriodicWork(
-                PERIODIC_WIDGET_WORK_NAME,
+                WORK_NAME,
                 workPolicy,
                 request
             )
     }
 
-    fun getNextRunMillis(context: Context, workName: String): Long? =
+    fun getNextRunMillis(context: Context): Long? =
         runCatching {
             WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(workName)
+                .getWorkInfosForUniqueWork(WORK_NAME)
                 .get()
                 .firstOrNull { it.state == WorkInfo.State.ENQUEUED }
                 ?.nextScheduleTimeMillis
         }.getOrNull()
 
-    fun getStatus(context: Context, workName: String): String? =
+    fun getStatus(context: Context): String? =
         runCatching {
             WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(workName)
+                .getWorkInfosForUniqueWork(WORK_NAME)
                 .get()
                 .firstOrNull()
                 ?.state
                 ?.name
                 ?.lowercase()
                 ?.replaceFirstChar { it.uppercase() }
-        }.getOrNull()?.let {
-            when (workName) {
-                DATA_WORK_NAME -> STATUS_STRING_DATA_UPDATE + it
-                PERIODIC_WIDGET_WORK_NAME -> STATUS_STRING_WIDGET_UPDATE + it
-                else -> it
-            }
-        }
+        }.getOrNull()
 }

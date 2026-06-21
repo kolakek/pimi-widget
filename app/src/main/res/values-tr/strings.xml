@@ -8,7 +8,7 @@
     <string name="config_debug_info">Uygulama durumu</string>
     <string name="config_debug_weather_data_age">Hava durumu verisi yaşı</string>
     <string name="config_debug_last_valid_location">Son geçerli konum</string>
-    <string name="config_debug_last_data_download">Son veri indirme</string>
+    <string name="config_debug_last_work_status">Son iş durumu</string>
     <string name="config_debug_button_weather">Hava durumu sorgusu</string>
     <string name="config_debug_button_location">Konumu görüntüle</string>
     <string name="config_debug_background_service">Arka plan servisi</string>

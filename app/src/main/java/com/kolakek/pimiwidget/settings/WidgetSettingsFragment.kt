@@ -40,8 +40,6 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.DATA_WORK_NAME
-import com.kolakek.pimiwidget.worker.PERIODIC_WIDGET_WORK_NAME
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -67,7 +65,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
             weatherSwitch.isChecked = false
-            WorkManagerHelper.cancelDataWork(context)
+            WorkManagerHelper.cancelWork(context)
         }
         debugField?.setOnPreferenceClickListener {
             if (debugCount == 2)
@@ -109,7 +107,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
         if (!flag) {
-            WorkManagerHelper.cancelDataWork(context)
+            WorkManagerHelper.cancelWork(context)
             weatherSwitch?.isChecked = false
 
             return true
@@ -135,7 +133,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             )
             return false
         }
-        WorkManagerHelper.enqueueDataWork(context)
+        WorkManagerHelper.enqueueWork(context)
         weatherSwitch?.isChecked = true
 
         return true
@@ -165,7 +163,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     ) {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.config_debug_info)
-            .setMessage(createDebugMessage("-", "-", "-", "-", "-"))
+            .setMessage(createDebugMessage("-", "-", "-", "-"))
             .setCancelable(true)
             .setPositiveButton(R.string.config_debug_button_location, null)
             .setNegativeButton(R.string.config_debug_button_weather, null)
@@ -198,38 +196,17 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 )
             } ?: "-"
 
-            val widgetWorkStatusStr = WorkManagerHelper.getStatus(
-                context,
-                PERIODIC_WIDGET_WORK_NAME
-            ) ?: "-"
-            val widgetWorkStr = WorkManagerHelper.getNextRunMillis(
-                context,
-                PERIODIC_WIDGET_WORK_NAME
-            )?.let {
+            val workStatusStr = WorkManagerHelper.getStatus(context) ?: "-"
+            val workStr = WorkManagerHelper.getNextRunMillis(context)?.let {
                 getString(
                     R.string.config_debug_alert_status_time,
-                    widgetWorkStatusStr,
+                    workStatusStr,
                     DateFormat.getTimeFormat(context).format(Date(it))
                 )
-            } ?: widgetWorkStatusStr
-
-            val dataWorkStatusStr = WorkManagerHelper.getStatus(
-                context,
-                DATA_WORK_NAME
-            ) ?: "-"
-            val dataWorkStr = WorkManagerHelper.getNextRunMillis(
-                context,
-                DATA_WORK_NAME
-            )?.let {
-                getString(
-                    R.string.config_debug_alert_status_time,
-                    dataWorkStatusStr,
-                    DateFormat.getTimeFormat(context).format(Date(it))
-                )
-            } ?: dataWorkStatusStr
+            } ?: workStatusStr
 
             dialog.setMessage(
-                createDebugMessage(dataAgeStr, locationStr, statusStr, widgetWorkStr, dataWorkStr)
+                createDebugMessage(dataAgeStr, workStr, statusStr, locationStr)
             )
             locationData?.let {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
@@ -290,12 +267,11 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         s1: String,
         s2: String,
         s3: String,
-        s4: String,
-        s5: String
+        s4: String
     ): String = "\n${getString(R.string.config_debug_weather_data_age)}\n$s1\n\n" +
-            "${getString(R.string.config_debug_last_valid_location)}\n$s2\n\n" +
-            "${getString(R.string.config_debug_last_data_download)}\n$s3\n\n" +
-            "${getString(R.string.config_debug_background_service)}\n$s4\n$s5"
+            "${getString(R.string.config_debug_background_service)}\n$s2\n\n" +
+            "${getString(R.string.config_debug_last_work_status)}\n$s3\n\n" +
+            "${getString(R.string.config_debug_last_valid_location)}\n$s4"
 
     private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()

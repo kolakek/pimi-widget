@@ -17,40 +17,41 @@
 
 package com.kolakek.pimiwidget.worker
 
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
+import android.Manifest
 import android.content.Context
-import android.content.Intent
+import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.kolakek.pimiwidget.widget.PimiAction
-import com.kolakek.pimiwidget.widget.PimiWidget
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
 
 internal class PimiWorker(
     appContext: Context,
     workerParams: WorkerParameters,
 ) : CoroutineWorker(appContext, workerParams) {
 
+    @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
         return try {
-            triggerWidgetUpdate(applicationContext)
+            PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
+            PimiUpdater.update(applicationContext)
+            PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_SUCCESS)
+
             Result.success()
+
         } catch (e: CancellationException) {
+            runCatching {
+                withContext(NonCancellable) {
+                    PimiUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+                }
+            }
             throw e
-        } catch (_: Exception) {
+        } catch (e: Exception) {
+            runCatching {
+                PimiUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+            }
             Result.failure()
         }
-    }
-
-    private fun triggerWidgetUpdate(context: Context) {
-        val ids = AppWidgetManager.getInstance(context)
-            .getAppWidgetIds(ComponentName(context, PimiWidget::class.java))
-
-        val intent = Intent(context, PimiWidget::class.java).apply {
-            action = PimiAction.PERIODIC_WIDGET_REFRESH
-            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-        }
-        context.sendBroadcast(intent)
     }
 }

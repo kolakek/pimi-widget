@@ -8,7 +8,7 @@
     <string name="config_debug_info">Statusi i aplikacionit</string>
     <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
     <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
-    <string name="config_debug_last_data_download">Shkarkimi i fundit i të dhënave</string>
+    <string name="config_debug_last_work_status">Statusi i fundit i punës</string>
     <string name="config_debug_button_weather">Shiko kërkesën e motit</string>
     <string name="config_debug_button_location">Shiko vendndodhjen</string>
     <string name="config_debug_background_service">Shërbimi në sfond</string>

@@ -25,7 +25,7 @@ class PimiWidgetExternal : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         when (intent.action) {
-            PimiAction.APPWIDGET_UPDATE ->
+            "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ->
                 WidgetUpdater.updateWidgets(context)
         }
     }

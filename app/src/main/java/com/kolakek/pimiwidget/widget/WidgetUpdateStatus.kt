@@ -19,5 +19,5 @@ package com.kolakek.pimiwidget.widget
 
 enum class WidgetUpdateStatus {
     SUCCESS,
-    IVALID_DATA
+    INVALID_DATA
 }
