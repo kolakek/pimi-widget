@@ -15,10 +15,14 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.worker
 
-internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
-internal const val FORECAST_TODAY_HOUR_ON = 6
-internal const val FORECAST_TODAY_HOUR_OFF = 10
-internal const val FORECAST_TOMORROW_HOUR_ON = 20
-internal const val FORECAST_TOMORROW_HOUR_OFF = 24
+enum class WorkResult(val message: String) {
+    DATA_FETCH_SUCCESS("DataFetchSuccess"),
+    RECOVERY_SUCCESS("RecoverySuccess"),
+    FRESH_DATA_SUCCESS("FreshDataSuccess"),
+    INVALID_DATA_HANDLED("InvalidDataHandled"),
+    STALE_DATA_HANDLED("StaleDataHandled"),
+    CAPTIVE_PORTAL_FAILURE("CaptivePortalDetected"),
+    NO_INTERNET_FAILURE("NetworkNotValidated")
+}

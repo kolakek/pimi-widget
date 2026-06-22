@@ -19,40 +19,66 @@ package com.kolakek.pimiwidget.worker
 
 import android.Manifest
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.annotation.RequiresPermission
+import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.DATA_UPDATE_INTERVAL_MILLIS
 import com.kolakek.pimiwidget.widget.WidgetUpdateStatus
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 internal object PimiUpdater {
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-    internal suspend fun update(context: Context) {
-
+    internal suspend fun update(
+        context: Context,
+        isRecoveryMode: Boolean = false
+    ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
 
-        val weatherData = if (prefs.showWeather) {
-            DataRepository.loadWeatherData(context)
-        } else null
+        if (isRecoveryMode) {
 
+            if (isCaptivePortal(context)) return WorkResult.CAPTIVE_PORTAL_FAILURE
+
+            if (!isConnectedToInternet(context)) return WorkResult.NO_INTERNET_FAILURE
+
+            val location = LocationService.fetchLocation(context)
+            val weatherData = WeatherService.fetchWeatherData(context, location)
+
+            WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
+
+            WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, false)
+
+            return WorkResult.RECOVERY_SUCCESS
+        }
+        val weatherData = DataRepository.loadWeatherData(context)
         val status = WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
-
-        if (!prefs.showWeather) return
 
         val dataTimeMillis = weatherData?.timeMillis ?: 0
         val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
 
-        val isDataFresh = dataAgeMillis < DATA_UPDATE_INTERVAL_MILLIS
+        val isDataFresh = dataAgeMillis < DATA_MAX_AGE_MILLIS
         val isDataValid = status == WidgetUpdateStatus.SUCCESS
 
-        if (isDataValid && isDataFresh) return
+        if (isDataValid && isDataFresh) return WorkResult.FRESH_DATA_SUCCESS
 
-        val location = LocationService.fetchLocation(context)
-        WeatherService.fetchWeatherData(context, location)
+        if (hasInternetCapability(context)) {
+            val location = LocationService.fetchLocation(context)
+            val freshWeatherData = WeatherService.fetchWeatherData(context, location)
+
+            if (!isDataValid) WidgetUpdater.partiallyUpdateWidgets(context, prefs, freshWeatherData)
+
+            return WorkResult.DATA_FETCH_SUCCESS
+
+        } else if (!isDataValid) {
+            WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, true)
+
+            return WorkResult.INVALID_DATA_HANDLED
+        }
+        return WorkResult.STALE_DATA_HANDLED
     }
 
     internal suspend fun logUpdateStatus(
@@ -63,5 +89,26 @@ internal object PimiUpdater {
             context,
             StatusData(updateStatus, System.currentTimeMillis())
         )
+    }
+
+    private fun hasInternetCapability(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = cm.activeNetwork ?: return false
+        val caps = cm.getNetworkCapabilities(network) ?: return false
+        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    fun isConnectedToInternet(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = cm.activeNetwork ?: return false
+        val caps = cm.getNetworkCapabilities(network) ?: return false
+        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+    }
+
+    fun isCaptivePortal(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = cm.activeNetwork ?: return false
+        val caps = cm.getNetworkCapabilities(network) ?: return false
+        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL)
     }
 }

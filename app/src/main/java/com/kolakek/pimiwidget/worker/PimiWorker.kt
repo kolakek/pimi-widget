@@ -35,11 +35,27 @@ internal class PimiWorker(
     override suspend fun doWork(): Result {
         return try {
             PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
-            PimiUpdater.update(applicationContext)
-            PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_SUCCESS)
 
-            Result.success()
+            val isRecoveryMode = inputData.getBoolean(WORK_MODE_KEY, false)
+            val workResult = PimiUpdater.update(applicationContext, isRecoveryMode)
 
+            runCatching {
+                PimiUpdater.logUpdateStatus(applicationContext, workResult.message)
+            }
+            when(workResult) {
+                WorkResult.DATA_FETCH_SUCCESS,
+                WorkResult.RECOVERY_SUCCESS,
+                WorkResult.FRESH_DATA_SUCCESS,
+                WorkResult.INVALID_DATA_HANDLED,
+                WorkResult.STALE_DATA_HANDLED
+                    -> Result.success()
+
+                WorkResult.CAPTIVE_PORTAL_FAILURE
+                    -> Result.failure()
+
+                WorkResult.NO_INTERNET_FAILURE
+                    -> if (runAttemptCount < MAX_NUM_RETRIES) Result.retry() else Result.failure()
+            }
         } catch (e: CancellationException) {
             runCatching {
                 withContext(NonCancellable) {

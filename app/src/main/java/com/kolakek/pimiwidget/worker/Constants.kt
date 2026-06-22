@@ -18,6 +18,10 @@
 package com.kolakek.pimiwidget.worker
 
 internal const val WORK_NAME = "periodic-update-kolakek-pimi-widget"
-internal const val WIDGET_REFRESH_INTERVAL_MILLIS = 30 * 60 * 1000L
-internal const val STATUS_STRING_SUCCESS = "Succeeded"
+internal const val WORK_MODE_KEY = "work_mode"
 internal const val STATUS_STRING_RUNNING = "Running"
+internal const val DATA_MAX_AGE_MILLIS = 60 * 60 * 1000L
+internal const val WORK_INTERVAL_MILLIS = 30 * 60 * 1000L
+internal const val RECOVERY_INTERVAL_MILLIS = 15 * 60 * 1000L
+internal const val BACKOFF_DELAY_MILLIS = 30 * 1000L
+internal const val MAX_NUM_RETRIES = 3

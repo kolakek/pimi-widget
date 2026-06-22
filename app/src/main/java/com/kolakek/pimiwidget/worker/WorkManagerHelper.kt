@@ -18,10 +18,14 @@
 package com.kolakek.pimiwidget.worker
 
 import android.content.Context
+import androidx.work.BackoffPolicy
+import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import androidx.work.workDataOf
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -35,13 +39,32 @@ object WorkManagerHelper {
 
     fun enqueueWork(
         context: Context,
-        workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
+        workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP,
+        isRecoveryMode: Boolean = false
     ) {
         Timber.d("WorkManagerHelper: enqueueWork")
+
+        val workConfig = if (isRecoveryMode) {
+            WorkConfig(NetworkType.CONNECTED, RECOVERY_INTERVAL_MILLIS)
+        } else {
+            WorkConfig(NetworkType.NOT_REQUIRED, WORK_INTERVAL_MILLIS)
+        }
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(workConfig.networkType)
+            .build()
+
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
-            WIDGET_REFRESH_INTERVAL_MILLIS,
+            workConfig.intervalMillis,
             TimeUnit.MILLISECONDS
-        ).build()
+        )
+            .setInputData(workDataOf(WORK_MODE_KEY to isRecoveryMode))
+            .setConstraints(constraints)
+            .setBackoffCriteria(
+                BackoffPolicy.EXPONENTIAL,
+                BACKOFF_DELAY_MILLIS,
+                TimeUnit.MILLISECONDS
+            )
+            .build()
 
         WorkManager
             .getInstance(context.applicationContext)

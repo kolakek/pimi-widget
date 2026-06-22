@@ -15,10 +15,11 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.worker
 
-internal const val ALT_WEATHER_APP = "com.google.android.apps.weather"
-internal const val FORECAST_TODAY_HOUR_ON = 6
-internal const val FORECAST_TODAY_HOUR_OFF = 10
-internal const val FORECAST_TOMORROW_HOUR_ON = 20
-internal const val FORECAST_TOMORROW_HOUR_OFF = 24
+import androidx.work.NetworkType
+
+data class WorkConfig(
+    val networkType: NetworkType,
+    val intervalMillis: Long
+)
