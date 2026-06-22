@@ -26,22 +26,15 @@ internal const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
 internal const val LATITUDE_KEY = "latitude"
 internal const val LONGITUDE_KEY = "longitude"
 
-internal const val MINUTELY_KEY = "minutely_15"
-internal const val MINUTELY_VALUE =
-    "temperature_2m,weather_code,is_day,cloud_cover,cape,precipitation_probability,visibility"
-
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE =
-    "temperature_2m,weather_code,is_day,cloud_cover,uv_index,uv_index_clear_sky," +
+    "temperature_2m,weather_code,is_day,cloud_cover,uv_index,uv_index_clear_sky,visibility," +
             "apparent_temperature,rain,showers,precipitation_probability,wind_gusts_10m,cape"
 
 internal const val DAILY_KEY = "daily"
 internal const val DAILY_VALUE =
     "weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean,cape_max," +
             "precipitation_probability_max,visibility_mean"
-
-internal const val FORECAST_MINUTES_KEY = "forecast_minutely_15"
-internal const val FORECAST_MINUTES_VALUE = "12"
 
 internal const val FORECAST_HOURS_KEY = "forecast_hours"
 internal const val FORECAST_HOURS_VALUE = "4"

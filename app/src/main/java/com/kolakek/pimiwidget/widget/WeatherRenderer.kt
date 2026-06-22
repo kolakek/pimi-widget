@@ -82,11 +82,11 @@ internal object WeatherRenderer {
         tempUnit: TempUnit,
         iconStyle: IconStyle
     ): TextWithOneIcon? {
-        val timeIndex = getNextTimeIndex(weather.minutelyTimeMillis, nowTimeMillis) ?: return null
+        val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
 
-        val weatherCode = weather.minutelyWeatherCode.getOrNull(timeIndex) ?: return null
-        val tempCelsius = weather.minutelyTempCelsius.getOrNull(timeIndex) ?: return null
-        val isDay = weather.minutelyIsDay.getOrNull(timeIndex) ?: return null
+        val weatherCode = weather.hourlyWeatherCode.getOrNull(timeIndex) ?: return null
+        val tempCelsius = weather.hourlyTempCelsius.getOrNull(timeIndex) ?: return null
+        val isDay = weather.hourlyIsDay.getOrNull(timeIndex) ?: return null
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnit)
 

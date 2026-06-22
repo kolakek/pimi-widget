@@ -50,11 +50,9 @@ object WeatherService {
                 append(LATITUDE_KEY, location.lat.toString())
                 append(LONGITUDE_KEY, location.long.toString())
 
-                append(MINUTELY_KEY, MINUTELY_VALUE)
                 append(DAILY_KEY, DAILY_VALUE)
                 append(HOURLY_KEY, HOURLY_VALUE)
 
-                append(FORECAST_MINUTES_KEY, FORECAST_MINUTES_VALUE)
                 append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
                 append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
 
@@ -69,14 +67,14 @@ object WeatherService {
     }
 
     private fun mapProviderData(providerData: ProviderData): WeatherData {
-        val minutelyWeatherCode = providerData.minutely_15.weather_code.indices.map { i ->
+        val hourlyWeatherCode = providerData.hourly.weather_code.indices.map { i ->
             WeatherCodeMapper.getWeatherCode(
-                wmoCode = providerData.minutely_15.weather_code[i].toInt(),
-                cloudCover = providerData.minutely_15.cloud_cover[i],
-                precipProb = providerData.minutely_15.precipitation_probability[i],
-                visibility = providerData.minutely_15.visibility[i],
-                cape = providerData.minutely_15.cape[i]
-            ) ?: throw WeatherMappingException("Failed to map minutely data")
+                wmoCode = providerData.hourly.weather_code[i].toInt(),
+                cloudCover = providerData.hourly.cloud_cover[i],
+                precipProb = providerData.hourly.precipitation_probability[i],
+                visibility = providerData.hourly.visibility[i],
+                cape = providerData.hourly.cape[i]
+            ) ?: throw WeatherMappingException("Failed to map hourly data")
         }
         val dailyWeatherCode = providerData.daily.weather_code.indices.map { i ->
             WeatherCodeMapper.getWeatherCode(
@@ -101,10 +99,7 @@ object WeatherService {
             )
         }
         return WeatherData(
-            minutelyWeatherCode = minutelyWeatherCode,
-            minutelyTempCelsius = providerData.minutely_15.temperature_2m,
-            minutelyIsDay = providerData.minutely_15.is_day.map { v -> v.toInt() == 1 },
-            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v.toLong() * 1000L },
+            hourlyWeatherCode = hourlyWeatherCode,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
             hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
             hourlyWarningCode = hourlyWarningCode,

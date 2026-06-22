@@ -19,10 +19,8 @@ package com.kolakek.pimiwidget.weather
 
 import kotlinx.serialization.Serializable
 
-@Suppress("PropertyName")
 @Serializable
 internal data class ProviderData(
-    val minutely_15: ProviderDataMinutely,
     val hourly: ProviderDataHourly,
     val daily: ProviderDataDaily
 )
