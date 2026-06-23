@@ -52,6 +52,7 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Weather" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:layout_height">24dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
         <item name="android:textStyle">normal</item>
@@ -79,6 +80,7 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Aux" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:layout_height">18dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
         <item name="android:textStyle">normal</item>

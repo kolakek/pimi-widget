@@ -280,7 +280,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val ageHours = ageMins / 60
         val ageDays = ageHours / 24
         return when {
-            ageMins < 120 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
+            ageMins < 180 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
         }
