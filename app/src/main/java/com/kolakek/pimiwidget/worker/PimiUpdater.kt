@@ -43,7 +43,7 @@ internal object PimiUpdater {
         if (isRecoveryMode) {
 
             if (!hasNetCapabilityValidated(context) && runAttemptCount < MAX_NUM_RETRIES) {
-                return WorkResult.NO_INTERNET_FAILURE
+                return WorkResult.INTERNET_FAILED
             }
             val location = LocationService.fetchLocation(context)
             val weatherData = WeatherService.fetchWeatherData(context, location)
@@ -52,7 +52,7 @@ internal object PimiUpdater {
 
             WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, false)
 
-            return WorkResult.RECOVERY_SUCCESS
+            return WorkResult.FRESH_DATA_FETCHED
         }
         val weatherData = DataRepository.loadWeatherData(context)
         val status = WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
@@ -63,7 +63,7 @@ internal object PimiUpdater {
         val isDataFresh = dataAgeMillis < DATA_MAX_AGE_MILLIS
         val isDataValid = status == WidgetUpdateStatus.SUCCESS
 
-        if (isDataValid && isDataFresh) return WorkResult.FRESH_DATA_SUCCESS
+        if (isDataValid && isDataFresh) return WorkResult.RECENT_DATA_SERVED
 
         if (hasNetCapabilityInternet(context)) {
             val location = LocationService.fetchLocation(context)
@@ -71,14 +71,14 @@ internal object PimiUpdater {
 
             if (!isDataValid) WidgetUpdater.partiallyUpdateWidgets(context, prefs, freshWeatherData)
 
-            return WorkResult.DATA_FETCH_SUCCESS
+            return WorkResult.FRESH_DATA_FETCHED
 
         } else if (!isDataValid) {
             WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, true)
 
-            return WorkResult.INVALID_DATA_HANDLED
+            return WorkResult.RECOVERY_ENQUEUED
         }
-        return WorkResult.STALE_DATA_HANDLED
+        return WorkResult.STALE_DATA_SERVED
     }
 
     internal suspend fun logUpdateStatus(

@@ -43,14 +43,13 @@ internal class PimiWorker(
                 PimiUpdater.logUpdateStatus(applicationContext, workResult.message)
             }
             when(workResult) {
-                WorkResult.DATA_FETCH_SUCCESS,
-                WorkResult.RECOVERY_SUCCESS,
-                WorkResult.FRESH_DATA_SUCCESS,
-                WorkResult.INVALID_DATA_HANDLED,
-                WorkResult.STALE_DATA_HANDLED
+                WorkResult.FRESH_DATA_FETCHED,
+                WorkResult.RECENT_DATA_SERVED,
+                WorkResult.STALE_DATA_SERVED,
+                WorkResult.RECOVERY_ENQUEUED
                     -> Result.success()
 
-                WorkResult.NO_INTERNET_FAILURE
+                WorkResult.INTERNET_FAILED
                     -> if (runAttemptCount < MAX_NUM_RETRIES) Result.retry() else Result.failure()
             }
         } catch (e: CancellationException) {
