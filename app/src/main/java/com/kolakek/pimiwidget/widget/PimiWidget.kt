@@ -52,6 +52,8 @@ class PimiWidget : AppWidgetProvider() {
                 WidgetUpdater.updateWidgets(context)
 
             Intent.ACTION_MY_PACKAGE_REPLACED -> {
+                WidgetUpdater.updateWidgets(context)
+
                 WorkManagerHelper.cancelWork(context)
                 if (PreferencesHelper.getWeatherPreference(context)) {
                     WorkManagerHelper.enqueueWork(context)
