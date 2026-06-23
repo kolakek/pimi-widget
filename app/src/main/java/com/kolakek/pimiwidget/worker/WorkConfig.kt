@@ -21,5 +21,6 @@ import androidx.work.NetworkType
 
 data class WorkConfig(
     val networkType: NetworkType,
-    val intervalMillis: Long
+    val intervalMillis: Long,
+    val initialDelayMillis: Long
 )

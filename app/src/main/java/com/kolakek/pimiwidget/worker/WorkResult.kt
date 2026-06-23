@@ -23,6 +23,5 @@ enum class WorkResult(val message: String) {
     FRESH_DATA_SUCCESS("FreshDataSuccess"),
     INVALID_DATA_HANDLED("InvalidDataHandled"),
     STALE_DATA_HANDLED("StaleDataHandled"),
-    CAPTIVE_PORTAL_FAILURE("CaptivePortalDetected"),
     NO_INTERNET_FAILURE("NetworkNotValidated")
 }

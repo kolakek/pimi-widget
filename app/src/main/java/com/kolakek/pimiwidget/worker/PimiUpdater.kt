@@ -35,16 +35,16 @@ internal object PimiUpdater {
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     internal suspend fun update(
         context: Context,
-        isRecoveryMode: Boolean = false
+        isRecoveryMode: Boolean = false,
+        runAttemptCount: Int
     ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
 
         if (isRecoveryMode) {
 
-            if (isCaptivePortal(context)) return WorkResult.CAPTIVE_PORTAL_FAILURE
-
-            if (!isConnectedToInternet(context)) return WorkResult.NO_INTERNET_FAILURE
-
+            if (!hasNetCapabilityValidated(context) && runAttemptCount < MAX_NUM_RETRIES) {
+                return WorkResult.NO_INTERNET_FAILURE
+            }
             val location = LocationService.fetchLocation(context)
             val weatherData = WeatherService.fetchWeatherData(context, location)
 
@@ -65,7 +65,7 @@ internal object PimiUpdater {
 
         if (isDataValid && isDataFresh) return WorkResult.FRESH_DATA_SUCCESS
 
-        if (hasInternetCapability(context)) {
+        if (hasNetCapabilityInternet(context)) {
             val location = LocationService.fetchLocation(context)
             val freshWeatherData = WeatherService.fetchWeatherData(context, location)
 
@@ -91,24 +91,17 @@ internal object PimiUpdater {
         )
     }
 
-    private fun hasInternetCapability(context: Context): Boolean {
+    private fun hasNetCapabilityInternet(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = cm.activeNetwork ?: return false
         val caps = cm.getNetworkCapabilities(network) ?: return false
         return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
-    fun isConnectedToInternet(context: Context): Boolean {
+    fun hasNetCapabilityValidated(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = cm.activeNetwork ?: return false
         val caps = cm.getNetworkCapabilities(network) ?: return false
         return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
-    }
-
-    fun isCaptivePortal(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network = cm.activeNetwork ?: return false
-        val caps = cm.getNetworkCapabilities(network) ?: return false
-        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL)
     }
 }

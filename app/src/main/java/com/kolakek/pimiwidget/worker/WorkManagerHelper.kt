@@ -42,12 +42,12 @@ object WorkManagerHelper {
         workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP,
         isRecoveryMode: Boolean = false
     ) {
-        Timber.d("WorkManagerHelper: enqueueWork")
+        Timber.d("WorkManagerHelper: enqueueWork isRecoveryMode = $isRecoveryMode")
 
         val workConfig = if (isRecoveryMode) {
-            WorkConfig(NetworkType.CONNECTED, RECOVERY_INTERVAL_MILLIS)
+            WorkConfig(NetworkType.CONNECTED, RECOVERY_INTERVAL_MILLIS, RECOVERY_DELAY_MILLIS)
         } else {
-            WorkConfig(NetworkType.NOT_REQUIRED, WORK_INTERVAL_MILLIS)
+            WorkConfig(NetworkType.NOT_REQUIRED, WORK_INTERVAL_MILLIS, WORK_DELAY_MILLIS)
         }
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(workConfig.networkType)
@@ -58,6 +58,7 @@ object WorkManagerHelper {
             TimeUnit.MILLISECONDS
         )
             .setInputData(workDataOf(WORK_MODE_KEY to isRecoveryMode))
+            .setInitialDelay(workConfig.initialDelayMillis, TimeUnit.MILLISECONDS)
             .setConstraints(constraints)
             .setBackoffCriteria(
                 BackoffPolicy.EXPONENTIAL,

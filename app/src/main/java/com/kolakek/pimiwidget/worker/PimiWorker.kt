@@ -37,7 +37,7 @@ internal class PimiWorker(
             PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
 
             val isRecoveryMode = inputData.getBoolean(WORK_MODE_KEY, false)
-            val workResult = PimiUpdater.update(applicationContext, isRecoveryMode)
+            val workResult = PimiUpdater.update(applicationContext, isRecoveryMode, runAttemptCount)
 
             runCatching {
                 PimiUpdater.logUpdateStatus(applicationContext, workResult.message)
@@ -49,9 +49,6 @@ internal class PimiWorker(
                 WorkResult.INVALID_DATA_HANDLED,
                 WorkResult.STALE_DATA_HANDLED
                     -> Result.success()
-
-                WorkResult.CAPTIVE_PORTAL_FAILURE
-                    -> Result.failure()
 
                 WorkResult.NO_INTERNET_FAILURE
                     -> if (runAttemptCount < MAX_NUM_RETRIES) Result.retry() else Result.failure()
