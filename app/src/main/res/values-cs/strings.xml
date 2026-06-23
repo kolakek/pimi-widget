@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Zobrazit dotaz na počasí</string>
     <string name="config_debug_button_location">Zobrazit polohu</string>
     <string name="config_debug_background_service">Služba na pozadí</string>
+    <string name="config_location_fallback">Použít poslední polohu</string>
+    <string name="config_location_fallback_summary">Když je služba určování polohy zařízení vypnuta</string>
     <string name="config_text_color">Barva textu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Světlý</string>

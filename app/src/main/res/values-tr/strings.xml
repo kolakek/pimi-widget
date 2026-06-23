@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Hava durumu sorgusu</string>
     <string name="config_debug_button_location">Konumu görüntüle</string>
     <string name="config_debug_background_service">Arka plan servisi</string>
+    <string name="config_location_fallback">Önceki konumu kullan</string>
+    <string name="config_location_fallback_summary">Cihazın konum hizmeti kapatıldığında</string>
     <string name="config_text_color">Metin rengi</string>
     <string name="config_icon_style">İkon stili</string>
     <string name="config_color_light">Açık</string>

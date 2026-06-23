@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Запит погоди</string>
     <string name="config_debug_button_location">Переглянути локацію</string>
     <string name="config_debug_background_service">Фоновий сервіс</string>
+    <string name="config_location_fallback">Використовувати попереднє місцезнаходження</string>
+    <string name="config_location_fallback_summary">Коли служба геолокації пристрою вимкнена</string>
     <string name="config_text_color">Колір тексту</string>
     <string name="config_icon_style">Стиль іконок</string>
     <string name="config_color_light">Світлий</string>

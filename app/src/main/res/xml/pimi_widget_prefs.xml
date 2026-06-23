@@ -24,6 +24,13 @@
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
+            android:key="location_fallback"
+            android:title="@string/config_location_fallback"
+            android:summary="@string/config_location_fallback_summary"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
             android:key="daily_forecast"
             android:title="@string/config_daily_forecast"
             android:summary="@string/config_daily_forecast_summary"

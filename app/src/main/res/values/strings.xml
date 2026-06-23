@@ -12,6 +12,8 @@
     <string name="config_debug_last_valid_location">Last valid location</string>
     <string name="config_debug_last_work_status">Last work status</string>
     <string name="config_debug_background_service">Background service</string>
+    <string name="config_location_fallback">Use previous location</string>
+    <string name="config_location_fallback_summary">When the device location service is turned off</string>
     <string name="config_icon_style">Icon style</string>
     <string name="config_text_color">Text color</string>
     <string name="config_color_light">Light</string>

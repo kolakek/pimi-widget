@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Wyświetl zapytanie pogodowe</string>
     <string name="config_debug_button_location">Wyświetl lokalizację</string>
     <string name="config_debug_background_service">Usługa w tle</string>
+    <string name="config_location_fallback">Użyj poprzedniej lokalizacji</string>
+    <string name="config_location_fallback_summary">Gdy usługa lokalizacji urządzenia jest wyłączona</string>
     <string name="config_text_color">Kolor tekstu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Jasny</string>

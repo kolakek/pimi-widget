@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Näytä säähaku</string>
     <string name="config_debug_button_location">Näytä sijainti</string>
     <string name="config_debug_background_service">Taustapalvelu</string>
+    <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
+    <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_color_light">Vaalea</string>

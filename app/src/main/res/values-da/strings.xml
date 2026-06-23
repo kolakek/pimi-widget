@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Se vejrforspørgsel</string>
     <string name="config_debug_button_location">Se placering</string>
     <string name="config_debug_background_service">Baggrundstjeneste</string>
+    <string name="config_location_fallback">Brug tidligere placering</string>
+    <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
     <string name="config_text_color">Tekstfarve</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Lys</string>

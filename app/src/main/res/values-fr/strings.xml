@@ -12,6 +12,8 @@
     <string name="config_debug_button_weather">Voir la requête météo</string>
     <string name="config_debug_button_location">Voir la localisation</string>
     <string name="config_debug_background_service">Service en arrière-plan</string>
+    <string name="config_location_fallback">Utiliser le dernier emplacement</string>
+    <string name="config_location_fallback_summary">Quand le service de localisation de l\'appareil est désactivé</string>
     <string name="config_text_color">Couleur du texte</string>
     <string name="config_icon_style">Style des icônes</string>
     <string name="config_color_light">Clair</string>
