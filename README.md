@@ -93,9 +93,9 @@ You can find debug information by tapping the **Build number** three times in th
 
 - **RecoveryEnqueued:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The background service has switched to recovery mode and will attempt to fetch new weather data as soon as the internet becomes available again.
 
-- **InternetFailed:** The internet was unavailable during the recovery run. Please ensure that your device is connected to the internet.
+- **InternetFailed:** The internet was unavailable during the recovery run. A new attempt is scheduled. Please ensure that your device is connected to the internet.
 
-- **LocationUnavailableException:** The widget could not retrieve your location. Please ensure that location services are enabled on your device. See the Location Access section above.
+- **LocationUnavailableException:** The widget could not retrieve your location. A new attempt is scheduled. Please ensure that location services are enabled on your device. See the Location Access section above.
 
 - **Other exceptions:** Most exceptions are likely related to network issues. The widget will continue updating using the available forecast data until the internet becomes available again.
 
