@@ -45,7 +45,7 @@ internal object PimiUpdater {
             if (!hasNetCapabilityValidated(context) && runAttemptCount < MAX_NUM_RETRIES) {
                 return WorkResult.INTERNET_FAILED
             }
-            val location = LocationService.fetchLocation(context)
+            val location = LocationService.fetchLocation(context, prefs.useLocationFallback)
             val weatherData = WeatherService.fetchWeatherData(context, location)
 
             WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
@@ -66,7 +66,7 @@ internal object PimiUpdater {
         if (isDataValid && isDataFresh) return WorkResult.RECENT_DATA_SERVED
 
         if (hasNetCapabilityInternet(context)) {
-            val location = LocationService.fetchLocation(context)
+            val location = LocationService.fetchLocation(context, prefs.useLocationFallback)
             val freshWeatherData = WeatherService.fetchWeatherData(context, location)
 
             if (!isDataValid) WidgetUpdater.partiallyUpdateWidgets(context, prefs, freshWeatherData)

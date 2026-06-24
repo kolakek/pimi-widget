@@ -33,7 +33,8 @@ object LocationService {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     suspend fun fetchLocation(
-        context: Context
+        context: Context,
+        useLocationFallback: Boolean
     ): LocationData {
         val locationManager = context.getSystemService(LocationManager::class.java)
 
@@ -45,8 +46,22 @@ object LocationService {
             DataRepository.storeLocationData(context, it)
             return it
         }
+        getStoredLocation(locationManager, context, useLocationFallback)?.let {
+            DataRepository.storeLocationData(context, it)
+            return it
+        }
         throw LocationUnavailableException("Failed to obtain location")
     }
+
+    private suspend fun getStoredLocation(
+        locationManager: LocationManager,
+        context: Context,
+        useLocationFallback: Boolean
+    ): LocationData? = if (!locationManager.isLocationEnabled && useLocationFallback) {
+        DataRepository.loadLocationData(context)?.apply {
+            locationType = STORED_LOCATION_NAME
+        }
+    } else null
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     private fun getLastKnownLocation(

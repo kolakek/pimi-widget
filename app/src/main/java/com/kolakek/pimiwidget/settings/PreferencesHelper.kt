@@ -85,6 +85,7 @@ internal object PreferencesHelper {
 
         return WidgetPreferences(
             showWeather = getWeatherPreference(context),
+            useLocationFallback = getLocationFallbackPreference(context),
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
             tempUnit = tempUnit,
@@ -138,5 +139,10 @@ internal object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_AUX_DISPLAY_LIST, null)
         return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.NOTHING
+    }
+
+    private fun getLocationFallbackPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_LOCATION_FALLBACK, true)
     }
 }

@@ -39,6 +39,7 @@ internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
 internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
 
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
+internal const val KEY_LOCATION_FALLBACK = "location_fallback"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
 internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
