@@ -97,6 +97,8 @@ You can find debug information by tapping the **Build number** three times in th
 
 - **LocationUnavailableException:** The widget could not retrieve your location. Please ensure that location services are enabled on your device. See the Location Access section above.
 
+- **Other exceptions:** Most exceptions are likely related to network issues. The widget will continue updating using the available forecast data until the internet becomes available again.
+
 ## Donations
 
 If you’d like to support meaningful work, consider donating to other projects such as:
