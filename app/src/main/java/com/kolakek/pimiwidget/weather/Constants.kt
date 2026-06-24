@@ -37,7 +37,7 @@ internal const val DAILY_VALUE =
             "precipitation_probability_max,visibility_mean"
 
 internal const val FORECAST_HOURS_KEY = "forecast_hours"
-internal const val FORECAST_HOURS_VALUE = "4"
+internal const val FORECAST_HOURS_VALUE = "7"
 
 internal const val FORECAST_DAYS_KEY = "forecast_days"
 internal const val FORECAST_DAYS_VALUE = "2"
