@@ -33,7 +33,7 @@ All download options provide the same APK file, signed with the same signing key
 
 ### Privacy Information
 
-The widget collects your location approximately every 60 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data that is exchanged with the weather provider by tapping the **Shared data** option in the widget settings.
+The widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data exchanged with the weather provider by tapping the **Build number** three times in the widget settings.
 
 ### Usage
 
@@ -45,7 +45,7 @@ Normally, your home app should allow you to reconfigure the widget (e.g., by lon
 
 ### Weather Display
 
-The widget displays the 15-minutely weather forecast. It refreshes every 30 minutes. New forecast data is downloaded approximately every 60 minutes and remains valid for 180 minutes. If the widget cannot update your location and retrieve new weather data for more than 180 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
+The widget shows the weather forecast for the current hour. It refreshes every 30 minutes. The hourly forecast data for the next 6 hours is downloaded every 90 minutes. If the widget cannot update your location or retrieve new weather data for more than 6 hours (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. If the internet is unavailable for an extended period, the widget may take up to 15 minutes to sync and display weather data.
 
 ### Location Access
 
@@ -83,15 +83,19 @@ Severe and extreme weather alerts for the current hour are shown if the followin
 
 ### Troubleshooting
 
-If weather information does not appear, you can find debug information by tapping the **Debug information** field in the widget configuration. Try the following actions based on the displayed status:
+You can find debug information by tapping the **Build number** three times in the widget settings and checking the **Last work status**. The following are the typical statuses and their meanings:
 
-- **Location FAILED:** The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
+- **RecentDataServed:** The widget was updated with recent weather information. No new weather data needed to be downloaded.
 
-- **Location FAILED & Weather FAILED:** The widget failed to retrieve your location and thus, was not able to obtain weather data. Ensure that location services are enabled. Refer to the Location Access section above.
+- **FreshDataFetched:** The widget was updated with recent weather information. New weather data was successfully downloaded.
 
-- **Location SUCCESS & Weather FAILED:** The widget retrieved your location but could not reach the weather provider. Ensure that your device is connected to the internet.
+- **StaleDataServed:** The widget was unable to fetch new weather data for more than 90 minutes because the internet was unavailable. It will continue updating using the available forecast data until the internet becomes available again.
 
-- **Worker ENQUEUED or RUNNING:** The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
+- **RecoveryEnqueued:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The background service has switched to recovery mode and will attempt to fetch new weather data as soon as the internet becomes available again.
+
+- **InternetFailed:** The internet was unavailable during the recovery run. Please ensure that your device is connected to the internet.
+
+- **LocationUnavailableException:** The widget could not retrieve your location. Please ensure that location services are enabled on your device. See the Location Access section above.
 
 ## Donations
 
