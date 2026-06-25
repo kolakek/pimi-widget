@@ -181,13 +181,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             } ?: "-"
 
             val locationData = DataRepository.loadLocationData(context)
-            val locationStr = locationData?.let {
-                getString(
-                    R.string.config_debug_alert_status_time,
-                    it.locationType,
-                    DateFormat.getTimeFormat(context).format(Date(it.timeMillis))
-                )
-            } ?: "-"
+            val locationStr = locationData?.locationType ?: "-"
 
             val statusData = DataRepository.loadStatusData(context)
             val statusStr = statusData?.let {
