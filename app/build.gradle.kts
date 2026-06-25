@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.kolakek.pimiwidget"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.kolakek.pimiwidget"
         minSdk = 33
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 20
         versionName = "1.11.0"
     }

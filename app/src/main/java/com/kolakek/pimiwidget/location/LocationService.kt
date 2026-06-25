@@ -28,6 +28,7 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
+import kotlin.time.Duration.Companion.milliseconds
 
 object LocationService {
 
@@ -76,7 +77,7 @@ object LocationService {
     private suspend fun getCurrentLocation(
         locationManager: LocationManager,
         context: Context
-    ): LocationData? = withTimeout(LOCATION_TIMEOUT_MILLIS) {
+    ): LocationData? = withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
         val location = suspendCancellableCoroutine<Location?> { cont ->
             val cancellationSignal = CancellationSignal()
 
