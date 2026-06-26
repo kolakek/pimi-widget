@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "com.kolakek.pimiwidget"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.kolakek.pimiwidget"
         minSdk = 33
-        targetSdk = 36
-        versionCode = 19
-        versionName = "1.10.0"
+        targetSdk = 37
+        versionCode = 20
+        versionName = "1.11.0"
     }
     dependenciesInfo {
         includeInApk = false
@@ -46,9 +46,9 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.ktor.client.cio)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.material)
     implementation(libs.timber)

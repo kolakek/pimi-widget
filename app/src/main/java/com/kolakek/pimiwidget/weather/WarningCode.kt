@@ -15,10 +15,19 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.worker
+package com.kolakek.pimiwidget.weather
 
-enum class UpdateStatus {
-    RUNNING,
-    FAILED,
-    SUCCESS
+// Ordering expresses priority, highest ... lowest
+enum class WarningCode(val level: WarningLevel) {
+    EXTREME_TSTORM(WarningLevel.EXTREME),
+    EXTREME_RAIN(WarningLevel.EXTREME),
+    EXTREME_GUSTS(WarningLevel.EXTREME),
+    SEVERE_TSTORM(WarningLevel.SEVERE),
+    SEVERE_RAIN(WarningLevel.SEVERE),
+    SEVERE_GUSTS(WarningLevel.SEVERE),
+    EXTREME_HEAT(WarningLevel.EXTREME),
+    SEVERE_HEAT(WarningLevel.SEVERE),
+    EXTREME_UV(WarningLevel.EXTREME),
+    SEVERE_UV(WarningLevel.SEVERE),
+    NO_WARNING(WarningLevel.NONE)
 }

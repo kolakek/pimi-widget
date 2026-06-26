@@ -1,0 +1,7 @@
+* Added weather warnings with criteria based on DWD and NWS
+* Improved background service to handle network failures more efficiently
+* Debug and data information now hidden behind build number
+* Added option to use the last known location when device location is off
+* Switched back to hourly forecast data (optimal for weather model resolution and widget refresh interval)
+* More responsive widget refresh
+* Code optimization

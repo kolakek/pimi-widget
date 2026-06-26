@@ -1,4 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.PimiWidget.Configure.Coordinator" parent="">
+        <item name="android:background">?attr/configBackgroundColor</item>
+    </style>
+
+    <style name="Widget.PimiWidget.Configure.AppBar" parent="">
+        <item name="android:background">?attr/configBackgroundColor</item>
+        <item name="liftOnScrollColor">?attr/colorSurfaceContainerHighest</item>
+    </style>
 
     <style name="Widget.PimiWidget.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>
@@ -6,21 +15,24 @@
         <item name="android:background">@color/transparent</item>
         <item name="android:clipToOutline">true</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
+        <item name="android:gravity">bottom</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.InnerView" parent="android:Widget">
         <item name="android:padding">0dp</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:clipToOutline">true</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Date" parent="Widget.PimiWidget.AppWidget.InnerView">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:format12Hour">@string/widget_date_format</item>
+        <item name="android:format24Hour">@string/widget_date_format</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.DateDark" parent="Widget.PimiWidget.AppWidget.Date">
@@ -40,10 +52,15 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Weather" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:layout_height">24dp</item>
         <item name="android:layout_marginTop">8dp</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:drawablePadding">2dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.WeatherDark" parent="Widget.PimiWidget.AppWidget.Weather">
@@ -55,6 +72,33 @@
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.WeatherLightShadow" parent="Widget.PimiWidget.AppWidget.Weather">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.Aux" parent="Widget.PimiWidget.AppWidget.InnerView">
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.AuxDark" parent="Widget.PimiWidget.AppWidget.Aux">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.AuxLight" parent="Widget.PimiWidget.AppWidget.Aux">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.PimiWidget.AppWidget.AuxLightShadow" parent="Widget.PimiWidget.AppWidget.Aux">
         <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>

@@ -33,4 +33,14 @@
         <item>icon_style_filled</item>
     </array>
 
+    <array name="aux_views">
+        <item>@string/config_aux_view_nothing</item>
+        <item>@string/config_aux_view_update_time</item>
+    </array>
+
+    <array name="aux_views_vals">
+        <item>aux_view_nothing</item>
+        <item>aux_view_update_time</item>
+    </array>
+
 </resources>

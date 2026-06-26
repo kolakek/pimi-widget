@@ -1,91 +1,92 @@
 <resources>
 
-    <string name="widget_label">Data dhe moti</string>
-
-    <string name="config_button">Apliko cilësimet</string>
-
-    <string name="config_privacy_note">
-        Aktivizimi i motit ndan vendndodhjen tënde me ofruesin e motit</string>
-
+    <string name="config_button_apply">Apliko cilësimet</string>
+    <string name="config_privacy_note">Aktivizimi i motit ndan vendndodhjen tënde me ofruesin e motit</string>
     <string name="config_weather_switch">Aktivizo motin</string>
-
-    <string name="config_weather_descr">Të dhëna moti nga Open-Meteo.com</string>
-
-    <string name="config_debug_data">Informacione debug</string>
-
-    <string name="config_debug_data_descr">Shiko gjendjen e widget-it</string>
-
+    <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
+    <string name="config_version_title">Numri i build-it</string>
+    <string name="config_debug_info">Statusi i aplikacionit</string>
+    <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
+    <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
+    <string name="config_debug_last_work_status">Statusi i fundit i punës</string>
+    <string name="config_debug_button_weather">Shiko kërkesën e motit</string>
+    <string name="config_debug_button_location">Shiko vendndodhjen</string>
+    <string name="config_debug_background_service">Shërbimi në sfond</string>
+    <string name="config_location_fallback">Përdor vendndodhjen e mëparshme</string>
+    <string name="config_location_fallback_summary">Kur shërbimi i vendndodhjes së pajisjes është i çaktivizuar</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
-
     <string name="config_icon_style">Stili i ikonave</string>
-
     <string name="config_color_light">E çelët</string>
-
     <string name="config_color_dark">E errët</string>
-
     <string name="config_color_auto">Automatike</string>
-
     <string name="config_temp">Temperatura</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Cilësimet</string>
-
-    <string name="config_about_sec">Rreth</string>
-
+    <string name="config_section_settings">Cilësimet</string>
+    <string name="config_section_about">Rreth</string>
     <string name="config_daily_forecast">Shfaq parashikimin ditor</string>
-
-    <string name="config_daily_forecast_descr">Në mëngjes dhe në mbrëmje</string>
-
+    <string name="config_daily_forecast_summary">Në mëngjes dhe në mbrëmje</string>
+    <string name="config_weather_warnings">Shfaq paralajmërime moti</string>
+    <string name="config_weather_warnings_summary">Për kushte të rënda të motit brenda orës së ardhshme</string>
     <string name="config_loc_perm_alert_title">Kërkohet leje për vendndodhjen</string>
-
-    <string name="config_loc_perm_alert">
-        Për të shfaqur motin në zonën tënde aktuale,
-        ky aplikacion ka nevojë për qasje në vendndodhjen tënde.</string>
-
+    <string name="config_loc_perm_alert_message">Për të shfaqur motin në zonën tënde aktuale, ky aplikacion ka nevojë për qasje në vendndodhjen tënde.</string>
     <string name="config_bg_perm_alert_title">Leje për vendndodhjen në sfond</string>
-
-    <string name="config_bg_perm_alert">
-        Përditësimet e besueshme të motit kërkojnë qasje në vendndodhjen tënde në sfond.
-        Zgjidh "%s" në ekranin tjetër.</string>
-
+    <string name="config_bg_perm_alert_message">Përditësimet e besueshme të motit kërkojnë qasje në vendndodhjen tënde në sfond. Zgjidh "%s" në ekranin tjetër.</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Anulo</string>
-
-    <string name="config_alert_debug_title">Shkarkimi i fundit i të dhënave</string>
-
-    <string name="config_alert_debug_worker">Procesi</string>
-
-    <string name="config_alert_debug_location">Vendndodhja</string>
-
-    <string name="config_alert_debug_weather">Moti</string>
-
-    <string name="config_alert_debug_last_update">%s më parë</string>
-
-    <string name="config_alert_button_close">Mbyll</string>
-
-    <string name="config_alert_button_update">Forco përditësimin</string>
-
-    <string name="config_shared_data">Transparenca e të dhënave</string>
-
-    <string name="config_shared_data_descr">Shiko të dhënat e ndara me ofruesin e motit</string>
-
-    <string name="config_shared_data_alert_no_loc">Nuk ka të dhëna për vendndodhjen</string>
-
-    <string name="config_shared_data_alert_text">
-        Mund të shikosh vendndodhjen e fundit ose kërkesën e API-së së motit në shfletues.
-        Kjo ndan vendndodhjen tënde me ofruesin e shërbimit (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Moti</string>
-
-    <string name="config_shared_data_alert_but_location">Vendndodhja</string>
-
     <string name="config_source_code">Kodi burimor</string>
+    <string name="config_source_code_summary">Shiko kodin burimor dhe dokumentacionin në GitHub</string>
+    <string name="config_aux_view_title">Shfaq detajet</string>
+    <string name="config_aux_view_nothing">Pa detaje</string>
+    <string name="config_aux_view_update_time">Koha e rifreskimit</string>
 
-    <string name="config_source_code_descr">Shiko kodin burimor dhe dokumentacionin në GitHub</string>
+    <string name="widget_label">Data dhe moti</string>
+    <string name="widget_date_prev">enj, 28 nën</string>
+    <string name="widget_temp_prev">21\u2103 · nesër 19\u00B0 / 13\u00B0 · shi i lehtë</string>
+    <string name="widget_date_format">EEE, d MMM</string>
+    <string name="widget_today">sot</string>
+    <string name="widget_tomorrow">nesër</string>
+    <string name="widget_updated_at">rifreskuar në</string>
+
+    <string name="wc_heavy_thunderstorms">stuhi të forta</string>
+    <string name="wc_thunderstorm">stuhi</string>
+    <string name="wc_freezing_rain">shi i ngrirë</string>
+    <string name="wc_light_freezing_rain">shi i ngrirë i lehtë</string>
+    <string name="wc_freezing_drizzle">shi i imët i ngrirë</string>
+    <string name="wc_heavy_rain_showers">rrebeshe të forta shiu</string>
+    <string name="wc_rain_showers">rrebeshe shiu</string>
+    <string name="wc_light_rain_showers">rrebeshe të lehta shiu</string>
+    <string name="wc_heavy_snow_showers">rrebeshe të forta dëbore</string>
+    <string name="wc_light_snow_showers">rrebeshe të lehta dëbore</string>
+    <string name="wc_heavy_rain">shi i fortë</string>
+    <string name="wc_rain">shi</string>
+    <string name="wc_light_rain">shi i lehtë</string>
+    <string name="wc_drizzle">shi i imët</string>
+    <string name="wc_heavy_snow">dëborë e fortë</string>
+    <string name="wc_snow">dëborë</string>
+    <string name="wc_light_snow">dëborë e lehtë</string>
+    <string name="wc_snow_grains">kokrra dëbore</string>
+    <string name="wc_fog">mjegull</string>
+    <string name="wc_overcast">me vranësira</string>
+    <string name="wc_mostly_cloudy">kryesisht me vranësira</string>
+    <string name="wc_partly_cloudy_day">pjesërisht me diell</string>
+    <string name="wc_partly_cloudy_night">pjesërisht me vranësira</string>
+    <string name="wc_mainly_clear_day">kryesisht me diell</string>
+    <string name="wc_mainly_clear_night">kryesisht i kthjellët</string>
+    <string name="wc_clear_sky_day">me diell</string>
+    <string name="wc_clear_sky_night">i kthjellët</string>
+
+    <string name="warn_uv_extreme">paralajmërim për rrezatim ekstrem UV</string>
+    <string name="warn_heat_extreme">paralajmërim për nxehtësi ekstreme</string>
+    <string name="warn_rain_extreme">paralajmërim për shi ekstrem</string>
+    <string name="warn_gusts_extreme">paralajmërim për erëra ekstreme</string>
+    <string name="warn_tstorm_extreme">paralajmërim për stuhi ekstreme</string>
+    <string name="warn_no_warning">pa paralajmërime</string>
+    <string name="warn_uv_severe">paralajmërim për rrezatim të fortë UV</string>
+    <string name="warn_heat_severe">paralajmërim për nxehtësi të madhe</string>
+    <string name="warn_rain_severe">paralajmërim për shi intensiv</string>
+    <string name="warn_gusts_severe">paralajmërim për erëra të forta</string>
+    <string name="warn_tstorm_severe">paralajmërim për stuhi të forta</string>
 
     <plurals name="days">
         <item quantity="one">1 ditë</item>
@@ -101,42 +102,5 @@
         <item quantity="one">1 minutë</item>
         <item quantity="other">%d minuta</item>
     </plurals>
-
-    <string name="widget_date_prev">enj, 28 nën</string>
-
-    <string name="widget_temp_prev">21\u2103 · nesër 19\u00B0 / 13\u00B0 · shi i lehtë</string>
-
-    <string name="widget_date_format">EEE, d MMM</string>
-
-    <string name="heavy_thunderstorms">stuhi të forta</string>
-    <string name="thunderstorm">stuhi</string>
-    <string name="freezing_rain">shi i ngrirë</string>
-    <string name="light_freezing_rain">shi i ngrirë i lehtë</string>
-    <string name="freezing_drizzle">shi i imët i ngrirë</string>
-    <string name="heavy_rain_showers">rrebeshe të forta shiu</string>
-    <string name="rain_showers">rrebeshe shiu</string>
-    <string name="light_rain_showers">rrebeshe të lehta shiu</string>
-    <string name="heavy_snow_showers">rrebeshe të forta dëbore</string>
-    <string name="light_snow_showers">rrebeshe të lehta dëbore</string>
-    <string name="heavy_rain">shi i fortë</string>
-    <string name="rain">shi</string>
-    <string name="light_rain">shi i lehtë</string>
-    <string name="drizzle">shi i imët</string>
-    <string name="heavy_snow">dëborë e fortë</string>
-    <string name="snow">dëborë</string>
-    <string name="light_snow">dëborë e lehtë</string>
-    <string name="snow_grains">kokrra dëbore</string>
-    <string name="fog">mjegull</string>
-    <string name="overcast">me vranësira</string>
-    <string name="mostly_cloudy">kryesisht me vranësira</string>
-    <string name="partly_cloudy_day">pjesërisht me diell</string>
-    <string name="partly_cloudy_night">pjesërisht me vranësira</string>
-    <string name="mainly_clear_day">kryesisht me diell</string>
-    <string name="mainly_clear_night">kryesisht i kthjellët</string>
-    <string name="clear_sky_day">me diell</string>
-    <string name="clear_sky_night">i kthjellët</string>
-
-    <string name="today">sot</string>
-    <string name="tomorrow">nesër</string>
 
 </resources>

@@ -21,9 +21,10 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import androidx.work.ExistingPeriodicWorkPolicy
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
 class PimiWidget : AppWidgetProvider() {
@@ -33,42 +34,30 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        for (appWidgetId in appWidgetIds) {
-            WidgetController.updateWidget(context, appWidgetManager, appWidgetId)
-        }
+        WidgetUpdater.updateWidgets(context)
     }
 
     override fun onDisabled(context: Context) {
-        Timber.d("onDisabled: Deactivate weather service, cancel workers")
-
         PreferencesHelper.setWeatherPreference(context, false)
-        WorkManagerHelper.cancelWorkers(context)
+        WorkManagerHelper.cancelWork(context)
+        runBlocking { DataRepository.deleteAllData(context) }
     }
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
-
         Timber.d("onReceive: ${intent.action}")
-        when (intent.action) {
-            Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
 
+        when (intent.action) {
+            Intent.ACTION_LOCALE_CHANGED ->
+                WidgetUpdater.updateWidgets(context)
+
+            Intent.ACTION_MY_PACKAGE_REPLACED -> {
+                WidgetUpdater.updateWidgets(context)
+
+                WorkManagerHelper.cancelWork(context)
                 if (PreferencesHelper.getWeatherPreference(context)) {
-                    WorkManagerHelper.enqueuePeriodicWorker(
-                        context,
-                        WORKER_INIT_DELAY_MILLIS,
-                        ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
-                    )
+                    WorkManagerHelper.enqueueWork(context)
                 }
-            }
-            WidgetAction.APPWIDGET_UPDATE -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.FULL_WIDGET_UPDATE)
-            }
-            Intent.ACTION_LOCALE_CHANGED -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.LOCALE_UPDATE)
-            }
-            WidgetAction.WEATHER_UPDATE -> {
-                WidgetController.updateAllWidgets(context, WidgetUpdateMode.WEATHER_UPDATE)
             }
         }
     }

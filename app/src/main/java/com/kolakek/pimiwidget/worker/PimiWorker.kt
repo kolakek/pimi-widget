@@ -22,8 +22,9 @@ import android.content.Context
 import androidx.annotation.RequiresPermission
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import timber.log.Timber
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
 
 internal class PimiWorker(
     appContext: Context,
@@ -32,14 +33,36 @@ internal class PimiWorker(
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
-        val forceUpdate = inputData.getBoolean(FORCE_UPDATE_KEY, false)
         return try {
-            WidgetUpdater.update(applicationContext, forceUpdate)
-            Result.success()
+            PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
+
+            val isRecoveryMode = inputData.getBoolean(WORK_MODE_KEY, false)
+            val workResult = PimiUpdater.update(applicationContext, isRecoveryMode, runAttemptCount)
+
+            runCatching {
+                PimiUpdater.logUpdateStatus(applicationContext, workResult.message)
+            }
+            when(workResult) {
+                WorkResult.FRESH_DATA_FETCHED,
+                WorkResult.RECENT_DATA_SERVED,
+                WorkResult.STALE_DATA_SERVED,
+                WorkResult.RECOVERY_ENQUEUED
+                    -> Result.success()
+
+                WorkResult.INTERNET_FAILED
+                    -> if (runAttemptCount < MAX_NUM_RETRIES) Result.retry() else Result.failure()
+            }
         } catch (e: CancellationException) {
+            runCatching {
+                withContext(NonCancellable) {
+                    PimiUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+                }
+            }
             throw e
         } catch (e: Exception) {
-            Timber.e(e, "Error in PimiWorker.")
+            runCatching {
+                PimiUpdater.logUpdateStatus(applicationContext, e.javaClass.simpleName)
+            }
             Result.failure()
         }
     }

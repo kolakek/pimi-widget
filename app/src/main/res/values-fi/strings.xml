@@ -1,91 +1,92 @@
 <resources>
 
-    <string name="widget_label">Päivä ja sää</string>
-
-    <string name="config_button">Ota asetukset käyttöön</string>
-
-    <string name="config_privacy_note">
-        Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
-
+    <string name="config_button_apply">Ota asetukset käyttöön</string>
+    <string name="config_privacy_note">Sään käyttöönotto jakaa sijaintisi säätietojen tarjoajalle</string>
     <string name="config_weather_switch">Ota sää käyttöön</string>
-
-    <string name="config_weather_descr">Säätiedot Open-Meteo.comista</string>
-
-    <string name="config_debug_data">Vianmääritystiedot</string>
-
-    <string name="config_debug_data_descr">Näytä widgetin tila</string>
-
+    <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
+    <string name="config_version_title">Koontinumero</string>
+    <string name="config_debug_info">Sovelluksen tila</string>
+    <string name="config_debug_weather_data_age">Säätiedon ikä</string>
+    <string name="config_debug_last_valid_location">Viimeisin kelvollinen sijainti</string>
+    <string name="config_debug_last_work_status">Viimeisin työn tila</string>
+    <string name="config_debug_button_weather">Näytä säähaku</string>
+    <string name="config_debug_button_location">Näytä sijainti</string>
+    <string name="config_debug_background_service">Taustapalvelu</string>
+    <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
+    <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
     <string name="config_text_color">Tekstin väri</string>
-
     <string name="config_icon_style">Kuvaketyyli</string>
-
     <string name="config_color_light">Vaalea</string>
-
     <string name="config_color_dark">Tumma</string>
-
     <string name="config_color_auto">Automaattinen</string>
-
     <string name="config_temp">Lämpötila</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Asetukset</string>
-
-    <string name="config_about_sec">Tietoa</string>
-
+    <string name="config_section_settings">Asetukset</string>
+    <string name="config_section_about">Tietoa</string>
     <string name="config_daily_forecast">Näytä päivittäinen ennuste</string>
-
-    <string name="config_daily_forecast_descr">Aamulla ja illalla</string>
-
+    <string name="config_daily_forecast_summary">Aamulla ja illalla</string>
+    <string name="config_weather_warnings">Näytä säävaroitukset</string>
+    <string name="config_weather_warnings_summary">Äärisääoloissa seuraavan tunnin aikana</string>
     <string name="config_loc_perm_alert_title">Sijaintilupa vaaditaan</string>
-
-    <string name="config_loc_perm_alert">
-        Sään näyttämiseksi alueellasi
-        sovellus tarvitsee pääsyn sijaintiisi.</string>
-
+    <string name="config_loc_perm_alert_message">Sään näyttämiseksi alueellasi sovellus tarvitsee pääsyn sijaintiisi.</string>
     <string name="config_bg_perm_alert_title">Taustasijaintilupa</string>
-
-    <string name="config_bg_perm_alert">
-        Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla.
-        Valitse seuraavassa näytössä "%s".</string>
-
+    <string name="config_bg_perm_alert_message">Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla. Valitse seuraavassa näytössä "%s".</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Peruuta</string>
-
-    <string name="config_alert_debug_title">Viimeisin datan lataus</string>
-
-    <string name="config_alert_debug_worker">Prosessi</string>
-
-    <string name="config_alert_debug_location">Sijainti</string>
-
-    <string name="config_alert_debug_weather">Sää</string>
-
-    <string name="config_alert_debug_last_update">%s sitten</string>
-
-    <string name="config_alert_button_close">Sulje</string>
-
-    <string name="config_alert_button_update">Pakota päivitys</string>
-
-    <string name="config_shared_data">Tietojen läpinäkyvyys</string>
-
-    <string name="config_shared_data_descr">Näytä säätarjoajalle jaetut tiedot</string>
-
-    <string name="config_shared_data_alert_no_loc">Sijaintitietoja ei saatavilla</string>
-
-    <string name="config_shared_data_alert_text">
-        Voit tarkastella viimeisintä sijaintiasi tai sää-API-pyyntöä selaimessa.
-        Tämä jakaa sijaintisi palveluntarjoajalle (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Sää</string>
-
-    <string name="config_shared_data_alert_but_location">Sijainti</string>
-
     <string name="config_source_code">Lähdekoodi</string>
+    <string name="config_source_code_summary">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
+    <string name="config_aux_view_title">Näytä lisätiedot</string>
+    <string name="config_aux_view_nothing">Ei lisätietoja</string>
+    <string name="config_aux_view_update_time">Päivitysaika</string>
 
-    <string name="config_source_code_descr">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
+    <string name="widget_label">Päivä ja sää</string>
+    <string name="widget_date_prev">la 6.12.</string>
+    <string name="widget_temp_prev">21\u2103 · huomenna 19\u00B0 / 13\u00B0 · heikko sade</string>
+    <string name="widget_date_format">EEE d.M.</string>
+    <string name="widget_today">tänään</string>
+    <string name="widget_tomorrow">huomenna</string>
+    <string name="widget_updated_at">päivitetty klo</string>
+
+    <string name="wc_heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
+    <string name="wc_thunderstorm">ukkosmyrsky</string>
+    <string name="wc_freezing_rain">jäätävä sade</string>
+    <string name="wc_light_freezing_rain">heikko jäätävä sade</string>
+    <string name="wc_freezing_drizzle">jäätävä tihkusade</string>
+    <string name="wc_heavy_rain_showers">voimakkaita sadekuuroja</string>
+    <string name="wc_rain_showers">sadekuuroja</string>
+    <string name="wc_light_rain_showers">heikkoja sadekuuroja</string>
+    <string name="wc_heavy_snow_showers">voimakkaita lumikuuroja</string>
+    <string name="wc_light_snow_showers">heikkoja lumikuuroja</string>
+    <string name="wc_heavy_rain">runsas sade</string>
+    <string name="wc_rain">sade</string>
+    <string name="wc_light_rain">heikko sade</string>
+    <string name="wc_drizzle">tihkusade</string>
+    <string name="wc_heavy_snow">runsas lumisade</string>
+    <string name="wc_snow">lumi</string>
+    <string name="wc_light_snow">heikko lumisade</string>
+    <string name="wc_snow_grains">lumirakeet</string>
+    <string name="wc_fog">sumu</string>
+    <string name="wc_overcast">pilvistä</string>
+    <string name="wc_mostly_cloudy">enimmäkseen pilvistä</string>
+    <string name="wc_partly_cloudy_day">osittain aurinkoista</string>
+    <string name="wc_partly_cloudy_night">osittain pilvistä</string>
+    <string name="wc_mainly_clear_day">enimmäkseen aurinkoista</string>
+    <string name="wc_mainly_clear_night">enimmäkseen selkeää</string>
+    <string name="wc_clear_sky_day">aurinkoista</string>
+    <string name="wc_clear_sky_night">selkeää</string>
+
+    <string name="warn_uv_extreme">äärimmäinen UV-varoitus</string>
+    <string name="warn_heat_extreme">äärimmäinen hellevaroitus</string>
+    <string name="warn_rain_extreme">äärimmäinen sadevaroitus</string>
+    <string name="warn_gusts_extreme">äärimmäinen puuskatuulivaroitus</string>
+    <string name="warn_tstorm_extreme">äärimmäinen ukkosvaroitus</string>
+    <string name="warn_no_warning">ei varoituksia</string>
+    <string name="warn_uv_severe">voimakas UV-varoitus</string>
+    <string name="warn_heat_severe">voimakas hellevaroitus</string>
+    <string name="warn_rain_severe">voimakas sadevaroitus</string>
+    <string name="warn_gusts_severe">voimakas puuskatuulivaroitus</string>
+    <string name="warn_tstorm_severe">voimakas ukkosvaroitus</string>
 
     <plurals name="days">
         <item quantity="one">1 päivä</item>
@@ -101,42 +102,5 @@
         <item quantity="one">1 minuutti</item>
         <item quantity="other">%d minuuttia</item>
     </plurals>
-
-    <string name="widget_date_prev">la 6.12.</string>
-
-    <string name="widget_temp_prev">21\u2103 · huomenna 19\u00B0 / 13\u00B0 · heikko sade</string>
-
-    <string name="widget_date_format">EEE d.M.</string>
-
-    <string name="heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
-    <string name="thunderstorm">ukkosmyrsky</string>
-    <string name="freezing_rain">jäätävä sade</string>
-    <string name="light_freezing_rain">heikko jäätävä sade</string>
-    <string name="freezing_drizzle">jäätävä tihkusade</string>
-    <string name="heavy_rain_showers">voimakkaita sadekuuroja</string>
-    <string name="rain_showers">sadekuuroja</string>
-    <string name="light_rain_showers">heikkoja sadekuuroja</string>
-    <string name="heavy_snow_showers">voimakkaita lumikuuroja</string>
-    <string name="light_snow_showers">heikkoja lumikuuroja</string>
-    <string name="heavy_rain">runsas sade</string>
-    <string name="rain">sade</string>
-    <string name="light_rain">heikko sade</string>
-    <string name="drizzle">tihkusade</string>
-    <string name="heavy_snow">runsas lumisade</string>
-    <string name="snow">lumi</string>
-    <string name="light_snow">heikko lumisade</string>
-    <string name="snow_grains">lumirakeet</string>
-    <string name="fog">sumu</string>
-    <string name="overcast">pilvistä</string>
-    <string name="mostly_cloudy">enimmäkseen pilvistä</string>
-    <string name="partly_cloudy_day">osittain aurinkoista</string>
-    <string name="partly_cloudy_night">osittain pilvistä</string>
-    <string name="mainly_clear_day">enimmäkseen aurinkoista</string>
-    <string name="mainly_clear_night">enimmäkseen selkeää</string>
-    <string name="clear_sky_day">aurinkoista</string>
-    <string name="clear_sky_night">selkeää</string>
-
-    <string name="today">tänään</string>
-    <string name="tomorrow">huomenna</string>
 
 </resources>

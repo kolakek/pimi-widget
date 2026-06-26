@@ -15,10 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.settings
 
-internal enum class WidgetUpdateMode {
-    FULL_WIDGET_UPDATE,
-    LOCALE_UPDATE,
-    WEATHER_UPDATE
+enum class TextStyle {
+    DARK,
+    LIGHT,
+    LIGHT_SHADOW
 }

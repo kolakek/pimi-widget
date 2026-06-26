@@ -15,11 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.resources
+package com.kolakek.pimiwidget.worker
 
-enum class IconStyle {
-    FLAT_SKETCH_DARK,
-    FLAT_SKETCH_LIGHT,
-    TWINKLE_SHADOW_DARK,
-    TWINKLE_SHADOW_LIGHT
+enum class WorkResult(val message: String) {
+    FRESH_DATA_FETCHED("FreshDataFetched"),
+    RECOVERY_ENQUEUED("RecoveryEnqueued"),
+    RECENT_DATA_SERVED("RecentDataServed"),
+    STALE_DATA_SERVED("StaleDataServed"),
+    INTERNET_FAILED("InternetFailed")
 }

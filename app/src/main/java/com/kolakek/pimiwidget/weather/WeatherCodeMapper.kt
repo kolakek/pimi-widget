@@ -21,14 +21,14 @@ import timber.log.Timber
 
 object WeatherCodeMapper {
 
-    internal fun mapWmoCode(
+    internal fun getWeatherCode(
         wmoCode: Int,
-        cloudCover: Int,
-        precipProb: Int,
+        cloudCover: Double,
+        precipProb: Double,
         visibility: Double,
         cape: Double
     ): WeatherCode? {
-        val noSky = cloudCover > MIN_CLOUD_COVER_OVERCAST
+        val noSky = cloudCover >= MIN_CLOUD_COVER_OVERCAST
         val noPrecip = precipProb < MIN_PROBABILITY_PRECIP
         val noFog = visibility > MAX_VISIBILITY_FOG
         val noThunderstorm = (cape < MIN_CAPE_THUNDERSTORM) || (precipProb < MIN_POP_THUNDERSTORM)
@@ -36,7 +36,7 @@ object WeatherCodeMapper {
         val adjustedWmoCode = when (wmoCode) {
             in 45..48 -> if (noFog) CODE_NO_PRECIP else wmoCode
 
-            in 51..86 -> if (noPrecip) CODE_NO_PRECIP else wmoCode
+            in 53..86 -> if (noPrecip) CODE_NO_PRECIP else wmoCode
 
             in 95..99 -> if (noThunderstorm) {
                 if (noPrecip) CODE_NO_PRECIP else CODE_LIGHT_SHOWERS
@@ -48,20 +48,27 @@ object WeatherCodeMapper {
         }
         return when (adjustedWmoCode) {
 
-            0, 1, 2, 3, CODE_NO_PRECIP ->
+            0, 1, 2, 3, 51, CODE_NO_PRECIP ->
                 when {
-                    cloudCover > MIN_CLOUD_COVER_OVERCAST -> WeatherCode.OVERCAST
-                    cloudCover > MIN_CLOUD_COVER_MOSTLY_CLOUDY -> WeatherCode.MOSTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_PARTLY_CLOUDY -> WeatherCode.PARTLY_CLOUDY
-                    cloudCover > MIN_CLOUD_COVER_MAINLY_CLEAR -> WeatherCode.MAINLY_CLEAR
+                    (adjustedWmoCode == 0) || (cloudCover <= MAX_CLOUD_COVER_CLEAR_SKY) ->
+                        WeatherCode.CLEAR_SKY
 
-                    else -> WeatherCode.CLEAR_SKY
+                    (adjustedWmoCode == 1) || (cloudCover <= MAX_CLOUD_COVER_MAINLY_CLEAR) ->
+                        WeatherCode.MAINLY_CLEAR
+
+                    cloudCover <= MAX_CLOUD_COVER_PARTLY_CLOUDY ->
+                        WeatherCode.PARTLY_CLOUDY
+
+                    (adjustedWmoCode == 2) || (cloudCover < MIN_CLOUD_COVER_OVERCAST) ->
+                        WeatherCode.MOSTLY_CLOUDY
+
+                    else -> WeatherCode.OVERCAST
                 }
 
             45, 48 ->
                 WeatherCode.FOG
 
-            51, 53, 55 ->
+            53, 55 ->
                 if (noSky) WeatherCode.DRIZZLE
                 else WeatherCode.DRIZZLE_AND_SKY
 

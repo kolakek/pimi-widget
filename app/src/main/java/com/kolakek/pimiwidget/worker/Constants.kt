@@ -17,8 +17,13 @@
 
 package com.kolakek.pimiwidget.worker
 
-internal const val PERIODIC_WORK_NAME = "periodic-update-kolakek-pimi-widget"
-internal const val ONE_TIME_WORK_NAME = "one-time-update-kolakek-pimi-widget"
-internal const val FORCE_UPDATE_KEY = "force_update"
-internal const val UPDATE_INTERVAL_MILLIS = 30 * 60 * 1000L
-internal const val WEATHER_MIN_AGE_MILLIS = 60 * 60 * 1000L
+internal const val WORK_NAME = "periodic-update-kolakek-pimi-widget"
+internal const val WORK_MODE_KEY = "work_mode"
+internal const val STATUS_STRING_RUNNING = "Running"
+internal const val DATA_MAX_AGE_MILLIS = 90 * 60 * 1000L
+internal const val WORK_INTERVAL_MILLIS = 30 * 60 * 1000L
+internal const val WORK_DELAY_MILLIS = 0L
+internal const val RECOVERY_INTERVAL_MILLIS = 15 * 60 * 1000L
+internal const val RECOVERY_DELAY_MILLIS = 15 * 1000L
+internal const val BACKOFF_DELAY_MILLIS = 30 * 1000L
+internal const val MAX_NUM_RETRIES = 3

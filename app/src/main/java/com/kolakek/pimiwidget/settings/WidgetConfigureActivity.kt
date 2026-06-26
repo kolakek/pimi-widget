@@ -20,9 +20,13 @@ package com.kolakek.pimiwidget.settings
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentActivity
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
-import com.kolakek.pimiwidget.widget.WidgetController
+import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 class WidgetConfigureActivity : FragmentActivity() {
 
@@ -31,14 +35,13 @@ class WidgetConfigureActivity : FragmentActivity() {
     private fun finishWidgetConfigureActivity() {
         val context = this@WidgetConfigureActivity
 
-        WidgetController.updateWidget(
-            context,
-            AppWidgetManager.getInstance(context),
-            appWidgetId
-        )
+        WidgetUpdater.updateWidgets(context)
+
         val resultValue = Intent()
+
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         setResult(RESULT_OK, resultValue)
+
         finish()
     }
 
@@ -56,9 +59,18 @@ class WidgetConfigureActivity : FragmentActivity() {
             finish()
             return
         }
+        enableEdgeToEdge()
+
         val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val initialTopPadding = binding.toolbarContent.paddingTop
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbarContent) { view, insets ->
+            val topInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            view.updatePadding(top = initialTopPadding + topInset)
+            insets
+        }
         binding.button.setOnClickListener { finishWidgetConfigureActivity() }
     }
 }

@@ -17,10 +17,6 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.Manifest
-
-internal const val REQUIRED_PERMISSION = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val LOCATION_URL = "https://www.openstreetmap.org"
 internal const val LOCATION_URL_ZOOM = 13
@@ -38,9 +34,14 @@ internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"
 internal const val KEY_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
 
+internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
+internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
+internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
+
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
+internal const val KEY_LOCATION_FALLBACK = "location_fallback"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
+internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
 internal const val KEY_DEBUG_INFO = "debug_info"
-internal const val KEY_SHARED_DATA = "shared_data"
 internal const val KEY_SOURCE_CODE = "source_code"

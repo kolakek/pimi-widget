@@ -16,7 +16,7 @@ Pixel-style Android widget that shows the date and weather
 ## Download
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" align="center" height="80"/>](https://f-droid.org/packages/com.kolakek.pimiwidget/)
-[<img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" align="center" height="54" hspace="13"/>](https://github.com/kolakek/pimi-widget/blob/main/INSTALL.md#obtainium)
+[<img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" align="center" height="80"/>](https://github.com/kolakek/pimi-widget/blob/main/INSTALL.md#obtainium)
 [<img src="https://user-images.githubusercontent.com/69304392/148696068-0cfea65d-b18f-4685-82b5-329a330b1c0d.png" alt="Get it on GitHub" align="center" height="80"/>](https://github.com/kolakek/pimi-widget/releases)
 
 All download options provide the same APK file, signed with the same signing key.
@@ -33,7 +33,7 @@ All download options provide the same APK file, signed with the same signing key
 
 ### Privacy Information
 
-The widget collects your location approximately every 60 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data that is exchanged with the weather provider by tapping the **Shared data** option in the widget settings.
+The widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data exchanged with the weather provider by tapping the **Build number** three times in the widget settings.
 
 ### Usage
 
@@ -45,7 +45,7 @@ Normally, your home app should allow you to reconfigure the widget (e.g., by lon
 
 ### Weather Display
 
-The widget displays the 15-minutely weather forecast. It refreshes every 30 minutes. New forecast data is downloaded approximately every 60 minutes and remains valid for 180 minutes. If the widget cannot update your location and retrieve new weather data for more than 180 minutes (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. After a device reboot or app update, it may take 2–3 minutes for the widget to sync and display weather data.
+The widget shows the weather forecast for the current hour. It refreshes every 30 minutes. The hourly forecast data for the next 6 hours is downloaded every 90 minutes. If the widget cannot update your location or retrieve new weather data for more than 6 hours (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. If the internet is unavailable for an extended period, the widget may take up to 15 minutes to sync and display weather data.
 
 ### Location Access
 
@@ -57,17 +57,47 @@ Tapping the date or weather area on the widget will open the default calendar or
 
 Supported weather apps (among others): Google Weather, Breezy Weather.
 
-### Further Troubleshooting
+### Weather Alerts
 
-If weather information does not appear, you can find debug information by tapping the **Debug information** field in the widget configuration. Try the following actions based on the displayed status:
+Severe and extreme weather alerts for the current hour are shown if the following conditions are met:
 
-- **Location FAILED**: The widget could not retrieve your location. Ensure that location services are enabled on your device. See the Location Access section above.
+- **Severe UV warning:** UV index ≥ 8 (very high), according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index)
 
-- **Location FAILED & Weather FAILED**: The widget failed to retrieve your location and thus, was not able to obtain weather data. Ensure that location services are enabled. Refer to the Location Access section above.
+- **Extreme UV warning:** UV index ≥ 11 (extreme), according to [WHO](https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index)
 
-- **Location SUCCESS & Weather FAILED**: The widget retrieved your location but could not reach the weather provider. Ensure that your device is connected to the internet.
+- **Excessive heat warning:** Apparent temperature ≥ 38°C (warning level 3), according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html)
 
-- **Worker ENQUEUED or RUNNING**: The background service for updating the widget is running correctly. If a different status appears, try re-enabling the weather service in the widget configuration.
+- **Extreme heat warning:** Apparent temperature ≥ 43°C (dangerous heat), according to [NWS](https://www.weather.gov/ama/heatindex)
+
+- **Excessive rain warning:** Rainfall ≥ 25 mm/h (warning level 3), according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html)
+
+- **Extreme rain warning:** Rainfall ≥ 40 mm/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+- **Severe wind gust warning:** Wind gusts ≥ 105 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme wind gust warning:** Wind gusts ≥ 140 km/h, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+- **Severe thunderstorm warning:** Thunderstorms with severe rain or wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 3)
+
+- **Extreme thunderstorm warning:** Thunderstorms with extreme rain or wind gusts, according to [DWD](https://www.dwd.de/DE/wetter/warnungen_aktuell/kriterien/warnkriterien.html) (warning level 4)
+
+### Troubleshooting
+
+You can find debug information by tapping the **Build number** three times in the widget settings and checking the **Last work status**. The following are the typical statuses and their meanings:
+
+- **RecentDataServed:** The widget was updated with recent weather information. No new weather data needed to be downloaded.
+
+- **FreshDataFetched:** The widget was updated with recent weather information. New weather data was successfully downloaded.
+
+- **StaleDataServed:** The widget was unable to fetch new weather data for more than 90 minutes because the internet was unavailable. It will continue updating using the available forecast data until the internet becomes available again.
+
+- **RecoveryEnqueued:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The background service has switched to recovery mode and will attempt to fetch new weather data as soon as the internet becomes available again.
+
+- **InternetFailed:** The internet was unavailable during the recovery run. A new attempt is scheduled. Please ensure that your device is connected to the internet.
+
+- **LocationUnavailableException:** The widget could not retrieve your location. A new attempt is scheduled. Please ensure that location services are enabled on your device. See the Location Access section above.
+
+- **Other exceptions:** Most exceptions are likely related to network issues. The widget will continue updating using the available forecast data until the internet becomes available again.
 
 ## Donations
 

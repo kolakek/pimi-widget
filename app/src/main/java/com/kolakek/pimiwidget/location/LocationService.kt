@@ -24,60 +24,76 @@ import android.location.LocationManager
 import android.os.CancellationSignal
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
+import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
-import timber.log.Timber
+import kotlinx.coroutines.withTimeout
+import kotlin.time.Duration.Companion.milliseconds
 
 object LocationService {
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    suspend fun getLocation(context: Context): LocationData? {
-        Timber.d("getLocation: Get location")
-
+    suspend fun fetchLocation(
+        context: Context,
+        useLocationFallback: Boolean
+    ): LocationData {
         val locationManager = context.getSystemService(LocationManager::class.java)
 
-        val lastLocation = try {
-            locationManager.getLastKnownLocation(LOCATION_PROVIDER)
-        } catch (e: SecurityException) {
-            Timber.e(e, "getLocation: Missing location permission")
-            null
+        getLastKnownLocation(locationManager)?.let {
+            DataRepository.storeLocationData(context, it)
+            return it
         }
-        val location = if (
-            lastLocation == null ||
-            System.currentTimeMillis() - lastLocation.time > LOCATION_MAX_AGE_MILLIS
-        ) {
-            Timber.d("getLocation: No valid last location, get current location")
-            getCurrentLocation(locationManager, LOCATION_PROVIDER, context)
-        } else {
-            lastLocation
+        getCurrentLocation(locationManager, context)?.let {
+            DataRepository.storeLocationData(context, it)
+            return it
         }
-        if (location == null) {
-            Timber.w("getLocation: Failed to determine location")
-        } else {
-            Timber.d("getLocation: Location obtained successfully")
+        getStoredLocation(locationManager, context, useLocationFallback)?.let {
+            DataRepository.storeLocationData(context, it)
+            return it
         }
-        return location?.let { LocationData(it.latitude, it.longitude, it.time) }
+        throw LocationUnavailableException("Failed to obtain location")
+    }
+
+    private suspend fun getStoredLocation(
+        locationManager: LocationManager,
+        context: Context,
+        useLocationFallback: Boolean
+    ): LocationData? = if (!locationManager.isLocationEnabled && useLocationFallback) {
+        DataRepository.loadLocationData(context)?.apply {
+            locationType = STORED_LOCATION_NAME
+        }
+    } else null
+
+    @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
+    private fun getLastKnownLocation(
+        locationManager: LocationManager
+    ): LocationData? = locationManager.getLastKnownLocation(LOCATION_PROVIDER)?.let {
+        if (System.currentTimeMillis() - it.time <= LOCATION_MAX_AGE_MILLIS) {
+            LocationData(it.latitude, it.longitude, it.time, CACHED_LOCATION_NAME)
+        } else null
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    suspend fun getCurrentLocation(
-        manager: LocationManager,
-        provider: String,
+    private suspend fun getCurrentLocation(
+        locationManager: LocationManager,
         context: Context
-    ): Location? = suspendCancellableCoroutine { cont ->
-        val cancellationSignal = CancellationSignal()
-        val executor = ContextCompat.getMainExecutor(context)
+    ): LocationData? = withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
+        val location = suspendCancellableCoroutine<Location?> { cont ->
+            val cancellationSignal = CancellationSignal()
 
-        try {
-            manager.getCurrentLocation(provider, cancellationSignal, executor) { location ->
+            locationManager.getCurrentLocation(
+                LOCATION_PROVIDER,
+                cancellationSignal,
+                ContextCompat.getMainExecutor(context)
+            ) { location ->
                 cont.resume(location) { _, _, _ -> }
             }
-        } catch (e: SecurityException) {
-            Timber.e(e, "getCurrentLocation: Missing location permission")
-            cont.resume(null) { _, _, _ -> }
-            return@suspendCancellableCoroutine
+            cont.invokeOnCancellation {
+                cancellationSignal.cancel()
+            }
         }
-        cont.invokeOnCancellation {
-            cancellationSignal.cancel()
+        location?.let {
+            LocationData(it.latitude, it.longitude, it.time, FRESH_LOCATION_NAME)
         }
     }
 }

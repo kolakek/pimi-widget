@@ -15,19 +15,18 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.weather
+package com.kolakek.pimiwidget.widget
 
-import kotlinx.serialization.Serializable
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
 
-@Suppress("PropertyName")
-@Serializable
-internal data class ProviderDataMinutely (
-    val temperature_2m: List<Double>,
-    val visibility: List<Double>,
-    val cape: List<Double>,
-    val cloud_cover: List<Int>,
-    val precipitation_probability: List<Int>,
-    val time: List<Long>,
-    val weather_code: List<Int>,
-    val is_day: List<Int>
-)
+class PimiWidgetExternal : BroadcastReceiver() {
+
+    override fun onReceive(context: Context, intent: Intent) {
+        when (intent.action) {
+            "com.kolakek.pimiwidget.action.APPWIDGET_UPDATE" ->
+                WidgetUpdater.updateWidgets(context)
+        }
+    }
+}
