@@ -4,4 +4,4 @@
 * Added option to use the last known location when device location is off
 * Switched back to hourly forecast data (optimal for weather model resolution and widget refresh interval)
 * More responsive widget refresh
-* Code optimization
+* Translation to Traditional Chinese (thanks to Unknownman820)
