@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Visa detaljer</string>
     <string name="config_aux_view_nothing">Inga detaljer</string>
     <string name="config_aux_view_update_time">Uppdateringstid</string>
+    <string name="config_weather_app">Väderapp</string>
+    <string name="config_weather_app_default">Ingen</string>
+    <string name="config_weather_app_nil">Inte listad</string>
+    <string name="config_weather_app_nil_alert_message">För att få din väderapp tillagd, öppna ett issue på GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
 
     <string name="widget_label">Datum och väder</string>
     <string name="widget_date_prev">fre 6 jun</string>

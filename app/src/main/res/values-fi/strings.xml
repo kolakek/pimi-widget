@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Näytä lisätiedot</string>
     <string name="config_aux_view_nothing">Ei lisätietoja</string>
     <string name="config_aux_view_update_time">Päivitysaika</string>
+    <string name="config_weather_app">Sääsovellus</string>
+    <string name="config_weather_app_default">Ei mitään</string>
+    <string name="config_weather_app_nil">Ei listalla</string>
+    <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi lisättävän, avaa issue GitHubissa.</string>
+    <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
 
     <string name="widget_label">Päivä ja sää</string>
     <string name="widget_date_prev">la 6.12.</string>

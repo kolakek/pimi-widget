@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Afficher les détails</string>
     <string name="config_aux_view_nothing">Sans détails</string>
     <string name="config_aux_view_update_time">Temps d’actualisation</string>
+    <string name="config_weather_app">Application météo</string>
+    <string name="config_weather_app_default">Aucune</string>
+    <string name="config_weather_app_nil">Non répertoriée</string>
+    <string name="config_weather_app_nil_alert_message">Pour faire ajouter ton application météo, ouvre un ticket sur GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Ouvrir GitHub</string>
 
     <string name="widget_label">Date et météo</string>
     <string name="widget_date_prev">dim. 14 juil.</string>

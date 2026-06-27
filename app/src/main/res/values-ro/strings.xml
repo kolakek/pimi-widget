@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Afișează detalii</string>
     <string name="config_aux_view_nothing">Fără detalii</string>
     <string name="config_aux_view_update_time">Timp de actualizare</string>
+    <string name="config_weather_app">Aplicație meteo</string>
+    <string name="config_weather_app_default">Niciuna</string>
+    <string name="config_weather_app_nil">Nu este listată</string>
+    <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
 
     <string name="widget_label">Data și vremea</string>
     <string name="widget_date_prev">lun., 1 dec.</string>

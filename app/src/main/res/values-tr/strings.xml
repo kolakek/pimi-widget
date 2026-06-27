@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Detayları göster</string>
     <string name="config_aux_view_nothing">Detay yok</string>
     <string name="config_aux_view_update_time">Yenileme süresi</string>
+    <string name="config_weather_app">Hava durumu uygulaması</string>
+    <string name="config_weather_app_default">Hiçbiri</string>
+    <string name="config_weather_app_nil">Listede yok</string>
+    <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir issue aç.</string>
+    <string name="config_weather_app_alert_button_github">GitHub\'ı aç</string>
 
     <string name="widget_label">Tarih ve hava durumu</string>
     <string name="widget_date_prev">29 Eki Paz</string>

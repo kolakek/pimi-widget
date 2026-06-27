@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Zobrazit podrobnosti</string>
     <string name="config_aux_view_nothing">Bez podrobností</string>
     <string name="config_aux_view_update_time">Čas aktualizace</string>
+    <string name="config_weather_app">Aplikace počasí</string>
+    <string name="config_weather_app_default">Žádná</string>
+    <string name="config_weather_app_nil">Není v seznamu</string>
+    <string name="config_weather_app_nil_alert_message">Chcete-li přidat svou aplikaci počasí, otevřete issue na GitHubu.</string>
+    <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
 
     <string name="widget_label">Datum a počasí</string>
     <string name="widget_date_prev">út 28. 10.</string>

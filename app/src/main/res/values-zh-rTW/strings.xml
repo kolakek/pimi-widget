@@ -39,6 +39,11 @@
     <string name="config_aux_view_nothing">沒有詳細資訊</string>
     <string name="config_aux_view_update_time">重新整理時間</string>
     <string name="config_aux_view_title">顯示詳細資訊</string>
+    <string name="config_weather_app">天氣應用程式</string>
+    <string name="config_weather_app_default">無</string>
+    <string name="config_weather_app_nil">未列出</string>
+    <string name="config_weather_app_nil_alert_message">若要新增您的天氣應用程式，請在 GitHub 上建立一個 issue。</string>
+    <string name="config_weather_app_alert_button_github">開啟 GitHub</string>
 
     <string name="widget_label">日期與天氣</string>
     <string name="widget_date_format">EEE, MMM d</string>

@@ -42,7 +42,7 @@
     <string name="config_weather_app">Weather app</string>
     <string name="config_weather_app_default">None</string>
     <string name="config_weather_app_nil">Not listed</string>
-    <string name="config_weather_app_nil_alert_message">To request support for your weather app, please open an issue on GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">To have your weather app added, please open an issue on GitHub.</string>
     <string name="config_weather_app_alert_button_github">Open GitHub</string>
 
     <string name="widget_label">Date &amp; weather</string>

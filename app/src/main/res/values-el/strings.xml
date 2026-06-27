@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Εμφάνιση λεπτομερειών</string>
     <string name="config_aux_view_nothing">Χωρίς λεπτομέρειες</string>
     <string name="config_aux_view_update_time">Χρόνος ανανέωσης</string>
+    <string name="config_weather_app">Εφαρμογή καιρού</string>
+    <string name="config_weather_app_default">Καμία</string>
+    <string name="config_weather_app_nil">Δεν περιλαμβάνεται</string>
+    <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
 
     <string name="widget_label">Ημερομηνία και καιρός</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>

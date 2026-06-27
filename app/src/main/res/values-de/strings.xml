@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Details anzeigen</string>
     <string name="config_aux_view_nothing">Keine Details</string>
     <string name="config_aux_view_update_time">Aktualisierungszeit</string>
+    <string name="config_weather_app">Wetter-App</string>
+    <string name="config_weather_app_default">Keine</string>
+    <string name="config_weather_app_nil">Nicht aufgeführt</string>
+    <string name="config_weather_app_nil_alert_message">Damit deine Wetter-App aufgenommen wird, erstelle ein Issue auf GitHub.</string>
+    <string name="config_weather_app_alert_button_github">GitHub öffnen</string>
 
     <string name="widget_label">Datum &amp; Wetter</string>
     <string name="widget_date_prev">So., 3. Oct.</string>

@@ -39,6 +39,11 @@
     <string name="config_aux_view_title">Pokaż szczegóły</string>
     <string name="config_aux_view_nothing">Bez szczegółów</string>
     <string name="config_aux_view_update_time">Czas odświeżania</string>
+    <string name="config_weather_app">Aplikacja pogodowa</string>
+    <string name="config_weather_app_default">Żadna</string>
+    <string name="config_weather_app_nil">Nie ma na liście</string>
+    <string name="config_weather_app_nil_alert_message">Aby dodać swoją aplikację pogodową, otwórz issue na GitHubie.</string>
+    <string name="config_weather_app_alert_button_github">Otwórz GitHub</string>
 
     <string name="widget_label">Data i pogoda</string>
     <string name="widget_date_prev">śr., 3 maj</string>
