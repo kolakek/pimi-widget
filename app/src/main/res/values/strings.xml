@@ -39,8 +39,11 @@
     <string name="config_aux_view_nothing">No details</string>
     <string name="config_aux_view_update_time">Refresh time</string>
     <string name="config_aux_view_title">Show details</string>
-    <string name="config_weather_app_default">None</string>
     <string name="config_weather_app">Weather app</string>
+    <string name="config_weather_app_default">None</string>
+    <string name="config_weather_app_nil">Not listed</string>
+    <string name="config_weather_app_nil_alert_message">To request support for your weather app, please open an issue on GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Open GitHub</string>
 
     <string name="widget_label">Date &amp; weather</string>
     <string name="widget_date_format">EEE, MMM d</string>

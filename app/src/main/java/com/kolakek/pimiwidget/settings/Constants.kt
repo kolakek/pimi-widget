@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.settings
 
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
+internal const val ISSUE_TRACKER_URL = "https://github.com/kolakek/pimi-widget/issues"
 internal const val LOCATION_URL = "https://www.openstreetmap.org"
 internal const val LOCATION_URL_ZOOM = 13
 
@@ -48,3 +49,4 @@ internal const val KEY_SOURCE_CODE = "source_code"
 
 internal const val KEY_WEATHER_APP_LIST = "weather_app_list"
 internal const val KEY_DEFAULT_WEATHER_APP = "weather_app_default"
+internal const val KEY_NIL_WEATHER_APP = "weather_app_nil"

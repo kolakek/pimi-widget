@@ -93,7 +93,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
             false
         }
-        createWeatherAppList(context)
+        handleWeatherAppPreference(context)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -290,7 +290,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun createWeatherAppList(context: Context) {
+    private fun handleWeatherAppPreference(context: Context) {
         val installedApps = WeatherApp.entries.filter { app ->
             AppLookup.isAppInstalled(context, app.packageName)
         }
@@ -302,15 +302,38 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             entries.add(getString(it.labelId))
             entryValues.add(it.key)
         }
+        entries.add(getString(R.string.config_weather_app_nil))
+        entryValues.add(KEY_NIL_WEATHER_APP)
+
+        listPreference?.entries = entries.toTypedArray()
+        listPreference?.entryValues = entryValues.toTypedArray()
+
         val currentApp = listPreference?.value
         val isCurrentAppInstalled = installedApps.any {
             it.key == currentApp
         }
-        listPreference?.entries = entries.toTypedArray()
-        listPreference?.entryValues = entryValues.toTypedArray()
-
         if (!isCurrentAppInstalled) {
             listPreference?.value = KEY_DEFAULT_WEATHER_APP
         }
+        listPreference?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == KEY_NIL_WEATHER_APP) {
+                showUnlistedAppDialog(context)
+                return@setOnPreferenceChangeListener false
+            }
+            true
+        }
+    }
+
+    private fun showUnlistedAppDialog(
+        context: Context,
+    ) {
+        AlertDialog.Builder(context)
+            .setMessage(R.string.config_weather_app_nil_alert_message)
+            .setPositiveButton(R.string.config_weather_app_alert_button_github) { dialog, _ ->
+                startUrlActivity(ISSUE_TRACKER_URL)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .show()
     }
 }

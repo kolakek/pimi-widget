@@ -23,7 +23,6 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.utility.WeatherApp
-import timber.log.Timber
 
 internal object PreferencesHelper {
 
