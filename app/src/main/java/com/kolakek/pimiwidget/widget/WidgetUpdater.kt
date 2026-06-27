@@ -30,6 +30,7 @@ import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
@@ -56,7 +57,7 @@ internal object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            updateBaseWidget(context, views, appWidgetId)
+            updateBaseWidget(context, views, appWidgetId, prefs)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
 
@@ -104,7 +105,8 @@ internal object WidgetUpdater {
     private fun updateBaseWidget(
         context: Context,
         views: RemoteViews,
-        appWidgetId: Int
+        appWidgetId: Int,
+        prefs: WidgetPreferences
     ) {
         val pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
@@ -113,22 +115,19 @@ internal object WidgetUpdater {
         views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
         views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
-        WidgetIntent.categoryIntent(
+        val calendarIntent = WidgetIntent.categoryIntent(
             context,
             Intent.CATEGORY_APP_CALENDAR,
             appWidgetId
-        )?.let {
-            views.setOnClickPendingIntent(R.id.widget_text_clock, it)
-        }
-        val pendingIntent = WidgetIntent.categoryIntent(
-            context,
-            Intent.CATEGORY_APP_WEATHER,
-            appWidgetId
-        ) ?: WidgetIntent.altWeatherAppIntent(context, appWidgetId)
+        )
+        views.setOnClickPendingIntent(R.id.widget_text_clock, calendarIntent)
 
-        pendingIntent?.let {
-            views.setOnClickPendingIntent(R.id.widget_temp, it)
+        val weatherAppIntent = if (prefs.weatherApp == WeatherApp.NONE) {
+            null
+        } else {
+            WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
+        views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
     }
 
     private fun updateWeather(

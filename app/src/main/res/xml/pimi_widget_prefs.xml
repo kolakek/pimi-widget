@@ -80,6 +80,15 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            android:defaultValue="weather_app_default"
+            android:entries="@array/weather_apps"
+            android:entryValues="@array/weather_apps_vals"
+            android:key="weather_app_list"
+            android:title="@string/config_weather_app"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

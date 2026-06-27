@@ -43,4 +43,12 @@
         <item>aux_view_update_time</item>
     </array>
 
+    <array name="weather_apps">
+        <item>@string/config_weather_app_default</item>
+    </array>
+
+    <array name="weather_apps_vals">
+        <item>weather_app_default</item>
+    </array>
+
 </resources>

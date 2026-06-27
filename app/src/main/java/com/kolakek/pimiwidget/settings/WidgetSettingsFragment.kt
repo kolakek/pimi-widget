@@ -32,6 +32,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
@@ -39,6 +40,8 @@ import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.utility.AppLookup
+import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -90,6 +93,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
             false
         }
+        createWeatherAppList(context)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -283,6 +287,30 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
     private fun deleteAllData(context: Context) {
         lifecycleScope.launch {
             DataRepository.deleteAllData(context)
+        }
+    }
+
+    private fun createWeatherAppList(context: Context) {
+        val installedApps = WeatherApp.entries.filter { app ->
+            AppLookup.isAppInstalled(context, app.packageName)
+        }
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
+        val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
+        val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
+
+        installedApps.forEach {
+            entries.add(getString(it.labelId))
+            entryValues.add(it.key)
+        }
+        val currentApp = listPreference?.value
+        val isCurrentAppInstalled = installedApps.any {
+            it.key == currentApp
+        }
+        listPreference?.entries = entries.toTypedArray()
+        listPreference?.entryValues = entryValues.toTypedArray()
+
+        if (!isCurrentAppInstalled) {
+            listPreference?.value = KEY_DEFAULT_WEATHER_APP
         }
     }
 }

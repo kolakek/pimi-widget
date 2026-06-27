@@ -39,6 +39,8 @@
     <string name="config_aux_view_nothing">No details</string>
     <string name="config_aux_view_update_time">Refresh time</string>
     <string name="config_aux_view_title">Show details</string>
+    <string name="config_weather_app_default">None</string>
+    <string name="config_weather_app">Weather app</string>
 
     <string name="widget_label">Date &amp; weather</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -114,5 +116,8 @@
     <string name="celsius" translatable="false">\u2103</string>
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
+
+    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
+    <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
 
 </resources>

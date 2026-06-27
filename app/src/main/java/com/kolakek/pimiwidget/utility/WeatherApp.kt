@@ -15,18 +15,24 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.utility
 
-import com.kolakek.pimiwidget.utility.WeatherApp
+import com.kolakek.pimiwidget.R
 
-internal data class WidgetPreferences (
-    val showWeather: Boolean,
-    val useLocationFallback: Boolean,
-    val showDailyForecast: Boolean,
-    val showWeatherWarning: Boolean,
-    val iconStyle: IconStyle,
-    val textStyle: TextStyle,
-    val tempUnit: TempUnit,
-    val auxDisplay: AuxDisplay,
-    val weatherApp: WeatherApp
-)
+enum class WeatherApp(val key: String, val packageName: String, val labelId: Int) {
+    NONE(
+        "weather_app_default",
+        "",
+        R.string.config_weather_app_default
+    ),
+    BREEZY_WEATHER(
+        "weather_app_breezy",
+        "org.breezyweather",
+        R.string.config_weather_app_breezy
+    ),
+    PIXEL_WEATHER(
+        "weather_app_pixel",
+        "com.google.android.apps.weather",
+        R.string.config_weather_app_pixel
+    )
+}

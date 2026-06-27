@@ -22,6 +22,8 @@ import android.app.WallpaperManager
 import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.kolakek.pimiwidget.utility.WeatherApp
+import timber.log.Timber
 
 internal object PreferencesHelper {
 
@@ -51,6 +53,7 @@ internal object PreferencesHelper {
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
+        val weatherApp = getWeatherApp(context)
 
         val isLightText = when (textColorPref) {
             TextColorPref.AUTO ->
@@ -91,7 +94,8 @@ internal object PreferencesHelper {
             tempUnit = tempUnit,
             iconStyle = iconStyle,
             textStyle = textStyle,
-            auxDisplay = auxDisplay
+            auxDisplay = auxDisplay,
+            weatherApp = weatherApp
         )
     }
 
@@ -144,5 +148,11 @@ internal object PreferencesHelper {
     private fun getLocationFallbackPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_LOCATION_FALLBACK, true)
+    }
+
+    private fun getWeatherApp(context: Context): WeatherApp {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WEATHER_APP_LIST, null)
+        return WeatherApp.entries.find { it.key == key } ?: WeatherApp.NONE
     }
 }

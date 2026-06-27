@@ -15,18 +15,22 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.utility
 
-import com.kolakek.pimiwidget.utility.WeatherApp
+import android.content.Context
+import android.content.pm.PackageManager
 
-internal data class WidgetPreferences (
-    val showWeather: Boolean,
-    val useLocationFallback: Boolean,
-    val showDailyForecast: Boolean,
-    val showWeatherWarning: Boolean,
-    val iconStyle: IconStyle,
-    val textStyle: TextStyle,
-    val tempUnit: TempUnit,
-    val auxDisplay: AuxDisplay,
-    val weatherApp: WeatherApp
-)
+object AppLookup {
+
+    fun isAppInstalled(context: Context, packageName: String): Boolean {
+        return try {
+            context.packageManager.getPackageInfo(
+                packageName,
+                PackageManager.PackageInfoFlags.of(0)
+            )
+            true
+        } catch (_: PackageManager.NameNotFoundException) {
+            false
+        }
+    }
+}

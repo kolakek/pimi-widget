@@ -45,3 +45,6 @@ internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
 internal const val KEY_DEBUG_INFO = "debug_info"
 internal const val KEY_SOURCE_CODE = "source_code"
+
+internal const val KEY_WEATHER_APP_LIST = "weather_app_list"
+internal const val KEY_DEFAULT_WEATHER_APP = "weather_app_default"
