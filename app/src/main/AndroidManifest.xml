@@ -67,10 +67,6 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.APP_CALENDAR" />
         </intent>
-        <intent>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.APP_WEATHER" />
-        </intent>
         <package android:name="org.breezyweather" />
         <package android:name="com.google.android.apps.weather" />
     </queries>
