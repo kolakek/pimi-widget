@@ -68,6 +68,16 @@
             <category android:name="android.intent.category.APP_CALENDAR" />
         </intent>
         <package android:name="org.breezyweather" />
+        <package android:name="fr.meteo" />
+        <package android:name="nl.knmi.weer" />
+        <package android:name="de.dwd.warnapp" />
+        <package android:name="uk.gov.metoffice.weather.android" />
+        <package android:name="es.aemet" />
+        <package android:name="ch.admin.meteoswiss" />
+        <package android:name="no.nrk.yr" />
+        <package android:name="au.gov.bom.metview" />
+        <package android:name="ca.gc.ec.weather_app_android.ops" />
+        <package android:name="dk.dmi.byvejret" />
         <package android:name="com.google.android.apps.weather" />
     </queries>
 

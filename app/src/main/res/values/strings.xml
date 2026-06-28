@@ -120,7 +120,17 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
 
-    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
+    <string name="config_weather_app_meteofr" translatable="false">Météo-France</string>
+    <string name="config_weather_app_knmi" translatable="false">KNMI</string>
+    <string name="config_weather_app_dwd" translatable="false">WarnWetter</string>
+    <string name="config_weather_app_metoff" translatable="false">Met Office</string>
+    <string name="config_weather_app_aemet" translatable="false">Aemet</string>
+    <string name="config_weather_app_meteoswiss" translatable="false">MeteoSwiss</string>
+    <string name="config_weather_app_yr" translatable="false">Yr</string>
+    <string name="config_weather_app_bom" translatable="false">BOM Weather</string>
+    <string name="config_weather_app_can" translatable="false">WeatherCAN</string>
+    <string name="config_weather_dmi" translatable="false">DMI Vejr</string>
+    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
 
 </resources>
