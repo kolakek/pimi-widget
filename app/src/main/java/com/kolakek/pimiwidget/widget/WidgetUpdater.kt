@@ -115,6 +115,8 @@ internal object WidgetUpdater {
         views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
         views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
 
+        views.setOnClickPendingIntent(R.id.widget_root, null)
+
         val calendarIntent = WidgetIntent.categoryIntent(
             context,
             Intent.CATEGORY_APP_CALENDAR,

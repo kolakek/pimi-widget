@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
     style="@style/Widget.PimiWidget.AppWidget.Container">
 
     <TextClock
