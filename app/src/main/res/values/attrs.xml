@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="AppWidgetAttrs">
+        <attr name="widgetPreviewTextColor" format="color"/>
+        <attr name="widgetPreviewWeatherIcon" format="reference" />
+    </declare-styleable>
+</resources>

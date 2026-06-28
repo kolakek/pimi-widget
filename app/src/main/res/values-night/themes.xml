@@ -2,8 +2,8 @@
 
     <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="alertDialogTheme">@style/Widget.PimiWidget.AppWidget.MaterialDialogAlert</item>
-        <item name="widgetPreviewTextColor">#000000</item>
-        <item name="widgetPreviewWeatherIcon">@drawable/ub_0d</item>
+        <item name="widgetPreviewTextColor">#FFFFFF</item>
+        <item name="widgetPreviewWeatherIcon">@drawable/uc_0d</item>
     </style>
 
 </resources>
