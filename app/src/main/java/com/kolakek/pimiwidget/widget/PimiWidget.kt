@@ -23,6 +23,7 @@ import android.content.Context
 import android.content.Intent
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
@@ -48,17 +49,8 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-            Intent.ACTION_LOCALE_CHANGED ->
-                WidgetUpdater.updateWidgets(context)
-
-            Intent.ACTION_MY_PACKAGE_REPLACED -> {
-                WidgetUpdater.updateWidgets(context)
-
-                WorkManagerHelper.cancelWork(context)
-                if (PreferencesHelper.getWeatherPreference(context)) {
-                    WorkManagerHelper.enqueueWork(context)
-                }
-            }
+            Intent.ACTION_LOCALE_CHANGED -> WidgetUpdater.updateWidgets(context)
+            Intent.ACTION_MY_PACKAGE_REPLACED -> MigrateApp.migrate(context)
         }
     }
 }

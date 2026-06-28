@@ -109,6 +109,12 @@ internal object PreferencesHelper {
         }
     }
 
+    internal fun setWeatherAppPreference(context: Context, value: String) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_WEATHER_APP_LIST, value)
+        }
+    }
+
     private fun getDailyForecastPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)
