@@ -1,6 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.PimiWidget.AppWidget.Container"
-    android:theme="@style/Theme.PimiWidget.AppWidgetContainer">
+    style="@style/Widget.PimiWidget.AppWidget.Container">
 
     <TextClock
         style="@style/Widget.PimiWidget.AppWidget.DateLightShadow"

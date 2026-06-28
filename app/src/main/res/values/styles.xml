@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Widget.PimiWidget.Configure.Coordinator" parent="">
-        <item name="android:background">?attr/configBackgroundColor</item>
+        <item name="android:background">?attr/colorSurfaceContainer</item>
     </style>
 
     <style name="Widget.PimiWidget.Configure.AppBar" parent="">
-        <item name="android:background">?attr/configBackgroundColor</item>
+        <item name="android:background">?attr/colorSurfaceContainer</item>
         <item name="liftOnScrollColor">?attr/colorSurfaceContainerHighest</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>
-        <item name="android:padding">?attr/appWidgetPadding</item>
-        <item name="android:background">@color/transparent</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#00000000</item>
         <item name="android:clipToOutline">true</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -22,7 +22,7 @@
 
     <style name="Widget.PimiWidget.AppWidget.InnerView" parent="android:Widget">
         <item name="android:padding">0dp</item>
-        <item name="android:background">@color/transparent</item>
+        <item name="android:background">#00000000</item>
         <item name="android:clipToOutline">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -108,6 +108,7 @@
 
     <style name="Widget.PimiWidget.AppWidget.MaterialDialogAlert" parent="ThemeOverlay.Material3.Dialog.Alert">
         <item name="dialogCornerRadius">28dp</item>
+        <item name="android:colorBackground">?attr/colorSurfaceBright</item>
     </style>
 
 </resources>
