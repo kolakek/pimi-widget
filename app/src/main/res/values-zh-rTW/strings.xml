@@ -32,12 +32,12 @@
     <string name="config_bg_perm_alert_message">需要背景存取您的位置以顯示準確天氣。\n請在下個畫面輕觸「%s」。</string>
     <string name="config_alert_button_ok">確定</string>
     <string name="config_alert_button_cancel">取消</string>
-    <string name="config_debug_button_weather">檢視天氣清單</string>
+    <string name="config_debug_button_weather">檢視狀態</string>
     <string name="config_debug_button_location">檢視位置</string>
     <string name="config_source_code">原始碼</string>
     <string name="config_source_code_summary">在 GitHub 查看原始碼和文件</string>
-    <string name="config_aux_view_nothing">沒有詳細資訊</string>
-    <string name="config_aux_view_update_time">重新整理時間</string>
+    <string name="config_aux_view_nothing">無詳細資訊</string>
+    <string name="config_aux_view_update_time">最後更新時間</string>
     <string name="config_aux_view_title">顯示詳細資訊</string>
 
     <string name="widget_label">日期與天氣</string>
@@ -46,7 +46,7 @@
     <string name="widget_temp_prev">71\u2109 · 明天 67\u00B0 / 52\u00B0 · 小雨</string>
     <string name="widget_today">今天</string>
     <string name="widget_tomorrow">明天</string>
-    <string name="widget_updated_at">"更新於 "</string>
+    <string name="widget_updated_at">更新於</string>
 
     <string name="wc_heavy_thunderstorms">大雷雨</string>
     <string name="wc_thunderstorm">雷雨</string>
