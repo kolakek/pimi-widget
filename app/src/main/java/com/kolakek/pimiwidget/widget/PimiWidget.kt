@@ -21,6 +21,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.utility.MigrateApp
@@ -36,6 +37,16 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         WidgetUpdater.updateWidgets(context)
+    }
+
+    override fun onAppWidgetOptionsChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int,
+        newOptions: Bundle
+    ) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
+        WidgetUpdater.partiallyUpdateWidgetPadding(context, appWidgetManager, appWidgetId)
     }
 
     override fun onDisabled(context: Context) {

@@ -58,6 +58,7 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId, prefs)
+            updatePadding(context, views, appWidgetId)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
 
@@ -92,6 +93,20 @@ internal object WidgetUpdater {
             if (lastStatus == WidgetUpdateStatus.INVALID_DATA) status = lastStatus
         }
         return status
+    }
+
+    internal fun partiallyUpdateWidgetPadding(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int,
+    ) {
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val views = RemoteViews(
+            context.packageName,
+            getWidgetLayout(prefs.textStyle)
+        )
+        updatePadding(context, views, appWidgetId)
+        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
     private fun getWidgetLayout(textStyle: TextStyle): Int {
@@ -130,6 +145,29 @@ internal object WidgetUpdater {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
         views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
+    }
+
+    private fun updatePadding(
+        context: Context,
+        views: RemoteViews,
+        appWidgetId: Int
+    ) {
+        val padding = context.resources.getDimensionPixelSize(R.dimen.widget_padding_horz)
+        val dateHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height)
+        val weatherHeight = context.resources.getDimensionPixelSize(R.dimen.widget_weather_height)
+        val auxHeight = context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
+        val maxSpaceTop = context.resources.getDimensionPixelSize(R.dimen.widget_max_space_top)
+
+        val widgetHeight = AppWidgetManager
+            .getInstance(context)
+            .getAppWidgetOptions(appWidgetId)
+            .getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
+            .dpToPx(context)
+
+        val viewHeight = dateHeight + weatherHeight + auxHeight
+        val paddingTop = minOf(maxOf(widgetHeight - viewHeight, 0), maxSpaceTop)
+
+        views.setViewPadding(R.id.widget_root, padding, paddingTop, padding, 0)
     }
 
     private fun updateWeather(
@@ -181,4 +219,7 @@ internal object WidgetUpdater {
         )
         views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
     }
+
+    private fun Int.dpToPx(context: Context): Int =
+        (this * context.resources.displayMetrics.density).toInt()
 }
