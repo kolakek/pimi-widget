@@ -4,5 +4,4 @@
     <dimen name="widget_weather_height">40dp</dimen>
     <dimen name="widget_aux_height">18dp</dimen>
     <dimen name="widget_spacer_height">18dp</dimen>
-    <dimen name="widget_padding_horz">16dp</dimen>
 </resources>

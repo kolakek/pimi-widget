@@ -16,7 +16,6 @@
         style="@style/Widget.PimiWidget.AppWidget.Weather"
         android:textColor="?attr/widgetPreviewTextColor"
         android:text="@string/widget_temp_prev"
-        android:visibility="visible"
         android:drawableStart="?attr/widgetPreviewWeatherIcon"
         tools:ignore="UseCompatTextViewDrawableXml" />
 

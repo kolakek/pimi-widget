@@ -58,9 +58,9 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId, prefs)
-            //updatePadding(context, views, appWidgetId)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
+            updateVisibility(context, views, appWidgetId)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -95,7 +95,7 @@ internal object WidgetUpdater {
         return status
     }
 
-    internal fun partiallyUpdateWidgetPadding(
+    internal fun partiallyUpdateVisibility(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
@@ -105,7 +105,7 @@ internal object WidgetUpdater {
             context.packageName,
             getWidgetLayout(prefs.textStyle)
         )
-        updatePadding(context, views, appWidgetId)
+        updateVisibility(context, views, appWidgetId)
         appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
@@ -147,15 +147,15 @@ internal object WidgetUpdater {
         views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
     }
 
-    private fun updatePadding(
+    private fun updateVisibility(
         context: Context,
         views: RemoteViews,
         appWidgetId: Int
     ) {
-        val padding = context.resources.getDimensionPixelSize(R.dimen.widget_padding_horz)
-        val dateHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height)
-        val weatherHeight = context.resources.getDimensionPixelSize(R.dimen.widget_weather_height)
-        val auxHeight = context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
+        val viewHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
+                context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
+                context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
+                context.resources.getDimensionPixelSize(R.dimen.widget_spacer_height)
 
         val widgetHeight = AppWidgetManager
             .getInstance(context)
@@ -163,10 +163,8 @@ internal object WidgetUpdater {
             .getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
             .dpToPx(context)
 
-        val viewHeight = dateHeight + weatherHeight + auxHeight
-        val paddingTop = minOf(maxOf(widgetHeight - viewHeight, 0), 0)
-
-        views.setViewPadding(R.id.widget_root, padding, paddingTop, padding, 0)
+        if (viewHeight > widgetHeight) views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
+        else views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
     }
 
     private fun updateWeather(
@@ -175,7 +173,8 @@ internal object WidgetUpdater {
         prefs: WidgetPreferences,
         weatherData: WeatherData?
     ): WidgetUpdateStatus {
-        views.setViewVisibility(R.id.widget_temp, View.INVISIBLE)
+        views.setTextViewText(R.id.widget_temp, null)
+        views.setTextViewCompoundDrawables(R.id.widget_temp, 0, 0, 0, 0)
 
         if (!prefs.showWeather) return WidgetUpdateStatus.SUCCESS
 
@@ -190,7 +189,6 @@ internal object WidgetUpdater {
         views.apply {
             setTextViewText(R.id.widget_temp, strIcons.text)
             setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
-            setViewVisibility(R.id.widget_temp, View.VISIBLE)
         }
         return WidgetUpdateStatus.SUCCESS
     }
@@ -200,7 +198,7 @@ internal object WidgetUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences
     ) {
-        views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
+        views.setTextViewText(R.id.widget_aux, null)
 
         if (!prefs.showWeather) return
 
@@ -216,7 +214,6 @@ internal object WidgetUpdater {
             R.id.widget_aux,
             context.getString(R.string.widget_updated_at) + " $auxStr"
         )
-        views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
     }
 
     private fun Int.dpToPx(context: Context): Int =

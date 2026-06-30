@@ -46,7 +46,7 @@ class PimiWidget : AppWidgetProvider() {
         newOptions: Bundle
     ) {
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
-        //WidgetUpdater.partiallyUpdateWidgetPadding(context, appWidgetManager, appWidgetId)
+        WidgetUpdater.partiallyUpdateVisibility(context, appWidgetManager, appWidgetId)
     }
 
     override fun onDisabled(context: Context) {
