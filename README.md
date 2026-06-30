@@ -8,10 +8,10 @@ Pixel-style Android widget that shows the date and weather
 
 * Displays date and weather for your current area
 * Standalone widget, no launcher icon
-* Tapping the widget opens your default weather app
+* Tapping the widget opens your favorite weather app
 * Lightweight and optimized for battery efficiency
 * Location data is shared only with the weather provider
-* No additional trackers, no ads, no Google Play dependencies
+* No trackers, no ads, no Google Play dependencies
 
 ## Download
 
@@ -53,9 +53,9 @@ In most cases, coarse location access is sufficient. For this to work, network-b
 
 ### Weather and Calendar Apps
 
-Tapping the date or weather area on the widget will open the default calendar or weather app, respectively, installed on your system. For weather apps to be compatible, they must include the `category.APP_WEATHER` intent in their manifest file.
+Tapping the date or weather area on the widget opens your calendar or weather app, respectively. Your preferred weather app can be selected in the widget settings. Weather apps must be explicitly whitelisted to be supported. If your preferred weather app is not yet supported, please [open a GitHub issue](https://github.com/kolakek/pimi-widget/issues) to have it added.
 
-Supported weather apps (among others): Google Weather, Breezy Weather.
+Currently supported weather apps: Pixel Weather, Breezy Weather, Météo-France, KNMI, DWD WarnWetter, Met Office, Aemet, MeteoSwiss, Yr, BOM Weather, WeatherCAN, DMI Vejr.
 
 ### Weather Alerts
 

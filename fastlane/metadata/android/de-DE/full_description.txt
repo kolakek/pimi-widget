@@ -2,7 +2,7 @@ Funktionen:
 
 * Zeigt Datum und Wetter für deinen aktuellen Standort
 * Eigenständiges Widget, kein Symbol im App-Launcher
-* Antippen des Widgets öffnet deine Standard-Wetter-App
+* Antippen des Widgets öffnet deine bevorzugte Wetter-App
 * Leichtgewichtig und akkusparend
 * Standortdaten werden nur mit dem Wetterdienst geteilt
-* Keine weiteren Tracker, keine Werbung, vollständig Open Source
+* Keine Tracker, keine Werbung, vollständig Open Source
