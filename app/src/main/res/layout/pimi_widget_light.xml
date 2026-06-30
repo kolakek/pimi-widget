@@ -2,6 +2,10 @@
     android:id="@+id/widget_root"
     style="@style/Widget.PimiWidget.AppWidget.Container">
 
+    <TextView
+        style="@style/Widget.PimiWidget.AppWidget.Spacer"
+        android:id="@+id/widget_spacer" />
+
     <TextClock
         style="@style/Widget.PimiWidget.AppWidget.DateLight"
         android:id="@+id/widget_text_clock" />

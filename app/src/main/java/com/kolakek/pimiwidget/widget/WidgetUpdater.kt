@@ -58,7 +58,7 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId, prefs)
-            updatePadding(context, views, appWidgetId)
+            //updatePadding(context, views, appWidgetId)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
 
@@ -156,7 +156,6 @@ internal object WidgetUpdater {
         val dateHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height)
         val weatherHeight = context.resources.getDimensionPixelSize(R.dimen.widget_weather_height)
         val auxHeight = context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
-        val maxSpaceTop = context.resources.getDimensionPixelSize(R.dimen.widget_max_space_top)
 
         val widgetHeight = AppWidgetManager
             .getInstance(context)
@@ -165,7 +164,7 @@ internal object WidgetUpdater {
             .dpToPx(context)
 
         val viewHeight = dateHeight + weatherHeight + auxHeight
-        val paddingTop = minOf(maxOf(widgetHeight - viewHeight, 0), maxSpaceTop)
+        val paddingTop = minOf(maxOf(widgetHeight - viewHeight, 0), 0)
 
         views.setViewPadding(R.id.widget_root, padding, paddingTop, padding, 0)
     }
