@@ -18,7 +18,7 @@
     <string name="config_text_color">Text color</string>
     <string name="config_color_light">Light</string>
     <string name="config_color_dark">Dark</string>
-    <string name="config_color_auto">Automatic</string>
+    <string name="config_option_auto">Automatic</string>
     <string name="config_temp">Temperature</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

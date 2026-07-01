@@ -54,7 +54,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="temp_unit_celsius"
+            android:defaultValue="temp_unit_auto"
             android:entries="@array/temp_units"
             android:entryValues="@array/temp_units_vals"
             android:key="temp_list"

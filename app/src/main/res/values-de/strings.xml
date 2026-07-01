@@ -18,7 +18,7 @@
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>
-    <string name="config_color_auto">Automatisch</string>
+    <string name="config_option_auto">Automatisch</string>
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

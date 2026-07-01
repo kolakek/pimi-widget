@@ -22,9 +22,10 @@ internal const val ISSUE_TRACKER_URL = "https://github.com/kolakek/pimi-widget/i
 internal const val LOCATION_URL = "https://www.openstreetmap.org"
 internal const val LOCATION_URL_ZOOM = 13
 
-internal const val KEY_TEMP_UNITS = "temp_list"
-internal const val KEY_CELSIUS = "temp_unit_celsius"
-internal const val KEY_FAHRENHEIT = "temp_unit_fahrenheit"
+internal const val KEY_TEMP_UNIT_LIST = "temp_list"
+internal const val KEY_TEMP_AUTO = "temp_unit_auto"
+internal const val KEY_TEMP_CELSIUS = "temp_unit_celsius"
+internal const val KEY_TEMP_FAHRENHEIT = "temp_unit_fahrenheit"
 
 internal const val KEY_TEXT_COLOR_LIST = "text_color_list"
 internal const val KEY_COLOR_LIGHT = "color_light"

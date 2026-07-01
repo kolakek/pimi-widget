@@ -2,17 +2,19 @@
 <resources>
 
     <array name="temp_units">
+        <item>@string/config_option_auto</item>
         <item>@string/config_temp_celsius</item>
         <item>@string/config_temp_fahrenheit</item>
     </array>
 
     <array name="temp_units_vals">
+        <item>temp_unit_auto</item>
         <item>temp_unit_celsius</item>
         <item>temp_unit_fahrenheit</item>
     </array>
 
     <array name="colors">
-        <item>@string/config_color_auto</item>
+        <item>@string/config_option_auto</item>
         <item>@string/config_color_light</item>
         <item>@string/config_color_dark</item>
     </array>

@@ -18,7 +18,7 @@
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_color_light">Vaalea</string>
     <string name="config_color_dark">Tumma</string>
-    <string name="config_color_auto">Automaattinen</string>
+    <string name="config_option_auto">Automaattinen</string>
     <string name="config_temp">Lämpötila</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

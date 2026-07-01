@@ -18,7 +18,7 @@
     <string name="config_icon_style">Stile icone</string>
     <string name="config_color_light">Chiaro</string>
     <string name="config_color_dark">Scuro</string>
-    <string name="config_color_auto">Automatico</string>
+    <string name="config_option_auto">Automatico</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

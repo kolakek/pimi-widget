@@ -18,7 +18,7 @@
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
     <string name="config_color_dark">Închis</string>
-    <string name="config_color_auto">Automat</string>
+    <string name="config_option_auto">Automat</string>
     <string name="config_temp">Temperatură</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

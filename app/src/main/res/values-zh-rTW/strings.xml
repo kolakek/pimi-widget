@@ -18,7 +18,7 @@
     <string name="config_text_color">文字色彩</string>
     <string name="config_color_light">淺色</string>
     <string name="config_color_dark">深色</string>
-    <string name="config_color_auto">自動</string>
+    <string name="config_option_auto">自動</string>
     <string name="config_temp">溫度</string>
     <string name="config_temp_celsius">攝氏</string>
     <string name="config_temp_fahrenheit">華氏</string>

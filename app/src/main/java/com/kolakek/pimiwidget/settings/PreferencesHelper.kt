@@ -21,6 +21,7 @@ import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
 import androidx.core.content.edit
+import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.utility.WeatherApp
 
@@ -32,8 +33,9 @@ internal object PreferencesHelper {
     }
 
     internal enum class TempUnitPref(val key: String) {
-        CELSIUS(KEY_CELSIUS),
-        FAHRENHEIT(KEY_FAHRENHEIT)
+        AUTO(KEY_TEMP_AUTO),
+        CELSIUS(KEY_TEMP_CELSIUS),
+        FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
     }
 
     internal enum class TextColorPref(val key: String) {
@@ -77,6 +79,14 @@ internal object PreferencesHelper {
             else -> TextStyle.DARK
         }
         val tempUnit = when (tempUnitPref) {
+            TempUnitPref.AUTO -> {
+                if (LocalePreferences.getTemperatureUnit()
+                    == LocalePreferences.TemperatureUnit.CELSIUS) {
+                    TempUnit.CELSIUS
+                } else {
+                    TempUnit.FAHRENHEIT
+                }
+            }
             TempUnitPref.CELSIUS -> TempUnit.CELSIUS
             TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
         }
@@ -109,9 +119,15 @@ internal object PreferencesHelper {
         }
     }
 
-    internal fun setWeatherAppPreference(context: Context, value: String) {
+    internal fun setTempUnitPreference(context: Context, pref: TempUnitPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_WEATHER_APP_LIST, value)
+            putString(KEY_TEMP_UNIT_LIST, pref.key)
+        }
+    }
+
+    internal fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_WEATHER_APP_LIST, weatherApp.key)
         }
     }
 
@@ -140,7 +156,7 @@ internal object PreferencesHelper {
 
     private fun getTempUnitPreference(context: Context): TempUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEMP_UNITS, null)
+            .getString(KEY_TEMP_UNIT_LIST, null)
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.CELSIUS
     }
 

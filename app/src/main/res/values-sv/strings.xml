@@ -18,7 +18,7 @@
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>
-    <string name="config_color_auto">Automatisk</string>
+    <string name="config_option_auto">Automatisk</string>
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

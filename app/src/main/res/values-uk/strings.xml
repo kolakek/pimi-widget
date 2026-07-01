@@ -18,7 +18,7 @@
     <string name="config_icon_style">Стиль іконок</string>
     <string name="config_color_light">Світлий</string>
     <string name="config_color_dark">Темний</string>
-    <string name="config_color_auto">Автоматично</string>
+    <string name="config_option_auto">Автоматично</string>
     <string name="config_temp">Температура</string>
     <string name="config_temp_celsius">Цельсій</string>
     <string name="config_temp_fahrenheit">Фаренгейт</string>
