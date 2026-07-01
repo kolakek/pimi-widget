@@ -1,0 +1,4 @@
+* Fixed widget contents being cut off on small grids
+* Fixed widget contents jumping during initialization after reboot
+* Added setting to explicitly select weather app
+* Added support for additional weather apps
