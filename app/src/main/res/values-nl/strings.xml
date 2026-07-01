@@ -6,6 +6,7 @@
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_debug_info">Appstatus</string>
+    <string name="config_debug_descr">App-gegevens en status weergeven</string>
     <string name="config_debug_weather_data_age">Leeftijd van weerdata</string>
     <string name="config_debug_last_valid_location">Laatste geldige locatie</string>
     <string name="config_debug_last_work_status">Laatste werkstatus</string>
@@ -19,6 +20,7 @@
     <string name="config_color_light">Licht</string>
     <string name="config_color_dark">Donker</string>
     <string name="config_option_auto">Automatisch</string>
+    <string name="config_option_follow_system">Systeeminstellingen gebruiken</string>
     <string name="config_temp">Temperatuur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

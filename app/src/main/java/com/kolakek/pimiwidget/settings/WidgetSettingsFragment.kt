@@ -59,8 +59,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
-        val debugField: Preference? = findPreference(KEY_DEBUG_INFO)
+        val versionField: Preference? = findPreference(KEY_VERSION_FIELD)
+        val debugInfo: Preference? = findPreference(KEY_DEBUG_INFO)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
+        val settingsPlus: Preference? = findPreference(KEY_SETTINGS_PLUS)
 
         var debugCount = 0
 
@@ -71,14 +73,18 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             deleteAllData(context)
             weatherSwitch.isChecked = false
         }
-        debugField?.setOnPreferenceClickListener {
-            if (debugCount == 2)
+        debugInfo?.setOnPreferenceClickListener {
                 showDebugDialog(context)
+            true
+        }
+        versionField?.setOnPreferenceClickListener {
+            if (debugCount == 2)
+                settingsPlus?.isVisible = true
             else
                 debugCount++
             true
         }
-        debugField?.summary = BuildConfig.VERSION_CODE.toString()
+        versionField?.summary = BuildConfig.VERSION_CODE.toString()
 
         sourceCodeField?.setOnPreferenceClickListener {
             startUrlActivity(SOURCE_CODE_URL)

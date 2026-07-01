@@ -2,7 +2,7 @@
 <resources>
 
     <array name="temp_units">
-        <item>@string/config_option_auto</item>
+        <item>@string/config_option_follow_system</item>
         <item>@string/config_temp_celsius</item>
         <item>@string/config_temp_fahrenheit</item>
     </array>

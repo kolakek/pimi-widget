@@ -8,7 +8,7 @@
         android:title="@string/config_section_settings"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
-        app:allowDividerBelow="false" >
+        app:allowDividerBelow="false">
 
         <Preference
             android:key="privacy_note"
@@ -54,29 +54,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="temp_unit_auto"
-            android:entries="@array/temp_units"
-            android:entryValues="@array/temp_units_vals"
-            android:key="temp_list"
-            android:title="@string/config_temp"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
             android:defaultValue="icon_style_outlined"
             android:entries="@array/icon_styles"
             android:entryValues="@array/icon_styles_vals"
             android:key="icon_style_list"
             android:title="@string/config_icon_style"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            android:defaultValue="color_auto"
-            android:entries="@array/colors"
-            android:entryValues="@array/colors_vals"
-            android:key="text_color_list"
-            android:title="@string/config_text_color"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
@@ -92,12 +74,41 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="category_settings_plus"
+        android:selectable="false"
+        android:title="@string/config_section_settings_plus"
+        app:isPreferenceVisible="false"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:defaultValue="temp_unit_auto"
+            android:entries="@array/temp_units"
+            android:entryValues="@array/temp_units_vals"
+            android:key="temp_list"
+            android:title="@string/config_temp"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="color_auto"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="text_color_list"
+            android:title="@string/config_text_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="category_about"
         android:selectable="false"
         android:title="@string/config_section_about"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
-        app:allowDividerBelow="false" >
+        app:allowDividerBelow="false">
 
         <Preference
             android:key="source_code"
@@ -107,6 +118,12 @@
 
         <Preference
             android:key="debug_info"
+            android:summary="@string/config_debug_descr"
+            android:title="@string/config_debug_info"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="build_number"
             android:title="@string/config_version_title"
             app:iconSpaceReserved="false" />
 

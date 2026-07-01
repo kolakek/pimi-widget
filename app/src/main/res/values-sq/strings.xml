@@ -6,6 +6,7 @@
     <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
     <string name="config_version_title">Numri i build-it</string>
     <string name="config_debug_info">Statusi i aplikacionit</string>
+    <string name="config_debug_descr">Shiko të dhënat dhe gjendjen e aplikacionit</string>
     <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
     <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
     <string name="config_debug_last_work_status">Statusi i fundit i punës</string>
@@ -19,6 +20,7 @@
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>
     <string name="config_option_auto">Automatike</string>
+    <string name="config_option_follow_system">Përdor cilësimet e sistemit</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

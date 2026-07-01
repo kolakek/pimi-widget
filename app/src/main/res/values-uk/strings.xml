@@ -6,6 +6,7 @@
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
     <string name="config_version_title">Номер збірки</string>
     <string name="config_debug_info">Стан застосунку</string>
+    <string name="config_debug_descr">Переглянути дані та стан застосунку</string>
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>
     <string name="config_debug_last_work_status">Статус останнього виконання</string>
@@ -19,6 +20,7 @@
     <string name="config_color_light">Світлий</string>
     <string name="config_color_dark">Темний</string>
     <string name="config_option_auto">Автоматично</string>
+    <string name="config_option_follow_system">Використовувати системні налаштування</string>
     <string name="config_temp">Температура</string>
     <string name="config_temp_celsius">Цельсій</string>
     <string name="config_temp_fahrenheit">Фаренгейт</string>

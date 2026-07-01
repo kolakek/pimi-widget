@@ -6,6 +6,7 @@
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
     <string name="config_version_title">Byggnummer</string>
     <string name="config_debug_info">Appstatus</string>
+    <string name="config_debug_descr">Visa appdata och status</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
     <string name="config_debug_last_work_status">Status för nästa arbete</string>
@@ -19,6 +20,7 @@
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>
     <string name="config_option_auto">Automatisk</string>
+    <string name="config_option_follow_system">Använd systeminställningar</string>
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
