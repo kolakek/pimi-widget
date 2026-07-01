@@ -157,7 +157,7 @@ internal object PreferencesHelper {
     private fun getTempUnitPreference(context: Context): TempUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNIT_LIST, null)
-        return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.CELSIUS
+        return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
