@@ -19,7 +19,7 @@
     <string name="config_color_light">Licht</string>
     <string name="config_color_dark">Donker</string>
     <string name="config_option_auto">Automatisch</string>
-    <string name="config_option_follow_system">Systeeminstellingen gebruiken</string>
+    <string name="config_option_follow_system">Systeemstandaard</string>
     <string name="config_temp">Temperatuur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

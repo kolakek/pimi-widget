@@ -19,7 +19,7 @@
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>
     <string name="config_option_auto">Automatisk</string>
-    <string name="config_option_follow_system">Använd systeminställningar</string>
+    <string name="config_option_follow_system">Systemstandard</string>
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

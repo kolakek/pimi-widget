@@ -19,7 +19,7 @@
     <string name="config_color_light">Jasny</string>
     <string name="config_color_dark">Ciemny</string>
     <string name="config_option_auto">Automatyczny</string>
-    <string name="config_option_follow_system">Użyj ustawień systemowych</string>
+    <string name="config_option_follow_system">Domyślne ustawienie systemu</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsjusz</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

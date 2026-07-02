@@ -19,7 +19,7 @@
     <string name="config_color_light">Světlý</string>
     <string name="config_color_dark">Tmavý</string>
     <string name="config_option_auto">Automaticky</string>
-    <string name="config_option_follow_system">Použít nastavení systému</string>
+    <string name="config_option_follow_system">Výchozí nastavení systému</string>
     <string name="config_temp">Teplota</string>
     <string name="config_temp_celsius">Celsia</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

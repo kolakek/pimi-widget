@@ -19,7 +19,7 @@
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>
     <string name="config_option_auto">Automatike</string>
-    <string name="config_option_follow_system">Përdor cilësimet e sistemit</string>
+    <string name="config_option_follow_system">Parazgjedhja e sistemit</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

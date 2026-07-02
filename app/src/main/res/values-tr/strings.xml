@@ -19,7 +19,7 @@
     <string name="config_color_light">Açık</string>
     <string name="config_color_dark">Koyu</string>
     <string name="config_option_auto">Otomatik</string>
-    <string name="config_option_follow_system">Sistem ayarlarını kullan</string>
+    <string name="config_option_follow_system">Sistem varsayılanı</string>
     <string name="config_temp">Sıcaklık</string>
     <string name="config_temp_celsius">Santigrat</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

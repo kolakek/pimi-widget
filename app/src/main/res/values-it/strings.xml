@@ -19,7 +19,7 @@
     <string name="config_color_light">Chiaro</string>
     <string name="config_color_dark">Scuro</string>
     <string name="config_option_auto">Automatico</string>
-    <string name="config_option_follow_system">Usa le impostazioni di sistema</string>
+    <string name="config_option_follow_system">Predefinita di sistema</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>

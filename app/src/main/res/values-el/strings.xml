@@ -19,7 +19,7 @@
     <string name="config_color_light">Φωτεινό</string>
     <string name="config_color_dark">Σκοτεινό</string>
     <string name="config_option_auto">Αυτόματο</string>
-    <string name="config_option_follow_system">Χρήση των ρυθμίσεων συστήματος</string>
+    <string name="config_option_follow_system">Προεπιλογή συστήματος</string>
     <string name="config_temp">Θερμοκρασία</string>
     <string name="config_temp_celsius">Κελσίου</string>
     <string name="config_temp_fahrenheit">Φαρενάιτ</string>

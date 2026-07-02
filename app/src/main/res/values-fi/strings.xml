@@ -19,7 +19,7 @@
     <string name="config_color_light">Vaalea</string>
     <string name="config_color_dark">Tumma</string>
     <string name="config_option_auto">Automaattinen</string>
-    <string name="config_option_follow_system">Käytä järjestelmän asetuksia</string>
+    <string name="config_option_follow_system">Järjestelmän oletus</string>
     <string name="config_temp">Lämpötila</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
