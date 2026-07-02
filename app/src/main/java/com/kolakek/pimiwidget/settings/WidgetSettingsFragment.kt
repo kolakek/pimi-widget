@@ -78,8 +78,10 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         versionField?.setOnPreferenceClickListener {
-            if (debugCount == 2)
+            if (debugCount == 2) {
                 settingsPlus?.isVisible = true
+                debugInfo?.isVisible = true
+            }
             else
                 debugCount++
             true

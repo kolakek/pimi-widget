@@ -10,12 +10,6 @@
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
 
-        <Preference
-            android:key="privacy_note"
-            android:summary="@string/config_privacy_note"
-            android:selectable="false"
-            app:iconSpaceReserved="false" />
-
         <SwitchPreferenceCompat
             android:key="weather_switch"
             android:summary="@string/config_weather_switch_summary"
@@ -120,7 +114,8 @@
             android:key="debug_info"
             android:summary="@string/config_debug_descr"
             android:title="@string/config_debug_info"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false"/>
 
         <Preference
             android:key="build_number"

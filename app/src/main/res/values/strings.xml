@@ -1,7 +1,6 @@
 <resources>
 
     <string name="config_button_apply">Apply settings</string>
-    <string name="config_privacy_note">Enabling weather shares your location with the weather provider</string>
     <string name="config_section_settings">Settings</string>
     <string name="config_section_settings_plus">Additional settings</string>
     <string name="config_section_about">About</string>
@@ -9,7 +8,7 @@
     <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
     <string name="config_version_title">Build number</string>
     <string name="config_debug_info">App status</string>
-    <string name="config_debug_descr">View app data and status</string>
+    <string name="config_debug_descr">View app status and data</string>
     <string name="config_debug_weather_data_age">Weather data age</string>
     <string name="config_debug_last_valid_location">Last valid location</string>
     <string name="config_debug_last_work_status">Last work status</string>

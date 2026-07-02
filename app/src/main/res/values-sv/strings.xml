@@ -1,12 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Tillämpa inställningar</string>
-    <string name="config_privacy_note">När väder aktiveras delas din plats med vädertjänsten</string>
     <string name="config_weather_switch">Aktivera väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
     <string name="config_version_title">Byggnummer</string>
     <string name="config_debug_info">Appstatus</string>
-    <string name="config_debug_descr">Visa appdata och status</string>
+    <string name="config_debug_descr">Visa appstatus och data</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
     <string name="config_debug_last_work_status">Status för nästa arbete</string>
@@ -25,6 +24,7 @@
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_settings">Inställningar</string>
+    <string name="config_section_settings_plus">Ytterligare inställningar</string>
     <string name="config_section_about">Om</string>
     <string name="config_daily_forecast">Visa dygnsprognos</string>
     <string name="config_daily_forecast_summary">På morgonen och kvällen</string>

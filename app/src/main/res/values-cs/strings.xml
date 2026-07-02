@@ -1,12 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Použít nastavení</string>
-    <string name="config_privacy_note">Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
     <string name="config_weather_switch">Zapnout počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_debug_info">Stav aplikace</string>
-    <string name="config_debug_descr">Zobrazit data a stav aplikace</string>
+    <string name="config_debug_descr">Zobrazit stav aplikace a data</string>
     <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
     <string name="config_debug_last_valid_location">Poslední platná poloha</string>
     <string name="config_debug_last_work_status">Stav posledního úkolu</string>
@@ -25,6 +24,7 @@
     <string name="config_temp_celsius">Celsia</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_settings">Nastavení</string>
+    <string name="config_section_settings_plus">Další nastavení</string>
     <string name="config_section_about">O aplikaci</string>
     <string name="config_daily_forecast">Zobrazit denní předpověď</string>
     <string name="config_daily_forecast_summary">Ráno a večer</string>

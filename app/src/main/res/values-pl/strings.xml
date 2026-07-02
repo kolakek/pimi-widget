@@ -1,12 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Zastosuj ustawienia</string>
-    <string name="config_privacy_note">Włączenie pogody powoduje udostępnienie Twojej lokalizacji dostawcy pogody</string>
     <string name="config_weather_switch">Włącz pogodę</string>
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
     <string name="config_version_title">Numer kompilacji</string>
     <string name="config_debug_info">Stan aplikacji</string>
-    <string name="config_debug_descr">Wyświetl dane i stan aplikacji</string>
+    <string name="config_debug_descr">Wyświetl stan i dane aplikacji</string>
     <string name="config_debug_weather_data_age">Wiek danych pogodowych</string>
     <string name="config_debug_last_valid_location">Ostatnia poprawna lokalizacja</string>
     <string name="config_debug_last_work_status">Status ostatniego wykonania</string>
@@ -25,6 +24,7 @@
     <string name="config_temp_celsius">Celsjusz</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_settings">Ustawienia</string>
+    <string name="config_section_settings_plus">Dodatkowe ustawienia</string>
     <string name="config_section_about">O aplikacji</string>
     <string name="config_daily_forecast">Pokaż prognozę dzienną</string>
     <string name="config_daily_forecast_summary">Rano i wieczorem</string>

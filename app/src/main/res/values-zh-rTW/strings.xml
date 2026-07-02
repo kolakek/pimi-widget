@@ -1,14 +1,14 @@
 <resources>
 
     <string name="config_button_apply">套用設定</string>
-    <string name="config_privacy_note">啟用天氣功能將會分享您的位置資訊至服務提供者</string>
     <string name="config_section_settings">設定</string>
+    <string name="config_section_settings_plus">其他設定</string>
     <string name="config_section_about">關於</string>
     <string name="config_weather_switch">啟用天氣</string>
     <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
     <string name="config_version_title">組建編號</string>
     <string name="config_debug_info">應用程式狀態</string>
-    <string name="config_debug_descr">查看應用程式資料與狀態</string>
+    <string name="config_debug_descr">查看應用程式狀態與資料</string>
     <string name="config_debug_weather_data_age">天氣資料年值</string>
     <string name="config_debug_last_valid_location">最後有效位置</string>
     <string name="config_debug_last_work_status">最後運作狀態</string>
