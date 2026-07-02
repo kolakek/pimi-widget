@@ -17,6 +17,7 @@
     <string name="config_location_fallback_summary">裝置停用位置服務時</string>
     <string name="config_icon_style">圖示主題</string>
     <string name="config_text_color">文字色彩</string>
+    <string name="config_icon_color">圖示顏色</string>
     <string name="config_color_light">淺色</string>
     <string name="config_color_dark">深色</string>
     <string name="config_option_auto">自動</string>

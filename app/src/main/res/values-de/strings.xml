@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Letzten Standort verwenden</string>
     <string name="config_location_fallback_summary">Wenn der Gerätestandortdienst deaktiviert ist</string>
     <string name="config_text_color">Textfarbe</string>
+    <string name="config_icon_color">Symbolfarbe</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>

@@ -94,6 +94,15 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            android:defaultValue="color_auto"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="icon_color_list"
+            android:title="@string/config_icon_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

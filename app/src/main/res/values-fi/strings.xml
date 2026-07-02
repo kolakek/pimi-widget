@@ -16,6 +16,7 @@
     <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_icon_style">Kuvaketyyli</string>
+    <string name="config_icon_color">Kuvakkeen väri</string>
     <string name="config_color_light">Vaalea</string>
     <string name="config_color_dark">Tumma</string>
     <string name="config_option_auto">Automaattinen</string>

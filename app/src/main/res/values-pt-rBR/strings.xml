@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Usar localização anterior</string>
     <string name="config_location_fallback_summary">Quando o serviço de localização do dispositivo está desativado</string>
     <string name="config_text_color">Cor do texto</string>
+    <string name="config_icon_color">Cor do ícone</string>
     <string name="config_icon_style">Estilo de ícones</string>
     <string name="config_color_light">Claro</string>
     <string name="config_color_dark">Escuro</string>

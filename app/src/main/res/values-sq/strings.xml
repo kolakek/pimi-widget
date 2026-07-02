@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Përdor vendndodhjen e mëparshme</string>
     <string name="config_location_fallback_summary">Kur shërbimi i vendndodhjes së pajisjes është i çaktivizuar</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
+    <string name="config_icon_color">Ngjyra e ikonës</string>
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>

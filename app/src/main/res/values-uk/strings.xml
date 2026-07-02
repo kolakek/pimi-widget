@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Використовувати попереднє місцезнаходження</string>
     <string name="config_location_fallback_summary">Коли служба геолокації пристрою вимкнена</string>
     <string name="config_text_color">Колір тексту</string>
+    <string name="config_icon_color">Колір значка</string>
     <string name="config_icon_style">Стиль іконок</string>
     <string name="config_color_light">Світлий</string>
     <string name="config_color_dark">Темний</string>

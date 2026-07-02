@@ -38,7 +38,7 @@ internal object PreferencesHelper {
         FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
     }
 
-    internal enum class TextColorPref(val key: String) {
+    internal enum class ColorPref(val key: String) {
         AUTO(KEY_COLOR_AUTO),
         LIGHT(KEY_COLOR_LIGHT),
         DARK(KEY_COLOR_DARK)
@@ -51,27 +51,33 @@ internal object PreferencesHelper {
 
     internal fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
+        val iconColorPref = getIconColorPreference(context)
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
         val weatherApp = getWeatherApp(context)
 
         val isLightText = when (textColorPref) {
-            TextColorPref.AUTO ->
+            ColorPref.AUTO ->
                 WallpaperManager
                     .getInstance(context)
                     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
                     ?.colorHints
                     ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
-            TextColorPref.LIGHT -> true
-            TextColorPref.DARK -> false
+            ColorPref.LIGHT -> true
+            ColorPref.DARK -> false
+        }
+        val isLightIcon = when (iconColorPref) {
+            ColorPref.AUTO -> isLightText
+            ColorPref.LIGHT -> true
+            ColorPref.DARK -> false
         }
         val iconStyle = when (iconStylePref) {
             IconStylePref.FLAT_SKETCH ->
-                if (isLightText) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
+                if (isLightIcon) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
 
             IconStylePref.TWINKLE_SHADOW ->
-                if (isLightText) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
+                if (isLightIcon) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
         }
         val textStyle = when (isLightText to iconStylePref) {
             true to IconStylePref.FLAT_SKETCH -> TextStyle.LIGHT
@@ -125,9 +131,15 @@ internal object PreferencesHelper {
         }
     }
 
-    internal fun setTextColorPreference(context: Context, pref: TextColorPref) {
+    internal fun setTextColorPreference(context: Context, pref: ColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_TEXT_COLOR_LIST, pref.key)
+        }
+    }
+
+    internal fun setIconColorPreference(context: Context, pref: ColorPref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_ICON_COLOR_LIST, pref.key)
         }
     }
 
@@ -147,10 +159,16 @@ internal object PreferencesHelper {
             .getBoolean(KEY_WEATHER_WARNING, true)
     }
 
-    private fun getTextColorPreference(context: Context): TextColorPref {
+    private fun getTextColorPreference(context: Context): ColorPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEXT_COLOR_LIST, null)
-        return TextColorPref.entries.find { it.key == key } ?: TextColorPref.AUTO
+        return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
+    }
+
+    private fun getIconColorPreference(context: Context): ColorPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_ICON_COLOR_LIST, null)
+        return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
     }
 
     private fun getIconStylePreference(context: Context): IconStylePref {

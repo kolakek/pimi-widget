@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Χρήση προηγούμενης τοποθεσίας</string>
     <string name="config_location_fallback_summary">Όταν η υπηρεσία τοποθεσίας της συσκευής είναι απενεργοποιημένη</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
+    <string name="config_icon_color">Χρώμα εικονιδίου</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
     <string name="config_color_light">Φωτεινό</string>
     <string name="config_color_dark">Σκοτεινό</string>

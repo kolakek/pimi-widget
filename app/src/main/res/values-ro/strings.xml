@@ -15,6 +15,7 @@
     <string name="config_location_fallback">Folosește locația anterioară</string>
     <string name="config_location_fallback_summary">Când serviciul de localizare al dispozitivului este dezactivat</string>
     <string name="config_text_color">Culoarea textului</string>
+    <string name="config_icon_color">Culoarea pictogramei</string>
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
     <string name="config_color_dark">Închis</string>

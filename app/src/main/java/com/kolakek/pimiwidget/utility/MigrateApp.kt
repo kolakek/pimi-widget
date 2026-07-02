@@ -33,8 +33,9 @@ internal object MigrateApp {
         if (previousVersionCode < 21) setFirstAvailableWeatherApp(context)
 
         if (previousVersionCode < 22) {
-            setTempUnitAuto(context)
-            setTextColorAuto(context)
+            PreferencesHelper.setTempUnitPreference(context, PreferencesHelper.TempUnitPref.AUTO)
+            PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
+            PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
         }
         storeCurrentVersionCode(context)
 
@@ -50,14 +51,6 @@ internal object MigrateApp {
         WeatherApp.entries.firstOrNull { app ->
             AppLookup.isAppInstalled(context, app.packageName)
         }?.let { PreferencesHelper.setWeatherApp(context, it) }
-    }
-
-    private fun setTempUnitAuto(context: Context) {
-        PreferencesHelper.setTempUnitPreference(context, PreferencesHelper.TempUnitPref.AUTO)
-    }
-
-    private fun setTextColorAuto(context: Context) {
-        PreferencesHelper.setTextColorPreference(context, PreferencesHelper.TextColorPref.AUTO)
     }
 
     private fun getPreviousVersionCode(context: Context): Long {
