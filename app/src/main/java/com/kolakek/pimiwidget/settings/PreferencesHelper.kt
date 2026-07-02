@@ -125,6 +125,12 @@ internal object PreferencesHelper {
         }
     }
 
+    internal fun setTextColorPreference(context: Context, pref: TextColorPref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_TEXT_COLOR_LIST, pref.key)
+        }
+    }
+
     internal fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_WEATHER_APP_LIST, weatherApp.key)

@@ -31,8 +31,11 @@ internal object MigrateApp {
         val previousVersionCode = getPreviousVersionCode(context)
 
         if (previousVersionCode < 21) setFirstAvailableWeatherApp(context)
-        if (previousVersionCode < 22) setTempUnitAuto(context)
 
+        if (previousVersionCode < 22) {
+            setTempUnitAuto(context)
+            setTextColorAuto(context)
+        }
         storeCurrentVersionCode(context)
 
         WidgetUpdater.updateWidgets(context)
@@ -51,6 +54,10 @@ internal object MigrateApp {
 
     private fun setTempUnitAuto(context: Context) {
         PreferencesHelper.setTempUnitPreference(context, PreferencesHelper.TempUnitPref.AUTO)
+    }
+
+    private fun setTextColorAuto(context: Context) {
+        PreferencesHelper.setTextColorPreference(context, PreferencesHelper.TextColorPref.AUTO)
     }
 
     private fun getPreviousVersionCode(context: Context): Long {
