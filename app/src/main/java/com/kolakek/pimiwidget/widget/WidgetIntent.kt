@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.widget
 
 import android.app.PendingIntent
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 
@@ -29,6 +30,13 @@ internal object WidgetIntent {
         requestCode: Int
     ): PendingIntent? {
         val intent = Intent(Intent.ACTION_MAIN).addCategory(category)
+
+        if (intent.resolveActivity(context.packageManager) == null) {
+            val resolveInfos = context.packageManager.queryIntentActivities(intent, 0)
+            resolveInfos.firstOrNull()?.activityInfo?.let {
+                intent.setComponent(ComponentName(it.packageName, it.name))
+            }
+        }
 
         return intent.resolveActivity(context.packageManager)?.let {
             PendingIntent.getActivity(
