@@ -94,18 +94,18 @@
     <string name="warn_tstorm_extreme">大雷雨警報</string>
 
     <plurals name="days">
+        <item quantity="one">1 天</item>
         <item quantity="other">%d 天</item>
     </plurals>
 
     <plurals name="hours">
+        <item quantity="one">1 小時</item>
         <item quantity="other">%d 小時</item>
     </plurals>
 
     <plurals name="minutes">
+        <item quantity="one">1 分鐘</item>
         <item quantity="other">%d 分鐘</item>
     </plurals>
-
-</resources>
-urals>
 
 </resources>
