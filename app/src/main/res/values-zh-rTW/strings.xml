@@ -42,8 +42,8 @@
     <string name="config_weather_app">天氣應用程式</string>
     <string name="config_weather_app_default">無</string>
     <string name="config_weather_app_nil">其他</string>
-    <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請前往 GitHub 回報問題。</string>
-    <string name="config_weather_app_alert_button_github">開啟 GitHub</string>
+    <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報問題。</string>
+    <string name="config_weather_app_alert_button_github">前往 GitHub</string>
 
     <string name="widget_label">日期與天氣</string>
     <string name="widget_date_format">EEE, MMM d</string>
