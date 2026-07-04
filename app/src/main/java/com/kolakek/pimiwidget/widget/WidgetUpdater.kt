@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
+import android.app.AlarmManager
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
@@ -59,7 +60,7 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId, prefs)
-            updateAlarm(views, prefs)
+            updateAlarm(context, views, prefs)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
             updateVisibility(context, views, appWidgetId)
@@ -150,10 +151,22 @@ internal object WidgetUpdater {
     }
 
     private fun updateAlarm(
+        context: Context,
         views: RemoteViews,
         prefs: WidgetPreferences
     ) {
-        views.setTextViewText(R.id.widget_alarm, "07:00")
+        views.setTextViewText(R.id.widget_alarm, null)
+        views.setTextViewCompoundDrawables(R.id.widget_alarm, 0, 0, 0, 0)
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
+
+        if (nextAlarmMillis - System.currentTimeMillis() > ALARM_LOOK_AHEAD_MILLIS) return
+
+        views.setTextViewText(
+            R.id.widget_alarm,
+            DateFormat.getTimeFormat(context).format(Date(nextAlarmMillis))
+        )
         views.setTextViewCompoundDrawables(
             R.id.widget_alarm,
             WidgetIcon.ALARM.id(prefs.textStyle),

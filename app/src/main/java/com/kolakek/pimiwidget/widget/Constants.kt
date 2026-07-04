@@ -21,3 +21,4 @@ internal const val FORECAST_TODAY_HOUR_ON = 6
 internal const val FORECAST_TODAY_HOUR_OFF = 10
 internal const val FORECAST_TOMORROW_HOUR_ON = 20
 internal const val FORECAST_TOMORROW_HOUR_OFF = 24
+internal const val ALARM_LOOK_AHEAD_MILLIS = 12 * 60 * 60 * 1000L
