@@ -22,6 +22,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.provider.AlarmClock
 import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
@@ -166,6 +167,11 @@ internal object WidgetUpdater {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
         views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
+
+        views.setOnClickPendingIntent(
+            R.id.widget_alarm,
+            WidgetIntent.actionIntent(context, AlarmClock.ACTION_SHOW_ALARMS, appWidgetId)
+        )
     }
 
     private fun updateAlarm(

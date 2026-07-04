@@ -24,6 +24,20 @@ import android.content.Intent
 
 internal object WidgetIntent {
 
+    internal fun actionIntent(
+        context: Context,
+        action: String,
+        requestCode: Int
+    ): PendingIntent {
+        val intent = Intent(action)
+        return PendingIntent.getActivity(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+    }
+
     internal fun categoryIntent(
         context: Context,
         category: String,
