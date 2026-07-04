@@ -5,7 +5,6 @@
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
     <string name="config_version_title">Număr build</string>
     <string name="config_debug_info">Starea aplicației</string>
-    <string name="config_debug_descr">Vizualizați starea aplicației și datele</string>
     <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
     <string name="config_debug_last_valid_location">Ultima locație validă</string>
     <string name="config_debug_last_work_status">Starea ultimei execuții</string>

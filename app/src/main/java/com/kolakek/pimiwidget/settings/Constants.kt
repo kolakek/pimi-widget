@@ -46,7 +46,6 @@ internal const val KEY_LOCATION_FALLBACK = "location_fallback"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
 internal const val KEY_WEATHER_WARNING = "weather_warnings"
 
-internal const val KEY_DEBUG_INFO = "debug_info"
 internal const val KEY_VERSION_FIELD = "build_number"
 internal const val KEY_SOURCE_CODE = "source_code"
 internal const val KEY_SETTINGS_PLUS = "category_settings_plus"

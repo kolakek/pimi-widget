@@ -5,7 +5,6 @@
     <string name="config_weather_switch_summary">Datos meteorológicos de Open-Meteo.com</string>
     <string name="config_version_title">Número de compilación</string>
     <string name="config_debug_info">Estado de la app</string>
-    <string name="config_debug_descr">Ver el estado de la app y los datos</string>
     <string name="config_debug_weather_data_age">Antigüedad de los datos meteorológicos</string>
     <string name="config_debug_last_valid_location">Última ubicación válida</string>
     <string name="config_debug_last_work_status">Estado de la última ejecución</string>

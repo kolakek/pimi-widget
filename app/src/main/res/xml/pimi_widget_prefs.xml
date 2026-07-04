@@ -119,14 +119,7 @@
             android:title="@string/config_source_code"
             app:iconSpaceReserved="false" />
 
-        <Preference
-            android:key="debug_info"
-            android:summary="@string/config_debug_descr"
-            android:title="@string/config_debug_info"
-            app:iconSpaceReserved="false"
-            app:isPreferenceVisible="false"/>
-
-        <Preference
+        <com.kolakek.pimiwidget.settings.LongPressPreference
             android:key="build_number"
             android:title="@string/config_version_title"
             app:iconSpaceReserved="false" />

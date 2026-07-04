@@ -83,7 +83,7 @@ Severe and extreme weather alerts for the current hour are shown if the followin
 
 ### Troubleshooting
 
-You can find debug information by tapping the **Build number** three times in the widget settings and checking the **Last work status**. The following are the typical statuses and their meanings:
+You can find debug information by long-pressing the **Build number** in the widget settings and checking the **Last work status**. The following are the typical statuses and their meanings:
 
 - **RecentDataServed:** The widget was updated with recent weather information. No new weather data needed to be downloaded.
 

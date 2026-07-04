@@ -5,7 +5,6 @@
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_debug_info">Appstatus</string>
-    <string name="config_debug_descr">Appstatus en gegevens weergeven</string>
     <string name="config_debug_weather_data_age">Leeftijd van weerdata</string>
     <string name="config_debug_last_valid_location">Laatste geldige locatie</string>
     <string name="config_debug_last_work_status">Laatste werkstatus</string>
