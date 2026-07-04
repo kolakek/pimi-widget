@@ -90,12 +90,30 @@ internal object WidgetUpdater {
             )
             val lastStatus = updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
+            updateAlarm(context, views, prefs)
 
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
 
             if (lastStatus == WidgetUpdateStatus.INVALID_DATA) status = lastStatus
         }
         return status
+    }
+
+    internal fun partiallyUpdateAlarms(context: Context) {
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            ComponentName(context, PimiWidget::class.java)
+        )
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+
+        for (appWidgetId in appWidgetIds) {
+            val views = RemoteViews(
+                context.packageName,
+                getWidgetLayout(prefs.textStyle)
+            )
+            updateAlarm(context, views, prefs)
+            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+        }
     }
 
     internal fun partiallyUpdateVisibility(

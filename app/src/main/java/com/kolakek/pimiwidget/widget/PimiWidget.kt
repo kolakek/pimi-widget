@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
+import android.app.AlarmManager
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
@@ -60,8 +61,14 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
-            Intent.ACTION_LOCALE_CHANGED -> WidgetUpdater.updateWidgets(context)
-            Intent.ACTION_MY_PACKAGE_REPLACED -> MigrateApp.migrate(context)
+            Intent.ACTION_LOCALE_CHANGED ->
+                WidgetUpdater.updateWidgets(context)
+
+            Intent.ACTION_MY_PACKAGE_REPLACED ->
+                MigrateApp.migrate(context)
+
+            AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED ->
+                WidgetUpdater.partiallyUpdateAlarms(context)
         }
     }
 }
