@@ -26,6 +26,7 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.resources.WidgetIcon
 import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.TextStyle
@@ -58,6 +59,7 @@ internal object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             updateBaseWidget(context, views, appWidgetId, prefs)
+            updateAlarm(views, prefs)
             updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
             updateVisibility(context, views, appWidgetId)
@@ -145,6 +147,20 @@ internal object WidgetUpdater {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
         views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
+    }
+
+    private fun updateAlarm(
+        views: RemoteViews,
+        prefs: WidgetPreferences
+    ) {
+        views.setTextViewText(R.id.widget_alarm, "07:00")
+        views.setTextViewCompoundDrawables(
+            R.id.widget_alarm,
+            WidgetIcon.ALARM.id(prefs.textStyle),
+            0,
+            0,
+            0
+        )
     }
 
     private fun updateVisibility(

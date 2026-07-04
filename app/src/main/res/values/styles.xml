@@ -19,20 +19,31 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <style name="Widget.PimiWidget.AppWidget.InnerContainer" parent="android:Widget">
+        <item name="android:background">#00000000</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
     <style name="Widget.PimiWidget.AppWidget.InnerView" parent="android:Widget">
         <item name="android:background">#00000000</item>
         <item name="android:clipToOutline">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Date" parent="Widget.PimiWidget.AppWidget.InnerView">
-        <item name="android:gravity">bottom</item>
         <item name="android:layout_height">@dimen/widget_date_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:drawablePadding">4dp</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.DateDark" parent="Widget.PimiWidget.AppWidget.Date">
@@ -53,7 +64,6 @@
 
     <style name="Widget.PimiWidget.AppWidget.Weather" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
-        <item name="android:paddingVertical">8dp</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:drawablePadding">2dp</item>

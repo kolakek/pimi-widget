@@ -18,31 +18,20 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.settings.TextStyle
 
-object WarningIcon {
+enum class WidgetIcon {
+    ALARM;
 
-    fun getWarningIconId(
-        warningLevel: WarningLevel,
+    fun id(
         textStyle: TextStyle
     ): Int {
-        return when (warningLevel) {
-            WarningLevel.NONE -> 0
-
-            WarningLevel.SEVERE ->
-                when (textStyle) {
-                    TextStyle.DARK -> R.drawable.ic_warn_sevr_dark
-                    TextStyle.LIGHT -> R.drawable.ic_warn_sevr_light
-                    TextStyle.LIGHT_SHADOW -> R.drawable.ic_warn_sevr_light_shadow
-                }
-
-            WarningLevel.EXTREME ->
-                when (textStyle) {
-                    TextStyle.DARK -> R.drawable.ic_warn_extr
-                    TextStyle.LIGHT -> R.drawable.ic_warn_extr
-                    TextStyle.LIGHT_SHADOW -> R.drawable.ic_warn_extr_shadow
-                }
+        return when (this) {
+            ALARM -> when (textStyle) {
+                TextStyle.DARK -> R.drawable.ic_alarm_dark
+                TextStyle.LIGHT -> R.drawable.ic_alarm_light
+                TextStyle.LIGHT_SHADOW -> R.drawable.ic_alarm_light_shadow
+            }
         }
     }
 }
