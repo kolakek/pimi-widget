@@ -14,7 +14,7 @@
             android:id="@+id/widget_text_clock" />
 
         <TextView
-            style="@style/Widget.PimiWidget.AppWidget.DateLight"
+            style="@style/Widget.PimiWidget.AppWidget.AlarmLight"
             android:id="@+id/widget_alarm" />
 
     </LinearLayout>

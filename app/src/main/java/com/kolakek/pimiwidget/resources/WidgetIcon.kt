@@ -23,9 +23,7 @@ import com.kolakek.pimiwidget.settings.TextStyle
 enum class WidgetIcon {
     ALARM;
 
-    fun id(
-        textStyle: TextStyle
-    ): Int {
+    fun id(textStyle: TextStyle): Int {
         return when (this) {
             ALARM -> when (textStyle) {
                 TextStyle.DARK -> R.drawable.ic_alarm_dark
