@@ -15,6 +15,7 @@
             android:summary="@string/config_show_alarms_descr"
             android:title="@string/config_show_alarms"
             android:widgetLayout="@layout/preference_switch"
+            android:defaultValue="false"
             app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat
@@ -22,6 +23,7 @@
             android:summary="@string/config_weather_switch_summary"
             android:title="@string/config_weather_switch"
             android:widgetLayout="@layout/preference_switch"
+            android:defaultValue="false"
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference

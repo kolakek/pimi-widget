@@ -162,7 +162,7 @@ internal object PreferencesHelper {
 
     private fun getAlarmPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_ALARM_SWITCH, true)
+            .getBoolean(KEY_ALARM_SWITCH, false)
     }
 
     private fun getTextColorPreference(context: Context): ColorPref {
