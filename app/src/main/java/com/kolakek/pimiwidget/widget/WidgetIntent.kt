@@ -29,7 +29,9 @@ internal object WidgetIntent {
         action: String,
         requestCode: Int
     ): PendingIntent {
-        val intent = Intent(action)
+        val intent = Intent(action).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        }
         return PendingIntent.getActivity(
             context,
             requestCode,
