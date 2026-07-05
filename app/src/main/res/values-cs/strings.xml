@@ -4,6 +4,8 @@
     <string name="config_weather_switch">Zapnout počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
     <string name="config_version_title">Číslo sestavení</string>
+    <string name="config_show_alarms">Zobrazit budíky</string>
+    <string name="config_show_alarms_descr">Budíky v následujících 12 hodinách</string>
     <string name="config_debug_info">Stav aplikace</string>
     <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
     <string name="config_debug_last_valid_location">Poslední platná poloha</string>

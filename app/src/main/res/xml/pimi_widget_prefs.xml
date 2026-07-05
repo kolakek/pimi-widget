@@ -11,6 +11,13 @@
         app:allowDividerBelow="false">
 
         <SwitchPreferenceCompat
+            android:key="alarm_switch"
+            android:summary="@string/config_show_alarms_descr"
+            android:title="@string/config_show_alarms"
+            android:widgetLayout="@layout/preference_switch"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
             android:key="weather_switch"
             android:summary="@string/config_weather_switch_summary"
             android:title="@string/config_weather_switch"

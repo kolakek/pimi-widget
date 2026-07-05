@@ -5,6 +5,8 @@
     <string name="config_weather_switch_summary">Dati meteo da Open-Meteo.com</string>
     <string name="config_version_title">Numero build</string>
     <string name="config_debug_info">Stato dell’app</string>
+    <string name="config_show_alarms">Mostra sveglie</string>
+    <string name="config_show_alarms_descr">Sveglie delle prossime 12 ore</string>
     <string name="config_debug_weather_data_age">Età dei dati meteo</string>
     <string name="config_debug_last_valid_location">Ultima posizione valida</string>
     <string name="config_debug_last_work_status">Ultima esecuzione</string>
