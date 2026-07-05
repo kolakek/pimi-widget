@@ -102,6 +102,7 @@ internal object PreferencesHelper {
         }
 
         return WidgetPreferences(
+            showAlarms = getAlarmPreference(context),
             showWeather = getWeatherPreference(context),
             useLocationFallback = getLocationFallbackPreference(context),
             showDailyForecast = getDailyForecastPreference(context),
@@ -157,6 +158,11 @@ internal object PreferencesHelper {
     private fun getWeatherWarningPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_WARNING, true)
+    }
+
+    private fun getAlarmPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_ALARM_SWITCH, true)
     }
 
     private fun getTextColorPreference(context: Context): ColorPref {

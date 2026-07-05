@@ -182,6 +182,8 @@ internal object WidgetUpdater {
         views.setTextViewText(R.id.widget_alarm, null)
         views.setTextViewCompoundDrawables(R.id.widget_alarm, 0, 0, 0, 0)
 
+        if (!prefs.showAlarms) return
+
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
 
