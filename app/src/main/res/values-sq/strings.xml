@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Apliko cilësimet</string>
-    <string name="config_weather_switch">Aktivizo motin</string>
+    <string name="config_weather_switch">Shfaq motin</string>
     <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
     <string name="config_version_title">Numri i build-it</string>
     <string name="config_show_alarms">Shfaq alarmet</string>

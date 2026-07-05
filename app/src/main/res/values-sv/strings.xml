@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Tillämpa inställningar</string>
-    <string name="config_weather_switch">Aktivera väder</string>
+    <string name="config_weather_switch">Visa väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
     <string name="config_version_title">Byggnummer</string>
     <string name="config_show_alarms">Visa alarm</string>

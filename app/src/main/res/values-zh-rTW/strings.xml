@@ -4,7 +4,7 @@
     <string name="config_section_settings">設定</string>
     <string name="config_section_settings_plus">其他設定</string>
     <string name="config_section_about">關於</string>
-    <string name="config_weather_switch">啟用天氣</string>
+    <string name="config_weather_switch">顯示天氣</string>
     <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
     <string name="config_version_title">組建編號</string>
     <string name="config_show_alarms">顯示鬧鐘</string>

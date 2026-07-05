@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Appliquer les paramètres</string>
-    <string name="config_weather_switch">Activer la météo</string>
+    <string name="config_weather_switch">Afficher la météo</string>
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
     <string name="config_version_title">Numéro de build</string>
     <string name="config_show_alarms">Afficher les alarmes</string>

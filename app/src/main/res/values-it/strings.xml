@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Applica impostazioni</string>
-    <string name="config_weather_switch">Attiva meteo</string>
+    <string name="config_weather_switch">Mostra meteo</string>
     <string name="config_weather_switch_summary">Dati meteo da Open-Meteo.com</string>
     <string name="config_version_title">Numero build</string>
     <string name="config_debug_info">Stato dell’app</string>

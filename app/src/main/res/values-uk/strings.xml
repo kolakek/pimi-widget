@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Застосувати налаштування</string>
-    <string name="config_weather_switch">Увімкнути погоду</string>
+    <string name="config_weather_switch">Показати погоду</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
     <string name="config_version_title">Номер збірки</string>
     <string name="config_show_alarms">Показати будильники</string>

@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Εφαρμογή ρυθμίσεων</string>
-    <string name="config_weather_switch">Ενεργοποίηση καιρού</string>
+    <string name="config_weather_switch">Εμφάνιση καιρού</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
     <string name="config_show_alarms">Εμφάνιση ξυπνητηριών</string>

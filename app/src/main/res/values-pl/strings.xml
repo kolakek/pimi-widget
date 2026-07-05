@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Zastosuj ustawienia</string>
-    <string name="config_weather_switch">Włącz pogodę</string>
+    <string name="config_weather_switch">Pokaż pogodę</string>
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
     <string name="config_version_title">Numer kompilacji</string>
     <string name="config_show_alarms">Pokaż budziki</string>

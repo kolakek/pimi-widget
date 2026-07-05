@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Použít nastavení</string>
-    <string name="config_weather_switch">Zapnout počasí</string>
+    <string name="config_weather_switch">Zobrazit počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_show_alarms">Zobrazit budíky</string>

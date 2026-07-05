@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Aplică setările</string>
-    <string name="config_weather_switch">Activează vremea</string>
+    <string name="config_weather_switch">Afișează vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
     <string name="config_version_title">Număr build</string>
     <string name="config_show_alarms">Afișează alarmele</string>

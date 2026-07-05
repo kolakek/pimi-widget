@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Ota asetukset käyttöön</string>
-    <string name="config_weather_switch">Ota sää käyttöön</string>
+    <string name="config_weather_switch">Näytä sää</string>
     <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
     <string name="config_version_title">Koontinumero</string>
     <string name="config_show_alarms">Näytä herätykset</string>

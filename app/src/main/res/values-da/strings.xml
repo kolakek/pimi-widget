@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Anvend indstillinger</string>
-    <string name="config_weather_switch">Aktivér vejr</string>
+    <string name="config_weather_switch">Vis vejr</string>
     <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Vis alarmer</string>

@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Ayarları uygula</string>
-    <string name="config_weather_switch">Hava durumunu etkinleştir</string>
+    <string name="config_weather_switch">Hava durumunu göster</string>
     <string name="config_weather_switch_summary">Open-Meteo.com\'dan hava durumu verileri</string>
     <string name="config_version_title">Yapı numarası</string>
     <string name="config_show_alarms">Alarmları göster</string>

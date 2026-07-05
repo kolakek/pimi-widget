@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Einstellungen übernehmen</string>
-    <string name="config_weather_switch">Wetter aktivieren</string>
+    <string name="config_weather_switch">Wetter anzeigen</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>
     <string name="config_version_title">Build-Nummer</string>
     <string name="config_show_alarms">Wecker anzeigen</string>

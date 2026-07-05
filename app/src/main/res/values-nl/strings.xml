@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_button_apply">Instellingen toepassen</string>
-    <string name="config_weather_switch">Weer inschakelen</string>
+    <string name="config_weather_switch">Toon weer</string>
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Toon wekkers</string>
