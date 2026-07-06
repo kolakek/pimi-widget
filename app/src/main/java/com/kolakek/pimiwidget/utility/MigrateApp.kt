@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.utility
 import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.widget.WidgetUpdater
@@ -40,11 +41,7 @@ internal object MigrateApp {
         storeCurrentVersionCode(context)
 
         WidgetUpdater.updateWidgets(context)
-
-        WorkManagerHelper.cancelWork(context)
-        if (PreferencesHelper.getWeatherPreference(context)) {
-            WorkManagerHelper.enqueueWork(context)
-        }
+        WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE)
     }
 
     private fun setFirstAvailableWeatherApp(context: Context) {

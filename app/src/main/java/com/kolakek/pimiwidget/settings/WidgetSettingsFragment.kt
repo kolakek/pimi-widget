@@ -36,6 +36,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
@@ -68,8 +69,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (weatherSwitch?.isChecked == true &&
             hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
-            WorkManagerHelper.cancelWork(context)
-            deleteAllData(context)
+            deleteWeatherData(context)
             weatherSwitch.isChecked = false
         }
         versionField?.setOnPreferenceClickListener {
@@ -117,8 +117,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
         if (!flag) {
-            WorkManagerHelper.cancelWork(context)
-            deleteAllData(context)
+            deleteWeatherData(context)
             weatherSwitch?.isChecked = false
 
             return true
@@ -144,7 +143,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
             )
             return false
         }
-        WorkManagerHelper.enqueueWork(context)
+        WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE)
         weatherSwitch?.isChecked = true
 
         return true
@@ -289,9 +288,9 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun deleteAllData(context: Context) {
+    private fun deleteWeatherData(context: Context) {
         lifecycleScope.launch {
-            DataRepository.deleteAllData(context)
+            DataRepository.deleteAllData(context, deleteStatusData = false)
         }
     }
 

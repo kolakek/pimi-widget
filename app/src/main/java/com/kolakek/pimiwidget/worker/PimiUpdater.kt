@@ -22,12 +22,12 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.annotation.RequiresPermission
-import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.WidgetUpdateStatus
+import com.kolakek.pimiwidget.widget.UpdateWeatherStatus
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 internal object PimiUpdater {
@@ -35,50 +35,31 @@ internal object PimiUpdater {
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     internal suspend fun update(
         context: Context,
-        isRecoveryMode: Boolean = false,
-        runAttemptCount: Int
     ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-
-        if (isRecoveryMode) {
-
-            if (!hasNetCapabilityValidated(context) && runAttemptCount < MAX_NUM_RETRIES) {
-                return WorkResult.INTERNET_FAILED
-            }
-            val location = LocationService.fetchLocation(context, prefs.useLocationFallback)
-            val weatherData = WeatherService.fetchWeatherData(context, location)
-
-            WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
-
-            WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, false)
-
-            return WorkResult.FRESH_DATA_FETCHED
-        }
         val weatherData = DataRepository.loadWeatherData(context)
         val status = WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
 
-        val dataTimeMillis = weatherData?.timeMillis ?: 0
-        val dataAgeMillis = System.currentTimeMillis() - dataTimeMillis
+        if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
 
-        val isDataFresh = dataAgeMillis < DATA_MAX_AGE_MILLIS
-        val isDataValid = status == WidgetUpdateStatus.SUCCESS
+        when (status.weatherUpdate) {
+            UpdateWeatherStatus.DONE ->
+                return WorkResult.RECENT_DATA_SERVED
 
-        if (isDataValid && isDataFresh) return WorkResult.RECENT_DATA_SERVED
-
-        if (hasNetCapabilityInternet(context)) {
-            val location = LocationService.fetchLocation(context, prefs.useLocationFallback)
-            val freshWeatherData = WeatherService.fetchWeatherData(context, location)
-
-            if (!isDataValid) WidgetUpdater.partiallyUpdateWidgets(context, prefs, freshWeatherData)
-
-            return WorkResult.FRESH_DATA_FETCHED
-
-        } else if (!isDataValid) {
-            WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE, true)
-
-            return WorkResult.RECOVERY_ENQUEUED
+            UpdateWeatherStatus.NEEDS_DATA -> {
+                fetchWeatherData(context, prefs)?.let {
+                    return WorkResult.FRESH_DATA_FETCHED
+                }
+                return WorkResult.STALE_DATA_SERVED
+            }
+            UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH -> {
+                fetchWeatherData(context, prefs)?.let {
+                    WidgetUpdater.partiallyUpdateWidgets(context, prefs, it)
+                    return WorkResult.FRESH_DATA_FETCHED
+                }
+                return WorkResult.INVALID_DATA_SERVED
+            }
         }
-        return WorkResult.STALE_DATA_SERVED
     }
 
     internal suspend fun logUpdateStatus(
@@ -91,17 +72,22 @@ internal object PimiUpdater {
         )
     }
 
+    @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+    private suspend fun fetchWeatherData(context: Context, prefs: WidgetPreferences) =
+        if (hasNetCapabilityInternet(context)) {
+            WeatherService.fetchWeatherData(
+                context,
+                LocationService.fetchLocation(
+                    context,
+                    prefs.useLocationFallback
+                )
+            )
+        } else null
+
     private fun hasNetCapabilityInternet(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = cm.activeNetwork ?: return false
         val caps = cm.getNetworkCapabilities(network) ?: return false
         return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-    }
-
-    fun hasNetCapabilityValidated(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network = cm.activeNetwork ?: return false
-        val caps = cm.getNetworkCapabilities(network) ?: return false
-        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
     }
 }

@@ -15,12 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.worker
+package com.kolakek.pimiwidget.widget
 
-import androidx.work.NetworkType
-
-data class WorkConfig(
-    val networkType: NetworkType,
-    val intervalMillis: Long,
-    val initialDelayMillis: Long
-)
+enum class UpdateWeatherStatus {
+    DONE,
+    NEEDS_DATA,
+    NEEDS_DATA_AND_REFRESH
+}

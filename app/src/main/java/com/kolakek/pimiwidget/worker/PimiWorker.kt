@@ -34,24 +34,18 @@ internal class PimiWorker(
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     override suspend fun doWork(): Result {
         return try {
-            PimiUpdater.logUpdateStatus(applicationContext, STATUS_STRING_RUNNING)
-
-            val isRecoveryMode = inputData.getBoolean(WORK_MODE_KEY, false)
-            val workResult = PimiUpdater.update(applicationContext, isRecoveryMode, runAttemptCount)
-
-            runCatching {
-                PimiUpdater.logUpdateStatus(applicationContext, workResult.message)
-            }
-            when(workResult) {
-                WorkResult.FRESH_DATA_FETCHED,
-                WorkResult.RECENT_DATA_SERVED,
-                WorkResult.STALE_DATA_SERVED,
-                WorkResult.RECOVERY_ENQUEUED
-                    -> Result.success()
-
-                WorkResult.INTERNET_FAILED
-                    -> if (runAttemptCount < MAX_NUM_RETRIES) Result.retry() else Result.failure()
-            }
+            PimiUpdater.logUpdateStatus(
+                applicationContext,
+                STATUS_STRING_RUNNING
+            )
+            val workResult = PimiUpdater.update(
+                applicationContext
+            )
+            PimiUpdater.logUpdateStatus(
+                applicationContext,
+                workResult.message
+            )
+            Result.success()
         } catch (e: CancellationException) {
             runCatching {
                 withContext(NonCancellable) {

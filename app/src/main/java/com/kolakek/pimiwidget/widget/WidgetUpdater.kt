@@ -74,14 +74,15 @@ internal object WidgetUpdater {
         context: Context,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ): WidgetUpdateStatus {
+    ): UpdateWidgetStatus {
         Timber.d("WidgetUpdater: partiallyUpdateWidgets")
-
-        var status = WidgetUpdateStatus.SUCCESS
 
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
+        )
+        val status = UpdateWidgetStatus(
+            weatherUpdate = UpdateWeatherStatus.DONE
         )
         for (appWidgetId in appWidgetIds) {
 
@@ -89,13 +90,11 @@ internal object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            val lastStatus = updateWeather(context, views, prefs, weatherData)
+            status.weatherUpdate = updateWeather(context, views, prefs, weatherData)
             updateAuxDisplay(context, views, prefs)
             updateAlarm(context, views, prefs)
 
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
-
-            if (lastStatus == WidgetUpdateStatus.INVALID_DATA) status = lastStatus
         }
         return status
     }
@@ -227,25 +226,25 @@ internal object WidgetUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ): WidgetUpdateStatus {
+    ): UpdateWeatherStatus {
+
         views.setTextViewText(R.id.widget_temp, null)
         views.setTextViewCompoundDrawables(R.id.widget_temp, 0, 0, 0, 0)
 
-        if (!prefs.showWeather) return WidgetUpdateStatus.SUCCESS
+        if (!prefs.showWeather) return UpdateWeatherStatus.DONE
 
-        if (weatherData == null) return WidgetUpdateStatus.INVALID_DATA
+        weatherData?.let { data ->
+            WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
 
-        val strIcons = WeatherRenderer.getWidgetWeatherStrAndIcons(
-            context,
-            weatherData,
-            prefs
-        ) ?: return WidgetUpdateStatus.INVALID_DATA
+                views.setTextViewText(R.id.widget_temp, it.text)
+                views.setTextViewCompoundDrawables(R.id.widget_temp, it.iconId1, 0, it.iconId2, 0)
 
-        views.apply {
-            setTextViewText(R.id.widget_temp, strIcons.text)
-            setTextViewCompoundDrawables(R.id.widget_temp, strIcons.iconId1, 0, strIcons.iconId2, 0)
+            } ?: return UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH
+
+            val isFresh = System.currentTimeMillis() - data.timeMillis < WEATHER_UPDATE_AGE_MILLIS
+            return if (isFresh) UpdateWeatherStatus.DONE else UpdateWeatherStatus.NEEDS_DATA
         }
-        return WidgetUpdateStatus.SUCCESS
+        return UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH
     }
 
     private fun updateAuxDisplay(

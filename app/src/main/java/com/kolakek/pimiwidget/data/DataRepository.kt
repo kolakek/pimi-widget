@@ -25,11 +25,14 @@ import com.kolakek.pimiwidget.worker.StatusData
 object DataRepository {
 
     suspend fun deleteAllData(
-        context: Context
+        context: Context,
+        deleteLocationData: Boolean = true,
+        deleteWeatherData: Boolean = true,
+        deleteStatusData: Boolean = true
     ) {
-        JsonDataStore.delete(context, DataKeys.WEATHER_DATA_KEY)
-        JsonDataStore.delete(context, DataKeys.LOCATION_DATA_KEY)
-        JsonDataStore.delete(context, DataKeys.STATUS_DATA_KEY)
+        if (deleteLocationData) JsonDataStore.delete(context, DataKeys.LOCATION_DATA_KEY)
+        if (deleteWeatherData) JsonDataStore.delete(context, DataKeys.WEATHER_DATA_KEY)
+        if (deleteStatusData) JsonDataStore.delete(context, DataKeys.STATUS_DATA_KEY)
     }
 
     suspend fun storeWeatherData(

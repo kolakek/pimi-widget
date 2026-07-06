@@ -17,7 +17,6 @@
 
 package com.kolakek.pimiwidget.widget
 
-enum class WidgetUpdateStatus {
-    SUCCESS,
-    INVALID_DATA
-}
+data class UpdateWidgetStatus (
+    var weatherUpdate: UpdateWeatherStatus
+)

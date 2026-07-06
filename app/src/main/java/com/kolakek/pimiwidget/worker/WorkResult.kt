@@ -19,8 +19,8 @@ package com.kolakek.pimiwidget.worker
 
 enum class WorkResult(val message: String) {
     FRESH_DATA_FETCHED("FreshDataFetched"),
-    RECOVERY_ENQUEUED("RecoveryEnqueued"),
+    INVALID_DATA_SERVED("InvalidDataServed"),
     RECENT_DATA_SERVED("RecentDataServed"),
     STALE_DATA_SERVED("StaleDataServed"),
-    INTERNET_FAILED("InternetFailed")
+    WIDGET_REFRESHED("WidgetRefreshed")
 }

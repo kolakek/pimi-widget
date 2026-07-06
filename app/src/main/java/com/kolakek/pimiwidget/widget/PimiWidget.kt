@@ -50,9 +50,14 @@ class PimiWidget : AppWidgetProvider() {
         WidgetUpdater.partiallyUpdateVisibility(context, appWidgetManager, appWidgetId)
     }
 
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+        WorkManagerHelper.enqueueWork(context)
+    }
+
     override fun onDisabled(context: Context) {
-        PreferencesHelper.setWeatherPreference(context, false)
         WorkManagerHelper.cancelWork(context)
+        PreferencesHelper.setWeatherPreference(context, false)
         runBlocking { DataRepository.deleteAllData(context) }
     }
 
