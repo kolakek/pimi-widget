@@ -1,91 +1,97 @@
 <resources>
 
-    <string name="widget_label">Datum a počasí</string>
-
-    <string name="config_button">Použít nastavení</string>
-
-    <string name="config_privacy_note">
-        Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
-
+    <string name="config_button_apply">Použít nastavení</string>
+    <string name="config_privacy_note">Aktivací počasí sdílíš svou polohu s poskytovatelem počasí</string>
     <string name="config_weather_switch">Zapnout počasí</string>
-
-    <string name="config_weather_descr">Meteorologická data z Open-Meteo.com</string>
-
-    <string name="config_debug_data">Ladicí informace</string>
-
-    <string name="config_debug_data_descr">Zobrazit stav widgetu</string>
-
+    <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
+    <string name="config_version_title">Číslo sestavení</string>
+    <string name="config_debug_info">Stav aplikace</string>
+    <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
+    <string name="config_debug_last_valid_location">Poslední platná poloha</string>
+    <string name="config_debug_last_work_status">Stav posledního úkolu</string>
+    <string name="config_debug_button_weather">Zobrazit dotaz na počasí</string>
+    <string name="config_debug_button_location">Zobrazit polohu</string>
+    <string name="config_debug_background_service">Služba na pozadí</string>
+    <string name="config_location_fallback">Použít poslední polohu</string>
+    <string name="config_location_fallback_summary">Když je služba určování polohy zařízení vypnuta</string>
     <string name="config_text_color">Barva textu</string>
-
     <string name="config_icon_style">Styl ikon</string>
-
     <string name="config_color_light">Světlý</string>
-
     <string name="config_color_dark">Tmavý</string>
-
     <string name="config_color_auto">Automaticky</string>
-
     <string name="config_temp">Teplota</string>
-
     <string name="config_temp_celsius">Celsia</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Nastavení</string>
-
-    <string name="config_about_sec">O aplikaci</string>
-
+    <string name="config_section_settings">Nastavení</string>
+    <string name="config_section_about">O aplikaci</string>
     <string name="config_daily_forecast">Zobrazit denní předpověď</string>
-
-    <string name="config_daily_forecast_descr">Ráno a večer</string>
-
+    <string name="config_daily_forecast_summary">Ráno a večer</string>
+    <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
+    <string name="config_weather_warnings_summary">Pro extrémní povětrnostní podmínky během následující hodiny</string>
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
-
-    <string name="config_loc_perm_alert">
-        Pro zobrazení počasí ve vaší oblasti
-        tato aplikace potřebuje přístup k vaší poloze.</string>
-
+    <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve vaší oblasti tato aplikace potřebuje přístup k vaší poloze.</string>
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>
-
-    <string name="config_bg_perm_alert">
-        Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí.
-        V dalším kroku vyberte „%s“.</string>
-
+    <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Zrušit</string>
-
-    <string name="config_alert_debug_title">Poslední stažení dat</string>
-
-    <string name="config_alert_debug_worker">Proces</string>
-
-    <string name="config_alert_debug_location">Poloha</string>
-
-    <string name="config_alert_debug_weather">Počasí</string>
-
-    <string name="config_alert_debug_last_update">Před %s</string>
-
-    <string name="config_alert_button_close">Zavřít</string>
-
-    <string name="config_alert_button_update">Vynutit aktualizaci</string>
-
-    <string name="config_shared_data">Transparentnost dat</string>
-
-    <string name="config_shared_data_descr">Zobrazit data sdílená s poskytovatelem počasí</string>
-
-    <string name="config_shared_data_alert_no_loc">Nejsou k dispozici žádná data o poloze</string>
-
-    <string name="config_shared_data_alert_text">
-        Můžeš zobrazit svou naposledy získanou polohu nebo požadavek na API počasí v prohlížeči.
-        Tím dojde ke sdílení tvé polohy s poskytovatelem služby (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Počasí</string>
-
-    <string name="config_shared_data_alert_but_location">Poloha</string>
-
     <string name="config_source_code">Zdrojový kód</string>
+    <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
+    <string name="config_aux_view_title">Zobrazit podrobnosti</string>
+    <string name="config_aux_view_nothing">Bez podrobností</string>
+    <string name="config_aux_view_update_time">Čas aktualizace</string>
+    <string name="config_weather_app">Aplikace počasí</string>
+    <string name="config_weather_app_default">Žádná</string>
+    <string name="config_weather_app_nil">Není v seznamu</string>
+    <string name="config_weather_app_nil_alert_message">Chcete-li přidat svou aplikaci počasí, otevřete issue na GitHubu.</string>
+    <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
 
-    <string name="config_source_code_descr">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
+    <string name="widget_label">Datum a počasí</string>
+    <string name="widget_date_prev">út 28. 10.</string>
+    <string name="widget_temp_prev">21\u2103 · zítra 19\u00B0 / 13\u00B0 · slabý déšť</string>
+    <string name="widget_date_format">EEE d. M.</string>
+    <string name="widget_today">dnes</string>
+    <string name="widget_tomorrow">zítra</string>
+    <string name="widget_updated_at">obnoveno v</string>
+
+    <string name="wc_heavy_thunderstorms">silné bouřky</string>
+    <string name="wc_thunderstorm">bouřka</string>
+    <string name="wc_freezing_rain">mrznoucí déšť</string>
+    <string name="wc_light_freezing_rain">slabý mrznoucí déšť</string>
+    <string name="wc_freezing_drizzle">mrznoucí mrholení</string>
+    <string name="wc_heavy_rain_showers">silné přeháňky</string>
+    <string name="wc_rain_showers">přeháňky</string>
+    <string name="wc_light_rain_showers">slabé přeháňky</string>
+    <string name="wc_heavy_snow_showers">silné sněhové přeháňky</string>
+    <string name="wc_light_snow_showers">slabé sněhové přeháňky</string>
+    <string name="wc_heavy_rain">silný déšť</string>
+    <string name="wc_rain">déšť</string>
+    <string name="wc_light_rain">slabý déšť</string>
+    <string name="wc_drizzle">mrholení</string>
+    <string name="wc_heavy_snow">silné sněžení</string>
+    <string name="wc_snow">sníh</string>
+    <string name="wc_light_snow">slabé sněžení</string>
+    <string name="wc_snow_grains">sněhová zrna</string>
+    <string name="wc_fog">mlha</string>
+    <string name="wc_overcast">zataženo</string>
+    <string name="wc_mostly_cloudy">spíše zataženo</string>
+    <string name="wc_partly_cloudy_day">částečně slunečno</string>
+    <string name="wc_partly_cloudy_night">částečně zataženo</string>
+    <string name="wc_mainly_clear_day">spíše slunečno</string>
+    <string name="wc_mainly_clear_night">spíše jasno</string>
+    <string name="wc_clear_sky_day">slunečno</string>
+    <string name="wc_clear_sky_night">jasno</string>
+
+    <string name="warn_uv_extreme">výstraha před extrémním UV zářením</string>
+    <string name="warn_heat_extreme">výstraha před extrémními teplotami</string>
+    <string name="warn_rain_extreme">výstraha před extrémním deštěm</string>
+    <string name="warn_gusts_extreme">výstraha před extrémními poryvy větru</string>
+    <string name="warn_tstorm_extreme">výstraha před extrémními bouřkami</string>
+    <string name="warn_no_warning">žádná varování</string>
+    <string name="warn_uv_severe">výstraha před silným UV zářením</string>
+    <string name="warn_heat_severe">výstraha před vysokými teplotami</string>
+    <string name="warn_rain_severe">výstraha před intenzivním deštěm</string>
+    <string name="warn_gusts_severe">výstraha před silnými poryvy větru</string>
+    <string name="warn_tstorm_severe">výstraha před silnými bouřkami</string>
 
     <plurals name="days">
         <item quantity="one">1 den</item>
@@ -107,42 +113,5 @@
         <item quantity="many">%d minut</item>
         <item quantity="other">%d minut</item>
     </plurals>
-
-    <string name="widget_date_prev">út 28. 10.</string>
-
-    <string name="widget_temp_prev">21\u2103 · zítra 19\u00B0 / 13\u00B0 · slabý déšť</string>
-
-    <string name="widget_date_format">EEE d. M.</string>
-
-    <string name="heavy_thunderstorms">silné bouřky</string>
-    <string name="thunderstorm">bouřka</string>
-    <string name="freezing_rain">mrznoucí déšť</string>
-    <string name="light_freezing_rain">slabý mrznoucí déšť</string>
-    <string name="freezing_drizzle">mrznoucí mrholení</string>
-    <string name="heavy_rain_showers">silné přeháňky</string>
-    <string name="rain_showers">přeháňky</string>
-    <string name="light_rain_showers">slabé přeháňky</string>
-    <string name="heavy_snow_showers">silné sněhové přeháňky</string>
-    <string name="light_snow_showers">slabé sněhové přeháňky</string>
-    <string name="heavy_rain">silný déšť</string>
-    <string name="rain">déšť</string>
-    <string name="light_rain">slabý déšť</string>
-    <string name="drizzle">mrholení</string>
-    <string name="heavy_snow">silné sněžení</string>
-    <string name="snow">sníh</string>
-    <string name="light_snow">slabé sněžení</string>
-    <string name="snow_grains">sněhová zrna</string>
-    <string name="fog">mlha</string>
-    <string name="overcast">zataženo</string>
-    <string name="mostly_cloudy">spíše zataženo</string>
-    <string name="partly_cloudy_day">částečně slunečno</string>
-    <string name="partly_cloudy_night">částečně zataženo</string>
-    <string name="mainly_clear_day">spíše slunečno</string>
-    <string name="mainly_clear_night">spíše jasno</string>
-    <string name="clear_sky_day">slunečno</string>
-    <string name="clear_sky_night">jasno</string>
-
-    <string name="today">dnes</string>
-    <string name="tomorrow">zítra</string>
 
 </resources>

@@ -21,11 +21,10 @@ import android.content.Context
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import timber.log.Timber
 
-object JsonDataStore {
+internal object JsonDataStore {
 
     val json = Json {
         ignoreUnknownKeys = true
@@ -51,14 +50,13 @@ object JsonDataStore {
         )
     }
 
-    inline fun <reified T> loadSync(
+    suspend fun delete(
         context: Context,
         key: Preferences.Key<String>
-    ): T? {
-        val prefs = runBlocking {
-            context.dataStore.data.first()
+    ) {
+        context.dataStore.edit { prefs ->
+            prefs.remove(key)
         }
-        return decodeFromPrefs(prefs, key)
     }
 
     inline fun <reified T> decodeFromPrefs(

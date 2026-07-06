@@ -23,33 +23,36 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import androidx.lifecycle.lifecycleScope
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import androidx.work.ExistingPeriodicWorkPolicy
+import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.DataKeys
-import com.kolakek.pimiwidget.data.JsonDataStore
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.utility.AppLookup
+import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.worker.UpdateStatus
-import com.kolakek.pimiwidget.worker.UpdateStatusData
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
+import kotlinx.coroutines.launch
 import java.util.Date
 
 internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
-    private val coarseLocationPermission = Manifest.permission.ACCESS_COARSE_LOCATION
-    private val backgroundLocationPermission = Manifest.permission.ACCESS_BACKGROUND_LOCATION
-
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted -> if (isGranted) requestNextPermission(preferenceManager.context) }
+    ) { isGranted -> if (isGranted) weatherSwitchCallback(preferenceManager.context, true) }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
@@ -57,84 +60,97 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val debugField: Preference? = findPreference(KEY_DEBUG_INFO)
-        val sharedDataField: Preference? = findPreference(KEY_SHARED_DATA)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
 
-        if (permissionsDenied(context) && weatherSwitch?.isChecked == true) {
+        var debugCount = 0
+
+        if (weatherSwitch?.isChecked == true &&
+            hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        ) {
+            WorkManagerHelper.cancelWork(context)
+            deleteAllData(context)
             weatherSwitch.isChecked = false
-            WorkManagerHelper.cancelWorkers(context)
         }
         debugField?.setOnPreferenceClickListener {
-            showDebugDialog(context, weatherSwitch?.isChecked)
+            if (debugCount == 2)
+                showDebugDialog(context)
+            else
+                debugCount++
             true
         }
-        sharedDataField?.setOnPreferenceClickListener {
-            showDataInfoDialog(context)
-            true
-        }
+        debugField?.summary = BuildConfig.VERSION_CODE.toString()
+
         sourceCodeField?.setOnPreferenceClickListener {
-            openUrl(SOURCE_CODE_URL)
+            startUrlActivity(SOURCE_CODE_URL)
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            when (newValue) {
-                true if permissionsDenied(context) -> {
-                    requestNextPermission(context)
-                    false
-                }
-                true -> {
-                    WorkManagerHelper.enqueuePeriodicWorker(
-                        context,
-                        0,
-                        ExistingPeriodicWorkPolicy.KEEP
-                    )
-                    true
-                }
-                else -> {
-                    WorkManagerHelper.cancelWorkers(context)
-                    true
-                }
-            }
+            if (newValue == true)
+                return@setOnPreferenceChangeListener weatherSwitchCallback(context, true)
+
+            if (newValue == false)
+                return@setOnPreferenceChangeListener weatherSwitchCallback(context, false)
+
+            false
+        }
+        handleWeatherAppPreference(context)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        listView.clipToPadding = false
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            listView.updatePadding(bottom = bottomInset)
+            insets
         }
     }
 
-    private fun requestNextPermission(context: Context) {
-        val permission: String
-        val title: String
-        val message: String
+    private fun weatherSwitchCallback(context: Context, flag: Boolean): Boolean {
+        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
-        if (context.checkSelfPermission(coarseLocationPermission) == PackageManager
-                .PERMISSION_DENIED
-        ) {
-            permission = coarseLocationPermission
-            title = getString(R.string.config_loc_perm_alert_title)
-            message = getString(R.string.config_loc_perm_alert)
+        if (!flag) {
+            WorkManagerHelper.cancelWork(context)
+            deleteAllData(context)
+            weatherSwitch?.isChecked = false
 
-        } else if (context.checkSelfPermission(backgroundLocationPermission) == PackageManager
-                .PERMISSION_DENIED
-        ) {
-            permission = backgroundLocationPermission
-            title = getString(R.string.config_bg_perm_alert_title)
-            message = getString(
-                R.string.config_bg_perm_alert,
-                context.packageManager.backgroundPermissionOptionLabel
-            )
-
-        } else if (context.checkSelfPermission(backgroundLocationPermission) == PackageManager
-                .PERMISSION_GRANTED
-        ) {
-            findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.apply {
-                isChecked = true
-                WorkManagerHelper.enqueuePeriodicWorker(
-                    context,
-                    0,
-                    ExistingPeriodicWorkPolicy.KEEP
-                )
-            }
-            return
-        } else {
-            return
+            return true
         }
+        if (hasNoPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            askForPermission(
+                context,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                getString(R.string.config_loc_perm_alert_title),
+                getString(R.string.config_loc_perm_alert_message)
+            )
+            return false
+        }
+        if (hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+            askForPermission(
+                context,
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                getString(R.string.config_bg_perm_alert_title),
+                getString(
+                    R.string.config_bg_perm_alert_message,
+                    context.packageManager.backgroundPermissionOptionLabel
+                )
+            )
+            return false
+        }
+        WorkManagerHelper.enqueueWork(context)
+        weatherSwitch?.isChecked = true
+
+        return true
+    }
+
+    private fun askForPermission(
+        context: Context,
+        permission: String,
+        title: String,
+        message: String
+    ) {
         if (shouldShowRequestPermissionRationale(permission)) {
             showRationaleDialog(context, permission, title, message)
         } else {
@@ -142,100 +158,91 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun permissionsDenied(context: Context): Boolean =
+    private fun hasNoPermission(context: Context, permission: String): Boolean =
         ContextCompat.checkSelfPermission(
             context,
-            REQUIRED_PERMISSION
+            permission
         ) == PackageManager.PERMISSION_DENIED
 
     private fun showDebugDialog(
-        context: Context,
-        weatherEnabled: Boolean?
-    ) {
-        val dataUpdateStatus: UpdateStatusData? = JsonDataStore.loadSync(
-            context, DataKeys.UPDATE_STATUS_DATA_KEY
-        )
-        val updateStr = dataUpdateStatus?.lastUpdateTimeMillis?.let {
-            "\n${getString(R.string.config_alert_debug_last_update, ageString(it))}\n"
-        } ?: ""
-
-        var workerStr = getString(R.string.config_alert_debug_worker) + " " +
-                (WorkManagerHelper.getWorkerStatus(context)
-                    ?: getString(R.string.config_alert_debug_na))
-
-        WorkManagerHelper.getNextScheduleMillis(context)?.let {
-            workerStr += " (${DateFormat.getTimeFormat(context).format(Date(it))})"
-        }
-
-        val locationStr = getString(R.string.config_alert_debug_location) +
-                " ${statusString(dataUpdateStatus?.locationStatus)}"
-
-        val weatherStr = getString(R.string.config_alert_debug_weather) +
-                " ${statusString(dataUpdateStatus?.weatherStatus)}"
-
-        AlertDialog.Builder(context)
-            .setMessage("$updateStr\n$locationStr\n\n$weatherStr\n\n$workerStr")
-            .setTitle(R.string.config_alert_debug_title)
-            .setCancelable(true)
-            .setPositiveButton(
-                getString(R.string.config_alert_button_close)
-            ) { dialog, _ ->
-                dialog.dismiss()
-            }
-            .apply {
-                if (weatherEnabled == true) {
-                    setNegativeButton(getString(R.string.config_alert_button_update)) { dialog, _ ->
-                        WorkManagerHelper.enqueueOneTimeWorker(context, forceUpdate = true)
-                        dialog.dismiss()
-                    }
-                }
-            }
-            .show()
-    }
-
-    private fun showDataInfoDialog(
         context: Context
     ) {
-        val locationData: LocationData? = JsonDataStore.loadSync(
-            context,
-            DataKeys.LOCATION_DATA_KEY
-        )
-        val message = if (locationData == null) {
-            getString(R.string.config_shared_data_alert_no_loc)
-        } else {
-            getString(R.string.config_shared_data_alert_text)
-        }
-        AlertDialog.Builder(context)
-            .setTitle(getString(R.string.config_shared_data))
-            .setMessage(message)
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.config_debug_info)
+            .setMessage(createDebugMessage("-", "-", "-", "-"))
             .setCancelable(true)
-            .apply {
-                locationData?.let {
-                    setPositiveButton(getString(R.string.config_shared_data_alert_but_weather)) {
-                        _, _ ->
-                        openUrl(WeatherService.weatherUrl(it, "iso8601").toString())
-                    }
-                    setNegativeButton(getString(R.string.config_shared_data_alert_but_location)) {
-                        _, _ ->
-                        openUrl(locationUrl(it))
-                    }
+            .setPositiveButton(R.string.config_debug_button_location, null)
+            .setNegativeButton(R.string.config_debug_button_weather, null)
+            .show()
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { }
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener { }
+
+        lifecycleScope.launch {
+            val weatherData = DataRepository.loadWeatherData(context)
+            val dataAgeStr = weatherData?.timeMillis?.let {
+                createAgeString(it)
+            } ?: "-"
+
+            val locationData = DataRepository.loadLocationData(context)
+            val locationStr = locationData?.locationType ?: "-"
+
+            val statusData = DataRepository.loadStatusData(context)
+            val statusStr = statusData?.let {
+                getString(
+                    R.string.config_debug_alert_status_time,
+                    it.status,
+                    DateFormat.getTimeFormat(context).format(Date(it.timeMillis))
+                )
+            } ?: "-"
+
+            val workStatusStr = WorkManagerHelper.getStatus(context) ?: "-"
+            val workStr = WorkManagerHelper.getNextRunMillis(context)?.let {
+                getString(
+                    R.string.config_debug_alert_status_time,
+                    workStatusStr,
+                    DateFormat.getTimeFormat(context).format(Date(it))
+                )
+            } ?: workStatusStr
+
+            dialog.setMessage(
+                createDebugMessage(workStr, statusStr, locationStr, dataAgeStr)
+            )
+            locationData?.let {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    viewLocationCallback(dialog, locationData)
+                }
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
+                    viewWeatherCallback(dialog, locationData)
                 }
             }
-            .show()
+        }
     }
 
-    private fun openUrl(url: String) {
+    private fun viewLocationCallback(
+        dialog: AlertDialog,
+        locationData: LocationData
+    ) {
+        startUrlActivity(
+            URLBuilder(LOCATION_URL).apply {
+                parameters.append("mlat", locationData.lat.toString())
+                parameters.append("mlon", locationData.long.toString())
+                fragment = "map=$LOCATION_URL_ZOOM/${locationData.lat}/${locationData.long}"
+            }.toString()
+        )
+        dialog.dismiss()
+    }
+
+    private fun viewWeatherCallback(
+        dialog: AlertDialog,
+        locationData: LocationData
+    ) {
+        startUrlActivity(WeatherService.weatherUrl(locationData, "iso8601").toString())
+        dialog.dismiss()
+    }
+
+    private fun startUrlActivity(url: String) {
         startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
-    }
-
-    private fun locationUrl(location: LocationData): String {
-        return URLBuilder(LOCATION_URL).apply {
-            parameters.apply {
-                append("mlat", location.lat.toString())
-                append("mlon", location.long.toString())
-            }
-            fragment = "map=${LOCATION_URL_ZOOM}/${location.lat}/${location.long}"
-        }.build().toString()
     }
 
     private fun showRationaleDialog(
@@ -244,43 +251,89 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         title: String,
         message: String
     ) {
-        val builder = AlertDialog.Builder(context)
-
-        builder.setMessage(message)
-        builder.setTitle(title)
-        builder.setCancelable(false)
-        builder.setPositiveButton(
-            getString(R.string.config_alert_button_ok)
-        ) { dialog, _ ->
-            requestPermissionLauncher.launch(permission)
-            dialog.dismiss()
-        }
-        builder.setNegativeButton(
-            getString(R.string.config_alert_button_cancel)
-        ) { dialog, _ ->
-            dialog.dismiss()
-        }
-        val alertDialog = builder.create()
-        alertDialog.show()
+        AlertDialog.Builder(context)
+            .setMessage(message)
+            .setTitle(title)
+            .setCancelable(false)
+            .setPositiveButton(R.string.config_alert_button_ok) { dialog, _ ->
+                requestPermissionLauncher.launch(permission)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .show()
     }
 
-    private fun statusString(success: UpdateStatus?): String {
-        return when (success) {
-            UpdateStatus.SUCCESS -> getString(R.string.config_alert_debug_success)
-            UpdateStatus.FAILED -> getString(R.string.config_alert_debug_failed)
-            UpdateStatus.RUNNING -> getString(R.string.config_alert_debug_running)
-            null -> getString(R.string.config_alert_debug_na)
-        }
-    }
+    private fun createDebugMessage(
+        s1: String,
+        s2: String,
+        s3: String,
+        s4: String
+    ): String = "\n${getString(R.string.config_debug_background_service)}\n$s1\n\n" +
+            "${getString(R.string.config_debug_last_work_status)}\n$s2\n\n" +
+            "${getString(R.string.config_debug_last_valid_location)}\n$s3\n\n" +
+            "${getString(R.string.config_debug_weather_data_age)}\n$s4"
 
-    private fun ageString(timeMillis: Long): String {
+    private fun createAgeString(timeMillis: Long): String {
         val ageMins: Int = ((System.currentTimeMillis() - timeMillis) / 1000L / 60L).toInt()
         val ageHours = ageMins / 60
         val ageDays = ageHours / 24
         return when {
-            ageMins < 120 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
+            ageMins < 180 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
         }
+    }
+
+    private fun deleteAllData(context: Context) {
+        lifecycleScope.launch {
+            DataRepository.deleteAllData(context)
+        }
+    }
+
+    private fun handleWeatherAppPreference(context: Context) {
+        val installedApps = WeatherApp.entries.filter { app ->
+            AppLookup.isAppInstalled(context, app.packageName)
+        }
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
+        val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
+        val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
+
+        installedApps.forEach {
+            entries.add(getString(it.labelId))
+            entryValues.add(it.key)
+        }
+        entries.add(getString(R.string.config_weather_app_nil))
+        entryValues.add(KEY_NIL_WEATHER_APP)
+
+        listPreference?.entries = entries.toTypedArray()
+        listPreference?.entryValues = entryValues.toTypedArray()
+
+        val currentApp = listPreference?.value
+        val isCurrentAppInstalled = installedApps.any {
+            it.key == currentApp
+        }
+        if (!isCurrentAppInstalled) {
+            listPreference?.value = KEY_DEFAULT_WEATHER_APP
+        }
+        listPreference?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == KEY_NIL_WEATHER_APP) {
+                showUnlistedAppDialog(context)
+                return@setOnPreferenceChangeListener false
+            }
+            true
+        }
+    }
+
+    private fun showUnlistedAppDialog(
+        context: Context,
+    ) {
+        AlertDialog.Builder(context)
+            .setMessage(R.string.config_weather_app_nil_alert_message)
+            .setPositiveButton(R.string.config_weather_app_alert_button_github) { dialog, _ ->
+                startUrlActivity(ISSUE_TRACKER_URL)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .show()
     }
 }

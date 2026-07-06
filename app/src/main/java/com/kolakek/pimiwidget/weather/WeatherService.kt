@@ -17,8 +17,10 @@
 
 package com.kolakek.pimiwidget.weather
 
+import android.content.Context
+import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.exception.WeatherMappingException
 import com.kolakek.pimiwidget.location.LocationData
-import kotlinx.coroutines.CancellationException
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.URLBuilder
@@ -27,19 +29,19 @@ import timber.log.Timber
 
 object WeatherService {
 
-    suspend fun getWeather(location: LocationData): WeatherData? {
+    suspend fun fetchWeatherData(
+        context: Context,
+        location: LocationData
+    ): WeatherData {
         val url = weatherUrl(location, TIMEFORMAT_VALUE)
 
         Timber.d("getWeather: Get data for URL: $url")
-        return try {
-            val result = mapProviderData(HttpClientProvider.client.get(url).body())
-            Timber.d("getWeather: Data retrieved")
-            result
-        } catch (e: Exception) {
-            if (e is CancellationException) throw e
-            Timber.w("getWeather: Failed")
-            null
-        }
+
+        val providerData = HttpClientProvider.client.get(url).body<ProviderData>()
+        val weatherData = mapProviderData(providerData)
+
+        DataRepository.storeWeatherData(context, weatherData)
+        return weatherData
     }
 
     fun weatherUrl(location: LocationData, timeFormat: String): Url {
@@ -48,61 +50,65 @@ object WeatherService {
                 append(LATITUDE_KEY, location.lat.toString())
                 append(LONGITUDE_KEY, location.long.toString())
 
-                append(MINUTELY_KEY, MINUTELY_VALUE)
                 append(DAILY_KEY, DAILY_VALUE)
                 append(HOURLY_KEY, HOURLY_VALUE)
 
-                append(FORECAST_MINUTES_KEY, FORECAST_MINUTES_VALUE)
                 append(FORECAST_HOURS_KEY, FORECAST_HOURS_VALUE)
                 append(FORECAST_DAYS_KEY, FORECAST_DAYS_VALUE)
 
                 append(TIMEFORMAT_KEY, timeFormat)
                 append(TIMEZONE_KEY, TIMEZONE_VALUE)
+
+                append(TEMP_UNIT_KEY, TEMP_UNIT_VALUE)
+                append(PRECIP_UNIT_KEY, PRECIP_UNIT_VALUE)
+                append(WIND_SPEED_UNIT_KEY, WIND_SPEED_UNIT_VALUE)
             }
         }.build()
     }
 
-    private fun mapProviderData(providerData: ProviderData): WeatherData? {
-        val minutelyWeatherCode = try {
-            providerData.minutely_15.weather_code.indices.map { i ->
-                WeatherCodeMapper.mapWmoCode(
-                    providerData.minutely_15.weather_code[i],
-                    providerData.minutely_15.cloud_cover[i],
-                    providerData.minutely_15.precipitation_probability[i],
-                    providerData.minutely_15.visibility[i],
-                    providerData.minutely_15.cape[i],
-                ) ?: return null
-            }
-        } catch (_: ArrayIndexOutOfBoundsException) {
-            Timber.w("mapProviderData: Minutely data index out of bounds")
-            return null
+    private fun mapProviderData(providerData: ProviderData): WeatherData {
+        val hourlyWeatherCode = providerData.hourly.weather_code.indices.map { i ->
+            WeatherCodeMapper.getWeatherCode(
+                wmoCode = providerData.hourly.weather_code[i].toInt(),
+                cloudCover = providerData.hourly.cloud_cover[i],
+                precipProb = providerData.hourly.precipitation_probability[i],
+                visibility = providerData.hourly.visibility[i],
+                cape = providerData.hourly.cape[i]
+            ) ?: throw WeatherMappingException("Failed to map hourly data")
         }
-        val dailyWeatherCode = try {
-            providerData.daily.weather_code.indices.map { i ->
-                WeatherCodeMapper.mapWmoCode(
-                    providerData.daily.weather_code[i],
-                    providerData.daily.cloud_cover_mean[i],
-                    providerData.daily.precipitation_probability_max[i],
-                    providerData.daily.visibility_mean[i],
-                    providerData.daily.cape_max[i],
-                ) ?: return null
-            }
-        } catch (_: ArrayIndexOutOfBoundsException) {
-            Timber.w("mapProviderData: Daily data index out of bounds")
-            return null
+        val dailyWeatherCode = providerData.daily.weather_code.indices.map { i ->
+            WeatherCodeMapper.getWeatherCode(
+                wmoCode = providerData.daily.weather_code[i].toInt(),
+                cloudCover = providerData.daily.cloud_cover_mean[i],
+                precipProb = providerData.daily.precipitation_probability_max[i],
+                visibility = providerData.daily.visibility_mean[i],
+                cape = providerData.daily.cape_max[i]
+            ) ?: throw WeatherMappingException("Failed to map daily data")
+        }
+        val hourlyWarningCode = providerData.hourly.weather_code.indices.map { i ->
+            WarningCodeMapper.getWarningCode(
+                wmoCode = providerData.hourly.weather_code[i].toInt(),
+                uvIndex = providerData.hourly.uv_index[i].toInt(),
+                uvIndexClearSky = providerData.hourly.uv_index_clear_sky[i].toInt(),
+                cloudCover = providerData.hourly.cloud_cover[i],
+                apparentTempCelsius = providerData.hourly.apparent_temperature[i],
+                rain = providerData.hourly.rain[i] + providerData.hourly.showers[i],
+                rainProb = providerData.hourly.precipitation_probability[i],
+                cape = providerData.hourly.cape[i],
+                windGusts = providerData.hourly.wind_gusts_10m[i]
+            )
         }
         return WeatherData(
-            minutelyWeatherCode = minutelyWeatherCode,
-            minutelyTempCelsius = providerData.minutely_15.temperature_2m,
-            minutelyIsDay = providerData.minutely_15.is_day.map { v -> v == 1 },
-            minutelyTimeMillis = providerData.minutely_15.time.map { v -> v * 1000L },
+            hourlyWeatherCode = hourlyWeatherCode,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
-            hourlyIsDay = providerData.hourly.is_day.map { v -> v == 1 },
-            hourlyTimeMillis = providerData.hourly.time.map { v -> v * 1000L },
+            hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
+            hourlyWarningCode = hourlyWarningCode,
+            hourlyTimeMillis = providerData.hourly.time.map { v -> v.toLong() * 1000L },
             dailyWeatherCode = dailyWeatherCode,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
-            dailyTimeMillis = providerData.daily.time.map { v -> v * 1000L }
+            dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L },
+            timeMillis = System.currentTimeMillis()
         )
     }
 }

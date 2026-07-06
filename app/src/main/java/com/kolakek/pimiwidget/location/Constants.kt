@@ -20,4 +20,8 @@ package com.kolakek.pimiwidget.location
 import android.location.LocationManager
 
 internal const val LOCATION_MAX_AGE_MILLIS = 60 * 60 * 1000L
+internal const val LOCATION_TIMEOUT_MILLIS = 30 * 1000L
 internal const val LOCATION_PROVIDER = LocationManager.FUSED_PROVIDER
+internal const val FRESH_LOCATION_NAME = "FreshLocation"
+internal const val CACHED_LOCATION_NAME = "CachedLocation"
+internal const val STORED_LOCATION_NAME = "StoredLocation"

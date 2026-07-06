@@ -15,13 +15,11 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.worker
+package com.kolakek.pimiwidget.settings
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class UpdateStatusData (
-    val locationStatus: UpdateStatus,
-    val weatherStatus: UpdateStatus,
-    val lastUpdateTimeMillis: Long
-)
+enum class IconStyle {
+    FLAT_SKETCH_DARK,
+    FLAT_SKETCH_LIGHT,
+    TWINKLE_SHADOW_DARK,
+    TWINKLE_SHADOW_LIGHT
+}

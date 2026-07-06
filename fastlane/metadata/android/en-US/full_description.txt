@@ -2,7 +2,7 @@ Features:
 
 * Displays date and weather for your current area
 * Standalone widget, no launcher icon
-* Tapping the widget opens your default weather app
+* Tapping the widget opens your favorite weather app
 * Lightweight and optimized for battery efficiency
 * Location data is shared only with the weather provider
-* No additional trackers, no ads, fully open source
+* No trackers, no ads, fully open source

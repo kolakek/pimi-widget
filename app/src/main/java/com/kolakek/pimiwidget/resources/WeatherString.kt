@@ -25,68 +25,68 @@ object WeatherString {
     fun getShortWeatherStrId(weatherCode: WeatherCode, isDay: Boolean): Int {
         return when (weatherCode) {
             WeatherCode.CLEAR_SKY ->
-                if (isDay) R.string.clear_sky_day else R.string.clear_sky_night
+                if (isDay) R.string.wc_clear_sky_day else R.string.wc_clear_sky_night
 
             WeatherCode.MAINLY_CLEAR ->
-                if (isDay) R.string.mainly_clear_day else R.string.mainly_clear_night
+                if (isDay) R.string.wc_mainly_clear_day else R.string.wc_mainly_clear_night
 
             WeatherCode.PARTLY_CLOUDY ->
-                if (isDay) R.string.partly_cloudy_day else R.string.partly_cloudy_night
+                if (isDay) R.string.wc_partly_cloudy_day else R.string.wc_partly_cloudy_night
 
-            WeatherCode.MOSTLY_CLOUDY -> R.string.mostly_cloudy
+            WeatherCode.MOSTLY_CLOUDY -> R.string.wc_mostly_cloudy
 
-            WeatherCode.OVERCAST -> R.string.overcast
+            WeatherCode.OVERCAST -> R.string.wc_overcast
 
-            WeatherCode.FOG -> R.string.fog
+            WeatherCode.FOG -> R.string.wc_fog
 
             WeatherCode.DRIZZLE,
-            WeatherCode.DRIZZLE_AND_SKY -> R.string.drizzle
+            WeatherCode.DRIZZLE_AND_SKY -> R.string.wc_drizzle
 
             WeatherCode.LIGHT_RAIN,
-            WeatherCode.LIGHT_RAIN_AND_SKY -> R.string.light_rain
+            WeatherCode.LIGHT_RAIN_AND_SKY -> R.string.wc_light_rain
 
             WeatherCode.LIGHT_RAIN_SHOWERS,
-            WeatherCode.LIGHT_RAIN_SHOWERS_AND_SKY -> R.string.light_rain_showers
+            WeatherCode.LIGHT_RAIN_SHOWERS_AND_SKY -> R.string.wc_light_rain_showers
 
             WeatherCode.RAIN,
-            WeatherCode.RAIN_AND_SKY -> R.string.rain
+            WeatherCode.RAIN_AND_SKY -> R.string.wc_rain
 
             WeatherCode.RAIN_SHOWERS,
-            WeatherCode.RAIN_SHOWERS_AND_SKY -> R.string.rain_showers
+            WeatherCode.RAIN_SHOWERS_AND_SKY -> R.string.wc_rain_showers
 
             WeatherCode.HEAVY_RAIN,
-            WeatherCode.HEAVY_RAIN_AND_SKY -> R.string.heavy_rain
+            WeatherCode.HEAVY_RAIN_AND_SKY -> R.string.wc_heavy_rain
 
             WeatherCode.HEAVY_RAIN_SHOWERS,
-            WeatherCode.HEAVY_RAIN_SHOWERS_AND_SKY -> R.string.heavy_rain_showers
+            WeatherCode.HEAVY_RAIN_SHOWERS_AND_SKY -> R.string.wc_heavy_rain_showers
 
             WeatherCode.LIGHT_SNOW,
-            WeatherCode.LIGHT_SNOW_AND_SKY -> R.string.light_snow
+            WeatherCode.LIGHT_SNOW_AND_SKY -> R.string.wc_light_snow
 
             WeatherCode.LIGHT_SNOW_SHOWERS,
-            WeatherCode.LIGHT_SNOW_SHOWERS_AND_SKY -> R.string.light_snow_showers
+            WeatherCode.LIGHT_SNOW_SHOWERS_AND_SKY -> R.string.wc_light_snow_showers
 
             WeatherCode.SNOW,
-            WeatherCode.SNOW_AND_SKY -> R.string.snow
+            WeatherCode.SNOW_AND_SKY -> R.string.wc_snow
 
             WeatherCode.HEAVY_SNOW,
-            WeatherCode.HEAVY_SNOW_AND_SKY -> R.string.heavy_snow
+            WeatherCode.HEAVY_SNOW_AND_SKY -> R.string.wc_heavy_snow
 
             WeatherCode.HEAVY_SNOW_SHOWERS,
-            WeatherCode.HEAVY_SNOW_SHOWERS_AND_SKY -> R.string.heavy_snow_showers
+            WeatherCode.HEAVY_SNOW_SHOWERS_AND_SKY -> R.string.wc_heavy_snow_showers
 
-            WeatherCode.SNOW_GRAINS -> R.string.snow_grains
+            WeatherCode.SNOW_GRAINS -> R.string.wc_snow_grains
 
-            WeatherCode.FREEZING_DRIZZLE -> R.string.freezing_drizzle
+            WeatherCode.FREEZING_DRIZZLE -> R.string.wc_freezing_drizzle
 
-            WeatherCode.LIGHT_FREEZING_RAIN -> R.string.light_freezing_rain
+            WeatherCode.LIGHT_FREEZING_RAIN -> R.string.wc_light_freezing_rain
 
-            WeatherCode.FREEZING_RAIN -> R.string.freezing_rain
+            WeatherCode.FREEZING_RAIN -> R.string.wc_freezing_rain
 
             WeatherCode.THUNDERSTORM_AND_SKY,
-            WeatherCode.THUNDERSTORM -> R.string.thunderstorm
+            WeatherCode.THUNDERSTORM -> R.string.wc_thunderstorm
 
-            WeatherCode.HEAVY_THUNDERSTORM -> R.string.heavy_thunderstorms
+            WeatherCode.HEAVY_THUNDERSTORM -> R.string.wc_heavy_thunderstorms
         }
     }
 }

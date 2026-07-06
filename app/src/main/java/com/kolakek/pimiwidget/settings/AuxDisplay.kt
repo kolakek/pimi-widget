@@ -15,9 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.settings
 
-internal data class TextWithIcon (
-    val text: String,
-    val iconId: Int
-)
+enum class AuxDisplay {
+    NOTHING,
+    UPDATE_TIME
+}

@@ -1,91 +1,97 @@
 <resources>
 
-    <string name="widget_label">Ημερομηνία και καιρός</string>
-
-    <string name="config_button">Εφαρμογή ρυθμίσεων</string>
-
-    <string name="config_privacy_note">
-        Η ενεργοποίηση του καιρού κοινοποιεί την τοποθεσία σας στον πάροχο καιρού</string>
-
+    <string name="config_button_apply">Εφαρμογή ρυθμίσεων</string>
+    <string name="config_privacy_note">Η ενεργοποίηση του καιρού κοινοποιεί την τοποθεσία σας στον πάροχο καιρού</string>
     <string name="config_weather_switch">Ενεργοποίηση καιρού</string>
-
-    <string name="config_weather_descr">Δεδομένα καιρού από το Open-Meteo.com</string>
-
-    <string name="config_debug_data">Πληροφορίες αποσφαλμάτωσης</string>
-
-    <string name="config_debug_data_descr">Προβολή κατάστασης widget</string>
-
+    <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
+    <string name="config_version_title">Αριθμός έκδοσης</string>
+    <string name="config_debug_info">Κατάσταση εφαρμογής</string>
+    <string name="config_debug_weather_data_age">Ηλικία δεδομένων καιρού</string>
+    <string name="config_debug_last_valid_location">Τελευταία έγκυρη τοποθεσία</string>
+    <string name="config_debug_last_work_status">Τελευταία εκτέλεση</string>
+    <string name="config_debug_button_weather">Προβολή ερωτήματος καιρού</string>
+    <string name="config_debug_button_location">Προβολή τοποθεσίας</string>
+    <string name="config_debug_background_service">Υπηρεσία παρασκηνίου</string>
+    <string name="config_location_fallback">Χρήση προηγούμενης τοποθεσίας</string>
+    <string name="config_location_fallback_summary">Όταν η υπηρεσία τοποθεσίας της συσκευής είναι απενεργοποιημένη</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
-
     <string name="config_icon_style">Στυλ εικονιδίων</string>
-
     <string name="config_color_light">Φωτεινό</string>
-
     <string name="config_color_dark">Σκοτεινό</string>
-
     <string name="config_color_auto">Αυτόματο</string>
-
     <string name="config_temp">Θερμοκρασία</string>
-
     <string name="config_temp_celsius">Κελσίου</string>
-
     <string name="config_temp_fahrenheit">Φαρενάιτ</string>
-
-    <string name="config_settings_sec">Ρυθμίσεις</string>
-
-    <string name="config_about_sec">Πληροφορίες</string>
-
+    <string name="config_section_settings">Ρυθμίσεις</string>
+    <string name="config_section_about">Πληροφορίες</string>
     <string name="config_daily_forecast">Εμφάνιση ημερήσιας πρόγνωσης</string>
-
-    <string name="config_daily_forecast_descr">Το πρωί και το βράδυ</string>
-
+    <string name="config_daily_forecast_summary">Το πρωί και το βράδυ</string>
+    <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
+    <string name="config_weather_warnings_summary">Για ακραίες καιρικές συνθήκες μέσα στην επόμενη ώρα</string>
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
-
-    <string name="config_loc_perm_alert">
-        Για να εμφανιστεί ο καιρός στην περιοχή σας
-        η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σας.</string>
-
+    <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σας η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σας.</string>
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>
-
-    <string name="config_bg_perm_alert">
-        Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σας στο παρασκήνιο.
-        Επιλέξτε "%s" στην επόμενη οθόνη.</string>
-
+    <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σας στο παρασκήνιο. Επιλέξτε "%s" στην επόμενη οθόνη.</string>
     <string name="config_alert_button_ok">ΟΚ</string>
-
     <string name="config_alert_button_cancel">Ακύρωση</string>
-
-    <string name="config_alert_debug_title">Τελευταία λήψη δεδομένων</string>
-
-    <string name="config_alert_debug_worker">Διεργασία</string>
-
-    <string name="config_alert_debug_location">Τοποθεσία</string>
-
-    <string name="config_alert_debug_weather">Καιρός</string>
-
-    <string name="config_alert_debug_last_update">Πριν από %s</string>
-
-    <string name="config_alert_button_close">Κλείσιμο</string>
-
-    <string name="config_alert_button_update">Εξαναγκασμένη ενημέρωση</string>
-
-    <string name="config_shared_data">Διαφάνεια δεδομένων</string>
-
-    <string name="config_shared_data_descr">Προβολή δεδομένων που κοινοποιούνται στον πάροχο καιρού</string>
-
-    <string name="config_shared_data_alert_no_loc">Δεν υπάρχουν διαθέσιμα δεδομένα τοποθεσίας</string>
-
-    <string name="config_shared_data_alert_text">
-        Μπορείτε να δείτε την τελευταία τοποθεσία ή το αίτημα API καιρού στο πρόγραμμα περιήγησης.
-        Αυτό κοινοποιεί την τοποθεσία σας στον πάροχο υπηρεσίας (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Καιρός</string>
-
-    <string name="config_shared_data_alert_but_location">Τοποθεσία</string>
-
     <string name="config_source_code">Πηγαίος κώδικας</string>
+    <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
+    <string name="config_aux_view_title">Εμφάνιση λεπτομερειών</string>
+    <string name="config_aux_view_nothing">Χωρίς λεπτομέρειες</string>
+    <string name="config_aux_view_update_time">Χρόνος ανανέωσης</string>
+    <string name="config_weather_app">Εφαρμογή καιρού</string>
+    <string name="config_weather_app_default">Καμία</string>
+    <string name="config_weather_app_nil">Δεν περιλαμβάνεται</string>
+    <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
 
-    <string name="config_source_code_descr">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
+    <string name="widget_label">Ημερομηνία και καιρός</string>
+    <string name="widget_date_prev">Τρι 25 Μαρ</string>
+    <string name="widget_temp_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
+    <string name="widget_date_format">EEE d MMM</string>
+    <string name="widget_today">σήμερα</string>
+    <string name="widget_tomorrow">αύριο</string>
+    <string name="widget_updated_at">ανανεώθηκε στις</string>
+
+    <string name="wc_heavy_thunderstorms">ισχυρές καταιγίδες</string>
+    <string name="wc_thunderstorm">καταιγίδα</string>
+    <string name="wc_freezing_rain">παγωμένη βροχή</string>
+    <string name="wc_light_freezing_rain">ασθενής παγωμένη βροχή</string>
+    <string name="wc_freezing_drizzle">παγωμένο ψιλόβροχο</string>
+    <string name="wc_heavy_rain_showers">ισχυρές βροχοπτώσεις</string>
+    <string name="wc_rain_showers">βροχοπτώσεις</string>
+    <string name="wc_light_rain_showers">ασθενείς βροχοπτώσεις</string>
+    <string name="wc_heavy_snow_showers">ισχυρές χιονοπτώσεις</string>
+    <string name="wc_light_snow_showers">ασθενείς χιονοπτώσεις</string>
+    <string name="wc_heavy_rain">ισχυρή βροχή</string>
+    <string name="wc_rain">βροχή</string>
+    <string name="wc_light_rain">ασθενής βροχή</string>
+    <string name="wc_drizzle">ψιλόβροχο</string>
+    <string name="wc_heavy_snow">ισχυρή χιονόπτωση</string>
+    <string name="wc_snow">χιόνι</string>
+    <string name="wc_light_snow">ασθενές χιόνι</string>
+    <string name="wc_snow_grains">κόκκοι χιονιού</string>
+    <string name="wc_fog">ομίχλη</string>
+    <string name="wc_overcast">συννεφιά</string>
+    <string name="wc_mostly_cloudy">κυρίως συννεφιά</string>
+    <string name="wc_partly_cloudy_day">μερική ηλιοφάνεια</string>
+    <string name="wc_partly_cloudy_night">μερική συννεφιά</string>
+    <string name="wc_mainly_clear_day">κυρίως ηλιοφάνεια</string>
+    <string name="wc_mainly_clear_night">κυρίως αίθριος</string>
+    <string name="wc_clear_sky_day">ηλιοφάνεια</string>
+    <string name="wc_clear_sky_night">αίθριος</string>
+
+    <string name="warn_uv_extreme">προειδοποίηση ακραίας UV</string>
+    <string name="warn_heat_extreme">προειδοποίηση ακραίας ζέστης</string>
+    <string name="warn_rain_extreme">προειδοποίηση ακραίας βροχής</string>
+    <string name="warn_gusts_extreme">προειδοποίηση ακραίων ριπών ανέμου</string>
+    <string name="warn_tstorm_extreme">προειδοποίηση ακραίας καταιγίδας</string>
+    <string name="warn_no_warning">καμία προειδοποίηση</string>
+    <string name="warn_uv_severe">προειδοποίηση έντονης UV</string>
+    <string name="warn_heat_severe">προειδοποίηση έντονης ζέστης</string>
+    <string name="warn_rain_severe">προειδοποίηση έντονης βροχής</string>
+    <string name="warn_gusts_severe">προειδοποίηση ισχυρών ριπών ανέμου</string>
+    <string name="warn_tstorm_severe">προειδοποίηση ισχυρής καταιγίδας</string>
 
     <plurals name="days">
         <item quantity="one">1 ημέρα</item>
@@ -101,42 +107,5 @@
         <item quantity="one">1 λεπτό</item>
         <item quantity="other">%d λεπτά</item>
     </plurals>
-
-    <string name="widget_date_prev">Τρι 25 Μαρ</string>
-
-    <string name="widget_temp_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
-
-    <string name="widget_date_format">EEE d MMM</string>
-
-    <string name="heavy_thunderstorms">ισχυρές καταιγίδες</string>
-    <string name="thunderstorm">καταιγίδα</string>
-    <string name="freezing_rain">παγωμένη βροχή</string>
-    <string name="light_freezing_rain">ασθενής παγωμένη βροχή</string>
-    <string name="freezing_drizzle">παγωμένο ψιλόβροχο</string>
-    <string name="heavy_rain_showers">ισχυρές βροχοπτώσεις</string>
-    <string name="rain_showers">βροχοπτώσεις</string>
-    <string name="light_rain_showers">ασθενείς βροχοπτώσεις</string>
-    <string name="heavy_snow_showers">ισχυρές χιονοπτώσεις</string>
-    <string name="light_snow_showers">ασθενείς χιονοπτώσεις</string>
-    <string name="heavy_rain">ισχυρή βροχή</string>
-    <string name="rain">βροχή</string>
-    <string name="light_rain">ασθενής βροχή</string>
-    <string name="drizzle">ψιλόβροχο</string>
-    <string name="heavy_snow">ισχυρή χιονόπτωση</string>
-    <string name="snow">χιόνι</string>
-    <string name="light_snow">ασθενές χιόνι</string>
-    <string name="snow_grains">κόκκοι χιονιού</string>
-    <string name="fog">ομίχλη</string>
-    <string name="overcast">συννεφιά</string>
-    <string name="mostly_cloudy">κυρίως συννεφιά</string>
-    <string name="partly_cloudy_day">μερική ηλιοφάνεια</string>
-    <string name="partly_cloudy_night">μερική συννεφιά</string>
-    <string name="mainly_clear_day">κυρίως ηλιοφάνεια</string>
-    <string name="mainly_clear_night">κυρίως αίθριος</string>
-    <string name="clear_sky_day">ηλιοφάνεια</string>
-    <string name="clear_sky_night">αίθριος</string>
-
-    <string name="today">σήμερα</string>
-    <string name="tomorrow">αύριο</string>
 
 </resources>

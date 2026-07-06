@@ -1,91 +1,97 @@
 <resources>
 
-    <string name="widget_label">Fecha y clima</string>
-
-    <string name="config_button">Aplicar ajustes</string>
-
-    <string name="config_privacy_note">
-        Al activar el clima, tu ubicación se comparte con el proveedor del tiempo</string>
-
+    <string name="config_button_apply">Aplicar ajustes</string>
+    <string name="config_privacy_note">Al activar el clima, tu ubicación se comparte con el proveedor del tiempo</string>
     <string name="config_weather_switch">Activar clima</string>
-
-    <string name="config_weather_descr">Datos meteorológicos de Open-Meteo.com</string>
-
-    <string name="config_debug_data">Información de depuración</string>
-
-    <string name="config_debug_data_descr">Ver estado del widget</string>
-
+    <string name="config_weather_switch_summary">Datos meteorológicos de Open-Meteo.com</string>
+    <string name="config_version_title">Número de compilación</string>
+    <string name="config_debug_info">Estado de la app</string>
+    <string name="config_debug_weather_data_age">Antigüedad de los datos meteorológicos</string>
+    <string name="config_debug_last_valid_location">Última ubicación válida</string>
+    <string name="config_debug_last_work_status">Estado de la última ejecución</string>
+    <string name="config_debug_button_weather">Ver consulta meteorológica</string>
+    <string name="config_debug_button_location">Ver ubicación</string>
+    <string name="config_debug_background_service">Servicio en segundo plano</string>
+    <string name="config_location_fallback">Usar la ubicación anterior</string>
+    <string name="config_location_fallback_summary">Cuando el servicio de ubicación del dispositivo está desactivado</string>
     <string name="config_text_color">Color del texto</string>
-
     <string name="config_icon_style">Estilo de iconos</string>
-
     <string name="config_color_light">Claro</string>
-
     <string name="config_color_dark">Oscuro</string>
-
     <string name="config_color_auto">Automático</string>
-
     <string name="config_temp">Temperatura</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Ajustes</string>
-
-    <string name="config_about_sec">Acerca de</string>
-
+    <string name="config_section_settings">Ajustes</string>
+    <string name="config_section_about">Acerca de</string>
     <string name="config_daily_forecast">Mostrar previsión diaria</string>
-
-    <string name="config_daily_forecast_descr">Por la mañana y por la noche</string>
-
+    <string name="config_daily_forecast_summary">Por la mañana y por la noche</string>
+    <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
+    <string name="config_weather_warnings_summary">Para condiciones climáticas adversas en la próxima hora</string>
     <string name="config_loc_perm_alert_title">Permiso de ubicación requerido</string>
-
-    <string name="config_loc_perm_alert">
-        Para mostrar el clima de tu zona actual,
-        esta app necesita acceder a tu ubicación.</string>
-
+    <string name="config_loc_perm_alert_message">Para mostrar el clima de tu zona actual, esta app necesita acceder a tu ubicación.</string>
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>
-
-    <string name="config_bg_perm_alert">
-        Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano.
-        Selecciona “%s” en la siguiente pantalla.</string>
-
+    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano. Selecciona “%s” en la siguiente pantalla.</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Cancelar</string>
-
-    <string name="config_alert_debug_title">Última descarga de datos</string>
-
-    <string name="config_alert_debug_worker">Proceso</string>
-
-    <string name="config_alert_debug_location">Ubicación</string>
-
-    <string name="config_alert_debug_weather">Clima</string>
-
-    <string name="config_alert_debug_last_update">Hace %s</string>
-
-    <string name="config_alert_button_close">Cerrar</string>
-
-    <string name="config_alert_button_update">Forzar actualización</string>
-
-    <string name="config_shared_data">Transparencia de datos</string>
-
-    <string name="config_shared_data_descr">Ver datos compartidos con el proveedor del clima</string>
-
-    <string name="config_shared_data_alert_no_loc">No hay datos de ubicación disponibles</string>
-
-    <string name="config_shared_data_alert_text">
-        Puedes ver tu última ubicación obtenida o la solicitud de la API del clima en el navegador.
-        Esto compartirá tu ubicación con el proveedor del servicio (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Clima</string>
-
-    <string name="config_shared_data_alert_but_location">Ubicación</string>
-
     <string name="config_source_code">Código fuente</string>
+    <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
+    <string name="config_aux_view_title">Mostrar detalles</string>
+    <string name="config_aux_view_nothing">Sin detalles</string>
+    <string name="config_aux_view_update_time">Tiempo de actualización</string>
+    <string name="config_weather_app">Aplicación del tiempo</string>
+    <string name="config_weather_app_default">Ninguna</string>
+    <string name="config_weather_app_nil">No incluida</string>
+    <string name="config_weather_app_nil_alert_message">Para añadir tu aplicación del tiempo, abre un issue en GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Abrir GitHub</string>
 
-    <string name="config_source_code_descr">Ver código fuente y documentación en GitHub</string>
+    <string name="widget_label">Fecha y clima</string>
+    <string name="widget_date_prev">sáb, 12 oct</string>
+    <string name="widget_temp_prev">21\u2103 · mañana 19\u00B0 / 13\u00B0 · lluvia débil</string>
+    <string name="widget_date_format">EEE, d MMM</string>
+    <string name="widget_today">hoy</string>
+    <string name="widget_tomorrow">mañana</string>
+    <string name="widget_updated_at">actualizado a las</string>
+
+    <string name="wc_heavy_thunderstorms">tormentas fuertes</string>
+    <string name="wc_thunderstorm">tormenta</string>
+    <string name="wc_freezing_rain">lluvia helada</string>
+    <string name="wc_light_freezing_rain">lluvia helada débil</string>
+    <string name="wc_freezing_drizzle">llovizna helada</string>
+    <string name="wc_heavy_rain_showers">chubascos fuertes</string>
+    <string name="wc_rain_showers">chubascos</string>
+    <string name="wc_light_rain_showers">chubascos débiles</string>
+    <string name="wc_heavy_snow_showers">chubascos de nieve fuertes</string>
+    <string name="wc_light_snow_showers">chubascos de nieve débiles</string>
+    <string name="wc_heavy_rain">lluvia intensa</string>
+    <string name="wc_rain">lluvia</string>
+    <string name="wc_light_rain">lluvia débil</string>
+    <string name="wc_drizzle">llovizna</string>
+    <string name="wc_heavy_snow">nevada intensa</string>
+    <string name="wc_snow">nieve</string>
+    <string name="wc_light_snow">nieve débil</string>
+    <string name="wc_snow_grains">granizo de nieve</string>
+    <string name="wc_fog">niebla</string>
+    <string name="wc_overcast">nublado</string>
+    <string name="wc_mostly_cloudy">mayormente nublado</string>
+    <string name="wc_partly_cloudy_day">parcialmente soleado</string>
+    <string name="wc_partly_cloudy_night">parcialmente nublado</string>
+    <string name="wc_mainly_clear_day">mayormente soleado</string>
+    <string name="wc_mainly_clear_night">mayormente despejado</string>
+    <string name="wc_clear_sky_day">soleado</string>
+    <string name="wc_clear_sky_night">despejado</string>
+
+    <string name="warn_uv_extreme">aviso de radiación UV extrema</string>
+    <string name="warn_heat_extreme">aviso de calor extremo</string>
+    <string name="warn_rain_extreme">aviso de lluvia extrema</string>
+    <string name="warn_gusts_extreme">aviso de viento extremo</string>
+    <string name="warn_tstorm_extreme">aviso de tormentas extremas</string>
+    <string name="warn_no_warning">sin avisos</string>
+    <string name="warn_uv_severe">aviso de radiación UV alta</string>
+    <string name="warn_heat_severe">aviso de calor intenso</string>
+    <string name="warn_rain_severe">aviso de lluvia intensa</string>
+    <string name="warn_gusts_severe">aviso de viento fuerte</string>
+    <string name="warn_tstorm_severe">aviso de tormentas fuertes</string>
 
     <plurals name="days">
         <item quantity="one">1 día</item>
@@ -104,42 +110,5 @@
         <item quantity="many">%d minutos</item>
         <item quantity="other">%d minutos</item>
     </plurals>
-
-    <string name="widget_date_prev">sáb, 12 oct</string>
-
-    <string name="widget_temp_prev">21\u2103 · mañana 19\u00B0 / 13\u00B0 · lluvia débil</string>
-
-    <string name="widget_date_format">EEE, d MMM</string>
-
-    <string name="heavy_thunderstorms">tormentas fuertes</string>
-    <string name="thunderstorm">tormenta</string>
-    <string name="freezing_rain">lluvia helada</string>
-    <string name="light_freezing_rain">lluvia helada débil</string>
-    <string name="freezing_drizzle">llovizna helada</string>
-    <string name="heavy_rain_showers">chubascos fuertes</string>
-    <string name="rain_showers">chubascos</string>
-    <string name="light_rain_showers">chubascos débiles</string>
-    <string name="heavy_snow_showers">chubascos de nieve fuertes</string>
-    <string name="light_snow_showers">chubascos de nieve débiles</string>
-    <string name="heavy_rain">lluvia intensa</string>
-    <string name="rain">lluvia</string>
-    <string name="light_rain">lluvia débil</string>
-    <string name="drizzle">llovizna</string>
-    <string name="heavy_snow">nevada intensa</string>
-    <string name="snow">nieve</string>
-    <string name="light_snow">nieve débil</string>
-    <string name="snow_grains">granizo de nieve</string>
-    <string name="fog">niebla</string>
-    <string name="overcast">nublado</string>
-    <string name="mostly_cloudy">mayormente nublado</string>
-    <string name="partly_cloudy_day">parcialmente soleado</string>
-    <string name="partly_cloudy_night">parcialmente nublado</string>
-    <string name="mainly_clear_day">mayormente soleado</string>
-    <string name="mainly_clear_night">mayormente despejado</string>
-    <string name="clear_sky_day">soleado</string>
-    <string name="clear_sky_night">despejado</string>
-
-    <string name="today">hoy</string>
-    <string name="tomorrow">mañana</string>
 
 </resources>

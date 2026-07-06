@@ -1,91 +1,97 @@
 <resources>
 
-    <string name="widget_label">Datum en weer</string>
-
-    <string name="config_button">Instellingen toepassen</string>
-
-    <string name="config_privacy_note">
-        Door weer in te schakelen wordt je locatie gedeeld met de weerdienst</string>
-
+    <string name="config_button_apply">Instellingen toepassen</string>
+    <string name="config_privacy_note">Door weer in te schakelen wordt je locatie gedeeld met de weerdienst</string>
     <string name="config_weather_switch">Weer inschakelen</string>
-
-    <string name="config_weather_descr">Weergegevens van Open-Meteo.com</string>
-
-    <string name="config_debug_data">Debug-informatie</string>
-
-    <string name="config_debug_data_descr">Widgetstatus bekijken</string>
-
+    <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
+    <string name="config_version_title">Buildnummer</string>
+    <string name="config_debug_info">Appstatus</string>
+    <string name="config_debug_weather_data_age">Leeftijd van weerdata</string>
+    <string name="config_debug_last_valid_location">Laatste geldige locatie</string>
+    <string name="config_debug_last_work_status">Laatste werkstatus</string>
+    <string name="config_debug_button_weather">Weerquery bekijken</string>
+    <string name="config_debug_button_location">Locatie bekijken</string>
+    <string name="config_debug_background_service">Achtergrondservice</string>
+    <string name="config_location_fallback">Vorige locatie gebruiken</string>
+    <string name="config_location_fallback_summary">Wanneer de locatieservice van het apparaat is uitgeschakeld</string>
     <string name="config_text_color">Tekstkleur</string>
-
     <string name="config_icon_style">Icoonstijl</string>
-
     <string name="config_color_light">Licht</string>
-
     <string name="config_color_dark">Donker</string>
-
     <string name="config_color_auto">Automatisch</string>
-
     <string name="config_temp">Temperatuur</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Instellingen</string>
-
-    <string name="config_about_sec">Over</string>
-
+    <string name="config_section_settings">Instellingen</string>
+    <string name="config_section_about">Over</string>
     <string name="config_daily_forecast">Dagelijkse voorspelling tonen</string>
-
-    <string name="config_daily_forecast_descr">Ochtend en avond</string>
-
+    <string name="config_daily_forecast_summary">Ochtend en avond</string>
+    <string name="config_weather_warnings">Weerwaarschuwingen tonen</string>
+    <string name="config_weather_warnings_summary">Bij extreme weersomstandigheden binnen het komende uur</string>
     <string name="config_loc_perm_alert_title">Locatietoestemming vereist</string>
-
-    <string name="config_loc_perm_alert">
-        Om het weer in jouw regio te tonen,
-        heeft deze app toegang tot je locatie nodig.</string>
-
+    <string name="config_loc_perm_alert_message">Om het weer in jouw regio te tonen, heeft deze app toegang tot je locatie nodig.</string>
     <string name="config_bg_perm_alert_title">Achtergrondlocatietoestemming</string>
-
-    <string name="config_bg_perm_alert">
-        Betrouwbare weerupdates vereisen toegang tot je locatie op de achtergrond.
-        Selecteer “%s” in het volgende scherm.</string>
-
+    <string name="config_bg_perm_alert_message">Betrouwbare weerupdates vereisen toegang tot je locatie op de achtergrond. Selecteer “%s” in het volgende scherm.</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Annuleren</string>
-
-    <string name="config_alert_debug_title">Laatste gegevensdownload</string>
-
-    <string name="config_alert_debug_worker">Proces</string>
-
-    <string name="config_alert_debug_location">Locatie</string>
-
-    <string name="config_alert_debug_weather">Weer</string>
-
-    <string name="config_alert_debug_last_update">%s geleden</string>
-
-    <string name="config_alert_button_close">Sluiten</string>
-
-    <string name="config_alert_button_update">Geforceerd bijwerken</string>
-
-    <string name="config_shared_data">Datatransparantie</string>
-
-    <string name="config_shared_data_descr">Bekijk gegevens gedeeld met de weerdienst</string>
-
-    <string name="config_shared_data_alert_no_loc">Geen locatiegegevens beschikbaar</string>
-
-    <string name="config_shared_data_alert_text">
-        Je kunt je laatst opgehaalde locatie of weer-API-verzoek in de browser bekijken.
-        Dit deelt je locatie met de dienstverlener (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Weer</string>
-
-    <string name="config_shared_data_alert_but_location">Locatie</string>
-
     <string name="config_source_code">Broncode</string>
+    <string name="config_source_code_summary">Bekijk broncode en documentatie op GitHub</string>
+    <string name="config_aux_view_title">Details tonen</string>
+    <string name="config_aux_view_nothing">Geen details</string>
+    <string name="config_aux_view_update_time">Verversingstijd</string>
+    <string name="config_weather_app">App meteo</string>
+    <string name="config_weather_app_default">Nessuna</string>
+    <string name="config_weather_app_nil">Non elencata</string>
+    <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Apri GitHub</string>
 
-    <string name="config_source_code_descr">Bekijk broncode en documentatie op GitHub</string>
+    <string name="widget_label">Datum en weer</string>
+    <string name="widget_date_prev">zat 27 apr</string>
+    <string name="widget_temp_prev">21\u2103 · morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
+    <string name="widget_date_format">EEE d MMM</string>
+    <string name="widget_today">vandaag</string>
+    <string name="widget_tomorrow">morgen</string>
+    <string name="widget_updated_at">vernieuwd om</string>
+
+    <string name="wc_heavy_thunderstorms">zware onweersbuien</string>
+    <string name="wc_thunderstorm">onweersbui</string>
+    <string name="wc_freezing_rain">ijzel</string>
+    <string name="wc_light_freezing_rain">lichte ijzel</string>
+    <string name="wc_freezing_drizzle">motijzel</string>
+    <string name="wc_heavy_rain_showers">zware regenbuien</string>
+    <string name="wc_rain_showers">regenbuien</string>
+    <string name="wc_light_rain_showers">lichte regenbuien</string>
+    <string name="wc_heavy_snow_showers">zware sneeuwbuien</string>
+    <string name="wc_light_snow_showers">lichte sneeuwbuien</string>
+    <string name="wc_heavy_rain">hevige regen</string>
+    <string name="wc_rain">regen</string>
+    <string name="wc_light_rain">lichte regen</string>
+    <string name="wc_drizzle">motregen</string>
+    <string name="wc_heavy_snow">hevige sneeuwval</string>
+    <string name="wc_snow">sneeuw</string>
+    <string name="wc_light_snow">lichte sneeuwval</string>
+    <string name="wc_snow_grains">sneeuwkorrels</string>
+    <string name="wc_fog">mist</string>
+    <string name="wc_overcast">bewolkt</string>
+    <string name="wc_mostly_cloudy">meestal bewolkt</string>
+    <string name="wc_partly_cloudy_day">deels zonnig</string>
+    <string name="wc_partly_cloudy_night">deels bewolkt</string>
+    <string name="wc_mainly_clear_day">meestal zonnig</string>
+    <string name="wc_mainly_clear_night">meestal helder</string>
+    <string name="wc_clear_sky_day">zonnig</string>
+    <string name="wc_clear_sky_night">helder</string>
+
+    <string name="warn_uv_extreme">waarschuwing voor extreme UV-straling</string>
+    <string name="warn_heat_extreme">waarschuwing voor extreme hitte</string>
+    <string name="warn_rain_extreme">waarschuwing voor extreme regen</string>
+    <string name="warn_gusts_extreme">waarschuwing voor extreme windstoten</string>
+    <string name="warn_tstorm_extreme">waarschuwing voor extreme onweer</string>
+    <string name="warn_no_warning">geen waarschuwingen</string>
+    <string name="warn_uv_severe">waarschuwing voor hoge UV-straling</string>
+    <string name="warn_heat_severe">waarschuwing voor zeer hoge hitte</string>
+    <string name="warn_rain_severe">waarschuwing voor intense regen</string>
+    <string name="warn_gusts_severe">waarschuwing voor sterke windstoten</string>
+    <string name="warn_tstorm_severe">waarschuwing voor zware onweer</string>
 
     <plurals name="days">
         <item quantity="one">1 dag</item>
@@ -101,42 +107,5 @@
         <item quantity="one">1 minuut</item>
         <item quantity="other">%d minuten</item>
     </plurals>
-
-    <string name="widget_date_prev">zat 27 apr</string>
-
-    <string name="widget_temp_prev">21\u2103 · morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
-
-    <string name="widget_date_format">EEE d MMM</string>
-
-    <string name="heavy_thunderstorms">zware onweersbuien</string>
-    <string name="thunderstorm">onweersbui</string>
-    <string name="freezing_rain">ijzel</string>
-    <string name="light_freezing_rain">lichte ijzel</string>
-    <string name="freezing_drizzle">motijzel</string>
-    <string name="heavy_rain_showers">zware regenbuien</string>
-    <string name="rain_showers">regenbuien</string>
-    <string name="light_rain_showers">lichte regenbuien</string>
-    <string name="heavy_snow_showers">zware sneeuwbuien</string>
-    <string name="light_snow_showers">lichte sneeuwbuien</string>
-    <string name="heavy_rain">hevige regen</string>
-    <string name="rain">regen</string>
-    <string name="light_rain">lichte regen</string>
-    <string name="drizzle">motregen</string>
-    <string name="heavy_snow">hevige sneeuwval</string>
-    <string name="snow">sneeuw</string>
-    <string name="light_snow">lichte sneeuwval</string>
-    <string name="snow_grains">sneeuwkorrels</string>
-    <string name="fog">mist</string>
-    <string name="overcast">bewolkt</string>
-    <string name="mostly_cloudy">meestal bewolkt</string>
-    <string name="partly_cloudy_day">deels zonnig</string>
-    <string name="partly_cloudy_night">deels bewolkt</string>
-    <string name="mainly_clear_day">meestal zonnig</string>
-    <string name="mainly_clear_night">meestal helder</string>
-    <string name="clear_sky_day">zonnig</string>
-    <string name="clear_sky_night">helder</string>
-
-    <string name="today">vandaag</string>
-    <string name="tomorrow">morgen</string>
 
 </resources>

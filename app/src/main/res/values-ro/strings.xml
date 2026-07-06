@@ -1,91 +1,97 @@
 <resources>
 
-    <string name="widget_label">Data și vremea</string>
-
-    <string name="config_button">Aplică setările</string>
-
-    <string name="config_privacy_note">
-        Activarea vremii partajează locația ta cu furnizorul de prognoză</string>
-
+    <string name="config_button_apply">Aplică setările</string>
+    <string name="config_privacy_note">Activarea vremii partajează locația ta cu furnizorul de prognoză</string>
     <string name="config_weather_switch">Activează vremea</string>
-
-    <string name="config_weather_descr">Date meteo de la Open-Meteo.com</string>
-
-    <string name="config_debug_data">Informații de depanare</string>
-
-    <string name="config_debug_data_descr">Afișează starea widgetului</string>
-
+    <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
+    <string name="config_version_title">Număr build</string>
+    <string name="config_debug_info">Starea aplicației</string>
+    <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
+    <string name="config_debug_last_valid_location">Ultima locație validă</string>
+    <string name="config_debug_last_work_status">Starea ultimei execuții</string>
+    <string name="config_debug_button_weather">Vezi interogarea meteo</string>
+    <string name="config_debug_button_location">Vezi locația</string>
+    <string name="config_debug_background_service">Serviciu în fundal</string>
+    <string name="config_location_fallback">Folosește locația anterioară</string>
+    <string name="config_location_fallback_summary">Când serviciul de localizare al dispozitivului este dezactivat</string>
     <string name="config_text_color">Culoarea textului</string>
-
     <string name="config_icon_style">Stilul pictogramelor</string>
-
     <string name="config_color_light">Deschis</string>
-
     <string name="config_color_dark">Închis</string>
-
     <string name="config_color_auto">Automat</string>
-
     <string name="config_temp">Temperatură</string>
-
     <string name="config_temp_celsius">Celsius</string>
-
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-
-    <string name="config_settings_sec">Setări</string>
-
-    <string name="config_about_sec">Despre</string>
-
+    <string name="config_section_settings">Setări</string>
+    <string name="config_section_about">Despre</string>
     <string name="config_daily_forecast">Afișează prognoza zilnică</string>
-
-    <string name="config_daily_forecast_descr">Dimineața și seara</string>
-
+    <string name="config_daily_forecast_summary">Dimineața și seara</string>
+    <string name="config_weather_warnings">Afișează alertă meteorologică</string>
+    <string name="config_weather_warnings_summary">Pentru condiții meteo severe în următoarea oră</string>
     <string name="config_loc_perm_alert_title">Permisiune de locație necesară</string>
-
-    <string name="config_loc_perm_alert">
-        Pentru a afișa vremea din zona ta curentă,
-        aplicația are nevoie de acces la locația ta.</string>
-
+    <string name="config_loc_perm_alert_message">Pentru a afișa vremea din zona ta curentă, aplicația are nevoie de acces la locația ta.</string>
     <string name="config_bg_perm_alert_title">Permisiune de locație în fundal</string>
-
-    <string name="config_bg_perm_alert">
-        Actualizările meteo fiabile necesită acces la locația ta în fundal.
-        Selectează "%s" în ecranul următor.</string>
-
+    <string name="config_bg_perm_alert_message">Actualizările meteo fiabile necesită acces la locația ta în fundal. Selectează "%s" în ecranul următor.</string>
     <string name="config_alert_button_ok">OK</string>
-
     <string name="config_alert_button_cancel">Anulează</string>
-
-    <string name="config_alert_debug_title">Ultima descărcare de date</string>
-
-    <string name="config_alert_debug_worker">Proces</string>
-
-    <string name="config_alert_debug_location">Locație</string>
-
-    <string name="config_alert_debug_weather">Vreme</string>
-
-    <string name="config_alert_debug_last_update">Acum %s</string>
-
-    <string name="config_alert_button_close">Închide</string>
-
-    <string name="config_alert_button_update">Forțează actualizarea</string>
-
-    <string name="config_shared_data">Transparența datelor</string>
-
-    <string name="config_shared_data_descr">Vezi datele partajate cu furnizorul de vreme</string>
-
-    <string name="config_shared_data_alert_no_loc">Nu există date de locație disponibile</string>
-
-    <string name="config_shared_data_alert_text">
-        Poți vedea ultima ta locație sau cererea API meteo în browser.
-        Aceasta partajează locația ta cu furnizorul de servicii (Open-Meteo, OpenStreetMap).</string>
-
-    <string name="config_shared_data_alert_but_weather">Vreme</string>
-
-    <string name="config_shared_data_alert_but_location">Locație</string>
-
     <string name="config_source_code">Cod sursă</string>
+    <string name="config_source_code_summary">Vezi codul sursă și documentația pe GitHub</string>
+    <string name="config_aux_view_title">Afișează detalii</string>
+    <string name="config_aux_view_nothing">Fără detalii</string>
+    <string name="config_aux_view_update_time">Timp de actualizare</string>
+    <string name="config_weather_app">Aplicație meteo</string>
+    <string name="config_weather_app_default">Niciuna</string>
+    <string name="config_weather_app_nil">Nu este listată</string>
+    <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
+    <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
 
-    <string name="config_source_code_descr">Vezi codul sursă și documentația pe GitHub</string>
+    <string name="widget_label">Data și vremea</string>
+    <string name="widget_date_prev">lun., 1 dec.</string>
+    <string name="widget_temp_prev">21\u2103 · mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>
+    <string name="widget_date_format">EEE, d MMM</string>
+    <string name="widget_today">astăzi</string>
+    <string name="widget_tomorrow">mâine</string>
+    <string name="widget_updated_at">actualizat la</string>
+
+    <string name="wc_heavy_thunderstorms">furtuni puternice</string>
+    <string name="wc_thunderstorm">furtună</string>
+    <string name="wc_freezing_rain">ploaie înghețată</string>
+    <string name="wc_light_freezing_rain">ploaie înghețată slabă</string>
+    <string name="wc_freezing_drizzle">burniță înghețată</string>
+    <string name="wc_heavy_rain_showers">averse puternice</string>
+    <string name="wc_rain_showers">averse</string>
+    <string name="wc_light_rain_showers">averse slabe</string>
+    <string name="wc_heavy_snow_showers">averse de ninsoare abundente</string>
+    <string name="wc_light_snow_showers">averse de ninsoare slabe</string>
+    <string name="wc_heavy_rain">ploaie torențială</string>
+    <string name="wc_rain">ploaie</string>
+    <string name="wc_light_rain">ploaie slabă</string>
+    <string name="wc_drizzle">burniță</string>
+    <string name="wc_heavy_snow">ninsoare abundentă</string>
+    <string name="wc_snow">ninsoare</string>
+    <string name="wc_light_snow">ninsoare slabă</string>
+    <string name="wc_snow_grains">grăunțe de zăpadă</string>
+    <string name="wc_fog">ceață</string>
+    <string name="wc_overcast">înnorat</string>
+    <string name="wc_mostly_cloudy">mai mult înnorat</string>
+    <string name="wc_partly_cloudy_day">parțial însorit</string>
+    <string name="wc_partly_cloudy_night">parțial înnorat</string>
+    <string name="wc_mainly_clear_day">în mare parte însorit</string>
+    <string name="wc_mainly_clear_night">în mare parte senin</string>
+    <string name="wc_clear_sky_day">însorit</string>
+    <string name="wc_clear_sky_night">senin</string>
+
+    <string name="warn_uv_extreme">avertizare de radiații UV extreme</string>
+    <string name="warn_heat_extreme">avertizare de caniculă extremă</string>
+    <string name="warn_rain_extreme">avertizare de ploaie extremă</string>
+    <string name="warn_gusts_extreme">avertizare de vânt extrem</string>
+    <string name="warn_tstorm_extreme">avertizare de furtuni extreme</string>
+    <string name="warn_no_warning">fără avertizări</string>
+    <string name="warn_uv_severe">avertizare de radiații UV ridicate</string>
+    <string name="warn_heat_severe">avertizare de caniculă intensă</string>
+    <string name="warn_rain_severe">avertizare de ploaie intensă</string>
+    <string name="warn_gusts_severe">avertizare de vânt puternic</string>
+    <string name="warn_tstorm_severe">avertizare de furtuni puternice</string>
 
     <plurals name="days">
         <item quantity="one">1 zi</item>
@@ -104,42 +110,5 @@
         <item quantity="few">%d minute</item>
         <item quantity="other">%d de minute</item>
     </plurals>
-
-    <string name="widget_date_prev">lun., 1 dec.</string>
-
-    <string name="widget_temp_prev">21\u2103 · mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>
-
-    <string name="widget_date_format">EEE, d MMM</string>
-
-    <string name="heavy_thunderstorms">furtuni puternice</string>
-    <string name="thunderstorm">furtună</string>
-    <string name="freezing_rain">ploaie înghețată</string>
-    <string name="light_freezing_rain">ploaie înghețată slabă</string>
-    <string name="freezing_drizzle">burniță înghețată</string>
-    <string name="heavy_rain_showers">averse puternice</string>
-    <string name="rain_showers">averse</string>
-    <string name="light_rain_showers">averse slabe</string>
-    <string name="heavy_snow_showers">averse de ninsoare abundente</string>
-    <string name="light_snow_showers">averse de ninsoare slabe</string>
-    <string name="heavy_rain">ploaie torențială</string>
-    <string name="rain">ploaie</string>
-    <string name="light_rain">ploaie slabă</string>
-    <string name="drizzle">burniță</string>
-    <string name="heavy_snow">ninsoare abundentă</string>
-    <string name="snow">ninsoare</string>
-    <string name="light_snow">ninsoare slabă</string>
-    <string name="snow_grains">grăunțe de zăpadă</string>
-    <string name="fog">ceață</string>
-    <string name="overcast">înnorat</string>
-    <string name="mostly_cloudy">mai mult înnorat</string>
-    <string name="partly_cloudy_day">parțial însorit</string>
-    <string name="partly_cloudy_night">parțial înnorat</string>
-    <string name="mainly_clear_day">în mare parte însorit</string>
-    <string name="mainly_clear_night">în mare parte senin</string>
-    <string name="clear_sky_day">însorit</string>
-    <string name="clear_sky_night">senin</string>
-
-    <string name="today">astăzi</string>
-    <string name="tomorrow">mâine</string>
 
 </resources>
