@@ -57,7 +57,7 @@ object PimiUpdater {
                     WidgetUpdater.refreshWidgetData(context, prefs, it)
                     return WorkResult.FRESH_DATA_FETCHED
                 }
-                return WorkResult.INVALID_DATA_SERVED
+                return WorkResult.OUTDATED_DATA_SERVED
             }
         }
     }
