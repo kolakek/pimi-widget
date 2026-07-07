@@ -64,15 +64,14 @@ object WidgetUpdater {
         context: Context,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ): WidgetUpdateStatus {
+    ): WeatherUpdateStatus {
         Timber.d("WidgetUpdater: refreshWidgetData")
+
+        var lastStatus = WeatherUpdateStatus.DONE
 
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
-        )
-        val status = WidgetUpdateStatus(
-            weatherUpdate = WeatherUpdateStatus.DONE
         )
         for (appWidgetId in appWidgetIds) {
 
@@ -80,13 +79,14 @@ object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            status.weatherUpdate = WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            lastStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
+
             AuxUpdater.updateViews(context, views, prefs)
             AlarmUpdater.updateViews(context, views, prefs)
 
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
-        return status
+        return lastStatus
     }
 
     fun refreshAlarm(context: Context) {

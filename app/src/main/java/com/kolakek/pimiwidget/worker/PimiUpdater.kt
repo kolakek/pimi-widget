@@ -38,11 +38,11 @@ object PimiUpdater {
     ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val weatherData = DataRepository.loadWeatherData(context)
-        val status = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
+        val updateStatus = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
 
         if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
 
-        when (status.weatherUpdate) {
+        when (updateStatus) {
             WeatherUpdateStatus.DONE ->
                 return WorkResult.RECENT_DATA_SERVED
 
