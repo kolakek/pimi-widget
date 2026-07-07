@@ -25,31 +25,31 @@ import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.utility.WeatherApp
 
-internal object PreferencesHelper {
+object PreferencesHelper {
 
-    internal enum class IconStylePref(val key: String) {
+    enum class IconStylePref(val key: String) {
         FLAT_SKETCH(KEY_ICON_STYLE_FLAT_SKETCH),
         TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
     }
 
-    internal enum class TempUnitPref(val key: String) {
+    enum class TempUnitPref(val key: String) {
         AUTO(KEY_TEMP_AUTO),
         CELSIUS(KEY_TEMP_CELSIUS),
         FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
     }
 
-    internal enum class ColorPref(val key: String) {
+    enum class ColorPref(val key: String) {
         AUTO(KEY_COLOR_AUTO),
         LIGHT(KEY_COLOR_LIGHT),
         DARK(KEY_COLOR_DARK)
     }
 
-    internal enum class AuxDisplayPref(val key: String) {
+    enum class AuxDisplayPref(val key: String) {
         NOTHING(KEY_DISPLAY_NOTHING),
         UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
     }
 
-    internal fun getWidgetPreferences(context: Context): WidgetPreferences {
+    fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
         val iconColorPref = getIconColorPreference(context)
         val iconStylePref = getIconStylePreference(context)
@@ -115,36 +115,36 @@ internal object PreferencesHelper {
         )
     }
 
-    internal fun getWeatherPreference(context: Context): Boolean {
+    fun getWeatherPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)
     }
 
-    internal fun setWeatherPreference(context: Context, value: Boolean) {
+    fun setWeatherPreference(context: Context, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putBoolean(KEY_WEATHER_SWITCH, value)
         }
     }
 
-    internal fun setTempUnitPreference(context: Context, pref: TempUnitPref) {
+    fun setTempUnitPreference(context: Context, pref: TempUnitPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_TEMP_UNIT_LIST, pref.key)
         }
     }
 
-    internal fun setTextColorPreference(context: Context, pref: ColorPref) {
+    fun setTextColorPreference(context: Context, pref: ColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_TEXT_COLOR_LIST, pref.key)
         }
     }
 
-    internal fun setIconColorPreference(context: Context, pref: ColorPref) {
+    fun setIconColorPreference(context: Context, pref: ColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_ICON_COLOR_LIST, pref.key)
         }
     }
 
-    internal fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
+    fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_WEATHER_APP_LIST, weatherApp.key)
         }

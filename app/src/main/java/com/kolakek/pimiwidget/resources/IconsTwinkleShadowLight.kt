@@ -20,7 +20,7 @@ package com.kolakek.pimiwidget.resources
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.weather.WeatherCode
 
-internal object IconsTwinkleShadowLight {
+object IconsTwinkleShadowLight {
 
     fun getIconId(weatherCode: WeatherCode, isDay: Boolean): Int {
         return when (weatherCode) {

@@ -59,9 +59,7 @@ object LocationService {
         context: Context,
         useLocationFallback: Boolean
     ): LocationData? = if (!locationManager.isLocationEnabled && useLocationFallback) {
-        DataRepository.loadLocationData(context)?.apply {
-            locationType = STORED_LOCATION_NAME
-        }
+        DataRepository.loadLocationData(context)?.copy(locationType = STORED_LOCATION_NAME)
     } else null
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])

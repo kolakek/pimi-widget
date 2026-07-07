@@ -21,7 +21,7 @@ import kotlinx.serialization.Serializable
 
 @Suppress("PropertyName")
 @Serializable
-internal data class ProviderDataDaily (
+data class ProviderDataDaily (
     val temperature_2m_min: List<Double>,
     val temperature_2m_max: List<Double>,
     val visibility_mean: List<Double>,

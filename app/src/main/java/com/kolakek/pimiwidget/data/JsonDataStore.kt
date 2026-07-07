@@ -21,56 +21,43 @@ import android.content.Context
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.first
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
-import timber.log.Timber
 
-internal object JsonDataStore {
+object JsonDataStore {
 
-    val json = Json {
-        ignoreUnknownKeys = true
-    }
+    val json = Json { ignoreUnknownKeys = true }
 
     suspend inline fun <reified T> save(
         context: Context,
         key: Preferences.Key<String>,
         value: T
     ) {
-        context.dataStore.edit { prefs ->
-            prefs[key] = json.encodeToString(value)
-        }
+        context.dataStore.edit { prefs -> prefs[key] = json.encodeToString(value) }
     }
 
     suspend inline fun <reified T> load(
         context: Context,
         key: Preferences.Key<String>
     ): T? {
-        return decodeFromPrefs(
-            context.dataStore.data.first(),
-            key
-        )
+        return decodeFromPrefs(context.dataStore.data.first(), key)
     }
 
     suspend fun delete(
         context: Context,
         key: Preferences.Key<String>
     ) {
-        context.dataStore.edit { prefs ->
-            prefs.remove(key)
-        }
+        context.dataStore.edit { prefs -> prefs.remove(key) }
     }
 
     inline fun <reified T> decodeFromPrefs(
         prefs: Preferences,
         key: Preferences.Key<String>
     ): T? {
-        val jsonString = prefs[key] ?: run {
-            Timber.w("decodeFromPrefs: No value found for key: $key")
-            return null
-        }
+        val jsonString = prefs[key] ?: return null
         return try {
             json.decodeFromString<T>(jsonString)
-        } catch (_: Exception) {
-            Timber.e("decodeFromPrefs: Failed to decode: ${T::class.simpleName}")
+        } catch (_: SerializationException) {
             null
         }
     }

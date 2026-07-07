@@ -19,7 +19,7 @@ package com.kolakek.pimiwidget.weather
 
 object WarningCodeMapper {
 
-    internal fun getWarningCode(
+    fun getWarningCode(
         wmoCode: Int,
         uvIndex: Int,
         uvIndexClearSky: Int,

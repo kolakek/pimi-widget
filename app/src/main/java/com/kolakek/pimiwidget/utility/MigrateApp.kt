@@ -26,7 +26,7 @@ import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 
-internal object MigrateApp {
+object MigrateApp {
 
     fun migrate(context: Context) {
         val previousVersionCode = getPreviousVersionCode(context)

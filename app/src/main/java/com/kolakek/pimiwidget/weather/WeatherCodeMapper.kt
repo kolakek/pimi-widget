@@ -17,11 +17,9 @@
 
 package com.kolakek.pimiwidget.weather
 
-import timber.log.Timber
-
 object WeatherCodeMapper {
 
-    internal fun getWeatherCode(
+    fun getWeatherCode(
         wmoCode: Int,
         cloudCover: Double,
         precipProb: Double,
@@ -136,7 +134,6 @@ object WeatherCodeMapper {
                 WeatherCode.HEAVY_THUNDERSTORM
 
             else -> {
-                Timber.w("mapWmoCode: Invalid WMO code")
                 null
             }
         }

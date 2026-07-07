@@ -30,10 +30,10 @@ import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.UpdateWeatherStatus
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
-internal object PimiUpdater {
+object PimiUpdater {
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-    internal suspend fun update(
+    suspend fun update(
         context: Context,
     ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
@@ -62,7 +62,7 @@ internal object PimiUpdater {
         }
     }
 
-    internal suspend fun logUpdateStatus(
+    suspend fun logUpdateStatus(
         context: Context,
         updateStatus: String,
     ) {

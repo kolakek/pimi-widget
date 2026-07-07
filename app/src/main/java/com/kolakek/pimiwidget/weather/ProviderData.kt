@@ -20,7 +20,7 @@ package com.kolakek.pimiwidget.weather
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class ProviderData(
+data class ProviderData(
     val hourly: ProviderDataHourly,
     val daily: ProviderDataDaily
 )

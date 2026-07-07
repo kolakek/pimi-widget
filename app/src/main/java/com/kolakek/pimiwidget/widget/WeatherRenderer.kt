@@ -32,9 +32,9 @@ import com.kolakek.pimiwidget.weather.WeatherData
 import java.time.Instant
 import java.time.ZoneId
 
-internal object WeatherRenderer {
+object WeatherRenderer {
 
-    internal fun getWidgetWeatherStrAndIcons(
+    fun getWidgetWeatherStrAndIcons(
         context: Context,
         weather: WeatherData,
         prefs: WidgetPreferences

@@ -17,6 +17,4 @@
 
 package com.kolakek.pimiwidget.exception
 
-class LocationUnavailableException(
-    message: String
-) : Exception(message)
+class LocationUnavailableException(message: String): Exception(message)

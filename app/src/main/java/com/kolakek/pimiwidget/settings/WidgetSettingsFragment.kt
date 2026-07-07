@@ -49,7 +49,7 @@ import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
 import java.util.Date
 
-internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
+class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -69,7 +69,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (weatherSwitch?.isChecked == true &&
             hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
-            deleteWeatherData(context)
+            deleteAllData(context)
             weatherSwitch.isChecked = false
         }
         versionField?.setOnPreferenceClickListener {
@@ -117,7 +117,7 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
         if (!flag) {
-            deleteWeatherData(context)
+            deleteAllData(context)
             weatherSwitch?.isChecked = false
 
             return true
@@ -288,9 +288,9 @@ internal class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun deleteWeatherData(context: Context) {
+    private fun deleteAllData(context: Context) {
         lifecycleScope.launch {
-            DataRepository.deleteAllData(context, deleteStatusData = false)
+            DataRepository.deleteAllData(context)
         }
     }
 

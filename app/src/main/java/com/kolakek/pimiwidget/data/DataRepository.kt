@@ -18,59 +18,45 @@
 package com.kolakek.pimiwidget.data
 
 import android.content.Context
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.stringPreferencesKey
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.worker.StatusData
 
 object DataRepository {
 
-    suspend fun deleteAllData(
-        context: Context,
-        deleteLocationData: Boolean = true,
-        deleteWeatherData: Boolean = true,
-        deleteStatusData: Boolean = true
-    ) {
-        if (deleteLocationData) JsonDataStore.delete(context, DataKeys.LOCATION_DATA_KEY)
-        if (deleteWeatherData) JsonDataStore.delete(context, DataKeys.WEATHER_DATA_KEY)
-        if (deleteStatusData) JsonDataStore.delete(context, DataKeys.STATUS_DATA_KEY)
+    private enum class DataKeys (val key: Preferences.Key<String>) {
+        WEATHER(stringPreferencesKey("weather_json")),
+        LOCATION(stringPreferencesKey("location_json")),
+        STATUS(stringPreferencesKey("update_status_json"))
     }
 
-    suspend fun storeWeatherData(
-        context: Context,
-        weatherData: WeatherData
-    ) {
-        JsonDataStore.save(context, DataKeys.WEATHER_DATA_KEY, weatherData)
+    suspend fun deleteAllData(context: Context) {
+        DataKeys.entries.forEach { JsonDataStore.delete(context, it.key) }
     }
 
-    suspend fun loadWeatherData(
-        context: Context
-    ): WeatherData? {
-        return JsonDataStore.load<WeatherData>(context, DataKeys.WEATHER_DATA_KEY)
+    suspend fun storeWeatherData(context: Context, weatherData: WeatherData) {
+        JsonDataStore.save(context, DataKeys.WEATHER.key, weatherData)
     }
 
-    suspend fun storeLocationData(
-        context: Context,
-        locationData: LocationData
-    ) {
-        JsonDataStore.save(context, DataKeys.LOCATION_DATA_KEY, locationData)
+    suspend fun loadWeatherData(context: Context): WeatherData? {
+        return JsonDataStore.load<WeatherData>(context, DataKeys.WEATHER.key)
     }
 
-    suspend fun loadLocationData(
-        context: Context
-    ): LocationData? {
-        return JsonDataStore.load<LocationData>(context, DataKeys.LOCATION_DATA_KEY)
+    suspend fun storeLocationData(context: Context, locationData: LocationData) {
+        JsonDataStore.save(context, DataKeys.LOCATION.key, locationData)
     }
 
-    internal suspend fun storeStatusData(
-        context: Context,
-        statusData: StatusData
-    ) {
-        JsonDataStore.save(context, DataKeys.STATUS_DATA_KEY, statusData)
+    suspend fun loadLocationData(context: Context): LocationData? {
+        return JsonDataStore.load<LocationData>(context, DataKeys.LOCATION.key)
     }
 
-    suspend fun loadStatusData(
-        context: Context
-    ): StatusData? {
-        return JsonDataStore.load<StatusData>(context, DataKeys.STATUS_DATA_KEY)
+    suspend fun storeStatusData(context: Context, statusData: StatusData) {
+        JsonDataStore.save(context, DataKeys.STATUS.key, statusData)
+    }
+
+    suspend fun loadStatusData(context: Context): StatusData? {
+        return JsonDataStore.load<StatusData>(context, DataKeys.STATUS.key)
     }
 }

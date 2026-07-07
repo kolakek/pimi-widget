@@ -40,9 +40,9 @@ import timber.log.Timber
 import java.util.Date
 import java.util.Locale
 
-internal object WidgetUpdater {
+object WidgetUpdater {
 
-    internal fun updateWidgets(context: Context) {
+    fun updateWidgets(context: Context) {
         Timber.d("WidgetUpdater: updateWidgets")
 
         val appWidgetManager = AppWidgetManager.getInstance(context)
@@ -70,7 +70,7 @@ internal object WidgetUpdater {
         }
     }
 
-    internal fun partiallyUpdateWidgets(
+    fun partiallyUpdateWidgets(
         context: Context,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
@@ -99,7 +99,7 @@ internal object WidgetUpdater {
         return status
     }
 
-    internal fun partiallyUpdateAlarms(context: Context) {
+    fun partiallyUpdateAlarms(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
@@ -116,7 +116,7 @@ internal object WidgetUpdater {
         }
     }
 
-    internal fun partiallyUpdateVisibility(
+    fun partiallyUpdateVisibility(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,

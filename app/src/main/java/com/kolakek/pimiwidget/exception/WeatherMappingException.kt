@@ -17,6 +17,4 @@
 
 package com.kolakek.pimiwidget.exception
 
-class WeatherMappingException(
-    message: String
-) : Exception(message)
+class WeatherMappingException(message: String): Exception(message)

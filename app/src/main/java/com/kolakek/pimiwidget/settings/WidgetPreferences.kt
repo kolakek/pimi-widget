@@ -19,7 +19,7 @@ package com.kolakek.pimiwidget.settings
 
 import com.kolakek.pimiwidget.utility.WeatherApp
 
-internal data class WidgetPreferences (
+data class WidgetPreferences (
     val showAlarms: Boolean,
     val showWeather: Boolean,
     val useLocationFallback: Boolean,

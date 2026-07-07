@@ -22,9 +22,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 
-internal object WidgetIntent {
+object WidgetIntent {
 
-    internal fun actionIntent(
+    fun actionIntent(
         context: Context,
         action: String,
         requestCode: Int
@@ -40,7 +40,7 @@ internal object WidgetIntent {
         )
     }
 
-    internal fun categoryIntent(
+    fun categoryIntent(
         context: Context,
         category: String,
         requestCode: Int
@@ -64,7 +64,7 @@ internal object WidgetIntent {
         }
     }
 
-    internal fun appIntent(
+    fun appIntent(
         context: Context,
         requestCode: Int,
         packageName: String

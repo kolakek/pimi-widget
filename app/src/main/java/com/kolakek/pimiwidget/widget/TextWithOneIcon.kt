@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-internal data class TextWithOneIcon (
+data class TextWithOneIcon (
     val text: String,
     val iconId: Int
 )
