@@ -27,7 +27,7 @@ import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.UpdateWeatherStatus
+import com.kolakek.pimiwidget.widget.WeatherUpdateStatus
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 object PimiUpdater {
@@ -38,23 +38,23 @@ object PimiUpdater {
     ): WorkResult {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val weatherData = DataRepository.loadWeatherData(context)
-        val status = WidgetUpdater.partiallyUpdateWidgets(context, prefs, weatherData)
+        val status = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
 
         if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
 
         when (status.weatherUpdate) {
-            UpdateWeatherStatus.DONE ->
+            WeatherUpdateStatus.DONE ->
                 return WorkResult.RECENT_DATA_SERVED
 
-            UpdateWeatherStatus.NEEDS_DATA -> {
+            WeatherUpdateStatus.NEEDS_DATA -> {
                 fetchWeatherData(context, prefs)?.let {
                     return WorkResult.FRESH_DATA_FETCHED
                 }
                 return WorkResult.STALE_DATA_SERVED
             }
-            UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH -> {
+            WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
                 fetchWeatherData(context, prefs)?.let {
-                    WidgetUpdater.partiallyUpdateWidgets(context, prefs, it)
+                    WidgetUpdater.refreshWidgetData(context, prefs, it)
                     return WorkResult.FRESH_DATA_FETCHED
                 }
                 return WorkResult.INVALID_DATA_SERVED

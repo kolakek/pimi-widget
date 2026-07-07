@@ -47,7 +47,7 @@ class PimiWidget : AppWidgetProvider() {
         newOptions: Bundle
     ) {
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
-        WidgetUpdater.partiallyUpdateVisibility(context, appWidgetManager, appWidgetId)
+        WidgetUpdater.refreshVisibility(context, appWidgetManager, appWidgetId)
     }
 
     override fun onEnabled(context: Context) {
@@ -73,7 +73,7 @@ class PimiWidget : AppWidgetProvider() {
                 MigrateApp.migrate(context)
 
             AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED ->
-                WidgetUpdater.partiallyUpdateAlarms(context)
+                WidgetUpdater.refreshAlarm(context)
         }
     }
 }

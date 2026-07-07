@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-enum class UpdateWeatherStatus {
+enum class WeatherUpdateStatus {
     DONE,
     NEEDS_DATA,
     NEEDS_DATA_AND_REFRESH

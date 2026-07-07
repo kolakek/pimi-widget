@@ -17,6 +17,6 @@
 
 package com.kolakek.pimiwidget.widget
 
-data class UpdateWidgetStatus (
-    var weatherUpdate: UpdateWeatherStatus
+data class WidgetUpdateStatus (
+    var weatherUpdate: WeatherUpdateStatus
 )

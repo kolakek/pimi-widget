@@ -17,28 +17,18 @@
 
 package com.kolakek.pimiwidget.widget
 
-import android.app.AlarmManager
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
-import android.provider.AlarmClock
-import android.text.format.DateFormat
-import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
-import com.kolakek.pimiwidget.resources.WidgetIcon
-import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
-import java.util.Date
-import java.util.Locale
 
 object WidgetUpdater {
 
@@ -60,29 +50,29 @@ object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            updateBaseWidget(context, views, appWidgetId, prefs)
-            updateAlarm(context, views, prefs)
-            updateWeather(context, views, prefs, weatherData)
-            updateAuxDisplay(context, views, prefs)
-            updateVisibility(context, views, appWidgetId)
+            CoreUpdater.updateViews(context, views, appWidgetId, prefs)
+            AlarmUpdater.updateViews(context, views, prefs)
+            WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            AuxUpdater.updateViews(context, views, prefs)
+            VisibilityUpdater.updateViews(context, views, appWidgetId)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
 
-    fun partiallyUpdateWidgets(
+    fun refreshWidgetData(
         context: Context,
         prefs: WidgetPreferences,
         weatherData: WeatherData?
-    ): UpdateWidgetStatus {
-        Timber.d("WidgetUpdater: partiallyUpdateWidgets")
+    ): WidgetUpdateStatus {
+        Timber.d("WidgetUpdater: refreshWidgetData")
 
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
         )
-        val status = UpdateWidgetStatus(
-            weatherUpdate = UpdateWeatherStatus.DONE
+        val status = WidgetUpdateStatus(
+            weatherUpdate = WeatherUpdateStatus.DONE
         )
         for (appWidgetId in appWidgetIds) {
 
@@ -90,16 +80,16 @@ object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            status.weatherUpdate = updateWeather(context, views, prefs, weatherData)
-            updateAuxDisplay(context, views, prefs)
-            updateAlarm(context, views, prefs)
+            status.weatherUpdate = WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            AuxUpdater.updateViews(context, views, prefs)
+            AlarmUpdater.updateViews(context, views, prefs)
 
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
         return status
     }
 
-    fun partiallyUpdateAlarms(context: Context) {
+    fun refreshAlarm(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context)
         val appWidgetIds = appWidgetManager.getAppWidgetIds(
             ComponentName(context, PimiWidget::class.java)
@@ -111,12 +101,13 @@ object WidgetUpdater {
                 context.packageName,
                 getWidgetLayout(prefs.textStyle)
             )
-            updateAlarm(context, views, prefs)
+            AlarmUpdater.updateViews(context, views, prefs)
+
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
     }
 
-    fun partiallyUpdateVisibility(
+    fun refreshVisibility(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetId: Int,
@@ -126,7 +117,8 @@ object WidgetUpdater {
             context.packageName,
             getWidgetLayout(prefs.textStyle)
         )
-        updateVisibility(context, views, appWidgetId)
+        VisibilityUpdater.updateViews(context, views, appWidgetId)
+
         appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
@@ -137,139 +129,4 @@ object WidgetUpdater {
             TextStyle.LIGHT_SHADOW -> R.layout.pimi_widget_light_shadow
         }
     }
-
-    private fun updateBaseWidget(
-        context: Context,
-        views: RemoteViews,
-        appWidgetId: Int,
-        prefs: WidgetPreferences
-    ) {
-        val pattern = DateFormat.getBestDateTimePattern(
-            Locale.getDefault(),
-            context.getString(R.string.widget_date_format)
-        )
-        views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
-        views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
-
-        views.setOnClickPendingIntent(R.id.widget_root, null)
-
-        val calendarIntent = WidgetIntent.categoryIntent(
-            context,
-            Intent.CATEGORY_APP_CALENDAR,
-            appWidgetId
-        )
-        views.setOnClickPendingIntent(R.id.widget_text_clock, calendarIntent)
-
-        val weatherAppIntent = if (prefs.weatherApp == WeatherApp.NONE) {
-            null
-        } else {
-            WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
-        }
-        views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
-
-        views.setOnClickPendingIntent(
-            R.id.widget_alarm,
-            WidgetIntent.actionIntent(context, AlarmClock.ACTION_SHOW_ALARMS, appWidgetId)
-        )
-    }
-
-    private fun updateAlarm(
-        context: Context,
-        views: RemoteViews,
-        prefs: WidgetPreferences
-    ) {
-        views.setTextViewText(R.id.widget_alarm, null)
-        views.setTextViewCompoundDrawables(R.id.widget_alarm, 0, 0, 0, 0)
-
-        if (!prefs.showAlarms) return
-
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
-
-        if (nextAlarmMillis - System.currentTimeMillis() > ALARM_LOOK_AHEAD_MILLIS) return
-
-        views.setTextViewText(
-            R.id.widget_alarm,
-            DateFormat.getTimeFormat(context).format(Date(nextAlarmMillis))
-        )
-        views.setTextViewCompoundDrawables(
-            R.id.widget_alarm,
-            WidgetIcon.ALARM.id(prefs.textStyle),
-            0,
-            0,
-            0
-        )
-    }
-
-    private fun updateVisibility(
-        context: Context,
-        views: RemoteViews,
-        appWidgetId: Int
-    ) {
-        val viewHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_spacer_height)
-
-        val widgetHeight = AppWidgetManager
-            .getInstance(context)
-            .getAppWidgetOptions(appWidgetId)
-            .getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
-            .dpToPx(context)
-
-        if (viewHeight > widgetHeight) views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
-        else views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
-    }
-
-    private fun updateWeather(
-        context: Context,
-        views: RemoteViews,
-        prefs: WidgetPreferences,
-        weatherData: WeatherData?
-    ): UpdateWeatherStatus {
-
-        views.setTextViewText(R.id.widget_temp, null)
-        views.setTextViewCompoundDrawables(R.id.widget_temp, 0, 0, 0, 0)
-
-        if (!prefs.showWeather) return UpdateWeatherStatus.DONE
-
-        weatherData?.let { data ->
-            WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
-
-                views.setTextViewText(R.id.widget_temp, it.text)
-                views.setTextViewCompoundDrawables(R.id.widget_temp, it.iconId1, 0, it.iconId2, 0)
-
-            } ?: return UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH
-
-            val isFresh = System.currentTimeMillis() - data.timeMillis < WEATHER_UPDATE_AGE_MILLIS
-            return if (isFresh) UpdateWeatherStatus.DONE else UpdateWeatherStatus.NEEDS_DATA
-        }
-        return UpdateWeatherStatus.NEEDS_DATA_AND_REFRESH
-    }
-
-    private fun updateAuxDisplay(
-        context: Context,
-        views: RemoteViews,
-        prefs: WidgetPreferences
-    ) {
-        views.setTextViewText(R.id.widget_aux, null)
-
-        if (!prefs.showWeather) return
-
-        val auxStr = when (prefs.auxDisplay) {
-
-            AuxDisplay.NOTHING ->
-                return
-
-            AuxDisplay.UPDATE_TIME ->
-                DateFormat.getTimeFormat(context).format(Date(System.currentTimeMillis()))
-        }
-        views.setTextViewText(
-            R.id.widget_aux,
-            context.getString(R.string.widget_updated_at) + " $auxStr"
-        )
-    }
-
-    private fun Int.dpToPx(context: Context): Int =
-        (this * context.resources.displayMetrics.density).toInt()
 }
