@@ -22,6 +22,8 @@
     <string name="config_icon_color">Icon color</string>
     <string name="config_color_light">Light</string>
     <string name="config_color_dark">Dark</string>
+    <string name="config_icon_color_morning">Morning sun</string>
+    <string name="config_icon_color_evening">Evening sun</string>
     <string name="config_option_auto">Automatic</string>
     <string name="config_option_follow_system">System default</string>
     <string name="config_temp">Temperature</string>

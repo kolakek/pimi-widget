@@ -20,6 +20,8 @@
     <string name="config_icon_color">Barva ikony</string>
     <string name="config_color_light">Světlý</string>
     <string name="config_color_dark">Tmavý</string>
+    <string name="config_icon_color_morning">Ranní slunce</string>
+    <string name="config_icon_color_evening">Večerní slunce</string>
     <string name="config_option_auto">Automaticky</string>
     <string name="config_option_follow_system">Výchozí nastavení systému</string>
     <string name="config_temp">Teplota</string>

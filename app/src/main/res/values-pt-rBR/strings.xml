@@ -20,6 +20,8 @@
     <string name="config_icon_style">Estilo de ícones</string>
     <string name="config_color_light">Claro</string>
     <string name="config_color_dark">Escuro</string>
+    <string name="config_icon_color_morning">Sol da manhã</string>
+    <string name="config_icon_color_evening">Sol da tarde</string>
     <string name="config_option_auto">Automático</string>
     <string name="config_option_follow_system">Padrão do sistema</string>
     <string name="config_temp">Temperatura</string>

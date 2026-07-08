@@ -20,6 +20,8 @@
     <string name="config_icon_style">Icoonstijl</string>
     <string name="config_color_light">Licht</string>
     <string name="config_color_dark">Donker</string>
+    <string name="config_icon_color_morning">Ochtendzon</string>
+    <string name="config_icon_color_evening">Avondzon</string>
     <string name="config_option_auto">Automatisch</string>
     <string name="config_option_follow_system">Systeemstandaard</string>
     <string name="config_temp">Temperatuur</string>

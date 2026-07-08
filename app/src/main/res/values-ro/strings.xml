@@ -20,6 +20,8 @@
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
     <string name="config_color_dark">Închis</string>
+    <string name="config_icon_color_morning">Soare de dimineață</string>
+    <string name="config_icon_color_evening">Soare de seară</string>
     <string name="config_option_auto">Automat</string>
     <string name="config_option_follow_system">Implicit de sistem</string>
     <string name="config_temp">Temperatură</string>

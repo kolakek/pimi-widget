@@ -20,6 +20,8 @@
     <string name="config_icon_style">Style des icônes</string>
     <string name="config_color_light">Clair</string>
     <string name="config_color_dark">Sombre</string>
+    <string name="config_icon_color_morning">Soleil du matin</string>
+    <string name="config_icon_color_evening">Soleil du soir</string>
     <string name="config_option_auto">Automatique</string>
     <string name="config_option_follow_system">Par défaut du système</string>
     <string name="config_temp">Température</string>

@@ -20,6 +20,8 @@
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>
+    <string name="config_icon_color_morning">Dielli i mëngjesit</string>
+    <string name="config_icon_color_evening">Dielli i mbrëmjes</string>
     <string name="config_option_auto">Automatike</string>
     <string name="config_option_follow_system">Parazgjedhja e sistemit</string>
     <string name="config_temp">Temperatura</string>

@@ -20,6 +20,8 @@
     <string name="config_icon_style">İkon stili</string>
     <string name="config_color_light">Açık</string>
     <string name="config_color_dark">Koyu</string>
+    <string name="config_icon_color_morning">Sabah güneşi</string>
+    <string name="config_icon_color_evening">Akşam güneşi</string>
     <string name="config_option_auto">Otomatik</string>
     <string name="config_option_follow_system">Sistem varsayılanı</string>
     <string name="config_temp">Sıcaklık</string>

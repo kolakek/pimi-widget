@@ -20,6 +20,8 @@
     <string name="config_icon_style">Στυλ εικονιδίων</string>
     <string name="config_color_light">Φωτεινό</string>
     <string name="config_color_dark">Σκοτεινό</string>
+    <string name="config_icon_color_morning">Πρωινός ήλιος</string>
+    <string name="config_icon_color_evening">Απογευματινός ήλιος</string>
     <string name="config_option_auto">Αυτόματο</string>
     <string name="config_option_follow_system">Προεπιλογή συστήματος</string>
     <string name="config_temp">Θερμοκρασία</string>

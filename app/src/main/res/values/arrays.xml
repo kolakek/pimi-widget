@@ -25,6 +25,12 @@
         <item>color_dark</item>
     </array>
 
+    <array name="icon_colors">
+        <item>@string/config_option_auto</item>
+        <item>@string/config_icon_color_morning</item>
+        <item>@string/config_icon_color_evening</item>
+    </array>
+
     <array name="icon_styles">
         <item>@string/config_icon_style_outlined</item>
         <item>@string/config_icon_style_filled</item>

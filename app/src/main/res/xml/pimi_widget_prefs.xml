@@ -115,7 +115,7 @@
 
         <ListPreference
             android:defaultValue="color_auto"
-            android:entries="@array/colors"
+            android:entries="@array/icon_colors"
             android:entryValues="@array/colors_vals"
             android:key="icon_color_list"
             android:title="@string/config_icon_color"

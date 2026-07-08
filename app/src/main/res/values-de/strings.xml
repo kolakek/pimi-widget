@@ -20,6 +20,8 @@
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>
+    <string name="config_icon_color_morning">Morgensonne</string>
+    <string name="config_icon_color_evening">Abendsonne</string>
     <string name="config_option_auto">Automatisch</string>
     <string name="config_option_follow_system">Standardeinstellung des Systems</string>
     <string name="config_temp">Temperatur</string>

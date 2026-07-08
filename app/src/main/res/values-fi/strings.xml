@@ -20,6 +20,8 @@
     <string name="config_icon_color">Kuvakkeen väri</string>
     <string name="config_color_light">Vaalea</string>
     <string name="config_color_dark">Tumma</string>
+    <string name="config_icon_color_morning">Aamuaurinko</string>
+    <string name="config_icon_color_evening">Ilta-aurinko</string>
     <string name="config_option_auto">Automaattinen</string>
     <string name="config_option_follow_system">Järjestelmän oletus</string>
     <string name="config_temp">Lämpötila</string>
