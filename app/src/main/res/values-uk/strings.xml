@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Застосувати налаштування</string>
-    <string name="config_weather_switch">Показати погоду</string>
+    <string name="config_weather_switch">Погода</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
     <string name="config_version_title">Номер збірки</string>
-    <string name="config_show_alarms">Показати будильники</string>
-    <string name="config_show_alarms_descr">Будильники на наступні 12 годин</string>
+    <string name="config_show_alarms">Будильники</string>
+    <string name="config_show_alarms_descr">Показувати будильники протягом наступних 12 годин</string>
     <string name="config_debug_info">Стан застосунку</string>
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Температура</string>
     <string name="config_temp_celsius">Цельсій</string>
     <string name="config_temp_fahrenheit">Фаренгейт</string>
-    <string name="config_section_settings">Налаштування</string>
+    <string name="config_section_features">З першого погляду</string>
+    <string name="config_section_weather">Налаштування погоди</string>
     <string name="config_section_settings_plus">Додаткові налаштування</string>
     <string name="config_section_about">Про застосунок</string>
     <string name="config_daily_forecast">Показувати щоденний прогноз</string>

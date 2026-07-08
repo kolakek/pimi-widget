@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Einstellungen übernehmen</string>
-    <string name="config_weather_switch">Wetter anzeigen</string>
+    <string name="config_weather_switch">Wetter</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>
     <string name="config_version_title">Build-Nummer</string>
-    <string name="config_show_alarms">Wecker anzeigen</string>
-    <string name="config_show_alarms_descr">Wecker der nächsten 12 Stunden</string>
+    <string name="config_show_alarms">Wecker</string>
+    <string name="config_show_alarms_descr">Wecker der nächsten 12 Stunden anzeigen</string>
     <string name="config_debug_info">App-Status</string>
     <string name="config_debug_weather_data_age">Wetterdatenalter</string>
     <string name="config_debug_last_valid_location">Letzter gültiger Standort</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Einstellungen</string>
+    <string name="config_section_features">Auf einen Blick</string>
+    <string name="config_section_weather">Wettereinstellungen</string>
     <string name="config_section_settings_plus">Weitere Einstellungen</string>
     <string name="config_section_about">Über</string>
     <string name="config_daily_forecast">Tagesvorhersage anzeigen</string>

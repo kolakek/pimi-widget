@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Apliko cilësimet</string>
-    <string name="config_weather_switch">Shfaq motin</string>
+    <string name="config_weather_switch">Moti</string>
     <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
     <string name="config_version_title">Numri i build-it</string>
-    <string name="config_show_alarms">Shfaq alarmet</string>
-    <string name="config_show_alarms_descr">Alarmet e 12 orëve të ardhshme</string>
+    <string name="config_show_alarms">Alarmet</string>
+    <string name="config_show_alarms_descr">Shfaq alarmet brenda 12 orëve të ardhshme</string>
     <string name="config_debug_info">Statusi i aplikacionit</string>
     <string name="config_debug_weather_data_age">Mosha e të dhënave të motit</string>
     <string name="config_debug_last_valid_location">Vendndodhja e fundit e vlefshme</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Cilësimet</string>
+    <string name="config_section_features">Me një shikim</string>
+    <string name="config_section_weather">Cilësimet e motit</string>
     <string name="config_section_settings_plus">Cilësime shtesë</string>
     <string name="config_section_about">Rreth</string>
     <string name="config_daily_forecast">Shfaq parashikimin ditor</string>

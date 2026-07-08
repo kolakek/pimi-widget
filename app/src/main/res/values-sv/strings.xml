@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Tillämpa inställningar</string>
-    <string name="config_weather_switch">Visa väder</string>
+    <string name="config_weather_switch">Väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
     <string name="config_version_title">Byggnummer</string>
-    <string name="config_show_alarms">Visa alarm</string>
-    <string name="config_show_alarms_descr">Alarm de kommande 12 timmarna</string>
+    <string name="config_show_alarms">Alarm</string>
+    <string name="config_show_alarms_descr">Visa alarm för de kommande 12 timmarna</string>
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Temperatur</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Inställningar</string>
+    <string name="config_section_features">En överblick</string>
+    <string name="config_section_weather">Väderinställningar</string>
     <string name="config_section_settings_plus">Ytterligare inställningar</string>
     <string name="config_section_about">Om</string>
     <string name="config_daily_forecast">Visa dygnsprognos</string>

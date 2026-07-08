@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Εφαρμογή ρυθμίσεων</string>
-    <string name="config_weather_switch">Εμφάνιση καιρού</string>
+    <string name="config_weather_switch">Καιρός</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
-    <string name="config_show_alarms">Εμφάνιση ξυπνητηριών</string>
-    <string name="config_show_alarms_descr">Ξυπνητήρια στις επόμενες 12 ώρες</string>
+    <string name="config_show_alarms">Ξυπνητήρια</string>
+    <string name="config_show_alarms_descr">Εμφάνιση ξυπνητηριών για τις επόμενες 12 ώρες</string>
     <string name="config_debug_info">Κατάσταση εφαρμογής</string>
     <string name="config_debug_weather_data_age">Ηλικία δεδομένων καιρού</string>
     <string name="config_debug_last_valid_location">Τελευταία έγκυρη τοποθεσία</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Θερμοκρασία</string>
     <string name="config_temp_celsius">Κελσίου</string>
     <string name="config_temp_fahrenheit">Φαρενάιτ</string>
-    <string name="config_section_settings">Ρυθμίσεις</string>
+    <string name="config_section_features">Με μια ματιά</string>
+    <string name="config_section_weather">Ρυθμίσεις καιρού</string>
     <string name="config_section_settings_plus">Πρόσθετες ρυθμίσεις</string>
     <string name="config_section_about">Πληροφορίες</string>
     <string name="config_daily_forecast">Εμφάνιση ημερήσιας πρόγνωσης</string>

@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Použít nastavení</string>
-    <string name="config_weather_switch">Zobrazit počasí</string>
+    <string name="config_weather_switch">Počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
     <string name="config_version_title">Číslo sestavení</string>
-    <string name="config_show_alarms">Zobrazit budíky</string>
-    <string name="config_show_alarms_descr">Budíky v následujících 12 hodinách</string>
+    <string name="config_show_alarms">Budíky</string>
+    <string name="config_show_alarms_descr">Zobrazit budíky na následujících 12 hodin</string>
     <string name="config_debug_info">Stav aplikace</string>
     <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
     <string name="config_debug_last_valid_location">Poslední platná poloha</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Teplota</string>
     <string name="config_temp_celsius">Celsia</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Nastavení</string>
+    <string name="config_section_features">Přehled</string>
+    <string name="config_section_weather">Nastavení počasí</string>
     <string name="config_section_settings_plus">Další nastavení</string>
     <string name="config_section_about">O aplikaci</string>
     <string name="config_daily_forecast">Zobrazit denní předpověď</string>

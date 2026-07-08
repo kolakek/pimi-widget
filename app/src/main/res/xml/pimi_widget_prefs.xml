@@ -3,12 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:key="category_settings"
+        android:key="category_features"
         android:selectable="false"
-        android:title="@string/config_section_settings"
+        android:title="@string/config_section_features"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
+
+        <SwitchPreferenceCompat
+            android:key="weather_switch"
+            android:summary="@string/config_weather_switch_summary"
+            android:title="@string/config_weather_switch"
+            android:widgetLayout="@layout/preference_switch"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat
             android:key="alarm_switch"
@@ -18,13 +26,15 @@
             android:defaultValue="false"
             app:iconSpaceReserved="false" />
 
-        <SwitchPreferenceCompat
-            android:key="weather_switch"
-            android:summary="@string/config_weather_switch_summary"
-            android:title="@string/config_weather_switch"
-            android:widgetLayout="@layout/preference_switch"
-            android:defaultValue="false"
-            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_weather"
+        android:selectable="false"
+        android:title="@string/config_section_weather"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
 
         <CheckBoxPreference
             android:key="location_fallback"

@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Aplică setările</string>
-    <string name="config_weather_switch">Afișează vremea</string>
+    <string name="config_weather_switch">Vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
     <string name="config_version_title">Număr build</string>
-    <string name="config_show_alarms">Afișează alarmele</string>
-    <string name="config_show_alarms_descr">Alarmele din următoarele 12 ore</string>
+    <string name="config_show_alarms">Alarme</string>
+    <string name="config_show_alarms_descr">Afișează alarmele din următoarele 12 ore</string>
     <string name="config_debug_info">Starea aplicației</string>
     <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
     <string name="config_debug_last_valid_location">Ultima locație validă</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Temperatură</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Setări</string>
+    <string name="config_section_features">Dintr-o privire</string>
+    <string name="config_section_weather">Setări meteo</string>
     <string name="config_section_settings_plus">Setări suplimentare</string>
     <string name="config_section_about">Despre</string>
     <string name="config_daily_forecast">Afișează prognoza zilnică</string>

@@ -1,11 +1,11 @@
 <resources>
 
     <string name="config_button_apply">Appliquer les paramètres</string>
-    <string name="config_weather_switch">Afficher la météo</string>
+    <string name="config_weather_switch">Météo</string>
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
     <string name="config_version_title">Numéro de build</string>
-    <string name="config_show_alarms">Afficher les alarmes</string>
-    <string name="config_show_alarms_descr">Alarmes des 12 prochaines heures</string>
+    <string name="config_show_alarms">Alarmes</string>
+    <string name="config_show_alarms_descr">Afficher les alarmes des 12 prochaines heures</string>
     <string name="config_debug_info">État de l’application</string>
     <string name="config_debug_weather_data_age">Âge des données météo</string>
     <string name="config_debug_last_valid_location">Dernière localisation valide</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Température</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Paramètres</string>
+    <string name="config_section_features">En un coup d\'œil</string>
+    <string name="config_section_weather">Paramètres météo</string>
     <string name="config_section_settings_plus">Paramètres supplémentaires</string>
     <string name="config_section_about">À propos</string>
     <string name="config_daily_forecast">Afficher les prévisions quotidiennes</string>

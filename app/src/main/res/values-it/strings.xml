@@ -1,12 +1,12 @@
 <resources>
 
     <string name="config_button_apply">Applica impostazioni</string>
-    <string name="config_weather_switch">Mostra meteo</string>
+    <string name="config_weather_switch">Meteo</string>
     <string name="config_weather_switch_summary">Dati meteo da Open-Meteo.com</string>
     <string name="config_version_title">Numero build</string>
     <string name="config_debug_info">Stato dell’app</string>
-    <string name="config_show_alarms">Mostra sveglie</string>
-    <string name="config_show_alarms_descr">Sveglie delle prossime 12 ore</string>
+    <string name="config_show_alarms">Sveglie</string>
+    <string name="config_show_alarms_descr">Mostra le sveglie nelle prossime 12 ore</string>
     <string name="config_debug_weather_data_age">Età dei dati meteo</string>
     <string name="config_debug_last_valid_location">Ultima posizione valida</string>
     <string name="config_debug_last_work_status">Ultima esecuzione</string>
@@ -25,7 +25,8 @@
     <string name="config_temp">Temperatura</string>
     <string name="config_temp_celsius">Celsius</string>
     <string name="config_temp_fahrenheit">Fahrenheit</string>
-    <string name="config_section_settings">Impostazioni</string>
+    <string name="config_section_features">A colpo d\'occhio</string>
+    <string name="config_section_weather">Impostazioni meteo</string>
     <string name="config_section_settings_plus">Impostazioni aggiuntive</string>
     <string name="config_section_about">Informazioni</string>
     <string name="config_daily_forecast">Mostra previsioni giornaliere</string>

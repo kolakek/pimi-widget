@@ -1,14 +1,15 @@
 <resources>
 
     <string name="config_button_apply">套用設定</string>
-    <string name="config_section_settings">設定</string>
+    <string name="config_section_features">一覽</string>
+    <string name="config_section_weather">天氣設定</string>
     <string name="config_section_settings_plus">其他設定</string>
     <string name="config_section_about">關於</string>
-    <string name="config_weather_switch">顯示天氣</string>
+    <string name="config_weather_switch">天氣</string>
     <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
     <string name="config_version_title">組建編號</string>
-    <string name="config_show_alarms">顯示鬧鐘</string>
-    <string name="config_show_alarms_descr">未來 12 小時內的鬧鐘</string>
+    <string name="config_show_alarms">鬧鐘</string>
+    <string name="config_show_alarms_descr">顯示未來 12 小時內的鬧鐘</string>
     <string name="config_debug_info">應用程式狀態</string>
     <string name="config_debug_weather_data_age">天氣資料年值</string>
     <string name="config_debug_last_valid_location">最後有效位置</string>
