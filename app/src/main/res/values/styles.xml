@@ -134,9 +134,4 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="Widget.Spacer" parent="Widget.InnerView">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/widget_spacer_height</item>
-    </style>
-
 </resources>

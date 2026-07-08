@@ -32,8 +32,7 @@ object VisibilityUpdater {
     ) {
         val viewHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
                 context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_spacer_height)
+                2 * context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
 
         val widgetHeight = AppWidgetManager
             .getInstance(context)

@@ -3,8 +3,7 @@
     android:id="@+id/widget_root">
 
     <TextView
-        style="@style/Widget.Spacer"
-        android:id="@+id/widget_spacer" />
+        style="@style/Widget.Aux" />
 
     <LinearLayout
         style="@style/Widget.InnerContainer">

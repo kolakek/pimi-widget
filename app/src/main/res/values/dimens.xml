@@ -3,6 +3,5 @@
     <dimen name="widget_date_height">28dp</dimen>
     <dimen name="widget_weather_height">36dp</dimen>
     <dimen name="widget_aux_height">18dp</dimen>
-    <dimen name="widget_spacer_height">18dp</dimen>
     <dimen name="widget_alarm_icon_size">20dp</dimen>
 </resources>

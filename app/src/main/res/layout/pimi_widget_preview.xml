@@ -4,8 +4,7 @@
     style="@style/Widget.Container">
 
     <TextView
-        style="@style/Widget.Spacer"
-        android:id="@+id/widget_spacer" />
+        style="@style/Widget.Aux" />
 
     <TextView
         style="@style/Widget.Date"
