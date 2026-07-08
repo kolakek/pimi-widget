@@ -34,12 +34,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.Date" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:layout_height">@dimen/widget_date_height</item>
-        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
         <item name="android:layout_marginRight">12dp</item>
@@ -64,7 +67,6 @@
     <style name="Widget.PimiWidget.AppWidget.Alarm" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:layout_height">@dimen/widget_date_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
-        <item name="android:textStyle">normal</item>
         <item name="android:drawablePadding">4dp</item>
     </style>
 
@@ -87,10 +89,7 @@
     <style name="Widget.PimiWidget.AppWidget.Weather" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
-        <item name="android:textStyle">normal</item>
         <item name="android:drawablePadding">2dp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.WeatherDark" parent="Widget.PimiWidget.AppWidget.Weather">
@@ -112,9 +111,6 @@
     <style name="Widget.PimiWidget.AppWidget.Aux" parent="Widget.PimiWidget.AppWidget.InnerView">
         <item name="android:layout_height">@dimen/widget_aux_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Widget.PimiWidget.AppWidget.AuxDark" parent="Widget.PimiWidget.AppWidget.Aux">
