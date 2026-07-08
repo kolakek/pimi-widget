@@ -1,7 +1,7 @@
 <resources>
 
     <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight">
-        <item name="alertDialogTheme">@style/Widget.PimiWidget.AppWidget.MaterialDialogAlert</item>
+        <item name="alertDialogTheme">@style/Config.MaterialDialogAlert</item>
         <item name="widgetPreviewTextColor">#FFFFFF</item>
         <item name="widgetPreviewWeatherIcon">@drawable/uc_0d</item>
     </style>

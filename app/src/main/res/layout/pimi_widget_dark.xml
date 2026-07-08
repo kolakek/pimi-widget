@@ -1,30 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.PimiWidget.AppWidget.Container"
+    style="@style/Widget.Container"
     android:id="@+id/widget_root">
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.Spacer"
+        style="@style/Widget.Spacer"
         android:id="@+id/widget_spacer" />
 
     <LinearLayout
-        style="@style/Widget.PimiWidget.AppWidget.InnerContainer">
+        style="@style/Widget.InnerContainer">
 
         <TextClock
-            style="@style/Widget.PimiWidget.AppWidget.DateDark"
+            style="@style/Widget.DateDark"
             android:id="@+id/widget_text_clock" />
 
         <TextView
-            style="@style/Widget.PimiWidget.AppWidget.AlarmDark"
+            style="@style/Widget.AlarmDark"
             android:id="@+id/widget_alarm" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.WeatherDark"
+        style="@style/Widget.WeatherDark"
         android:id="@+id/widget_temp" />
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.AuxDark"
+        style="@style/Widget.AuxDark"
         android:id="@+id/widget_aux" />
 
 </LinearLayout>

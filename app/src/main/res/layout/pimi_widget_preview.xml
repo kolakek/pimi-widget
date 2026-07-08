@@ -1,25 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.PimiWidget"
-    style="@style/Widget.PimiWidget.AppWidget.Container">
+    style="@style/Widget.Container">
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.Spacer"
+        style="@style/Widget.Spacer"
         android:id="@+id/widget_spacer" />
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.Date"
+        style="@style/Widget.Date"
         android:textColor="?attr/widgetPreviewTextColor"
         android:text="@string/widget_date_prev" />
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.Weather"
+        style="@style/Widget.Weather"
         android:textColor="?attr/widgetPreviewTextColor"
         android:text="@string/widget_temp_prev"
         android:drawableStart="?attr/widgetPreviewWeatherIcon"
         tools:ignore="UseCompatTextViewDrawableXml" />
 
     <TextView
-        style="@style/Widget.PimiWidget.AppWidget.Aux" />
+        style="@style/Widget.Aux" />
 
 </LinearLayout>
