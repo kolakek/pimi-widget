@@ -124,9 +124,8 @@ object WidgetUpdater {
 
     private fun getWidgetLayout(textStyle: TextStyle): Int {
         return when (textStyle) {
-            TextStyle.DARK -> R.layout.pimi_widget_dark
-            TextStyle.LIGHT -> R.layout.pimi_widget_light
-            TextStyle.LIGHT_SHADOW -> R.layout.pimi_widget_light_shadow
+            TextStyle.DARK, TextStyle.LIGHT -> R.layout.widget
+            TextStyle.LIGHT_SHADOW -> R.layout.widget_shadow
         }
     }
 }

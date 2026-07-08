@@ -19,10 +19,12 @@ package com.kolakek.pimiwidget.widget
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.provider.AlarmClock
 import android.text.format.DateFormat
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.WeatherApp
 import java.util.Locale
@@ -62,5 +64,13 @@ object CoreUpdater {
             R.id.widget_alarm,
             WidgetIntent.actionIntent(context, AlarmClock.ACTION_SHOW_ALARMS, appWidgetId)
         )
+        val textColor = when (prefs.textStyle) {
+            TextStyle.LIGHT, TextStyle.LIGHT_SHADOW -> Color.WHITE
+            TextStyle.DARK -> Color.BLACK
+        }
+        views.setTextColor(R.id.widget_text_clock, textColor)
+        views.setTextColor(R.id.widget_alarm, textColor)
+        views.setTextColor(R.id.widget_temp, textColor)
+        views.setTextColor(R.id.widget_aux, textColor)
     }
 }

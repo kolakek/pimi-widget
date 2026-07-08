@@ -9,21 +9,21 @@
         style="@style/Widget.InnerContainer">
 
         <TextClock
-            style="@style/Widget.DateLight"
+            style="@style/Widget.DateShadow"
             android:id="@+id/widget_text_clock" />
 
         <TextView
-            style="@style/Widget.AlarmLight"
+            style="@style/Widget.AlarmShadow"
             android:id="@+id/widget_alarm" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.WeatherLight"
+        style="@style/Widget.WeatherShadow"
         android:id="@+id/widget_temp" />
 
     <TextView
-        style="@style/Widget.AuxLight"
+        style="@style/Widget.AuxShadow"
         android:id="@+id/widget_aux" />
 
 </LinearLayout>
