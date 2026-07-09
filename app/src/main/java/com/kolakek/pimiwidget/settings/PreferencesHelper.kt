@@ -151,6 +151,12 @@ object PreferencesHelper {
         }
     }
 
+    fun setAlarmPreference(context: Context, value: Boolean) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putBoolean(KEY_ALARM_SWITCH, value)
+        }
+    }
+
     private fun getDailyForecastPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)

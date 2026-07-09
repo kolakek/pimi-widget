@@ -37,6 +37,7 @@ object MigrateApp {
             PreferencesHelper.setTempUnitPreference(context, PreferencesHelper.TempUnitPref.AUTO)
             PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
             PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
+            PreferencesHelper.setAlarmPreference(context, true)
         }
         storeCurrentVersionCode(context)
 
