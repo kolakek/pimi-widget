@@ -23,6 +23,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.utility.MigrateApp
@@ -66,6 +67,13 @@ class PimiWidget : AppWidgetProvider() {
         Timber.d("onReceive: ${intent.action}")
 
         when (intent.action) {
+            Intent.ACTION_BOOT_COMPLETED ->
+                WorkManagerHelper.enqueueWork(
+                    context,
+                    initialDelayMillis = WORKER_INIT_DELAY_MILLIS,
+                    workPolicy = ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+                )
+
             Intent.ACTION_LOCALE_CHANGED ->
                 WidgetUpdater.updateWidgets(context)
 

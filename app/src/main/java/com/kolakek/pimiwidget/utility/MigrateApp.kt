@@ -42,7 +42,7 @@ object MigrateApp {
         storeCurrentVersionCode(context)
 
         WidgetUpdater.updateWidgets(context)
-        WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.UPDATE)
+        WorkManagerHelper.enqueueWork(context, workPolicy = ExistingPeriodicWorkPolicy.UPDATE)
     }
 
     private fun setFirstAvailableWeatherApp(context: Context) {

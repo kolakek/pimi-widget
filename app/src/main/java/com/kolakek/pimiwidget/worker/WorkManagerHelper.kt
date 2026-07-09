@@ -35,14 +35,16 @@ object WorkManagerHelper {
 
     fun enqueueWork(
         context: Context,
+        initialDelayMillis: Long = 0L,
         workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
     ) {
         val request = PeriodicWorkRequestBuilder<PimiWorker>(
             WORK_INTERVAL_MILLIS,
             TimeUnit.MILLISECONDS
-        )
-            .setInitialDelay(WORK_DELAY_MILLIS, TimeUnit.MILLISECONDS)
-            .build()
+        ).setInitialDelay(
+            initialDelayMillis,
+            TimeUnit.MILLISECONDS
+        ).build()
 
         WorkManager
             .getInstance(context.applicationContext)

@@ -20,4 +20,3 @@ package com.kolakek.pimiwidget.worker
 internal const val WORK_NAME = "periodic-update-kolakek-pimi-widget"
 internal const val STATUS_STRING_RUNNING = "Running"
 internal const val WORK_INTERVAL_MILLIS = 30 * 60 * 1000L
-internal const val WORK_DELAY_MILLIS = 0L

@@ -143,7 +143,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             )
             return false
         }
-        WorkManagerHelper.enqueueWork(context, ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE)
+        WorkManagerHelper.enqueueWork(
+            context,
+            workPolicy = ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+        )
         weatherSwitch?.isChecked = true
 
         return true
