@@ -18,7 +18,7 @@
     <string name="config_debug_last_work_status">最後運作狀態</string>
     <string name="config_debug_background_service">背景服務</string>
     <string name="config_location_fallback">使用最後位置</string>
-    <string name="config_location_fallback_summary">裝置停用位置服務時</string>
+    <string name="config_location_fallback_summary">裝置停用定位服務時</string>
     <string name="config_icon_style">圖示主題</string>
     <string name="config_text_color">文字色彩</string>
     <string name="config_icon_color">圖示顏色</string>
@@ -41,26 +41,26 @@
     <string name="config_bg_perm_alert_message">需要背景存取您的位置以顯示準確天氣。\n請在下個畫面輕觸「%s」。</string>
     <string name="config_alert_button_ok">確定</string>
     <string name="config_alert_button_cancel">取消</string>
-    <string name="config_debug_button_weather">檢視天氣清單</string>
+    <string name="config_debug_button_weather">檢視天氣檢索</string>
     <string name="config_debug_button_location">檢視位置</string>
     <string name="config_source_code">原始碼</string>
     <string name="config_source_code_summary">在 GitHub 查看原始碼和文件</string>
-    <string name="config_aux_view_nothing">沒有詳細資訊</string>
-    <string name="config_aux_view_update_time">重新整理時間</string>
+    <string name="config_aux_view_nothing">無詳細資訊</string>
+    <string name="config_aux_view_update_time">更新時間</string>
     <string name="config_aux_view_title">顯示詳細資訊</string>
     <string name="config_weather_app">天氣應用程式</string>
     <string name="config_weather_app_default">無</string>
-    <string name="config_weather_app_nil">未列出</string>
-    <string name="config_weather_app_nil_alert_message">若要新增您的天氣應用程式，請在 GitHub 上建立一個 issue。</string>
-    <string name="config_weather_app_alert_button_github">開啟 GitHub</string>
+    <string name="config_weather_app_nil">其他</string>
+    <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報。</string>
+    <string name="config_weather_app_alert_button_github">前往 GitHub</string>
 
     <string name="widget_label">日期與天氣</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_date_prev">7月4日 週日</string>
-    <string name="widget_temp_prev">71\u2109 · 明天 67\u00B0 / 52\u00B0 · 小雨</string>
+    <string name="widget_temp_prev">22\u2103 · 明天 19\u00B0 / 13\u00B0 · 小雨</string>
     <string name="widget_today">今天</string>
     <string name="widget_tomorrow">明天</string>
-    <string name="widget_updated_at">"更新於 "</string>
+    <string name="widget_updated_at">更新於</string>
 
     <string name="wc_heavy_thunderstorms">大雷雨</string>
     <string name="wc_thunderstorm">雷雨</string>
