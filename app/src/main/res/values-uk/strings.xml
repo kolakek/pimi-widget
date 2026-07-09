@@ -6,6 +6,8 @@
     <string name="config_version_title">Номер збірки</string>
     <string name="config_show_alarms">Будильники</string>
     <string name="config_show_alarms_descr">Показувати будильники протягом наступних 12 годин</string>
+    <string name="config_perm_alarm">Завжди показувати значок будильника</string>
+    <string name="config_perm_alarm_descr">Швидкий доступ до додатка Годинник</string>
     <string name="config_debug_info">Стан застосунку</string>
     <string name="config_debug_weather_data_age">Вік погодних даних</string>
     <string name="config_debug_last_valid_location">Остання валідна локація</string>

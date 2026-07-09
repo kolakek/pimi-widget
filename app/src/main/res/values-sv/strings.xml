@@ -6,6 +6,8 @@
     <string name="config_version_title">Byggnummer</string>
     <string name="config_show_alarms">Alarm</string>
     <string name="config_show_alarms_descr">Visa alarm för de kommande 12 timmarna</string>
+    <string name="config_perm_alarm">Visa alltid alarmikonen</string>
+    <string name="config_perm_alarm_descr">Snabb åtkomst till appen Klocka</string>
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>

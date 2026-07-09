@@ -10,6 +10,8 @@
     <string name="config_version_title">Build number</string>
     <string name="config_show_alarms">Alarms</string>
     <string name="config_show_alarms_descr">Show alarms within the next 12 hours</string>
+    <string name="config_perm_alarm">Always show alarm icon</string>
+    <string name="config_perm_alarm_descr">Quick access to the alarm app</string>
     <string name="config_debug_info">App status</string>
     <string name="config_debug_weather_data_age">Weather data age</string>
     <string name="config_debug_last_valid_location">Last valid location</string>

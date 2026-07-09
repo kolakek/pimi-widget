@@ -6,6 +6,8 @@
     <string name="config_version_title">Număr build</string>
     <string name="config_show_alarms">Alarme</string>
     <string name="config_show_alarms_descr">Afișează alarmele din următoarele 12 ore</string>
+    <string name="config_perm_alarm">Afișează întotdeauna pictograma alarmei</string>
+    <string name="config_perm_alarm_descr">Acces rapid la aplicația Ceas</string>
     <string name="config_debug_info">Starea aplicației</string>
     <string name="config_debug_weather_data_age">Vechimea datelor meteo</string>
     <string name="config_debug_last_valid_location">Ultima locație validă</string>

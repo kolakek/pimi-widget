@@ -107,6 +107,7 @@ object PreferencesHelper {
             useLocationFallback = getLocationFallbackPreference(context),
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
+            permanentAlarm = getPermanentAlarmPreference(context),
             tempUnit = tempUnit,
             iconStyle = iconStyle,
             textStyle = textStyle,
@@ -199,6 +200,11 @@ object PreferencesHelper {
     private fun getLocationFallbackPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_LOCATION_FALLBACK, true)
+    }
+
+    private fun getPermanentAlarmPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_PERMANENT_ALARM, false)
     }
 
     private fun getWeatherApp(context: Context): WeatherApp {

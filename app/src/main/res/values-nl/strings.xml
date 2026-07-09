@@ -6,6 +6,8 @@
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Wekkers</string>
     <string name="config_show_alarms_descr">Wekkers voor de komende 12 uur weergeven</string>
+    <string name="config_perm_alarm">Altijd het alarmpictogram weergeven</string>
+    <string name="config_perm_alarm_descr">Snelle toegang tot de Klok-app</string>
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Leeftijd van weerdata</string>
     <string name="config_debug_last_valid_location">Laatste geldige locatie</string>

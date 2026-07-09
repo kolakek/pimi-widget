@@ -6,6 +6,8 @@
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_show_alarms">Budíky</string>
     <string name="config_show_alarms_descr">Zobrazit budíky na následujících 12 hodin</string>
+    <string name="config_perm_alarm">Vždy zobrazovat ikonu budíku</string>
+    <string name="config_perm_alarm_descr">Rychlý přístup k aplikaci Hodiny</string>
     <string name="config_debug_info">Stav aplikace</string>
     <string name="config_debug_weather_data_age">Stáří meteorologických dat</string>
     <string name="config_debug_last_valid_location">Poslední platná poloha</string>

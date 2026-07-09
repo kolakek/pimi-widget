@@ -122,6 +122,13 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
+        <CheckBoxPreference
+            android:key="permanent_alarm"
+            android:title="@string/config_perm_alarm"
+            android:summary="@string/config_perm_alarm_descr"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

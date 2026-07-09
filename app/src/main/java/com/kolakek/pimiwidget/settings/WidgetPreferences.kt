@@ -25,6 +25,7 @@ data class WidgetPreferences (
     val useLocationFallback: Boolean,
     val showDailyForecast: Boolean,
     val showWeatherWarning: Boolean,
+    val permanentAlarm: Boolean,
     val iconStyle: IconStyle,
     val textStyle: TextStyle,
     val tempUnit: TempUnit,
