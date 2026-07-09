@@ -130,6 +130,7 @@
     <string name="degree" translatable="false">\u00B0</string>
 
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
+    <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
     <string name="config_weather_app_meteofr" translatable="false">Météo-France</string>
     <string name="config_weather_app_knmi" translatable="false">KNMI</string>
     <string name="config_weather_app_dwd" translatable="false">WarnWetter</string>

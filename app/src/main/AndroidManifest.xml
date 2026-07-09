@@ -73,6 +73,7 @@
             <action android:name="android.intent.action.SHOW_ALARMS" />
         </intent>
         <package android:name="org.breezyweather" />
+        <package android:name="com.marotidev.Overmorrow" />
         <package android:name="fr.meteo" />
         <package android:name="nl.knmi.weer" />
         <package android:name="de.dwd.warnapp" />

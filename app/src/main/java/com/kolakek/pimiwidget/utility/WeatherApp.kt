@@ -30,6 +30,11 @@ enum class WeatherApp(val key: String, val packageName: String, val labelId: Int
         "org.breezyweather",
         R.string.config_weather_app_breezy
     ),
+    OVERMORROW(
+        "weather_app_overmorrow",
+        "com.marotidev.Overmorrow",
+        R.string.config_weather_app_overmorrow
+    ),
     METEOFR(
         "weather_app_meteofr",
         "fr.meteo",
