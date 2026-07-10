@@ -7,6 +7,10 @@
     <string name="config_section_about">About</string>
     <string name="config_weather_switch">Weather</string>
     <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
+    <string name="config_birthday_switch">Birthdays</string>
+    <string name="config_birthday_switch_summary">Show birthdays from your contacts</string>
+    <string name="config_contact_perm_alert_title">Contacts permission required</string>
+    <string name="config_contact_perm_alert_message">To show birthdays, this app requires access to your contacts.</string>
     <string name="config_version_title">Build number</string>
     <string name="config_show_alarms">Alarms</string>
     <string name="config_show_alarms_descr">Show alarms within the next 12 hours</string>

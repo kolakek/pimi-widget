@@ -51,15 +51,18 @@ import java.util.Date
 
 class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
+    private var onPermissionGranted: (() -> Unit)? = null
+
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { isGranted -> if (isGranted) weatherSwitchCallback(preferenceManager.context, true) }
+    ) { onPermissionGranted?.invoke() }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
 
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
+        val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val settingsPlus: Preference? = findPreference(KEY_SETTINGS_PLUS)
@@ -67,10 +70,15 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         var debugCount = 0
 
         if (weatherSwitch?.isChecked == true &&
-            hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+            isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
             deleteAllData(context)
             weatherSwitch.isChecked = false
+        }
+        if (birthdaySwitch?.isChecked == true &&
+            isDenied(context, Manifest.permission.READ_CONTACTS)
+        ) {
+            birthdaySwitch.isChecked = false
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {
@@ -98,6 +106,15 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
             false
         }
+        birthdaySwitch?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == true)
+                return@setOnPreferenceChangeListener birthdaySwitchCallback(context, true)
+
+            if (newValue == false)
+                return@setOnPreferenceChangeListener birthdaySwitchCallback(context, false)
+
+            false
+        }
         handleWeatherAppPreference(context)
     }
 
@@ -113,25 +130,27 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun weatherSwitchCallback(context: Context, flag: Boolean): Boolean {
+    private fun weatherSwitchCallback(context: Context, isChecked: Boolean): Boolean {
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
-        if (!flag) {
+        if (!isChecked) {
             deleteAllData(context)
             weatherSwitch?.isChecked = false
 
             return true
         }
-        if (hasNoPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (isDenied(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
             askForPermission(
                 context,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 getString(R.string.config_loc_perm_alert_title),
                 getString(R.string.config_loc_perm_alert_message)
-            )
+            ) {
+                weatherSwitchCallback(context, true)
+            }
             return false
         }
-        if (hasNoPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+        if (isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
             askForPermission(
                 context,
                 Manifest.permission.ACCESS_BACKGROUND_LOCATION,
@@ -140,7 +159,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     R.string.config_bg_perm_alert_message,
                     context.packageManager.backgroundPermissionOptionLabel
                 )
-            )
+            ) {
+                weatherSwitchCallback(context, true)
+            }
             return false
         }
         WorkManagerHelper.enqueueWork(
@@ -152,12 +173,38 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         return true
     }
 
+    private fun birthdaySwitchCallback(context: Context, isChecked: Boolean): Boolean {
+        val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
+
+        if (!isChecked) {
+            birthdaySwitch?.isChecked = false
+
+            return true
+        }
+        if (isDenied(context, Manifest.permission.READ_CONTACTS)) {
+            askForPermission(
+                context,
+                Manifest.permission.READ_CONTACTS,
+                getString(R.string.config_contact_perm_alert_title),
+                getString(R.string.config_contact_perm_alert_message),
+            ) {
+                birthdaySwitch?.isChecked = true
+            }
+            return false
+        }
+        birthdaySwitch?.isChecked = true
+
+        return true
+    }
+
     private fun askForPermission(
         context: Context,
         permission: String,
         title: String,
-        message: String
+        message: String,
+        onGranted: () -> Unit
     ) {
+        onPermissionGranted = { if (isGranted(context, permission)) onGranted() }
         if (shouldShowRequestPermissionRationale(permission)) {
             showRationaleDialog(context, permission, title, message)
         } else {
@@ -165,11 +212,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun hasNoPermission(context: Context, permission: String): Boolean =
-        ContextCompat.checkSelfPermission(
-            context,
-            permission
-        ) == PackageManager.PERMISSION_DENIED
+    private fun isGranted(context: Context, permission: String?): Boolean =
+        permission?.let {
+            ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
+        } ?: false
+
+    private fun isDenied(context: Context, permission: String?): Boolean =
+        !isGranted(context, permission)
 
     private fun showDebugDialog(
         context: Context

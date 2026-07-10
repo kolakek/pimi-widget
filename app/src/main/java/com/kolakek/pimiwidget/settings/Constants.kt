@@ -41,6 +41,7 @@ internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
 internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
 internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
 
+internal const val KEY_BIRTHDAY_SWITCH = "birthday_switch"
 internal const val KEY_ALARM_SWITCH = "alarm_switch"
 internal const val KEY_WEATHER_SWITCH = "weather_switch"
 internal const val KEY_LOCATION_FALLBACK = "location_fallback"

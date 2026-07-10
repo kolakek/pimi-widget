@@ -19,6 +19,14 @@
             app:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat
+            android:key="birthday_switch"
+            android:summary="@string/config_birthday_switch_summary"
+            android:title="@string/config_birthday_switch"
+            android:widgetLayout="@layout/preference_switch"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
             android:key="alarm_switch"
             android:summary="@string/config_show_alarms_descr"
             android:title="@string/config_show_alarms"
