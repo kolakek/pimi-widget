@@ -15,21 +15,13 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.birthday
 
-import com.kolakek.pimiwidget.utility.WeatherApp
+import kotlinx.serialization.Serializable
 
-data class WidgetPreferences (
-    val showAlarms: Boolean,
-    val showWeather: Boolean,
-    val showBirthdays: Boolean,
-    val useLocationFallback: Boolean,
-    val showDailyForecast: Boolean,
-    val showWeatherWarning: Boolean,
-    val permanentAlarm: Boolean,
-    val iconStyle: IconStyle,
-    val textStyle: TextStyle,
-    val tempUnit: TempUnit,
-    val auxDisplay: AuxDisplay,
-    val weatherApp: WeatherApp
+@Serializable
+data class BirthdayData (
+    val names: List<String>,
+    val month: Int,
+    val day: Int
 )

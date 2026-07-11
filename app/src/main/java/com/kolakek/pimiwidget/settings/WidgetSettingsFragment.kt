@@ -72,12 +72,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (weatherSwitch?.isChecked == true &&
             isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
-            deleteAllData(context)
+            deleteWeatherData(context)
             weatherSwitch.isChecked = false
         }
         if (birthdaySwitch?.isChecked == true &&
             isDenied(context, Manifest.permission.READ_CONTACTS)
         ) {
+            deleteBirthdayData(context)
             birthdaySwitch.isChecked = false
         }
         versionField?.setOnPreferenceClickListener {
@@ -134,7 +135,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
 
         if (!isChecked) {
-            deleteAllData(context)
+            deleteWeatherData(context)
             weatherSwitch?.isChecked = false
 
             return true
@@ -177,6 +178,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
 
         if (!isChecked) {
+            deleteBirthdayData(context)
             birthdaySwitch?.isChecked = false
 
             return true
@@ -340,9 +342,16 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun deleteAllData(context: Context) {
+    private fun deleteWeatherData(context: Context) {
         lifecycleScope.launch {
-            DataRepository.deleteAllData(context)
+            DataRepository.deleteLocationData(context)
+            DataRepository.deleteWeatherData(context)
+        }
+    }
+
+    private fun deleteBirthdayData(context: Context) {
+        lifecycleScope.launch {
+            DataRepository.deleteBirthdayData(context)
         }
     }
 

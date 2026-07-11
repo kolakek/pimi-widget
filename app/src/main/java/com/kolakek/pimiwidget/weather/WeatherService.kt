@@ -29,7 +29,7 @@ import timber.log.Timber
 
 object WeatherService {
 
-    suspend fun fetchWeatherData(
+    suspend fun fetchWeather(
         context: Context,
         location: LocationData
     ): WeatherData {

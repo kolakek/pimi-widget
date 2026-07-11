@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.data
 import android.content.Context
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.worker.StatusData
@@ -29,6 +30,7 @@ object DataRepository {
     private enum class DataKeys (val key: Preferences.Key<String>) {
         WEATHER(stringPreferencesKey("weather_json")),
         LOCATION(stringPreferencesKey("location_json")),
+        BIRTHDAYS(stringPreferencesKey("birthday_json")),
         STATUS(stringPreferencesKey("update_status_json"))
     }
 
@@ -44,6 +46,10 @@ object DataRepository {
         return JsonDataStore.load<WeatherData>(context, DataKeys.WEATHER.key)
     }
 
+    suspend fun deleteWeatherData(context: Context) {
+        JsonDataStore.delete(context, DataKeys.WEATHER.key)
+    }
+
     suspend fun storeLocationData(context: Context, locationData: LocationData) {
         JsonDataStore.save(context, DataKeys.LOCATION.key, locationData)
     }
@@ -52,11 +58,27 @@ object DataRepository {
         return JsonDataStore.load<LocationData>(context, DataKeys.LOCATION.key)
     }
 
+    suspend fun deleteLocationData(context: Context) {
+        JsonDataStore.delete(context, DataKeys.LOCATION.key)
+    }
+
     suspend fun storeStatusData(context: Context, statusData: StatusData) {
         JsonDataStore.save(context, DataKeys.STATUS.key, statusData)
     }
 
     suspend fun loadStatusData(context: Context): StatusData? {
         return JsonDataStore.load<StatusData>(context, DataKeys.STATUS.key)
+    }
+
+    suspend fun storeBirthdayData(context: Context, birthdayData: BirthdayData) {
+        JsonDataStore.save(context, DataKeys.BIRTHDAYS.key, birthdayData)
+    }
+
+    suspend fun loadBirthdayData(context: Context): BirthdayData? {
+        return JsonDataStore.load<BirthdayData>(context, DataKeys.BIRTHDAYS.key)
+    }
+
+    suspend fun deleteBirthdayData(context: Context) {
+        JsonDataStore.delete(context, DataKeys.BIRTHDAYS.key)
     }
 }

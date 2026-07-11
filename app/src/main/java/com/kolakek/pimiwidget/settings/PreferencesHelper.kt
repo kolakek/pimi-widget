@@ -104,6 +104,7 @@ object PreferencesHelper {
         return WidgetPreferences(
             showAlarms = getAlarmPreference(context),
             showWeather = getWeatherPreference(context),
+            showBirthdays = getBirthdayPreference(context),
             useLocationFallback = getLocationFallbackPreference(context),
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
@@ -114,11 +115,6 @@ object PreferencesHelper {
             auxDisplay = auxDisplay,
             weatherApp = weatherApp
         )
-    }
-
-    fun getWeatherPreference(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_WEATHER_SWITCH, false)
     }
 
     fun setWeatherPreference(context: Context, value: Boolean) {
@@ -155,6 +151,16 @@ object PreferencesHelper {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putBoolean(KEY_ALARM_SWITCH, value)
         }
+    }
+
+    private fun getWeatherPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_WEATHER_SWITCH, false)
+    }
+
+    private fun getBirthdayPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_BIRTHDAY_SWITCH, false)
     }
 
     private fun getDailyForecastPreference(context: Context): Boolean {

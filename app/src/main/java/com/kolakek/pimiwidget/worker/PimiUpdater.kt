@@ -22,6 +22,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.annotation.RequiresPermission
+import com.kolakek.pimiwidget.birthday.BirthdayService
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.PreferencesHelper
@@ -40,11 +41,12 @@ object PimiUpdater {
         val weatherData = DataRepository.loadWeatherData(context)
         val updateStatus = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
 
+        if (prefs.showBirthdays) BirthdayService.fetchBirthdays(context)
+
         if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
 
         when (updateStatus) {
-            WeatherUpdateStatus.DONE ->
-                return WorkResult.RECENT_DATA_SERVED
+            WeatherUpdateStatus.DONE -> return WorkResult.RECENT_DATA_SERVED
 
             WeatherUpdateStatus.NEEDS_DATA -> {
                 fetchWeatherData(context, prefs)?.let {
@@ -62,26 +64,16 @@ object PimiUpdater {
         }
     }
 
-    suspend fun logUpdateStatus(
-        context: Context,
-        updateStatus: String,
-    ) {
-        DataRepository.storeStatusData(
-            context,
-            StatusData(updateStatus, System.currentTimeMillis())
-        )
+    suspend fun logUpdateStatus(context: Context, updateStatus: String) {
+        val currentTimeMillis = System.currentTimeMillis()
+        DataRepository.storeStatusData(context, StatusData(updateStatus, currentTimeMillis))
     }
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     private suspend fun fetchWeatherData(context: Context, prefs: WidgetPreferences) =
         if (hasNetCapabilityInternet(context)) {
-            WeatherService.fetchWeatherData(
-                context,
-                LocationService.fetchLocation(
-                    context,
-                    prefs.useLocationFallback
-                )
-            )
+            val locationData = LocationService.fetchLocation(context, prefs.useLocationFallback)
+            WeatherService.fetchWeather(context, locationData)
         } else null
 
     private fun hasNetCapabilityInternet(context: Context): Boolean {
