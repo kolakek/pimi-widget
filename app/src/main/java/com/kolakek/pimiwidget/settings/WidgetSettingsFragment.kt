@@ -36,7 +36,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
@@ -44,6 +44,7 @@ import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
@@ -165,9 +166,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             return false
         }
-        WorkManagerHelper.enqueueWork(
+        WorkManagerHelper.enqueueOneTimeWork(
             context,
-            workPolicy = ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE
+            action = UpdateAction.WEATHER_DATA,
+            workPolicy = ExistingWorkPolicy.APPEND
         )
         weatherSwitch?.isChecked = true
 
@@ -190,10 +192,15 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 getString(R.string.config_contact_perm_alert_title),
                 getString(R.string.config_contact_perm_alert_message),
             ) {
-                birthdaySwitch?.isChecked = true
+                birthdaySwitchCallback(context, true)
             }
             return false
         }
+        WorkManagerHelper.enqueueOneTimeWork(
+            context,
+            action = UpdateAction.BIRTHDAY_DATA,
+            workPolicy = ExistingWorkPolicy.APPEND
+        )
         birthdaySwitch?.isChecked = true
 
         return true

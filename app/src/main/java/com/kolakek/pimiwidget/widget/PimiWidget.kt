@@ -53,11 +53,11 @@ class PimiWidget : AppWidgetProvider() {
 
     override fun onEnabled(context: Context) {
         super.onEnabled(context)
-        WorkManagerHelper.enqueueWork(context)
+        WorkManagerHelper.enqueuePeriodicWork(context)
     }
 
     override fun onDisabled(context: Context) {
-        WorkManagerHelper.cancelWork(context)
+        WorkManagerHelper.cancelPeriodicWork(context)
         PreferencesHelper.setWeatherPreference(context, false)
         runBlocking { DataRepository.deleteAllData(context) }
     }
@@ -68,7 +68,7 @@ class PimiWidget : AppWidgetProvider() {
 
         when (intent.action) {
             Intent.ACTION_BOOT_COMPLETED ->
-                WorkManagerHelper.enqueueWork(
+                WorkManagerHelper.enqueuePeriodicWork(
                     context,
                     initialDelayMillis = WORKER_INIT_DELAY_MILLIS,
                     workPolicy = ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE

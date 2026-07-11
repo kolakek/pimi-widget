@@ -36,7 +36,22 @@ object PimiUpdater {
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
     suspend fun update(
         context: Context,
+        updateAction: UpdateAction,
     ): WorkResult {
+        when (updateAction) {
+            UpdateAction.DEFAULT -> {}
+
+            UpdateAction.BIRTHDAY_DATA -> {
+                BirthdayService.fetchBirthdays(context)
+                return WorkResult.DATA_FETCH_DONE
+            }
+            UpdateAction.WEATHER_DATA -> {
+                val prefs = PreferencesHelper.getWidgetPreferences(context)
+                fetchWeather(context, prefs)
+                return WorkResult.DATA_FETCH_DONE
+            }
+            UpdateAction.NONE -> return WorkResult.OUT_FOR_LUNCH
+        }
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val weatherData = DataRepository.loadWeatherData(context)
         val updateStatus = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
@@ -49,13 +64,13 @@ object PimiUpdater {
             WeatherUpdateStatus.DONE -> return WorkResult.RECENT_DATA_SERVED
 
             WeatherUpdateStatus.NEEDS_DATA -> {
-                fetchWeatherData(context, prefs)?.let {
+                fetchWeather(context, prefs)?.let {
                     return WorkResult.FRESH_DATA_FETCHED
                 }
                 return WorkResult.STALE_DATA_SERVED
             }
             WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
-                fetchWeatherData(context, prefs)?.let {
+                fetchWeather(context, prefs)?.let {
                     WidgetUpdater.refreshWidgetData(context, prefs, it)
                     return WorkResult.FRESH_DATA_FETCHED
                 }
@@ -70,7 +85,7 @@ object PimiUpdater {
     }
 
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-    private suspend fun fetchWeatherData(context: Context, prefs: WidgetPreferences) =
+    private suspend fun fetchWeather(context: Context, prefs: WidgetPreferences) =
         if (hasNetCapabilityInternet(context)) {
             val locationData = LocationService.fetchLocation(context, prefs.useLocationFallback)
             WeatherService.fetchWeather(context, locationData)

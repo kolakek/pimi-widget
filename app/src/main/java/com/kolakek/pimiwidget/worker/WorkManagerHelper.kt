@@ -19,21 +19,22 @@ package com.kolakek.pimiwidget.worker
 
 import android.content.Context
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import timber.log.Timber
+import androidx.work.workDataOf
 import java.util.concurrent.TimeUnit
 
 object WorkManagerHelper {
 
-    fun cancelWork(context: Context) {
-        Timber.d("WorkManagerHelper: cancelWork")
+    fun cancelPeriodicWork(context: Context) {
         val workManager = WorkManager.getInstance(context.applicationContext)
-        workManager.cancelUniqueWork(WORK_NAME)
+        workManager.cancelUniqueWork(PERIODIC_WORK_NAME)
     }
 
-    fun enqueueWork(
+    fun enqueuePeriodicWork(
         context: Context,
         initialDelayMillis: Long = 0L,
         workPolicy: ExistingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP
@@ -49,7 +50,25 @@ object WorkManagerHelper {
         WorkManager
             .getInstance(context.applicationContext)
             .enqueueUniquePeriodicWork(
-                WORK_NAME,
+                PERIODIC_WORK_NAME,
+                workPolicy,
+                request
+            )
+    }
+
+    fun enqueueOneTimeWork(
+        context: Context,
+        action: UpdateAction = UpdateAction.NONE,
+        workPolicy: ExistingWorkPolicy
+    ) {
+        val request = OneTimeWorkRequestBuilder<PimiWorker>()
+            .setInputData(workDataOf(UPDATE_ACTION_KEY to action.name))
+            .build()
+
+        WorkManager
+            .getInstance(context.applicationContext)
+            .enqueueUniqueWork(
+                ONE_TIME_WORK_NAME,
                 workPolicy,
                 request
             )
@@ -58,7 +77,7 @@ object WorkManagerHelper {
     fun getNextRunMillis(context: Context): Long? =
         runCatching {
             WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(WORK_NAME)
+                .getWorkInfosForUniqueWork(PERIODIC_WORK_NAME)
                 .get()
                 .firstOrNull { it.state == WorkInfo.State.ENQUEUED }
                 ?.nextScheduleTimeMillis
@@ -67,7 +86,7 @@ object WorkManagerHelper {
     fun getStatus(context: Context): String? =
         runCatching {
             WorkManager.getInstance(context.applicationContext)
-                .getWorkInfosForUniqueWork(WORK_NAME)
+                .getWorkInfosForUniqueWork(PERIODIC_WORK_NAME)
                 .get()
                 .firstOrNull()
                 ?.state

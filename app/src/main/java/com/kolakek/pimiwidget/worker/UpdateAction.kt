@@ -17,12 +17,9 @@
 
 package com.kolakek.pimiwidget.worker
 
-enum class WorkResult(val message: String) {
-    FRESH_DATA_FETCHED("FreshDataFetched"),
-    OUTDATED_DATA_SERVED("OutdatedDataServed"),
-    RECENT_DATA_SERVED("RecentDataServed"),
-    STALE_DATA_SERVED("StaleDataServed"),
-    WIDGET_REFRESHED("WidgetRefreshed"),
-    DATA_FETCH_DONE("DataFetchDone"),
-    OUT_FOR_LUNCH("OutForLunch")
+enum class UpdateAction {
+    NONE,
+    DEFAULT,
+    WEATHER_DATA,
+    BIRTHDAY_DATA
 }

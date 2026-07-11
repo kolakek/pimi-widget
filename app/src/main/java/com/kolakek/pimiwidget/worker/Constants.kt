@@ -17,6 +17,8 @@
 
 package com.kolakek.pimiwidget.worker
 
-internal const val WORK_NAME = "periodic-update-kolakek-pimi-widget"
+internal const val PERIODIC_WORK_NAME = "periodic-update-kolakek-pimi-widget"
+internal const val ONE_TIME_WORK_NAME = "one-time-update-kolakek-pimi-widget"
+internal const val UPDATE_ACTION_KEY = "key_update_action"
 internal const val STATUS_STRING_RUNNING = "Running"
 internal const val WORK_INTERVAL_MILLIS = 30 * 60 * 1000L

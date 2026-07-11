@@ -38,8 +38,13 @@ class PimiWorker(
                 applicationContext,
                 STATUS_STRING_RUNNING
             )
+            val updateAction = inputData.getString(
+                UPDATE_ACTION_KEY
+            )?.let { UpdateAction.valueOf(it) } ?: UpdateAction.DEFAULT
+
             val workResult = PimiUpdater.update(
-                applicationContext
+                applicationContext,
+                updateAction
             )
             PimiUpdater.logUpdateStatus(
                 applicationContext,
