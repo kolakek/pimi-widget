@@ -29,6 +29,11 @@ import java.time.LocalDate
 
 object BirthdayUpdater {
 
+    private data class DisplayState(
+        val dismissDay: Int,
+        val nextIndex: Int
+    )
+
     fun updateViews(
         context: Context,
         views: RemoteViews,
@@ -46,26 +51,24 @@ object BirthdayUpdater {
 
             val today = LocalDate.now()
             val day = today.dayOfMonth
+            val displayState = getDisplayState(context)
 
-            val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-            val dismissHash = prefs.getInt(KEY_BIRTHDAY_DISMISS_HASH, 0)
-            val dismissDay = dismissHash / 10
-            val nextIndex = dismissHash % 10
-
-            val birthdayIndex = if (day == dismissDay) nextIndex else 0
+            val birthdayIndex = if (day == displayState.dismissDay) displayState.nextIndex else 0
 
             if (birthdayIndex == 9) return BirthdayUpdateStatus.NO_BIRTHDAYS
 
             data.names.getOrNull(birthdayIndex)?.let {
 
-                // todo add +1
                 // todo load icon properly
-                // todo refactor hash code
+                // todo move bday display up?
 
-                views.setTextViewText(R.id.widget_birthday, it)
+                val lengthCue = data.names.size - birthdayIndex - 1
+                val str = if (lengthCue > 0) "$it +$lengthCue" else it
+
+                views.setTextViewText(R.id.widget_birthday, str)
                 views.setTextViewCompoundDrawables(
                     R.id.widget_birthday,
-                    R.drawable.ic_birthday_light_shadow,
+                    R.drawable.ic_birthday_light,
                     0,
                     0,
                     0
@@ -79,24 +82,37 @@ object BirthdayUpdater {
     fun updateDismissHash(context: Context) {
         val today = LocalDate.now()
         val day = today.dayOfMonth
+        val displayState = getDisplayState(context)
 
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        val dismissHash = prefs.getInt(KEY_BIRTHDAY_DISMISS_HASH, 0)
+        val dismissDay: Int
+        val nextIndex: Int
 
-        var dismissDay = dismissHash / 10
-        var nextIndex = dismissHash % 10
-
-        if (day == dismissDay) {
-            nextIndex = (nextIndex + 1).coerceAtMost(9)
+        if (day == displayState.dismissDay) {
+            dismissDay = displayState.dismissDay
+            nextIndex = (displayState.nextIndex + 1).coerceAtMost(9)
         } else {
             dismissDay = day
             nextIndex = 1
         }
-        prefs.edit { putInt(KEY_BIRTHDAY_DISMISS_HASH, 10 * dismissDay + nextIndex) }
+        setDisplayState(context, dismissDay, nextIndex)
     }
 
     fun deleteDismissHash(context: Context) {
         val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
         prefs.edit { remove(KEY_BIRTHDAY_DISMISS_HASH) }
+    }
+
+    private fun getDisplayState(context: Context): DisplayState {
+        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
+        val dismissHash = prefs.getInt(KEY_BIRTHDAY_DISMISS_HASH, 0)
+        return DisplayState(
+            dismissDay = dismissHash / 10,
+            nextIndex = dismissHash % 10
+        )
+    }
+
+    private fun setDisplayState(context: Context, dismissDay: Int, nextIndex: Int) {
+        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
+        prefs.edit { putInt(KEY_BIRTHDAY_DISMISS_HASH, 10 * dismissDay + nextIndex) }
     }
 }
