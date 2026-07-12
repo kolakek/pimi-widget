@@ -42,7 +42,10 @@ object MigrateApp {
         storeCurrentVersionCode(context)
 
         WidgetUpdater.updateWidgets(context)
-        WorkManagerHelper.enqueuePeriodicWork(context, workPolicy = ExistingPeriodicWorkPolicy.UPDATE)
+        WorkManagerHelper.enqueuePeriodicWork(
+            context,
+            workPolicy = ExistingPeriodicWorkPolicy.UPDATE
+        )
     }
 
     private fun setFirstAvailableWeatherApp(context: Context) {
@@ -52,14 +55,14 @@ object MigrateApp {
     }
 
     private fun getPreviousVersionCode(context: Context): Long {
-        val prefs = context.getSharedPreferences(KEY_APP_PREFS, Context.MODE_PRIVATE)
+        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
 
         return if (
             prefs.contains(KEY_VERSION_CODE)
         ) {
             prefs.getLong(KEY_VERSION_CODE, 22)
         } else if (
-            PreferenceManager.getDefaultSharedPreferences(context).contains(KEY_PREF_V21)
+            PreferenceManager.getDefaultSharedPreferences(context).contains(KEY_PREFERENCE_OF_V21)
         ) {
             21
         } else {
@@ -68,7 +71,7 @@ object MigrateApp {
     }
 
     private fun storeCurrentVersionCode(context: Context) {
-        val prefs = context.getSharedPreferences(KEY_APP_PREFS, Context.MODE_PRIVATE)
+        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
         prefs.edit { putLong(KEY_VERSION_CODE, BuildConfig.VERSION_CODE.toLong()) }
     }
 }

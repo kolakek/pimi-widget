@@ -25,7 +25,7 @@ import com.kolakek.pimiwidget.R
 
 object VisibilityUpdater {
 
-    fun updateViews(
+    fun updateAuxViews(
         context: Context,
         views: RemoteViews,
         appWidgetId: Int
@@ -42,6 +42,22 @@ object VisibilityUpdater {
 
         if (viewHeight > widgetHeight) views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
         else views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
+    }
+
+    fun updateWeatherBirthdayViews(
+        views: RemoteViews,
+        birthdayUpdateStatus: BirthdayUpdateStatus
+    ) {
+        when (birthdayUpdateStatus) {
+            BirthdayUpdateStatus.NO_BIRTHDAYS -> {
+                views.setViewVisibility(R.id.widget_birthday, View.GONE)
+                views.setViewVisibility(R.id.widget_weather, View.VISIBLE)
+            }
+            BirthdayUpdateStatus.HAS_BIRTHDAYS -> {
+                views.setViewVisibility(R.id.widget_birthday, View.VISIBLE)
+                views.setViewVisibility(R.id.widget_weather, View.GONE)
+            }
+        }
     }
 
     private fun Int.dpToPx(context: Context): Int =

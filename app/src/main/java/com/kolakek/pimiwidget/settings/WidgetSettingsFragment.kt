@@ -44,6 +44,7 @@ import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.widget.BirthdayUpdater
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -358,6 +359,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private fun deleteBirthdayData(context: Context) {
         lifecycleScope.launch {
+            BirthdayUpdater.deleteDismissHash(context)
             DataRepository.deleteBirthdayData(context)
         }
     }

@@ -32,16 +32,16 @@ object WeatherUpdater {
         weatherData: WeatherData?
     ): WeatherUpdateStatus {
 
-        views.setTextViewText(R.id.widget_temp, null)
-        views.setTextViewCompoundDrawables(R.id.widget_temp, 0, 0, 0, 0)
+        views.setTextViewText(R.id.widget_weather, null)
+        views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, 0, 0)
 
         if (!prefs.showWeather) return WeatherUpdateStatus.DONE
 
         weatherData?.let { data ->
             WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
 
-                views.setTextViewText(R.id.widget_temp, it.text)
-                views.setTextViewCompoundDrawables(R.id.widget_temp, it.iconId1, 0, it.iconId2, 0)
+                views.setTextViewText(R.id.widget_weather, it.text)
+                views.setTextViewCompoundDrawables(R.id.widget_weather, it.iconId1, 0, it.iconId2, 0)
 
             } ?: return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH
 

@@ -17,11 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-internal const val FORECAST_TODAY_HOUR_ON = 6
-internal const val FORECAST_TODAY_HOUR_OFF = 10
-internal const val FORECAST_TOMORROW_HOUR_ON = 20
-internal const val FORECAST_TOMORROW_HOUR_OFF = 24
-internal const val ALARM_LOOK_AHEAD_MILLIS = 12 * 60 * 60 * 1000L
-internal const val WEATHER_UPDATE_AGE_MILLIS = 90 * 60 * 1000L
-internal const val WORKER_INIT_DELAY_MILLIS = 30 * 1000L
-internal const val ACTION_BIRTHDAY_DISMISS = "com.kolakek.pimiwidget.action.BIRTHDAY_DISMISS"
+enum class BirthdayUpdateStatus {
+    NO_BIRTHDAYS,
+    HAS_BIRTHDAYS
+}

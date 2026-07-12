@@ -58,7 +58,7 @@ object CoreUpdater {
         } else {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
-        views.setOnClickPendingIntent(R.id.widget_temp, weatherAppIntent)
+        views.setOnClickPendingIntent(R.id.widget_weather, weatherAppIntent)
 
         views.setOnClickPendingIntent(
             R.id.widget_alarm,
@@ -68,9 +68,14 @@ object CoreUpdater {
             TextStyle.LIGHT, TextStyle.LIGHT_SHADOW -> Color.WHITE
             TextStyle.DARK -> Color.BLACK
         }
+        views.setOnClickPendingIntent(
+            R.id.widget_birthday,
+            WidgetIntent.birthdayDismissIntent(context, appWidgetId)
+        )
         views.setTextColor(R.id.widget_text_clock, textColor)
         views.setTextColor(R.id.widget_alarm, textColor)
-        views.setTextColor(R.id.widget_temp, textColor)
+        views.setTextColor(R.id.widget_weather, textColor)
+        views.setTextColor(R.id.widget_birthday, textColor)
         views.setTextColor(R.id.widget_aux, textColor)
     }
 }

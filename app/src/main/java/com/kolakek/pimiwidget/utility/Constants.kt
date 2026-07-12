@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.utility
 
-internal const val KEY_APP_PREFS = "app_preferences"
+internal const val KEY_PIMI_PREFERENCES = "app_preferences"
 internal const val KEY_VERSION_CODE = "version_code"
-internal const val KEY_PREF_V21 = "weather_app_list"
+internal const val KEY_PREFERENCE_OF_V21 = "weather_app_list"
+internal const val KEY_BIRTHDAY_DISMISS_HASH = "birthday_dismiss_hash"

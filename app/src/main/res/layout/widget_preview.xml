@@ -12,7 +12,7 @@
         android:text="@string/widget_date_prev" />
 
     <TextView
-        style="@style/Widget.Weather"
+        style="@style/Widget.WeatherBirthday"
         android:textColor="?attr/widgetPreviewTextColor"
         android:text="@string/widget_temp_prev"
         android:drawableStart="?attr/widgetPreviewWeatherIcon"

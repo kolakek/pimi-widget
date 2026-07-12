@@ -19,8 +19,13 @@
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.Weather"
-        android:id="@+id/widget_temp" />
+        style="@style/Widget.WeatherBirthday"
+        android:id="@+id/widget_weather" />
+
+    <TextView
+        style="@style/Widget.WeatherBirthday"
+        android:id="@+id/widget_birthday"
+        android:visibility="gone"/>
 
     <TextView
         style="@style/Widget.Aux"

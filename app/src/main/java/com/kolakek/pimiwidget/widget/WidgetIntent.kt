@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.widget
 
 import android.app.PendingIntent
+import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -77,5 +78,21 @@ object WidgetIntent {
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
         }
+    }
+
+    fun birthdayDismissIntent(
+        context: Context,
+        appWidgetId: Int
+    ): PendingIntent {
+        val intent = Intent(context, PimiWidget::class.java).apply {
+            action = ACTION_BIRTHDAY_DISMISS
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        }
+        return PendingIntent.getBroadcast(
+            context,
+            appWidgetId,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
     }
 }

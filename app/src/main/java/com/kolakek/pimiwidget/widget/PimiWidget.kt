@@ -82,6 +82,11 @@ class PimiWidget : AppWidgetProvider() {
 
             AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED ->
                 WidgetUpdater.refreshAlarm(context)
+
+            ACTION_BIRTHDAY_DISMISS -> {
+                BirthdayUpdater.updateDismissHash(context)
+                WidgetUpdater.refreshBirthday(context)
+            }
         }
     }
 }

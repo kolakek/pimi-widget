@@ -74,13 +74,13 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
-    <style name="Widget.Weather" parent="Widget.InnerView">
+    <style name="Widget.WeatherBirthday" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
         <item name="android:drawablePadding">2dp</item>
     </style>
 
-    <style name="Widget.WeatherShadow" parent="Widget.Weather">
+    <style name="Widget.WeatherBirthdayShadow" parent="Widget.WeatherBirthday">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>

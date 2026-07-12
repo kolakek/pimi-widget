@@ -40,8 +40,13 @@ object WidgetUpdater {
             ComponentName(context, PimiWidget::class.java)
         )
         val prefs = PreferencesHelper.getWidgetPreferences(context)
+
         val weatherData = if (prefs.showWeather) {
             runBlocking { DataRepository.loadWeatherData(context) }
+        } else null
+
+        val birthdayData = if (prefs.showBirthdays) {
+            runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
         for (appWidgetId in appWidgetIds) {
@@ -53,8 +58,10 @@ object WidgetUpdater {
             CoreUpdater.updateViews(context, views, appWidgetId, prefs)
             AlarmUpdater.updateViews(context, views, prefs)
             WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             AuxUpdater.updateViews(context, views, prefs)
-            VisibilityUpdater.updateViews(context, views, appWidgetId)
+            VisibilityUpdater.updateWeatherBirthdayViews(views, birthdayStatus)
+            VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -107,6 +114,28 @@ object WidgetUpdater {
         }
     }
 
+    fun refreshBirthday(context: Context) {
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            ComponentName(context, PimiWidget::class.java)
+        )
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val birthdayData = if (prefs.showBirthdays) {
+            runBlocking { DataRepository.loadBirthdayData(context) }
+        } else null
+
+        for (appWidgetId in appWidgetIds) {
+            val views = RemoteViews(
+                context.packageName,
+                getWidgetLayout(prefs.textStyle)
+            )
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
+            VisibilityUpdater.updateWeatherBirthdayViews(views, birthdayStatus)
+
+            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+        }
+    }
+
     fun refreshVisibility(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -117,7 +146,7 @@ object WidgetUpdater {
             context.packageName,
             getWidgetLayout(prefs.textStyle)
         )
-        VisibilityUpdater.updateViews(context, views, appWidgetId)
+        VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
 
         appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
