@@ -3,6 +3,10 @@
     <string name="config_button_apply">Použít nastavení</string>
     <string name="config_weather_switch">Počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
+    <string name="config_birthday_switch">Narozeniny</string>
+    <string name="config_birthday_switch_summary">Zobrazovat narozeniny vašich kontaktů</string>
+    <string name="config_contact_perm_alert_title">Vyžadován přístup ke kontaktům</string>
+    <string name="config_contact_perm_alert_message">Pro zobrazení narozenin tato aplikace potřebuje přístup k tvým kontaktům.</string>
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_show_alarms">Budíky</string>
     <string name="config_show_alarms_descr">Zobrazit budíky na následujících 12 hodin</string>

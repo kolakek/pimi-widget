@@ -3,6 +3,10 @@
     <string name="config_button_apply">Ayarları uygula</string>
     <string name="config_weather_switch">Hava durumu</string>
     <string name="config_weather_switch_summary">Open-Meteo.com\'dan hava durumu verileri</string>
+    <string name="config_birthday_switch">Doğum Günleri</string>
+    <string name="config_birthday_switch_summary">Kişilerinizin doğum günlerini göster</string>
+    <string name="config_contact_perm_alert_title">Kişilere erişim izni gerekli</string>
+    <string name="config_contact_perm_alert_message">Doğum günlerini göstermek için bu uygulamanın kişilerinize erişmesi gerekiyor.</string>
     <string name="config_version_title">Yapı numarası</string>
     <string name="config_show_alarms">Alarmlar</string>
     <string name="config_show_alarms_descr">Önümüzdeki 12 saat içindeki alarmları göster</string>

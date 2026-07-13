@@ -3,6 +3,10 @@
     <string name="config_button_apply">Застосувати налаштування</string>
     <string name="config_weather_switch">Погода</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>
+    <string name="config_birthday_switch">Дні народження</string>
+    <string name="config_birthday_switch_summary">Показувати дні народження ваших контактів</string>
+    <string name="config_contact_perm_alert_title">Потрібен доступ до контактів</string>
+    <string name="config_contact_perm_alert_message">Щоб показувати дні народження, цей застосунок потребує доступу до ваших контактів.</string>
     <string name="config_version_title">Номер збірки</string>
     <string name="config_show_alarms">Будильники</string>
     <string name="config_show_alarms_descr">Показувати будильники протягом наступних 12 годин</string>

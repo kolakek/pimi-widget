@@ -3,6 +3,10 @@
     <string name="config_button_apply">Aplică setările</string>
     <string name="config_weather_switch">Vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
+    <string name="config_birthday_switch">Aniversări</string>
+    <string name="config_birthday_switch_summary">Afișează aniversările contactelor tale</string>
+    <string name="config_contact_perm_alert_title">Este necesar accesul la contacte</string>
+    <string name="config_contact_perm_alert_message">Pentru a afișa aniversările, această aplicație are nevoie de acces la contactele tale.</string>
     <string name="config_version_title">Număr build</string>
     <string name="config_show_alarms">Alarme</string>
     <string name="config_show_alarms_descr">Afișează alarmele din următoarele 12 ore</string>

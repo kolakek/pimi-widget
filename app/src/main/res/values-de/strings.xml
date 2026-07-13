@@ -3,6 +3,10 @@
     <string name="config_button_apply">Einstellungen übernehmen</string>
     <string name="config_weather_switch">Wetter</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>
+    <string name="config_birthday_switch">Geburtstage</string>
+    <string name="config_birthday_switch_summary">Geburtstage deiner Kontakte anzeigen</string>
+    <string name="config_contact_perm_alert_title">Zugriff auf Kontakte erforderlich</string>
+    <string name="config_contact_perm_alert_message">Um Geburtstage anzuzeigen, benötigt diese App Zugriff auf deine Kontakte.</string>
     <string name="config_version_title">Build-Nummer</string>
     <string name="config_show_alarms">Wecker</string>
     <string name="config_show_alarms_descr">Wecker der nächsten 12 Stunden anzeigen</string>

@@ -3,6 +3,10 @@
     <string name="config_button_apply">Ota asetukset käyttöön</string>
     <string name="config_weather_switch">Sää</string>
     <string name="config_weather_switch_summary">Säätiedot Open-Meteo.comista</string>
+    <string name="config_birthday_switch">Syntymäpäivät</string>
+    <string name="config_birthday_switch_summary">Näytä yhteystietojesi syntymäpäivät</string>
+    <string name="config_contact_perm_alert_title">Yhteystietojen käyttöoikeus vaaditaan</string>
+    <string name="config_contact_perm_alert_message">Syntymäpäivien näyttämiseksi tämä sovellus tarvitsee pääsyn yhteystietoihisi.</string>
     <string name="config_version_title">Koontinumero</string>
     <string name="config_show_alarms">Hälytykset</string>
     <string name="config_show_alarms_descr">Näytä seuraavien 12 tunnin herätykset</string>

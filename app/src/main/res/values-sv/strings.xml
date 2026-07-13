@@ -3,6 +3,10 @@
     <string name="config_button_apply">Tillämpa inställningar</string>
     <string name="config_weather_switch">Väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
+    <string name="config_birthday_switch">Födelsedagar</string>
+    <string name="config_birthday_switch_summary">Visa födelsedagar för dina kontakter</string>
+    <string name="config_contact_perm_alert_title">Åtkomst till kontakter krävs</string>
+    <string name="config_contact_perm_alert_message">För att visa födelsedagar behöver den här appen åtkomst till dina kontakter.</string>
     <string name="config_version_title">Byggnummer</string>
     <string name="config_show_alarms">Alarm</string>
     <string name="config_show_alarms_descr">Visa alarm för de kommande 12 timmarna</string>

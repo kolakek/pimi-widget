@@ -3,6 +3,10 @@
     <string name="config_button_apply">Εφαρμογή ρυθμίσεων</string>
     <string name="config_weather_switch">Καιρός</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
+    <string name="config_birthday_switch">Γενέθλια</string>
+    <string name="config_birthday_switch_summary">Εμφάνιση των γενεθλίων των επαφών σας</string>
+    <string name="config_contact_perm_alert_title">Απαιτείται πρόσβαση στις επαφές</string>
+    <string name="config_contact_perm_alert_message">Για την εμφάνιση των γενεθλίων, αυτή η εφαρμογή χρειάζεται πρόσβαση στις επαφές σας.</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
     <string name="config_show_alarms">Ξυπνητήρια</string>
     <string name="config_show_alarms_descr">Εμφάνιση ξυπνητηριών για τις επόμενες 12 ώρες</string>

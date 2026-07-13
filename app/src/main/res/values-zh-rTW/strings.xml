@@ -7,6 +7,10 @@
     <string name="config_section_about">關於</string>
     <string name="config_weather_switch">天氣</string>
     <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
+    <string name="config_birthday_switch">生日</string>
+    <string name="config_birthday_switch_summary">顯示聯絡人的生日</string>
+    <string name="config_contact_perm_alert_title">需要聯絡人權限</string>
+    <string name="config_contact_perm_alert_message">要顯示生日，此應用程式需要存取您的聯絡人。</string>
     <string name="config_version_title">組建編號</string>
     <string name="config_show_alarms">鬧鐘</string>
     <string name="config_show_alarms_descr">顯示未來 12 小時內的鬧鐘</string>

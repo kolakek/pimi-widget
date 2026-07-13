@@ -3,6 +3,10 @@
     <string name="config_button_apply">Anvend indstillinger</string>
     <string name="config_weather_switch">Vejr</string>
     <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
+    <string name="config_birthday_switch">Fødselsdage</string>
+    <string name="config_birthday_switch_summary">Vis dine kontakters fødselsdage</string>
+    <string name="config_contact_perm_alert_title">Adgang til kontakter kræves</string>
+    <string name="config_contact_perm_alert_message">For at vise fødselsdage skal denne app have adgang til dine kontakter.</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Alarmer</string>
     <string name="config_show_alarms_descr">Vis alarmer for de næste 12 timer</string>

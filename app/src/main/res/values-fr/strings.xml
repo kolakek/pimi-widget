@@ -3,6 +3,10 @@
     <string name="config_button_apply">Appliquer les paramètres</string>
     <string name="config_weather_switch">Météo</string>
     <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
+    <string name="config_birthday_switch">Anniversaires</string>
+    <string name="config_birthday_switch_summary">Afficher les anniversaires de tes contacts</string>
+    <string name="config_contact_perm_alert_title">Accès aux contacts requis</string>
+    <string name="config_contact_perm_alert_message">Pour afficher les anniversaires, cette application a besoin d’accéder à tes contacts.</string>
     <string name="config_version_title">Numéro de build</string>
     <string name="config_show_alarms">Alarmes</string>
     <string name="config_show_alarms_descr">Afficher les alarmes des 12 prochaines heures</string>

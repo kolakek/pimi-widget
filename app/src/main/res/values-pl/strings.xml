@@ -3,6 +3,10 @@
     <string name="config_button_apply">Zastosuj ustawienia</string>
     <string name="config_weather_switch">Pogoda</string>
     <string name="config_weather_switch_summary">Dane pogodowe z Open-Meteo.com</string>
+    <string name="config_birthday_switch">Urodziny</string>
+    <string name="config_birthday_switch_summary">Pokazuj urodziny swoich kontaktów</string>
+    <string name="config_contact_perm_alert_title">Wymagany dostęp do kontaktów</string>
+    <string name="config_contact_perm_alert_message">Aby wyświetlać urodziny, ta aplikacja potrzebuje dostępu do Twoich kontaktów.</string>
     <string name="config_version_title">Numer kompilacji</string>
     <string name="config_show_alarms">Alarmy</string>
     <string name="config_show_alarms_descr">Pokaż alarmy w ciągu najbliższych 12 godzin</string>

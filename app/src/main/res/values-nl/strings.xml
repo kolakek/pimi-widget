@@ -3,6 +3,10 @@
     <string name="config_button_apply">Instellingen toepassen</string>
     <string name="config_weather_switch">Weer</string>
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
+    <string name="config_birthday_switch">Verjaardagen</string>
+    <string name="config_birthday_switch_summary">Verjaardagen van je contacten weergeven</string>
+    <string name="config_contact_perm_alert_title">Toegang tot contacten vereist</string>
+    <string name="config_contact_perm_alert_message">Om verjaardagen weer te geven, heeft deze app toegang tot je contacten nodig.</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Wekkers</string>
     <string name="config_show_alarms_descr">Wekkers voor de komende 12 uur weergeven</string>
