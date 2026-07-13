@@ -13,19 +13,19 @@
             android:id="@+id/widget_text_clock" />
 
         <TextView
-            style="@style/Widget.AlarmShadow"
+            style="@style/Widget.EventShadow"
             android:id="@+id/widget_alarm" />
+
+        <TextView
+            style="@style/Widget.EventShadow"
+            android:id="@+id/widget_birthday"
+            android:visibility="gone" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.WeatherBirthdayShadow"
+        style="@style/Widget.WeatherShadow"
         android:id="@+id/widget_weather" />
-
-    <TextView
-        style="@style/Widget.WeatherBirthdayShadow"
-        android:id="@+id/widget_birthday"
-        android:visibility="gone"/>
 
     <TextView
         style="@style/Widget.AuxShadow"

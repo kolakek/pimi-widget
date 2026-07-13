@@ -60,7 +60,7 @@ object WidgetUpdater {
             WeatherUpdater.updateViews(context, views, prefs, weatherData)
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             AuxUpdater.updateViews(context, views, prefs)
-            VisibilityUpdater.updateWeatherBirthdayViews(views, birthdayStatus)
+            VisibilityUpdater.updateEventViews(views, birthdayStatus)
             VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -130,7 +130,7 @@ object WidgetUpdater {
                 getWidgetLayout(prefs.textStyle)
             )
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
-            VisibilityUpdater.updateWeatherBirthdayViews(views, birthdayStatus)
+            VisibilityUpdater.updateEventViews(views, birthdayStatus)
 
             appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }

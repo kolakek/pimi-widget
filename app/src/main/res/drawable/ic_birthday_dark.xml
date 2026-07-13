@@ -1,9 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
+    android:width="@dimen/widget_event_icon_size"
+    android:height="@dimen/widget_event_icon_size"
     android:viewportWidth="24"
     android:viewportHeight="24">
   <path
       android:fillColor="#FF000000"
-      android:pathData="m2,19v-7.2h1.78v-5.4h5.33v-1.31c-0.27,-0.18 -0.48,-0.4 -0.64,-0.65s-0.24,-0.56 -0.24,-0.92c0,-0.22 0.04,-0.45 0.13,-0.66s0.22,-0.42 0.4,-0.6l1.24,-1.26 1.24,1.26c0.18,0.18 0.31,0.38 0.4,0.6s0.13,0.44 0.13,0.66c0,0.36 -0.08,0.67 -0.24,0.92s-0.38,0.47 -0.64,0.65v1.31h5.33v5.4h1.78v7.2L2,19ZM5.56,11.8h8.89v-3.6L5.56,8.2v3.6ZM3.78,17.2h12.44v-3.6L3.78,13.6v3.6ZM5.56,11.8h8.89L5.56,11.8ZM3.78,17.2h12.44L3.78,17.2ZM16.22,11.8L3.78,11.8h12.44Z"/>
+      android:pathData="m3,21v-8h2v-6h6v-1.45c-0.3,-0.2 -0.54,-0.44 -0.73,-0.72s-0.27,-0.63 -0.27,-1.03c0,-0.25 0.05,-0.5 0.15,-0.74s0.25,-0.46 0.45,-0.66l1.4,-1.4 1.4,1.4c0.2,0.2 0.35,0.42 0.45,0.66s0.15,0.49 0.15,0.74c0,0.4 -0.09,0.74 -0.27,1.03s-0.43,0.52 -0.73,0.72v1.45h6v6h2v8L3,21ZM7,13h10v-4L7,9v4ZM5,19h14v-4L5,15v4ZM7,13h10L7,13ZM5,19h14L5,19ZM19,13L5,13h14Z"/>
 </vector>

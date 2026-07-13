@@ -44,18 +44,18 @@ object VisibilityUpdater {
         else views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
     }
 
-    fun updateWeatherBirthdayViews(
+    fun updateEventViews(
         views: RemoteViews,
         birthdayUpdateStatus: BirthdayUpdateStatus
     ) {
         when (birthdayUpdateStatus) {
             BirthdayUpdateStatus.NO_BIRTHDAYS -> {
                 views.setViewVisibility(R.id.widget_birthday, View.GONE)
-                views.setViewVisibility(R.id.widget_weather, View.VISIBLE)
+                views.setViewVisibility(R.id.widget_alarm, View.VISIBLE)
             }
             BirthdayUpdateStatus.HAS_BIRTHDAYS -> {
                 views.setViewVisibility(R.id.widget_birthday, View.VISIBLE)
-                views.setViewVisibility(R.id.widget_weather, View.GONE)
+                views.setViewVisibility(R.id.widget_alarm, View.GONE)
             }
         }
     }

@@ -22,6 +22,7 @@ import android.widget.RemoteViews
 import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
+import com.kolakek.pimiwidget.resources.WidgetIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.KEY_BIRTHDAY_DISMISS_HASH
@@ -58,17 +59,13 @@ object BirthdayUpdater {
             if (birthdayIndex == 9) return BirthdayUpdateStatus.NO_BIRTHDAYS
 
             data.names.getOrNull(birthdayIndex)?.let {
-
-                // todo load icon properly
-                // todo move bday display up?
-
                 val lengthCue = data.names.size - birthdayIndex - 1
                 val str = if (lengthCue > 0) "$it +$lengthCue" else it
 
                 views.setTextViewText(R.id.widget_birthday, str)
                 views.setTextViewCompoundDrawables(
                     R.id.widget_birthday,
-                    R.drawable.ic_birthday_light,
+                    WidgetIcon.BIRTHDAY.id(prefs.textStyle),
                     0,
                     0,
                     0

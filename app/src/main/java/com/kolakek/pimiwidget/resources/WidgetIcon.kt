@@ -21,7 +21,8 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.TextStyle
 
 enum class WidgetIcon {
-    ALARM;
+    ALARM,
+    BIRTHDAY;
 
     fun id(textStyle: TextStyle): Int {
         return when (this) {
@@ -29,6 +30,11 @@ enum class WidgetIcon {
                 TextStyle.DARK -> R.drawable.ic_alarm_dark
                 TextStyle.LIGHT -> R.drawable.ic_alarm_light
                 TextStyle.LIGHT_SHADOW -> R.drawable.ic_alarm_light_shadow
+            }
+            BIRTHDAY -> when (textStyle) {
+                TextStyle.DARK -> R.drawable.ic_birthday_dark
+                TextStyle.LIGHT -> R.drawable.ic_birthday_light
+                TextStyle.LIGHT_SHADOW -> R.drawable.ic_birthday_light_shadow
             }
         }
     }
