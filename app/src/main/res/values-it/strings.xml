@@ -10,7 +10,7 @@
     <string name="config_version_title">Numero build</string>
     <string name="config_debug_info">Stato dell’app</string>
     <string name="config_show_alarms">Sveglie</string>
-    <string name="config_show_alarms_descr">Mostra le sveglie nelle prossime 12 ore</string>
+    <string name="config_show_alarms_descr">Mostra le prossime sveglie</string>
     <string name="config_perm_alarm">Mostra sempre l’icona della sveglia</string>
     <string name="config_perm_alarm_descr">Accesso rapido all’app Orologio</string>
     <string name="config_debug_weather_data_age">Età dei dati meteo</string>

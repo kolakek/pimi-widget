@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Um Geburtstage anzuzeigen, benötigt diese App Zugriff auf deine Kontakte.</string>
     <string name="config_version_title">Build-Nummer</string>
     <string name="config_show_alarms">Wecker</string>
-    <string name="config_show_alarms_descr">Wecker der nächsten 12 Stunden anzeigen</string>
+    <string name="config_show_alarms_descr">Nächste Wecker anzeigen</string>
     <string name="config_perm_alarm">Alarmsymbol immer anzeigen</string>
     <string name="config_perm_alarm_descr">Schnellzugriff auf die Uhr-App</string>
     <string name="config_debug_info">App-Status</string>

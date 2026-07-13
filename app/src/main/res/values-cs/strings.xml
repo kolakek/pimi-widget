@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Pro zobrazení narozenin tato aplikace potřebuje přístup k tvým kontaktům.</string>
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_show_alarms">Budíky</string>
-    <string name="config_show_alarms_descr">Zobrazit budíky na následujících 12 hodin</string>
+    <string name="config_show_alarms_descr">Zobrazovat nadcházející budíky</string>
     <string name="config_perm_alarm">Vždy zobrazovat ikonu budíku</string>
     <string name="config_perm_alarm_descr">Rychlý přístup k aplikaci Hodiny</string>
     <string name="config_debug_info">Stav aplikace</string>

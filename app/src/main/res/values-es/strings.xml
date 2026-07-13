@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Para mostrar los cumpleaños, esta aplicación necesita acceso a tus contactos.</string>
     <string name="config_version_title">Número de compilación</string>
     <string name="config_show_alarms">Alarmas</string>
-    <string name="config_show_alarms_descr">Mostrar alarmas de las próximas 12 horas</string>
+    <string name="config_show_alarms_descr">Mostrar próximas alarmas</string>
     <string name="config_perm_alarm">Mostrar siempre el icono de alarma</string>
     <string name="config_perm_alarm_descr">Acceso rápido a la aplicación Reloj</string>
     <string name="config_debug_info">Estado de la app</string>

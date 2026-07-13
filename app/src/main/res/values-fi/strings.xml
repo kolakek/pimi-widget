@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Syntymäpäivien näyttämiseksi tämä sovellus tarvitsee pääsyn yhteystietoihisi.</string>
     <string name="config_version_title">Koontinumero</string>
     <string name="config_show_alarms">Hälytykset</string>
-    <string name="config_show_alarms_descr">Näytä seuraavien 12 tunnin herätykset</string>
+    <string name="config_show_alarms_descr">Näytä tulevat herätykset</string>
     <string name="config_perm_alarm">Näytä aina hälytyskuvake</string>
     <string name="config_perm_alarm_descr">Nopea pääsy Kello-sovellukseen</string>
     <string name="config_debug_info">Sovelluksen tila</string>

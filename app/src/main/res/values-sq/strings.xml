@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Për të shfaqur ditëlindjet, ky aplikacion ka nevojë për qasje te kontaktet e tua.</string>
     <string name="config_version_title">Numri i build-it</string>
     <string name="config_show_alarms">Alarmet</string>
-    <string name="config_show_alarms_descr">Shfaq alarmet brenda 12 orëve të ardhshme</string>
+    <string name="config_show_alarms_descr">Shfaq alarmet e ardhshme</string>
     <string name="config_perm_alarm">Shfaq gjithmonë ikonën e alarmit</string>
     <string name="config_perm_alarm_descr">Qasje e shpejtë te aplikacioni Ora</string>
     <string name="config_debug_info">Statusi i aplikacionit</string>

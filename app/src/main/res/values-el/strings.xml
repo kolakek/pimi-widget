@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Για την εμφάνιση των γενεθλίων, αυτή η εφαρμογή χρειάζεται πρόσβαση στις επαφές σας.</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
     <string name="config_show_alarms">Ξυπνητήρια</string>
-    <string name="config_show_alarms_descr">Εμφάνιση ξυπνητηριών για τις επόμενες 12 ώρες</string>
+    <string name="config_show_alarms_descr">Εμφάνιση επερχόμενων ξυπνητηριών</string>
     <string name="config_perm_alarm">Να εμφανίζεται πάντα το εικονίδιο ξυπνητηριού</string>
     <string name="config_perm_alarm_descr">Γρήγορη πρόσβαση στην εφαρμογή Ρολόι</string>
     <string name="config_debug_info">Κατάσταση εφαρμογής</string>

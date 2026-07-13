@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Om verjaardagen weer te geven, heeft deze app toegang tot je contacten nodig.</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Wekkers</string>
-    <string name="config_show_alarms_descr">Wekkers voor de komende 12 uur weergeven</string>
+    <string name="config_show_alarms_descr">Aankomende wekkers weergeven</string>
     <string name="config_perm_alarm">Altijd het alarmpictogram weergeven</string>
     <string name="config_perm_alarm_descr">Snelle toegang tot de Klok-app</string>
     <string name="config_debug_info">Appstatus</string>

@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Pour afficher les anniversaires, cette application a besoin d’accéder à tes contacts.</string>
     <string name="config_version_title">Numéro de build</string>
     <string name="config_show_alarms">Alarmes</string>
-    <string name="config_show_alarms_descr">Afficher les alarmes des 12 prochaines heures</string>
+    <string name="config_show_alarms_descr">Afficher les prochaines alarmes</string>
     <string name="config_perm_alarm">Toujours afficher l’icône d’alarme</string>
     <string name="config_perm_alarm_descr">Accès rapide à l’application Horloge</string>
     <string name="config_debug_info">État de l’application</string>

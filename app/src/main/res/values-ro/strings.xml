@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Pentru a afișa aniversările, această aplicație are nevoie de acces la contactele tale.</string>
     <string name="config_version_title">Număr build</string>
     <string name="config_show_alarms">Alarme</string>
-    <string name="config_show_alarms_descr">Afișează alarmele din următoarele 12 ore</string>
+    <string name="config_show_alarms_descr">Afișează alarmele viitoare</string>
     <string name="config_perm_alarm">Afișează întotdeauna pictograma alarmei</string>
     <string name="config_perm_alarm_descr">Acces rapid la aplicația Ceas</string>
     <string name="config_debug_info">Starea aplicației</string>

@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Щоб показувати дні народження, цей застосунок потребує доступу до ваших контактів.</string>
     <string name="config_version_title">Номер збірки</string>
     <string name="config_show_alarms">Будильники</string>
-    <string name="config_show_alarms_descr">Показувати будильники протягом наступних 12 годин</string>
+    <string name="config_show_alarms_descr">Показувати майбутні будильники</string>
     <string name="config_perm_alarm">Завжди показувати значок будильника</string>
     <string name="config_perm_alarm_descr">Швидкий доступ до додатка Годинник</string>
     <string name="config_debug_info">Стан застосунку</string>

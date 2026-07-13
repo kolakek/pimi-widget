@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">För att visa födelsedagar behöver den här appen åtkomst till dina kontakter.</string>
     <string name="config_version_title">Byggnummer</string>
     <string name="config_show_alarms">Alarm</string>
-    <string name="config_show_alarms_descr">Visa alarm för de kommande 12 timmarna</string>
+    <string name="config_show_alarms_descr">Visa kommande alarm</string>
     <string name="config_perm_alarm">Visa alltid alarmikonen</string>
     <string name="config_perm_alarm_descr">Snabb åtkomst till appen Klocka</string>
     <string name="config_debug_info">Appstatus</string>

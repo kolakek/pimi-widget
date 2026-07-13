@@ -13,7 +13,7 @@
     <string name="config_contact_perm_alert_message">To show birthdays, this app requires access to your contacts.</string>
     <string name="config_version_title">Build number</string>
     <string name="config_show_alarms">Alarms</string>
-    <string name="config_show_alarms_descr">Show alarms within the next 12 hours</string>
+    <string name="config_show_alarms_descr">Show upcoming alarms</string>
     <string name="config_perm_alarm">Always show alarm icon</string>
     <string name="config_perm_alarm_descr">Quick access to the alarm app</string>
     <string name="config_debug_info">App status</string>

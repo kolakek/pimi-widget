@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">For at vise fødselsdage skal denne app have adgang til dine kontakter.</string>
     <string name="config_version_title">Buildnummer</string>
     <string name="config_show_alarms">Alarmer</string>
-    <string name="config_show_alarms_descr">Vis alarmer for de næste 12 timer</string>
+    <string name="config_show_alarms_descr">Vis kommende alarmer</string>
     <string name="config_perm_alarm">Vis altid alarmikonet</string>
     <string name="config_perm_alarm_descr">Hurtig adgang til Ur-appen</string>
     <string name="config_debug_info">Appstatus</string>

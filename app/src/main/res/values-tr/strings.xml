@@ -9,7 +9,7 @@
     <string name="config_contact_perm_alert_message">Doğum günlerini göstermek için bu uygulamanın kişilerinize erişmesi gerekiyor.</string>
     <string name="config_version_title">Yapı numarası</string>
     <string name="config_show_alarms">Alarmlar</string>
-    <string name="config_show_alarms_descr">Önümüzdeki 12 saat içindeki alarmları göster</string>
+    <string name="config_show_alarms_descr">Yaklaşan alarmları göster</string>
     <string name="config_perm_alarm">Alarm simgesini her zaman göster</string>
     <string name="config_perm_alarm_descr">Saat uygulamasına hızlı erişim</string>
     <string name="config_debug_info">Uygulama durumu</string>
