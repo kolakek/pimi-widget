@@ -58,7 +58,7 @@ object WorkManagerHelper {
 
     fun enqueueOneTimeWork(
         context: Context,
-        action: UpdateAction = UpdateAction.NONE,
+        action: UpdateAction,
         workPolicy: ExistingWorkPolicy
     ) {
         val request = OneTimeWorkRequestBuilder<PimiWorker>()

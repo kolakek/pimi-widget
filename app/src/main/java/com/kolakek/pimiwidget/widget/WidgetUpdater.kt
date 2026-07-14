@@ -22,23 +22,17 @@ import android.content.ComponentName
 import android.content.Context
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
-import timber.log.Timber
 
 object WidgetUpdater {
 
     fun updateWidgets(context: Context) {
-        Timber.d("WidgetUpdater: updateWidgets")
-
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(context, PimiWidget::class.java)
-        )
         val prefs = PreferencesHelper.getWidgetPreferences(context)
 
         val weatherData = if (prefs.showWeather) {
@@ -49,12 +43,7 @@ object WidgetUpdater {
             runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
-        for (appWidgetId in appWidgetIds) {
-
-            val views = RemoteViews(
-                context.packageName,
-                getWidgetLayout(prefs.textStyle)
-            )
+        updateViews(context, prefs, partialUpdate = false) { views, appWidgetId ->
             CoreUpdater.updateViews(context, views, appWidgetId, prefs)
             AlarmUpdater.updateViews(context, views, prefs)
             WeatherUpdater.updateViews(context, views, prefs, weatherData)
@@ -62,77 +51,42 @@ object WidgetUpdater {
             AuxUpdater.updateViews(context, views, prefs)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
             VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
-
-            appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
 
-    fun refreshWidgetData(
+    fun refreshData(
         context: Context,
         prefs: WidgetPreferences,
-        weatherData: WeatherData?
+        weatherData: WeatherData?,
+        birthdayData: BirthdayData?
     ): WeatherUpdateStatus {
-        Timber.d("WidgetUpdater: refreshWidgetData")
-
         var lastStatus = WeatherUpdateStatus.DONE
 
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(context, PimiWidget::class.java)
-        )
-        for (appWidgetId in appWidgetIds) {
-
-            val views = RemoteViews(
-                context.packageName,
-                getWidgetLayout(prefs.textStyle)
-            )
+        updateViews(context, prefs, partialUpdate = true) { views, _ ->
             lastStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
-
+            BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             AuxUpdater.updateViews(context, views, prefs)
             AlarmUpdater.updateViews(context, views, prefs)
-
-            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
         return lastStatus
     }
 
-    fun refreshAlarm(context: Context) {
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(context, PimiWidget::class.java)
-        )
+    fun refreshAlarms(context: Context) {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-
-        for (appWidgetId in appWidgetIds) {
-            val views = RemoteViews(
-                context.packageName,
-                getWidgetLayout(prefs.textStyle)
-            )
+        updateViews(context, prefs, partialUpdate = true) { views, _ ->
             AlarmUpdater.updateViews(context, views, prefs)
-
-            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
     }
 
-    fun refreshBirthday(context: Context) {
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(context, PimiWidget::class.java)
-        )
+    fun refreshBirthdays(context: Context) {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val birthdayData = if (prefs.showBirthdays) {
             runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
-        for (appWidgetId in appWidgetIds) {
-            val views = RemoteViews(
-                context.packageName,
-                getWidgetLayout(prefs.textStyle)
-            )
+        updateViews(context, prefs, partialUpdate = true) { views, _ ->
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
-
-            appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
         }
     }
 
@@ -155,6 +109,27 @@ object WidgetUpdater {
         return when (textStyle) {
             TextStyle.DARK, TextStyle.LIGHT -> R.layout.widget
             TextStyle.LIGHT_SHADOW -> R.layout.widget_shadow
+        }
+    }
+
+    private inline fun updateViews(
+        context: Context,
+        prefs: WidgetPreferences,
+        partialUpdate: Boolean,
+        update: (RemoteViews, Int) -> Unit
+    ) {
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            ComponentName(context, PimiWidget::class.java)
+        )
+        for (appWidgetId in appWidgetIds) {
+            val views = RemoteViews(
+                context.packageName,
+                getWidgetLayout(prefs.textStyle)
+            )
+            update(views, appWidgetId)
+            if (partialUpdate) appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
+            else appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
 }

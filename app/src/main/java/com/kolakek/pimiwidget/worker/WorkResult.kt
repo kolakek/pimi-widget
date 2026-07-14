@@ -24,5 +24,4 @@ enum class WorkResult(val message: String) {
     STALE_DATA_SERVED("StaleDataServed"),
     WIDGET_REFRESHED("WidgetRefreshed"),
     DATA_FETCH_DONE("DataFetchDone"),
-    OUT_FOR_LUNCH("OutForLunch")
 }

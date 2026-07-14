@@ -18,8 +18,7 @@
 package com.kolakek.pimiwidget.worker
 
 enum class UpdateAction {
-    NONE,
-    DEFAULT,
-    WEATHER_DATA,
-    BIRTHDAY_DATA
+    REFRESH_THEN_FETCH,
+    WEATHER_FETCH_THEN_REFRESH,
+    BIRTHDAY_FETCH_THEN_REFRESH
 }

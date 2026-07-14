@@ -81,11 +81,11 @@ class PimiWidget : AppWidgetProvider() {
                 MigrateApp.migrate(context)
 
             AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED ->
-                WidgetUpdater.refreshAlarm(context)
+                WidgetUpdater.refreshAlarms(context)
 
             ACTION_BIRTHDAY_DISMISS -> {
                 BirthdayUpdater.updateDismissHash(context)
-                WidgetUpdater.refreshBirthday(context)
+                WidgetUpdater.refreshBirthdays(context)
             }
         }
     }

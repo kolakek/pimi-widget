@@ -169,7 +169,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         WorkManagerHelper.enqueueOneTimeWork(
             context,
-            action = UpdateAction.WEATHER_DATA,
+            action = UpdateAction.WEATHER_FETCH_THEN_REFRESH,
             workPolicy = ExistingWorkPolicy.APPEND
         )
         weatherSwitch?.isChecked = true
@@ -199,7 +199,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         WorkManagerHelper.enqueueOneTimeWork(
             context,
-            action = UpdateAction.BIRTHDAY_DATA,
+            action = UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH,
             workPolicy = ExistingWorkPolicy.APPEND
         )
         birthdaySwitch?.isChecked = true

@@ -40,7 +40,7 @@ class PimiWorker(
             )
             val updateAction = inputData.getString(
                 UPDATE_ACTION_KEY
-            )?.let { UpdateAction.valueOf(it) } ?: UpdateAction.DEFAULT
+            )?.let { UpdateAction.valueOf(it) } ?: UpdateAction.REFRESH_THEN_FETCH
 
             val workResult = PimiUpdater.update(
                 applicationContext,

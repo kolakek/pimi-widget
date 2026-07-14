@@ -22,11 +22,13 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.annotation.RequiresPermission
+import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.birthday.BirthdayService
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WeatherUpdateStatus
 import com.kolakek.pimiwidget.widget.WidgetUpdater
@@ -38,43 +40,32 @@ object PimiUpdater {
         context: Context,
         updateAction: UpdateAction,
     ): WorkResult {
-        when (updateAction) {
-            UpdateAction.DEFAULT -> {}
-
-            UpdateAction.BIRTHDAY_DATA -> {
-                BirthdayService.fetchBirthdays(context)
-                return WorkResult.DATA_FETCH_DONE
-            }
-            UpdateAction.WEATHER_DATA -> {
-                val prefs = PreferencesHelper.getWidgetPreferences(context)
-                fetchWeather(context, prefs)
-                return WorkResult.DATA_FETCH_DONE
-            }
-            UpdateAction.NONE -> return WorkResult.OUT_FOR_LUNCH
-        }
         val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val weatherData = DataRepository.loadWeatherData(context)
-        val updateStatus = WidgetUpdater.refreshWidgetData(context, prefs, weatherData)
+        val weatherData: WeatherData?
+        val birthdayData: BirthdayData?
+        val status: WeatherUpdateStatus
 
-        if (prefs.showBirthdays) BirthdayService.fetchBirthdays(context)
-
-        if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
-
-        when (updateStatus) {
-            WeatherUpdateStatus.DONE -> return WorkResult.RECENT_DATA_SERVED
-
-            WeatherUpdateStatus.NEEDS_DATA -> {
-                fetchWeather(context, prefs)?.let {
-                    return WorkResult.FRESH_DATA_FETCHED
-                }
-                return WorkResult.STALE_DATA_SERVED
+        when (updateAction) {
+            UpdateAction.REFRESH_THEN_FETCH -> {
+                weatherData = DataRepository.loadWeatherData(context)
+                birthdayData = DataRepository.loadBirthdayData(context)
+                status = WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                fetchBirthdays(context, prefs)
+                return handleWeather(context, prefs, status, birthdayData)
             }
-            WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
-                fetchWeather(context, prefs)?.let {
-                    WidgetUpdater.refreshWidgetData(context, prefs, it)
-                    return WorkResult.FRESH_DATA_FETCHED
-                }
-                return WorkResult.OUTDATED_DATA_SERVED
+
+            UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH -> {
+                weatherData = DataRepository.loadWeatherData(context)
+                birthdayData = BirthdayService.fetchBirthdays(context)
+                WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                return WorkResult.DATA_FETCH_DONE
+            }
+
+            UpdateAction.WEATHER_FETCH_THEN_REFRESH -> {
+                weatherData = fetchWeather(context, prefs)
+                birthdayData = DataRepository.loadBirthdayData(context)
+                WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                return WorkResult.DATA_FETCH_DONE
             }
         }
     }
@@ -84,12 +75,49 @@ object PimiUpdater {
         DataRepository.storeStatusData(context, StatusData(updateStatus, currentTimeMillis))
     }
 
+    private suspend fun fetchBirthdays(context: Context, prefs: WidgetPreferences) {
+        if (prefs.showBirthdays) BirthdayService.fetchBirthdays(context)
+    }
+
     @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-    private suspend fun fetchWeather(context: Context, prefs: WidgetPreferences) =
-        if (hasNetCapabilityInternet(context)) {
-            val locationData = LocationService.fetchLocation(context, prefs.useLocationFallback)
-            WeatherService.fetchWeather(context, locationData)
-        } else null
+    private suspend fun handleWeather(
+        context: Context,
+        prefs: WidgetPreferences,
+        status: WeatherUpdateStatus,
+        birthdayData: BirthdayData?
+    ): WorkResult {
+        if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
+
+        when (status) {
+            WeatherUpdateStatus.DONE -> {
+                return WorkResult.RECENT_DATA_SERVED
+            }
+
+            WeatherUpdateStatus.NEEDS_DATA -> {
+                if (hasNetCapabilityInternet(context)) {
+                    fetchWeather(context, prefs)
+                    return WorkResult.FRESH_DATA_FETCHED
+                } else return WorkResult.STALE_DATA_SERVED
+            }
+
+            WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
+                if (hasNetCapabilityInternet(context)) {
+                    val weatherData = fetchWeather(context, prefs)
+                    WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                    return WorkResult.FRESH_DATA_FETCHED
+                } else return WorkResult.OUTDATED_DATA_SERVED
+            }
+        }
+    }
+
+    @RequiresPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+    private suspend fun fetchWeather(
+        context: Context,
+        prefs: WidgetPreferences
+    ): WeatherData {
+        val locationData = LocationService.fetchLocation(context, prefs.useLocationFallback)
+        return WeatherService.fetchWeather(context, locationData)
+    }
 
     private fun hasNetCapabilityInternet(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
