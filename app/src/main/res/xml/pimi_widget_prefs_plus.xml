@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="category_settings_plus"
+        android:selectable="false"
+        android:title="@string/config_section_settings_plus"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <CheckBoxPreference
+            android:key="permanent_alarm"
+            android:title="@string/config_perm_alarm"
+            android:summary="@string/config_perm_alarm_descr"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
+            android:key="location_fallback"
+            android:title="@string/config_location_fallback"
+            android:summary="@string/config_location_fallback_summary"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="temp_unit_auto"
+            android:entries="@array/temp_units"
+            android:entryValues="@array/temp_units_vals"
+            android:key="temp_list"
+            android:title="@string/config_temp"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="color_auto"
+            android:entries="@array/colors"
+            android:entryValues="@array/colors_vals"
+            android:key="text_color_list"
+            android:title="@string/config_text_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="color_auto"
+            android:entries="@array/icon_colors"
+            android:entryValues="@array/colors_vals"
+            android:key="icon_color_list"
+            android:title="@string/config_icon_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="aux_view_nothing"
+            android:entries="@array/aux_views"
+            android:entryValues="@array/aux_views_vals"
+            android:key="aux_view_list"
+            android:title="@string/config_aux_view_title"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

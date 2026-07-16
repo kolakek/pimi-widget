@@ -67,7 +67,6 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
-        val settingsPlus: Preference? = findPreference(KEY_SETTINGS_PLUS)
 
         var debugCount = 0
 
@@ -85,7 +84,11 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {
-                settingsPlus?.isVisible = true
+                parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.widget_settings_fragment, WidgetSettingsPlusFragment())
+                    .addToBackStack(null)
+                    .commit()
             }
             else
                 debugCount++
