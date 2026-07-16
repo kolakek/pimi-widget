@@ -35,7 +35,7 @@ object WeatherUpdater {
         views.setTextViewText(R.id.widget_weather, null)
         views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, 0, 0)
 
-        if (!prefs.showWeather) return WeatherUpdateStatus.DONE
+        if (!prefs.showWeather) return WeatherUpdateStatus.HAS_RECENT_DATA
 
         weatherData?.let { data ->
             WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
@@ -43,11 +43,11 @@ object WeatherUpdater {
                 views.setTextViewText(R.id.widget_weather, it.text)
                 views.setTextViewCompoundDrawables(R.id.widget_weather, it.iconId1, 0, it.iconId2, 0)
 
-            } ?: return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH
+            } ?: return WeatherUpdateStatus.HAS_EXPIRED_DATA
 
             val isFresh = System.currentTimeMillis() - data.timeMillis < WEATHER_UPDATE_AGE_MILLIS
-            return if (isFresh) WeatherUpdateStatus.DONE else WeatherUpdateStatus.NEEDS_DATA
+            return if (isFresh) WeatherUpdateStatus.HAS_RECENT_DATA else WeatherUpdateStatus.HAS_STALE_DATA
         }
-        return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH
+        return WeatherUpdateStatus.HAS_EXPIRED_DATA
     }
 }

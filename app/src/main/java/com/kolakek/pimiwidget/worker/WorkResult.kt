@@ -19,7 +19,7 @@ package com.kolakek.pimiwidget.worker
 
 enum class WorkResult(val message: String) {
     FRESH_DATA_FETCHED("FreshDataFetched"),
-    OUTDATED_DATA_SERVED("OutdatedDataServed"),
+    EXPIRED_DATA_SERVED("ExpiredDataServed"),
     RECENT_DATA_SERVED("RecentDataServed"),
     STALE_DATA_SERVED("StaleDataServed"),
     WIDGET_REFRESHED("WidgetRefreshed"),

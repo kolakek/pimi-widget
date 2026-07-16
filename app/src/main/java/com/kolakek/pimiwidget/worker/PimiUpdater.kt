@@ -49,22 +49,20 @@ object PimiUpdater {
             UpdateAction.REFRESH_THEN_FETCH -> {
                 weatherData = DataRepository.loadWeatherData(context)
                 birthdayData = DataRepository.loadBirthdayData(context)
-                status = WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                status = WidgetUpdater.refreshWidgets(context, prefs, weatherData, birthdayData)
                 fetchBirthdays(context, prefs)
-                return handleWeather(context, prefs, status, birthdayData)
+                return handleWeather(context, prefs, status)
             }
 
             UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH -> {
-                weatherData = DataRepository.loadWeatherData(context)
                 birthdayData = BirthdayService.fetchBirthdays(context)
-                WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                WidgetUpdater.refreshBirthdays(context, prefs, birthdayData)
                 return WorkResult.DATA_FETCH_DONE
             }
 
             UpdateAction.WEATHER_FETCH_THEN_REFRESH -> {
                 weatherData = fetchWeather(context, prefs)
-                birthdayData = DataRepository.loadBirthdayData(context)
-                WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                WidgetUpdater.refreshWeather(context, prefs, weatherData)
                 return WorkResult.DATA_FETCH_DONE
             }
         }
@@ -83,29 +81,28 @@ object PimiUpdater {
     private suspend fun handleWeather(
         context: Context,
         prefs: WidgetPreferences,
-        status: WeatherUpdateStatus,
-        birthdayData: BirthdayData?
+        status: WeatherUpdateStatus
     ): WorkResult {
         if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
 
         when (status) {
-            WeatherUpdateStatus.DONE -> {
+            WeatherUpdateStatus.HAS_RECENT_DATA -> {
                 return WorkResult.RECENT_DATA_SERVED
             }
 
-            WeatherUpdateStatus.NEEDS_DATA -> {
+            WeatherUpdateStatus.HAS_STALE_DATA -> {
                 if (hasNetCapabilityInternet(context)) {
                     fetchWeather(context, prefs)
                     return WorkResult.FRESH_DATA_FETCHED
                 } else return WorkResult.STALE_DATA_SERVED
             }
 
-            WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
+            WeatherUpdateStatus.HAS_EXPIRED_DATA -> {
                 if (hasNetCapabilityInternet(context)) {
                     val weatherData = fetchWeather(context, prefs)
-                    WidgetUpdater.refreshData(context, prefs, weatherData, birthdayData)
+                    WidgetUpdater.refreshWeather(context, prefs, weatherData)
                     return WorkResult.FRESH_DATA_FETCHED
-                } else return WorkResult.OUTDATED_DATA_SERVED
+                } else return WorkResult.EXPIRED_DATA_SERVED
             }
         }
     }

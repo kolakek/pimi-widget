@@ -54,21 +54,33 @@ object WidgetUpdater {
         }
     }
 
-    fun refreshData(
+    fun refreshWidgets(
         context: Context,
         prefs: WidgetPreferences,
         weatherData: WeatherData?,
         birthdayData: BirthdayData?
     ): WeatherUpdateStatus {
-        var lastStatus = WeatherUpdateStatus.DONE
+        var lastWeatherStatus = WeatherUpdateStatus.HAS_RECENT_DATA
 
         updateViews(context, prefs, partialUpdate = true) { views, _ ->
-            lastStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
-            BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
+            lastWeatherStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             AuxUpdater.updateViews(context, views, prefs)
             AlarmUpdater.updateViews(context, views, prefs)
+            VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
-        return lastStatus
+        return lastWeatherStatus
+    }
+
+    fun refreshWeather(
+        context: Context,
+        prefs: WidgetPreferences,
+        weatherData: WeatherData?
+    ) {
+        updateViews(context, prefs, partialUpdate = true) { views, _ ->
+            WeatherUpdater.updateViews(context, views, prefs, weatherData)
+            AuxUpdater.updateViews(context, views, prefs)
+        }
     }
 
     fun refreshAlarms(context: Context) {
@@ -84,6 +96,14 @@ object WidgetUpdater {
             runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
+        refreshBirthdays(context, prefs, birthdayData)
+    }
+
+    fun refreshBirthdays(
+        context: Context,
+        prefs: WidgetPreferences,
+        birthdayData: BirthdayData?
+    ) {
         updateViews(context, prefs, partialUpdate = true) { views, _ ->
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
@@ -93,7 +113,7 @@ object WidgetUpdater {
     fun refreshVisibility(
         context: Context,
         appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
+        appWidgetId: Int
     ) {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val views = RemoteViews(
