@@ -75,6 +75,7 @@
         </intent>
         <package android:name="org.breezyweather" />
         <package android:name="com.marotidev.Overmorrow" />
+        <package android:name="com.davidtakac.bura" />
         <package android:name="fr.meteo" />
         <package android:name="nl.knmi.weer" />
         <package android:name="de.dwd.warnapp" />
