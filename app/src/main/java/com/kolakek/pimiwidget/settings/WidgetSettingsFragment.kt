@@ -31,6 +31,7 @@ import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -86,6 +87,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             if (debugCount == 2) {
                 parentFragmentManager
                     .beginTransaction()
+                    .setTransition(TRANSIT_FRAGMENT_FADE)
                     .replace(R.id.widget_settings_fragment, WidgetSettingsPlusFragment())
                     .addToBackStack(null)
                     .commit()
