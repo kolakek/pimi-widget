@@ -21,10 +21,15 @@
 
     <style name="Widget.Container" parent="Widget.Base">
         <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">@dimen/widget_vertical_padding</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Widget.ContainerSolid" parent="Widget.Container">
+        <item name="android:background">@drawable/widget_background</item>
     </style>
 
     <style name="Widget.InnerContainer" parent="Widget.Base">
@@ -56,6 +61,10 @@
         <item name="android:layout_marginRight">12dp</item>
     </style>
 
+    <style name="Widget.DateSolid" parent="Widget.Date">
+        <item name="android:textColor">@color/dynamic_text_color</item>
+    </style>
+
     <style name="Widget.DateShadow" parent="Widget.Date">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
@@ -65,6 +74,10 @@
 
     <style name="Widget.Event" parent="Widget.DateEvent">
         <item name="android:drawablePadding">4dp</item>
+    </style>
+
+    <style name="Widget.EventSolid" parent="Widget.Event">
+        <item name="android:textColor">@color/dynamic_text_color</item>
     </style>
 
     <style name="Widget.EventShadow" parent="Widget.Event">
@@ -80,6 +93,10 @@
         <item name="android:drawablePadding">2dp</item>
     </style>
 
+    <style name="Widget.WeatherSolid" parent="Widget.Weather">
+        <item name="android:textColor">@color/dynamic_text_color</item>
+    </style>
+
     <style name="Widget.WeatherShadow" parent="Widget.Weather">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
@@ -90,6 +107,11 @@
     <style name="Widget.Aux" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_aux_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Widget.AuxSolid" parent="Widget.Aux">
+        <item name="android:textColor">@color/dynamic_text_color</item>
     </style>
 
     <style name="Widget.AuxShadow" parent="Widget.Aux">

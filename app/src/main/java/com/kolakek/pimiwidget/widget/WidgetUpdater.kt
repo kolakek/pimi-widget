@@ -25,8 +25,8 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
-import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
 
@@ -50,7 +50,7 @@ object WidgetUpdater {
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             AuxUpdater.updateViews(context, views, prefs)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
-            VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
+            VisibilityUpdater.updateAuxViews(context, views, appWidgetId, prefs)
         }
     }
 
@@ -118,17 +118,18 @@ object WidgetUpdater {
         val prefs = PreferencesHelper.getWidgetPreferences(context)
         val views = RemoteViews(
             context.packageName,
-            getWidgetLayout(prefs.textStyle)
+            getWidgetLayout(prefs.widgetStyle)
         )
-        VisibilityUpdater.updateAuxViews(context, views, appWidgetId)
+        VisibilityUpdater.updateAuxViews(context, views, appWidgetId, prefs)
 
         appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
-    private fun getWidgetLayout(textStyle: TextStyle): Int {
-        return when (textStyle) {
-            TextStyle.DARK, TextStyle.LIGHT -> R.layout.widget
-            TextStyle.LIGHT_SHADOW -> R.layout.widget_shadow
+    private fun getWidgetLayout(widgetStyle: WidgetStyle): Int {
+        return when (widgetStyle) {
+            WidgetStyle.DEFAULT -> R.layout.widget
+            WidgetStyle.SHADOW -> R.layout.widget_shadow
+            WidgetStyle.SOLID -> R.layout.widget_solid
         }
     }
 
@@ -145,7 +146,7 @@ object WidgetUpdater {
         for (appWidgetId in appWidgetIds) {
             val views = RemoteViews(
                 context.packageName,
-                getWidgetLayout(prefs.textStyle)
+                getWidgetLayout(prefs.widgetStyle)
             )
             update(views, appWidgetId)
             if (partialUpdate) appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)

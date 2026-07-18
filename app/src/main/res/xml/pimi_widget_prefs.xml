@@ -59,20 +59,39 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="icon_style_outlined"
-            android:entries="@array/icon_styles"
-            android:entryValues="@array/icon_styles_vals"
-            android:key="icon_style_list"
-            android:title="@string/config_icon_style"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
             android:defaultValue="weather_app_default"
             android:entries="@array/weather_apps"
             android:entryValues="@array/weather_apps_vals"
             android:key="weather_app_list"
             android:title="@string/config_weather_app"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_style"
+        android:selectable="false"
+        android:title="@string/config_section_style"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:defaultValue="widget_style_trans"
+            android:entries="@array/widget_styles"
+            android:entryValues="@array/widget_styles_vals"
+            android:key="widget_style_list"
+            android:title="@string/config_widget_style"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="icon_style_outlined"
+            android:entries="@array/icon_styles"
+            android:entryValues="@array/icon_styles_vals"
+            android:key="icon_style_list"
+            android:title="@string/config_icon_style"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 

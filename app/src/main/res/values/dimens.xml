@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="widget_date_height">28dp</dimen>
-    <dimen name="widget_weather_height">36dp</dimen>
-    <dimen name="widget_aux_height">18dp</dimen>
+    <dimen name="widget_date_height">30dp</dimen>
+    <dimen name="widget_weather_height">32dp</dimen>
+    <dimen name="widget_aux_height">22dp</dimen>
     <dimen name="widget_event_icon_size">20dp</dimen>
+    <dimen name="widget_vertical_padding">8dp</dimen>
 </resources>

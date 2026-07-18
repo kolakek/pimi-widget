@@ -2,9 +2,6 @@
     style="@style/Widget.Container"
     android:id="@+id/widget_root">
 
-    <TextView
-        style="@style/Widget.Aux" />
-
     <LinearLayout
         style="@style/Widget.InnerContainer">
 
@@ -18,8 +15,7 @@
 
         <TextView
             style="@style/Widget.EventShadow"
-            android:id="@+id/widget_birthday"
-            android:visibility="gone" />
+            android:id="@+id/widget_birthday" />
 
     </LinearLayout>
 

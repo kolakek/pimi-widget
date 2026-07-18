@@ -24,7 +24,7 @@ import android.provider.AlarmClock
 import android.text.format.DateFormat
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.TextStyle
+import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.WeatherApp
 import java.util.Locale
@@ -64,18 +64,20 @@ object CoreUpdater {
             R.id.widget_alarm,
             WidgetIntent.actionIntent(context, AlarmClock.ACTION_SHOW_ALARMS, appWidgetId)
         )
-        val textColor = when (prefs.textStyle) {
-            TextStyle.LIGHT, TextStyle.LIGHT_SHADOW -> Color.WHITE
-            TextStyle.DARK -> Color.BLACK
-        }
         views.setOnClickPendingIntent(
             R.id.widget_birthday,
             WidgetIntent.birthdayDismissIntent(context, appWidgetId)
         )
-        views.setTextColor(R.id.widget_text_clock, textColor)
-        views.setTextColor(R.id.widget_alarm, textColor)
-        views.setTextColor(R.id.widget_weather, textColor)
-        views.setTextColor(R.id.widget_birthday, textColor)
-        views.setTextColor(R.id.widget_aux, textColor)
+        when (prefs.textColor) {
+            TextColor.LIGHT -> Color.WHITE
+            TextColor.DARK -> Color.BLACK
+            TextColor.THEME -> null
+        }?.let {
+            views.setTextColor(R.id.widget_text_clock, it)
+            views.setTextColor(R.id.widget_alarm, it)
+            views.setTextColor(R.id.widget_weather, it)
+            views.setTextColor(R.id.widget_birthday, it)
+            views.setTextColor(R.id.widget_aux, it)
+        }
     }
 }

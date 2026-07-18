@@ -1,30 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.Container"
+    style="@style/Widget.ContainerSolid"
     android:id="@+id/widget_root">
 
     <LinearLayout
         style="@style/Widget.InnerContainer">
 
         <TextClock
-            style="@style/Widget.Date"
+            style="@style/Widget.DateSolid"
             android:id="@+id/widget_text_clock" />
 
         <TextView
-            style="@style/Widget.Event"
+            style="@style/Widget.EventSolid"
             android:id="@+id/widget_alarm" />
 
         <TextView
-            style="@style/Widget.Event"
+            style="@style/Widget.EventSolid"
             android:id="@+id/widget_birthday" />
 
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.Weather"
+        style="@style/Widget.WeatherSolid"
         android:id="@+id/widget_weather" />
 
     <TextView
-        style="@style/Widget.Aux"
+        style="@style/Widget.AuxSolid"
         android:id="@+id/widget_aux" />
 
 </LinearLayout>

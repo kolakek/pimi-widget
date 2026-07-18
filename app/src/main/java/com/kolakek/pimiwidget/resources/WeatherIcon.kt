@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.resources
 
+import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.weather.WeatherCode
 
@@ -26,19 +27,17 @@ object WeatherIcon {
         weatherCode: WeatherCode,
         isDay: Boolean,
         iconStyle: IconStyle,
+        iconColor: IconColor
     ): Int {
         return when (iconStyle) {
-            IconStyle.FLAT_SKETCH_DARK ->
-                IconsFlatSketchDark.getIconId(weatherCode, isDay)
-
-            IconStyle.FLAT_SKETCH_LIGHT ->
-                IconsFlatSketchLight.getIconId(weatherCode, isDay)
-
-            IconStyle.TWINKLE_SHADOW_DARK ->
-                IconsTwinkleShadowDark.getIconId(weatherCode, isDay)
-
-            IconStyle.TWINKLE_SHADOW_LIGHT ->
-                IconsTwinkleShadowLight.getIconId(weatherCode, isDay)
+            IconStyle.FLAT_SKETCH -> when (iconColor) {
+                IconColor.DARK -> IconsFlatSketchDark.getIconId(weatherCode, isDay)
+                IconColor.LIGHT -> IconsFlatSketchLight.getIconId(weatherCode, isDay)
+            }
+            IconStyle.TWINKLE_SHADOW -> when (iconColor) {
+                IconColor.DARK -> IconsTwinkleShadowDark.getIconId(weatherCode, isDay)
+                IconColor.LIGHT -> IconsTwinkleShadowLight.getIconId(weatherCode, isDay)
+            }
         }
     }
 }

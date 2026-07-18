@@ -22,17 +22,25 @@ import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.settings.AuxDisplay
+import com.kolakek.pimiwidget.settings.WidgetPreferences
 
 object VisibilityUpdater {
 
     fun updateAuxViews(
         context: Context,
         views: RemoteViews,
-        appWidgetId: Int
+        appWidgetId: Int,
+        prefs: WidgetPreferences
     ) {
+        if (prefs.auxDisplay == AuxDisplay.NOTHING) {
+            views.setViewVisibility(R.id.widget_aux, View.GONE)
+            return
+        }
         val viewHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
                 context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
-                2 * context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
+                context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
+                2 * context.resources.getDimensionPixelSize(R.dimen.widget_vertical_padding)
 
         val widgetHeight = AppWidgetManager
             .getInstance(context)
@@ -40,8 +48,12 @@ object VisibilityUpdater {
             .getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
             .dpToPx(context)
 
-        if (viewHeight > widgetHeight) views.setViewVisibility(R.id.widget_aux, View.INVISIBLE)
-        else views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
+        if (viewHeight > widgetHeight) {
+            views.setViewVisibility(R.id.widget_aux, View.GONE)
+        }
+        else {
+            views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
+        }
     }
 
     fun updateEventViews(

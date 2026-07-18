@@ -55,7 +55,7 @@ object AlarmUpdater {
     private fun showIcon(views: RemoteViews, prefs: WidgetPreferences) {
         views.setTextViewCompoundDrawables(
             R.id.widget_alarm,
-            WidgetIcon.ALARM.id(prefs.textStyle),
+            WidgetIcon.ALARM.id(prefs.iconColor, prefs.widgetStyle),
             0,
             0,
             0

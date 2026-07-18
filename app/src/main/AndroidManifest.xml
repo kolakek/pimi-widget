@@ -44,7 +44,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/pimi_widget_info" />
+                android:resource="@xml/widget_info" />
         </receiver>
 
         <receiver

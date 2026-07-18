@@ -28,7 +28,9 @@ data class WidgetPreferences (
     val showWeatherWarning: Boolean,
     val permanentAlarm: Boolean,
     val iconStyle: IconStyle,
-    val textStyle: TextStyle,
+    val widgetStyle: WidgetStyle,
+    val textColor: TextColor,
+    val iconColor: IconColor,
     val tempUnit: TempUnit,
     val auxDisplay: AuxDisplay,
     val weatherApp: WeatherApp

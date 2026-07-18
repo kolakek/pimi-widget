@@ -24,9 +24,10 @@ import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.TempUnit
-import com.kolakek.pimiwidget.settings.TextStyle
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
 import java.time.Instant
@@ -46,7 +47,8 @@ object WeatherRenderer {
             nowTimeMillis,
             weather,
             prefs.tempUnit,
-            prefs.iconStyle
+            prefs.iconStyle,
+            prefs.iconColor
         ) ?: return null
 
         val warningStrAndIcon = if (prefs.showWeatherWarning) {
@@ -54,7 +56,8 @@ object WeatherRenderer {
                 context,
                 nowTimeMillis,
                 weather,
-                prefs.textStyle
+                prefs.iconColor,
+                prefs.widgetStyle
             )
         } else null
 
@@ -80,7 +83,8 @@ object WeatherRenderer {
         nowTimeMillis: Long,
         weather: WeatherData,
         tempUnit: TempUnit,
-        iconStyle: IconStyle
+        iconStyle: IconStyle,
+        iconColor: IconColor
     ): TextWithOneIcon? {
         val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
 
@@ -90,11 +94,7 @@ object WeatherRenderer {
 
         val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnit)
 
-        val weatherIconId = WeatherIcon.getWeatherIconId(
-            weatherCode,
-            isDay,
-            iconStyle
-        )
+        val weatherIconId = WeatherIcon.getWeatherIconId(weatherCode, isDay, iconStyle, iconColor)
         return TextWithOneIcon(temperatureStr, weatherIconId)
     }
 
@@ -102,7 +102,8 @@ object WeatherRenderer {
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        textStyle: TextStyle
+        iconColor: IconColor,
+        widgetStyle: WidgetStyle
     ): TextWithOneIcon? {
         val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
         val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
@@ -112,7 +113,7 @@ object WeatherRenderer {
 
         return TextWithOneIcon(
             context.getString(WarningString.getWarningStrId(warningCode)),
-            WarningIcon.getWarningIconId(warningCode.level, textStyle)
+            WarningIcon.getWarningIconId(warningCode.level, iconColor, widgetStyle)
         )
     }
 

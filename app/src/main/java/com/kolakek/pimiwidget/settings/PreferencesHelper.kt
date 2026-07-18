@@ -32,6 +32,11 @@ object PreferencesHelper {
         TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
     }
 
+    enum class WidgetStylePref(val key: String) {
+        TRANS(KEY_WIDGET_STYLE_TRANS),
+        SOLID(KEY_WIDGET_STYLE_SOLID)
+    }
+
     enum class TempUnitPref(val key: String) {
         AUTO(KEY_TEMP_AUTO),
         CELSIUS(KEY_TEMP_CELSIUS),
@@ -53,36 +58,37 @@ object PreferencesHelper {
         val textColorPref = getTextColorPreference(context)
         val iconColorPref = getIconColorPreference(context)
         val iconStylePref = getIconStylePreference(context)
+        val widgetStylePref = getWidgetStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
         val weatherApp = getWeatherApp(context)
 
-        val isLightText = when (textColorPref) {
-            ColorPref.AUTO ->
-                WallpaperManager
-                    .getInstance(context)
-                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-                    ?.colorHints
-                    ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
-            ColorPref.LIGHT -> true
-            ColorPref.DARK -> false
+        val textColor = when (textColorPref) {
+            ColorPref.AUTO -> when (widgetStylePref) {
+                WidgetStylePref.TRANS -> getTextColorForWallpaper(context)
+                WidgetStylePref.SOLID -> TextColor.THEME
+            }
+            ColorPref.DARK -> TextColor.DARK
+            ColorPref.LIGHT -> TextColor.LIGHT
         }
-        val isLightIcon = when (iconColorPref) {
-            ColorPref.AUTO -> isLightText
-            ColorPref.LIGHT -> true
-            ColorPref.DARK -> false
+        val iconColor = when (iconColorPref) {
+            ColorPref.LIGHT -> IconColor.LIGHT
+            ColorPref.DARK -> IconColor.DARK
+            ColorPref.AUTO -> when (textColor) {
+                TextColor.LIGHT -> IconColor.LIGHT
+                TextColor.DARK -> IconColor.DARK
+                TextColor.THEME -> IconColor.DARK // todo
+            }
+        }
+        val widgetStyle = when (widgetStylePref) {
+            WidgetStylePref.SOLID -> WidgetStyle.SOLID
+            WidgetStylePref.TRANS ->
+                if (textColor == TextColor.LIGHT && iconStylePref == IconStylePref.TWINKLE_SHADOW)
+                    WidgetStyle.SHADOW else WidgetStyle.DEFAULT
         }
         val iconStyle = when (iconStylePref) {
-            IconStylePref.FLAT_SKETCH ->
-                if (isLightIcon) IconStyle.FLAT_SKETCH_LIGHT else IconStyle.FLAT_SKETCH_DARK
-
-            IconStylePref.TWINKLE_SHADOW ->
-                if (isLightIcon) IconStyle.TWINKLE_SHADOW_LIGHT else IconStyle.TWINKLE_SHADOW_DARK
-        }
-        val textStyle = when (isLightText to iconStylePref) {
-            true to IconStylePref.FLAT_SKETCH -> TextStyle.LIGHT
-            true to IconStylePref.TWINKLE_SHADOW -> TextStyle.LIGHT_SHADOW
-            else -> TextStyle.DARK
+            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
         val tempUnit = when (tempUnitPref) {
             TempUnitPref.AUTO -> {
@@ -111,7 +117,9 @@ object PreferencesHelper {
             permanentAlarm = getPermanentAlarmPreference(context),
             tempUnit = tempUnit,
             iconStyle = iconStyle,
-            textStyle = textStyle,
+            widgetStyle = widgetStyle,
+            iconColor = iconColor,
+            textColor = textColor,
             auxDisplay = auxDisplay,
             weatherApp = weatherApp
         )
@@ -197,6 +205,13 @@ object PreferencesHelper {
 
     }
 
+    private fun getWidgetStylePreference(context: Context): WidgetStylePref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WIDGET_STYLE_LIST, null)
+        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.TRANS
+
+    }
+
     private fun getTempUnitPreference(context: Context): TempUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNIT_LIST, null)
@@ -223,5 +238,14 @@ object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WEATHER_APP_LIST, null)
         return WeatherApp.entries.find { it.key == key } ?: WeatherApp.NONE
+    }
+
+    private fun getTextColorForWallpaper(context: Context): TextColor {
+        val needsLightText = WallpaperManager
+            .getInstance(context)
+            .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+            ?.colorHints
+            ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
+        return if (needsLightText) TextColor.LIGHT else TextColor.DARK
     }
 }

@@ -17,8 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
-enum class TextStyle {
+enum class IconColor {
     DARK,
-    LIGHT,
-    LIGHT_SHADOW
+    LIGHT
 }
