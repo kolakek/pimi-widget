@@ -2,5 +2,7 @@
 <resources>
     <color name="dynamic_text_color">@android:color/system_accent1_50</color>
     <color name="dynamic_background_color">@android:color/system_accent2_800</color>
+    <color name="dynamic_icon_color">@android:color/system_accent2_800</color>
+    <color name="dynamic_icon_accent_color">@android:color/system_accent3_500</color>
     <color name="dynamic_icon_background_color">@android:color/system_accent1_200</color>
 </resources>

@@ -66,7 +66,7 @@ object PreferencesHelper {
         val textColor = when (textColorPref) {
             ColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.TRANS -> getTextColorForWallpaper(context)
-                WidgetStylePref.SOLID -> TextColor.THEME
+                WidgetStylePref.SOLID -> TextColor.THEMED
             }
             ColorPref.DARK -> TextColor.DARK
             ColorPref.LIGHT -> TextColor.LIGHT
@@ -77,7 +77,7 @@ object PreferencesHelper {
             ColorPref.AUTO -> when (textColor) {
                 TextColor.LIGHT -> IconColor.LIGHT
                 TextColor.DARK -> IconColor.DARK
-                TextColor.THEME -> IconColor.DARK // todo
+                TextColor.THEMED -> IconColor.THEMED
             }
         }
         val widgetStyle = when (widgetStylePref) {

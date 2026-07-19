@@ -71,7 +71,7 @@ object CoreUpdater {
         when (prefs.textColor) {
             TextColor.LIGHT -> Color.WHITE
             TextColor.DARK -> Color.BLACK
-            TextColor.THEME -> null
+            TextColor.THEMED -> null
         }?.let {
             views.setTextColor(R.id.widget_text_clock, it)
             views.setTextColor(R.id.widget_alarm, it)

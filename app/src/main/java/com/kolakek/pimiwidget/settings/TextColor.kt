@@ -20,5 +20,5 @@ package com.kolakek.pimiwidget.settings
 enum class TextColor {
     DARK,
     LIGHT,
-    THEME
+    THEMED
 }
