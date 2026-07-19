@@ -87,10 +87,15 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
+    <style name="Widget.WeatherIcon" parent="Widget.InnerView">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
     <style name="Widget.Weather" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
-        <item name="android:drawablePadding">2dp</item>
     </style>
 
     <style name="Widget.WeatherSolid" parent="Widget.Weather">

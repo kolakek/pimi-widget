@@ -34,6 +34,7 @@ object WeatherUpdater {
 
         views.setTextViewText(R.id.widget_weather, null)
         views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, 0, 0)
+        views.setImageViewResource(R.id.widget_weather_icon, 0)
 
         if (!prefs.showWeather) return WeatherUpdateStatus.HAS_RECENT_DATA
 
@@ -41,7 +42,8 @@ object WeatherUpdater {
             WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
 
                 views.setTextViewText(R.id.widget_weather, it.text)
-                views.setTextViewCompoundDrawables(R.id.widget_weather, it.iconId1, 0, it.iconId2, 0)
+                views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, it.iconId2, 0)
+                views.setImageViewResource(R.id.widget_weather_icon, it.iconId1)
 
             } ?: return WeatherUpdateStatus.HAS_EXPIRED_DATA
 

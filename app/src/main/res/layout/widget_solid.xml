@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.ContainerSolid"
     android:id="@+id/widget_root">
 
@@ -19,9 +20,20 @@
 
     </LinearLayout>
 
-    <TextView
-        style="@style/Widget.WeatherSolid"
-        android:id="@+id/widget_weather" />
+    <LinearLayout
+        style="@style/Widget.InnerContainer"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            style="@style/Widget.WeatherIcon"
+            android:id="@+id/widget_weather_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Widget.WeatherSolid"
+            android:id="@+id/widget_weather" />
+
+    </LinearLayout>
 
     <TextView
         style="@style/Widget.AuxSolid"

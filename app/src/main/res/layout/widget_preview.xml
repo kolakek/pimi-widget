@@ -1,18 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.PimiWidget"
-    style="@style/Widget.ContainerSolid">
+    style="@style/Widget.Container">
 
     <TextView
-        style="@style/Widget.DateSolid"
+        style="@style/Widget.Date"
         android:textColor="?attr/widgetPreviewTextColor"
         android:text="@string/widget_date_prev" />
 
-    <TextView
-        style="@style/Widget.WeatherSolid"
-        android:textColor="?attr/widgetPreviewTextColor"
-        android:text="@string/widget_temp_prev"
-        android:drawableStart="?attr/widgetPreviewWeatherIcon"
-        tools:ignore="UseCompatTextViewDrawableXml" />
+    <LinearLayout
+        style="@style/Widget.InnerContainer"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            style="@style/Widget.WeatherIcon"
+            android:id="@+id/widget_weather_icon"
+            android:src="?attr/widgetPreviewWeatherIcon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Widget.Weather"
+            android:text="@string/widget_temp_prev"
+            android:textColor="?attr/widgetPreviewTextColor"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+    </LinearLayout>
 
 </LinearLayout>
