@@ -32,10 +32,17 @@
         <item name="android:background">@drawable/widget_background</item>
     </style>
 
-    <style name="Widget.InnerContainer" parent="Widget.Base">
+    <style name="Widget.InnerHorizontalContainer" parent="Widget.Base">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Widget.InnerVerticalContainer" parent="Widget.Base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
@@ -91,6 +98,15 @@
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
+    <style name="Widget.WeatherIconSolid" parent="Widget.InnerView">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">36dp</item>
+        <item name="android:paddingVertical">6dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">14dp</item>
+        <item name="android:background">@drawable/widget_icon_background</item>
     </style>
 
     <style name="Widget.Weather" parent="Widget.InnerView">

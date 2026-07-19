@@ -9,7 +9,7 @@
         android:text="@string/widget_date_prev" />
 
     <LinearLayout
-        style="@style/Widget.InnerContainer"
+        style="@style/Widget.InnerHorizontalContainer"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView

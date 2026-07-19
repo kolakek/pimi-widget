@@ -4,7 +4,7 @@
     android:id="@+id/widget_root">
 
     <LinearLayout
-        style="@style/Widget.InnerContainer">
+        style="@style/Widget.InnerHorizontalContainer">
 
         <TextClock
             style="@style/Widget.Date"
@@ -21,7 +21,7 @@
     </LinearLayout>
 
     <LinearLayout
-        style="@style/Widget.InnerContainer"
+        style="@style/Widget.InnerHorizontalContainer"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
