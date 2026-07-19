@@ -97,7 +97,7 @@
     <style name="Widget.WeatherIcon" parent="Widget.InnerView">
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">24dp</item>
-        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
     </style>
 
     <style name="Widget.WeatherIconSolid" parent="Widget.InnerView">
@@ -111,6 +111,7 @@
 
     <style name="Widget.Weather" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
+        <item name="android:drawablePadding">2dp</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
     </style>
 
