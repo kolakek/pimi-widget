@@ -1,9 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="@dimen/widget_event_icon_size"
-    android:height="@dimen/widget_event_icon_size"
+    android:width="24dp"
+    android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
   <path
-      android:pathData="m12.5,8.1h-1.5v6l4.75,2.85 0.75,-1.23 -4,-2.37v-5.25ZM17.34,1.91l4.61,3.84 -1.28,1.53 -4.61,-3.84 1.28,-1.54ZM6.67,1.91l1.28,1.54 -4.61,3.84 -1.28,-1.54L6.66,1.9ZM12.01,4.1c-4.97,0 -9,4.03 -9,9s4.03,9 9,9 9,-4.03 9,-9 -4.03,-9 -9,-9ZM12.01,20.1c-3.86,0 -7,-3.14 -7,-7s3.14,-7 7,-7 7,3.14 7,7 -3.14,7 -7,7Z"
+      android:pathData="m12.3,9.68h-0.89v3.57l2.82,1.69 0.45,-0.73 -2.38,-1.41v-3.12ZM15.17,6l2.74,2.29 -0.76,0.91 -2.74,-2.28 0.76,-0.91ZM8.83,6l0.76,0.91 -2.74,2.28 -0.76,-0.91 2.74,-2.28ZM12,7.3c-2.95,0 -5.35,2.4 -5.35,5.35s2.4,5.35 5.35,5.35 5.35,-2.4 5.35,-5.35 -2.4,-5.35 -5.35,-5.35ZM12,16.81c-2.29,0 -4.16,-1.87 -4.16,-4.16s1.87,-4.16 4.16,-4.16 4.16,1.87 4.16,4.16 -1.87,4.16 -4.16,4.16Z"
       android:fillColor="#fff"/>
 </vector>

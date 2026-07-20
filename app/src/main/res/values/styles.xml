@@ -80,7 +80,7 @@
     </style>
 
     <style name="Widget.Event" parent="Widget.DateEvent">
-        <item name="android:drawablePadding">4dp</item>
+        <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Widget.EventSolid" parent="Widget.Event">

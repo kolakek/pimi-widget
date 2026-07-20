@@ -1,9 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="@dimen/widget_event_icon_size"
-    android:height="@dimen/widget_event_icon_size"
+    android:width="24dp"
+    android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
   <path
-      android:pathData="m3,21v-8h2v-6h6v-1.45c-0.3,-0.2 -0.54,-0.44 -0.73,-0.72s-0.27,-0.63 -0.27,-1.03c0,-0.25 0.05,-0.5 0.15,-0.74s0.25,-0.46 0.45,-0.66l1.4,-1.4 1.4,1.4c0.2,0.2 0.35,0.42 0.45,0.66s0.15,0.49 0.15,0.74c0,0.4 -0.09,0.74 -0.27,1.03s-0.43,0.52 -0.73,0.72v1.45h6v6h2v8L3,21ZM7,13h10v-4L7,9v4ZM5,19h14v-4L5,15v4ZM7,13h10L7,13ZM5,19h14L5,19ZM19,13L5,13h14Z"
+      android:pathData="m6.6,17v-4.8h1.2v-3.6h3.6v-0.87c-0.18,-0.12 -0.32,-0.27 -0.44,-0.43s-0.16,-0.38 -0.16,-0.62c0,-0.15 0.03,-0.3 0.09,-0.44s0.15,-0.28 0.27,-0.4l0.84,-0.84 0.84,0.84c0.12,0.12 0.21,0.25 0.27,0.4s0.09,0.29 0.09,0.44c0,0.24 -0.06,0.45 -0.16,0.62s-0.26,0.31 -0.44,0.43v0.87h3.6v3.6h1.2v4.8L6.6,17ZM9,12.2h6v-2.4h-6v2.4ZM7.8,15.8h8.4v-2.4L7.8,13.4v2.4ZM9,12.2h6,-6ZM7.8,15.8h8.4L7.8,15.8ZM16.2,12.2L7.8,12.2h8.4Z"
       android:fillColor="#fff"/>
 </vector>
