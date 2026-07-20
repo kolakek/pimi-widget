@@ -21,7 +21,6 @@
 
     <style name="Widget.Container" parent="Widget.Base">
         <item name="android:paddingHorizontal">16dp</item>
-        <item name="android:paddingVertical">@dimen/widget_vertical_padding</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
@@ -29,6 +28,7 @@
     </style>
 
     <style name="Widget.ContainerSolid" parent="Widget.Container">
+        <item name="android:paddingVertical">@dimen/solid_widget_vert_padding</item>
         <item name="android:background">@drawable/widget_background</item>
     </style>
 
@@ -65,11 +65,7 @@
     <style name="Widget.Date" parent="Widget.DateEvent">
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
-        <item name="android:layout_marginRight">12dp</item>
-    </style>
-
-    <style name="Widget.DateSolid" parent="Widget.Date">
-        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:layout_marginRight">8dp</item>
     </style>
 
     <style name="Widget.DateShadow" parent="Widget.Date">
@@ -83,15 +79,24 @@
         <item name="android:drawablePadding">0dp</item>
     </style>
 
-    <style name="Widget.EventSolid" parent="Widget.Event">
-        <item name="android:textColor">@color/dynamic_text_color</item>
-    </style>
-
     <style name="Widget.EventShadow" parent="Widget.Event">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="Widget.DateEventSolid" parent="Widget.InnerView">
+        <item name="android:layout_height">@dimen/solid_widget_date_height</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+    </style>
+
+    <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
+        <item name="android:format12Hour">@string/widget_date_format</item>
+        <item name="android:format24Hour">@string/widget_date_format</item>
+        <item name="android:layout_marginRight">8dp</item>
     </style>
 
     <style name="Widget.WeatherIcon" parent="Widget.InnerView">
@@ -115,15 +120,17 @@
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
     </style>
 
-    <style name="Widget.WeatherSolid" parent="Widget.Weather">
-        <item name="android:textColor">@color/dynamic_text_color</item>
-    </style>
-
     <style name="Widget.WeatherShadow" parent="Widget.Weather">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="Widget.WeatherSolid" parent="Widget.InnerView">
+        <item name="android:layout_height">@dimen/solid_widget_weather_height</item>
+        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
 
     <style name="Widget.Aux" parent="Widget.InnerView">

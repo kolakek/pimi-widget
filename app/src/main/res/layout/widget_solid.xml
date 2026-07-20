@@ -22,11 +22,11 @@
                     android:id="@+id/widget_text_clock" />
 
                 <TextView
-                    style="@style/Widget.EventSolid"
+                    style="@style/Widget.DateEventSolid"
                     android:id="@+id/widget_alarm" />
 
                 <TextView
-                    style="@style/Widget.EventSolid"
+                    style="@style/Widget.DateEventSolid"
                     android:id="@+id/widget_birthday" />
 
             </LinearLayout>

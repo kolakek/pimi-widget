@@ -24,6 +24,7 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WidgetStyle
 
 object VisibilityUpdater {
 
@@ -37,11 +38,16 @@ object VisibilityUpdater {
             views.setViewVisibility(R.id.widget_aux, View.GONE)
             return
         }
-        val viewHeight = context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
-                context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
-                2 * context.resources.getDimensionPixelSize(R.dimen.widget_vertical_padding)
-
+        val viewHeight = if (prefs.widgetStyle == WidgetStyle.SOLID) {
+            context.resources.getDimensionPixelSize(R.dimen.solid_widget_date_height) +
+                    context.resources.getDimensionPixelSize(R.dimen.solid_widget_weather_height) +
+                    context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
+                    2 * context.resources.getDimensionPixelSize(R.dimen.solid_widget_vert_padding)
+        } else {
+            context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
+                    context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
+                    context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
+        }
         val widgetHeight = AppWidgetManager
             .getInstance(context)
             .getAppWidgetOptions(appWidgetId)
