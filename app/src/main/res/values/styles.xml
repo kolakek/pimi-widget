@@ -59,7 +59,8 @@
 
     <style name="Widget.DateEvent" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_date_height</item>
-        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
     </style>
 
     <style name="Widget.Date" parent="Widget.DateEvent">
@@ -117,7 +118,7 @@
     <style name="Widget.Weather" parent="Widget.InnerView">
         <item name="android:layout_height">@dimen/widget_weather_height</item>
         <item name="android:drawablePadding">2dp</item>
-        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
 
     <style name="Widget.WeatherShadow" parent="Widget.Weather">
