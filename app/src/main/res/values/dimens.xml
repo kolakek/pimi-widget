@@ -3,7 +3,7 @@
     <dimen name="widget_date_height">28dp</dimen>
     <dimen name="widget_weather_height">26dp</dimen>
     <dimen name="widget_aux_height">22dp</dimen>
-    <dimen name="solid_widget_vert_padding">12dp</dimen>
+    <dimen name="solid_widget_padding">12dp</dimen>
     <dimen name="solid_widget_date_height">24dp</dimen>
     <dimen name="solid_widget_weather_height">24dp</dimen>
 </resources>

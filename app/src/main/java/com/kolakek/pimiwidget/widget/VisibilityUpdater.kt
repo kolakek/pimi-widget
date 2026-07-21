@@ -42,7 +42,7 @@ object VisibilityUpdater {
             context.resources.getDimensionPixelSize(R.dimen.solid_widget_date_height) +
                     context.resources.getDimensionPixelSize(R.dimen.solid_widget_weather_height) +
                     context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
-                    2 * context.resources.getDimensionPixelSize(R.dimen.solid_widget_vert_padding)
+                    2 * context.resources.getDimensionPixelSize(R.dimen.solid_widget_padding)
         } else {
             context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
                     context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
