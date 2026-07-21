@@ -18,27 +18,27 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.IconColor
+import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetStyle
 
 enum class WidgetIcon {
     ALARM,
     BIRTHDAY;
 
-    fun id(iconColor: IconColor, widgetStyle: WidgetStyle): Int {
+    fun id(textColor: TextColor, widgetStyle: WidgetStyle): Int {
         val needsShadow = widgetStyle == WidgetStyle.SHADOW
         return when (this) {
-            ALARM -> when (iconColor) {
-                IconColor.THEMED -> R.drawable.ic_alarm_themed
-                IconColor.DARK -> R.drawable.ic_alarm_dark
-                IconColor.LIGHT ->
+            ALARM -> when (textColor) {
+                TextColor.THEMED -> R.drawable.ic_alarm_themed
+                TextColor.DARK -> R.drawable.ic_alarm_dark
+                TextColor.LIGHT ->
                     if (needsShadow) R.drawable.ic_alarm_light_shadow
                     else R.drawable.ic_alarm_light
             }
-            BIRTHDAY -> when (iconColor) {
-                IconColor.THEMED -> R.drawable.ic_birthday_themed
-                IconColor.DARK -> R.drawable.ic_birthday_dark
-                IconColor.LIGHT ->
+            BIRTHDAY -> when (textColor) {
+                TextColor.THEMED -> R.drawable.ic_birthday_themed
+                TextColor.DARK -> R.drawable.ic_birthday_dark
+                TextColor.LIGHT ->
                     if (needsShadow) R.drawable.ic_birthday_light_shadow
                     else R.drawable.ic_birthday_light
             }

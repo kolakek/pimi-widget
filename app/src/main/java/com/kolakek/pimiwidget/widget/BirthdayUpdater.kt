@@ -65,7 +65,7 @@ object BirthdayUpdater {
                 views.setTextViewText(R.id.widget_birthday, str)
                 views.setTextViewCompoundDrawables(
                     R.id.widget_birthday,
-                    WidgetIcon.BIRTHDAY.id(prefs.iconColor, prefs.widgetStyle),
+                    WidgetIcon.BIRTHDAY.id(prefs.textColor, prefs.widgetStyle),
                     0,
                     0,
                     0

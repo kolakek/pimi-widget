@@ -26,6 +26,7 @@ import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.TempUnit
+import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WarningCode
@@ -56,7 +57,7 @@ object WeatherRenderer {
                 context,
                 nowTimeMillis,
                 weather,
-                prefs.iconColor,
+                prefs.textColor,
                 prefs.widgetStyle
             )
         } else null
@@ -102,7 +103,7 @@ object WeatherRenderer {
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        iconColor: IconColor,
+        textColor: TextColor,
         widgetStyle: WidgetStyle
     ): TextWithOneIcon? {
         val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
@@ -113,7 +114,7 @@ object WeatherRenderer {
 
         return TextWithOneIcon(
             context.getString(WarningString.getWarningStrId(warningCode)),
-            WarningIcon.getWarningIconId(warningCode.level, iconColor, widgetStyle)
+            WarningIcon.getWarningIconId(warningCode.level, textColor, widgetStyle)
         )
     }
 

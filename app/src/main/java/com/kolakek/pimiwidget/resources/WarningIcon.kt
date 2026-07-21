@@ -18,7 +18,7 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.IconColor
+import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.settings.WidgetStyle
 
@@ -26,7 +26,7 @@ object WarningIcon {
 
     fun getWarningIconId(
         warningLevel: WarningLevel,
-        iconColor: IconColor,
+        textColor: TextColor,
         widgetStyle: WidgetStyle
     ): Int {
         val needsShadow = widgetStyle == WidgetStyle.SHADOW
@@ -34,18 +34,18 @@ object WarningIcon {
             WarningLevel.NONE -> 0
 
             WarningLevel.SEVERE ->
-                when (iconColor) {
-                    IconColor.THEMED -> R.drawable.ic_warn_sevr_themed
-                    IconColor.DARK -> R.drawable.ic_warn_sevr_dark
-                    IconColor.LIGHT ->
+                when (textColor) {
+                    TextColor.THEMED -> R.drawable.ic_warn_sevr_themed
+                    TextColor.DARK -> R.drawable.ic_warn_sevr_dark
+                    TextColor.LIGHT ->
                         if (needsShadow) R.drawable.ic_warn_sevr_light_shadow
                         else R.drawable.ic_warn_sevr_light
                 }
 
             WarningLevel.EXTREME ->
-                when (iconColor) {
-                    IconColor.DARK, IconColor.THEMED -> R.drawable.ic_warn_extr
-                    IconColor.LIGHT ->
+                when (textColor) {
+                    TextColor.DARK, TextColor.THEMED -> R.drawable.ic_warn_extr
+                    TextColor.LIGHT ->
                         if (needsShadow) R.drawable.ic_warn_extr_light_shadow
                         else R.drawable.ic_warn_extr
                 }
