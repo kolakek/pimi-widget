@@ -36,8 +36,9 @@ object WeatherIcon {
                 IconColor.THEMED -> IconsFlatSketchThemed.getIconId(weatherCode, isDay)
             }
             IconStyle.TWINKLE_SHADOW -> when (iconColor) {
-                IconColor.DARK, IconColor.THEMED -> IconsTwinkleShadowDark.getIconId(weatherCode, isDay) // todo
+                IconColor.DARK -> IconsTwinkleShadowDark.getIconId(weatherCode, isDay)
                 IconColor.LIGHT -> IconsTwinkleShadowLight.getIconId(weatherCode, isDay)
+                IconColor.THEMED -> IconsTwinkleShadowDark.getIconId(weatherCode, isDay)
             }
         }
     }
