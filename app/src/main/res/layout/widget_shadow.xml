@@ -31,7 +31,11 @@
 
         <TextView
             style="@style/Widget.WeatherShadow"
-            android:id="@+id/widget_weather" />
+            android:id="@+id/widget_weather_temp" />
+
+        <TextView
+            style="@style/Widget.WeatherShadow"
+            android:id="@+id/widget_weather_info" />
 
     </LinearLayout>
 

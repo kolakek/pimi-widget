@@ -19,16 +19,12 @@ package com.kolakek.pimiwidget.widget
 
 import android.content.Context
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
-import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.TempUnit
-import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
 import java.time.Instant
@@ -36,105 +32,52 @@ import java.time.ZoneId
 
 object WeatherRenderer {
 
-    fun getWidgetWeatherStrAndIcons(
+    fun getCurrentWeatherIconString(
         context: Context,
         weather: WeatherData,
-        prefs: WidgetPreferences
-    ): TextWithTwoIcons? {
-        val nowTimeMillis = System.currentTimeMillis()
-
-        val currentWeatherInfo = getCurrentWeatherStrAndIcon(
-            context,
-            nowTimeMillis,
-            weather,
-            prefs.tempUnit,
-            prefs.iconStyle,
-            prefs.iconColor
-        ) ?: return null
-
-        val warningStrAndIcon = if (prefs.showWeatherWarning) {
-            getWarningStrAndIcon(
-                context,
-                nowTimeMillis,
-                weather,
-                prefs.textColor,
-                prefs.widgetStyle
-            )
-        } else null
-
-        val forecastStr = if (warningStrAndIcon == null && prefs.showDailyForecast) {
-            getForecastStr(
-                context,
-                nowTimeMillis,
-                weather,
-                prefs.tempUnit
-            )
-        } else null
-
-        val extraIconId = warningStrAndIcon?.iconId ?: 0
-
-        val extraText = (warningStrAndIcon?.text ?: forecastStr)?.prependIndent(" · ").orEmpty()
-        val widgetStr = currentWeatherInfo.text + extraText
-
-        return TextWithTwoIcons(widgetStr, currentWeatherInfo.iconId, extraIconId)
-    }
-
-    private fun getCurrentWeatherStrAndIcon(
-        context: Context,
         nowTimeMillis: Long,
-        weather: WeatherData,
-        tempUnit: TempUnit,
-        iconStyle: IconStyle,
-        iconColor: IconColor
-    ): TextWithOneIcon? {
+        prefs: WidgetPreferences
+    ): IconString? {
         val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
 
         val weatherCode = weather.hourlyWeatherCode.getOrNull(timeIndex) ?: return null
         val tempCelsius = weather.hourlyTempCelsius.getOrNull(timeIndex) ?: return null
         val isDay = weather.hourlyIsDay.getOrNull(timeIndex) ?: return null
 
-        val temperatureStr = getTemperatureStr(context, tempCelsius, tempUnit)
+        val temperatureStr = getTemperatureString(context, tempCelsius, prefs.tempUnit)
 
-        val weatherIconId = WeatherIcon.getWeatherIconId(weatherCode, isDay, iconStyle, iconColor)
-        return TextWithOneIcon(temperatureStr, weatherIconId)
+        val weatherIconId = WeatherIcon.getWeatherIconId(
+            weatherCode,
+            isDay,
+            prefs.iconStyle,
+            prefs.iconColor
+        )
+        return IconString(temperatureStr, weatherIconId)
     }
 
-    private fun getWarningStrAndIcon(
+    fun getWarningIconString(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        textColor: TextColor,
-        widgetStyle: WidgetStyle
-    ): TextWithOneIcon? {
+        prefs: WidgetPreferences
+    ): IconString? {
         val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
         val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
 
         if (warningCode == WarningCode.NO_WARNING)
             return null
 
-        return TextWithOneIcon(
+        return IconString(
             context.getString(WarningString.getWarningStrId(warningCode)),
-            WarningIcon.getWarningIconId(warningCode.level, textColor, widgetStyle)
+            WarningIcon.getWarningIconId(warningCode.level, prefs.textColor, prefs.widgetStyle)
         )
     }
 
-    private fun getNextTimeIndex(
-        timeMillis: List<Long>,
-        nowTimeMillis: Long
-    ): Int? {
-        val idx = timeMillis.indexOfFirst { it > nowTimeMillis }
-
-        if (idx == -1) {
-            return null
-        }
-        return idx
-    }
-
-    private fun getForecastStr(
+    fun getForecastString(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
-        tempUnit: TempUnit
+        prefs: WidgetPreferences
     ): String? {
 
         val zone = ZoneId.systemDefault()
@@ -159,8 +102,8 @@ object WeatherRenderer {
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
 
-        val minTempStr = getTemperatureStr(context, tempCelsiusMin, tempUnit, false)
-        val maxTempStr = getTemperatureStr(context, tempCelsiusMax, tempUnit, false)
+        val minTempStr = getTemperatureString(context, tempCelsiusMin, prefs.tempUnit, false)
+        val maxTempStr = getTemperatureString(context, tempCelsiusMax, prefs.tempUnit, false)
 
         val weatherStr = context.getString(
             WeatherString.getShortWeatherStrId(weatherCode, isDay = true)
@@ -171,7 +114,7 @@ object WeatherRenderer {
         return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
     }
 
-    private fun getTemperatureStr(
+    private fun getTemperatureString(
         context: Context,
         tempCelsius: Double,
         tempUnit: TempUnit,
@@ -189,5 +132,17 @@ object WeatherRenderer {
             context.getString(R.string.degree)
         }
         return "${(tempValue + 0.5).toInt()}$unit"
+    }
+
+    private fun getNextTimeIndex(
+        timeMillis: List<Long>,
+        nowTimeMillis: Long
+    ): Int? {
+        val idx = timeMillis.indexOfFirst { it > nowTimeMillis }
+
+        if (idx == -1) {
+            return null
+        }
+        return idx
     }
 }

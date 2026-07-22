@@ -18,9 +18,11 @@
 package com.kolakek.pimiwidget.widget
 
 import android.content.Context
+import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
 
 object WeatherUpdater {
@@ -32,23 +34,46 @@ object WeatherUpdater {
         weatherData: WeatherData?
     ): WeatherUpdateStatus {
 
-        views.setTextViewText(R.id.widget_weather, null)
-        views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, 0, 0)
         views.setImageViewResource(R.id.widget_weather_icon, 0)
+        views.setTextViewText(R.id.widget_weather_temp, null)
+        views.setTextViewText(R.id.widget_weather_info, null)
+        views.setTextViewCompoundDrawables(R.id.widget_weather_info, 0, 0, 0, 0)
+        views.setViewVisibility(R.id.widget_weather_info, View.GONE)
 
         if (!prefs.showWeather) return WeatherUpdateStatus.HAS_RECENT_DATA
 
         weatherData?.let { data ->
-            WeatherRenderer.getWidgetWeatherStrAndIcons(context, data, prefs)?.let {
+            val nowTimeMillis = System.currentTimeMillis()
 
-                views.setTextViewText(R.id.widget_weather, it.text)
-                views.setTextViewCompoundDrawables(R.id.widget_weather, 0, 0, it.iconId2, 0)
-                views.setImageViewResource(R.id.widget_weather_icon, it.iconId1)
+            WeatherRenderer.getCurrentWeatherIconString(context, data, nowTimeMillis, prefs)?.let {
+
+                val warnIconStr = if (prefs.showWeatherWarning) {
+                    WeatherRenderer.getWarningIconString(context, nowTimeMillis, data, prefs)
+                } else null
+
+                val forecastStr = if (warnIconStr == null && prefs.showDailyForecast) {
+                    WeatherRenderer.getForecastString(context, nowTimeMillis, data, prefs)
+                } else null
+
+                val infoIcon = warnIconStr?.iconId ?: 0
+
+                val sep = if (prefs.widgetStyle == WidgetStyle.SOLID) "" else " · "
+                val infoStr = (warnIconStr?.text ?: forecastStr)?.prependIndent(sep)
+
+                infoStr?.let {
+                    views.setViewVisibility(R.id.widget_weather_info, View.VISIBLE)
+                    views.setTextViewText(R.id.widget_weather_info, infoStr)
+                    views.setTextViewCompoundDrawables(R.id.widget_weather_info, 0, 0, infoIcon, 0)
+                }
+                views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
+                views.setTextViewText(R.id.widget_weather_temp, it.text)
 
             } ?: return WeatherUpdateStatus.HAS_EXPIRED_DATA
 
             val isFresh = System.currentTimeMillis() - data.timeMillis < WEATHER_UPDATE_AGE_MILLIS
-            return if (isFresh) WeatherUpdateStatus.HAS_RECENT_DATA else WeatherUpdateStatus.HAS_STALE_DATA
+
+            return if (isFresh) WeatherUpdateStatus.HAS_RECENT_DATA
+            else WeatherUpdateStatus.HAS_STALE_DATA
         }
         return WeatherUpdateStatus.HAS_EXPIRED_DATA
     }

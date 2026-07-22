@@ -17,8 +17,7 @@
 
 package com.kolakek.pimiwidget.widget
 
-data class TextWithTwoIcons (
+data class IconString (
     val text: String,
-    val iconId1: Int,
-    val iconId2: Int
+    val iconId: Int
 )
