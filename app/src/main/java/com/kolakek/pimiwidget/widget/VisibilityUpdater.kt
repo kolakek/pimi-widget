@@ -17,50 +17,11 @@
 
 package com.kolakek.pimiwidget.widget
 
-import android.appwidget.AppWidgetManager
-import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.AuxDisplay
-import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WidgetStyle
 
 object VisibilityUpdater {
-
-    fun updateAuxViews(
-        context: Context,
-        views: RemoteViews,
-        appWidgetId: Int,
-        prefs: WidgetPreferences
-    ) {
-        if (prefs.auxDisplay == AuxDisplay.NOTHING) {
-            views.setViewVisibility(R.id.widget_aux, View.GONE)
-            return
-        }
-        val viewHeight = if (prefs.widgetStyle == WidgetStyle.SOLID) {
-            context.resources.getDimensionPixelSize(R.dimen.solid_widget_date_height) +
-                    context.resources.getDimensionPixelSize(R.dimen.solid_widget_weather_height) +
-                    context.resources.getDimensionPixelSize(R.dimen.widget_aux_height) +
-                    2 * context.resources.getDimensionPixelSize(R.dimen.solid_widget_padding)
-        } else {
-            context.resources.getDimensionPixelSize(R.dimen.widget_date_height) +
-                    context.resources.getDimensionPixelSize(R.dimen.widget_weather_height) +
-                    context.resources.getDimensionPixelSize(R.dimen.widget_aux_height)
-        }
-        val widgetHeight = AppWidgetManager
-            .getInstance(context)
-            .getAppWidgetOptions(appWidgetId)
-            .getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT)
-            .dpToPx(context)
-
-        if (viewHeight > widgetHeight) {
-            views.setViewVisibility(R.id.widget_aux, View.GONE)
-        }
-        else {
-            views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
-        }
-    }
 
     fun updateEventViews(
         views: RemoteViews,
@@ -77,7 +38,4 @@ object VisibilityUpdater {
             }
         }
     }
-
-    private fun Int.dpToPx(context: Context): Int =
-        (this * context.resources.displayMetrics.density).toInt()
 }

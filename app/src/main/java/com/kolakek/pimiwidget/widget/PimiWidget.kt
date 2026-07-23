@@ -22,7 +22,6 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
@@ -39,16 +38,6 @@ class PimiWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         WidgetUpdater.updateWidgets(context)
-    }
-
-    override fun onAppWidgetOptionsChanged(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int,
-        newOptions: Bundle
-    ) {
-        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
-        WidgetUpdater.refreshVisibility(context, appWidgetManager, appWidgetId)
     }
 
     override fun onEnabled(context: Context) {

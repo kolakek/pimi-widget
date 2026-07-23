@@ -19,7 +19,7 @@
 
                 <TextClock
                     style="@style/Widget.DateSolid"
-                    android:id="@+id/widget_text_clock" />
+                    android:id="@+id/widget_date" />
 
                 <TextView
                     style="@style/Widget.DateEventSolid"
@@ -33,11 +33,7 @@
 
             <TextView
                 style="@style/Widget.WeatherSolid"
-                android:id="@+id/widget_weather_info" />
-
-            <TextView
-                style="@style/Widget.AuxSolid"
-                android:id="@+id/widget_aux" />
+                android:id="@+id/widget_weather_aux" />
 
         </LinearLayout>
 

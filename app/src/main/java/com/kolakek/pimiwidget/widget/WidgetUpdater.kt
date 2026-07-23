@@ -48,9 +48,7 @@ object WidgetUpdater {
             AlarmUpdater.updateViews(context, views, prefs)
             WeatherUpdater.updateViews(context, views, prefs, weatherData)
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
-            AuxUpdater.updateViews(context, views, prefs)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
-            VisibilityUpdater.updateAuxViews(context, views, appWidgetId, prefs)
         }
     }
 
@@ -63,10 +61,9 @@ object WidgetUpdater {
         var lastWeatherStatus = WeatherUpdateStatus.HAS_RECENT_DATA
 
         updateViews(context, prefs, partialUpdate = true) { views, _ ->
+            AlarmUpdater.updateViews(context, views, prefs)
             lastWeatherStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
-            AuxUpdater.updateViews(context, views, prefs)
-            AlarmUpdater.updateViews(context, views, prefs)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
         return lastWeatherStatus
@@ -79,7 +76,6 @@ object WidgetUpdater {
     ) {
         updateViews(context, prefs, partialUpdate = true) { views, _ ->
             WeatherUpdater.updateViews(context, views, prefs, weatherData)
-            AuxUpdater.updateViews(context, views, prefs)
         }
     }
 
@@ -108,21 +104,6 @@ object WidgetUpdater {
             val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
-    }
-
-    fun refreshVisibility(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetId: Int
-    ) {
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val views = RemoteViews(
-            context.packageName,
-            getWidgetLayout(prefs.widgetStyle)
-        )
-        VisibilityUpdater.updateAuxViews(context, views, appWidgetId, prefs)
-
-        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)
     }
 
     private fun getWidgetLayout(widgetStyle: WidgetStyle): Int {

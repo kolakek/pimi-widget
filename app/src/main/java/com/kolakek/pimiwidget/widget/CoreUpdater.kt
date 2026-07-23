@@ -41,8 +41,8 @@ object CoreUpdater {
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
         )
-        views.setCharSequence(R.id.widget_text_clock, "setFormat12Hour", pattern)
-        views.setCharSequence(R.id.widget_text_clock, "setFormat24Hour", pattern)
+        views.setCharSequence(R.id.widget_date, "setFormat12Hour", pattern)
+        views.setCharSequence(R.id.widget_date, "setFormat24Hour", pattern)
 
         views.setOnClickPendingIntent(R.id.widget_root, null)
 
@@ -51,7 +51,7 @@ object CoreUpdater {
             Intent.CATEGORY_APP_CALENDAR,
             appWidgetId
         )
-        views.setOnClickPendingIntent(R.id.widget_text_clock, calendarIntent)
+        views.setOnClickPendingIntent(R.id.widget_date, calendarIntent)
 
         val weatherAppIntent = if (prefs.weatherApp == WeatherApp.NONE) {
             null
@@ -73,11 +73,11 @@ object CoreUpdater {
             TextColor.DARK -> Color.BLACK
             TextColor.THEMED -> null
         }?.let {
-            views.setTextColor(R.id.widget_text_clock, it)
+            views.setTextColor(R.id.widget_date, it)
             views.setTextColor(R.id.widget_alarm, it)
-            views.setTextColor(R.id.widget_weather_temp, it)
             views.setTextColor(R.id.widget_birthday, it)
-            views.setTextColor(R.id.widget_aux, it)
+            views.setTextColor(R.id.widget_weather_temp, it)
+            views.setTextColor(R.id.widget_weather_aux, it)
         }
     }
 }

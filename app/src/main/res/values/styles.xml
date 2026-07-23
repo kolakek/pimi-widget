@@ -132,21 +132,4 @@
         <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
 
-    <style name="Widget.Aux" parent="Widget.InnerView">
-        <item name="android:layout_height">@dimen/widget_aux_height</item>
-        <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
-        <item name="android:visibility">gone</item>
-    </style>
-
-    <style name="Widget.AuxSolid" parent="Widget.Aux">
-        <item name="android:textColor">@color/dynamic_text_color</item>
-    </style>
-
-    <style name="Widget.AuxShadow" parent="Widget.Aux">
-        <item name="android:shadowColor">#222222</item>
-        <item name="android:shadowDx">1</item>
-        <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">1</item>
-    </style>
-
 </resources>

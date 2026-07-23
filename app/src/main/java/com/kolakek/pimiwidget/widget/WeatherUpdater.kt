@@ -36,37 +36,47 @@ object WeatherUpdater {
 
         views.setImageViewResource(R.id.widget_weather_icon, 0)
         views.setTextViewText(R.id.widget_weather_temp, null)
-        views.setTextViewText(R.id.widget_weather_info, null)
-        views.setTextViewCompoundDrawables(R.id.widget_weather_info, 0, 0, 0, 0)
-        views.setViewVisibility(R.id.widget_weather_info, View.GONE)
+        views.setTextViewText(R.id.widget_weather_aux, null)
+        views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, 0, 0)
+        views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
 
         if (!prefs.showWeather) return WeatherUpdateStatus.HAS_RECENT_DATA
 
         weatherData?.let { data ->
             val nowTimeMillis = System.currentTimeMillis()
 
-            WeatherRenderer.getCurrentWeatherIconString(context, data, nowTimeMillis, prefs)?.let {
+            WeatherRenderer.getCurrentWeather(context, data, nowTimeMillis, prefs)?.let { it ->
 
-                val warnIconStr = if (prefs.showWeatherWarning) {
-                    WeatherRenderer.getWarningIconString(context, nowTimeMillis, data, prefs)
-                } else null
-
-                val forecastStr = if (warnIconStr == null && prefs.showDailyForecast) {
-                    WeatherRenderer.getForecastString(context, nowTimeMillis, data, prefs)
-                } else null
-
-                val infoIcon = warnIconStr?.iconId ?: 0
-
-                val sep = if (prefs.widgetStyle == WidgetStyle.SOLID) "" else " · "
-                val infoStr = (warnIconStr?.text ?: forecastStr)?.prependIndent(sep)
-
-                infoStr?.let {
-                    views.setViewVisibility(R.id.widget_weather_info, View.VISIBLE)
-                    views.setTextViewText(R.id.widget_weather_info, infoStr)
-                    views.setTextViewCompoundDrawables(R.id.widget_weather_info, 0, 0, infoIcon, 0)
-                }
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
                 views.setTextViewText(R.id.widget_weather_temp, it.text)
+
+                var auxStr: String? = null
+                var auxIcon = 0
+
+                if (prefs.showWeatherWarning) {
+                    WeatherRenderer.getWarning(context, nowTimeMillis, data, prefs)?.let{
+                        auxStr = it.text
+                        auxIcon = it.iconId
+                    }
+                }
+                if (auxStr == null && prefs.showDailyForecast) {
+                    WeatherRenderer.getForecast(context, nowTimeMillis, data, prefs)?.let {
+                        auxStr = it
+                    }
+                }
+                if (auxStr == null) {
+                    WeatherRenderer.getAuxInfo(context, nowTimeMillis, prefs)?.let {
+                        auxStr = it
+                    }
+                }
+                val sep = if (prefs.widgetStyle == WidgetStyle.SOLID) "" else " · "
+                auxStr = auxStr?.prependIndent(sep)
+
+                auxStr?.let {
+                    views.setViewVisibility(R.id.widget_weather_aux, View.VISIBLE)
+                    views.setTextViewText(R.id.widget_weather_aux, auxStr)
+                    views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, auxIcon, 0)
+                }
 
             } ?: return WeatherUpdateStatus.HAS_EXPIRED_DATA
 

@@ -8,7 +8,7 @@
 
         <TextClock
             style="@style/Widget.DateShadow"
-            android:id="@+id/widget_text_clock" />
+            android:id="@+id/widget_date" />
 
         <TextView
             style="@style/Widget.EventShadow"
@@ -35,12 +35,8 @@
 
         <TextView
             style="@style/Widget.WeatherShadow"
-            android:id="@+id/widget_weather_info" />
+            android:id="@+id/widget_weather_aux" />
 
     </LinearLayout>
-
-    <TextView
-        style="@style/Widget.AuxShadow"
-        android:id="@+id/widget_aux" />
 
 </LinearLayout>

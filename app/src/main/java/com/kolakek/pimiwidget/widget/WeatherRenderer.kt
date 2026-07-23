@@ -18,21 +18,24 @@
 package com.kolakek.pimiwidget.widget
 
 import android.content.Context
+import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningCode
 import com.kolakek.pimiwidget.weather.WeatherData
 import java.time.Instant
 import java.time.ZoneId
+import java.util.Date
 
 object WeatherRenderer {
 
-    fun getCurrentWeatherIconString(
+    fun getCurrentWeather(
         context: Context,
         weather: WeatherData,
         nowTimeMillis: Long,
@@ -55,7 +58,7 @@ object WeatherRenderer {
         return IconString(temperatureStr, weatherIconId)
     }
 
-    fun getWarningIconString(
+    fun getWarning(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
@@ -73,7 +76,7 @@ object WeatherRenderer {
         )
     }
 
-    fun getForecastString(
+    fun getForecast(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
@@ -112,6 +115,22 @@ object WeatherRenderer {
             if (isToday) R.string.widget_today else R.string.widget_tomorrow
         )
         return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
+    }
+
+    fun getAuxInfo(
+        context: Context,
+        nowTimeMillis: Long,
+        prefs: WidgetPreferences
+    ): String? {
+        return when (prefs.auxDisplay) {
+
+            AuxDisplay.NOTHING -> null
+
+            AuxDisplay.UPDATE_TIME -> {
+                val str = DateFormat.getTimeFormat(context).format(Date(nowTimeMillis))
+                context.getString(R.string.widget_updated_at) + " $str"
+            }
+        }
     }
 
     private fun getTemperatureString(

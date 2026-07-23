@@ -8,7 +8,7 @@
 
         <TextClock
             style="@style/Widget.Date"
-            android:id="@+id/widget_text_clock" />
+            android:id="@+id/widget_date" />
 
         <TextView
             style="@style/Widget.Event"
@@ -35,12 +35,8 @@
 
         <TextView
             style="@style/Widget.Weather"
-            android:id="@+id/widget_weather_info" />
+            android:id="@+id/widget_weather_aux" />
 
     </LinearLayout>
-
-    <TextView
-        style="@style/Widget.Aux"
-        android:id="@+id/widget_aux" />
 
 </LinearLayout>
