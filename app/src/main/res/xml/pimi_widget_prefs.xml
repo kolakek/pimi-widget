@@ -59,6 +59,15 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
+            android:defaultValue="aux_view_nothing"
+            android:entries="@array/aux_views"
+            android:entryValues="@array/aux_views_vals"
+            android:key="aux_view_list"
+            android:title="@string/config_aux_view_title"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
             android:defaultValue="weather_app_default"
             android:entries="@array/weather_apps"
             android:entryValues="@array/weather_apps_vals"
