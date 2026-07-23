@@ -58,6 +58,7 @@ object CoreUpdater {
         } else {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
+        views.setOnClickPendingIntent(R.id.widget_weather_icon, weatherAppIntent)
         views.setOnClickPendingIntent(R.id.widget_weather_temp, weatherAppIntent)
 
         views.setOnClickPendingIntent(
