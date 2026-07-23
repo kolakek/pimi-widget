@@ -68,6 +68,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
+        val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
 
         var debugCount = 0
 
@@ -122,6 +123,11 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                 return@setOnPreferenceChangeListener birthdaySwitchCallback(context, false)
 
             false
+        }
+        widgetStyleList?.setOnPreferenceChangeListener { _, _ ->
+            PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
+            PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
+            true
         }
         handleWeatherAppPreference(context)
     }
