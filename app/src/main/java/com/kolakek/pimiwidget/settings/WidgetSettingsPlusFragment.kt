@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import com.kolakek.pimiwidget.R
 
@@ -25,5 +26,13 @@ class WidgetSettingsPlusFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_plus, rootKey)
+
+        val textColorList: ListPreference? = findPreference(KEY_TEXT_COLOR_LIST)
+        val widgetStylePref = PreferencesHelper.getWidgetStylePreference(preferenceManager.context)
+
+        if (widgetStylePref == PreferencesHelper.WidgetStylePref.SOLID) {
+            textColorList?.value = KEY_COLOR_AUTO
+            textColorList?.isEnabled = false
+        }
     }
 }

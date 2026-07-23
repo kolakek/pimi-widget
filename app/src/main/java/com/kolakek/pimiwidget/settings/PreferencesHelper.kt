@@ -33,7 +33,7 @@ object PreferencesHelper {
     }
 
     enum class WidgetStylePref(val key: String) {
-        TRANS(KEY_WIDGET_STYLE_TRANS),
+        CLASSIC(KEY_WIDGET_STYLE_CLASSIC),
         SOLID(KEY_WIDGET_STYLE_SOLID)
     }
 
@@ -65,7 +65,7 @@ object PreferencesHelper {
 
         val textColor = when (textColorPref) {
             ColorPref.AUTO -> when (widgetStylePref) {
-                WidgetStylePref.TRANS -> getTextColorForWallpaper(context)
+                WidgetStylePref.CLASSIC -> getTextColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.THEMED
             }
             ColorPref.DARK -> TextColor.DARK
@@ -82,7 +82,7 @@ object PreferencesHelper {
         }
         val widgetStyle = when (widgetStylePref) {
             WidgetStylePref.SOLID -> WidgetStyle.SOLID
-            WidgetStylePref.TRANS ->
+            WidgetStylePref.CLASSIC ->
                 if (textColor == TextColor.LIGHT && iconStylePref == IconStylePref.TWINKLE_SHADOW)
                     WidgetStyle.SHADOW else WidgetStyle.DEFAULT
         }
@@ -161,6 +161,13 @@ object PreferencesHelper {
         }
     }
 
+    fun getWidgetStylePreference(context: Context): WidgetStylePref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WIDGET_STYLE_LIST, null)
+        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.CLASSIC
+
+    }
+
     private fun getWeatherPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)
@@ -202,13 +209,6 @@ object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_STYLE_LIST, null)
         return IconStylePref.entries.find { it.key == key } ?: IconStylePref.FLAT_SKETCH
-
-    }
-
-    private fun getWidgetStylePreference(context: Context): WidgetStylePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WIDGET_STYLE_LIST, null)
-        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.TRANS
 
     }
 

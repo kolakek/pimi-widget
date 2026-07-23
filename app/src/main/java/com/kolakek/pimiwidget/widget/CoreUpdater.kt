@@ -26,7 +26,6 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.utility.WeatherApp
 import java.util.Locale
 
@@ -70,21 +69,16 @@ object CoreUpdater {
             R.id.widget_birthday,
             WidgetIntent.birthdayDismissIntent(context, appWidgetId)
         )
-        val textColor = when (prefs.textColor) {
+        when (prefs.textColor) {
             TextColor.LIGHT -> Color.WHITE
             TextColor.DARK -> Color.BLACK
-            TextColor.THEMED -> context.getColor(R.color.dynamic_text_color)
-        }
-        views.setTextColor(R.id.widget_date, textColor)
-        views.setTextColor(R.id.widget_alarm, textColor)
-        views.setTextColor(R.id.widget_birthday, textColor)
-        views.setTextColor(R.id.widget_weather_aux, textColor)
-
-        if (prefs.widgetStyle == WidgetStyle.SOLID && prefs.textColor == TextColor.THEMED) {
-            val tempColor = context.getColor(R.color.dynamic_temp_color)
-            views.setTextColor(R.id.widget_weather_temp, tempColor)
-        } else {
-            views.setTextColor(R.id.widget_weather_temp, textColor)
+            TextColor.THEMED -> null
+        }?.let {
+            views.setTextColor(R.id.widget_date, it)
+            views.setTextColor(R.id.widget_alarm, it)
+            views.setTextColor(R.id.widget_birthday, it)
+            views.setTextColor(R.id.widget_weather_aux, it)
+            views.setTextColor(R.id.widget_weather_temp, it)
         }
     }
 }

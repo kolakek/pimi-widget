@@ -34,7 +34,7 @@ internal const val KEY_COLOR_DARK = "color_dark"
 internal const val KEY_COLOR_AUTO = "color_auto"
 
 internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
-internal const val KEY_WIDGET_STYLE_TRANS = "widget_style_trans"
+internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
 internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
 
 internal const val KEY_ICON_STYLE_LIST = "icon_style_list"

@@ -87,7 +87,7 @@
         app:allowDividerBelow="false">
 
         <ListPreference
-            android:defaultValue="widget_style_trans"
+            android:defaultValue="widget_style_classic"
             android:entries="@array/widget_styles"
             android:entryValues="@array/widget_styles_vals"
             android:key="widget_style_list"

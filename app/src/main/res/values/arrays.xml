@@ -44,12 +44,12 @@
 
 
     <array name="widget_styles">
-        <item>@string/config_widget_style_trans</item>
+        <item>@string/config_widget_style_classic</item>
         <item>@string/config_widget_style_solid</item>
     </array>
 
     <array name="widget_styles_vals">
-        <item>widget_style_trans</item>
+        <item>widget_style_classic</item>
         <item>widget_style_solid</item>
     </array>
 
