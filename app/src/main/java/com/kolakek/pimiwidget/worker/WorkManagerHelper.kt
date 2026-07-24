@@ -65,10 +65,15 @@ object WorkManagerHelper {
             .setInputData(workDataOf(UPDATE_ACTION_KEY to action.name))
             .build()
 
+        val workName = when (action) {
+            UpdateAction.REFRESH_THEN_FETCH -> ONE_TIME_WORK_NAME
+            UpdateAction.WEATHER_FETCH_THEN_REFRESH -> ONE_TIME_WEATHER_WORK_NAME
+            UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH -> ONE_TIME_BIRTHDAY_WORK_NAME
+        }
         WorkManager
             .getInstance(context.applicationContext)
             .enqueueUniqueWork(
-                ONE_TIME_WORK_NAME,
+                workName,
                 workPolicy,
                 request
             )

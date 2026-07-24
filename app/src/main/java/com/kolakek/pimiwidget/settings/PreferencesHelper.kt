@@ -165,7 +165,6 @@ object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIDGET_STYLE_LIST, null)
         return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.CLASSIC
-
     }
 
     private fun getWeatherPreference(context: Context): Boolean {

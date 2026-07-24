@@ -37,6 +37,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
@@ -66,6 +67,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val context = preferenceManager.context
         val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
+        val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
@@ -107,22 +109,39 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == true)
+            if (newValue == true) {
+                WorkManagerHelper.enqueuePeriodicWork(
+                    context,
+                    workPolicy = ExistingPeriodicWorkPolicy.KEEP
+                )
                 return@setOnPreferenceChangeListener weatherSwitchCallback(context, true)
-
-            if (newValue == false)
+            }
+            if (newValue == false) {
                 return@setOnPreferenceChangeListener weatherSwitchCallback(context, false)
-
+            }
             false
         }
         birthdaySwitch?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == true)
+            if (newValue == true) {
+                WorkManagerHelper.enqueuePeriodicWork(
+                    context,
+                    workPolicy = ExistingPeriodicWorkPolicy.KEEP
+                )
                 return@setOnPreferenceChangeListener birthdaySwitchCallback(context, true)
-
-            if (newValue == false)
+            }
+            if (newValue == false) {
                 return@setOnPreferenceChangeListener birthdaySwitchCallback(context, false)
-
+            }
             false
+        }
+        alarmSwitch?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == true) {
+                WorkManagerHelper.enqueuePeriodicWork(
+                    context,
+                    workPolicy = ExistingPeriodicWorkPolicy.KEEP
+                )
+            }
+            true
         }
         widgetStyleList?.setOnPreferenceChangeListener { _, _ ->
             PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
@@ -181,7 +200,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         WorkManagerHelper.enqueueOneTimeWork(
             context,
             action = UpdateAction.WEATHER_FETCH_THEN_REFRESH,
-            workPolicy = ExistingWorkPolicy.APPEND
+            workPolicy = ExistingWorkPolicy.REPLACE
         )
         weatherSwitch?.isChecked = true
 
@@ -211,7 +230,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         WorkManagerHelper.enqueueOneTimeWork(
             context,
             action = UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH,
-            workPolicy = ExistingWorkPolicy.APPEND
+            workPolicy = ExistingWorkPolicy.REPLACE
         )
         birthdaySwitch?.isChecked = true
 
