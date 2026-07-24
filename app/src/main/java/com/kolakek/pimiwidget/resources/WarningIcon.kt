@@ -46,7 +46,7 @@ object WarningIcon {
                 when (textColor) {
                     TextColor.DARK, TextColor.THEMED -> R.drawable.ic_warn_extr
                     TextColor.LIGHT ->
-                        if (needsShadow) R.drawable.ic_warn_extr_light_shadow
+                        if (needsShadow) R.drawable.ic_warn_extr_shadow
                         else R.drawable.ic_warn_extr
                 }
         }
