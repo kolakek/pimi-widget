@@ -45,16 +45,16 @@
         app:allowDividerBelow="false">
 
         <CheckBoxPreference
-            android:key="daily_forecast"
-            android:title="@string/config_daily_forecast"
-            android:summary="@string/config_daily_forecast_summary"
+            android:key="weather_warnings"
+            android:title="@string/config_weather_warnings"
+            android:summary="@string/config_weather_warnings_summary"
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
-            android:key="weather_warnings"
-            android:title="@string/config_weather_warnings"
-            android:summary="@string/config_weather_warnings_summary"
+            android:key="daily_forecast"
+            android:title="@string/config_daily_forecast"
+            android:summary="@string/config_daily_forecast_summary"
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
 
