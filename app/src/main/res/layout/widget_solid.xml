@@ -1,32 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.HorizontalContainerSolid"
     android:id="@+id/widget_root"
-    android:baselineAligned="false">
+    style="@style/Widget.HorizontalContainerSolid">
 
-    <LinearLayout
-        style="@style/Widget.InnerVerticalContainerSolid">
+    <LinearLayout style="@style/Widget.InnerVerticalContainerSolid">
 
-        <LinearLayout
-            style="@style/Widget.InnerHorizontalContainer">
+        <LinearLayout style="@style/Widget.InnerHorizontalContainer">
 
             <TextClock
-                style="@style/Widget.DateSolid"
-                android:id="@+id/widget_date" />
+                android:id="@+id/widget_date"
+                style="@style/Widget.DateSolid" />
 
             <TextView
-                style="@style/Widget.DateEventSolid"
-                android:id="@+id/widget_alarm" />
+                android:id="@+id/widget_alarm"
+                style="@style/Widget.DateEventSolid" />
 
             <TextView
-                style="@style/Widget.DateEventSolid"
-                android:id="@+id/widget_birthday" />
+                android:id="@+id/widget_birthday"
+                style="@style/Widget.DateEventSolid" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/Widget.WeatherSolid"
-            android:id="@+id/widget_weather_aux" />
+            android:id="@+id/widget_weather_aux"
+            style="@style/Widget.WeatherSolid" />
 
     </LinearLayout>
 
@@ -35,13 +32,13 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            style="@style/Widget.WeatherIconSolid"
             android:id="@+id/widget_weather_icon"
+            style="@style/Widget.WeatherIconSolid"
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Widget.WeatherTempSolid"
-            android:id="@+id/widget_weather_temp" />
+            android:id="@+id/widget_weather_temp"
+            style="@style/Widget.WeatherTempSolid" />
 
     </LinearLayout>
 

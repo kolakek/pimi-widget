@@ -111,6 +111,7 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingVertical">12dp</item>
         <item name="android:background">@drawable/widget_background</item>
+        <item name="android:baselineAligned">false</item>
     </style>
 
     <style name="Widget.InnerVerticalContainerSolid" parent="Widget.InnerVerticalContainer">
@@ -142,10 +143,10 @@
     </style>
 
     <style name="Widget.DateEventSolid" parent="Widget.InnerView">
-        <item name="android:layout_height">24dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginVertical">2dp</item>
     </style>
 
     <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
@@ -155,9 +156,9 @@
     </style>
 
     <style name="Widget.WeatherSolid" parent="Widget.InnerView">
-        <item name="android:layout_height">24dp</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginVertical">4dp</item>
     </style>
 
 </resources>
