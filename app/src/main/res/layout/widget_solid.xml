@@ -1,66 +1,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.ContainerSolid"
-    android:id="@+id/widget_root">
+    style="@style/Widget.HorizontalContainerSolid"
+    android:id="@+id/widget_root"
+    android:baselineAligned="false">
 
     <LinearLayout
-        style="@style/Widget.InnerHorizontalContainer"
-        android:layout_width="match_parent"
-        android:baselineAligned="false">
+        style="@style/Widget.InnerVerticalContainerSolid">
 
         <LinearLayout
-            style="@style/Widget.InnerVerticalContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            style="@style/Widget.InnerHorizontalContainer">
 
-            <LinearLayout
-                style="@style/Widget.InnerHorizontalContainer">
-
-                <TextClock
-                    style="@style/Widget.DateSolid"
-                    android:id="@+id/widget_date" />
-
-                <TextView
-                    style="@style/Widget.DateEventSolid"
-                    android:id="@+id/widget_alarm" />
-
-                <TextView
-                    style="@style/Widget.DateEventSolid"
-                    android:id="@+id/widget_birthday" />
-
-            </LinearLayout>
+            <TextClock
+                style="@style/Widget.DateSolid"
+                android:id="@+id/widget_date" />
 
             <TextView
-                style="@style/Widget.WeatherSolid"
-                android:id="@+id/widget_weather_aux" />
+                style="@style/Widget.DateEventSolid"
+                android:id="@+id/widget_alarm" />
+
+            <TextView
+                style="@style/Widget.DateEventSolid"
+                android:id="@+id/widget_birthday" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/widget_icon_background"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_gravity="center">
+        <TextView
+            style="@style/Widget.WeatherSolid"
+            android:id="@+id/widget_weather_aux" />
 
-            <ImageView
-                android:id="@+id/widget_weather_icon"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                tools:ignore="ContentDescription" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/widget_weather_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/dynamic_temp_color"
-                android:textSize="14dp" />
+    <LinearLayout
+        style="@style/Widget.WeatherContainerSolid"
+        tools:ignore="UseCompoundDrawables">
 
-        </LinearLayout>
+        <ImageView
+            style="@style/Widget.WeatherIconSolid"
+            android:id="@+id/widget_weather_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Widget.WeatherTempSolid"
+            android:id="@+id/widget_weather_temp" />
 
     </LinearLayout>
 

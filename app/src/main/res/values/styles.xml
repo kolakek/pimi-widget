@@ -19,24 +19,12 @@
         <item name="android:clipToOutline">true</item>
     </style>
 
-    <style name="Widget.Container" parent="Widget.Base">
+    <style name="Widget.VerticalContainer" parent="Widget.Base">
         <item name="android:paddingHorizontal">16dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="Widget.ContainerSolid" parent="Widget.Base">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_marginHorizontal">8dp</item>
-        <item name="android:paddingLeft">20dp</item>
-        <item name="android:paddingRight">@dimen/solid_widget_padding</item>
-        <item name="android:paddingVertical">@dimen/solid_widget_padding</item>
-        <item name="android:background">@drawable/widget_background</item>
     </style>
 
     <style name="Widget.InnerHorizontalContainer" parent="Widget.Base">
@@ -65,7 +53,7 @@
     </style>
 
     <style name="Widget.DateEvent" parent="Widget.InnerView">
-        <item name="android:layout_height">@dimen/widget_date_height</item>
+        <item name="android:layout_height">28dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
     </style>
@@ -94,27 +82,14 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
-    <style name="Widget.DateEventSolid" parent="Widget.InnerView">
-        <item name="android:layout_height">@dimen/solid_widget_date_height</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
-    </style>
-
-    <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
-        <item name="android:format12Hour">@string/widget_date_format</item>
-        <item name="android:format24Hour">@string/widget_date_format</item>
-        <item name="android:layout_marginRight">8dp</item>
-    </style>
-
-    <style name="Widget.WeatherIcon" parent="Widget.InnerView">
+    <style name="Widget.WeatherIcon" parent="Widget.Base">
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_marginEnd">4dp</item>
     </style>
 
     <style name="Widget.Weather" parent="Widget.InnerView">
-        <item name="android:layout_height">@dimen/widget_weather_height</item>
+        <item name="android:layout_height">26dp</item>
         <item name="android:drawablePadding">2dp</item>
         <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
@@ -126,8 +101,61 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
+    <style name="Widget.HorizontalContainerSolid" parent="Widget.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginHorizontal">8dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingVertical">12dp</item>
+        <item name="android:background">@drawable/widget_background</item>
+    </style>
+
+    <style name="Widget.InnerVerticalContainerSolid" parent="Widget.InnerVerticalContainer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Widget.WeatherContainerSolid" parent="Widget.Base">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:background">@drawable/widget_icon_background</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Widget.WeatherIconSolid" parent="Widget.Base">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Widget.WeatherTempSolid" parent="Widget.Base">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/dynamic_temp_color</item>
+        <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
+    </style>
+
+    <style name="Widget.DateEventSolid" parent="Widget.InnerView">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+    </style>
+
+    <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
+        <item name="android:format12Hour">@string/widget_date_format</item>
+        <item name="android:format24Hour">@string/widget_date_format</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
     <style name="Widget.WeatherSolid" parent="Widget.InnerView">
-        <item name="android:layout_height">@dimen/solid_widget_weather_height</item>
+        <item name="android:layout_height">24dp</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
         <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
