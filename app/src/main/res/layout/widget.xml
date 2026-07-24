@@ -1,22 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.VerticalContainer"
-    android:id="@+id/widget_root">
+    android:id="@+id/widget_root"
+    style="@style/Widget.VerticalContainer">
 
-    <LinearLayout
-        style="@style/Widget.InnerHorizontalContainer">
+    <LinearLayout style="@style/Widget.InnerHorizontalContainer">
 
         <TextClock
-            style="@style/Widget.Date"
-            android:id="@+id/widget_date" />
+            android:id="@+id/widget_date"
+            style="@style/Widget.Date" />
 
         <TextView
-            style="@style/Widget.Event"
-            android:id="@+id/widget_alarm" />
+            android:id="@+id/widget_alarm"
+            style="@style/Widget.Event" />
 
         <TextView
-            style="@style/Widget.Event"
-            android:id="@+id/widget_birthday" />
+            android:id="@+id/widget_birthday"
+            style="@style/Widget.Event" />
 
     </LinearLayout>
 
@@ -25,17 +24,17 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            style="@style/Widget.WeatherIcon"
             android:id="@+id/widget_weather_icon"
+            style="@style/Widget.WeatherIcon"
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Widget.Weather"
-            android:id="@+id/widget_weather_temp" />
+            android:id="@+id/widget_weather_temp"
+            style="@style/Widget.Weather" />
 
         <TextView
-            style="@style/Widget.Weather"
-            android:id="@+id/widget_weather_aux" />
+            android:id="@+id/widget_weather_aux"
+            style="@style/Widget.Weather" />
 
     </LinearLayout>
 

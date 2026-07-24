@@ -1,20 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/Theme.PimiWidget"
-    style="@style/Widget.VerticalContainer">
+    style="@style/Widget.VerticalContainer"
+    android:theme="@style/Theme.PimiWidget">
 
     <TextView
         style="@style/Widget.Date"
-        android:textColor="?attr/widgetPreviewTextColor"
-        android:text="@string/widget_date_prev" />
+        android:text="@string/widget_date_prev"
+        android:textColor="?attr/widgetPreviewTextColor" />
 
     <LinearLayout
         style="@style/Widget.InnerHorizontalContainer"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            style="@style/Widget.WeatherIcon"
             android:id="@+id/widget_weather_icon"
+            style="@style/Widget.WeatherIcon"
             android:src="?attr/widgetPreviewWeatherIcon"
             tools:ignore="ContentDescription" />
 
