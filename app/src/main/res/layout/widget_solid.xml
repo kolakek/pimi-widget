@@ -13,11 +13,11 @@
 
             <TextView
                 android:id="@+id/widget_alarm"
-                style="@style/Widget.DateEventSolid" />
+                style="@style/Widget.EventSolid" />
 
             <TextView
                 android:id="@+id/widget_birthday"
-                style="@style/Widget.DateEventSolid" />
+                style="@style/Widget.EventSolid" />
 
         </LinearLayout>
 

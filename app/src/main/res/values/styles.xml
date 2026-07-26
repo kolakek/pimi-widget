@@ -54,7 +54,7 @@
 
     <style name="Widget.DateEvent" parent="Widget.InnerView">
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:layout_marginVertical">4dp</item>
     </style>
 
@@ -72,7 +72,7 @@
     </style>
 
     <style name="Widget.Event" parent="Widget.DateEvent">
-        <item name="android:drawablePadding">0dp</item>
+        <item name="android:drawablePadding">2dp</item>
     </style>
 
     <style name="Widget.EventShadow" parent="Widget.Event">
@@ -89,8 +89,8 @@
     </style>
 
     <style name="Widget.Weather" parent="Widget.InnerView">
-        <item name="android:drawablePadding">2dp</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:textSize">@dimen/widget_text_size_medium</item>
         <item name="android:layout_marginVertical">6dp</item>
     </style>
 
@@ -145,7 +145,7 @@
     <style name="Widget.DateEventSolid" parent="Widget.InnerView">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:layout_marginVertical">2dp</item>
     </style>
 
@@ -155,9 +155,14 @@
         <item name="android:layout_marginRight">8dp</item>
     </style>
 
+    <style name="Widget.EventSolid" parent="Widget.DateEventSolid">
+        <item name="android:drawablePadding">2dp</item>
+    </style>
+
     <style name="Widget.WeatherSolid" parent="Widget.InnerView">
+        <item name="android:drawablePadding">4dp</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/widget_text_size_medium</item>
         <item name="android:layout_marginVertical">4dp</item>
     </style>
 
