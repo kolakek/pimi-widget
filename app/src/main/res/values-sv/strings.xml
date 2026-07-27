@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">idag</string>
     <string name="widget_tomorrow">imorgon</string>
-    <string name="widget_updated_at">uppdaterad kl.</string>
+    <string name="widget_updated_at">uppdaterad</string>
 
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>
     <string name="wc_thunderstorm">åskväder</string>

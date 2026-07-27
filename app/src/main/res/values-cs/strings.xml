@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d. M.</string>
     <string name="widget_today">dnes</string>
     <string name="widget_tomorrow">zítra</string>
-    <string name="widget_updated_at">obnoveno v</string>
+    <string name="widget_updated_at">obnoveno</string>
 
     <string name="wc_heavy_thunderstorms">silné bouřky</string>
     <string name="wc_thunderstorm">bouřka</string>

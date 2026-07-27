@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">oggi</string>
     <string name="widget_tomorrow">domani</string>
-    <string name="widget_updated_at">aggiornato alle</string>
+    <string name="widget_updated_at">aggiornato</string>
 
     <string name="wc_heavy_thunderstorms">forti temporali</string>
     <string name="wc_thunderstorm">temporale</string>

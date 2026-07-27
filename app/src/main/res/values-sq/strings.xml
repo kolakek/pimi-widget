@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">sot</string>
     <string name="widget_tomorrow">nesër</string>
-    <string name="widget_updated_at">rifreskuar në</string>
+    <string name="widget_updated_at">rifreskuar</string>
 
     <string name="wc_heavy_thunderstorms">stuhi të forta</string>
     <string name="wc_thunderstorm">stuhi</string>

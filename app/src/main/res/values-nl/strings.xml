@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">vandaag</string>
     <string name="widget_tomorrow">morgen</string>
-    <string name="widget_updated_at">vernieuwd om</string>
+    <string name="widget_updated_at">ververst</string>
 
     <string name="wc_heavy_thunderstorms">zware onweersbuien</string>
     <string name="wc_thunderstorm">onweersbui</string>

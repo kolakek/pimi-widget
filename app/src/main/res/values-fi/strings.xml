@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d.M.</string>
     <string name="widget_today">tänään</string>
     <string name="widget_tomorrow">huomenna</string>
-    <string name="widget_updated_at">päivitetty klo</string>
+    <string name="widget_updated_at">päivitetty</string>
 
     <string name="wc_heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
     <string name="wc_thunderstorm">ukkosmyrsky</string>

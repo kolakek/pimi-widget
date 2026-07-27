@@ -69,7 +69,7 @@
     <string name="widget_weather_prev">Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
     <string name="widget_today">Today</string>
     <string name="widget_tomorrow">Tomorrow</string>
-    <string name="widget_updated_at">Refreshed at</string>
+    <string name="widget_updated_at">Refreshed</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>

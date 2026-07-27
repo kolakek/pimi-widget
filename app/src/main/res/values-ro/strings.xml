@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">astăzi</string>
     <string name="widget_tomorrow">mâine</string>
-    <string name="widget_updated_at">actualizat la</string>
+    <string name="widget_updated_at">actualizat</string>
 
     <string name="wc_heavy_thunderstorms">furtuni puternice</string>
     <string name="wc_thunderstorm">furtună</string>

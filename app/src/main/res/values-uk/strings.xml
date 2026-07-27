@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">сьогодні</string>
     <string name="widget_tomorrow">завтра</string>
-    <string name="widget_updated_at">оновлено о</string>
+    <string name="widget_updated_at">оновлено</string>
 
     <string name="wc_heavy_thunderstorms">сильні грози</string>
     <string name="wc_thunderstorm">гроза</string>

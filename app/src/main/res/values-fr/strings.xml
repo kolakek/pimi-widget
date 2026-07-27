@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">aujourd’hui</string>
     <string name="widget_tomorrow">demain</string>
-    <string name="widget_updated_at">rafraîchi à</string>
+    <string name="widget_updated_at">actualisé</string>
 
     <string name="wc_heavy_thunderstorms">orages violents</string>
     <string name="wc_thunderstorm">orage</string>

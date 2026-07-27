@@ -69,7 +69,7 @@
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">σήμερα</string>
     <string name="widget_tomorrow">αύριο</string>
-    <string name="widget_updated_at">ανανεώθηκε στις</string>
+    <string name="widget_updated_at">ανανεώθηκε</string>
 
     <string name="wc_heavy_thunderstorms">ισχυρές καταιγίδες</string>
     <string name="wc_thunderstorm">καταιγίδα</string>
