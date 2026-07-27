@@ -19,9 +19,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="24dp"
                 android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                android:text="@string/config_title" />
+                android:text="@string/app_name" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button"

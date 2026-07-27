@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Vzhled</string>
+    <string name="config_widget_style">Styl widgetu</string>
+    <string name="config_widget_style_classic">Průhledný</string>
+    <string name="config_widget_style_solid">Jednobarevný</string>
     <string name="config_button_apply">Použít</string>
     <string name="config_weather_switch">Počasí</string>
     <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>

@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Вигляд</string>
+    <string name="config_widget_style">Стиль віджета</string>
+    <string name="config_widget_style_classic">Прозорий</string>
+    <string name="config_widget_style_solid">Одноколірний</string>
     <string name="config_button_apply">Застосувати</string>
     <string name="config_weather_switch">Погода</string>
     <string name="config_weather_switch_summary">Дані погоди від Open-Meteo.com</string>

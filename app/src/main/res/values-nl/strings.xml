@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Uiterlijk</string>
+    <string name="config_widget_style">Widgetstijl</string>
+    <string name="config_widget_style_classic">Transparant</string>
+    <string name="config_widget_style_solid">Effen</string>
     <string name="config_button_apply">Toepassen</string>
     <string name="config_weather_switch">Weer</string>
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>

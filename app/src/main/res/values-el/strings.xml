@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Εμφάνιση</string>
+    <string name="config_widget_style">Στυλ γραφικού στοιχείου</string>
+    <string name="config_widget_style_classic">Διαφανές</string>
+    <string name="config_widget_style_solid">Μονόχρωμο</string>
     <string name="config_button_apply">Εφαρμογή</string>
     <string name="config_weather_switch">Καιρός</string>
     <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>

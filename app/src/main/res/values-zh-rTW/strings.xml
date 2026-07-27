@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">外觀</string>
+    <string name="config_widget_style">小工具樣式</string>
+    <string name="config_widget_style_classic">透明</string>
+    <string name="config_widget_style_solid">純色</string>
     <string name="config_button_apply">套用</string>
     <string name="config_section_features">一覽</string>
     <string name="config_section_weather">天氣設定</string>

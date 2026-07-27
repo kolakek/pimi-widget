@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Darstellung</string>
+    <string name="config_widget_style">Widget-Stil</string>
+    <string name="config_widget_style_classic">Transparent</string>
+    <string name="config_widget_style_solid">Ausgefüllt</string>
     <string name="config_button_apply">Anwenden</string>
     <string name="config_weather_switch">Wetter</string>
     <string name="config_weather_switch_summary">Wetterdaten von Open-Meteo.com</string>

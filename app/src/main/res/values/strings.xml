@@ -1,6 +1,5 @@
 <resources>
 
-    <string name="config_title">Pimi settings</string>
     <string name="config_button_apply">Apply</string>
     <string name="config_section_features">At a glance</string>
     <string name="config_section_weather">Weather settings</string>
@@ -8,7 +7,7 @@
     <string name="config_section_about">About</string>
     <string name="config_section_style">Appearance</string>
     <string name="config_widget_style">Widget style</string>
-    <string name="config_widget_style_classic">Classic</string>
+    <string name="config_widget_style_classic">Transparent</string>
     <string name="config_widget_style_solid">Solid</string>
     <string name="config_weather_switch">Weather</string>
     <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>

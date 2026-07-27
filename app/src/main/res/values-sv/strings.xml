@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Utseende</string>
+    <string name="config_widget_style">Widgetstil</string>
+    <string name="config_widget_style_classic">Genomskinlig</string>
+    <string name="config_widget_style_solid">Enfärgad</string>
     <string name="config_button_apply">Tillämpa</string>
     <string name="config_weather_switch">Väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>

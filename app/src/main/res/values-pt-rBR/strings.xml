@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Aparência</string>
+    <string name="config_widget_style">Estilo do widget</string>
+    <string name="config_widget_style_classic">Transparente</string>
+    <string name="config_widget_style_solid">Liso</string>
     <string name="config_button_apply">Aplicar</string>
     <string name="config_weather_switch">Clima</string>
     <string name="config_weather_switch_summary">Dados meteorológicos de Open-Meteo.com</string>

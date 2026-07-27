@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="config_section_style">Udseende</string>
+    <string name="config_widget_style">Widgetstil</string>
+    <string name="config_widget_style_classic">Gennemsigtig</string>
+    <string name="config_widget_style_solid">Ensfarvet</string>
     <string name="config_button_apply">Anvend</string>
     <string name="config_weather_switch">Vejr</string>
     <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
