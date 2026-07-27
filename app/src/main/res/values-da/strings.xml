@@ -60,7 +60,7 @@
 
     <string name="widget_label">Dato og vejr</string>
     <string name="widget_date_prev">tors. 5. jun.</string>
-    <string name="widget_temp_prev">21\u2103 · i morgen 19\u00B0 / 13\u00B0 · let regn</string>
+    <string name="widget_weather_prev">21\u2103 · i morgen 19\u00B0 / 13\u00B0 · let regn</string>
     <string name="widget_date_format">EEE d. MMM</string>
     <string name="widget_today">i dag</string>
     <string name="widget_tomorrow">i morgen</string>

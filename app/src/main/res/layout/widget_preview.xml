@@ -1,28 +1,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.VerticalContainer"
-    android:theme="@style/Theme.PimiWidget">
+    style="@style/Widget.HorizontalContainerSolid">
 
-    <TextView
-        style="@style/Widget.Date"
-        android:text="@string/widget_date_prev"
-        android:textColor="?attr/widgetPreviewTextColor" />
+    <LinearLayout style="@style/Widget.InnerVerticalContainerSolid">
+
+        <TextView
+            style="@style/Widget.DateSolid"
+            android:text="@string/widget_date_prev"/>
+
+        <TextView
+            style="@style/Widget.WeatherSolid"
+            android:text="@string/widget_weather_prev"/>
+
+    </LinearLayout>
 
     <LinearLayout
-        style="@style/Widget.InnerHorizontalContainer"
+        style="@style/Widget.WeatherContainerSolid"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            android:id="@+id/widget_weather_icon"
-            style="@style/Widget.WeatherIcon"
-            android:src="?attr/widgetPreviewWeatherIcon"
+            style="@style/Widget.WeatherIconSolid"
+            android:src="@drawable/wb_0d"
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Widget.Weather"
-            android:text="@string/widget_temp_prev"
-            android:textColor="?attr/widgetPreviewTextColor"
-            tools:ignore="UseCompatTextViewDrawableXml" />
+            style="@style/Widget.WeatherTempSolid"
+            android:text="@string/widget_temp_prev"/>
 
     </LinearLayout>
 

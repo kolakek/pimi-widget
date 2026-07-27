@@ -60,7 +60,7 @@
 
     <string name="widget_label">Ημερομηνία και καιρός</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>
-    <string name="widget_temp_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
+    <string name="widget_weather_prev">21\u2103 · αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">σήμερα</string>
     <string name="widget_tomorrow">αύριο</string>

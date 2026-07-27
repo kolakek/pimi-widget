@@ -149,22 +149,22 @@ object PreferencesHelper {
         }
     }
 
+    fun setWidgetStylePreference(context: Context, pref: WidgetStylePref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_WIDGET_STYLE_LIST, pref.key)
+        }
+    }
+
     fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_WEATHER_APP_LIST, weatherApp.key)
         }
     }
 
-    fun setAlarmPreference(context: Context, value: Boolean) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putBoolean(KEY_ALARM_SWITCH, value)
-        }
-    }
-
     fun getWidgetStylePreference(context: Context): WidgetStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIDGET_STYLE_LIST, null)
-        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.CLASSIC
+        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.SOLID
     }
 
     private fun getWeatherPreference(context: Context): Boolean {
@@ -207,7 +207,7 @@ object PreferencesHelper {
     private fun getIconStylePreference(context: Context): IconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_STYLE_LIST, null)
-        return IconStylePref.entries.find { it.key == key } ?: IconStylePref.FLAT_SKETCH
+        return IconStylePref.entries.find { it.key == key } ?: IconStylePref.TWINKLE_SHADOW
 
     }
 

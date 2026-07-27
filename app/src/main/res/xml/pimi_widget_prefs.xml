@@ -78,7 +78,7 @@
         app:allowDividerBelow="false">
 
         <ListPreference
-            android:defaultValue="widget_style_classic"
+            android:defaultValue="widget_style_solid"
             android:entries="@array/widget_styles"
             android:entryValues="@array/widget_styles_vals"
             android:key="widget_style_list"
@@ -87,7 +87,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="icon_style_outlined"
+            android:defaultValue="icon_style_filled"
             android:entries="@array/icon_styles"
             android:entryValues="@array/icon_styles_vals"
             android:key="icon_style_list"

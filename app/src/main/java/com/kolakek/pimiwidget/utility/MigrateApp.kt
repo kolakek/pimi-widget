@@ -34,10 +34,20 @@ object MigrateApp {
         if (previousVersionCode < 21) setFirstAvailableWeatherApp(context)
 
         if (previousVersionCode < 22) {
-            PreferencesHelper.setTempUnitPreference(context, PreferencesHelper.TempUnitPref.AUTO)
-            PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
-            PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
-            PreferencesHelper.setAlarmPreference(context, true)
+            PreferencesHelper.setTempUnitPreference(
+                context,
+                PreferencesHelper.TempUnitPref.AUTO
+            )
+            PreferencesHelper.setTextColorPreference(
+                context,PreferencesHelper.ColorPref.AUTO
+            )
+            PreferencesHelper.setIconColorPreference(
+                context,PreferencesHelper.ColorPref.AUTO
+            )
+            PreferencesHelper.setWidgetStylePreference(
+                context,
+                PreferencesHelper.WidgetStylePref.CLASSIC
+            )
         }
         storeCurrentVersionCode(context)
 

@@ -60,7 +60,7 @@
 
     <string name="widget_label">Дата та погода</string>
     <string name="widget_date_prev">нд, 24 сер.</string>
-    <string name="widget_temp_prev">21\u2103 · завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
+    <string name="widget_weather_prev">21\u2103 · завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">сьогодні</string>
     <string name="widget_tomorrow">завтра</string>

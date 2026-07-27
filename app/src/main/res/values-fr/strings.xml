@@ -60,7 +60,7 @@
 
     <string name="widget_label">Date et météo</string>
     <string name="widget_date_prev">dim. 14 juil.</string>
-    <string name="widget_temp_prev">21\u2103 · demain 19\u00B0 / 13\u00B0 · faible pluie</string>
+    <string name="widget_weather_prev">21\u2103 · demain 19\u00B0 / 13\u00B0 · faible pluie</string>
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">aujourd’hui</string>
     <string name="widget_tomorrow">demain</string>

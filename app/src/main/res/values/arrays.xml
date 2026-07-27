@@ -32,27 +32,24 @@
     </array>
 
     <array name="icon_styles">
-        <item>@string/config_icon_style_outlined</item>
         <item>@string/config_icon_style_filled</item>
+        <item>@string/config_icon_style_outlined</item>
     </array>
 
     <array name="icon_styles_vals">
-        <item>icon_style_outlined</item>
         <item>icon_style_filled</item>
+        <item>icon_style_outlined</item>
     </array>
 
-
-
     <array name="widget_styles">
-        <item>@string/config_widget_style_classic</item>
         <item>@string/config_widget_style_solid</item>
+        <item>@string/config_widget_style_classic</item>
     </array>
 
     <array name="widget_styles_vals">
-        <item>widget_style_classic</item>
         <item>widget_style_solid</item>
+        <item>widget_style_classic</item>
     </array>
-
 
     <array name="aux_views">
         <item>@string/config_aux_view_nothing</item>
