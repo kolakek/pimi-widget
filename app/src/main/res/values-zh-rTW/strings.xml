@@ -61,7 +61,8 @@
     <string name="widget_label">日期與天氣</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_date_prev">7月4日 週日</string>
-    <string name="widget_weather_prev">22\u2103 · 明天 19\u00B0 / 13\u00B0 · 小雨</string>
+    <string name="widget_temp_prev">21\u2103</string>
+    <string name="widget_weather_prev">明天 19\u00B0 / 13\u00B0 · 小雨</string>
     <string name="widget_today">今天</string>
     <string name="widget_tomorrow">明天</string>
     <string name="widget_updated_at">更新於</string>

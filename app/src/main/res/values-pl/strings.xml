@@ -60,7 +60,8 @@
 
     <string name="widget_label">Data i pogoda</string>
     <string name="widget_date_prev">śr., 3 maj</string>
-    <string name="widget_weather_prev">21\u2103 · jutro 19\u00B0 / 13\u00B0 · słaby deszcz</string>
+    <string name="widget_temp_prev">21\u2103</string>
+    <string name="widget_weather_prev">jutro 19\u00B0 / 13\u00B0 · słaby deszcz</string>
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">dzisiaj</string>
     <string name="widget_tomorrow">jutro</string>

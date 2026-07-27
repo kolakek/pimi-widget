@@ -60,7 +60,8 @@
 
     <string name="widget_label">Datum en weer</string>
     <string name="widget_date_prev">zat 27 apr</string>
-    <string name="widget_weather_prev">21\u2103 · morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
+    <string name="widget_temp_prev">21\u2103</string>
+    <string name="widget_weather_prev">morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">vandaag</string>
     <string name="widget_tomorrow">morgen</string>

@@ -60,7 +60,8 @@
 
     <string name="widget_label">Data și vremea</string>
     <string name="widget_date_prev">lun., 1 dec.</string>
-    <string name="widget_weather_prev">21\u2103 · mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>
+    <string name="widget_temp_prev">21\u2103</string>
+    <string name="widget_weather_prev">mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">astăzi</string>
     <string name="widget_tomorrow">mâine</string>

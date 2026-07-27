@@ -60,7 +60,8 @@
 
     <string name="widget_label">Tarih ve hava durumu</string>
     <string name="widget_date_prev">29 Eki Paz</string>
-    <string name="widget_weather_prev">21\u2103 · yarın 19\u00B0 / 13\u00B0 · hafif yağmur</string>
+    <string name="widget_temp_prev">21\u2103</string>
+    <string name="widget_weather_prev">yarın 19\u00B0 / 13\u00B0 · hafif yağmur</string>
     <string name="widget_date_format">d MMM E</string>
     <string name="widget_today">bugün</string>
     <string name="widget_tomorrow">yarın</string>
