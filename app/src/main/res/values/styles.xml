@@ -61,7 +61,7 @@
     <style name="Widget.Date" parent="Widget.DateEvent">
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
-        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginRight">10dp</item>
     </style>
 
     <style name="Widget.DateShadow" parent="Widget.Date">
@@ -72,7 +72,7 @@
     </style>
 
     <style name="Widget.Event" parent="Widget.DateEvent">
-        <item name="android:drawablePadding">2dp</item>
+        <item name="android:drawablePadding">4dp</item>
     </style>
 
     <style name="Widget.EventShadow" parent="Widget.Event">
@@ -152,11 +152,11 @@
     <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
-        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginRight">10dp</item>
     </style>
 
     <style name="Widget.EventSolid" parent="Widget.DateEventSolid">
-        <item name="android:drawablePadding">2dp</item>
+        <item name="android:drawablePadding">4dp</item>
     </style>
 
     <style name="Widget.WeatherSolid" parent="Widget.InnerView">
