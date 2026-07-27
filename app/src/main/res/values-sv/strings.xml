@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="config_button_apply">Tillämpa inställningar</string>
+    <string name="config_button_apply">Tillämpa</string>
     <string name="config_weather_switch">Väder</string>
     <string name="config_weather_switch_summary">Väderdata från Open-Meteo.com</string>
     <string name="config_birthday_switch">Födelsedagar</string>

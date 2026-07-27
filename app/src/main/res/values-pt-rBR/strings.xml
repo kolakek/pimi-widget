@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="config_button_apply">Aplicar configurações</string>
+    <string name="config_button_apply">Aplicar</string>
     <string name="config_weather_switch">Clima</string>
     <string name="config_weather_switch_summary">Dados meteorológicos de Open-Meteo.com</string>
     <string name="config_birthday_switch">Aniversários</string>

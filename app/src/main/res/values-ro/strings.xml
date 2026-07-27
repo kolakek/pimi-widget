@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="config_button_apply">Aplică setările</string>
+    <string name="config_button_apply">Aplică</string>
     <string name="config_weather_switch">Vremea</string>
     <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
     <string name="config_birthday_switch">Aniversări</string>

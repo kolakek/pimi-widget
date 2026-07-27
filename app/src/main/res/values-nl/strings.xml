@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="config_button_apply">Instellingen toepassen</string>
+    <string name="config_button_apply">Toepassen</string>
     <string name="config_weather_switch">Weer</string>
     <string name="config_weather_switch_summary">Weergegevens van Open-Meteo.com</string>
     <string name="config_birthday_switch">Verjaardagen</string>
