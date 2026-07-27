@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="config_button_apply">Apply settings</string>
+    <string name="config_title">Pimi settings</string>
+    <string name="config_button_apply">Apply</string>
     <string name="config_section_features">At a glance</string>
     <string name="config_section_weather">Weather settings</string>
     <string name="config_section_settings_plus">Additional settings</string>
