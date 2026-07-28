@@ -1,5 +1,3 @@
-Features:
-
 * Displays date, weather & more
 * Standalone widget, no launcher icon
 * Tap the widget to open your favorite weather app

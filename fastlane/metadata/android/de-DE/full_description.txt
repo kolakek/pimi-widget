@@ -1,5 +1,3 @@
-Funktionen:
-
 * Zeigt Datum, Wetter & mehr
 * Eigenständiges Widget, kein Symbol im App-Launcher
 * Antippen des Widgets öffnet deine bevorzugte Wetter-App
