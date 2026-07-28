@@ -33,7 +33,7 @@ All download options provide the same APK file, signed with the same signing key
 
 ### Privacy Information
 
-The widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data exchanged with the weather provider by tapping the **Build number** three times in the widget settings.
+The widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data exchanged with the weather provider by long-pressing the **Build number** in the widget settings.
 
 ### Usage
 
@@ -41,7 +41,9 @@ This app does not provide a launcher icon. It is a widget-only application. To u
 
 ### Widget Configuration
 
-Normally, your home app should allow you to reconfigure the widget (e.g., by long-pressing it). If your home app does not support widget reconfiguration, you can add a second Pimi Widget to the home screen to bring up the configuration window.
+Normally, your home app should allow you to reconfigure the widget (e.g., by long-pressing it). If your home app does not support widget reconfiguration, you can add a second Pimi widget to the home screen to bring up the configuration window.
+
+The widget uses the temperature unit from your Android system settings by default. To override this setting, open the hidden widget settings by tapping the **Build number** three times and select your preferred temperature unit.
 
 ### Weather Display
 
@@ -55,7 +57,7 @@ In most cases, coarse location access is sufficient. For this to work, network-b
 
 Tapping the date or weather area on the widget opens your calendar or weather app, respectively. Your preferred weather app can be selected in the widget settings. Weather apps must be explicitly whitelisted to be supported. If your preferred weather app is not yet supported, please [open a GitHub issue](https://github.com/kolakek/pimi-widget/issues) to have it added.
 
-Currently supported weather apps: Pixel Weather, Breezy Weather, Météo-France, KNMI, DWD WarnWetter, Met Office, Aemet, MeteoSwiss, Yr, BOM Weather, WeatherCAN, DMI Vejr.
+Currently supported weather apps include: Pixel Weather, Breezy Weather, Météo-France, KNMI, DWD WarnWetter, Met Office, Aemet, MeteoSwiss, Yr, BOM Weather, WeatherCAN, DMI Vejr.
 
 ### Weather Alerts
 
@@ -91,9 +93,7 @@ You can find debug information by long-pressing the **Build number** in the widg
 
 - **StaleDataServed:** The widget was unable to fetch new weather data for more than 90 minutes because the internet was unavailable. It will continue updating using the available forecast data until the internet becomes available again.
 
-- **RecoveryEnqueued:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The background service has switched to recovery mode and will attempt to fetch new weather data as soon as the internet becomes available again.
-
-- **InternetFailed:** The internet was unavailable during the recovery run. A new attempt is scheduled. Please ensure that your device is connected to the internet.
+- **ExpiredDataServed:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The widget will attempt to fetch new weather data as soon as the internet becomes available again.
 
 - **LocationUnavailableException:** The widget could not retrieve your location. A new attempt is scheduled. Please ensure that location services are enabled on your device. See the Location Access section above.
 
