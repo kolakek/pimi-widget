@@ -12,7 +12,7 @@ android {
         minSdk = 33
         targetSdk = 37
         versionCode = 22
-        versionName = "1.13.0"
+        versionName = "2.0.0"
     }
     dependenciesInfo {
         includeInApk = false
