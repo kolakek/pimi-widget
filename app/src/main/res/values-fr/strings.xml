@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Pour faire ajouter ton application météo, ouvre un ticket sur GitHub.</string>
     <string name="config_weather_app_alert_button_github">Ouvrir GitHub</string>
 
-    <string name="widget_label">Date et météo</string>
+    <string name="widget_label">Date, météo et plus</string>
     <string name="widget_date_prev">dim. 14 juil.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">demain 19\u00B0 / 13\u00B0 · faible pluie</string>

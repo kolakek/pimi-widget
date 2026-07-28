@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">For at få din vejr-app tilføjet, opret et issue på GitHub.</string>
     <string name="config_weather_app_alert_button_github">Åbn GitHub</string>
 
-    <string name="widget_label">Dato og vejr</string>
+    <string name="widget_label">Dato, vejr og mere</string>
     <string name="widget_date_prev">tors. 5. jun.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">i morgen 19\u00B0 / 13\u00B0 · let regn</string>

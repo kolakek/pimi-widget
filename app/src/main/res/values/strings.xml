@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">To have your weather app added, please open an issue on GitHub.</string>
     <string name="config_weather_app_alert_button_github">Open GitHub</string>
 
-    <string name="widget_label">Date &amp; weather</string>
+    <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_date_prev">Sun, Jul 4</string>
     <string name="widget_temp_prev">71\u2109</string>
@@ -128,7 +128,7 @@
 
     <!-- Non-translatable -->
 
-    <string name="app_name" translatable="false">Pimi Widget</string>
+    <string name="app_name" translatable="false">Pimi widget</string>
 
     <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
     <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>

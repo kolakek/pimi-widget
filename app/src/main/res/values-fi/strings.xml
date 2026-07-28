@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi lisättävän, avaa issue GitHubissa.</string>
     <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
 
-    <string name="widget_label">Päivä ja sää</string>
+    <string name="widget_label">Päivämäärä, sää ja muuta</string>
     <string name="widget_date_prev">la 6.12.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">huomenna 19\u00B0 / 13\u00B0 · heikko sade</string>

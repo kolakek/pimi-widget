@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
     <string name="config_weather_app_alert_button_github">Apri GitHub</string>
 
-    <string name="widget_label">Datum en weer</string>
+    <string name="widget_label">Datum, weer en meer</string>
     <string name="widget_date_prev">zat 27 apr</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">morgen 19\u00B0 / 13\u00B0 · lichte regen</string>

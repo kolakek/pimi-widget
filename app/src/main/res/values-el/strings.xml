@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
     <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
 
-    <string name="widget_label">Ημερομηνία και καιρός</string>
+    <string name="widget_label">Ημερομηνία, καιρός και άλλα</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">αύριο 19\u00B0 / 13\u00B0 · ασθενής βροχή</string>

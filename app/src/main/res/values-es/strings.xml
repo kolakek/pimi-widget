@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Para añadir tu aplicación del tiempo, abre un issue en GitHub.</string>
     <string name="config_weather_app_alert_button_github">Abrir GitHub</string>
 
-    <string name="widget_label">Fecha y clima</string>
+    <string name="widget_label">Fecha, clima y más</string>
     <string name="widget_date_prev">sáb, 12 oct</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">mañana 19\u00B0 / 13\u00B0 · lluvia débil</string>

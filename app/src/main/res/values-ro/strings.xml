@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
     <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
 
-    <string name="widget_label">Data și vremea</string>
+    <string name="widget_label">Dată, vreme și altele</string>
     <string name="widget_date_prev">lun., 1 dec.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">mâine 19\u00B0 / 13\u00B0 · ploaie slabă</string>

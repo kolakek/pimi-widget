@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">Щоб додати свій погодний додаток, відкрийте issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Відкрити GitHub</string>
 
-    <string name="widget_label">Дата та погода</string>
+    <string name="widget_label">Дата, погода та інше</string>
     <string name="widget_date_prev">нд, 24 сер.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
