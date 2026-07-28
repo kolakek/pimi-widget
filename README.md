@@ -1,16 +1,16 @@
 <img src="artwork/icon.svg" alt="Logo" width="100">
 
-# Pimi Weather Widget
+# Pimi widget
 
-Pixel-style Android widget that shows the date and weather
+Your day, at a glance
 
 ## Features
 
-* Displays date and weather for your current area
+* Displays date, weather & more
 * Standalone widget, no launcher icon
-* Tapping the widget opens your favorite weather app
-* Lightweight and optimized for battery efficiency
-* Location data is shared only with the weather provider
+* Tap the widget to open your favorite weather app
+* Lightweight and battery-efficient
+* Your location is shared only with the weather provider
 * No trackers, no ads, no Google Play dependencies
 
 ## Download

@@ -1,1 +1,1 @@
-Pimi Weather Widget
+Pimi widget

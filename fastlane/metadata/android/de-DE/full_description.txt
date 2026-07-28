@@ -1,6 +1,6 @@
 Funktionen:
 
-* Zeigt Datum und Wetter für deinen aktuellen Standort
+* Zeigt Datum, Wetter & mehr
 * Eigenständiges Widget, kein Symbol im App-Launcher
 * Antippen des Widgets öffnet deine bevorzugte Wetter-App
 * Leichtgewichtig und akkusparend

@@ -1,8 +1,8 @@
 Features:
 
-* Displays date and weather for your current area
+* Displays date, weather & more
 * Standalone widget, no launcher icon
-* Tapping the widget opens your favorite weather app
-* Lightweight and optimized for battery efficiency
-* Location data is shared only with the weather provider
-* No trackers, no ads, fully open source
+* Tap the widget to open your favorite weather app
+* Lightweight and battery-efficient
+* Your location is shared only with the weather provider
+* No trackers, no ads, no Google Play dependencies
