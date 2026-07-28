@@ -155,6 +155,18 @@ object PreferencesHelper {
         }
     }
 
+    fun setAuxDisplayPreference(context: Context, pref: AuxDisplayPref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_AUX_DISPLAY_LIST, pref.key)
+        }
+    }
+
+    fun setLocationFallbackPreference(context: Context, pref: Boolean) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putBoolean(KEY_LOCATION_FALLBACK, pref)
+        }
+    }
+
     fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_WEATHER_APP_LIST, weatherApp.key)

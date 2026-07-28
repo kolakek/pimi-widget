@@ -39,14 +39,24 @@ object MigrateApp {
                 PreferencesHelper.TempUnitPref.AUTO
             )
             PreferencesHelper.setTextColorPreference(
-                context,PreferencesHelper.ColorPref.AUTO
+                context,
+                PreferencesHelper.ColorPref.AUTO
             )
             PreferencesHelper.setIconColorPreference(
-                context,PreferencesHelper.ColorPref.AUTO
+                context,
+                PreferencesHelper.ColorPref.AUTO
             )
             PreferencesHelper.setWidgetStylePreference(
                 context,
                 PreferencesHelper.WidgetStylePref.CLASSIC
+            )
+            PreferencesHelper.setAuxDisplayPreference(
+                context,
+                PreferencesHelper.AuxDisplayPref.NOTHING
+            )
+            PreferencesHelper.setLocationFallbackPreference(
+                context,
+                true
             )
         }
         storeCurrentVersionCode(context)
