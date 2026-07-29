@@ -1,27 +1,27 @@
 <resources>
 
+    <string name="config_button_apply">套用</string>
+    <string name="config_section_features">資訊一覽</string>
+    <string name="config_section_weather">天氣設定</string>
+    <string name="config_section_settings_plus">更多設定</string>
+    <string name="config_section_about">關於</string>
     <string name="config_section_style">外觀</string>
     <string name="config_widget_style">小工具樣式</string>
     <string name="config_widget_style_classic">透明</string>
     <string name="config_widget_style_solid">純色</string>
-    <string name="config_button_apply">套用</string>
-    <string name="config_section_features">一覽</string>
-    <string name="config_section_weather">天氣設定</string>
-    <string name="config_section_settings_plus">其他設定</string>
-    <string name="config_section_about">關於</string>
     <string name="config_weather_switch">天氣</string>
     <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
     <string name="config_birthday_switch">生日</string>
-    <string name="config_birthday_switch_summary">顯示聯絡人的生日</string>
+    <string name="config_birthday_switch_summary">顯示聯絡人生日</string>
     <string name="config_contact_perm_alert_title">需要聯絡人權限</string>
-    <string name="config_contact_perm_alert_message">要顯示生日，此應用程式需要存取您的聯絡人。</string>
-    <string name="config_version_title">組建編號</string>
+    <string name="config_contact_perm_alert_message">應用程式需要存取聯絡人，才能顯示對象生日。</string>
+    <string name="config_version_title">版本編號</string>
     <string name="config_show_alarms">鬧鐘</string>
     <string name="config_show_alarms_descr">顯示即將到來的鬧鐘</string>
-    <string name="config_perm_alarm">永遠顯示鬧鐘圖示</string>
+    <string name="config_perm_alarm">一律顯示鬧鐘圖示</string>
     <string name="config_perm_alarm_descr">快速存取時鐘應用程式</string>
     <string name="config_debug_info">應用程式狀態</string>
-    <string name="config_debug_weather_data_age">天氣資料年值</string>
+    <string name="config_debug_weather_data_age">天氣資料時效</string>
     <string name="config_debug_last_valid_location">最後有效位置</string>
     <string name="config_debug_last_work_status">最後運作狀態</string>
     <string name="config_debug_background_service">背景服務</string>
@@ -32,8 +32,8 @@
     <string name="config_icon_color">圖示顏色</string>
     <string name="config_color_light">淺色</string>
     <string name="config_color_dark">深色</string>
-    <string name="config_icon_color_morning">晨曦</string>
-    <string name="config_icon_color_evening">夕陽</string>
+    <string name="config_icon_color_morning">黎明</string>
+    <string name="config_icon_color_evening">黃昏</string>
     <string name="config_option_auto">自動</string>
     <string name="config_option_follow_system">系統預設值</string>
     <string name="config_temp">溫度</string>
@@ -49,7 +49,7 @@
     <string name="config_bg_perm_alert_message">需要背景存取您的位置以顯示準確天氣。\n請在下個畫面輕觸「%s」。</string>
     <string name="config_alert_button_ok">確定</string>
     <string name="config_alert_button_cancel">取消</string>
-    <string name="config_debug_button_weather">檢視天氣檢索</string>
+    <string name="config_debug_button_weather">檢視查詢狀態</string>
     <string name="config_debug_button_location">檢視位置</string>
     <string name="config_source_code">原始碼</string>
     <string name="config_source_code_summary">在 GitHub 查看原始碼和文件</string>
@@ -62,7 +62,7 @@
     <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報。</string>
     <string name="config_weather_app_alert_button_github">前往 GitHub</string>
 
-    <string name="widget_label">日期、天氣及更多</string>
+    <string name="widget_label">日期與天氣</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_date_prev">7月4日 週日</string>
     <string name="widget_temp_prev">21\u2103</string>
