@@ -1,0 +1,7 @@
+* Shows birthdays and upcoming alarms
+* Added a second widget style
+* Added support for additional weather apps
+* Refined weather icons
+* Hide more widget settings behind build number
+* Added support for scalable fonts
+* Bug fixes
