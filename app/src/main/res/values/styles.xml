@@ -54,11 +54,11 @@
 
     <style name="Widget.DateEvent" parent="Widget.InnerView">
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:layout_marginVertical">4dp</item>
     </style>
 
     <style name="Widget.Date" parent="Widget.DateEvent">
+        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
         <item name="android:layout_marginRight">12dp</item>
@@ -72,6 +72,7 @@
     </style>
 
     <style name="Widget.Event" parent="Widget.DateEvent">
+        <item name="android:textSize">@dimen/widget_text_size_medium</item>
         <item name="android:drawablePadding">4dp</item>
     </style>
 
@@ -145,17 +146,18 @@
     <style name="Widget.DateEventSolid" parent="Widget.InnerView">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
-        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:layout_marginVertical">4dp</item>
     </style>
 
     <style name="Widget.DateSolid" parent="Widget.DateEventSolid">
+        <item name="android:textSize">@dimen/widget_text_size_large</item>
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
         <item name="android:layout_marginRight">12dp</item>
     </style>
 
     <style name="Widget.EventSolid" parent="Widget.DateEventSolid">
+        <item name="android:textSize">@dimen/widget_text_size_medium</item>
         <item name="android:drawablePadding">4dp</item>
     </style>
 
