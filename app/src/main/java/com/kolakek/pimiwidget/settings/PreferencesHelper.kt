@@ -248,7 +248,7 @@ object PreferencesHelper {
     private fun getWeatherApp(context: Context): WeatherApp {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WEATHER_APP_LIST, null)
-        return WeatherApp.entries.find { it.key == key } ?: WeatherApp.NONE
+        return WeatherApp.entries.find { it.key == key } ?: WeatherApp.PIMI
     }
 
     private fun getTextColorForWallpaper(context: Context): TextColor {

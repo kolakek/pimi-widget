@@ -22,6 +22,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import com.kolakek.pimiwidget.ui.WeatherActivity
 
 object WidgetIntent {
 
@@ -89,6 +90,20 @@ object WidgetIntent {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
         }
         return PendingIntent.getBroadcast(
+            context,
+            appWidgetId,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+    }
+
+    fun pimiWeatherIntent(
+        context: Context,
+        appWidgetId: Int
+    ): PendingIntent {
+        val intent = Intent(context, WeatherActivity::class.java)
+
+        return PendingIntent.getActivity(
             context,
             appWidgetId,
             intent,

@@ -57,7 +57,6 @@
     <string name="config_aux_view_update_time">Refresh time</string>
     <string name="config_aux_view_title">Show details</string>
     <string name="config_weather_app">Weather app</string>
-    <string name="config_weather_app_default">None</string>
     <string name="config_weather_app_nil">Not listed</string>
     <string name="config_weather_app_nil_alert_message">To have your weather app added, please open an issue on GitHub.</string>
     <string name="config_weather_app_alert_button_github">Open GitHub</string>
@@ -138,6 +137,7 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
 
+    <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
     <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
     <string name="config_weather_app_bura" translatable="false">Bura</string>

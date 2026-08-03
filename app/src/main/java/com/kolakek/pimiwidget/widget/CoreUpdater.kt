@@ -53,8 +53,8 @@ object CoreUpdater {
         )
         views.setOnClickPendingIntent(R.id.widget_date, calendarIntent)
 
-        val weatherAppIntent = if (prefs.weatherApp == WeatherApp.NONE) {
-            null
+        val weatherAppIntent = if (prefs.weatherApp == WeatherApp.PIMI) {
+            WidgetIntent.pimiWeatherIntent(context, appWidgetId)
         } else {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }

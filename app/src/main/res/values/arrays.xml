@@ -62,7 +62,7 @@
     </array>
 
     <array name="weather_apps">
-        <item>@string/config_weather_app_default</item>
+        <item>@string/config_weather_app_pimi</item>
     </array>
 
     <array name="weather_apps_vals">

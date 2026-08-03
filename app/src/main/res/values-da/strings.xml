@@ -57,7 +57,6 @@
     <string name="config_aux_view_nothing">Ingen detaljer</string>
     <string name="config_aux_view_update_time">Opdateringstid</string>
     <string name="config_weather_app">Vejr-app</string>
-    <string name="config_weather_app_default">Ingen</string>
     <string name="config_weather_app_nil">Ikke på listen</string>
     <string name="config_weather_app_nil_alert_message">For at få din vejr-app tilføjet, opret et issue på GitHub.</string>
     <string name="config_weather_app_alert_button_github">Åbn GitHub</string>

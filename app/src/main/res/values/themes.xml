@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight">
+    <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <item name="alertDialogTheme">@style/Config.MaterialDialogAlert</item>
     </style>
 

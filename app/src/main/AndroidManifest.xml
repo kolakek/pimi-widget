@@ -63,6 +63,10 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.WeatherActivity"
+            android:exported="true" />
     </application>
 
     <queries>

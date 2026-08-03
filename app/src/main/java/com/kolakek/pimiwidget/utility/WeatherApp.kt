@@ -20,10 +20,10 @@ package com.kolakek.pimiwidget.utility
 import com.kolakek.pimiwidget.R
 
 enum class WeatherApp(val key: String, val packageName: String, val labelId: Int) {
-    NONE(
+    PIMI(
         "weather_app_default",
         "",
-        R.string.config_weather_app_default
+        R.string.config_weather_app_pimi
     ),
     BREEZY(
         "weather_app_breezy",
