@@ -15,9 +15,20 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.ui
 
-data class IconString (
-    val text: String,
-    val iconId: Int
-)
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.weather.WeatherData
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.stateIn
+
+class WeatherViewModel(application: Application) : AndroidViewModel(application) {
+    val weatherData: StateFlow<WeatherData?> = flow {
+        emit(DataRepository.loadWeatherData(application))
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+}

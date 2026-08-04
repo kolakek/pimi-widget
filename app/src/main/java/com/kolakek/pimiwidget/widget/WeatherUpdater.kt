@@ -24,6 +24,7 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.weather.WeatherRenderer
 
 object WeatherUpdater {
 
@@ -45,7 +46,13 @@ object WeatherUpdater {
         weatherData?.let { data ->
             val nowTimeMillis = System.currentTimeMillis()
 
-            WeatherRenderer.getCurrentWeather(context, data, nowTimeMillis, prefs)?.let { it ->
+            WeatherRenderer.getCurrentWeather(
+                context,
+                data,
+                prefs.iconStyle,
+                prefs.iconColor,
+                prefs.tempUnit
+            )?.let { it ->
 
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
                 views.setTextViewText(R.id.widget_weather_temp, it.text)
@@ -54,7 +61,7 @@ object WeatherUpdater {
                 var auxIcon = 0
 
                 if (prefs.showWeatherWarning) {
-                    WeatherRenderer.getWarning(context, nowTimeMillis, data, prefs)?.let{
+                    WeatherRenderer.getCurrentWarning(context, data, prefs)?.let{
                         auxStr = it.text
                         auxIcon = it.iconId
                     }

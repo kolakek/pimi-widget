@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.weather
 
 import android.content.Context
 import android.text.format.DateFormat
@@ -25,10 +25,15 @@ import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.AuxDisplay
+import com.kolakek.pimiwidget.settings.IconColor
+import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.weather.WarningCode
-import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
+import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
+import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
+import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_ON
+import com.kolakek.pimiwidget.utility.LabeledIcon
 import java.time.Instant
 import java.time.ZoneId
 import java.util.Date
@@ -38,39 +43,37 @@ object WeatherRenderer {
     fun getCurrentWeather(
         context: Context,
         weather: WeatherData,
-        nowTimeMillis: Long,
-        prefs: WidgetPreferences
-    ): IconString? {
-        val timeIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
+        iconStyle: IconStyle,
+        iconColor: IconColor,
+        tempUnit: TempUnit,
+        fullUnit: Boolean = true
+    ): LabeledIcon? {
+        val weatherCode = weather.currentWeatherCode() ?: return null
+        val tempCelsius = weather.currentTempCelsius() ?: return null
+        val isDay = weather.currentIsDay() ?: return null
 
-        val weatherCode = weather.hourlyWeatherCode.getOrNull(timeIndex) ?: return null
-        val tempCelsius = weather.hourlyTempCelsius.getOrNull(timeIndex) ?: return null
-        val isDay = weather.hourlyIsDay.getOrNull(timeIndex) ?: return null
-
-        val temperatureStr = getTemperatureString(context, tempCelsius, prefs.tempUnit)
+        val temperatureStr = getTemperatureString(context, tempCelsius, tempUnit, fullUnit)
 
         val weatherIconId = WeatherIcon.getWeatherIconId(
             weatherCode,
             isDay,
-            prefs.iconStyle,
-            prefs.iconColor
+            iconStyle,
+            iconColor
         )
-        return IconString(temperatureStr, weatherIconId)
+        return LabeledIcon(temperatureStr, weatherIconId)
     }
 
-    fun getWarning(
+    fun getCurrentWarning(
         context: Context,
-        nowTimeMillis: Long,
         weather: WeatherData,
         prefs: WidgetPreferences
-    ): IconString? {
-        val nextIndex = getNextTimeIndex(weather.hourlyTimeMillis, nowTimeMillis) ?: return null
-        val warningCode = weather.hourlyWarningCode.getOrNull(nextIndex) ?: return null
+    ): LabeledIcon? {
+        val warningCode = weather.currentWarningCode() ?: return null
 
         if (warningCode == WarningCode.NO_WARNING)
             return null
 
-        return IconString(
+        return LabeledIcon(
             context.getString(WarningString.getWarningStrId(warningCode)),
             WarningIcon.getWarningIconId(warningCode.level, prefs.textColor, prefs.widgetStyle)
         )
@@ -151,17 +154,5 @@ object WeatherRenderer {
             context.getString(R.string.degree)
         }
         return "${(tempValue + 0.5).toInt()}$unit"
-    }
-
-    private fun getNextTimeIndex(
-        timeMillis: List<Long>,
-        nowTimeMillis: Long
-    ): Int? {
-        val idx = timeMillis.indexOfFirst { it > nowTimeMillis }
-
-        if (idx == -1) {
-            return null
-        }
-        return idx
     }
 }

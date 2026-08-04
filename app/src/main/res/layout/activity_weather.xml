@@ -8,10 +8,13 @@
     android:paddingHorizontal="24dp">
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Loading..."
         android:textSize="24sp" />
+
+    <include
+        android:id="@+id/weather_current"
+        layout="@layout/weather_current" />
 
 </LinearLayout>

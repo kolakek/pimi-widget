@@ -31,4 +31,24 @@ data class WeatherData (
     val dailyTempMaxCelsius: List<Double>,
     val dailyTimeMillis: List<Long>,
     val timeMillis: Long
-)
+) {
+    fun currentTempCelsius(): Double? {
+        return hourlyTempCelsius.getOrNull(currentHourlyIndex())
+    }
+
+    fun currentWeatherCode(): WeatherCode? {
+        return hourlyWeatherCode.getOrNull(currentHourlyIndex())
+    }
+
+    fun currentWarningCode(): WarningCode? {
+        return hourlyWarningCode.getOrNull(currentHourlyIndex())
+    }
+
+    fun currentIsDay(): Boolean? {
+        return hourlyIsDay.getOrNull(currentHourlyIndex())
+    }
+
+    private fun currentHourlyIndex(): Int {
+        return hourlyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
+    }
+}
