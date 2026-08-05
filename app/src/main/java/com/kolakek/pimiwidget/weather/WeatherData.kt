@@ -18,11 +18,13 @@
 package com.kolakek.pimiwidget.weather
 
 import kotlinx.serialization.Serializable
+import timber.log.Timber
 
 @Serializable
 data class WeatherData (
     val hourlyWeatherCode: List<WeatherCode>,
     val hourlyTempCelsius: List<Double>,
+    val hourlyApparentCelsius: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,
@@ -34,6 +36,10 @@ data class WeatherData (
 ) {
     fun currentTempCelsius(): Double? {
         return hourlyTempCelsius.getOrNull(currentHourlyIndex())
+    }
+
+    fun currentApparentTempCelsius(): Double? {
+        return hourlyApparentCelsius.getOrNull(currentHourlyIndex())
     }
 
     fun currentWeatherCode(): WeatherCode? {
@@ -48,7 +54,20 @@ data class WeatherData (
         return hourlyIsDay.getOrNull(currentHourlyIndex())
     }
 
+    fun todayMinTempCelsius(): Double? {
+        return dailyTempMinCelsius.getOrNull(todayIndex())
+    }
+
+    fun todayMaxTempCelsius(): Double? {
+        return dailyTempMaxCelsius.getOrNull(todayIndex())
+    }
+
     private fun currentHourlyIndex(): Int {
         return hourlyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
+    }
+
+    private fun todayIndex(): Int {
+        Timber.d("XXX ${System.currentTimeMillis()} ${hourlyTimeMillis[0]} ${hourlyTimeMillis[1]}")
+        return hourlyTimeMillis.indexOfLast { it < System.currentTimeMillis() }
     }
 }

@@ -40,7 +40,7 @@ import java.util.Date
 
 object WeatherRenderer {
 
-    fun getCurrentWeather(
+    fun currentWeather(
         context: Context,
         weather: WeatherData,
         iconStyle: IconStyle,
@@ -52,7 +52,7 @@ object WeatherRenderer {
         val tempCelsius = weather.currentTempCelsius() ?: return null
         val isDay = weather.currentIsDay() ?: return null
 
-        val temperatureStr = getTemperatureString(context, tempCelsius, tempUnit, fullUnit)
+        val temperatureStr = temperatureString(context, tempCelsius, tempUnit, fullUnit)
 
         val weatherIconId = WeatherIcon.getWeatherIconId(
             weatherCode,
@@ -63,7 +63,7 @@ object WeatherRenderer {
         return LabeledIcon(temperatureStr, weatherIconId)
     }
 
-    fun getCurrentWarning(
+    fun currentWarning(
         context: Context,
         weather: WeatherData,
         prefs: WidgetPreferences
@@ -79,7 +79,7 @@ object WeatherRenderer {
         )
     }
 
-    fun getForecast(
+    fun forecastString(
         context: Context,
         nowTimeMillis: Long,
         weather: WeatherData,
@@ -91,13 +91,13 @@ object WeatherRenderer {
         val date = zoned.toLocalDate()
         val hour = zoned.hour
 
-        val isToday = when (hour) {
+        val useToday = when (hour) {
             in FORECAST_TODAY_HOUR_ON..<FORECAST_TODAY_HOUR_OFF -> true
             in FORECAST_TOMORROW_HOUR_ON..<FORECAST_TOMORROW_HOUR_OFF -> false
 
             else -> return null
         }
-        val targetDate = if (isToday) date else date.plusDays(1)
+        val targetDate = if (useToday) date else date.plusDays(1)
         val idx = weather.dailyTimeMillis.indexOfFirst {
             Instant.ofEpochMilli(it).atZone(zone).toLocalDate() == targetDate
         }
@@ -108,19 +108,46 @@ object WeatherRenderer {
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
 
-        val minTempStr = getTemperatureString(context, tempCelsiusMin, prefs.tempUnit, false)
-        val maxTempStr = getTemperatureString(context, tempCelsiusMax, prefs.tempUnit, false)
+        val minTempStr = temperatureString(context, tempCelsiusMin, prefs.tempUnit, false)
+        val maxTempStr = temperatureString(context, tempCelsiusMax, prefs.tempUnit, false)
 
         val weatherStr = context.getString(
-            WeatherString.getShortWeatherStrId(weatherCode, isDay = true)
+            WeatherString.shortStringId(weatherCode, isDay = true)
         )
         val dayStr = context.getString(
-            if (isToday) R.string.widget_today else R.string.widget_tomorrow
+            if (useToday) R.string.widget_today else R.string.widget_tomorrow
         )
         return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
     }
 
-    fun getAuxInfo(
+    fun currentFeelsLikeStr(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit,
+        fullUnit: Boolean = true
+    ): String? {
+        val currentApparentTemp = weather.currentApparentTempCelsius() ?: return null
+        return context.getString(R.string.app_text_feels_like) + " " +
+                temperatureString(context, currentApparentTemp, tempUnit, fullUnit)
+    }
+
+    fun dailyHighLowTempStr(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit,
+        fullUnit: Boolean = true
+    ): String? {
+        val minTemp = weather.todayMinTempCelsius() ?: return null
+        val maxTemp = weather.todayMaxTempCelsius() ?: return null
+
+        val minTempStr = temperatureString(context, minTemp, tempUnit, fullUnit)
+        val maxTempStr = temperatureString(context, maxTemp, tempUnit, fullUnit)
+
+        return context.getString(R.string.app_text_high) + " " + maxTempStr + " · " +
+                context.getString(R.string.app_text_low) + " " + minTempStr
+    }
+
+    fun auxString(
         context: Context,
         nowTimeMillis: Long,
         prefs: WidgetPreferences
@@ -136,7 +163,7 @@ object WeatherRenderer {
         }
     }
 
-    private fun getTemperatureString(
+    fun temperatureString(
         context: Context,
         tempCelsius: Double,
         tempUnit: TempUnit,

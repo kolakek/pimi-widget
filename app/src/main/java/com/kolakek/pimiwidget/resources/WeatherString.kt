@@ -22,7 +22,7 @@ import com.kolakek.pimiwidget.weather.WeatherCode
 
 object WeatherString {
 
-    fun getShortWeatherStrId(weatherCode: WeatherCode, isDay: Boolean): Int {
+    fun shortStringId(weatherCode: WeatherCode, isDay: Boolean): Int {
         return when (weatherCode) {
             WeatherCode.CLEAR_SKY ->
                 if (isDay) R.string.wc_clear_sky_day else R.string.wc_clear_sky_night

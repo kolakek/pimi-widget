@@ -28,9 +28,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
+import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.IconColor
-import com.kolakek.pimiwidget.settings.IconStyle
-import com.kolakek.pimiwidget.settings.TempUnit
+import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherRenderer
 import kotlinx.coroutines.launch
@@ -54,26 +55,48 @@ class WeatherActivity : AppCompatActivity() {
             view.updatePadding(top = topInset)
             insets
         }
+        val prefs = PreferencesHelper.getAppPreferences(this)
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
-                    weather?.let { displayCurrentWeather(it)  }
+                    weather?.let { displayCurrentWeather(it, prefs)  }
                 }
             }
         }
     }
 
-    private fun displayCurrentWeather(weather: WeatherData) {
-        val currentWeather = WeatherRenderer.getCurrentWeather(
+    private fun displayCurrentWeather(weather: WeatherData, prefs: AppPreferences) {
+        val isDay = weather.currentIsDay() ?: return
+        val weatherCode = weather.currentWeatherCode() ?: return
+
+        val weatherStr = getString(
+            WeatherString.shortStringId(weatherCode, isDay)
+        )
+        val currentWeather = WeatherRenderer.currentWeather(
             this,
             weather,
-            IconStyle.TWINKLE_SHADOW,
+            prefs.iconStyle,
             IconColor.LIGHT,
-            TempUnit.CELSIUS,
+            prefs.tempUnit,
             fullUnit = false
         ) ?: return
-
+        val feelsLikeStr = WeatherRenderer.currentFeelsLikeStr(
+            this,
+            weather,
+            prefs.tempUnit,
+            fullUnit = false
+        )
+        val highLowStr = WeatherRenderer.dailyHighLowTempStr(
+            this,
+            weather,
+            prefs.tempUnit,
+            fullUnit = false
+        )
         binding.weatherCurrent.currentTemp.text = currentWeather.text
         binding.weatherCurrent.curentIcon.setImageResource(currentWeather.iconId)
+        binding.weatherCurrent.currentString.text = weatherStr
+        binding.weatherCurrent.currentFeelsLike.text = feelsLikeStr
+        binding.weatherCurrent.dailyHighLow.text = highLowStr
     }
 }

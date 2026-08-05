@@ -46,7 +46,7 @@ object WeatherUpdater {
         weatherData?.let { data ->
             val nowTimeMillis = System.currentTimeMillis()
 
-            WeatherRenderer.getCurrentWeather(
+            WeatherRenderer.currentWeather(
                 context,
                 data,
                 prefs.iconStyle,
@@ -61,18 +61,18 @@ object WeatherUpdater {
                 var auxIcon = 0
 
                 if (prefs.showWeatherWarning) {
-                    WeatherRenderer.getCurrentWarning(context, data, prefs)?.let{
+                    WeatherRenderer.currentWarning(context, data, prefs)?.let{
                         auxStr = it.text
                         auxIcon = it.iconId
                     }
                 }
                 if (auxStr == null && prefs.showDailyForecast) {
-                    WeatherRenderer.getForecast(context, nowTimeMillis, data, prefs)?.let {
+                    WeatherRenderer.forecastString(context, nowTimeMillis, data, prefs)?.let {
                         auxStr = it
                     }
                 }
                 if (auxStr == null) {
-                    WeatherRenderer.getAuxInfo(context, nowTimeMillis, prefs)?.let {
+                    WeatherRenderer.auxString(context, nowTimeMillis, prefs)?.let {
                         auxStr = it
                     }
                 }

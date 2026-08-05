@@ -54,6 +54,20 @@ object PreferencesHelper {
         UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
     }
 
+    fun getAppPreferences(context: Context): AppPreferences {
+        val iconStylePref = getIconStylePreference(context)
+        val tempUnitPref = getTempUnitPreference(context)
+
+        val iconStyle = when (iconStylePref) {
+            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+        }
+        return AppPreferences(
+            iconStyle = iconStyle,
+            tempUnit = tempUnitFromPref(tempUnitPref),
+        )
+    }
+
     fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
         val iconColorPref = getIconColorPreference(context)
@@ -90,18 +104,6 @@ object PreferencesHelper {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
             IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
-        val tempUnit = when (tempUnitPref) {
-            TempUnitPref.AUTO -> {
-                if (LocalePreferences.getTemperatureUnit()
-                    == LocalePreferences.TemperatureUnit.CELSIUS) {
-                    TempUnit.CELSIUS
-                } else {
-                    TempUnit.FAHRENHEIT
-                }
-            }
-            TempUnitPref.CELSIUS -> TempUnit.CELSIUS
-            TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
-        }
         val auxDisplay = when (auxDisplayPref) {
             AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
@@ -115,7 +117,7 @@ object PreferencesHelper {
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
             permanentAlarm = getPermanentAlarmPreference(context),
-            tempUnit = tempUnit,
+            tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
             iconColor = iconColor,
@@ -258,5 +260,20 @@ object PreferencesHelper {
             ?.colorHints
             ?.let { it and WallpaperColors.HINT_SUPPORTS_DARK_TEXT == 0 } ?: true
         return if (needsLightText) TextColor.LIGHT else TextColor.DARK
+    }
+
+    private fun tempUnitFromPref(tempUnitPref: TempUnitPref): TempUnit {
+        return when (tempUnitPref) {
+            TempUnitPref.AUTO -> {
+                if (LocalePreferences.getTemperatureUnit()
+                    == LocalePreferences.TemperatureUnit.CELSIUS) {
+                    TempUnit.CELSIUS
+                } else {
+                    TempUnit.FAHRENHEIT
+                }
+            }
+            TempUnitPref.CELSIUS -> TempUnit.CELSIUS
+            TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
+        }
     }
 }

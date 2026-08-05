@@ -101,6 +101,7 @@ object WeatherService {
         return WeatherData(
             hourlyWeatherCode = hourlyWeatherCode,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
+            hourlyApparentCelsius = providerData.hourly.apparent_temperature,
             hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
             hourlyWarningCode = hourlyWarningCode,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v.toLong() * 1000L },
