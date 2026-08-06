@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.weather
 
 import kotlinx.serialization.Serializable
-import timber.log.Timber
 
 @Serializable
 data class WeatherData (
@@ -67,7 +66,6 @@ data class WeatherData (
     }
 
     private fun todayIndex(): Int {
-        Timber.d("XXX ${System.currentTimeMillis()} ${hourlyTimeMillis[0]} ${hourlyTimeMillis[1]}")
         return hourlyTimeMillis.indexOfLast { it < System.currentTimeMillis() }
     }
 }
