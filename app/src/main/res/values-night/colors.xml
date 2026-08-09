@@ -14,4 +14,18 @@
     <color name="u_rain">#619dff</color>
     <color name="u_snow">#e8eaed</color>
 
+    <color name="w_sun_1">#FFFFD535</color>
+    <color name="w_sun_2">#FFE2A93A</color>
+    <color name="w_moon_1">#FF659DF6</color>
+    <color name="w_moon_2">#FF83AFF7</color>
+    <color name="w_cloud_1">#FFBDC1C6</color>
+    <color name="w_cloud_2">#FFEEEFF0</color>
+    <color name="w_cloud_3">#FFFFFFFF</color>
+    <color name="w_cloud_4">#FFBDC1C6</color>
+    <color name="w_cloud_5">#FFEEEFF0</color>
+    <color name="w_cloud_6">#FFFFFFFF</color>
+    <color name="w_fog">#d0d4d8</color>
+    <color name="w_rain">#619dff</color>
+    <color name="w_snow">#b6b9ba</color>
+
 </resources>
