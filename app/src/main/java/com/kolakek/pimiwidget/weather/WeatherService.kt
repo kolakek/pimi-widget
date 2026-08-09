@@ -21,6 +21,7 @@ import android.content.Context
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.exception.WeatherMappingException
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.utility.HttpClientProvider
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.URLBuilder

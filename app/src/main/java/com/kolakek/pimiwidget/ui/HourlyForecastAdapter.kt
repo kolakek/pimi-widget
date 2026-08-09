@@ -21,6 +21,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kolakek.pimiwidget.databinding.WeatherHourlyBinding
+import com.kolakek.pimiwidget.weather.HourlyItem
 
 class HourlyForecastAdapter(
     private val items: List<HourlyItem>

@@ -33,19 +33,20 @@ import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_ON
-import com.kolakek.pimiwidget.utility.LabeledIcon
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
 import java.util.Date
+import java.util.Locale
 
 object WeatherRenderer {
 
     fun currentWeather(
         context: Context,
         weather: WeatherData,
+        tempUnit: TempUnit,
         iconStyle: IconStyle,
         iconColor: IconColor,
-        tempUnit: TempUnit,
         fullUnit: Boolean = true
     ): LabeledIcon? {
         val weatherCode = weather.currentWeatherCode() ?: return null
@@ -119,27 +120,49 @@ object WeatherRenderer {
         context: Context,
         weather: WeatherData,
         tempUnit: TempUnit,
-        fullUnit: Boolean = true
     ): String? {
         val currentApparentTemp = weather.currentApparentTempCelsius() ?: return null
         return context.getString(R.string.app_text_feels_like) + " " +
-                temperatureString(context, currentApparentTemp, tempUnit, fullUnit)
+                temperatureString(context, currentApparentTemp, tempUnit, false)
     }
 
     fun dailyHighLowTempStr(
         context: Context,
         weather: WeatherData,
         tempUnit: TempUnit,
-        fullUnit: Boolean = true
     ): String? {
         val minTemp = weather.todayMinTempCelsius() ?: return null
         val maxTemp = weather.todayMaxTempCelsius() ?: return null
 
-        val minTempStr = temperatureString(context, minTemp, tempUnit, fullUnit)
-        val maxTempStr = temperatureString(context, maxTemp, tempUnit, fullUnit)
+        val minTempStr = temperatureString(context, minTemp, tempUnit, false)
+        val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
 
         return context.getString(R.string.app_text_high) + " " + maxTempStr + " · " +
                 context.getString(R.string.app_text_low) + " " + minTempStr
+    }
+
+    fun hourlyWeather(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit,
+        iconStyle: IconStyle,
+        iconColor: IconColor,
+    ): List<HourlyItem> {
+        val nowTimeMillis = System.currentTimeMillis()
+        val startIdx = weather.hourlyTimeMillis.indexOfFirst { it > nowTimeMillis }
+
+        return weather.hourlyTimeMillis.indices
+            .drop(startIdx.coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val temp = weather.hourlyTempCelsius.getOrNull(idx) ?: return@mapNotNull null
+                val code = weather.hourlyWeatherCode.getOrNull(idx) ?: return@mapNotNull null
+                val isDay = weather.hourlyIsDay.getOrNull(idx) ?: return@mapNotNull null
+
+                val iconId = WeatherIcon.getWeatherIconId(code, isDay, iconStyle, iconColor)
+                val tempStr = temperatureString(context, temp, tempUnit, false)
+
+                HourlyItem(formatTime(context, weather.hourlyTimeMillis[idx]), iconId, tempStr)
+            }
     }
 
     fun auxString(
@@ -158,11 +181,11 @@ object WeatherRenderer {
         }
     }
 
-    fun temperatureString(
+    private fun temperatureString(
         context: Context,
         tempCelsius: Double,
         tempUnit: TempUnit,
-        fullUnit: Boolean = true
+        fullUnit: Boolean
     ): String {
         val isFahrenheit = (tempUnit == TempUnit.FAHRENHEIT)
         val tempValue = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
@@ -176,5 +199,10 @@ object WeatherRenderer {
             context.getString(R.string.degree)
         }
         return "${(tempValue + 0.5).toInt()}$unit"
+    }
+
+    private fun formatTime(context: Context, timeMillis: Long): String {
+        val pattern = if (DateFormat.is24HourFormat(context)) "HH:00" else "h a"
+        return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(timeMillis))
     }
 }

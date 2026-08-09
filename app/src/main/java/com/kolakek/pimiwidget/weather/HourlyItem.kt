@@ -15,9 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.utility
+package com.kolakek.pimiwidget.weather
 
-data class LabeledIcon (
-    val text: String,
-    val iconId: Int
+data class HourlyItem(
+    val time: String,
+    val iconId: Int,
+    val temp: String
 )

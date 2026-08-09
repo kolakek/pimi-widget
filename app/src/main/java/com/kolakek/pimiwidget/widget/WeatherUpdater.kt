@@ -49,9 +49,10 @@ object WeatherUpdater {
             WeatherRenderer.currentWeather(
                 context,
                 data,
+                prefs.tempUnit,
                 prefs.iconStyle,
                 prefs.iconColor,
-                prefs.tempUnit
+                true
             )?.let { it ->
 
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)

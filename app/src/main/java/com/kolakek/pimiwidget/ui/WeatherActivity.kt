@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.ui
 
 import android.os.Bundle
-import android.text.format.DateFormat
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +28,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
-import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.IconColor
@@ -37,9 +35,6 @@ import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherRenderer
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -84,22 +79,20 @@ class WeatherActivity : AppCompatActivity() {
         val currentWeather = WeatherRenderer.currentWeather(
             this,
             weather,
+            prefs.tempUnit,
             prefs.iconStyle,
             IconColor.LIGHT,
-            prefs.tempUnit,
-            fullUnit = false
+            false
         ) ?: return
         val feelsLikeStr = WeatherRenderer.currentFeelsLikeStr(
             this,
             weather,
             prefs.tempUnit,
-            fullUnit = false
         )
         val highLowStr = WeatherRenderer.dailyHighLowTempStr(
             this,
             weather,
             prefs.tempUnit,
-            fullUnit = false
         )
         binding.currentWeather.currentTemp.text = currentWeather.text
         binding.currentWeather.curentIcon.setImageResource(currentWeather.iconId)
@@ -109,36 +102,13 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun displayHourlyWeather(weather: WeatherData, prefs: AppPreferences) {
-        val nowTimeMillis = System.currentTimeMillis()
-        val startIdx = weather.hourlyTimeMillis.indexOfFirst { it > nowTimeMillis }
-
-        val items = weather.hourlyTimeMillis.indices
-            .drop(startIdx.coerceAtLeast(0))
-            .mapNotNull { idx ->
-
-                val temp = weather.hourlyTempCelsius.getOrNull(idx) ?: return@mapNotNull null
-                val code = weather.hourlyWeatherCode.getOrNull(idx) ?: return@mapNotNull null
-                val isDay = weather.hourlyIsDay.getOrNull(idx) ?: return@mapNotNull null
-
-                val iconId = WeatherIcon.getWeatherIconId(
-                    code,
-                    isDay,
-                    prefs.iconStyle,
-                    IconColor.LIGHT
-                )
-                val tempStr = WeatherRenderer.temperatureString(
-                    this,
-                    temp,
-                    prefs.tempUnit,
-                    false
-                )
-                HourlyItem(formatTime(weather.hourlyTimeMillis[idx]), iconId, tempStr)
-            }
+        val items = WeatherRenderer.hourlyWeather(
+            this,
+            weather,
+            prefs.tempUnit,
+            prefs.iconStyle,
+            IconColor.LIGHT,
+        )
         binding.hourlyForecast.adapter = HourlyForecastAdapter(items)
-    }
-
-    private fun formatTime(timeMillis: Long): String {
-        val pattern = if (DateFormat.is24HourFormat(this)) "HH:00" else "h a"
-        return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(timeMillis))
     }
 }

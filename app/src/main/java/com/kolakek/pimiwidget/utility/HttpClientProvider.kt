@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.weather
+package com.kolakek.pimiwidget.utility
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
