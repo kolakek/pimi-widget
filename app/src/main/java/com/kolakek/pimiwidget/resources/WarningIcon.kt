@@ -35,7 +35,7 @@ object WarningIcon {
 
             WarningLevel.SEVERE ->
                 when (textColor) {
-                    TextColor.THEMED -> R.drawable.ic_warn_sevr_themed
+                    TextColor.DYNAMIC -> R.drawable.ic_warn_sevr_themed
                     TextColor.DARK -> R.drawable.ic_warn_sevr_dark
                     TextColor.LIGHT ->
                         if (needsShadow) R.drawable.ic_warn_sevr_light_shadow
@@ -44,7 +44,7 @@ object WarningIcon {
 
             WarningLevel.EXTREME ->
                 when (textColor) {
-                    TextColor.DARK, TextColor.THEMED -> R.drawable.ic_warn_extr
+                    TextColor.DARK, TextColor.DYNAMIC -> R.drawable.ic_warn_extr
                     TextColor.LIGHT ->
                         if (needsShadow) R.drawable.ic_warn_extr_shadow
                         else R.drawable.ic_warn_extr

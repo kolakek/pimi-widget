@@ -7,4 +7,11 @@
     <color name="dynamic_icon_color">@android:color/system_accent1_100</color>
     <color name="dynamic_icon_accent_color">@android:color/system_accent2_200</color>
 
+    <color name="u_sun_1">#fcbd00</color>
+    <color name="u_sun_2">#da4f00</color>
+    <color name="u_moon">#3271ea</color>
+    <color name="u_cloud">#70757a</color>
+    <color name="u_rain">#0855ce</color>
+    <color name="u_snow">#303134</color>
+
 </resources>

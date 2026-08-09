@@ -29,14 +29,14 @@ enum class WidgetIcon {
         val needsShadow = widgetStyle == WidgetStyle.SHADOW
         return when (this) {
             ALARM -> when (textColor) {
-                TextColor.THEMED -> R.drawable.ic_alarm_themed
+                TextColor.DYNAMIC -> R.drawable.ic_alarm_themed
                 TextColor.DARK -> R.drawable.ic_alarm_dark
                 TextColor.LIGHT ->
                     if (needsShadow) R.drawable.ic_alarm_light_shadow
                     else R.drawable.ic_alarm_light
             }
             BIRTHDAY -> when (textColor) {
-                TextColor.THEMED -> R.drawable.ic_birthday_themed
+                TextColor.DYNAMIC -> R.drawable.ic_birthday_themed
                 TextColor.DARK -> R.drawable.ic_birthday_dark
                 TextColor.LIGHT ->
                     if (needsShadow) R.drawable.ic_birthday_light_shadow

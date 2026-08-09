@@ -82,7 +82,7 @@ class WeatherActivity : AppCompatActivity() {
             weather,
             prefs.tempUnit,
             prefs.iconStyle,
-            IconColor.LIGHT,
+            IconColor.THEMED,
             false
         ) ?: return
         val feelsLikeStr = WeatherRenderer.currentFeelsLikeStr(
@@ -108,7 +108,7 @@ class WeatherActivity : AppCompatActivity() {
             weather,
             prefs.tempUnit,
             prefs.iconStyle,
-            IconColor.LIGHT,
+            IconColor.THEMED,
         )
         binding.hourlyForecast.adapter = HourlyForecastAdapter(items)
     }
@@ -119,7 +119,7 @@ class WeatherActivity : AppCompatActivity() {
             weather,
             prefs.tempUnit,
             prefs.iconStyle,
-            IconColor.LIGHT,
+            IconColor.THEMED,
         )
         binding.dailyForecast.adapter = DailyForecastAdapter(items)
     }
