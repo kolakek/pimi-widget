@@ -110,7 +110,7 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun displayHourlyWeather(weather: WeatherData, prefs: AppPreferences) {
         val nowTimeMillis = System.currentTimeMillis()
-        val startIdx = weather.hourlyTimeMillis.indexOfLast { it < nowTimeMillis }
+        val startIdx = weather.hourlyTimeMillis.indexOfFirst { it > nowTimeMillis }
 
         val items = weather.hourlyTimeMillis.indices
             .drop(startIdx.coerceAtLeast(0))

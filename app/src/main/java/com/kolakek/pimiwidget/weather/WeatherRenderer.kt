@@ -53,13 +53,8 @@ object WeatherRenderer {
         val isDay = weather.currentIsDay() ?: return null
 
         val temperatureStr = temperatureString(context, tempCelsius, tempUnit, fullUnit)
+        val weatherIconId = WeatherIcon.getWeatherIconId(weatherCode, isDay, iconStyle, iconColor)
 
-        val weatherIconId = WeatherIcon.getWeatherIconId(
-            weatherCode,
-            isDay,
-            iconStyle,
-            iconColor
-        )
         return LabeledIcon(temperatureStr, weatherIconId)
     }
 
@@ -68,7 +63,7 @@ object WeatherRenderer {
         weather: WeatherData,
         prefs: WidgetPreferences
     ): LabeledIcon? {
-        val warningCode = weather.currentWarningCode() ?: return null
+        val warningCode = weather.nextHourlyWarningCode() ?: return null
 
         if (warningCode == WarningCode.NO_WARNING)
             return null

@@ -21,9 +21,13 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class WeatherData (
+    val minutelyWeatherCode: List<WeatherCode>,
+    val minutelyTempCelsius: List<Double>,
+    val minutelyApparentCelsius: List<Double>,
+    val minutelyTimeMillis: List<Long>,
+    val minutelyIsDay: List<Boolean>,
     val hourlyWeatherCode: List<WeatherCode>,
     val hourlyTempCelsius: List<Double>,
-    val hourlyApparentCelsius: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,
@@ -34,23 +38,23 @@ data class WeatherData (
     val timeMillis: Long
 ) {
     fun currentTempCelsius(): Double? {
-        return hourlyTempCelsius.getOrNull(currentHourlyIndex())
+        return minutelyTempCelsius.getOrNull(currentMinutelyIndex())
     }
 
     fun currentApparentTempCelsius(): Double? {
-        return hourlyApparentCelsius.getOrNull(currentHourlyIndex())
+        return minutelyApparentCelsius.getOrNull(currentMinutelyIndex())
     }
 
     fun currentWeatherCode(): WeatherCode? {
-        return hourlyWeatherCode.getOrNull(currentHourlyIndex())
-    }
-
-    fun currentWarningCode(): WarningCode? {
-        return hourlyWarningCode.getOrNull(currentHourlyIndex())
+        return minutelyWeatherCode.getOrNull(currentMinutelyIndex())
     }
 
     fun currentIsDay(): Boolean? {
-        return hourlyIsDay.getOrNull(currentHourlyIndex())
+        return minutelyIsDay.getOrNull(currentMinutelyIndex())
+    }
+
+    fun nextHourlyWarningCode(): WarningCode? {
+        return hourlyWarningCode.getOrNull(nextHourlyIndex())
     }
 
     fun todayMinTempCelsius(): Double? {
@@ -61,11 +65,15 @@ data class WeatherData (
         return dailyTempMaxCelsius.getOrNull(todayIndex())
     }
 
-    private fun currentHourlyIndex(): Int {
+    private fun currentMinutelyIndex(): Int {
+        return minutelyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
+    }
+
+    private fun nextHourlyIndex(): Int {
         return hourlyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
     }
 
     private fun todayIndex(): Int {
-        return hourlyTimeMillis.indexOfLast { it < System.currentTimeMillis() }
+        return dailyTimeMillis.indexOfLast { it < System.currentTimeMillis() }
     }
 }
