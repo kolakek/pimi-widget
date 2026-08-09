@@ -65,15 +65,15 @@ data class WeatherData (
         return dailyTempMaxCelsius.getOrNull(todayIndex())
     }
 
-    private fun currentMinutelyIndex(): Int {
+    fun currentMinutelyIndex(): Int {
         return minutelyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
     }
 
-    private fun nextHourlyIndex(): Int {
+    fun nextHourlyIndex(): Int {
         return hourlyTimeMillis.indexOfFirst { it > System.currentTimeMillis() }
     }
 
-    private fun todayIndex(): Int {
+    fun todayIndex(): Int {
         return dailyTimeMillis.indexOfLast { it < System.currentTimeMillis() }
     }
 }

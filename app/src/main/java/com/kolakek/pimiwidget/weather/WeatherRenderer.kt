@@ -35,6 +35,7 @@ import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_ON
 import java.text.SimpleDateFormat
 import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
@@ -148,20 +149,45 @@ object WeatherRenderer {
         iconStyle: IconStyle,
         iconColor: IconColor,
     ): List<HourlyItem> {
-        val nowTimeMillis = System.currentTimeMillis()
-        val startIdx = weather.hourlyTimeMillis.indexOfFirst { it > nowTimeMillis }
-
         return weather.hourlyTimeMillis.indices
-            .drop(startIdx.coerceAtLeast(0))
+            .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
                 val temp = weather.hourlyTempCelsius.getOrNull(idx) ?: return@mapNotNull null
                 val code = weather.hourlyWeatherCode.getOrNull(idx) ?: return@mapNotNull null
                 val isDay = weather.hourlyIsDay.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.hourlyTimeMillis[idx]
 
                 val iconId = WeatherIcon.getWeatherIconId(code, isDay, iconStyle, iconColor)
                 val tempStr = temperatureString(context, temp, tempUnit, false)
+                val timeStr = formatTime(context, timeMillis)
 
-                HourlyItem(formatTime(context, weather.hourlyTimeMillis[idx]), iconId, tempStr)
+                HourlyItem(timeStr, iconId, tempStr)
+            }
+    }
+
+    fun dailyWeather(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit,
+        iconStyle: IconStyle,
+        iconColor: IconColor,
+    ): List<DailyItem> {
+        return weather.dailyTimeMillis.indices
+            .drop(weather.todayIndex().coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val minTemp = weather.dailyTempMinCelsius.getOrNull(idx) ?: return@mapNotNull null
+                val maxTemp = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return@mapNotNull null
+                val code = weather.dailyWeatherCode.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.dailyTimeMillis[idx]
+
+                val iconId = WeatherIcon.getWeatherIconId(code, true, iconStyle, iconColor)
+                val dateStr = formatDayName(context, timeMillis)
+
+                val minTempStr = temperatureString(context, minTemp, tempUnit, false)
+                val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
+                val tempStr = "$maxTempStr / $minTempStr"
+
+                DailyItem(dateStr, iconId, tempStr)
             }
     }
 
@@ -204,5 +230,16 @@ object WeatherRenderer {
     private fun formatTime(context: Context, timeMillis: Long): String {
         val pattern = if (DateFormat.is24HourFormat(context)) "HH:00" else "h a"
         return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(timeMillis))
+    }
+
+    private fun formatDayName(context: Context, timeMillis: Long): String {
+        val zone = ZoneId.systemDefault()
+        val date = Instant.ofEpochMilli(timeMillis).atZone(zone).toLocalDate()
+        val today = LocalDate.now(zone)
+        return if (date == today) {
+            context.getString(R.string.widget_today)
+        } else {
+            SimpleDateFormat("EEEE", Locale.getDefault()).format(Date(timeMillis))
+        }
     }
 }

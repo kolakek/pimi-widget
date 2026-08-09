@@ -63,6 +63,7 @@ class WeatherActivity : AppCompatActivity() {
                     weather?.let {
                         displayCurrentWeather(it, prefs)
                         displayHourlyWeather(it, prefs)
+                        displayDailyWeather(it, prefs)
                     }
                 }
             }
@@ -110,5 +111,16 @@ class WeatherActivity : AppCompatActivity() {
             IconColor.LIGHT,
         )
         binding.hourlyForecast.adapter = HourlyForecastAdapter(items)
+    }
+
+    private fun displayDailyWeather(weather: WeatherData, prefs: AppPreferences) {
+        val items = WeatherRenderer.dailyWeather(
+            this,
+            weather,
+            prefs.tempUnit,
+            prefs.iconStyle,
+            IconColor.LIGHT,
+        )
+        binding.dailyForecast.adapter = DailyForecastAdapter(items)
     }
 }
