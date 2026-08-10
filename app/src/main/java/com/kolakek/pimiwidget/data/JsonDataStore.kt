@@ -20,7 +20,9 @@ package com.kolakek.pimiwidget.data
 import android.content.Context
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 
@@ -48,6 +50,15 @@ object JsonDataStore {
         key: Preferences.Key<String>
     ) {
         context.dataStore.edit { prefs -> prefs.remove(key) }
+    }
+
+    inline fun <reified T> observe(
+        context: Context,
+        key: Preferences.Key<String>
+    ): Flow<T?> {
+        return context.dataStore.data.map { prefs ->
+            decodeFromPrefs<T>(prefs, key)
+        }
     }
 
     inline fun <reified T> decodeFromPrefs(

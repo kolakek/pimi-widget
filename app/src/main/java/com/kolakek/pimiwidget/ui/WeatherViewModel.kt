@@ -24,11 +24,9 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 
 class WeatherViewModel(application: Application) : AndroidViewModel(application) {
-    val weatherData: StateFlow<WeatherData?> = flow {
-        emit(DataRepository.loadWeatherData(application))
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+    val weatherData: StateFlow<WeatherData?> = DataRepository.observeWeatherData(application)
+        .stateIn(viewModelScope, SharingStarted.Eagerly, null)
 }

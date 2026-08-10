@@ -27,6 +27,7 @@ import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.AppPreferences
@@ -34,7 +35,10 @@ import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherRenderer
+import java.time.Instant
+import java.time.ZoneId
 import kotlinx.coroutines.launch
+import java.time.format.DateTimeFormatter
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -61,12 +65,28 @@ class WeatherActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
                     weather?.let {
+                        displayInfo(it, prefs)
                         displayCurrentWeather(it, prefs)
                         displayHourlyWeather(it, prefs)
                         displayDailyWeather(it, prefs)
                     }
                 }
             }
+        }
+    }
+
+    private fun displayInfo(weather: WeatherData, prefs: AppPreferences) {
+        if (prefs.showDataTime) {
+            val updateTimeStr = Instant.ofEpochMilli(weather.timeMillis)
+                .atZone(ZoneId.systemDefault())
+                .format(DateTimeFormatter.ofPattern("HH:mm"))
+            binding.dataRefreshTime.text = updateTimeStr
+            binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(
+                R.drawable.ic_data_refresh,
+                0,
+                0,
+                0
+            )
         }
     }
 

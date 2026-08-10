@@ -24,6 +24,7 @@ import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.worker.StatusData
+import kotlinx.coroutines.flow.Flow
 
 object DataRepository {
 
@@ -48,6 +49,10 @@ object DataRepository {
 
     suspend fun deleteWeatherData(context: Context) {
         JsonDataStore.delete(context, DataKeys.WEATHER.key)
+    }
+
+    fun observeWeatherData(context: Context): Flow<WeatherData?> {
+        return JsonDataStore.observe(context, DataKeys.WEATHER.key)
     }
 
     suspend fun storeLocationData(context: Context, locationData: LocationData) {

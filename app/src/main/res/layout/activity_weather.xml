@@ -11,10 +11,30 @@
     android:background="?attr/colorSurfaceContainer"
     tools:ignore="Overdraw">
 
-    <TextView
-        android:text="@string/app_text_now"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:text="@string/app_text_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/data_refresh_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:drawablePadding="2dp" />
+
+    </LinearLayout>
 
     <include
         android:id="@+id/current_weather"
