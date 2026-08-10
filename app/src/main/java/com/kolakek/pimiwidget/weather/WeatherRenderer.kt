@@ -114,7 +114,7 @@ object WeatherRenderer {
         val dayStr = context.getString(
             if (useToday) R.string.widget_today else R.string.widget_tomorrow
         )
-        return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
+        return "$dayStr $maxTempStr/$minTempStr · $weatherStr"
     }
 
     fun currentFeelsLikeStr(
@@ -185,7 +185,7 @@ object WeatherRenderer {
 
                 val minTempStr = temperatureString(context, minTemp, tempUnit, false)
                 val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
-                val tempStr = "$maxTempStr / $minTempStr"
+                val tempStr = "$maxTempStr/$minTempStr"
 
                 DailyItem(dateStr, iconId, tempStr)
             }

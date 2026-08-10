@@ -8,14 +8,20 @@
     android:gravity="top"
     android:orientation="vertical"
     android:paddingHorizontal="24dp"
-    android:background="?attr/colorSurfaceContainer"
+    android:background="?attr/colorSurfaceContainerHighest"
     tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/place_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_marginVertical="16dp"
+        android:padding="16dp"
+        android:background="@drawable/app_place_background"
+        android:textSize="16sp"
+        android:drawablePadding="8dp"
+        android:includeFontPadding="true"
+        app:drawableLeftCompat="@drawable/ic_location" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +32,9 @@
         <TextView
             android:text="@string/app_text_now"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="14sp" />
 
         <View
             android:layout_width="0dp"
@@ -38,7 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:drawablePadding="2dp" />
+            android:textSize="14sp"
+            android:drawablePadding="4dp" />
 
     </LinearLayout>
 
@@ -49,26 +58,34 @@
     <TextView
         android:text="@string/app_text_hourly_forecast"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hourly_forecast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="?attr/colorSurfaceContainerLow"
+        android:layout_marginVertical="6dp"
+        android:background="@drawable/app_item_background"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <TextView
         android:text="@string/app_text_daily_forecast"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/daily_forecast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginVertical="6dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

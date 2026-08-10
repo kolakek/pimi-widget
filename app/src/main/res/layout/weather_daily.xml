@@ -5,24 +5,32 @@
     android:orientation="horizontal"
     android:gravity="center"
     android:layout_marginBottom="4dp"
-    android:padding="8dp"
-    android:background="?attr/colorSurfaceContainerLow"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="12dp"
     tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/daily_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_weight="50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/daily_icon"
-        android:layout_width="wrap_content"
+        android:gravity="end"
+        android:layout_weight="25"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/daily_temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:gravity="end"
+        android:layout_weight="25"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp" />
 
 </LinearLayout>

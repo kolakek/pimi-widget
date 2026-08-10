@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="56dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,8 @@
             android:id="@+id/current_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceDisplayMedium" />
+            android:includeFontPadding="false"
+            android:textSize="46sp" />
 
         <ImageView
             android:id="@+id/curent_icon"
@@ -38,12 +40,15 @@
             <TextView
                 android:id="@+id/current_string"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/current_feels_like"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -52,6 +57,7 @@
     <TextView
         android:id="@+id/daily_high_low"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="12sp" />
 
 </LinearLayout>

@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.WeatherDailyBinding
 import com.kolakek.pimiwidget.weather.DailyItem
 
@@ -41,6 +42,14 @@ class DailyForecastAdapter(
         holder.binding.dailyData.text = item.date
         holder.binding.dailyTemp.text = item.temp
         holder.binding.dailyIcon.setImageResource(item.iconId)
+        when (position) {
+            0 -> holder.itemView.setBackgroundResource(R.drawable.app_top_item_background)
+
+            itemCount - 1
+                -> holder.itemView.setBackgroundResource(R.drawable.app_bottom_item_background)
+
+            else -> holder.itemView.setBackgroundResource(R.drawable.app_mid_item_background)
+        }
     }
 
     override fun getItemCount() = items.size
