@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.location
 
 import android.Manifest
 import android.content.Context
+import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.os.CancellationSignal
@@ -28,6 +29,8 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
+import java.util.Locale
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.time.Duration.Companion.milliseconds
 
 object LocationService {
@@ -39,7 +42,7 @@ object LocationService {
     ): LocationData {
         val locationManager = context.getSystemService(LocationManager::class.java)
 
-        getLastKnownLocation(locationManager)?.let {
+        getLastKnownLocation(locationManager, context)?.let {
             DataRepository.storeLocationData(context, it)
             return it
         }
@@ -63,11 +66,18 @@ object LocationService {
     } else null
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
-    private fun getLastKnownLocation(
-        locationManager: LocationManager
+    private suspend fun getLastKnownLocation(
+        locationManager: LocationManager,
+        context: Context
     ): LocationData? = locationManager.getLastKnownLocation(LOCATION_PROVIDER)?.let {
         if (System.currentTimeMillis() - it.time <= LOCATION_MAX_AGE_MILLIS) {
-            LocationData(it.latitude, it.longitude, it.time, CACHED_LOCATION_NAME)
+            LocationData(
+                it.time,
+                it.latitude,
+                it.longitude,
+                getLocationName(context, it),
+                CACHED_LOCATION_NAME
+            )
         } else null
     }
 
@@ -76,7 +86,7 @@ object LocationService {
         locationManager: LocationManager,
         context: Context
     ): LocationData? = withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
-        val location = suspendCancellableCoroutine<Location?> { cont ->
+        suspendCancellableCoroutine<Location?> { cont ->
             val cancellationSignal = CancellationSignal()
 
             locationManager.getCurrentLocation(
@@ -90,8 +100,37 @@ object LocationService {
                 cancellationSignal.cancel()
             }
         }
-        location?.let {
-            LocationData(it.latitude, it.longitude, it.time, FRESH_LOCATION_NAME)
+    }?.let {
+        LocationData(
+            it.time,
+            it.latitude,
+            it.longitude,
+            getLocationName(context, it),
+            FRESH_LOCATION_NAME
+        )
+    }
+
+    private suspend fun getLocationName(
+        context: Context,
+        location: Location
+    ): String {
+        val coordinates = "${location.latitude},${location.longitude}"
+        return try {
+            withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
+                suspendCancellableCoroutine { cont ->
+                    Geocoder(context, Locale.getDefault()).getFromLocation(
+                        location.latitude,
+                        location.longitude,
+                        1
+                    ) { addresses ->
+                        cont.resume(addresses.firstOrNull()?.locality) { _, _, _ -> }
+                    }
+                }
+            } ?: coordinates
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+            coordinates
         }
     }
 }

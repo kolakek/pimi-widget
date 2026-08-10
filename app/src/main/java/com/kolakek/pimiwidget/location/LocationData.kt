@@ -21,8 +21,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LocationData (
+    val timeMillis: Long,
     val lat: Double,
     val long: Double,
-    val timeMillis: Long,
+    val place: String,
     val locationType: String
 )

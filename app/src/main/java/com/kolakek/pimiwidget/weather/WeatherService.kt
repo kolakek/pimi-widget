@@ -39,7 +39,7 @@ object WeatherService {
         Timber.d("getWeather: Get data for URL: $url")
 
         val providerData = HttpClientProvider.client.get(url).body<ProviderData>()
-        val weatherData = mapProviderData(providerData)
+        val weatherData = mapProviderData(providerData, location.place)
 
         DataRepository.storeWeatherData(context, weatherData)
         return weatherData
@@ -69,7 +69,7 @@ object WeatherService {
         }.build()
     }
 
-    private fun mapProviderData(providerData: ProviderData): WeatherData {
+    private fun mapProviderData(providerData: ProviderData, place: String): WeatherData {
         val minutelyWeatherCode = providerData.minutely_15.weather_code.indices.map { i ->
             WeatherCodeMapper.getWeatherCode(
                 wmoCode = providerData.minutely_15.weather_code[i].toInt(),
@@ -125,7 +125,8 @@ object WeatherService {
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
             dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L },
-            timeMillis = System.currentTimeMillis()
+            timeMillis = System.currentTimeMillis(),
+            place = place
         )
     }
 }

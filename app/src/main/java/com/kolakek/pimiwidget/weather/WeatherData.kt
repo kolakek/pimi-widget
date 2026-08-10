@@ -35,7 +35,8 @@ data class WeatherData (
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
     val dailyTimeMillis: List<Long>,
-    val timeMillis: Long
+    val timeMillis: Long,
+    val place: String
 ) {
     fun currentTempCelsius(): Double? {
         return minutelyTempCelsius.getOrNull(currentMinutelyIndex())

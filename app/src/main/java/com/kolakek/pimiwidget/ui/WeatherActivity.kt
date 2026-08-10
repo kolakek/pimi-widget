@@ -88,6 +88,7 @@ class WeatherActivity : AppCompatActivity() {
                 0
             )
         }
+        binding.placeName.text = weather.place
     }
 
     private fun displayCurrentWeather(weather: WeatherData, prefs: AppPreferences) {
