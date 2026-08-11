@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:gravity="center"
     android:layout_marginBottom="4dp"
-    android:paddingVertical="8dp"
+    android:paddingVertical="12dp"
     android:paddingHorizontal="12dp"
     tools:ignore="Overdraw">
 
@@ -15,7 +15,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/daily_icon"
@@ -31,6 +31,7 @@
         android:layout_weight="25"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="12sp" />
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp" />
 
 </LinearLayout>

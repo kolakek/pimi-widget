@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginBottom="56dp">
+    android:layout_marginBottom="104dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:textSize="46sp" />
+            android:fontFamily="sans-serif-medium"
+            android:textSize="72dp"
+            tools:ignore="SpUsage" />
 
         <ImageView
             android:id="@+id/curent_icon"
@@ -35,20 +37,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
+            android:layout_gravity="top"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/current_string"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/current_feels_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -58,6 +63,7 @@
         android:id="@+id/daily_high_low"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp" />
+        android:includeFontPadding="false"
+        android:textSize="14sp" />
 
 </LinearLayout>

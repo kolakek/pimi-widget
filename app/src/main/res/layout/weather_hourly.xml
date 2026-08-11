@@ -4,25 +4,28 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="16dp">
 
     <TextView
         android:id="@+id/hourly_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:textSize="12sp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/hourly_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/hourly_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="11sp"/>
+        android:fontFamily="sans-serif-medium"
+        android:textSize="12sp"/>
 
 </LinearLayout>
