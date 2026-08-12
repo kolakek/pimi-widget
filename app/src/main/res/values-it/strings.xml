@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Tinta unita</string>
     <string name="config_button_apply">Applica</string>
     <string name="config_weather_switch">Meteo</string>
-    <string name="config_weather_switch_summary">Dati meteo da Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Dati meteo da Open-Meteo.com</string>
     <string name="config_birthday_switch">Compleanni</string>
     <string name="config_birthday_switch_summary">Mostra i compleanni dei tuoi contatti</string>
     <string name="config_contact_perm_alert_title">Accesso ai contatti richiesto</string>

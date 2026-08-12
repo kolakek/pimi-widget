@@ -12,7 +12,7 @@
 
         <SwitchPreferenceCompat
             android:key="weather_switch"
-            android:summary="@string/config_weather_switch_summary"
+            android:summary="@string/app_attribution_open_meteo"
             android:title="@string/config_weather_switch"
             android:widgetLayout="@layout/preference_switch"
             android:defaultValue="false"

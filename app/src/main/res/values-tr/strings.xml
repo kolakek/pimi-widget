@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Düz</string>
     <string name="config_button_apply">Uygula</string>
     <string name="config_weather_switch">Hava durumu</string>
-    <string name="config_weather_switch_summary">Open-Meteo.com\'dan hava durumu verileri</string>
+    <string name="app_attribution_open_meteo">Open-Meteo.com\'dan hava durumu verileri</string>
     <string name="config_birthday_switch">Doğum Günleri</string>
     <string name="config_birthday_switch_summary">Kişilerinizin doğum günlerini göster</string>
     <string name="config_contact_perm_alert_title">Kişilere erişim izni gerekli</string>

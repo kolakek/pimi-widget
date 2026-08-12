@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Liso</string>
     <string name="config_button_apply">Aplicar</string>
     <string name="config_weather_switch">Tiempo</string>
-    <string name="config_weather_switch_summary">Datos meteorológicos de Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Datos meteorológicos de Open-Meteo.com</string>
     <string name="config_birthday_switch">Cumpleaños</string>
     <string name="config_birthday_switch_summary">Mostrar cumpleaños de tus contactos</string>
     <string name="config_contact_perm_alert_title">Se requiere acceso a los contactos</string>

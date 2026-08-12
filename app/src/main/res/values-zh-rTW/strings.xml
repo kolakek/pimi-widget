@@ -10,7 +10,7 @@
     <string name="config_widget_style_classic">透明</string>
     <string name="config_widget_style_solid">純色</string>
     <string name="config_weather_switch">天氣</string>
-    <string name="config_weather_switch_summary">Open-Meteo.com 提供天氣資料</string>
+    <string name="app_attribution_open_meteo">Open-Meteo.com 提供天氣資料</string>
     <string name="config_birthday_switch">生日</string>
     <string name="config_birthday_switch_summary">顯示聯絡人生日</string>
     <string name="config_contact_perm_alert_title">需要聯絡人權限</string>

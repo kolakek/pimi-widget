@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Ensfarvet</string>
     <string name="config_button_apply">Anvend</string>
     <string name="config_weather_switch">Vejr</string>
-    <string name="config_weather_switch_summary">Vejrdata fra Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Vejrdata fra Open-Meteo.com</string>
     <string name="config_birthday_switch">Fødselsdage</string>
     <string name="config_birthday_switch_summary">Vis dine kontakters fødselsdage</string>
     <string name="config_contact_perm_alert_title">Adgang til kontakter kræves</string>

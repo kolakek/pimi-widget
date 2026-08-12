@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Njëngjyrësh</string>
     <string name="config_button_apply">Apliko</string>
     <string name="config_weather_switch">Moti</string>
-    <string name="config_weather_switch_summary">Të dhëna moti nga Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Të dhëna moti nga Open-Meteo.com</string>
     <string name="config_birthday_switch">Ditëlindjet</string>
     <string name="config_birthday_switch_summary">Shfaq ditëlindjet e kontakteve të tua</string>
     <string name="config_contact_perm_alert_title">Kërkohet leja për kontaktet</string>

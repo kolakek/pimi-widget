@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Jednobarevný</string>
     <string name="config_button_apply">Použít</string>
     <string name="config_weather_switch">Počasí</string>
-    <string name="config_weather_switch_summary">Meteorologická data z Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Meteorologická data z Open-Meteo.com</string>
     <string name="config_birthday_switch">Narozeniny</string>
     <string name="config_birthday_switch_summary">Zobrazovat narozeniny vašich kontaktů</string>
     <string name="config_contact_perm_alert_title">Vyžadován přístup ke kontaktům</string>

@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Uni</string>
     <string name="config_button_apply">Appliquer</string>
     <string name="config_weather_switch">Météo</string>
-    <string name="config_weather_switch_summary">Données météo par Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Données météo par Open-Meteo.com</string>
     <string name="config_birthday_switch">Anniversaires</string>
     <string name="config_birthday_switch_summary">Afficher les anniversaires de tes contacts</string>
     <string name="config_contact_perm_alert_title">Accès aux contacts requis</string>

@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Uni</string>
     <string name="config_button_apply">Aplică</string>
     <string name="config_weather_switch">Vremea</string>
-    <string name="config_weather_switch_summary">Date meteo de la Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Date meteo de la Open-Meteo.com</string>
     <string name="config_birthday_switch">Aniversări</string>
     <string name="config_birthday_switch_summary">Afișează aniversările contactelor tale</string>
     <string name="config_contact_perm_alert_title">Este necesar accesul la contacte</string>

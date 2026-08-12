@@ -10,7 +10,6 @@
     <string name="config_widget_style_classic">Transparent</string>
     <string name="config_widget_style_solid">Solid</string>
     <string name="config_weather_switch">Weather</string>
-    <string name="config_weather_switch_summary">Weather data by Open-Meteo.com</string>
     <string name="config_birthday_switch">Birthdays</string>
     <string name="config_birthday_switch_summary">Show birthdays from your contacts</string>
     <string name="config_contact_perm_alert_title">Contacts permission required</string>
@@ -70,6 +69,7 @@
     <string name="widget_tomorrow">Tomorrow</string>
     <string name="widget_updated_at">Refreshed</string>
 
+    <string name="app_attribution_open_meteo">Weather data by Open-Meteo.com</string>
     <string name="app_text_now">Now</string>
     <string name="app_text_hourly_forecast">Hourly forecast</string>
     <string name="app_text_daily_forecast">Daily forecast</string>

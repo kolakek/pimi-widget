@@ -6,7 +6,7 @@
     <string name="config_widget_style_solid">Μονόχρωμο</string>
     <string name="config_button_apply">Εφαρμογή</string>
     <string name="config_weather_switch">Καιρός</string>
-    <string name="config_weather_switch_summary">Δεδομένα καιρού από το Open-Meteo.com</string>
+    <string name="app_attribution_open_meteo">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_birthday_switch">Γενέθλια</string>
     <string name="config_birthday_switch_summary">Εμφάνιση των γενεθλίων των επαφών σας</string>
     <string name="config_contact_perm_alert_title">Απαιτείται πρόσβαση στις επαφές</string>
