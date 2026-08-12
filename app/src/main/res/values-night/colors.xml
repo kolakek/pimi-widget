@@ -7,6 +7,9 @@
     <color name="dynamic_icon_color">@android:color/system_accent1_50</color>
     <color name="dynamic_icon_accent_color">@android:color/system_accent2_200</color>
 
+    <color name="app_place_background">?colorSurfaceContainerHighest</color>
+    <color name="app_item_background">?colorSurfaceBright</color>
+
     <color name="u_sun_1">#fcbd00</color>
     <color name="u_sun_2">#fcbd00</color>
     <color name="u_moon">#8ab4f8</color>
