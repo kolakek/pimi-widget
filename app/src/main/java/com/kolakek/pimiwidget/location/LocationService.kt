@@ -114,7 +114,7 @@ object LocationService {
         context: Context,
         location: Location
     ): String {
-        val coordinates = "${location.latitude},${location.longitude}"
+        val coordinates = "%.5f,%.5f".format(location.latitude, location.longitude)
         return try {
             withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
                 suspendCancellableCoroutine { cont ->
