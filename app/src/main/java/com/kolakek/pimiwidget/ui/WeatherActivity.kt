@@ -69,6 +69,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayCurrentWeather(it, prefs)
                         displayHourlyWeather(it, prefs)
                         displayDailyWeather(it, prefs)
+                        displayCurrentConditions(it, prefs)
                     }
                 }
             }
@@ -143,5 +144,38 @@ class WeatherActivity : AppCompatActivity() {
             IconColor.THEMED,
         )
         binding.dailyForecast.adapter = DailyForecastAdapter(items)
+    }
+
+    private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {
+        binding.currentWind.textTitle.text = "Wind"
+        binding.currentWind.textValue.text = "13"
+        binding.currentWind.textUnit.text = "km/h"
+        binding.currentWind.textValueDescr.text = "Light · From north"
+        binding.currentWind.textImageTop.text = "N"
+        binding.currentWind.image.setImageResource(R.drawable.mw_0)
+
+        binding.currentHumidity.textTitle.text = "Humidity"
+        binding.currentHumidity.textValue.text = "89"
+        binding.currentHumidity.textUnit.text = "%"
+        binding.currentHumidity.textValueDescr.text = "Dew point 14°"
+        binding.currentHumidity.textImageTop.text = "${100}"
+        binding.currentHumidity.textImageBottom.text = "${0}"
+        binding.currentHumidity.image.setImageResource(R.drawable.mh_90)
+
+        binding.currentUv.textTitle.text = "UV index"
+        binding.currentUv.textValue.text = "3"
+        binding.currentUv.textUnit.text = ""
+        binding.currentUv.textValueDescr.text = "Low"
+        binding.currentUv.textImageTop.text = "11+"
+        binding.currentUv.textImageBottom.text = "${0}"
+        binding.currentUv.image.setImageResource(R.drawable.mu_1)
+
+        binding.currentPressure.textTitle.text = "Pressure"
+        binding.currentPressure.textValue.text = "1,013"
+        binding.currentPressure.textUnit.text = ""
+        binding.currentPressure.textValueDescr.text = "mBar"
+        binding.currentPressure.textImageTop.text = ""
+        binding.currentPressure.textImageBottom.text = "Low   High"
+        binding.currentPressure.image.setImageResource(R.drawable.mp_4)
     }
 }

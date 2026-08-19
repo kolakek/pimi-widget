@@ -73,6 +73,7 @@
     <string name="app_text_now">Now</string>
     <string name="app_text_hourly_forecast">Hourly forecast</string>
     <string name="app_text_daily_forecast">Daily forecast</string>
+    <string name="app_text_current_conditions">Current conditions</string>
     <string name="app_text_feels_like">Feels like</string>
     <string name="app_text_high">High</string>
     <string name="app_text_low">Low</string>

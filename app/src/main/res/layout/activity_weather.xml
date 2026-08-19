@@ -96,6 +96,62 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView
+            android:text="@string/app_text_current_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/current_wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                layout="@layout/weather_conditions" />
+
+            <include
+                android:id="@+id/current_humidity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                layout="@layout/weather_conditions" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/current_uv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                layout="@layout/weather_conditions" />
+
+            <include
+                android:id="@+id/current_pressure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                layout="@layout/weather_conditions" />
+
+        </LinearLayout>
+
+        <TextView
             android:text="@string/app_attribution_open_meteo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

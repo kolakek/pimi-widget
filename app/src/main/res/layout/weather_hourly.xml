@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:paddingVertical="16dp"
-    android:paddingHorizontal="16dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/hourly_temp"
