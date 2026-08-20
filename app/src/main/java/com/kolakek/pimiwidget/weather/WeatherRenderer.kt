@@ -191,6 +191,28 @@ object WeatherRenderer {
             }
     }
 
+    fun currentWind(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val speedKmh = weather.currentWindSpeedKmh() ?: return null
+        val gustsKmh = weather.currentWindGustsKmh() ?: return null
+        val directionDeg = weather.currentWindDirectionDeg() ?: return null
+
+        val speed = (speedKmh+0.5).toInt()
+        val gusts = (gustsKmh+0.5).toInt()
+
+        val gustsStr = context.getString(R.string.app_text_gusts) + " $gusts"
+
+        return WeatherItem(
+            valueStr = "$speed",
+            unitStr = context.getString(R.string.kmh),
+            auxStr = gustsStr,
+            iconId = R.drawable.mw,
+            level = directionDeg,
+        )
+    }
+
     fun auxString(
         context: Context,
         nowTimeMillis: Long,

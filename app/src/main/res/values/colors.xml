@@ -31,4 +31,8 @@
     <color name="w_rain">#0855ce</color>
     <color name="w_snow">#666</color>
 
+    <color name="m_indicator">#010101</color>
+    <color name="mw_line">#FF818181</color>
+    <color name="mw_stroke">#429cd1</color>
+
 </resources>

@@ -147,13 +147,19 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {
-        binding.currentWind.textTitle.text = "Wind"
-        binding.currentWind.textValue.text = "13"
-        binding.currentWind.textUnit.text = "km/h"
-        binding.currentWind.textValueDescr.text = "Light · From north"
-        binding.currentWind.textImageTop.text = "N"
-        binding.currentWind.image.setImageResource(R.drawable.mw_0)
-
+        val windItem = WeatherRenderer.currentWind(
+            this,
+            weather
+        )
+        binding.currentWind.textTitle.text = getString(R.string.app_text_title_wind)
+        binding.currentWind.textImageTop.text = getString(R.string.north)
+        windItem?.let {
+            binding.currentWind.image.setImageResource(it.iconId)
+            binding.currentWind.textValue.text = it.valueStr
+            binding.currentWind.textUnit.text = it.unitStr
+            binding.currentWind.textValueDescr.text = it.auxStr
+            binding.currentWind.image.rotation = it.level.toFloat()
+        }
         binding.currentHumidity.textTitle.text = "Humidity"
         binding.currentHumidity.textValue.text = "89"
         binding.currentHumidity.textUnit.text = "%"
