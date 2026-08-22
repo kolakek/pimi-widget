@@ -21,6 +21,7 @@ import android.content.Context
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
+import com.kolakek.pimiwidget.resources.ConditionString
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
@@ -231,6 +232,22 @@ object WeatherRenderer {
             dewPointStr,
             ConditionIcon.getHumidityIconId(humidity),
             humidity
+        )
+    }
+
+    fun currentUvIndex(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val uvIndex = weather.currentUvIndex() ?: return null
+        val uvIndexClearSky = weather.currentUvIndexClearSky() ?: return null
+
+        return WeatherItem(
+            "${uvIndex.toInt()}",
+            context.getString(ConditionString.getUvIndexStringId(uvIndex)),
+            context.getString(R.string.app_text_clear_sky) + " ${uvIndexClearSky.toInt()}",
+            ConditionIcon.getUvIndexIconId(uvIndex),
+            uvIndex
         )
     }
 

@@ -29,6 +29,8 @@ data class ProviderDataMinutely (
     val wind_direction_10m: List<Double>,
     val relative_humidity_2m: List<Double>,
     val dew_point_2m: List<Double>,
+    val uv_index: List<Double>,
+    val uv_index_clear_sky: List<Double>,
     val visibility: List<Double>,
     val cape: List<Double>,
     val cloud_cover: List<Double>,

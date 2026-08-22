@@ -119,6 +119,8 @@ object WeatherService {
             minutelyWindDirectionDeg = providerData.minutely_15.wind_direction_10m,
             minutelyHumidity = providerData.minutely_15.relative_humidity_2m,
             minutelyDewPointCelsius = providerData.minutely_15.dew_point_2m,
+            minutelyUvIndex = providerData.minutely_15.uv_index,
+            minutelyUvIndexClearSky = providerData.minutely_15.uv_index_clear_sky,
             minutelyIsDay = providerData.minutely_15.is_day.map { v -> v.toInt() == 1 },
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v.toLong() * 1000L },
             hourlyWeatherCode = hourlyWeatherCode,

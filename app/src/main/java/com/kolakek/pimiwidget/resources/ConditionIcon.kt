@@ -26,18 +26,29 @@ object ConditionIcon {
     }
 
     fun getHumidityIconId(humidity: Double): Int {
-        return when (humidity) {
-            in 0.0 .. 5.0 -> R.drawable.mh_0
-            in 5.0 .. 15.0 -> R.drawable.mh_10
-            in 15.0 .. 25.0 -> R.drawable.mh_20
-            in 25.0 .. 35.0 -> R.drawable.mh_30
-            in 35.0 .. 45.0 -> R.drawable.mh_40
-            in 45.0 .. 55.0 -> R.drawable.mh_50
-            in 55.0 .. 65.0 -> R.drawable.mh_60
-            in 65.0 .. 75.0 -> R.drawable.mh_70
-            in 75.0 .. 85.0 -> R.drawable.mh_80
-            in 85.0 .. 95.0 -> R.drawable.mh_90
+        return when (humidity.toInt()) {
+            in 0 .. 5 -> R.drawable.mh_0
+            in 5 .. 15 -> R.drawable.mh_10
+            in 15 .. 25 -> R.drawable.mh_20
+            in 25 .. 35 -> R.drawable.mh_30
+            in 35 .. 45 -> R.drawable.mh_40
+            in 45 .. 55 -> R.drawable.mh_50
+            in 55 .. 65 -> R.drawable.mh_60
+            in 65 .. 75 -> R.drawable.mh_70
+            in 75 .. 85 -> R.drawable.mh_80
+            in 85 .. 95 -> R.drawable.mh_90
             else -> R.drawable.mh_100
+        }
+    }
+
+    fun getUvIndexIconId(uvIndex: Double): Int {
+        return when (uvIndex.toInt()) {
+            0 -> R.drawable.mu_0
+            in 1 .. 2 -> R.drawable.mu_1
+            in 3 .. 5 -> R.drawable.mu_2
+            in 6 .. 7 -> R.drawable.mu_3
+            in 8 .. 10 -> R.drawable.mu_4
+            else -> R.drawable.mu_5
         }
     }
 }

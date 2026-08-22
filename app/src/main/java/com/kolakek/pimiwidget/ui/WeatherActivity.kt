@@ -174,14 +174,19 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentHumidity.textValueDescr.text = it.auxStr
             binding.currentHumidity.image.setImageResource(it.iconId)
         }
-        binding.currentUv.textTitle.text = "UV index"
-        binding.currentUv.textValue.text = "3"
-        binding.currentUv.textUnit.text = ""
-        binding.currentUv.textValueDescr.text = "Low"
-        binding.currentUv.textImageTop.text = "11+"
-        binding.currentUv.textImageBottom.text = "${0}"
-        binding.currentUv.image.setImageResource(R.drawable.mu_1)
-
+        val uvIndexItem = WeatherRenderer.currentUvIndex(
+            this,
+            weather
+        )
+        binding.currentUv.textTitle.text = getString(R.string.app_text_uv_index)
+        binding.currentUv.textImageTop.text = getString(R.string.eleven_plus)
+        binding.currentUv.textImageBottom.text = getString(R.string.zero)
+        uvIndexItem?.let {
+            binding.currentUv.textValue.text = it.valueStr
+            binding.currentUv.textUnit.text = it.unitStr
+            binding.currentUv.textValueDescr.text = it.auxStr
+            binding.currentUv.image.setImageResource(it.iconId)
+        }
         binding.currentPressure.textTitle.text = "Pressure"
         binding.currentPressure.textValue.text = "1,013"
         binding.currentPressure.textUnit.text = ""
