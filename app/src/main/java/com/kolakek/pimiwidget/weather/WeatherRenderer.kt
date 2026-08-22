@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.weather
 import android.content.Context
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.resources.ConditionIcon
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
@@ -208,8 +209,28 @@ object WeatherRenderer {
             valueStr = "$speed",
             unitStr = context.getString(R.string.kmh),
             auxStr = gustsStr,
-            iconId = R.drawable.mw,
+            iconId = ConditionIcon.getWindIconId(),
             level = directionDeg,
+        )
+    }
+
+    fun currentHumidity(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit
+    ): WeatherItem? {
+        val humidity = weather.currentHumidity() ?: return null
+        val dewPoint = weather.currentDewPointCelsius() ?: return null
+
+        val dewPointStr = context.getString(R.string.app_text_dew_point) + " " +
+                temperatureString(context, dewPoint, tempUnit, false)
+
+        return WeatherItem(
+            "${humidity.toInt()}",
+            "%",
+            dewPointStr,
+            ConditionIcon.getHumidityIconId(humidity),
+            humidity
         )
     }
 

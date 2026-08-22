@@ -160,14 +160,20 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentWind.textValueDescr.text = it.auxStr
             binding.currentWind.image.rotation = it.level.toFloat()
         }
-        binding.currentHumidity.textTitle.text = "Humidity"
-        binding.currentHumidity.textValue.text = "89"
-        binding.currentHumidity.textUnit.text = "%"
-        binding.currentHumidity.textValueDescr.text = "Dew point 14°"
-        binding.currentHumidity.textImageTop.text = "${100}"
-        binding.currentHumidity.textImageBottom.text = "${0}"
-        binding.currentHumidity.image.setImageResource(R.drawable.mh_90)
-
+        val humidityItem = WeatherRenderer.currentHumidity(
+            this,
+            weather,
+            prefs.tempUnit
+        )
+        binding.currentHumidity.textTitle.text = getString(R.string.app_text_humidity)
+        binding.currentHumidity.textImageTop.text = getString(R.string.hundred)
+        binding.currentHumidity.textImageBottom.text = getString(R.string.zero)
+        humidityItem?.let {
+            binding.currentHumidity.textValue.text = it.valueStr
+            binding.currentHumidity.textUnit.text = it.unitStr
+            binding.currentHumidity.textValueDescr.text = it.auxStr
+            binding.currentHumidity.image.setImageResource(it.iconId)
+        }
         binding.currentUv.textTitle.text = "UV index"
         binding.currentUv.textValue.text = "3"
         binding.currentUv.textUnit.text = ""

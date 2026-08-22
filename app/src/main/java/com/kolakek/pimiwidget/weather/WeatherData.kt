@@ -27,6 +27,8 @@ data class WeatherData (
     val minutelyWindSpeedKmh: List<Double>,
     val minutelyWindGustsKmh: List<Double>,
     val minutelyWindDirectionDeg: List<Double>,
+    val minutelyHumidity: List<Double>,
+    val minutelyDewPointCelsius: List<Double>,
     val minutelyTimeMillis: List<Long>,
     val minutelyIsDay: List<Boolean>,
     val hourlyWeatherCode: List<WeatherCode>,
@@ -63,6 +65,14 @@ data class WeatherData (
 
     fun currentWindDirectionDeg(): Double? {
         return minutelyWindDirectionDeg.getOrNull(currentMinutelyIndex())
+    }
+
+    fun currentHumidity(): Double? {
+        return minutelyHumidity.getOrNull(currentMinutelyIndex())
+    }
+
+    fun currentDewPointCelsius(): Double? {
+        return minutelyDewPointCelsius.getOrNull(currentMinutelyIndex())
     }
 
     fun currentIsDay(): Boolean? {

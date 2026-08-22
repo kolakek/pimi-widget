@@ -79,6 +79,8 @@
     <string name="app_text_low">Low</string>
     <string name="app_text_title_wind">Wind</string>
     <string name="app_text_gusts">Gusts</string>
+    <string name="app_text_dew_point">Dew point</string>
+    <string name="app_text_humidity">Humidity</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>
@@ -148,6 +150,8 @@
     <string name="degree" translatable="false">\u00B0</string>
     <string name="kmh" translatable="false">km/h</string>
     <string name="north" translatable="false">N</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="hundred" translatable="false">100</string>
 
     <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
