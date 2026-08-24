@@ -158,6 +158,7 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
     <string name="kmh" translatable="false">km/h</string>
+    <string name="hPa" translatable="false">hPa</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>
     <string name="hundred" translatable="false">100</string>

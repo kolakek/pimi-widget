@@ -187,12 +187,18 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentUv.textValueDescr.text = it.auxStr
             binding.currentUv.image.setImageResource(it.iconId)
         }
+        val pressureItem = WeatherRenderer.currentPressure(
+            this,
+            weather
+        )
         binding.currentPressure.textTitle.text = "Pressure"
-        binding.currentPressure.textValue.text = "1,013"
         binding.currentPressure.textUnit.text = ""
-        binding.currentPressure.textValueDescr.text = "mBar"
-        binding.currentPressure.textImageTop.text = ""
-        binding.currentPressure.textImageBottom.text = "Low   High"
-        binding.currentPressure.image.setImageResource(R.drawable.mp_1013)
+        binding.currentPressure.textImageTop.text = "High"
+        binding.currentPressure.textImageBottom.text = "Low"
+        pressureItem?.let {
+            binding.currentPressure.textValue.text = it.valueStr
+            binding.currentPressure.textValueDescr.text = it.unitStr
+            binding.currentPressure.image.setImageResource(it.iconId)
+        }
     }
 }

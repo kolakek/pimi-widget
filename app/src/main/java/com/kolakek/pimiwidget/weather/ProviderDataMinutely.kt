@@ -35,6 +35,7 @@ data class ProviderDataMinutely (
     val cape: List<Double>,
     val cloud_cover: List<Double>,
     val precipitation_probability: List<Double>,
+    val pressure_msl: List<Double>,
     val time: List<Double>,
     val weather_code: List<Double>,
     val is_day: List<Double>

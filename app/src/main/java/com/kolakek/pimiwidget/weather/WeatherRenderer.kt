@@ -251,6 +251,21 @@ object WeatherRenderer {
         )
     }
 
+    fun currentPressure(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val pressure = weather.currentPressureHpa() ?: return null
+
+        return WeatherItem(
+            String.format(Locale.getDefault(), "%,.0f", pressure),
+            context.getString(R.string.hPa),
+            "",
+            ConditionIcon.getPressureIconId(pressure),
+            pressure
+        )
+    }
+
     fun auxString(
         context: Context,
         nowTimeMillis: Long,

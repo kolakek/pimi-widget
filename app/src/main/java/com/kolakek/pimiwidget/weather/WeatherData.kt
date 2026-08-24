@@ -31,6 +31,7 @@ data class WeatherData (
     val minutelyDewPointCelsius: List<Double>,
     val minutelyUvIndex: List<Double>,
     val minutelyUvIndexClearSky: List<Double>,
+    val minutelyPressureHpa: List<Double>,
     val minutelyTimeMillis: List<Long>,
     val minutelyIsDay: List<Boolean>,
     val hourlyWeatherCode: List<WeatherCode>,
@@ -83,6 +84,10 @@ data class WeatherData (
 
     fun currentUvIndexClearSky(): Double? {
         return minutelyUvIndexClearSky.getOrNull(currentMinutelyIndex())
+    }
+
+    fun currentPressureHpa(): Double? {
+        return minutelyPressureHpa.getOrNull(currentMinutelyIndex())
     }
 
     fun currentIsDay(): Boolean? {

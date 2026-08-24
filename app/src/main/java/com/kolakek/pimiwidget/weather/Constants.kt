@@ -26,7 +26,7 @@ internal const val MINUTELY_KEY = "minutely_15"
 internal const val MINUTELY_VALUE = "temperature_2m,weather_code,cloud_cover," +
         "precipitation_probability,visibility,cape,is_day,apparent_temperature," +
         "wind_direction_10m,wind_speed_10m,wind_gusts_10m,relative_humidity_2m,dew_point_2m," +
-        "uv_index,uv_index_clear_sky"
+        "uv_index,uv_index_clear_sky,pressure_msl"
 
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE =
