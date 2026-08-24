@@ -57,4 +57,21 @@ object ConditionIcon {
             else -> R.drawable.mu_11
         }
     }
+
+    fun getPressureIconId(pressure: Double): Int {
+        return when (pressure.toInt()) {
+            in 0..963 -> R.drawable.mp_963
+            in 963..973 -> R.drawable.mp_973
+            in 973..983 -> R.drawable.mp_983
+            in 983..993 -> R.drawable.mp_993
+            in 993..1003 -> R.drawable.mp_1003
+            in 1003..1013 -> R.drawable.mp_1013
+            in 1013..1023 -> R.drawable.mp_1023
+            in 1023..1033 -> R.drawable.mp_1033
+            in 1033..1043 -> R.drawable.mp_1043
+            in 1043..1053 -> R.drawable.mp_1053
+            in 1053..1063 -> R.drawable.mp_1063
+            else -> R.drawable.mp_1073
+        }
+    }
 }

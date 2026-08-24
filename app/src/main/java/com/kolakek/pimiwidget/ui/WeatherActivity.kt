@@ -193,6 +193,6 @@ class WeatherActivity : AppCompatActivity() {
         binding.currentPressure.textValueDescr.text = "mBar"
         binding.currentPressure.textImageTop.text = ""
         binding.currentPressure.textImageBottom.text = "Low   High"
-        binding.currentPressure.image.setImageResource(R.drawable.mp_4)
+        binding.currentPressure.image.setImageResource(R.drawable.mp_1013)
     }
 }
