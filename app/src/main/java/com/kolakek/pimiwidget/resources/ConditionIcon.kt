@@ -44,11 +44,17 @@ object ConditionIcon {
     fun getUvIndexIconId(uvIndex: Double): Int {
         return when (uvIndex.toInt()) {
             0 -> R.drawable.mu_0
-            in 1 .. 2 -> R.drawable.mu_1
-            in 3 .. 5 -> R.drawable.mu_2
-            in 6 .. 7 -> R.drawable.mu_3
-            in 8 .. 10 -> R.drawable.mu_4
-            else -> R.drawable.mu_5
+            1 -> R.drawable.mu_1
+            2 -> R.drawable.mu_2
+            3 -> R.drawable.mu_3
+            4 -> R.drawable.mu_4
+            5 -> R.drawable.mu_5
+            6 -> R.drawable.mu_6
+            7 -> R.drawable.mu_7
+            8 -> R.drawable.mu_8
+            9 -> R.drawable.mu_9
+            10 -> R.drawable.mu_10
+            else -> R.drawable.mu_11
         }
     }
 }
