@@ -118,7 +118,7 @@ class WeatherActivity : AppCompatActivity() {
             prefs.tempUnit,
         )
         binding.currentWeather.currentTemp.text = currentWeather.text
-        binding.currentWeather.curentIcon.setImageResource(currentWeather.iconId)
+        binding.currentWeather.currentIcon.setImageResource(currentWeather.iconId)
         binding.currentWeather.currentString.text = weatherStr
         binding.currentWeather.currentFeelsLike.text = feelsLikeStr
         binding.currentWeather.dailyHighLow.text = highLowStr

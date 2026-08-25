@@ -22,7 +22,7 @@
             tools:ignore="SpUsage" />
 
         <ImageView
-            android:id="@+id/curent_icon"
+            android:id="@+id/current_icon"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:scaleType="fitCenter"

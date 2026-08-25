@@ -36,12 +36,8 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:text="@string/app_text_now"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="16sp" />
+                style="@style/App.SectionTitle"
+                android:text="@string/app_text_now" />
 
             <View
                 android:layout_width="0dp"
@@ -63,13 +59,9 @@
             layout="@layout/weather_current" />
 
         <TextView
+            style="@style/App.SectionTitle"
             android:text="@string/app_text_hourly_forecast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp" />
+            android:layout_marginTop="6dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hourly_forecast"
@@ -81,13 +73,9 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView
+            style="@style/App.SectionTitle"
             android:text="@string/app_text_daily_forecast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp" />
+            android:layout_marginTop="12dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/daily_forecast"
@@ -99,13 +87,9 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView
+            style="@style/App.SectionTitle"
             android:text="@string/app_text_current_conditions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp" />
+            android:layout_marginTop="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
