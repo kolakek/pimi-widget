@@ -83,6 +83,7 @@
     <string name="app_text_humidity">Humidity</string>
     <string name="app_text_clear_sky">Clear sky</string>
     <string name="app_text_uv_index">UV index</string>
+    <string name="app_text_pressure">Pressure</string>
 
     <string name="app_text_uv_0">none</string>
     <string name="app_text_uv_1_2">low</string>

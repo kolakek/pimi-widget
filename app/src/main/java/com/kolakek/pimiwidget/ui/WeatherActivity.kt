@@ -29,11 +29,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
-import com.kolakek.pimiwidget.resources.WeatherString
+import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.WeatherData
+import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.weather.WeatherRenderer
 import java.time.Instant
 import java.time.ZoneId
@@ -88,16 +89,17 @@ class WeatherActivity : AppCompatActivity() {
                 0,
                 0
             )
+        } else {
+            binding.dataRefreshTime.text = ""
+            binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
         }
         binding.placeName.text = weather.place
     }
 
     private fun displayCurrentWeather(weather: WeatherData, prefs: AppPreferences) {
-        val isDay = weather.currentIsDay() ?: return
-        val weatherCode = weather.currentWeatherCode() ?: return
-
-        val weatherStr = getString(
-            WeatherString.shortStringId(weatherCode, isDay)
+        val conditionStr = WeatherRenderer.currentConditionString(
+            this,
+            weather
         )
         val currentWeather = WeatherRenderer.currentWeather(
             this,
@@ -119,7 +121,7 @@ class WeatherActivity : AppCompatActivity() {
         )
         binding.currentWeather.currentTemp.text = currentWeather.text
         binding.currentWeather.currentIcon.setImageResource(currentWeather.iconId)
-        binding.currentWeather.currentString.text = weatherStr
+        binding.currentWeather.currentString.text = conditionStr
         binding.currentWeather.currentFeelsLike.text = feelsLikeStr
         binding.currentWeather.dailyHighLow.text = highLowStr
     }
@@ -147,58 +149,61 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {
-        val windItem = WeatherRenderer.currentWind(
-            this,
-            weather
+        bindConditionItem(
+            binding.currentWind,
+            getString(R.string.app_text_title_wind),
+            getString(R.string.north),
+            "",
+            WeatherRenderer.currentWind(this, weather),
+            rotateByValue = true
         )
-        binding.currentWind.textTitle.text = getString(R.string.app_text_title_wind)
-        binding.currentWind.textImageTop.text = getString(R.string.north)
-        windItem?.let {
-            binding.currentWind.image.setImageResource(it.iconId)
-            binding.currentWind.textValue.text = it.valueStr
-            binding.currentWind.textUnit.text = it.unitStr
-            binding.currentWind.textValueDescr.text = it.auxStr
-            binding.currentWind.image.rotation = it.level.toFloat()
-        }
-        val humidityItem = WeatherRenderer.currentHumidity(
-            this,
-            weather,
-            prefs.tempUnit
+        bindConditionItem(
+            binding.currentHumidity,
+            getString(R.string.app_text_humidity),
+            getString(R.string.hundred),
+            getString(R.string.zero),
+            WeatherRenderer.currentHumidity(this, weather, prefs.tempUnit)
         )
-        binding.currentHumidity.textTitle.text = getString(R.string.app_text_humidity)
-        binding.currentHumidity.textImageTop.text = getString(R.string.hundred)
-        binding.currentHumidity.textImageBottom.text = getString(R.string.zero)
-        humidityItem?.let {
-            binding.currentHumidity.textValue.text = it.valueStr
-            binding.currentHumidity.textUnit.text = it.unitStr
-            binding.currentHumidity.textValueDescr.text = it.auxStr
-            binding.currentHumidity.image.setImageResource(it.iconId)
-        }
-        val uvIndexItem = WeatherRenderer.currentUvIndex(
-            this,
-            weather
+        bindConditionItem(
+            binding.currentUv,
+            getString(R.string.app_text_uv_index),
+            getString(R.string.eleven_plus),
+            getString(R.string.zero),
+            WeatherRenderer.currentUvIndex(this, weather)
         )
-        binding.currentUv.textTitle.text = getString(R.string.app_text_uv_index)
-        binding.currentUv.textImageTop.text = getString(R.string.eleven_plus)
-        binding.currentUv.textImageBottom.text = getString(R.string.zero)
-        uvIndexItem?.let {
-            binding.currentUv.textValue.text = it.valueStr
-            binding.currentUv.textUnit.text = it.unitStr
-            binding.currentUv.textValueDescr.text = it.auxStr
-            binding.currentUv.image.setImageResource(it.iconId)
-        }
-        val pressureItem = WeatherRenderer.currentPressure(
-            this,
-            weather
+        bindConditionItem(
+            binding.currentPressure,
+            getString(R.string.app_text_pressure),
+            getString(R.string.app_text_high),
+            getString(R.string.app_text_low),
+            WeatherRenderer.currentPressure(this, weather),
+            useUnitAsDescr = true
         )
-        binding.currentPressure.textTitle.text = "Pressure"
-        binding.currentPressure.textUnit.text = ""
-        binding.currentPressure.textImageTop.text = "High"
-        binding.currentPressure.textImageBottom.text = "Low"
-        pressureItem?.let {
-            binding.currentPressure.textValue.text = it.valueStr
-            binding.currentPressure.textValueDescr.text = it.unitStr
-            binding.currentPressure.image.setImageResource(it.iconId)
+    }
+
+    private fun bindConditionItem(
+        binding: WeatherConditionBinding,
+        title: String,
+        topLabel: String,
+        bottomLabel: String?,
+        item: WeatherItem?,
+        rotateByValue: Boolean = false,
+        useUnitAsDescr: Boolean = false
+    ) {
+        binding.textTitle.text = title
+        binding.textImageTop.text = topLabel
+        bottomLabel?.let { binding.textImageBottom.text = it }
+        item?.let {
+            binding.textValue.text = it.valueStr
+            if (useUnitAsDescr) {
+                binding.textUnit.text = ""
+                binding.textValueDescr.text = it.unitStr
+            } else {
+                binding.textUnit.text = it.unitStr
+                binding.textValueDescr.text = it.auxStr
+            }
+            binding.image.setImageResource(it.iconId)
+            if (rotateByValue) binding.image.rotation = it.level.toFloat()
         }
     }
 }

@@ -62,6 +62,16 @@ object WeatherRenderer {
         return LabeledIcon(temperatureStr, weatherIconId)
     }
 
+    fun currentConditionString(
+        context: Context,
+        weather: WeatherData
+    ): String? {
+        val isDay = weather.currentIsDay() ?: return null
+        val weatherCode = weather.currentWeatherCode() ?: return null
+
+        return context.getString(WeatherString.shortStringId(weatherCode, isDay))
+    }
+
     fun currentWarning(
         context: Context,
         weather: WeatherData,
