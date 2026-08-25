@@ -40,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="16sp" />
 
             <View
@@ -67,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -84,6 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -101,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
+            android:textColor="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <LinearLayout

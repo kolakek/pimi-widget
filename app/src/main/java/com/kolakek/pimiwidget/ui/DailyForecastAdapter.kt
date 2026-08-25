@@ -39,7 +39,7 @@ class DailyForecastAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.binding.dailyData.text = item.date
+        holder.binding.dailyDate.text = item.date
         holder.binding.dailyTemp.text = item.temp
         holder.binding.dailyIcon.setImageResource(item.iconId)
         when (position) {

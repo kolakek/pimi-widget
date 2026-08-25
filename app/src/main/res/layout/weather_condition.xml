@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-medium"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="14sp" />
 
     <LinearLayout
@@ -40,12 +41,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
                     android:fontFamily="sans-serif-medium"
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/text_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="14sp" />
 
             </LinearLayout>

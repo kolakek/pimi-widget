@@ -10,11 +10,12 @@
     tools:ignore="Overdraw">
 
     <TextView
-        android:id="@+id/daily_data"
+        android:id="@+id/daily_date"
         android:layout_weight="50"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="14sp" />
 
     <ImageView
