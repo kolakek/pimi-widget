@@ -19,16 +19,25 @@ package com.kolakek.pimiwidget.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.WeatherDailyBinding
 import com.kolakek.pimiwidget.weather.DailyItem
 
-class DailyForecastAdapter(
-    private val items: List<DailyItem>
-) : RecyclerView.Adapter<DailyForecastAdapter.ViewHolder>() {
+class DailyForecastAdapter :
+    ListAdapter<DailyItem, DailyForecastAdapter.ViewHolder>(DiffCallback()) {
 
     class ViewHolder(val binding: WeatherDailyBinding) : RecyclerView.ViewHolder(binding.root)
+
+    class DiffCallback : DiffUtil.ItemCallback<DailyItem>() {
+        override fun areItemsTheSame(oldItem: DailyItem, newItem: DailyItem) =
+            oldItem.date == newItem.date
+
+        override fun areContentsTheSame(oldItem: DailyItem, newItem: DailyItem) =
+            oldItem == newItem
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = WeatherDailyBinding.inflate(
@@ -38,7 +47,7 @@ class DailyForecastAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
+        val item = getItem(position)
         holder.binding.dailyDate.text = item.date
         holder.binding.dailyTemp.text = item.temp
         holder.binding.dailyIcon.setImageResource(item.iconId)
@@ -51,6 +60,4 @@ class DailyForecastAdapter(
             else -> holder.itemView.setBackgroundResource(R.drawable.app_mid_item_background)
         }
     }
-
-    override fun getItemCount() = items.size
 }

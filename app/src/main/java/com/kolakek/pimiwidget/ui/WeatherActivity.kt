@@ -47,6 +47,9 @@ class WeatherActivity : AppCompatActivity() {
 
     private val viewModel: WeatherViewModel by viewModels()
 
+    private val hourlyAdapter = HourlyForecastAdapter()
+    private val dailyAdapter = DailyForecastAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,17 +58,20 @@ class WeatherActivity : AppCompatActivity() {
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.hourlyForecast.adapter = hourlyAdapter
+        binding.dailyForecast.adapter = dailyAdapter
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             binding.content.updatePadding(top = bars.top, bottom = bars.bottom)
             insets
         }
-        val prefs = PreferencesHelper.getAppPreferences(this)
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
                     weather?.let {
+                        val prefs = PreferencesHelper.getAppPreferences(this@WeatherActivity)
+
                         displayInfo(it, prefs)
                         displayCurrentWeather(it, prefs)
                         displayHourlyWeather(it, prefs)
@@ -134,7 +140,7 @@ class WeatherActivity : AppCompatActivity() {
             prefs.iconStyle,
             IconColor.THEMED,
         )
-        binding.hourlyForecast.adapter = HourlyForecastAdapter(items)
+        hourlyAdapter.submitList(items)
     }
 
     private fun displayDailyWeather(weather: WeatherData, prefs: AppPreferences) {
@@ -145,7 +151,7 @@ class WeatherActivity : AppCompatActivity() {
             prefs.iconStyle,
             IconColor.THEMED,
         )
-        binding.dailyForecast.adapter = DailyForecastAdapter(items)
+        dailyAdapter.submitList(items)
     }
 
     private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {

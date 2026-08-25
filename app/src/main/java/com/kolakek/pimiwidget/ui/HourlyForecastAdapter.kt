@@ -19,15 +19,24 @@ package com.kolakek.pimiwidget.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kolakek.pimiwidget.databinding.WeatherHourlyBinding
 import com.kolakek.pimiwidget.weather.HourlyItem
 
-class HourlyForecastAdapter(
-    private val items: List<HourlyItem>
-) : RecyclerView.Adapter<HourlyForecastAdapter.ViewHolder>() {
+class HourlyForecastAdapter :
+    ListAdapter<HourlyItem, HourlyForecastAdapter.ViewHolder>(DiffCallback()) {
 
     class ViewHolder(val binding: WeatherHourlyBinding) : RecyclerView.ViewHolder(binding.root)
+
+    class DiffCallback : DiffUtil.ItemCallback<HourlyItem>() {
+        override fun areItemsTheSame(oldItem: HourlyItem, newItem: HourlyItem) =
+            oldItem.time == newItem.time
+
+        override fun areContentsTheSame(oldItem: HourlyItem, newItem: HourlyItem) =
+            oldItem == newItem
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = WeatherHourlyBinding.inflate(
@@ -37,11 +46,9 @@ class HourlyForecastAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
+        val item = getItem(position)
         holder.binding.hourlyTime.text = item.time
         holder.binding.hourlyTemp.text = item.temp
         holder.binding.hourlyIcon.setImageResource(item.iconId)
     }
-
-    override fun getItemCount() = items.size
 }
