@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -79,6 +80,12 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(it, prefs)
                         displayDailyWeather(it, prefs)
                         displayCurrentConditions(it, prefs)
+
+                        binding.content.visibility = View.VISIBLE
+                        binding.noData.visibility = View.GONE
+                    } ?: run {
+                        binding.content.visibility = View.GONE
+                        binding.noData.visibility = View.VISIBLE
                     }
                 }
             }
