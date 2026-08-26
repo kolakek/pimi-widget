@@ -21,7 +21,6 @@ import android.content.Context
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
-import com.kolakek.pimiwidget.resources.ConditionString
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
@@ -70,6 +69,91 @@ object WeatherRenderer {
         val weatherCode = weather.currentWeatherCode() ?: return null
 
         return context.getString(WeatherString.shortStringId(weatherCode, isDay))
+    }
+
+    fun currentFeelsLikeStr(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit,
+    ): String? {
+        val currentApparentTemp = weather.currentApparentTempCelsius() ?: return null
+        return context.getString(R.string.app_text_feels_like) + " " +
+                temperatureString(context, currentApparentTemp, tempUnit, false)
+    }
+
+    fun currentWind(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val speedKmh = weather.currentWindSpeedKmh() ?: return null
+        val directionDeg = weather.currentWindDirectionDeg() ?: return null
+
+        val gustsStr = weather.currentWindGustsKmh()?.let {
+            context.getString(R.string.app_text_gusts) + " ${(it + 0.5).toInt()}"
+        } ?: ""
+
+        return WeatherItem(
+            valueStr = "${(speedKmh + 0.5).toInt()}",
+            unitStr = context.getString(R.string.kmh),
+            auxStr = gustsStr,
+            iconId = ConditionIcon.getWindIconId(),
+            level = directionDeg,
+        )
+    }
+
+    fun currentHumidity(
+        context: Context,
+        weather: WeatherData,
+        tempUnit: TempUnit
+    ): WeatherItem? {
+        val humidity = weather.currentHumidity() ?: return null
+
+        val dewPointStr = weather.currentDewPointCelsius()?.let {
+            context.getString(R.string.app_text_dew_point) + " " +
+                    temperatureString(context, it, tempUnit, false)
+        } ?: ""
+
+        return WeatherItem(
+            valueStr = "${humidity.toInt()}",
+            unitStr = "%",
+            auxStr = dewPointStr,
+            iconId = ConditionIcon.getHumidityIconId(humidity),
+            level = humidity
+        )
+    }
+
+    fun currentUvIndex(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val uvIndex = weather.currentUvIndex() ?: return null
+
+        val uvClearStr = weather.currentUvIndexClearSky()?.let {
+            context.getString(R.string.app_text_clear_sky) + " ${maxOf(it, uvIndex).toInt()}"
+        } ?: ""
+
+        return WeatherItem(
+            valueStr = "${uvIndex.toInt()}",
+            unitStr = "",
+            auxStr = uvClearStr,
+            iconId = ConditionIcon.getUvIndexIconId(uvIndex),
+            level = uvIndex
+        )
+    }
+
+    fun currentPressure(
+        context: Context,
+        weather: WeatherData
+    ): WeatherItem? {
+        val pressure = weather.currentPressureHpa() ?: return null
+
+        return WeatherItem(
+            valueStr = String.format(Locale.getDefault(), "%,.0f", pressure),
+            unitStr = context.getString(R.string.hPa),
+            auxStr = "",
+            iconId = ConditionIcon.getPressureIconId(pressure),
+            level = pressure
+        )
     }
 
     fun currentWarning(
@@ -129,17 +213,7 @@ object WeatherRenderer {
         return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
     }
 
-    fun currentFeelsLikeStr(
-        context: Context,
-        weather: WeatherData,
-        tempUnit: TempUnit,
-    ): String? {
-        val currentApparentTemp = weather.currentApparentTempCelsius() ?: return null
-        return context.getString(R.string.app_text_feels_like) + " " +
-                temperatureString(context, currentApparentTemp, tempUnit, false)
-    }
-
-    fun dailyHighLowTempStr(
+    fun dailyHighLowTempString(
         context: Context,
         weather: WeatherData,
         tempUnit: TempUnit,
@@ -201,79 +275,6 @@ object WeatherRenderer {
 
                 DailyItem(dateStr, iconId, tempStr)
             }
-    }
-
-    fun currentWind(
-        context: Context,
-        weather: WeatherData
-    ): WeatherItem? {
-        val speedKmh = weather.currentWindSpeedKmh() ?: return null
-        val gustsKmh = weather.currentWindGustsKmh() ?: return null
-        val directionDeg = weather.currentWindDirectionDeg() ?: return null
-
-        val speed = (speedKmh+0.5).toInt()
-        val gusts = (gustsKmh+0.5).toInt()
-
-        val gustsStr = context.getString(R.string.app_text_gusts) + " $gusts"
-
-        return WeatherItem(
-            valueStr = "$speed",
-            unitStr = context.getString(R.string.kmh),
-            auxStr = gustsStr,
-            iconId = ConditionIcon.getWindIconId(),
-            level = directionDeg,
-        )
-    }
-
-    fun currentHumidity(
-        context: Context,
-        weather: WeatherData,
-        tempUnit: TempUnit
-    ): WeatherItem? {
-        val humidity = weather.currentHumidity() ?: return null
-        val dewPoint = weather.currentDewPointCelsius() ?: return null
-
-        val dewPointStr = context.getString(R.string.app_text_dew_point) + " " +
-                temperatureString(context, dewPoint, tempUnit, false)
-
-        return WeatherItem(
-            "${humidity.toInt()}",
-            "%",
-            dewPointStr,
-            ConditionIcon.getHumidityIconId(humidity),
-            humidity
-        )
-    }
-
-    fun currentUvIndex(
-        context: Context,
-        weather: WeatherData
-    ): WeatherItem? {
-        val uvIndex = weather.currentUvIndex() ?: return null
-        val uvIndexClearSky = weather.currentUvIndexClearSky() ?: return null
-
-        return WeatherItem(
-            "${uvIndex.toInt()}",
-            context.getString(ConditionString.getUvIndexStringId(uvIndex)),
-            context.getString(R.string.app_text_clear_sky) + " ${uvIndexClearSky.toInt()}",
-            ConditionIcon.getUvIndexIconId(uvIndex),
-            uvIndex
-        )
-    }
-
-    fun currentPressure(
-        context: Context,
-        weather: WeatherData
-    ): WeatherItem? {
-        val pressure = weather.currentPressureHpa() ?: return null
-
-        return WeatherItem(
-            String.format(Locale.getDefault(), "%,.0f", pressure),
-            context.getString(R.string.hPa),
-            "",
-            ConditionIcon.getPressureIconId(pressure),
-            pressure
-        )
     }
 
     fun auxString(

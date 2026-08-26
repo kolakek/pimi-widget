@@ -122,7 +122,7 @@ class WeatherActivity : AppCompatActivity() {
             weather,
             prefs.tempUnit,
         )
-        val highLowStr = WeatherRenderer.dailyHighLowTempStr(
+        val highLowStr = WeatherRenderer.dailyHighLowTempString(
             this,
             weather,
             prefs.tempUnit,

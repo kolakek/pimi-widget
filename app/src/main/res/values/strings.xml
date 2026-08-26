@@ -85,13 +85,6 @@
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">Pressure</string>
 
-    <string name="app_text_uv_0">none</string>
-    <string name="app_text_uv_1_2">low</string>
-    <string name="app_text_uv_3_4_5">moderate</string>
-    <string name="app_text_uv_6_7">high</string>
-    <string name="app_text_uv_8_9_10">very high</string>
-    <string name="app_text_uv_11">extreme</string>
-
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>
     <string name="wc_freezing_rain">Freezing rain</string>
