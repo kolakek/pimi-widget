@@ -33,6 +33,8 @@ import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.weather.DailyItem
+import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.weather.WeatherRenderer
@@ -96,17 +98,13 @@ class WeatherActivity : AppCompatActivity() {
                 0
             )
         } else {
-            binding.dataRefreshTime.text = ""
+            binding.dataRefreshTime.text = null
             binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
         }
         binding.placeName.text = weather.place
     }
 
     private fun displayCurrentWeather(weather: WeatherData, prefs: AppPreferences) {
-        val conditionStr = WeatherRenderer.currentConditionString(
-            this,
-            weather
-        )
         val currentWeather = WeatherRenderer.currentWeather(
             this,
             weather,
@@ -114,7 +112,11 @@ class WeatherActivity : AppCompatActivity() {
             prefs.iconStyle,
             IconColor.THEMED,
             false
-        ) ?: return
+        )
+        val conditionStr = WeatherRenderer.currentConditionString(
+            this,
+            weather
+        )
         val feelsLikeStr = WeatherRenderer.currentFeelsLikeStr(
             this,
             weather,
@@ -125,8 +127,8 @@ class WeatherActivity : AppCompatActivity() {
             weather,
             prefs.tempUnit,
         )
-        binding.currentWeather.currentTemp.text = currentWeather.text
-        binding.currentWeather.currentIcon.setImageResource(currentWeather.iconId)
+        binding.currentWeather.currentTemp.text = currentWeather?.text ?: NA
+        binding.currentWeather.currentIcon.setImageResource(currentWeather?.iconId ?: 0)
         binding.currentWeather.currentString.text = conditionStr
         binding.currentWeather.currentFeelsLike.text = feelsLikeStr
         binding.currentWeather.dailyHighLow.text = highLowStr
@@ -140,7 +142,7 @@ class WeatherActivity : AppCompatActivity() {
             prefs.iconStyle,
             IconColor.THEMED,
         )
-        hourlyAdapter.submitList(items)
+        hourlyAdapter.submitList(items.ifEmpty { listOf(HourlyItem(NA, 0, NA)) })
     }
 
     private fun displayDailyWeather(weather: WeatherData, prefs: AppPreferences) {
@@ -151,7 +153,7 @@ class WeatherActivity : AppCompatActivity() {
             prefs.iconStyle,
             IconColor.THEMED,
         )
-        dailyAdapter.submitList(items)
+        dailyAdapter.submitList(items.ifEmpty { listOf(DailyItem(NA, 0, NA)) })
     }
 
     private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {
@@ -159,7 +161,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentWind,
             getString(R.string.app_text_title_wind),
             getString(R.string.north),
-            "",
+            null,
             WeatherRenderer.currentWind(this, weather),
             rotateByValue = true
         )
@@ -190,26 +192,36 @@ class WeatherActivity : AppCompatActivity() {
     private fun bindConditionItem(
         binding: WeatherConditionBinding,
         title: String,
-        topLabel: String,
+        topLabel: String?,
         bottomLabel: String?,
         item: WeatherItem?,
         rotateByValue: Boolean = false,
         useUnitAsDescr: Boolean = false
     ) {
         binding.textTitle.text = title
-        binding.textImageTop.text = topLabel
-        bottomLabel?.let { binding.textImageBottom.text = it }
-        item?.let {
-            binding.textValue.text = it.valueStr
-            if (useUnitAsDescr) {
-                binding.textUnit.text = ""
-                binding.textValueDescr.text = it.unitStr
-            } else {
-                binding.textUnit.text = it.unitStr
-                binding.textValueDescr.text = it.auxStr
-            }
-            binding.image.setImageResource(it.iconId)
-            if (rotateByValue) binding.image.rotation = it.level.toFloat()
+
+        if (item == null) {
+            binding.textValue.text = NA
+            binding.textUnit.text = null
+            binding.textValueDescr.text = null
+            binding.textImageTop.text = null
+            binding.textImageBottom.text = null
+            binding.image.setImageDrawable(null)
+            return
         }
+        binding.textValue.text = item.valueStr
+
+        if (useUnitAsDescr) {
+            binding.textUnit.text = null
+            binding.textValueDescr.text = item.unitStr
+        } else {
+            binding.textUnit.text = item.unitStr
+            binding.textValueDescr.text = item.auxStr
+        }
+        binding.textImageTop.text = topLabel
+        binding.textImageBottom.text = bottomLabel
+
+        binding.image.setImageResource(item.iconId)
+        if (rotateByValue) binding.image.rotation = item.level.toFloat()
     }
 }

@@ -48,16 +48,17 @@ class DailyForecastAdapter :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
+
         holder.binding.dailyDate.text = item.date
         holder.binding.dailyTemp.text = item.temp
         holder.binding.dailyIcon.setImageResource(item.iconId)
-        when (position) {
-            0 -> holder.itemView.setBackgroundResource(R.drawable.app_top_item_background)
 
-            itemCount - 1
-                -> holder.itemView.setBackgroundResource(R.drawable.app_bottom_item_background)
-
-            else -> holder.itemView.setBackgroundResource(R.drawable.app_mid_item_background)
+        val background = when {
+            itemCount == 1 -> R.drawable.app_item_background
+            position == 0 -> R.drawable.app_top_item_background
+            position == itemCount - 1 -> R.drawable.app_bottom_item_background
+            else -> R.drawable.app_mid_item_background
         }
+        holder.itemView.setBackgroundResource(background)
     }
 }
