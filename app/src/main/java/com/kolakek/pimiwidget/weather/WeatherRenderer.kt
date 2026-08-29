@@ -71,7 +71,7 @@ object WeatherRenderer {
         return context.getString(WeatherString.shortStringId(weatherCode, isDay))
     }
 
-    fun currentFeelsLikeStr(
+    fun currentFeelsLikeString(
         context: Context,
         weather: WeatherData,
         tempUnit: TempUnit,

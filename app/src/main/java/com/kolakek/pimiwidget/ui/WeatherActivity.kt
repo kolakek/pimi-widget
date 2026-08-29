@@ -34,13 +34,10 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.settings.AppPreferences
-import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.HourlyItem
-import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherItem
-import com.kolakek.pimiwidget.weather.WeatherRenderer
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.time.Instant
@@ -77,20 +74,22 @@ class WeatherActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
                     val prefs = PreferencesHelper.getAppPreferences(this@WeatherActivity)
-                    weather?.let {
-                        displayInfo(it, prefs)
-                        displayCurrentWeather(it, prefs)
-                        displayHourlyWeather(it, prefs)
-                        displayDailyWeather(it, prefs)
-                        displayCurrentConditions(it, prefs)
 
-                        binding.content.visibility = View.VISIBLE
-                        binding.noData.visibility = View.GONE
-                    } ?: run {
+                    val displayData = weather?.let {
+                        DisplayData.collect(this@WeatherActivity, it, prefs)
+                    }
+                    if (displayData == null || !displayData.isValid()) {
                         displayNoDataInfo(prefs)
-
                         binding.content.visibility = View.GONE
                         binding.noData.visibility = View.VISIBLE
+                    } else {
+                        displayInfo(displayData, prefs)
+                        displayCurrentWeather(displayData)
+                        displayHourlyWeather(displayData)
+                        displayDailyWeather(displayData)
+                        displayCurrentConditions(displayData)
+                        binding.content.visibility = View.VISIBLE
+                        binding.noData.visibility = View.GONE
                     }
                 }
             }
@@ -119,9 +118,9 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayInfo(weather: WeatherData, prefs: AppPreferences) {
+    private fun displayInfo(data: DisplayData, prefs: AppPreferences) {
         if (prefs.showDataTime) {
-            val updateTimeStr = Instant.ofEpochMilli(weather.timeMillis)
+            val updateTimeStr = Instant.ofEpochMilli(data.timeMillis)
                 .atZone(ZoneId.systemDefault())
                 .format(DateTimeFormatter.ofPattern("HH:mm"))
             binding.dataRefreshTime.text = updateTimeStr
@@ -135,68 +134,32 @@ class WeatherActivity : AppCompatActivity() {
             binding.dataRefreshTime.text = null
             binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
         }
-        binding.placeName.text = weather.place
+        binding.placeName.text = data.place
     }
 
-    private fun displayCurrentWeather(weather: WeatherData, prefs: AppPreferences) {
-        val currentWeather = WeatherRenderer.currentWeather(
-            this,
-            weather,
-            prefs.tempUnit,
-            prefs.iconStyle,
-            IconColor.THEMED,
-            false
-        )
-        val conditionStr = WeatherRenderer.currentConditionString(
-            this,
-            weather
-        )
-        val feelsLikeStr = WeatherRenderer.currentFeelsLikeStr(
-            this,
-            weather,
-            prefs.tempUnit,
-        )
-        val highLowStr = WeatherRenderer.dailyHighLowTempString(
-            this,
-            weather,
-            prefs.tempUnit,
-        )
-        binding.currentWeather.currentTemp.text = currentWeather?.text ?: NA
-        binding.currentWeather.currentIcon.setImageResource(currentWeather?.iconId ?: 0)
-        binding.currentWeather.currentString.text = conditionStr
-        binding.currentWeather.currentFeelsLike.text = feelsLikeStr
-        binding.currentWeather.dailyHighLow.text = highLowStr
+    private fun displayCurrentWeather(data: DisplayData) {
+        binding.currentWeather.currentTemp.text = data.currentWeather?.text ?: NA
+        binding.currentWeather.currentIcon.setImageResource(data.currentWeather?.iconId ?: 0)
+        binding.currentWeather.currentString.text = data.currentCondition
+        binding.currentWeather.currentFeelsLike.text = data.currentFeelsLike
+        binding.currentWeather.dailyHighLow.text = data.dailyHighLowTemp
     }
 
-    private fun displayHourlyWeather(weather: WeatherData, prefs: AppPreferences) {
-        val items = WeatherRenderer.hourlyWeather(
-            this,
-            weather,
-            prefs.tempUnit,
-            prefs.iconStyle,
-            IconColor.THEMED,
-        )
-        hourlyAdapter.submitList(items.ifEmpty { listOf(HourlyItem(NA, 0, NA)) })
+    private fun displayHourlyWeather(data: DisplayData) {
+        hourlyAdapter.submitList(data.hourlyWeather.ifEmpty { listOf(HourlyItem(NA, 0, NA)) })
     }
 
-    private fun displayDailyWeather(weather: WeatherData, prefs: AppPreferences) {
-        val items = WeatherRenderer.dailyWeather(
-            this,
-            weather,
-            prefs.tempUnit,
-            prefs.iconStyle,
-            IconColor.THEMED,
-        )
-        dailyAdapter.submitList(items.ifEmpty { listOf(DailyItem(NA, 0, NA)) })
+    private fun displayDailyWeather(data: DisplayData) {
+        dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA)) })
     }
 
-    private fun displayCurrentConditions(weather: WeatherData, prefs: AppPreferences) {
+    private fun displayCurrentConditions(data: DisplayData) {
         bindConditionItem(
             binding.currentWind,
             getString(R.string.app_text_title_wind),
             getString(R.string.north),
             null,
-            WeatherRenderer.currentWind(this, weather),
+            data.currentWind,
             rotateByValue = true
         )
         bindConditionItem(
@@ -204,21 +167,21 @@ class WeatherActivity : AppCompatActivity() {
             getString(R.string.app_text_humidity),
             getString(R.string.hundred),
             getString(R.string.zero),
-            WeatherRenderer.currentHumidity(this, weather, prefs.tempUnit)
+            data.currentHumidity
         )
         bindConditionItem(
             binding.currentUv,
             getString(R.string.app_text_uv_index),
             getString(R.string.eleven_plus),
             getString(R.string.zero),
-            WeatherRenderer.currentUvIndex(this, weather)
+            data.currentUvIndex
         )
         bindConditionItem(
             binding.currentPressure,
             getString(R.string.app_text_pressure),
             getString(R.string.app_text_high),
             getString(R.string.app_text_low),
-            WeatherRenderer.currentPressure(this, weather),
+            data.currentPressure,
             useUnitAsDescr = true
         )
     }
