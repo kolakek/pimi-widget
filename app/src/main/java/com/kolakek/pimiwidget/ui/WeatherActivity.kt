@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -28,6 +29,7 @@ import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
@@ -39,6 +41,8 @@ import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.weather.WeatherRenderer
+import com.kolakek.pimiwidget.worker.UpdateAction
+import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import java.time.Instant
 import java.time.ZoneId
 import kotlinx.coroutines.launch
@@ -72,9 +76,8 @@ class WeatherActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
+                    val prefs = PreferencesHelper.getAppPreferences(this@WeatherActivity)
                     weather?.let {
-                        val prefs = PreferencesHelper.getAppPreferences(this@WeatherActivity)
-
                         displayInfo(it, prefs)
                         displayCurrentWeather(it, prefs)
                         displayHourlyWeather(it, prefs)
@@ -84,10 +87,34 @@ class WeatherActivity : AppCompatActivity() {
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     } ?: run {
+                        displayNoDataInfo(prefs)
+
                         binding.content.visibility = View.GONE
                         binding.noData.visibility = View.VISIBLE
                     }
                 }
+            }
+        }
+    }
+
+    private fun displayNoDataInfo(prefs: AppPreferences) {
+        if (prefs.showWeather) {
+            binding.noDataTitle.text = getString(R.string.app_text_no_data)
+            binding.noDataInfo.text = getString(R.string.app_text_check_connection)
+            binding.noDataButton.text = getString(R.string.app_button_try_again)
+            binding.noDataButton.setOnClickListener {
+                WorkManagerHelper.enqueueOneTimeWork(
+                    this,
+                    UpdateAction.WEATHER_FETCH_THEN_REFRESH,
+                    ExistingWorkPolicy.KEEP
+                )
+            }
+        } else {
+            binding.noDataTitle.text = getString(R.string.app_text_weather_off)
+            binding.noDataInfo.text = getString(R.string.app_text_enable_in_settings)
+            binding.noDataButton.text = getString(R.string.app_button_settings)
+            binding.noDataButton.setOnClickListener {
+                startActivity(Intent(this, AppConfigureActivity::class.java))
             }
         }
     }

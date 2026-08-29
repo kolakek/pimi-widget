@@ -66,7 +66,8 @@ object PreferencesHelper {
         return AppPreferences(
             iconStyle = iconStyle,
             tempUnit = tempUnitFromPref(tempUnitPref),
-            showDataTime = auxDisplayPref == AuxDisplayPref.UPDATE_TIME
+            showDataTime = auxDisplayPref == AuxDisplayPref.UPDATE_TIME,
+            showWeather = getWeatherPreference(context),
         )
     }
 

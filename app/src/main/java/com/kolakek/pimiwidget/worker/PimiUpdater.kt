@@ -57,13 +57,11 @@ object PimiUpdater {
             UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH -> {
                 birthdayData = BirthdayService.fetchBirthdays(context)
                 WidgetUpdater.refreshBirthdays(context, prefs, birthdayData)
-                return WorkResult.DATA_FETCH_DONE
+                return WorkResult.WORK_DONE
             }
 
             UpdateAction.WEATHER_FETCH_THEN_REFRESH -> {
-                weatherData = fetchWeather(context, prefs)
-                WidgetUpdater.refreshWeather(context, prefs, weatherData)
-                return WorkResult.DATA_FETCH_DONE
+                return handleWeather(context, prefs, WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH)
             }
         }
     }
@@ -83,26 +81,26 @@ object PimiUpdater {
         prefs: WidgetPreferences,
         status: WeatherUpdateStatus
     ): WorkResult {
-        if (!prefs.showWeather) return WorkResult.WIDGET_REFRESHED
+        if (!prefs.showWeather) return WorkResult.WORK_DONE
 
         when (status) {
-            WeatherUpdateStatus.HAS_RECENT_DATA -> {
-                return WorkResult.RECENT_DATA_SERVED
+            WeatherUpdateStatus.NO_ACTION_NEEDED -> {
+                return WorkResult.WORK_DONE
             }
 
-            WeatherUpdateStatus.HAS_STALE_DATA -> {
+            WeatherUpdateStatus.NEEDS_DATA -> {
                 if (hasNetCapabilityInternet(context)) {
                     fetchWeather(context, prefs)
-                    return WorkResult.FRESH_DATA_FETCHED
-                } else return WorkResult.STALE_DATA_SERVED
+                    return WorkResult.DATA_FETCH_DONE
+                } else return WorkResult.DATA_FETCH_FAILED
             }
 
-            WeatherUpdateStatus.HAS_EXPIRED_DATA -> {
+            WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
                 if (hasNetCapabilityInternet(context)) {
                     val weatherData = fetchWeather(context, prefs)
                     WidgetUpdater.refreshWeather(context, prefs, weatherData)
-                    return WorkResult.FRESH_DATA_FETCHED
-                } else return WorkResult.EXPIRED_DATA_SERVED
+                    return WorkResult.DATA_FETCH_DONE
+                } else return WorkResult.DATA_FETCH_FAILED
             }
         }
     }

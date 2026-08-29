@@ -84,6 +84,12 @@
     <string name="app_text_clear_sky">Clear sky</string>
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">Pressure</string>
+    <string name="app_text_no_data">No weather data available</string>
+    <string name="app_text_weather_off">Weather disabled</string>
+    <string name="app_text_enable_in_settings">Enable weather in widget settings</string>
+    <string name="app_text_check_connection">Check your connection and try again</string>
+    <string name="app_button_try_again">Try again</string>
+    <string name="app_button_settings">Widget settings</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>

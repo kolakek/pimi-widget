@@ -9,6 +9,7 @@
 
     <color name="app_place_background">?colorSurfaceContainerHighest</color>
     <color name="app_item_background">?colorSurface</color>
+    <color name="app_error_text_color">?colorOnSurfaceVariant</color>
 
     <color name="u_sun_1">#fcbd00</color>
     <color name="u_sun_2">#da4f00</color>

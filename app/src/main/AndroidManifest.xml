@@ -67,6 +67,10 @@
         <activity
             android:name=".ui.WeatherActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".ui.AppConfigureActivity"
+            android:exported="false" />
     </application>
 
     <queries>

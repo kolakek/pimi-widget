@@ -58,7 +58,7 @@ object WidgetUpdater {
         weatherData: WeatherData?,
         birthdayData: BirthdayData?
     ): WeatherUpdateStatus {
-        var lastWeatherStatus = WeatherUpdateStatus.HAS_RECENT_DATA
+        var lastWeatherStatus = WeatherUpdateStatus.NO_ACTION_NEEDED
 
         updateViews(context, prefs, partialUpdate = true) { views, _ ->
             AlarmUpdater.updateViews(context, views, prefs)

@@ -20,5 +20,6 @@ package com.kolakek.pimiwidget.settings
 data class AppPreferences (
     val iconStyle: IconStyle,
     val tempUnit: TempUnit,
-    val showDataTime: Boolean
+    val showDataTime: Boolean,
+    val showWeather: Boolean
 )
