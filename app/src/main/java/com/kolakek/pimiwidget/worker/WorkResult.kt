@@ -18,7 +18,8 @@
 package com.kolakek.pimiwidget.worker
 
 enum class WorkResult(val message: String) {
-    WORK_DONE("WorkDone"),
-    DATA_FETCH_DONE("DataFetchDone"),
-    DATA_FETCH_FAILED("DataFetchFailed")
+    WORK_COMPLETE("WorkComplete"),
+    DATA_FETCH_COMPLETE("DataFetchComplete"),
+    DATA_UPDATE_COMPLETE("DataUpdateComplete"),
+    NETWORK_UNAVAILABLE("NetworkUnavailable")
 }

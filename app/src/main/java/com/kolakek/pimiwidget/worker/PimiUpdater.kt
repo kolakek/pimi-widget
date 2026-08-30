@@ -57,7 +57,7 @@ object PimiUpdater {
             UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH -> {
                 birthdayData = BirthdayService.fetchBirthdays(context)
                 WidgetUpdater.refreshBirthdays(context, prefs, birthdayData)
-                return WorkResult.WORK_DONE
+                return WorkResult.WORK_COMPLETE
             }
 
             UpdateAction.WEATHER_FETCH_THEN_REFRESH -> {
@@ -81,26 +81,26 @@ object PimiUpdater {
         prefs: WidgetPreferences,
         status: WeatherUpdateStatus
     ): WorkResult {
-        if (!prefs.showWeather) return WorkResult.WORK_DONE
+        if (!prefs.showWeather) return WorkResult.WORK_COMPLETE
 
         when (status) {
             WeatherUpdateStatus.NO_ACTION_NEEDED -> {
-                return WorkResult.WORK_DONE
+                return WorkResult.WORK_COMPLETE
             }
 
             WeatherUpdateStatus.NEEDS_DATA -> {
                 if (hasNetCapabilityInternet(context)) {
                     fetchWeather(context, prefs)
-                    return WorkResult.DATA_FETCH_DONE
-                } else return WorkResult.DATA_FETCH_FAILED
+                    return WorkResult.DATA_FETCH_COMPLETE
+                } else return WorkResult.NETWORK_UNAVAILABLE
             }
 
             WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH -> {
                 if (hasNetCapabilityInternet(context)) {
                     val weatherData = fetchWeather(context, prefs)
                     WidgetUpdater.refreshWeather(context, prefs, weatherData)
-                    return WorkResult.DATA_FETCH_DONE
-                } else return WorkResult.DATA_FETCH_FAILED
+                    return WorkResult.DATA_UPDATE_COMPLETE
+                } else return WorkResult.NETWORK_UNAVAILABLE
             }
         }
     }
