@@ -18,25 +18,29 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetStyle
 
-enum class WidgetIcon {
-    SYNC;
+enum class TextIcon {
+    ALARM,
+    BIRTHDAY;
 
-    fun id(textColor: TextColor, iconStyle: IconStyle, widgetStyle: WidgetStyle): Int {
+    fun id(textColor: TextColor, widgetStyle: WidgetStyle): Int {
+        val needsShadow = widgetStyle == WidgetStyle.SHADOW
         return when (this) {
-            SYNC -> when (widgetStyle) {
-                WidgetStyle.SHADOW -> R.drawable.ic_sync_light_shadow
-
-                WidgetStyle.DEFAULT ->
-                    if (textColor == TextColor.DARK) R.drawable.ic_sync_dark
-                    else R.drawable.ic_sync_light
-
-                WidgetStyle.SOLID ->
-                    if (iconStyle == IconStyle.FLAT_SKETCH) R.drawable.ic_sync_light
-                    else R.drawable.ic_sync_light_shadow
+            ALARM -> when (textColor) {
+                TextColor.DYNAMIC -> R.drawable.ic_alarm_themed
+                TextColor.DARK -> R.drawable.ic_alarm_dark
+                TextColor.LIGHT ->
+                    if (needsShadow) R.drawable.ic_alarm_light_shadow
+                    else R.drawable.ic_alarm_light
+            }
+            BIRTHDAY -> when (textColor) {
+                TextColor.DYNAMIC -> R.drawable.ic_birthday_themed
+                TextColor.DARK -> R.drawable.ic_birthday_dark
+                TextColor.LIGHT ->
+                    if (needsShadow) R.drawable.ic_birthday_light_shadow
+                    else R.drawable.ic_birthday_light
             }
         }
     }

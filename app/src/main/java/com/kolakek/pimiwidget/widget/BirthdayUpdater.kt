@@ -22,7 +22,7 @@ import android.widget.RemoteViews
 import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
-import com.kolakek.pimiwidget.resources.WidgetIcon
+import com.kolakek.pimiwidget.resources.TextIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.KEY_BIRTHDAY_DISMISS_HASH
@@ -65,7 +65,7 @@ object BirthdayUpdater {
                 views.setTextViewText(R.id.widget_birthday, str)
                 views.setTextViewCompoundDrawables(
                     R.id.widget_birthday,
-                    WidgetIcon.BIRTHDAY.id(prefs.textColor, prefs.widgetStyle),
+                    TextIcon.BIRTHDAY.id(prefs.textColor, prefs.widgetStyle),
                     0,
                     0,
                     0

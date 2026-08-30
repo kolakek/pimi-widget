@@ -21,6 +21,7 @@ import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.resources.WidgetIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
@@ -43,6 +44,13 @@ object WeatherUpdater {
 
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
+        views.setImageViewResource(
+            R.id.widget_weather_icon,
+            WidgetIcon.SYNC.id(prefs.textColor, prefs.iconStyle, prefs.widgetStyle)
+        )
+        if (prefs.widgetStyle == WidgetStyle.SOLID) {
+            views.setViewVisibility(R.id.widget_weather_temp, View.GONE)
+        }
         weatherData?.let { data ->
             WeatherRenderer.currentWeather(
                 context,
@@ -54,6 +62,7 @@ object WeatherUpdater {
             )?.let { it ->
 
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
+                views.setViewVisibility(R.id.widget_weather_temp, View.VISIBLE)
                 views.setTextViewText(R.id.widget_weather_temp, it.text)
 
                 var auxStr: String? = null

@@ -22,7 +22,7 @@ import android.content.Context
 import android.text.format.DateFormat
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.resources.WidgetIcon
+import com.kolakek.pimiwidget.resources.TextIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import java.util.Date
 
@@ -55,7 +55,7 @@ object AlarmUpdater {
     private fun showIcon(views: RemoteViews, prefs: WidgetPreferences) {
         views.setTextViewCompoundDrawables(
             R.id.widget_alarm,
-            WidgetIcon.ALARM.id(prefs.textColor, prefs.widgetStyle),
+            TextIcon.ALARM.id(prefs.textColor, prefs.widgetStyle),
             0,
             0,
             0
