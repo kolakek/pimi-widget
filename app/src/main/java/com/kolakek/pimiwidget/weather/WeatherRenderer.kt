@@ -210,7 +210,7 @@ object WeatherRenderer {
         val dayStr = context.getString(
             if (useToday) R.string.widget_today else R.string.widget_tomorrow
         )
-        return "$dayStr $maxTempStr / $minTempStr · $weatherStr"
+        return "$dayStr $maxTempStr/$minTempStr · $weatherStr"
     }
 
     fun dailyHighLowTempString(
