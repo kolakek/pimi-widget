@@ -18,14 +18,13 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetStyle
 
 enum class WidgetIcon {
     SYNC;
 
-    fun id(textColor: TextColor, iconStyle: IconStyle, widgetStyle: WidgetStyle): Int {
+    fun id(textColor: TextColor, widgetStyle: WidgetStyle): Int {
         return when (this) {
             SYNC -> when (widgetStyle) {
                 WidgetStyle.SHADOW -> R.drawable.ic_sync_light_shadow
@@ -35,8 +34,7 @@ enum class WidgetIcon {
                     else R.drawable.ic_sync_light
 
                 WidgetStyle.SOLID ->
-                    if (iconStyle == IconStyle.FLAT_SKETCH) R.drawable.ic_sync_light
-                    else R.drawable.ic_sync_light_shadow
+                    R.drawable.ic_sync_dynamic
             }
         }
     }

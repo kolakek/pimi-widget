@@ -46,7 +46,7 @@ object WeatherUpdater {
 
         views.setImageViewResource(
             R.id.widget_weather_icon,
-            WidgetIcon.SYNC.id(prefs.textColor, prefs.iconStyle, prefs.widgetStyle)
+            WidgetIcon.SYNC.id(prefs.textColor, prefs.widgetStyle)
         )
         if (prefs.widgetStyle == WidgetStyle.SOLID) {
             views.setViewVisibility(R.id.widget_weather_temp, View.GONE)
