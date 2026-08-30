@@ -35,8 +35,6 @@
     <string name="config_option_auto">Otomatik</string>
     <string name="config_option_follow_system">Sistem varsayılanı</string>
     <string name="config_temp">Sıcaklık</string>
-    <string name="config_temp_celsius">Santigrat</string>
-    <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_features">Bir bakışta</string>
     <string name="config_section_weather">Hava durumu ayarları</string>
     <string name="config_section_settings_plus">Ek ayarlar</string>

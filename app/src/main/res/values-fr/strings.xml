@@ -35,8 +35,6 @@
     <string name="config_option_auto">Automatique</string>
     <string name="config_option_follow_system">Par défaut du système</string>
     <string name="config_temp">Température</string>
-    <string name="config_temp_celsius">Celsius</string>
-    <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_features">En un coup d\'œil</string>
     <string name="config_section_weather">Paramètres météo</string>
     <string name="config_section_settings_plus">Paramètres supplémentaires</string>

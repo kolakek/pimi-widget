@@ -35,8 +35,6 @@
     <string name="config_option_auto">Automaticky</string>
     <string name="config_option_follow_system">Výchozí nastavení systému</string>
     <string name="config_temp">Teplota</string>
-    <string name="config_temp_celsius">Celsia</string>
-    <string name="config_temp_fahrenheit">Fahrenheit</string>
     <string name="config_section_features">Přehled</string>
     <string name="config_section_weather">Nastavení počasí</string>
     <string name="config_section_settings_plus">Další nastavení</string>

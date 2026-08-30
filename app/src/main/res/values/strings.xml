@@ -4,6 +4,7 @@
     <string name="config_section_features">At a glance</string>
     <string name="config_section_weather">Weather settings</string>
     <string name="config_section_settings_plus">Additional settings</string>
+    <string name="config_section_settings_units">Units</string>
     <string name="config_section_about">About</string>
     <string name="config_section_style">Appearance</string>
     <string name="config_widget_style">Widget style</string>
@@ -36,8 +37,7 @@
     <string name="config_option_auto">Automatic</string>
     <string name="config_option_follow_system">System default</string>
     <string name="config_temp">Temperature</string>
-    <string name="config_temp_celsius">Celsius</string>
-    <string name="config_temp_fahrenheit">Fahrenheit</string>
+    <string name="config_wind_speed">Wind speed</string>
     <string name="config_daily_forecast">Show daily forecast</string>
     <string name="config_daily_forecast_summary">In the morning and evening</string>
     <string name="config_weather_warnings">Show weather alerts</string>
@@ -159,6 +159,7 @@
     <string name="fahrenheit" translatable="false">\u2109</string>
     <string name="degree" translatable="false">\u00B0</string>
     <string name="kmh" translatable="false">km/h</string>
+    <string name="mph" translatable="false">mph</string>
     <string name="hPa" translatable="false">hPa</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>

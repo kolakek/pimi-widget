@@ -35,8 +35,6 @@
     <string name="config_option_auto">Автоматично</string>
     <string name="config_option_follow_system">Системне значення за замовчуванням</string>
     <string name="config_temp">Температура</string>
-    <string name="config_temp_celsius">Цельсій</string>
-    <string name="config_temp_fahrenheit">Фаренгейт</string>
     <string name="config_section_features">З першого погляду</string>
     <string name="config_section_weather">Налаштування погоди</string>
     <string name="config_section_settings_plus">Додаткові налаштування</string>

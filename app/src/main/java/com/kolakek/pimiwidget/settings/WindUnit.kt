@@ -17,9 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
-data class AppPreferences (
-    val iconStyle: IconStyle,
-    val tempUnit: TempUnit,
-    val windUnit: WindUnit,
-    val showWeather: Boolean
-)
+enum class WindUnit {
+    KMH,
+    MPH
+}

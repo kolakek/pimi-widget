@@ -88,7 +88,8 @@ data class DisplayData (
             )
             val currentWind = WeatherRenderer.currentWind(
                 context,
-                weather
+                weather,
+                prefs.windUnit
             )
             val currentHumidity = WeatherRenderer.currentHumidity(
                 context,

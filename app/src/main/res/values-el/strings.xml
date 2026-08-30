@@ -35,8 +35,6 @@
     <string name="config_option_auto">Αυτόματο</string>
     <string name="config_option_follow_system">Προεπιλογή συστήματος</string>
     <string name="config_temp">Θερμοκρασία</string>
-    <string name="config_temp_celsius">Κελσίου</string>
-    <string name="config_temp_fahrenheit">Φαρενάιτ</string>
     <string name="config_section_features">Με μια ματιά</string>
     <string name="config_section_weather">Ρυθμίσεις καιρού</string>
     <string name="config_section_settings_plus">Πρόσθετες ρυθμίσεις</string>

@@ -30,6 +30,7 @@ import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.IconStyle
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WindUnit
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
@@ -83,18 +84,24 @@ object WeatherRenderer {
 
     fun currentWind(
         context: Context,
-        weather: WeatherData
+        weather: WeatherData,
+        windUnit: WindUnit
     ): WeatherItem? {
-        val speedKmh = weather.currentWindSpeedKmh() ?: return null
+        val windKmh = weather.currentWindSpeedKmh() ?: return null
         val directionDeg = weather.currentWindDirectionDeg() ?: return null
 
+        val unitStr = if (windUnit == WindUnit.KMH) {
+            context.getString(R.string.kmh)
+        } else {
+            context.getString(R.string.mph)
+        }
         val gustsStr = weather.currentWindGustsKmh()?.let {
-            context.getString(R.string.app_text_gusts) + " ${(it + 0.5).toInt()}"
+            context.getString(R.string.app_text_gusts) + " " + speedString(it, windUnit)
         } ?: ""
 
         return WeatherItem(
-            valueStr = "${(speedKmh + 0.5).toInt()}",
-            unitStr = context.getString(R.string.kmh),
+            valueStr = speedString(windKmh, windUnit),
+            unitStr = unitStr,
             auxStr = gustsStr,
             iconId = ConditionIcon.getWindIconId(),
             level = directionDeg,
@@ -317,6 +324,12 @@ object WeatherRenderer {
             context.getString(R.string.degree)
         }
         return "${(tempValue + 0.5).toInt()}$unit"
+    }
+
+    private fun speedString(speedKmh: Double, windUnit: WindUnit): String {
+        val isMph = (windUnit == WindUnit.MPH)
+        val speed = if (isMph) speedKmh * 0.621371 else speedKmh
+        return "${(speed + 0.5).toInt()}"
     }
 
     private fun formatTime(context: Context, timeMillis: Long): String {

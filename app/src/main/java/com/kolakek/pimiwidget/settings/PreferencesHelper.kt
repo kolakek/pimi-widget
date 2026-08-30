@@ -20,6 +20,8 @@ package com.kolakek.pimiwidget.settings
 import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
+import android.icu.util.LocaleData
+import android.icu.util.ULocale
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
@@ -43,6 +45,12 @@ object PreferencesHelper {
         FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
     }
 
+    enum class WindUnitPref(val key: String) {
+        AUTO(KEY_WIND_UNIT_AUTO),
+        KMH(KEY_WIND_UNIT_KMH),
+        MPH(KEY_WIND_UNIT_MPH)
+    }
+
     enum class ColorPref(val key: String) {
         AUTO(KEY_COLOR_AUTO),
         LIGHT(KEY_COLOR_LIGHT),
@@ -58,6 +66,10 @@ object PreferencesHelper {
     fun getAppPreferences(context: Context): AppPreferences {
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
+        val windUnitPref = getWindUnitPreference(context)
+
+        val tempUnit = tempUnitFromPref(tempUnitPref)
+        val windUnit = windUnitFromPref(windUnitPref, tempUnit)
 
         val iconStyle = when (iconStylePref) {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
@@ -65,7 +77,8 @@ object PreferencesHelper {
         }
         return AppPreferences(
             iconStyle = iconStyle,
-            tempUnit = tempUnitFromPref(tempUnitPref),
+            tempUnit = tempUnit,
+            windUnit = windUnit,
             showWeather = getWeatherPreference(context),
         )
     }
@@ -234,6 +247,12 @@ object PreferencesHelper {
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
+    private fun getWindUnitPreference(context: Context): WindUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WIND_UNIT_LIST, null)
+        return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
+    }
+
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_AUX_DISPLAY_LIST, null)
@@ -277,6 +296,23 @@ object PreferencesHelper {
             }
             TempUnitPref.CELSIUS -> TempUnit.CELSIUS
             TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
+        }
+    }
+
+    private fun windUnitFromPref(windUnitPref: WindUnitPref, tempUnit: TempUnit): WindUnit {
+        return when (windUnitPref) {
+            WindUnitPref.AUTO -> {
+                val units = LocaleData.getMeasurementSystem(ULocale.getDefault())
+                when (units) {
+                    LocaleData.MeasurementSystem.UK -> WindUnit.MPH
+                    LocaleData.MeasurementSystem.US ->
+                        if (tempUnit == TempUnit.FAHRENHEIT) WindUnit.MPH else WindUnit.KMH
+
+                    else -> WindUnit.KMH
+                }
+            }
+            WindUnitPref.KMH -> WindUnit.KMH
+            WindUnitPref.MPH -> WindUnit.MPH
         }
     }
 }
