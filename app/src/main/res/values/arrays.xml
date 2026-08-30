@@ -52,13 +52,15 @@
     </array>
 
     <array name="aux_views">
-        <item>@string/config_aux_view_nothing</item>
+        <item>@string/config_aux_view_place_condition</item>
         <item>@string/config_aux_view_update_time</item>
+        <item>@string/config_aux_view_nothing</item>
     </array>
 
     <array name="aux_views_vals">
-        <item>aux_view_nothing</item>
+        <item>aux_view_place_condition</item>
         <item>aux_view_update_time</item>
+        <item>aux_view_nothing</item>
     </array>
 
     <array name="weather_apps">

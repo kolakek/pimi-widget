@@ -44,6 +44,7 @@ internal const val KEY_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
 internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
 internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
 internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
+internal const val KEY_DISPLAY_PLACE_CONDITION = "aux_view_place_condition"
 
 internal const val KEY_BIRTHDAY_SWITCH = "birthday_switch"
 internal const val KEY_ALARM_SWITCH = "alarm_switch"

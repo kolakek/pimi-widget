@@ -44,8 +44,6 @@ object WeatherUpdater {
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         weatherData?.let { data ->
-            val nowTimeMillis = System.currentTimeMillis()
-
             WeatherRenderer.currentWeather(
                 context,
                 data,
@@ -68,12 +66,12 @@ object WeatherUpdater {
                     }
                 }
                 if (auxStr == null && prefs.showDailyForecast) {
-                    WeatherRenderer.forecastString(context, nowTimeMillis, data, prefs)?.let {
+                    WeatherRenderer.forecastString(context, data, prefs)?.let {
                         auxStr = it
                     }
                 }
                 if (auxStr == null) {
-                    WeatherRenderer.auxString(context, nowTimeMillis, prefs)?.let {
+                    WeatherRenderer.auxString(context, data, prefs)?.let {
                         auxStr = it
                     }
                 }

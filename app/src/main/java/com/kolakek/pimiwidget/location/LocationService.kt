@@ -31,6 +31,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
 import java.util.Locale
 import kotlin.coroutines.cancellation.CancellationException
+import kotlin.math.abs
 import kotlin.time.Duration.Companion.milliseconds
 
 object LocationService {
@@ -114,7 +115,12 @@ object LocationService {
         context: Context,
         location: Location
     ): String {
-        val coordinates = "%.5f,%.5f".format(location.latitude, location.longitude)
+        val latDir = if (location.latitude >= 0) "N" else "S"
+        val lonDir = if (location.longitude >= 0) "E" else "W"
+        val coordinates = "%.2f°%s, %.2f°%s".format(
+            abs(location.latitude), latDir,
+            abs(location.longitude), lonDir
+        )
         return try {
             withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
                 suspendCancellableCoroutine { cont ->

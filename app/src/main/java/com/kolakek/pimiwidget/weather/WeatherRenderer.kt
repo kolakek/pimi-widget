@@ -174,10 +174,10 @@ object WeatherRenderer {
 
     fun forecastString(
         context: Context,
-        nowTimeMillis: Long,
         weather: WeatherData,
         prefs: WidgetPreferences
     ): String? {
+        val nowTimeMillis = System.currentTimeMillis()
 
         val zone = ZoneId.systemDefault()
         val zoned = Instant.ofEpochMilli(nowTimeMillis).atZone(zone)
@@ -279,7 +279,7 @@ object WeatherRenderer {
 
     fun auxString(
         context: Context,
-        nowTimeMillis: Long,
+        weather: WeatherData,
         prefs: WidgetPreferences
     ): String? {
         return when (prefs.auxDisplay) {
@@ -287,8 +287,14 @@ object WeatherRenderer {
             AuxDisplay.NOTHING -> null
 
             AuxDisplay.UPDATE_TIME -> {
+                val nowTimeMillis = System.currentTimeMillis()
                 val str = DateFormat.getTimeFormat(context).format(Date(nowTimeMillis))
                 context.getString(R.string.widget_updated_at) + " $str"
+            }
+
+            AuxDisplay.PLACE_CONDITION -> {
+                if (weather.place.first().isDigit()) return null
+                weather.place + " · " + currentConditionString(context, weather)
             }
         }
     }

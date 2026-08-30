@@ -59,6 +59,17 @@ object MigrateApp {
                 true
             )
         }
+        if (previousVersionCode < 23) {
+            val widgetStyleSolid = PreferencesHelper.WidgetStylePref.SOLID
+            val auxDisplayPlace = PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
+            val auxDisplayNothing = PreferencesHelper.AuxDisplayPref.NOTHING
+
+            if (PreferencesHelper.getWidgetStylePreference(context) == widgetStyleSolid) {
+                PreferencesHelper.setAuxDisplayPreference(context, auxDisplayPlace)
+            } else {
+                PreferencesHelper.setAuxDisplayPreference(context, auxDisplayNothing)
+            }
+        }
         storeCurrentVersionCode(context)
 
         WidgetUpdater.updateWidgets(context)

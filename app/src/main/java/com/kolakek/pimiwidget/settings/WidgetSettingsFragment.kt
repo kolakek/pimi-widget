@@ -143,9 +143,20 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             true
         }
-        widgetStyleList?.setOnPreferenceChangeListener { _, _ ->
+        widgetStyleList?.setOnPreferenceChangeListener { _, newValue ->
             PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
             PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
+            if (newValue == KEY_WIDGET_STYLE_SOLID) {
+                PreferencesHelper.setAuxDisplayPreference(
+                    context,
+                    PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
+                )
+            } else {
+                PreferencesHelper.setAuxDisplayPreference(
+                    context,
+                    PreferencesHelper.AuxDisplayPref.NOTHING
+                )
+            }
             true
         }
         handleWeatherAppPreference(context)

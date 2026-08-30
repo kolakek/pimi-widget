@@ -52,6 +52,7 @@ object PreferencesHelper {
     enum class AuxDisplayPref(val key: String) {
         NOTHING(KEY_DISPLAY_NOTHING),
         UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
+        PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION)
     }
 
     fun getAppPreferences(context: Context): AppPreferences {
@@ -107,6 +108,7 @@ object PreferencesHelper {
         }
         val auxDisplay = when (auxDisplayPref) {
             AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
+            AuxDisplayPref.PLACE_CONDITION -> AuxDisplay.PLACE_CONDITION
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
         }
 
@@ -235,7 +237,7 @@ object PreferencesHelper {
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_AUX_DISPLAY_LIST, null)
-        return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.NOTHING
+        return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.PLACE_CONDITION
     }
 
     private fun getLocationFallbackPreference(context: Context): Boolean {
