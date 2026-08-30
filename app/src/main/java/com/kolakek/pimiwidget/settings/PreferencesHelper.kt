@@ -57,7 +57,6 @@ object PreferencesHelper {
     fun getAppPreferences(context: Context): AppPreferences {
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
-        val auxDisplayPref = getAuxDisplayPreference(context)
 
         val iconStyle = when (iconStylePref) {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
@@ -66,7 +65,6 @@ object PreferencesHelper {
         return AppPreferences(
             iconStyle = iconStyle,
             tempUnit = tempUnitFromPref(tempUnitPref),
-            showDataTime = auxDisplayPref == AuxDisplayPref.UPDATE_TIME,
             showWeather = getWeatherPreference(context),
         )
     }

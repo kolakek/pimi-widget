@@ -38,12 +38,10 @@ data class DisplayData (
     val currentHumidity: WeatherItem?,
     val currentPressure: WeatherItem?,
     val currentUvIndex: WeatherItem?,
-    val place: String,
-    val timeMillis: Long
+    val place: String
 ) {
     fun isValid(): Boolean {
-        return currentWeather != null
-        // todo more checks
+        return currentWeather != null && hourlyWeather.size >= 5 && dailyWeather.size >= 3
     }
 
     companion object {
@@ -116,9 +114,7 @@ data class DisplayData (
                 currentHumidity = currentHumidity,
                 currentPressure = currentPressure,
                 currentUvIndex = currentUvIndex,
-                place = weather.place,
-                timeMillis = weather.timeMillis
-            )
+                place = weather.place)
         }
     }
 }

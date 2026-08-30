@@ -40,10 +40,7 @@ import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
-import java.time.Instant
-import java.time.ZoneId
 import kotlinx.coroutines.launch
-import java.time.format.DateTimeFormatter
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -83,7 +80,7 @@ class WeatherActivity : AppCompatActivity() {
                         binding.content.visibility = View.GONE
                         binding.noData.visibility = View.VISIBLE
                     } else {
-                        displayInfo(displayData, prefs)
+                        displayPlace(displayData)
                         displayCurrentWeather(displayData)
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
@@ -118,22 +115,7 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayInfo(data: DisplayData, prefs: AppPreferences) {
-        if (prefs.showDataTime) {
-            val updateTimeStr = Instant.ofEpochMilli(data.timeMillis)
-                .atZone(ZoneId.systemDefault())
-                .format(DateTimeFormatter.ofPattern("HH:mm"))
-            binding.dataRefreshTime.text = updateTimeStr
-            binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_data_refresh,
-                0,
-                0,
-                0
-            )
-        } else {
-            binding.dataRefreshTime.text = null
-            binding.dataRefreshTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-        }
+    private fun displayPlace(data: DisplayData) {
         binding.placeName.text = data.place
     }
 
