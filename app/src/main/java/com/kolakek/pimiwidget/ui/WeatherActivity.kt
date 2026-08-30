@@ -38,6 +38,7 @@ import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherItem
+import com.kolakek.pimiwidget.widget.WidgetUpdater
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
@@ -91,6 +92,12 @@ class WeatherActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val prefs = PreferencesHelper.getWidgetPreferences(this)
+        WidgetUpdater.refreshWeather(this, prefs, viewModel.weatherData.value)
     }
 
     private fun displayNoDataInfo(prefs: AppPreferences) {
