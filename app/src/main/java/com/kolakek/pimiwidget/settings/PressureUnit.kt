@@ -17,10 +17,6 @@
 
 package com.kolakek.pimiwidget.settings
 
-data class AppPreferences (
-    val iconStyle: IconStyle,
-    val tempUnit: TempUnit,
-    val windUnit: WindUnit,
-    val pressureUnit: PressureUnit,
-    val showWeather: Boolean
-)
+enum class PressureUnit {
+    HPA, MB, INHG
+}

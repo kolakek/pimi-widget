@@ -28,6 +28,7 @@ import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.AuxDisplay
 import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.settings.IconStyle
+import com.kolakek.pimiwidget.settings.PressureUnit
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WindUnit
@@ -150,16 +151,27 @@ object WeatherRenderer {
 
     fun currentPressure(
         context: Context,
-        weather: WeatherData
+        weather: WeatherData,
+        pressureUnit: PressureUnit
     ): WeatherItem? {
-        val pressure = weather.currentPressureHpa() ?: return null
+        val pressureHpa = weather.currentPressureHpa() ?: return null
 
+        val unitStr = when (pressureUnit) {
+            PressureUnit.HPA -> context.getString(R.string.hpa)
+            PressureUnit.MB -> context.getString(R.string.mb)
+            PressureUnit.INHG -> context.getString(R.string.inhg)
+        }
+        val pressureStr = if (pressureUnit == PressureUnit.INHG) {
+            String.format(Locale.getDefault(), "%.1f", pressureHpa * 0.02953)
+        } else {
+            String.format(Locale.getDefault(), "%,.0f", pressureHpa)
+        }
         return WeatherItem(
-            valueStr = String.format(Locale.getDefault(), "%,.0f", pressure),
-            unitStr = context.getString(R.string.hPa),
+            valueStr = pressureStr,
+            unitStr = unitStr,
             auxStr = "",
-            iconId = ConditionIcon.getPressureIconId(pressure),
-            level = pressure
+            iconId = ConditionIcon.getPressureIconId(pressureHpa),
+            level = pressureHpa
         )
     }
 

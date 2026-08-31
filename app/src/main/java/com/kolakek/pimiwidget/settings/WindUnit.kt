@@ -18,6 +18,5 @@
 package com.kolakek.pimiwidget.settings
 
 enum class WindUnit {
-    KMH,
-    MPH
+    KMH, MPH
 }

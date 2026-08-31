@@ -98,7 +98,8 @@ data class DisplayData (
             )
             val currentPressure = WeatherRenderer.currentPressure(
                 context,
-                weather
+                weather,
+                prefs.pressureUnit
             )
             val currentUvIndex = WeatherRenderer.currentUvIndex(
                 context,

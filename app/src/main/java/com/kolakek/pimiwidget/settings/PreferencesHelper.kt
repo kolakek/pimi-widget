@@ -75,6 +75,7 @@ object PreferencesHelper {
             iconStyle = iconStyle,
             tempUnit = tempUnitFromPref(tempUnitPref),
             windUnit = windUnitFromPref(systemUnitPref),
+            pressureUnit = pressureUnitFromPref(systemUnitPref),
             showWeather = getWeatherPreference(context),
         )
     }
@@ -309,6 +310,22 @@ object PreferencesHelper {
 
             SystemUnitPref.METRIC -> WindUnit.KMH
             SystemUnitPref.US, SystemUnitPref.UK -> WindUnit.MPH
+        }
+    }
+
+    private fun pressureUnitFromPref(systemUnitPref: SystemUnitPref): PressureUnit {
+        return when (systemUnitPref) {
+            SystemUnitPref.AUTO -> {
+                when (UnitSystem.fromLocale()) {
+                    UnitSystem.US -> PressureUnit.INHG
+                    UnitSystem.UK -> PressureUnit.MB
+                    UnitSystem.METRIC -> PressureUnit.HPA
+                }
+            }
+
+            SystemUnitPref.US -> PressureUnit.INHG
+            SystemUnitPref.UK -> PressureUnit.MB
+            SystemUnitPref.METRIC -> PressureUnit.HPA
         }
     }
 }
