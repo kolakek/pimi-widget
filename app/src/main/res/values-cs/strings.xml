@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Není v seznamu</string>
     <string name="config_weather_app_nil_alert_message">Chcete-li přidat svou aplikaci počasí, otevřete issue na GitHubu.</string>
     <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
+    <string name="config_section_settings_units">Jednotky</string>
+    <string name="config_unit_system">Soustava jednotek</string>
+    <string name="config_unit_metric">Metrická</string>
+    <string name="config_unit_us">Spojené státy</string>
+    <string name="config_unit_uk">Spojené království</string>
+    <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
+
+    <string name="app_text_now">Teď</string>
+    <string name="app_text_hourly_forecast">Hodinová předpověď</string>
+    <string name="app_text_daily_forecast">Denní předpověď</string>
+    <string name="app_text_current_conditions">Aktuální podmínky</string>
+    <string name="app_text_feels_like">pocitová teplota</string>
+    <string name="app_text_max_temp">nejvyšší</string>
+    <string name="app_text_min_temp">nejnižší</string>
+    <string name="app_text_pressure_high">vysoký</string>
+    <string name="app_text_pressure_low">nízký</string>
+    <string name="app_text_title_wind">vítr</string>
+    <string name="app_text_gusts">nárazy</string>
+    <string name="app_text_dew_point">rosný bod</string>
+    <string name="app_text_humidity">vlhkost</string>
+    <string name="app_text_clear_sky">jasno</string>
+    <string name="app_text_uv_index">UV index</string>
+    <string name="app_text_pressure">tlak</string>
+    <string name="app_text_no_data">Žádná data o počasí nejsou k dispozici</string>
+    <string name="app_text_weather_off">Počasí vypnuto</string>
+    <string name="app_text_enable_in_settings">Zapni počasí v nastavení widgetu</string>
+    <string name="app_text_check_connection">Zkontroluj své internetové připojení a zkus to znovu</string>
+    <string name="app_button_try_again">Zkusit znovu</string>
+    <string name="app_button_settings">Nastavení widgetu</string>
 
     <string name="widget_label">Datum, počasí a další</string>
     <string name="widget_date_prev">út 28. 10.</string>

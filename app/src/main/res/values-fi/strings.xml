@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Ei listalla</string>
     <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi lisättävän, avaa issue GitHubissa.</string>
     <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
+    <string name="config_section_settings_units">Yksiköt</string>
+    <string name="config_unit_system">Yksikköjärjestelmä</string>
+    <string name="config_unit_metric">Metrinen</string>
+    <string name="config_unit_us">Yhdysvallat</string>
+    <string name="config_unit_uk">Yhdistynyt kuningaskunta</string>
+    <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
+
+    <string name="app_text_now">Nyt</string>
+    <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>
+    <string name="app_text_daily_forecast">Päivittäinen sääennuste</string>
+    <string name="app_text_current_conditions">Sääolosuhteet nyt</string>
+    <string name="app_text_feels_like">tuntuu kuin</string>
+    <string name="app_text_max_temp">ylin</string>
+    <string name="app_text_min_temp">alin</string>
+    <string name="app_text_pressure_high">korkea</string>
+    <string name="app_text_pressure_low">matala</string>
+    <string name="app_text_title_wind">tuuli</string>
+    <string name="app_text_gusts">puuskat</string>
+    <string name="app_text_dew_point">kastepiste</string>
+    <string name="app_text_humidity">kosteus</string>
+    <string name="app_text_clear_sky">selkeää</string>
+    <string name="app_text_uv_index">UV-indeksi</string>
+    <string name="app_text_pressure">paine</string>
+    <string name="app_text_no_data">Säätietoja ei ole saatavilla</string>
+    <string name="app_text_weather_off">Sää poistettu käytöstä</string>
+    <string name="app_text_enable_in_settings">Ota sää käyttöön widgetin asetuksissa</string>
+    <string name="app_text_check_connection">Tarkista internetyhteytesi ja yritä uudelleen</string>
+    <string name="app_button_try_again">Yritä uudelleen</string>
+    <string name="app_button_settings">Widgetin asetukset</string>
 
     <string name="widget_label">Päivämäärä, sää ja muuta</string>
     <string name="widget_date_prev">la 6.12.</string>

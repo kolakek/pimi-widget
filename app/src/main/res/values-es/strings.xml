@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">No incluida</string>
     <string name="config_weather_app_nil_alert_message">Para añadir tu aplicación del tiempo, abre un issue en GitHub.</string>
     <string name="config_weather_app_alert_button_github">Abrir GitHub</string>
+    <string name="config_section_settings_units">Unidades</string>
+    <string name="config_unit_system">Sistema de unidades</string>
+    <string name="config_unit_metric">Métrico</string>
+    <string name="config_unit_us">Estados Unidos</string>
+    <string name="config_unit_uk">Reino Unido</string>
+    <string name="config_aux_view_place_condition">Lugar &amp; tiempo</string>
+
+    <string name="app_text_now">Ahora</string>
+    <string name="app_text_hourly_forecast">Previsión por horas</string>
+    <string name="app_text_daily_forecast">Previsión diaria</string>
+    <string name="app_text_current_conditions">Tiempo actual</string>
+    <string name="app_text_feels_like">sensación térmica</string>
+    <string name="app_text_max_temp">máxima</string>
+    <string name="app_text_min_temp">mínima</string>
+    <string name="app_text_pressure_high">alta</string>
+    <string name="app_text_pressure_low">baja</string>
+    <string name="app_text_title_wind">viento</string>
+    <string name="app_text_gusts">ráfagas</string>
+    <string name="app_text_dew_point">punto de rocío</string>
+    <string name="app_text_humidity">humedad</string>
+    <string name="app_text_clear_sky">despejado</string>
+    <string name="app_text_uv_index">índice UV</string>
+    <string name="app_text_pressure">presión</string>
+    <string name="app_text_no_data">No hay datos meteorológicos disponibles</string>
+    <string name="app_text_weather_off">Tiempo desactivado</string>
+    <string name="app_text_enable_in_settings">Activa el tiempo en los ajustes del widget</string>
+    <string name="app_text_check_connection">Comprueba tu conexión a internet e inténtalo de nuevo</string>
+    <string name="app_button_try_again">Intentar de nuevo</string>
+    <string name="app_button_settings">Ajustes del widget</string>
 
     <string name="widget_label">Fecha, clima y más</string>
     <string name="widget_date_prev">sáb, 12 oct</string>

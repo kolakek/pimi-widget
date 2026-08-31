@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Δεν περιλαμβάνεται</string>
     <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
     <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
+    <string name="config_section_settings_units">Μονάδες</string>
+    <string name="config_unit_system">Σύστημα μονάδων</string>
+    <string name="config_unit_metric">Μετρικό</string>
+    <string name="config_unit_us">Ηνωμένες Πολιτείες</string>
+    <string name="config_unit_uk">Ηνωμένο Βασίλειο</string>
+    <string name="config_aux_view_place_condition">Τοποθεσία &amp; καιρός</string>
+
+    <string name="app_text_now">Τώρα</string>
+    <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>
+    <string name="app_text_daily_forecast">Ημερήσια πρόγνωση</string>
+    <string name="app_text_current_conditions">Τρέχουσες συνθήκες</string>
+    <string name="app_text_feels_like">αίσθηση θερμοκρασίας</string>
+    <string name="app_text_max_temp">υψηλότερη</string>
+    <string name="app_text_min_temp">χαμηλότερη</string>
+    <string name="app_text_pressure_high">υψηλή</string>
+    <string name="app_text_pressure_low">χαμηλή</string>
+    <string name="app_text_title_wind">άνεμος</string>
+    <string name="app_text_gusts">ριπές</string>
+    <string name="app_text_dew_point">σημείο δρόσου</string>
+    <string name="app_text_humidity">υγρασία</string>
+    <string name="app_text_clear_sky">αίθριος</string>
+    <string name="app_text_uv_index">δείκτης UV</string>
+    <string name="app_text_pressure">ατμοσφαιρική πίεση</string>
+    <string name="app_text_no_data">Δεν υπάρχουν διαθέσιμα δεδομένα καιρού</string>
+    <string name="app_text_weather_off">Ο καιρός είναι απενεργοποιημένος</string>
+    <string name="app_text_enable_in_settings">Ενεργοποίησε τον καιρό στις ρυθμίσεις του widget</string>
+    <string name="app_text_check_connection">Έλεγξε τη σύνδεσή σου στο διαδίκτυο και δοκίμασε ξανά</string>
+    <string name="app_button_try_again">Δοκίμασε ξανά</string>
+    <string name="app_button_settings">Ρυθμίσεις widget</string>
 
     <string name="widget_label">Ημερομηνία, καιρός και άλλα</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>

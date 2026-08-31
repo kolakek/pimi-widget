@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Nicht aufgeführt</string>
     <string name="config_weather_app_nil_alert_message">Damit deine Wetter-App aufgenommen wird, erstelle ein Issue auf GitHub.</string>
     <string name="config_weather_app_alert_button_github">GitHub öffnen</string>
+    <string name="config_section_settings_units">Einheiten</string>
+    <string name="config_unit_system">Einheitensystem</string>
+    <string name="config_unit_metric">Metrisch</string>
+    <string name="config_unit_us">Vereinigte Staaten</string>
+    <string name="config_unit_uk">Vereinigtes Königreich</string>
+    <string name="config_aux_view_place_condition">Ort &amp; Wetter</string>
+
+    <string name="app_text_now">Jetzt</string>
+    <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>
+    <string name="app_text_daily_forecast">Tagesvorhersage</string>
+    <string name="app_text_current_conditions">Aktuelle Wetterlage</string>
+    <string name="app_text_feels_like">Gefühlte Temperatur</string>
+    <string name="app_text_pressure_high">Hoch</string>
+    <string name="app_text_pressure_low">Niedrig</string>
+    <string name="app_text_max_temp">Höchstwert</string>
+    <string name="app_text_min_temp">Tiefstwert</string>
+    <string name="app_text_title_wind">Wind</string>
+    <string name="app_text_gusts">Böen</string>
+    <string name="app_text_dew_point">Taupunkt</string>
+    <string name="app_text_humidity">Luftfeuchtigkeit</string>
+    <string name="app_text_clear_sky">Wolkenlos</string>
+    <string name="app_text_uv_index">UV-Index</string>
+    <string name="app_text_pressure">Luftdruck</string>
+    <string name="app_text_no_data">Keine Wetterdaten verfügbar</string>
+    <string name="app_text_weather_off">Wetter deaktiviert</string>
+    <string name="app_text_enable_in_settings">Aktiviere die Wetterfunktion in den Widget-Einstellungen</string>
+    <string name="app_text_check_connection">Überprüfe deine Internetverbindung und versuche es erneut</string>
+    <string name="app_button_try_again">Erneut versuchen</string>
+    <string name="app_button_settings">Widget-Einstellungen</string>
 
     <string name="widget_label">Datum, Wetter &amp; mehr</string>
     <string name="widget_date_prev">So., 3. Oct.</string>

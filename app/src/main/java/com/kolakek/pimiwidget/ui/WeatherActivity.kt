@@ -168,8 +168,8 @@ class WeatherActivity : AppCompatActivity() {
         bindConditionItem(
             binding.currentPressure,
             getString(R.string.app_text_pressure),
-            getString(R.string.app_text_high),
-            getString(R.string.app_text_low),
+            getString(R.string.app_text_pressure_high),
+            getString(R.string.app_text_pressure_low),
             data.currentPressure,
             useUnitAsDescr = true
         )

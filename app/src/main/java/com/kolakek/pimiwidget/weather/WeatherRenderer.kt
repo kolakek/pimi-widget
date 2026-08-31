@@ -243,8 +243,8 @@ object WeatherRenderer {
         val minTempStr = temperatureString(context, minTemp, tempUnit, false)
         val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
 
-        return context.getString(R.string.app_text_high) + " " + maxTempStr + " · " +
-                context.getString(R.string.app_text_low) + " " + minTempStr
+        return context.getString(R.string.app_text_max_temp) + " " + maxTempStr + " · " +
+                context.getString(R.string.app_text_min_temp) + " " + minTempStr
     }
 
     fun hourlyWeather(

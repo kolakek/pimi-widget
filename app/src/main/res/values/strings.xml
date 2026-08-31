@@ -79,8 +79,10 @@
     <string name="app_text_daily_forecast">Daily forecast</string>
     <string name="app_text_current_conditions">Current conditions</string>
     <string name="app_text_feels_like">Feels like</string>
-    <string name="app_text_high">High</string>
-    <string name="app_text_low">Low</string>
+    <string name="app_text_pressure_high">High</string>
+    <string name="app_text_pressure_low">Low</string>
+    <string name="app_text_max_temp">High</string>
+    <string name="app_text_min_temp">Low</string>
     <string name="app_text_title_wind">Wind</string>
     <string name="app_text_gusts">Gusts</string>
     <string name="app_text_dew_point">Dew point</string>
