@@ -20,8 +20,6 @@ package com.kolakek.pimiwidget.settings
 import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
-import android.icu.util.LocaleData
-import android.icu.util.ULocale
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
@@ -45,10 +43,11 @@ object PreferencesHelper {
         FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
     }
 
-    enum class WindUnitPref(val key: String) {
-        AUTO(KEY_WIND_UNIT_AUTO),
-        KMH(KEY_WIND_UNIT_KMH),
-        MPH(KEY_WIND_UNIT_MPH)
+    enum class SystemUnitPref(val key: String) {
+        AUTO(KEY_SYSTEM_UNIT_AUTO),
+        METRIC(KEY_SYSTEM_UNIT_METRIC),
+        US(KEY_SYSTEM_UNIT_US),
+        UK(KEY_SYSTEM_UNIT_UK)
     }
 
     enum class ColorPref(val key: String) {
@@ -66,10 +65,7 @@ object PreferencesHelper {
     fun getAppPreferences(context: Context): AppPreferences {
         val iconStylePref = getIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
-        val windUnitPref = getWindUnitPreference(context)
-
-        val tempUnit = tempUnitFromPref(tempUnitPref)
-        val windUnit = windUnitFromPref(windUnitPref, tempUnit)
+        val systemUnitPref = getSystemUnitPreference(context)
 
         val iconStyle = when (iconStylePref) {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
@@ -77,8 +73,8 @@ object PreferencesHelper {
         }
         return AppPreferences(
             iconStyle = iconStyle,
-            tempUnit = tempUnit,
-            windUnit = windUnit,
+            tempUnit = tempUnitFromPref(tempUnitPref),
+            windUnit = windUnitFromPref(systemUnitPref),
             showWeather = getWeatherPreference(context),
         )
     }
@@ -97,6 +93,7 @@ object PreferencesHelper {
                 WidgetStylePref.CLASSIC -> getTextColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.DYNAMIC
             }
+
             ColorPref.DARK -> TextColor.DARK
             ColorPref.LIGHT -> TextColor.LIGHT
         }
@@ -247,10 +244,10 @@ object PreferencesHelper {
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
-    private fun getWindUnitPreference(context: Context): WindUnitPref {
+    private fun getSystemUnitPreference(context: Context): SystemUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WIND_UNIT_LIST, null)
-        return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
+            .getString(KEY_SYSTEM_UNIT_LIST, null)
+        return SystemUnitPref.entries.find { it.key == key } ?: SystemUnitPref.AUTO
     }
 
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
@@ -288,31 +285,30 @@ object PreferencesHelper {
         return when (tempUnitPref) {
             TempUnitPref.AUTO -> {
                 if (LocalePreferences.getTemperatureUnit()
-                    == LocalePreferences.TemperatureUnit.CELSIUS) {
+                    == LocalePreferences.TemperatureUnit.CELSIUS
+                ) {
                     TempUnit.CELSIUS
                 } else {
                     TempUnit.FAHRENHEIT
                 }
             }
+
             TempUnitPref.CELSIUS -> TempUnit.CELSIUS
             TempUnitPref.FAHRENHEIT -> TempUnit.FAHRENHEIT
         }
     }
 
-    private fun windUnitFromPref(windUnitPref: WindUnitPref, tempUnit: TempUnit): WindUnit {
-        return when (windUnitPref) {
-            WindUnitPref.AUTO -> {
-                val units = LocaleData.getMeasurementSystem(ULocale.getDefault())
-                when (units) {
-                    LocaleData.MeasurementSystem.UK -> WindUnit.MPH
-                    LocaleData.MeasurementSystem.US ->
-                        if (tempUnit == TempUnit.FAHRENHEIT) WindUnit.MPH else WindUnit.KMH
-
-                    else -> WindUnit.KMH
+    private fun windUnitFromPref(systemUnitPref: SystemUnitPref): WindUnit {
+        return when (systemUnitPref) {
+            SystemUnitPref.AUTO -> {
+                when (UnitSystem.fromLocale()) {
+                    UnitSystem.US, UnitSystem.UK -> WindUnit.MPH
+                    UnitSystem.METRIC -> WindUnit.KMH
                 }
             }
-            WindUnitPref.KMH -> WindUnit.KMH
-            WindUnitPref.MPH -> WindUnit.MPH
+
+            SystemUnitPref.METRIC -> WindUnit.KMH
+            SystemUnitPref.US, SystemUnitPref.UK -> WindUnit.MPH
         }
     }
 }

@@ -3,8 +3,8 @@
 
     <array name="temp_units">
         <item>@string/config_option_follow_system</item>
-        <item>@string/celsius</item>
-        <item>@string/fahrenheit</item>
+        <item>@string/config_temp_celsius</item>
+        <item>@string/config_temp_fahrenheit</item>
     </array>
 
     <array name="temp_units_vals">
@@ -13,16 +13,18 @@
         <item>temp_unit_fahrenheit</item>
     </array>
 
-    <array name="wind_units">
+    <array name="system_units">
         <item>@string/config_option_follow_system</item>
-        <item>@string/kmh</item>
-        <item>@string/mph</item>
+        <item>@string/config_unit_metric</item>
+        <item>@string/config_unit_us</item>
+        <item>@string/config_unit_uk</item>
     </array>
 
-    <array name="wind_units_vals">
-        <item>wind_unit_auto</item>
-        <item>wind_unit_kmh</item>
-        <item>wind_unit_mph</item>
+    <array name="system_units_vals">
+        <item>system_unit_auto</item>
+        <item>system_unit_metric</item>
+        <item>system_unit_us</item>
+        <item>system_unit_uk</item>
     </array>
 
     <array name="colors">

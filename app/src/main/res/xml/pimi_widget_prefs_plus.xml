@@ -71,11 +71,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="wind_unit_auto"
-            android:entries="@array/wind_units"
-            android:entryValues="@array/wind_units_vals"
-            android:key="wind_unit_list"
-            android:title="@string/config_wind_speed"
+            android:defaultValue="system_unit_auto"
+            android:entries="@array/system_units"
+            android:entryValues="@array/system_units_vals"
+            android:key="system_unit_list"
+            android:title="@string/config_unit_system"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
