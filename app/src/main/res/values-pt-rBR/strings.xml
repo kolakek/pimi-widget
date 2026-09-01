@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automático</string>
     <string name="config_option_follow_system">Padrão do sistema</string>
     <string name="config_temp">Temperatura</string>
-    <string name="config_section_features">Num relance</string>
+    <string name="config_section_features">Resumo</string>
     <string name="config_section_weather">Configurações de clima</string>
     <string name="config_section_settings_plus">Configurações adicionais</string>
     <string name="config_section_about">Sobre</string>

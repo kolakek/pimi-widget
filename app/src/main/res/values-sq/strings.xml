@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automatike</string>
     <string name="config_option_follow_system">Parazgjedhja e sistemit</string>
     <string name="config_temp">Temperatura</string>
-    <string name="config_section_features">Me një shikim</string>
+    <string name="config_section_features">Shkurtimisht</string>
     <string name="config_section_weather">Cilësimet e motit</string>
     <string name="config_section_settings_plus">Cilësime shtesë</string>
     <string name="config_section_about">Rreth</string>

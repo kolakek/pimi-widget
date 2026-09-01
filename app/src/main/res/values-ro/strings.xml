@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automat</string>
     <string name="config_option_follow_system">Implicit de sistem</string>
     <string name="config_temp">Temperatură</string>
-    <string name="config_section_features">Dintr-o privire</string>
+    <string name="config_section_features">Pe scurt</string>
     <string name="config_section_weather">Setări meteo</string>
     <string name="config_section_settings_plus">Setări suplimentare</string>
     <string name="config_section_about">Despre</string>

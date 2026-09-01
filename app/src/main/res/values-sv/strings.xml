@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automatisk</string>
     <string name="config_option_follow_system">Systemstandard</string>
     <string name="config_temp">Temperatur</string>
-    <string name="config_section_features">En överblick</string>
+    <string name="config_section_features">Snabböversikt</string>
     <string name="config_section_weather">Väderinställningar</string>
     <string name="config_section_settings_plus">Ytterligare inställningar</string>
     <string name="config_section_about">Om</string>

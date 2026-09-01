@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automatisch</string>
     <string name="config_option_follow_system">Systeemstandaard</string>
     <string name="config_temp">Temperatuur</string>
-    <string name="config_section_features">In één oogopslag</string>
+    <string name="config_section_features">Snel overzicht</string>
     <string name="config_section_weather">Weerinstellingen</string>
     <string name="config_section_settings_plus">Aanvullende instellingen</string>
     <string name="config_section_about">Over</string>

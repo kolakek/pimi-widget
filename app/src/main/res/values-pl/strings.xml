@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automatyczny</string>
     <string name="config_option_follow_system">Domyślne ustawienie systemu</string>
     <string name="config_temp">Temperatura</string>
-    <string name="config_section_features">Przegląd</string>
+    <string name="config_section_features">Szybki podgląd</string>
     <string name="config_section_weather">Ustawienia pogody</string>
     <string name="config_section_settings_plus">Dodatkowe ustawienia</string>
     <string name="config_section_about">O aplikacji</string>

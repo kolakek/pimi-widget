@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automatico</string>
     <string name="config_option_follow_system">Predefinita di sistema</string>
     <string name="config_temp">Temperatura</string>
-    <string name="config_section_features">A colpo d\'occhio</string>
+    <string name="config_section_features">Riepilogo</string>
     <string name="config_section_weather">Impostazioni meteo</string>
     <string name="config_section_settings_plus">Impostazioni aggiuntive</string>
     <string name="config_section_about">Informazioni</string>

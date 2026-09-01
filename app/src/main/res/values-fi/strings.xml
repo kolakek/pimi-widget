@@ -35,7 +35,7 @@
     <string name="config_option_auto">Automaattinen</string>
     <string name="config_option_follow_system">Järjestelmän oletus</string>
     <string name="config_temp">Lämpötila</string>
-    <string name="config_section_features">Yhdellä silmäyksellä</string>
+    <string name="config_section_features">Pikanäkymä</string>
     <string name="config_section_weather">Sääasetukset</string>
     <string name="config_section_settings_plus">Lisäasetukset</string>
     <string name="config_section_about">Tietoa</string>

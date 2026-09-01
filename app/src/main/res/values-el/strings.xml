@@ -70,8 +70,8 @@
     <string name="app_text_daily_forecast">Ημερήσια πρόγνωση</string>
     <string name="app_text_current_conditions">Τρέχουσες συνθήκες</string>
     <string name="app_text_feels_like">αίσθηση θερμοκρασίας</string>
-    <string name="app_text_max_temp">υψηλότερη</string>
-    <string name="app_text_min_temp">χαμηλότερη</string>
+    <string name="app_text_max_temp">υψηλή</string>
+    <string name="app_text_min_temp">χαμηλή</string>
     <string name="app_text_pressure_high">υψηλή</string>
     <string name="app_text_pressure_low">χαμηλή</string>
     <string name="app_text_title_wind">άνεμος</string>
