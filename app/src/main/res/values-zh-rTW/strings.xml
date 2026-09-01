@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">其他</string>
     <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報。</string>
     <string name="config_weather_app_alert_button_github">前往 GitHub</string>
+    <string name="config_section_settings_units">單位</string>
+    <string name="config_unit_system">單位制</string>
+    <string name="config_unit_metric">公制</string>
+    <string name="config_unit_us">美國</string>
+    <string name="config_unit_uk">英國</string>
+    <string name="config_aux_view_place_condition">地點 &amp; 天氣</string>
+
+    <string name="app_text_now">現在</string>
+    <string name="app_text_hourly_forecast">逐時預報</string>
+    <string name="app_text_daily_forecast">每日預報</string>
+    <string name="app_text_current_conditions">目前天氣</string>
+    <string name="app_text_feels_like">體感溫度</string>
+    <string name="app_text_max_temp">最高溫</string>
+    <string name="app_text_min_temp">最低溫</string>
+    <string name="app_text_pressure_high">高壓</string>
+    <string name="app_text_pressure_low">低壓</string>
+    <string name="app_text_title_wind">風</string>
+    <string name="app_text_gusts">陣風</string>
+    <string name="app_text_dew_point">露點</string>
+    <string name="app_text_humidity">濕度</string>
+    <string name="app_text_clear_sky">晴朗</string>
+    <string name="app_text_uv_index">紫外線指數</string>
+    <string name="app_text_pressure">氣壓</string>
+    <string name="app_text_no_data">無可用的天氣資料</string>
+    <string name="app_text_weather_off">天氣功能已停用</string>
+    <string name="app_text_enable_in_settings">請在小工具設定中開啟天氣功能</string>
+    <string name="app_text_check_connection">請檢查你的網路連線並重試</string>
+    <string name="app_button_try_again">重試</string>
+    <string name="app_button_settings">小工具設定</string>
 
     <string name="widget_label">日期、天氣和其他</string>
     <string name="widget_date_format">EEE, MMM d</string>

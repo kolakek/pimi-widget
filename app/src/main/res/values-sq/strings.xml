@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Nuk është në listë</string>
     <string name="config_weather_app_nil_alert_message">Për të shtuar aplikacionin tënd të motit, hap një issue në GitHub.</string>
     <string name="config_weather_app_alert_button_github">Hap GitHub</string>
+    <string name="config_section_settings_units">Njësi</string>
+    <string name="config_unit_system">Sistemi i njësive</string>
+    <string name="config_unit_metric">Metrik</string>
+    <string name="config_unit_us">Shtetet e Bashkuara</string>
+    <string name="config_unit_uk">Mbretëria e Bashkuar</string>
+    <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
+
+    <string name="app_text_now">Tani</string>
+    <string name="app_text_hourly_forecast">Parashikimi i përorshem</string>
+    <string name="app_text_daily_forecast">Parashikimi ditor</string>
+    <string name="app_text_current_conditions">Kushtet aktuale</string>
+    <string name="app_text_feels_like">ndihet si</string>>
+    <string name="app_text_max_temp">e lartë</string>
+    <string name="app_text_min_temp">e ulët</string>
+    <string name="app_text_pressure_high">e lartë</string>
+    <string name="app_text_pressure_low">e ulët</string>
+    <string name="app_text_title_wind">era</string>
+    <string name="app_text_gusts">gushta</string>
+    <string name="app_text_dew_point">pika e kondensimit</string>/string>
+    <string name="app_text_humidity">lagështia</string>
+    <string name="app_text_clear_sky">qiell i kthjellët</string>
+    <string name="app_text_uv_index">indeksi UV</string>
+    <string name="app_text_pressure">trysnia</string>
+    <string name="app_text_no_data">Nuk ka të dhëna meteorologjike</string>
+    <string name="app_text_weather_off">Moti i çaktivizuar</string>
+    <string name="app_text_enable_in_settings">Aktivizo motin në cilësimet e widget-it</string>
+    <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
+    <string name="app_button_try_again">Provo përsëri</string>
+    <string name="app_button_settings">Cilësimet e widget-it</string>
 
     <string name="widget_label">Data, moti dhe të tjera</string>
     <string name="widget_date_prev">enj, 28 nën</string>

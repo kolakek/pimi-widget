@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Nu este listată</string>
     <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
     <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
+    <string name="config_section_settings_units">Unități</string>
+    <string name="config_unit_system">Sistem de unități</string>
+    <string name="config_unit_metric">Metric</string>
+    <string name="config_unit_us">Statele Unite</string>
+    <string name="config_unit_uk">Regatul Unit</string>
+    <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
+
+    <string name="app_text_now">Acum</string>
+    <string name="app_text_hourly_forecast">Prognoză pe ore</string>
+    <string name="app_text_daily_forecast">Prognoză pe zile</string>
+    <string name="app_text_current_conditions">Starea vremii în prezent</string>
+    <string name="app_text_feels_like">temperatură resimțită</string>
+    <string name="app_text_max_temp">maximă</string>
+    <string name="app_text_min_temp">minimă</string>
+    <string name="app_text_pressure_high">ridicată</string>
+    <string name="app_text_pressure_low">scăzută</string>
+    <string name="app_text_title_wind">vânt</string>
+    <string name="app_text_gusts">rafale</string>
+    <string name="app_text_dew_point">punct de rouă</string>
+    <string name="app_text_humidity">umiditate</string>
+    <string name="app_text_clear_sky">cer senin</string>
+    <string name="app_text_uv_index">index UV</string>
+    <string name="app_text_pressure">presiune</string>
+    <string name="app_text_no_data">Nu există date meteo disponibile</string>
+    <string name="app_text_weather_off">Vreme dezactivată</string>
+    <string name="app_text_enable_in_settings">Activează vremea în setările widget-ului</string>
+    <string name="app_text_check_connection">Verifică conexiunea la internet și încearcă din nou</string>
+    <string name="app_button_try_again">Încearcă din nou</string>
+    <string name="app_button_settings">Setările widget-ului</string>
 
     <string name="widget_label">Dată, vreme și altele</string>
     <string name="widget_date_prev">lun., 1 dec.</string>

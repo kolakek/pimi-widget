@@ -35,7 +35,7 @@
     <string name="config_option_auto">Автоматично</string>
     <string name="config_option_follow_system">Системне значення за замовчуванням</string>
     <string name="config_temp">Температура</string>
-    <string name="config_section_features">З першого погляду</string>
+    <string name="config_section_features">Найважливіше</string>
     <string name="config_section_weather">Налаштування погоди</string>
     <string name="config_section_settings_plus">Додаткові налаштування</string>
     <string name="config_section_about">Про застосунок</string>
@@ -58,6 +58,35 @@
     <string name="config_weather_app_nil">Відсутній у списку</string>
     <string name="config_weather_app_nil_alert_message">Щоб додати свій погодний додаток, відкрийте issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Відкрити GitHub</string>
+    <string name="config_section_settings_units">Одиниці</string>
+    <string name="config_unit_system">Система одиниць</string>
+    <string name="config_unit_metric">Метрична</string>
+    <string name="config_unit_us">Сполучені Штати</string>
+    <string name="config_unit_uk">Велика Британія</string>
+    <string name="config_aux_view_place_condition">Місце &amp; погода</string>
+
+    <string name="app_text_now">Зараз</string>
+    <string name="app_text_hourly_forecast">Погодинний прогноз</string>
+    <string name="app_text_daily_forecast">Щоденний прогноз</string>
+    <string name="app_text_current_conditions">Погода зараз</string>
+    <string name="app_text_feels_like">відчувається як</string>
+    <string name="app_text_max_temp">максимальна</string>
+    <string name="app_text_min_temp">мінімальна</string>
+    <string name="app_text_pressure_high">підвищений</string>
+    <string name="app_text_pressure_low">знижений</string>
+    <string name="app_text_title_wind">вітер</string>
+    <string name="app_text_gusts">пориви вітру</string>
+    <string name="app_text_dew_point">точка роси</string>
+    <string name="app_text_humidity">вологість</string>
+    <string name="app_text_clear_sky">ясно</string>
+    <string name="app_text_uv_index">індекс UV</string>
+    <string name="app_text_pressure">тиск</string>
+    <string name="app_text_no_data">Дані про погоду відсутні</string>
+    <string name="app_text_weather_off">Погода відключена</string>
+    <string name="app_text_enable_in_settings">Увімкни погоду в налаштуваннях віджета</string>
+    <string name="app_text_check_connection">Перевір своє інтернет-з\'єднання і спробуй знову</string>
+    <string name="app_button_try_again">Спробуй знову</string>
+    <string name="app_button_settings">Налаштування віджета</string>
 
     <string name="widget_label">Дата, погода та інше</string>
     <string name="widget_date_prev">нд, 24 сер.</string>
