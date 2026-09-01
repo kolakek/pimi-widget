@@ -107,7 +107,7 @@
                 <include
                     android:id="@+id/current_wind"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginEnd="12dp"
                     layout="@layout/weather_condition" />
@@ -115,7 +115,7 @@
                 <include
                     android:id="@+id/current_uv"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     layout="@layout/weather_condition" />
 
@@ -132,7 +132,7 @@
                 <include
                     android:id="@+id/current_pressure"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginEnd="12dp"
                     layout="@layout/weather_condition" />
@@ -140,7 +140,7 @@
                 <include
                     android:id="@+id/current_humidity"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     layout="@layout/weather_condition" />
 
