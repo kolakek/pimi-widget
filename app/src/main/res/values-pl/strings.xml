@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Prognoza godzinowa</string>
     <string name="app_text_daily_forecast">Prognoza dzienna</string>
     <string name="app_text_current_conditions">Aktualne warunki</string>
-    <string name="app_text_feels_like">temperatura odczuwalna</string>
+    <string name="app_text_feels_like">odczuwalna</string>
     <string name="app_text_max_temp">maksima</string>
     <string name="app_text_min_temp">minima</string>
     <string name="app_text_pressure_high">wysokie</string>

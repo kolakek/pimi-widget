@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>
     <string name="app_text_daily_forecast">Prognoză pe zile</string>
     <string name="app_text_current_conditions">Starea vremii în prezent</string>
-    <string name="app_text_feels_like">temperatură resimțită</string>
+    <string name="app_text_feels_like">resimțită</string>
     <string name="app_text_max_temp">maximă</string>
     <string name="app_text_min_temp">minimă</string>
     <string name="app_text_pressure_high">ridicată</string>

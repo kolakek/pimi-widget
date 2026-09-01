@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>
     <string name="app_text_daily_forecast">Tagesvorhersage</string>
     <string name="app_text_current_conditions">Aktuelle Wetterlage</string>
-    <string name="app_text_feels_like">Gefühlte Temperatur</string>
+    <string name="app_text_feels_like">Gefühlt</string>
     <string name="app_text_pressure_high">Hoch</string>
     <string name="app_text_pressure_low">Niedrig</string>
     <string name="app_text_max_temp">Höchstwert</string>

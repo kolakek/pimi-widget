@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>
     <string name="app_text_daily_forecast">Voorspelling per dag</string>
     <string name="app_text_current_conditions">Actuele omstandigheden</string>
-    <string name="app_text_feels_like">gevoelstemperatuur</string>
+    <string name="app_text_feels_like">voelt als</string>
     <string name="app_text_max_temp">maximum</string>
     <string name="app_text_min_temp">minimum</string>
     <string name="app_text_pressure_high">hoog</string>

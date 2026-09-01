@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">逐時預報</string>
     <string name="app_text_daily_forecast">每日預報</string>
     <string name="app_text_current_conditions">目前天氣</string>
-    <string name="app_text_feels_like">體感溫度</string>
+    <string name="app_text_feels_like">體感</string>
     <string name="app_text_max_temp">最高溫</string>
     <string name="app_text_min_temp">最低溫</string>
     <string name="app_text_pressure_high">高壓</string>

@@ -117,7 +117,7 @@ object WeatherRenderer {
         val humidity = weather.currentHumidity() ?: return null
 
         val dewPointStr = weather.currentDewPointCelsius()?.let {
-            context.getString(R.string.app_text_dew_point) + " " +
+            context.getString(R.string.app_text_dew_point) + ": " +
                     temperatureString(context, it, tempUnit, false)
         } ?: ""
 
@@ -243,8 +243,8 @@ object WeatherRenderer {
         val minTempStr = temperatureString(context, minTemp, tempUnit, false)
         val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
 
-        return context.getString(R.string.app_text_max_temp) + " " + maxTempStr + " · " +
-                context.getString(R.string.app_text_min_temp) + " " + minTempStr
+        return context.getString(R.string.app_text_max_temp) + ": " + maxTempStr + " · " +
+                context.getString(R.string.app_text_min_temp) + ": " + minTempStr
     }
 
     fun hourlyWeather(

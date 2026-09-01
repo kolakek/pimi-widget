@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>
     <string name="app_text_daily_forecast">Günlük tahmin</string>
     <string name="app_text_current_conditions">Güncel hava koşulları</string>
-    <string name="app_text_feels_like">hissedilen sıcaklık</string>
+    <string name="app_text_feels_like">hissedilen</string>
     <string name="app_text_max_temp">en yüksek</string>
     <string name="app_text_min_temp">en düşük</string>
     <string name="app_text_pressure_high">yüksek</string>

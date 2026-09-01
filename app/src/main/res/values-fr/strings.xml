@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Prévisions horaires</string>
     <string name="app_text_daily_forecast">Prévisions quotidiennes</string>
     <string name="app_text_current_conditions">Conditions actuelles</string>
-    <string name="app_text_feels_like">température ressentie</string>
+    <string name="app_text_feels_like">ressenti</string>
     <string name="app_text_pressure_high">élevée</string>
     <string name="app_text_pressure_low">faible</string>
     <string name="app_text_max_temp">maximum</string>

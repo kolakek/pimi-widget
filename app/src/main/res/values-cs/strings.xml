@@ -69,7 +69,7 @@
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>
     <string name="app_text_daily_forecast">Denní předpověď</string>
     <string name="app_text_current_conditions">Aktuální podmínky</string>
-    <string name="app_text_feels_like">pocitová teplota</string>
+    <string name="app_text_feels_like">pocit</string>
     <string name="app_text_max_temp">nejvyšší</string>
     <string name="app_text_min_temp">nejnižší</string>
     <string name="app_text_pressure_high">vysoký</string>
