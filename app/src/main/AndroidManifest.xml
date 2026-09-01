@@ -95,6 +95,18 @@
         <package android:name="ca.gc.ec.weather_app_android.ops" />
         <package android:name="dk.dmi.byvejret" />
         <package android:name="com.google.android.apps.weather" />
+        <package android:name="com.miui.weather2" />
+        <package android:name="com.coloros.weather2" />
+        <package android:name="com.accuweather.android" />
+        <package android:name="uk.co.openweather" />
+        <package android:name="com.yahoo.mobile.client.android.weather" />
+        <package android:name="com.microsoft.amp.apps.bingweather" />
+        <package android:name="com.asus.weathertime" />
+        <package android:name="com.asus.rog.rogweather" />
+        <package android:name="com.sec.android.daemonapp" />
+        <package android:name="com.vayunmathur.weather" />
+        <package android:name="com.pranshulgg.weather_master_app" />
+        <package android:name="com.tplink.weather" />
     </queries>
 
 </manifest>

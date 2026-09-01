@@ -188,7 +188,18 @@
     <string name="config_weather_app_yr" translatable="false">Yr</string>
     <string name="config_weather_app_bom" translatable="false">BOM Weather</string>
     <string name="config_weather_app_can" translatable="false">WeatherCAN</string>
-    <string name="config_weather_dmi" translatable="false">DMI Vejr</string>
+    <string name="config_weather_app_dmi" translatable="false">DMI Vejr</string>
     <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
+    <string name="config_weather_app_xiaomi" translatable="false">Weather - By Xiaomi</string>
+    <string name="config_weather_app_oppo" translatable="false">OPPO Weather</string>
+    <string name="config_weather_app_accu" translatable="false">AccuWeather</string>
+    <string name="config_weather_app_openw" translatable="false">OpenWeather</string>
+    <string name="config_weather_app_yahoo" translatable="false">Yahoo Weather</string>
+    <string name="config_weather_app_msn" translatable="false">MSN Weather</string>
+    <string name="config_weather_app_asus" translatable="false">ASUS Weather</string>
+    <string name="config_weather_app_sams" translatable="false">Samsung Weather</string>
+    <string name="config_weather_app_maweather" translatable="false">MA Weather</string>
+    <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
+    <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
 
 </resources>

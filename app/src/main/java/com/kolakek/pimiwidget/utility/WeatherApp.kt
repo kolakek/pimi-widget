@@ -88,11 +88,71 @@ enum class WeatherApp(val key: String, val packageName: String, val labelId: Int
     DMI(
         "weather_app_dmi",
         "dk.dmi.byvejret",
-        R.string.config_weather_dmi
+        R.string.config_weather_app_dmi
     ),
     PIXEL(
         "weather_app_pixel",
         "com.google.android.apps.weather",
         R.string.config_weather_app_pixel
+    ),
+    XIAOMI(
+    "weather_app_xiaomi",
+    "com.miui.weather2",
+    R.string.config_weather_app_xiaomi
+    ),
+    OPPO(
+        "weather_app_oppo",
+        "com.coloros.weather2",
+        R.string.config_weather_app_oppo
+    ),
+    ACCU(
+        "weather_app_accu",
+        "com.accuweather.android",
+        R.string.config_weather_app_accu
+    ),
+    OPENW(
+        "weather_app_openw",
+        "uk.co.openweather",
+        R.string.config_weather_app_openw
+    ),
+    YAHOO(
+        "weather_app_yahoo",
+        "com.yahoo.mobile.client.android.weather",
+        R.string.config_weather_app_yahoo
+    ),
+    MSN(
+        "weather_app_msn",
+        "com.microsoft.amp.apps.bingweather",
+        R.string.config_weather_app_msn
+    ),
+    ASUS(
+        "weather_app_asus",
+        "com.asus.weathertime",
+        R.string.config_weather_app_asus
+    ),
+    ASUS2(
+        "weather_app_asus2",
+        "com.asus.rog.rogweather",
+        R.string.config_weather_app_asus
+    ),
+    SAMS(
+        "weather_app_sams",
+        "com.sec.android.daemonapp",
+        R.string.config_weather_app_sams
+    ),
+    MAWEATHER(
+        "weather_app_maweather",
+        "com.vayunmathur.weather",
+        R.string.config_weather_app_maweather
+    ),
+    WMASTER(
+        "weather_app_wmaster",
+        "com.pranshulgg.weather_master_app",
+        R.string.config_weather_app_wmaster
+    ),
+    NEFFOS(
+        "weather_app_neffos",
+        "com.tplink.weather",
+        R.string.config_weather_app_neffos
     )
 }
