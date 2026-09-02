@@ -47,7 +47,7 @@ The widget uses the temperature unit from your Android system settings by defaul
 
 ### Weather Display
 
-The widget shows the weather forecast for the current hour. It refreshes every 30 minutes. The hourly forecast data for the next 6 hours is downloaded every 90 minutes. If the widget cannot update your location or retrieve new weather data for more than 6 hours (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. If the internet is unavailable for an extended period, the widget may take up to 15 minutes to sync and display weather data.
+The widget displays the forecast for the next 15 minutes as the current weather. It refreshes every 30 minutes. Forecast data for the next 6 hours is downloaded every 90 minutes, allowing the widget to show accurate weather for up to 6 hours without an internet connection. If the widget cannot update your location or retrieve new weather data for more than 6 hours (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. If the internet is unavailable for an extended period, the widget may take some minutes to sync and display weather data.
 
 ### Location Access
 
