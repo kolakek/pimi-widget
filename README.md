@@ -57,7 +57,7 @@ In most cases, coarse location access is sufficient. For this to work, network-b
 
 Tapping the date or weather area on the widget opens your calendar or weather app, respectively. Your preferred weather app can be selected in the widget settings. Weather apps must be explicitly whitelisted to be supported. If your preferred weather app is not yet supported, please [open a GitHub issue](https://github.com/kolakek/pimi-widget/issues) to have it added.
 
-Currently supported weather apps include: Pixel Weather, Breezy Weather, Météo-France, KNMI, DWD WarnWetter, Met Office, Aemet, MeteoSwiss, Yr, BOM Weather, WeatherCAN, DMI Vejr.
+Currently supported weather apps include: Pimi weather (built-in), Pixel Weather, Breezy Weather, Météo-France, KNMI, DWD WarnWetter, Met Office, Aemet, MeteoSwiss, Yr, BOM Weather, WeatherCAN, DMI Vejr, and many more...
 
 ### Weather Alerts
 
@@ -87,13 +87,11 @@ Severe and extreme weather alerts for the current hour are shown if the followin
 
 You can find debug information by long-pressing the **Build number** in the widget settings and checking the **Last work status**. The following are the typical statuses and their meanings:
 
-- **RecentDataServed:** The widget was updated with recent weather information. No new weather data needed to be downloaded.
+- **WorkComplete:** The widget was updated with recent weather information. No new weather data needed to be downloaded.
 
-- **FreshDataFetched:** The widget was updated with recent weather information. New weather data was successfully downloaded.
+- **DataUpdateComplete:** The widget was updated with recent weather information. New weather data was successfully downloaded.
 
-- **StaleDataServed:** The widget was unable to fetch new weather data for more than 90 minutes because the internet was unavailable. It will continue updating using the available forecast data until the internet becomes available again.
-
-- **ExpiredDataServed:** The widget was unable to fetch new weather data for more than 6 hours because the internet was unavailable. The weather display has been disabled. The widget will attempt to fetch new weather data as soon as the internet becomes available again.
+- **NetworkUnavailable:** The widget was unable to fetch new weather data because the internet was unavailable. It will continue updating using the available forecast data until the internet becomes available again.
 
 - **LocationUnavailableException:** The widget could not retrieve your location. A new attempt is scheduled. Please ensure that location services are enabled on your device. See the Location Access section above.
 
