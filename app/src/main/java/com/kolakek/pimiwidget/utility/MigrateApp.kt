@@ -19,19 +19,17 @@ package com.kolakek.pimiwidget.utility
 
 import android.content.Context
 import androidx.core.content.edit
-import androidx.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.settings.PreferencesHelper
-import com.kolakek.pimiwidget.widget.WidgetUpdater
+import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 
 object MigrateApp {
 
     fun migrate(context: Context) {
         val previousVersionCode = getPreviousVersionCode(context)
-
-        if (previousVersionCode < 21) setFirstAvailableWeatherApp(context)
 
         if (previousVersionCode < 22) {
             PreferencesHelper.setTempUnitPreference(
@@ -72,37 +70,24 @@ object MigrateApp {
         }
         storeCurrentVersionCode(context)
 
-        WidgetUpdater.updateWidgets(context)
+        WorkManagerHelper.enqueueOneTimeWork(
+            context,
+            UpdateAction.WEATHER_FETCH_THEN_REFRESH,
+            ExistingWorkPolicy.REPLACE
+        )
         WorkManagerHelper.enqueuePeriodicWork(
             context,
             workPolicy = ExistingPeriodicWorkPolicy.UPDATE
         )
     }
 
-    private fun setFirstAvailableWeatherApp(context: Context) {
-        WeatherApp.entries.firstOrNull { app ->
-            AppLookup.isAppInstalled(context, app.packageName)
-        }?.let { PreferencesHelper.setWeatherApp(context, it) }
+    fun storeCurrentVersionCode(context: Context) {
+        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
+        prefs.edit { putLong(KEY_VERSION_CODE, BuildConfig.VERSION_CODE.toLong()) }
     }
 
     private fun getPreviousVersionCode(context: Context): Long {
         val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-
-        return if (
-            prefs.contains(KEY_VERSION_CODE)
-        ) {
-            prefs.getLong(KEY_VERSION_CODE, 22)
-        } else if (
-            PreferenceManager.getDefaultSharedPreferences(context).contains(KEY_PREFERENCE_OF_V21)
-        ) {
-            21
-        } else {
-            20
-        }
-    }
-
-    private fun storeCurrentVersionCode(context: Context) {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        prefs.edit { putLong(KEY_VERSION_CODE, BuildConfig.VERSION_CODE.toLong()) }
+        return prefs.getLong(KEY_VERSION_CODE, Long.MAX_VALUE)
     }
 }

@@ -183,12 +183,6 @@ object PreferencesHelper {
         }
     }
 
-    fun setWeatherApp(context: Context, weatherApp: WeatherApp) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_WEATHER_APP_LIST, weatherApp.key)
-        }
-    }
-
     fun getWidgetStylePreference(context: Context): WidgetStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIDGET_STYLE_LIST, null)
