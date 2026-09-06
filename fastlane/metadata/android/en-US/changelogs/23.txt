@@ -1,0 +1,4 @@
+* Pimi weather app (beta)
+* Russian translation (thanks to blind-confused)
+* Additional third-party weather apps
+* Widget layout refinements
