@@ -175,7 +175,7 @@
     <string name="hundred" translatable="false">100</string>
     <string name="eleven_plus" translatable="false">11+</string>
 
-    <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
+    <string name="config_weather_app_pimi" translatable="false">Pimi weather (beta)</string>
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
     <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
     <string name="config_weather_app_bura" translatable="false">Bura</string>
