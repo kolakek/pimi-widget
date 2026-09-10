@@ -87,7 +87,11 @@ class WeatherActivity : AppCompatActivity() {
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
 
-                        binding.waveView.fillLevel = 55f / 100f
+                        binding.waveView.data = SunTrackData(
+                            sunriseMillis = 1789101964*1000L,
+                            sunsetMillis = 1789148290*1000L,
+                            currentMillis = System.currentTimeMillis()
+                        )
 
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE

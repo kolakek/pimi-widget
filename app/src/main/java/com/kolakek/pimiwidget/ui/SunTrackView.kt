@@ -36,9 +36,9 @@ class SunTrackView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
-    var fillLevel: Float = 1f
+    var data: SunTrackData = SunTrackData(0L, 0L, 0L)
         set(value) {
-            field = value.coerceIn(0f, 1f)
+            field = value
             invalidate()
         }
 
@@ -71,13 +71,17 @@ class SunTrackView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        var horizonY = ARC_TOP + (fillLevel * ARC_AMPLITUDE * 2f)
+        val daylightMillis = (data.sunsetMillis - data.sunriseMillis).coerceIn(0L, DAY_LEN_MILLIS)
+        val nightRatio = 1 - daylightMillis.toFloat() / DAY_LEN_MILLIS.toFloat()
+        val hY = 1 + cos(nightRatio.coerceIn(0f, 1f) * PI).toFloat()
+        var horizonY = ARC_TOP + (hY * ARC_AMPLITUDE)
 
-        val x = 200f
-        val y = ARC_AMPLITUDE * (1f + cos(x / ARC_WIDTH * 2f * PI))
-
-        val sunX = x + ARC_LEFT
-        val sunY = y + ARC_TOP
+        val startMillis = (data.sunsetMillis + data.sunriseMillis - DAY_LEN_MILLIS) / 2
+        val timeRatio = (data.currentMillis - startMillis).toFloat() / DAY_LEN_MILLIS.toFloat()
+        val sX = timeRatio.coerceIn(0f, 1f) * 200f
+        val sY = ARC_AMPLITUDE * (1f + cos(sX / ARC_WIDTH * 2f * PI))
+        val sunX = sX + ARC_LEFT
+        val sunY = sY + ARC_TOP
 
         horizonY = when {
             horizonY <= ARC_TOP -> ARC_TOP - ARC_SNAP
@@ -125,5 +129,6 @@ class SunTrackView @JvmOverloads constructor(
         private const val ARC_AMPLITUDE = 30f
         private const val ARC_SNAP = 12f
         private const val ARC_BOTTOM = ARC_TOP + 2f * ARC_AMPLITUDE
+        private const val DAY_LEN_MILLIS = 24 * 60 * 60 * 1000L
     }
 }
