@@ -86,6 +86,9 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
+
+                        binding.waveView.fillLevel = 55f / 100f
+
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
