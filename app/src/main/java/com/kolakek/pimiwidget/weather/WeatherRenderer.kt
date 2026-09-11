@@ -42,6 +42,8 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
+import kotlin.math.PI
+import kotlin.math.cos
 
 object WeatherRenderer {
 
@@ -245,6 +247,28 @@ object WeatherRenderer {
 
         return context.getString(R.string.app_text_max_temp) + ": " + maxTempStr + " · " +
                 context.getString(R.string.app_text_min_temp) + ": " + minTempStr
+    }
+
+    fun dailySunInfo(): SunItem {
+
+        val sunriseMillis = 1789101964*1000L
+        val sunsetMillis = 1789148290*1000L
+        val currentMillis = System.currentTimeMillis()
+
+        val daylightMillis = (sunsetMillis - sunriseMillis).coerceIn(0L, DAY_LEN_MILLIS)
+        val nightRatio = 1 - daylightMillis.toFloat() / DAY_LEN_MILLIS.toFloat()
+        val horizonY = 1 + cos(nightRatio.coerceIn(0f, 1f) * PI).toFloat()
+
+        val startMillis = (sunsetMillis + sunriseMillis - DAY_LEN_MILLIS) / 2
+        val timeRatio = (currentMillis - startMillis).toFloat() / DAY_LEN_MILLIS.toFloat()
+        val sunX = timeRatio.coerceIn(0f, 1f)
+        val sunY =  1f + cos(sunX * 2f * PI).toFloat()
+
+        return SunItem(
+            sunY = sunY,
+            sunX = sunX,
+            horizonY = horizonY
+        )
     }
 
     fun hourlyWeather(

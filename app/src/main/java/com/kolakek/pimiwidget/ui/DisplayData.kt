@@ -23,6 +23,7 @@ import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.LabeledIcon
+import com.kolakek.pimiwidget.weather.SunItem
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.weather.WeatherRenderer
@@ -34,6 +35,7 @@ data class DisplayData (
     val dailyHighLowTemp: String?,
     val hourlyWeather: List<HourlyItem>,
     val dailyWeather: List<DailyItem>,
+    val dailySunInfo: SunItem,
     val currentWind: WeatherItem?,
     val currentHumidity: WeatherItem?,
     val currentPressure: WeatherItem?,
@@ -105,6 +107,8 @@ data class DisplayData (
                 context,
                 weather
             )
+            val dailySunInfo = WeatherRenderer.dailySunInfo()
+
             return DisplayData(
                 currentWeather = currentWeather,
                 currentCondition = currentConditionString,
@@ -112,6 +116,7 @@ data class DisplayData (
                 dailyHighLowTemp = dailyHighLowTempString,
                 hourlyWeather = hourlyWeather,
                 dailyWeather = dailyWeather,
+                dailySunInfo = dailySunInfo,
                 currentWind = currentWind,
                 currentHumidity = currentHumidity,
                 currentPressure = currentPressure,
@@ -120,4 +125,3 @@ data class DisplayData (
         }
     }
 }
-

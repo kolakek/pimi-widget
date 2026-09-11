@@ -86,13 +86,6 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
-
-                        binding.waveView.data = SunTrackData(
-                            sunriseMillis = 1789101964*1000L,
-                            sunsetMillis = 1789148290*1000L,
-                            currentMillis = System.currentTimeMillis()
-                        )
-
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
@@ -180,6 +173,7 @@ class WeatherActivity : AppCompatActivity() {
             data.currentPressure,
             useUnitAsDescr = true
         )
+        binding.waveView.data = data.dailySunInfo
     }
 
     private fun bindConditionItem(

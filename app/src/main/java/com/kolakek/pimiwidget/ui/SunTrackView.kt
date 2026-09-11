@@ -28,15 +28,14 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.toColorInt
 import androidx.core.graphics.withClip
 import com.kolakek.pimiwidget.R
-import kotlin.math.PI
-import kotlin.math.cos
+import com.kolakek.pimiwidget.weather.SunItem
 
 class SunTrackView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
-    var data: SunTrackData = SunTrackData(0L, 0L, 0L)
+    var data: SunItem = SunItem()
         set(value) {
             field = value
             invalidate()
@@ -71,17 +70,10 @@ class SunTrackView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val daylightMillis = (data.sunsetMillis - data.sunriseMillis).coerceIn(0L, DAY_LEN_MILLIS)
-        val nightRatio = 1 - daylightMillis.toFloat() / DAY_LEN_MILLIS.toFloat()
-        val hY = 1 + cos(nightRatio.coerceIn(0f, 1f) * PI).toFloat()
-        var horizonY = ARC_TOP + (hY * ARC_AMPLITUDE)
+        val sunX = data.sunX * ARC_WIDTH + ARC_LEFT
+        val sunY = ARC_AMPLITUDE * data.sunY + ARC_TOP
 
-        val startMillis = (data.sunsetMillis + data.sunriseMillis - DAY_LEN_MILLIS) / 2
-        val timeRatio = (data.currentMillis - startMillis).toFloat() / DAY_LEN_MILLIS.toFloat()
-        val sX = timeRatio.coerceIn(0f, 1f) * 200f
-        val sY = ARC_AMPLITUDE * (1f + cos(sX / ARC_WIDTH * 2f * PI))
-        val sunX = sX + ARC_LEFT
-        val sunY = sY + ARC_TOP
+        var horizonY = ARC_TOP + (data.horizonY * ARC_AMPLITUDE)
 
         horizonY = when {
             horizonY <= ARC_TOP -> ARC_TOP - ARC_SNAP
@@ -129,6 +121,5 @@ class SunTrackView @JvmOverloads constructor(
         private const val ARC_AMPLITUDE = 30f
         private const val ARC_SNAP = 12f
         private const val ARC_BOTTOM = ARC_TOP + 2f * ARC_AMPLITUDE
-        private const val DAY_LEN_MILLIS = 24 * 60 * 60 * 1000L
     }
 }

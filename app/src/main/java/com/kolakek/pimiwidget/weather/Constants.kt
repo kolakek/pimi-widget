@@ -89,3 +89,5 @@ internal const val WARN_SVR_GUSTS_MIN_KMH = 105
 internal const val WARN_XTR_GUSTS_MIN_KMH = 140
 internal const val WARN_SVR_TSTORM_MIN_CAPE = 1500
 internal const val WARN_XTR_TSTORM_MIN_CAPE = 2500
+
+internal const val DAY_LEN_MILLIS = 24 * 60 * 60 * 1000L

@@ -15,10 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.ui
+package com.kolakek.pimiwidget.weather
 
-data class SunTrackData(
-    val sunriseMillis: Long,
-    val sunsetMillis: Long,
-    val currentMillis: Long
+data class SunItem(
+    val sunX: Float = 0f,
+    val sunY: Float = 0f,
+    val horizonY: Float = 0f
 )
