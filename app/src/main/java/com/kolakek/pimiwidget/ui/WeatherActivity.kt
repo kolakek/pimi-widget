@@ -173,7 +173,7 @@ class WeatherActivity : AppCompatActivity() {
             data.currentPressure,
             useUnitAsDescr = true
         )
-        binding.waveView.data = data.dailySunInfo
+        binding.currentSun.setData(data.dailySunInfo)
     }
 
     private fun bindConditionItem(

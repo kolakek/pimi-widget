@@ -155,7 +155,7 @@
                 android:layout_marginBottom="8dp">
 
                 <com.kolakek.pimiwidget.ui.SunTrackView
-                    android:id="@+id/wave_view"
+                    android:id="@+id/current_sun"
                     android:layout_width="224dp"
                     android:layout_height="88dp" />
 

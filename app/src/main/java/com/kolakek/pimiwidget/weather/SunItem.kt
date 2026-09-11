@@ -18,7 +18,7 @@
 package com.kolakek.pimiwidget.weather
 
 data class SunItem(
-    val sunX: Float = 0f,
-    val sunY: Float = 0f,
-    val horizonY: Float = 0f
+    val sunX: Float,
+    val sunY: Float,
+    val horizonY: Float
 )

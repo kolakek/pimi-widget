@@ -35,13 +35,12 @@ class SunTrackView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
-    var data: SunItem = SunItem()
-        set(value) {
-            field = value
-            invalidate()
-        }
-
     private val path = Path()
+    private var sunX = 0f
+    private var sunY = 0f
+    private var horizonY = 0f
+    private var scaleX = 1f
+    private var scaleY = 1f
 
     private val strokePaint = Paint().apply {
         color = "#80a5f2".toColorInt()
@@ -63,38 +62,20 @@ class SunTrackView @JvmOverloads constructor(
         isAntiAlias = true
     }
 
-    private val sunDrawable by lazy {
-        AppCompatResources.getDrawable(context, R.drawable.ms) as VectorDrawable
+    private val sunDrawable = AppCompatResources.getDrawable(
+        context,
+        R.drawable.ms
+    ) as VectorDrawable
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        scaleX = w / VIEWPORT_WIDTH
+        scaleY = h / VIEWPORT_HEIGHT
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val sunX = data.sunX * ARC_WIDTH + ARC_LEFT
-        val sunY = ARC_AMPLITUDE * data.sunY + ARC_TOP
-
-        var horizonY = ARC_TOP + (data.horizonY * ARC_AMPLITUDE)
-
-        horizonY = when {
-            horizonY <= ARC_TOP -> ARC_TOP - ARC_SNAP
-            horizonY < ARC_TOP + ARC_SNAP -> ARC_TOP + ARC_SNAP
-            horizonY >= ARC_BOTTOM -> ARC_BOTTOM + ARC_SNAP
-            horizonY > ARC_BOTTOM - ARC_SNAP -> ARC_BOTTOM - ARC_SNAP
-
-            else -> horizonY
-        }
-        val scaleX = width / VIEWPORT_WIDTH
-        val scaleY = height / VIEWPORT_HEIGHT
-
         canvas.scale(scaleX, scaleY)
-
-        path.reset()
-        path.moveTo(12f, 74f)
-        path.cubicTo(62f, 74f, 62f, 14f, 112f, 14f)
-        path.cubicTo(162f, 14f, 162f, 74f, 212f, 74f)
-        path.lineTo(212f, horizonY)
-        path.lineTo(12f, horizonY)
-        path.close()
 
         canvas.withClip(0f, 0f, sunX, horizonY) {
             drawPath(path, fillPaintAbove)
@@ -104,11 +85,37 @@ class SunTrackView @JvmOverloads constructor(
         canvas.withClip(0f, horizonY, sunX, VIEWPORT_HEIGHT) {
             drawPath(path, fillPaintBelow)
         }
-        val sunBoundsX = (sunX - SUN_SIZE / 2f).toInt()
-        val sunBoundsY = (sunY - SUN_SIZE / 2f).toInt()
-        sunDrawable.setBounds(sunBoundsX, sunBoundsY, sunBoundsX + SUN_SIZE, sunBoundsY + SUN_SIZE)
         sunDrawable.draw(canvas)
+    }
 
+    fun setData(data: SunItem) {
+        sunX = data.sunX * ARC_WIDTH + ARC_LEFT
+        sunY = ARC_AMPLITUDE * data.sunY + ARC_TOP
+
+        horizonY = ARC_TOP + (data.horizonY * ARC_AMPLITUDE)
+
+        horizonY = when {
+            horizonY <= ARC_TOP -> ARC_TOP - ARC_SNAP
+            horizonY < ARC_TOP + ARC_SNAP -> ARC_TOP + ARC_SNAP
+            horizonY >= ARC_BOTTOM -> ARC_BOTTOM + ARC_SNAP
+            horizonY > ARC_BOTTOM - ARC_SNAP -> ARC_BOTTOM - ARC_SNAP
+
+            else -> horizonY
+        }
+        path.reset()
+        path.moveTo(12f, 74f)
+        path.cubicTo(62f, 74f, 62f, 14f, 112f, 14f)
+        path.cubicTo(162f, 14f, 162f, 74f, 212f, 74f)
+        path.lineTo(212f, horizonY)
+        path.lineTo(12f, horizonY)
+        path.close()
+
+        val sunBndsX = (sunX - SUN_SIZE / 2f).toInt()
+        val sunBndsY = (sunY - SUN_SIZE / 2f).toInt()
+
+        sunDrawable.setBounds(sunBndsX, sunBndsY, sunBndsX + SUN_SIZE, sunBndsY + SUN_SIZE)
+
+        invalidate()
     }
 
     companion object {
