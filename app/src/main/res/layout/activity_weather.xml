@@ -146,20 +146,9 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:background="@drawable/app_item_background"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="8dp">
-
-                <com.kolakek.pimiwidget.ui.SunTrackView
-                    android:id="@+id/current_sun"
-                    android:layout_width="224dp"
-                    android:layout_height="88dp" />
-
-            </LinearLayout>
+            <include
+                android:id="@+id/current_sun"
+                layout="@layout/weather_condition_wide" />
 
             <TextView
                 android:text="@string/app_attribution_open_meteo"

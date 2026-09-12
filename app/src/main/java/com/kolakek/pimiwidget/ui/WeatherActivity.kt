@@ -173,7 +173,14 @@ class WeatherActivity : AppCompatActivity() {
             data.currentPressure,
             useUnitAsDescr = true
         )
-        binding.currentSun.setData(data.dailySunInfo)
+        binding.currentSun.textTitle.text = "Sunrise & sunset"
+        binding.currentSun.textHeading1.text = "Sunrise"
+        binding.currentSun.textValue1.text = "06:52"
+        binding.currentSun.textHeading2.text = "Sunset"
+        binding.currentSun.textValue2.text = "16:52"
+        binding.currentSun.textImageBottomLeft.text = "Dawn"
+        binding.currentSun.textImageBottomRight.text = "Dusk"
+        binding.currentSun.image.setImageResource(R.drawable.ms_150)
     }
 
     private fun bindConditionItem(
