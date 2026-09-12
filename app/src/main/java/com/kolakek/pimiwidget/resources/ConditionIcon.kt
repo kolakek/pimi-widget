@@ -25,6 +25,29 @@ object ConditionIcon {
         return R.drawable.mw
     }
 
+    fun getSunTrackIconId(
+        timeMillis: Long,
+        sunriseMillis: Long,
+        sunsetMillis: Long
+    ): Int {
+        val step = (sunsetMillis - sunriseMillis) / 12
+        return when {
+            timeMillis < sunriseMillis - 60 * 60 * 1000L -> R.drawable.ms_1
+            timeMillis < sunriseMillis - 30 * 60 * 1000L -> R.drawable.ms_2
+            timeMillis < sunriseMillis - 10 * 60 * 1000L -> R.drawable.ms_3
+            timeMillis < sunriseMillis + 1 * step -> R.drawable.ms_4
+            timeMillis < sunriseMillis + 3 * step -> R.drawable.ms_5
+            timeMillis < sunriseMillis + 5 * step -> R.drawable.ms_6
+            timeMillis < sunriseMillis + 7 * step -> R.drawable.ms_7
+            timeMillis < sunriseMillis + 9 * step -> R.drawable.ms_8
+            timeMillis < sunriseMillis + 11 * step -> R.drawable.ms_9
+            timeMillis < sunsetMillis + 10 * 60 * 1000L -> R.drawable.ms_10
+            timeMillis < sunsetMillis + 30 * 60 * 1000L -> R.drawable.ms_11
+            timeMillis < sunsetMillis + 60 * 60 * 1000L -> R.drawable.ms_12
+            else -> R.drawable.ms_13
+        }
+    }
+
     fun getHumidityIconId(humidity: Double): Int {
         return when (humidity.toInt()) {
             in 0 .. 5 -> R.drawable.mh_0

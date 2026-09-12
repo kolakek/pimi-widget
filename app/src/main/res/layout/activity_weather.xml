@@ -148,7 +148,7 @@
 
             <include
                 android:id="@+id/current_sun"
-                layout="@layout/weather_condition_wide" />
+                layout="@layout/weather_sun" />
 
             <TextView
                 android:text="@string/app_attribution_open_meteo"

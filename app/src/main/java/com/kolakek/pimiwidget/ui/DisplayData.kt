@@ -107,7 +107,7 @@ data class DisplayData (
                 context,
                 weather
             )
-            val dailySunInfo = WeatherRenderer.dailySunInfo()
+            val dailySunInfo = WeatherRenderer.dailySunInfo(context)
 
             return DisplayData(
                 currentWeather = currentWeather,

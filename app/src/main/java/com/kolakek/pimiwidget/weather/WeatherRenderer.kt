@@ -42,8 +42,6 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
-import kotlin.math.PI
-import kotlin.math.cos
 
 object WeatherRenderer {
 
@@ -249,25 +247,16 @@ object WeatherRenderer {
                 context.getString(R.string.app_text_min_temp) + ": " + minTempStr
     }
 
-    fun dailySunInfo(): SunItem {
+    fun dailySunInfo(context: Context): SunItem {
 
         val sunriseMillis = 1789101964*1000L
         val sunsetMillis = 1789148290*1000L
         val currentMillis = System.currentTimeMillis()
 
-        val daylightMillis = (sunsetMillis - sunriseMillis).coerceIn(0L, DAY_LEN_MILLIS)
-        val nightRatio = 1 - daylightMillis.toFloat() / DAY_LEN_MILLIS.toFloat()
-        val horizonY = 1 + cos(nightRatio.coerceIn(0f, 1f) * PI).toFloat()
-
-        val startMillis = (sunsetMillis + sunriseMillis - DAY_LEN_MILLIS) / 2
-        val timeRatio = (currentMillis - startMillis).toFloat() / DAY_LEN_MILLIS.toFloat()
-        val sunX = timeRatio.coerceIn(0f, 1f)
-        val sunY =  1f + cos(sunX * 2f * PI).toFloat()
-
         return SunItem(
-            sunY = sunY,
-            sunX = sunX,
-            horizonY = horizonY
+            sunriseValueStr = timeMillisToStr(context, sunriseMillis),
+            sunsetValueStr = timeMillisToStr(context, sunsetMillis),
+            iconId = ConditionIcon.getSunTrackIconId(currentMillis, sunriseMillis, sunsetMillis)
         )
     }
 
@@ -331,7 +320,7 @@ object WeatherRenderer {
 
             AuxDisplay.UPDATE_TIME -> {
                 val nowTimeMillis = System.currentTimeMillis()
-                val str = DateFormat.getTimeFormat(context).format(Date(nowTimeMillis))
+                val str = timeMillisToStr(context, nowTimeMillis)
                 context.getString(R.string.widget_updated_at) + " $str"
             }
 
@@ -382,5 +371,9 @@ object WeatherRenderer {
         } else {
             SimpleDateFormat("EEEE", Locale.getDefault()).format(Date(timeMillis))
         }
+    }
+
+    private fun timeMillisToStr(context: Context, timeMillis: Long): String {
+        return DateFormat.getTimeFormat(context).format(Date(timeMillis))
     }
 }
