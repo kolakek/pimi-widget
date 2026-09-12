@@ -28,6 +28,8 @@ data class ProviderDataDaily (
     val cape_max: List<Double>,
     val cloud_cover_mean: List<Double>,
     val precipitation_probability_max: List<Double>,
+    val sunrise: List<Double>,
+    val sunset: List<Double>,
     val time: List<Double>,
     val weather_code: List<Double>
 )

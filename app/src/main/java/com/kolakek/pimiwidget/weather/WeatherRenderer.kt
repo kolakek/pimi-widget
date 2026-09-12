@@ -247,10 +247,13 @@ object WeatherRenderer {
                 context.getString(R.string.app_text_min_temp) + ": " + minTempStr
     }
 
-    fun dailySunInfo(context: Context): SunItem {
+    fun dailySunInfo(
+        context: Context,
+        weather: WeatherData
+    ): SunItem? {
 
-        val sunriseMillis = 1789101964*1000L
-        val sunsetMillis = 1789148290*1000L
+        val sunriseMillis = weather.todaySunriseMillis() ?: return null
+        val sunsetMillis = weather.todaySunsetMillis() ?: return null
         val currentMillis = System.currentTimeMillis()
 
         return SunItem(

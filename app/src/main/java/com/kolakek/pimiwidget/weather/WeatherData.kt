@@ -42,6 +42,8 @@ data class WeatherData (
     val dailyWeatherCode: List<WeatherCode>,
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
+    val dailySunriseMillis: List<Long>,
+    val dailySunsetMillis: List<Long>,
     val dailyTimeMillis: List<Long>,
     val timeMillis: Long,
     val place: String
@@ -104,6 +106,14 @@ data class WeatherData (
 
     fun todayMaxTempCelsius(): Double? {
         return dailyTempMaxCelsius.getOrNull(todayIndex())
+    }
+
+    fun todaySunriseMillis(): Long? {
+        return dailySunriseMillis.getOrNull(todayIndex())
+    }
+
+    fun todaySunsetMillis(): Long? {
+        return dailySunsetMillis.getOrNull(todayIndex())
     }
 
     fun currentMinutelyIndex(): Int {
