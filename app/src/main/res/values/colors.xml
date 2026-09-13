@@ -33,4 +33,7 @@
     <color name="w_snow">#666</color>
 
     <color name="m_indicator">#010101</color>
+    <color name="m_s_night">#0b1d46</color>
+    <color name="m_s_day_stroke">#5c8bef</color>
+    <color name="m_s_night_stroke">#5c8bef</color>
 </resources>

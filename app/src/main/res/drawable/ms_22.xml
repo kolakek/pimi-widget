@@ -6,19 +6,17 @@
   <path
       android:strokeWidth="1"
       android:pathData="M153,51c-5.54,-24.05 -27.16,-42 -53,-42s-47.46,17.95 -53,42h106Z"
-      android:fillColor="#00000000"
+      android:fillColor="#aec6f6"
       android:strokeColor="@color/m_s_day_stroke"/>
   <path
-      android:strokeWidth="1"
-      android:pathData="M21,71H4v-20h43c-3.03,11.48 -13.52,19.95 -26,20"
-      android:fillColor="#00000000"
-      android:strokeColor="@color/m_s_night_stroke"/>
+      android:pathData="M3.5,50.5v21h17.5c12.44,-0.05 23.32,-8.43 26.48,-20.37l0.17,-0.63H3.5Z"
+      android:fillColor="@color/m_s_night"/>
   <path
       android:strokeWidth="1"
       android:pathData="M179,71h17s0,-20 0,-20h-17s-26,0 -26,0c3.03,11.48 13.52,19.95 26,20Z"
       android:fillColor="#00000000"
       android:strokeColor="@color/m_s_night_stroke"/>
   <path
-      android:pathData="M3.5,50.5v21h17.5c9.27,-0.04 17.84,-4.68 22.92,-12.41l0.08,-0.12v-8.46H3.5Z"
+      android:pathData="M152.35,50.5l0.17,0.63c2.43,9.19 9.65,16.56 18.84,19.25l0.64,0.19v-20.06h-19.65Z"
       android:fillColor="@color/m_s_night"/>
 </vector>

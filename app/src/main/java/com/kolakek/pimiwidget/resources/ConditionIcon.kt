@@ -18,6 +18,8 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
+import java.time.LocalDate
+import java.time.ZoneId
 
 object ConditionIcon {
 
@@ -30,21 +32,66 @@ object ConditionIcon {
         sunriseMillis: Long,
         sunsetMillis: Long
     ): Int {
-        val step = (sunsetMillis - sunriseMillis) / 12
         return when {
-            timeMillis < sunriseMillis - 60 * 60 * 1000L -> R.drawable.ms_1
-            timeMillis < sunriseMillis - 30 * 60 * 1000L -> R.drawable.ms_2
-            timeMillis < sunriseMillis - 10 * 60 * 1000L -> R.drawable.ms_3
-            timeMillis < sunriseMillis + 1 * step -> R.drawable.ms_4
-            timeMillis < sunriseMillis + 3 * step -> R.drawable.ms_5
-            timeMillis < sunriseMillis + 5 * step -> R.drawable.ms_6
-            timeMillis < sunriseMillis + 7 * step -> R.drawable.ms_7
-            timeMillis < sunriseMillis + 9 * step -> R.drawable.ms_8
-            timeMillis < sunriseMillis + 11 * step -> R.drawable.ms_9
-            timeMillis < sunsetMillis + 10 * 60 * 1000L -> R.drawable.ms_10
-            timeMillis < sunsetMillis + 30 * 60 * 1000L -> R.drawable.ms_11
-            timeMillis < sunsetMillis + 60 * 60 * 1000L -> R.drawable.ms_12
-            else -> R.drawable.ms_13
+            timeMillis < sunriseMillis -> {
+                val startOfDay = LocalDate.now()
+                    .atStartOfDay(ZoneId.systemDefault())
+                    .toInstant()
+                    .toEpochMilli()
+                val preSunrise = sunriseMillis - 15 * 60 * 1000L
+                val step = (preSunrise - startOfDay).coerceAtLeast(0L) / 6
+                when {
+                    timeMillis > preSunrise -> R.drawable.ms_d
+                    timeMillis < startOfDay + 1 * step -> R.drawable.ms_1
+                    timeMillis < startOfDay + 2 * step -> R.drawable.ms_2
+                    timeMillis < startOfDay + 3 * step -> R.drawable.ms_3
+                    timeMillis < startOfDay + 4 * step -> R.drawable.ms_4
+                    timeMillis < startOfDay + 5 * step -> R.drawable.ms_5
+                    else -> R.drawable.ms_6
+                }
+            }
+
+            timeMillis > sunsetMillis -> {
+                val endOfDay = LocalDate.now()
+                    .atStartOfDay(ZoneId.systemDefault())
+                    .plusDays(1)
+                    .toInstant()
+                    .toEpochMilli() - 1
+                val postSunset = sunsetMillis + 15 * 60 * 1000L
+                val step = (endOfDay - postSunset).coerceAtLeast(0L) / 6
+                when {
+                    timeMillis < postSunset -> R.drawable.ms_n
+                    timeMillis < sunsetMillis + 1 * step -> R.drawable.ms_20
+                    timeMillis < sunsetMillis + 2 * step -> R.drawable.ms_21
+                    timeMillis < sunsetMillis + 3 * step -> R.drawable.ms_22
+                    timeMillis < sunsetMillis + 4 * step -> R.drawable.ms_23
+                    timeMillis < sunsetMillis + 5 * step -> R.drawable.ms_24
+                    else -> R.drawable.ms_25
+                }
+            }
+
+            else -> {
+                val postSunrise = sunriseMillis + 15 * 60 * 1000L
+                val preSunset = sunsetMillis - 15 * 60 * 1000L
+                val step = (preSunset - postSunrise).coerceAtLeast(0L) / 13
+                when {
+                    timeMillis < postSunrise -> R.drawable.ms_r
+                    timeMillis > preSunset -> R.drawable.ms_s
+                    timeMillis < postSunrise + 1 * step -> R.drawable.ms_7
+                    timeMillis < postSunrise + 2 * step -> R.drawable.ms_8
+                    timeMillis < postSunrise + 3 * step -> R.drawable.ms_9
+                    timeMillis < postSunrise + 4 * step -> R.drawable.ms_10
+                    timeMillis < postSunrise + 5 * step -> R.drawable.ms_11
+                    timeMillis < postSunrise + 6 * step -> R.drawable.ms_12
+                    timeMillis < postSunrise + 7 * step -> R.drawable.ms_13
+                    timeMillis < postSunrise + 8 * step -> R.drawable.ms_14
+                    timeMillis < postSunrise + 9 * step -> R.drawable.ms_15
+                    timeMillis < postSunrise + 10 * step -> R.drawable.ms_16
+                    timeMillis < postSunrise + 11 * step -> R.drawable.ms_17
+                    timeMillis < postSunrise + 12 * step -> R.drawable.ms_18
+                    else -> R.drawable.ms_19
+                }
+            }
         }
     }
 
