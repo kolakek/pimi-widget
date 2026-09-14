@@ -36,6 +36,7 @@ data class WeatherData (
     val minutelyIsDay: List<Boolean>,
     val hourlyWeatherCode: List<WeatherCode>,
     val hourlyTempCelsius: List<Double>,
+    val hourlyPrecipProb: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,

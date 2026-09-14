@@ -49,6 +49,7 @@ class HourlyForecastAdapter :
         val item = getItem(position)
         holder.binding.hourlyTime.text = item.time
         holder.binding.hourlyTemp.text = item.temp
+        holder.binding.hourlyProb.text = item.prob
         holder.binding.hourlyIcon.setImageResource(item.iconId)
     }
 }

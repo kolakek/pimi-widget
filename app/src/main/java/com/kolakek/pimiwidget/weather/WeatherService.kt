@@ -126,6 +126,7 @@ object WeatherService {
             minutelyTimeMillis = providerData.minutely_15.time.map { v -> v.toLong() * 1000L },
             hourlyWeatherCode = hourlyWeatherCode,
             hourlyTempCelsius = providerData.hourly.temperature_2m,
+            hourlyPrecipProb = providerData.hourly.precipitation_probability,
             hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
             hourlyWarningCode = hourlyWarningCode,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v.toLong() * 1000L },

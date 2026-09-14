@@ -135,7 +135,7 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun displayHourlyWeather(data: DisplayData) {
-        hourlyAdapter.submitList(data.hourlyWeather.ifEmpty { listOf(HourlyItem(NA, 0, NA)) })
+        hourlyAdapter.submitList(data.hourlyWeather.ifEmpty { listOf(HourlyItem(NA, 0, NA, NA)) })
     }
 
     private fun displayDailyWeather(data: DisplayData) {

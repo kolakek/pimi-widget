@@ -282,7 +282,10 @@ object WeatherRenderer {
                 val tempStr = temperatureString(context, temp, tempUnit, false)
                 val timeStr = formatTime(context, timeMillis)
 
-                HourlyItem(timeStr, iconId, tempStr)
+                val prob = weather.hourlyPrecipProb.getOrNull(idx)?.toInt() ?: 0
+                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "${prob}%" else ""
+
+                HourlyItem(timeStr, iconId, tempStr, probStr)
             }
     }
 

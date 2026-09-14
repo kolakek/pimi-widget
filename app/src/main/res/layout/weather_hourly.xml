@@ -18,8 +18,16 @@
         android:id="@+id/hourly_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
+        android:paddingTop="8dp"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/hourly_prob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="11sp"/>
 
     <TextView
         android:id="@+id/hourly_time"
