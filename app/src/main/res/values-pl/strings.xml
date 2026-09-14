@@ -78,7 +78,6 @@
     <string name="app_text_gusts">porywy</string>
     <string name="app_text_dew_point">punkt rosy</string>
     <string name="app_text_humidity">wilgotność</string>
-    <string name="app_text_clear_sky">bezchmurnie</string>
     <string name="app_text_uv_index">indeks UV</string>
     <string name="app_text_pressure">ciśnienie</string>
     <string name="app_text_no_data">Brak dostępnych danych pogodowych</string>

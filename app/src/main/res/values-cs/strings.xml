@@ -78,7 +78,6 @@
     <string name="app_text_gusts">nárazy</string>
     <string name="app_text_dew_point">rosný bod</string>
     <string name="app_text_humidity">vlhkost</string>
-    <string name="app_text_clear_sky">jasno</string>
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">tlak</string>
     <string name="app_text_no_data">Žádná data o počasí nejsou k dispozici</string>

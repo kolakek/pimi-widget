@@ -78,7 +78,6 @@
     <string name="app_text_gusts">rüzgar ani</string>
     <string name="app_text_dew_point">çiğ noktası</string>
     <string name="app_text_humidity">nem</string>
-    <string name="app_text_clear_sky">açık hava</string>
     <string name="app_text_uv_index">UV endeksi</string>
     <string name="app_text_pressure">basınç</string>
     <string name="app_text_no_data">Hava durumu verisi mevcut değil</string>

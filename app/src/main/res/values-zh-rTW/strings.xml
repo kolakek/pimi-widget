@@ -78,7 +78,6 @@
     <string name="app_text_gusts">陣風</string>
     <string name="app_text_dew_point">露點</string>
     <string name="app_text_humidity">濕度</string>
-    <string name="app_text_clear_sky">晴朗</string>
     <string name="app_text_uv_index">紫外線指數</string>
     <string name="app_text_pressure">氣壓</string>
     <string name="app_text_no_data">沒有可用的天氣資料</string>

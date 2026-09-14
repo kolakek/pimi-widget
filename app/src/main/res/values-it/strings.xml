@@ -77,7 +77,6 @@
     <string name="app_text_gusts">raffiche</string>
     <string name="app_text_dew_point">punto di rugiada</string>
     <string name="app_text_humidity">umidità</string>
-    <string name="app_text_clear_sky">cielo sereno</string>
     <string name="app_text_uv_index">indice UV</string>
     <string name="app_text_pressure">pressione</string>
     <string name="app_text_no_data">Nessun dato meteo disponibile</string>

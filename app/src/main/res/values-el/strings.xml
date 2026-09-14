@@ -78,7 +78,6 @@
     <string name="app_text_gusts">ριπές</string>
     <string name="app_text_dew_point">σημείο δρόσου</string>
     <string name="app_text_humidity">υγρασία</string>
-    <string name="app_text_clear_sky">αίθριος</string>
     <string name="app_text_uv_index">δείκτης UV</string>
     <string name="app_text_pressure">ατμοσφαιρική πίεση</string>
     <string name="app_text_no_data">Δεν υπάρχουν διαθέσιμα δεδομένα καιρού</string>

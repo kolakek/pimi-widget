@@ -78,7 +78,6 @@
     <string name="app_text_gusts">rafale</string>
     <string name="app_text_dew_point">punct de rouă</string>
     <string name="app_text_humidity">umiditate</string>
-    <string name="app_text_clear_sky">cer senin</string>
     <string name="app_text_uv_index">index UV</string>
     <string name="app_text_pressure">presiune</string>
     <string name="app_text_no_data">Nu există date meteo disponibile</string>

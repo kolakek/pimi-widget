@@ -78,7 +78,6 @@
     <string name="app_text_gusts">vindstød</string>
     <string name="app_text_dew_point">dugpunkt</string>
     <string name="app_text_humidity">luftfugtighed</string>
-    <string name="app_text_clear_sky">klart</string>
     <string name="app_text_uv_index">UV-indeks</string>
     <string name="app_text_pressure">lufttryk</string>
     <string name="app_text_no_data">Ingen vejrdata tilgængelige</string>

@@ -87,7 +87,6 @@
     <string name="app_text_gusts">Gusts</string>
     <string name="app_text_dew_point">Dew point</string>
     <string name="app_text_humidity">Humidity</string>
-    <string name="app_text_clear_sky">Clear sky</string>
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">Pressure</string>
     <string name="app_text_no_data">No weather data available</string>
@@ -96,6 +95,17 @@
     <string name="app_text_check_connection">Check your connection and try again</string>
     <string name="app_button_try_again">Try again</string>
     <string name="app_button_settings">Widget settings</string>
+    <string name="app_sunset_sunrise">Sunrise &amp; sunset</string>
+    <string name="app_sunrise">Sunrise</string>
+    <string name="app_sunset">Sunset</string>
+    <string name="app_dusk">Dusk</string>
+    <string name="app_dawn">Dawn</string>
+
+    <string name="app_text_uv_0_1_2">Low</string>
+    <string name="app_text_uv_3_4_5">Moderate</string>
+    <string name="app_text_uv_6_7">High</string>
+    <string name="app_text_uv_8_9_10">Very high</string>
+    <string name="app_text_uv_11">Extreme</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>

@@ -78,7 +78,6 @@
     <string name="app_text_gusts">gushta</string>
     <string name="app_text_dew_point">pika e kondensimit</string>/string>
     <string name="app_text_humidity">lagështia</string>
-    <string name="app_text_clear_sky">qiell i kthjellët</string>
     <string name="app_text_uv_index">indeksi UV</string>
     <string name="app_text_pressure">trysnia</string>
     <string name="app_text_no_data">Nuk ka të dhëna meteorologjike</string>

@@ -21,6 +21,7 @@ import android.content.Context
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
+import com.kolakek.pimiwidget.resources.ConditionString
 import com.kolakek.pimiwidget.resources.WarningIcon
 import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
@@ -97,7 +98,7 @@ object WeatherRenderer {
             context.getString(R.string.mph)
         }
         val gustsStr = weather.currentWindGustsKmh()?.let {
-            context.getString(R.string.app_text_gusts) + " " + speedString(it, windUnit)
+            context.getString(R.string.app_text_gusts) + ": " + speedString(it, windUnit)
         } ?: ""
 
         return WeatherItem(
@@ -136,14 +137,14 @@ object WeatherRenderer {
     ): WeatherItem? {
         val uvIndex = weather.currentUvIndex() ?: return null
 
-        val uvClearStr = weather.currentUvIndexClearSky()?.let {
-            context.getString(R.string.app_text_clear_sky) + " ${maxOf(it, uvIndex).toInt()}"
+        val uvMaxStr = weather.todayUvIndexMax()?.let {
+            context.getString(R.string.widget_today) + ": ${it.toInt()}"
         } ?: ""
 
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
-            unitStr = "",
-            auxStr = uvClearStr,
+            unitStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
+            auxStr = uvMaxStr,
             iconId = ConditionIcon.getUvIndexIconId(uvIndex),
             level = uvIndex
         )

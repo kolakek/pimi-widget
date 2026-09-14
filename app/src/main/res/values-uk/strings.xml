@@ -78,7 +78,6 @@
     <string name="app_text_gusts">пориви вітру</string>
     <string name="app_text_dew_point">точка роси</string>
     <string name="app_text_humidity">вологість</string>
-    <string name="app_text_clear_sky">ясно</string>
     <string name="app_text_uv_index">індекс UV</string>
     <string name="app_text_pressure">тиск</string>
     <string name="app_text_no_data">Дані про погоду відсутні</string>

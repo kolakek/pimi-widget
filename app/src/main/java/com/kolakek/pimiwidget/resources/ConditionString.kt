@@ -15,22 +15,19 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.weather
+package com.kolakek.pimiwidget.resources
 
-import kotlinx.serialization.Serializable
+import com.kolakek.pimiwidget.R
 
-@Suppress("PropertyName")
-@Serializable
-data class ProviderDataDaily (
-    val temperature_2m_min: List<Double>,
-    val temperature_2m_max: List<Double>,
-    val visibility_mean: List<Double>,
-    val cape_max: List<Double>,
-    val cloud_cover_mean: List<Double>,
-    val precipitation_probability_max: List<Double>,
-    val uv_index_max: List<Double>,
-    val sunrise: List<Double>,
-    val sunset: List<Double>,
-    val time: List<Double>,
-    val weather_code: List<Double>
-)
+object ConditionString {
+
+    fun getUvIndexStringId(uvIndex: Double): Int {
+        return when (uvIndex.toInt()) {
+            in 0 .. 2 -> R.string.app_text_uv_0_1_2
+            in 3 .. 5 -> R.string.app_text_uv_3_4_5
+            in 6 .. 7 -> R.string.app_text_uv_6_7
+            in 8 .. 10 -> R.string.app_text_uv_8_9_10
+            else -> R.string.app_text_uv_11
+        }
+    }
+}

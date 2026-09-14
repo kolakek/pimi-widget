@@ -78,7 +78,6 @@
     <string name="app_text_gusts">Böen</string>
     <string name="app_text_dew_point">Taupunkt</string>
     <string name="app_text_humidity">Luftfeuchtigkeit</string>
-    <string name="app_text_clear_sky">Wolkenlos</string>
     <string name="app_text_uv_index">UV-Index</string>
     <string name="app_text_pressure">Luftdruck</string>
     <string name="app_text_no_data">Keine Wetterdaten verfügbar</string>

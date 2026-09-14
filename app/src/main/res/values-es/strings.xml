@@ -78,7 +78,6 @@
     <string name="app_text_gusts">ráfagas</string>
     <string name="app_text_dew_point">punto de rocío</string>
     <string name="app_text_humidity">humedad</string>
-    <string name="app_text_clear_sky">despejado</string>
     <string name="app_text_uv_index">índice UV</string>
     <string name="app_text_pressure">presión</string>
     <string name="app_text_no_data">No hay datos meteorológicos disponibles</string>

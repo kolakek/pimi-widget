@@ -78,7 +78,6 @@
     <string name="app_text_gusts">vindbyar</string>
     <string name="app_text_dew_point">daggpunkt</string>
     <string name="app_text_humidity">luftfuktighet</string>
-    <string name="app_text_clear_sky">klart</string>
     <string name="app_text_uv_index">UV-index</string>
     <string name="app_text_pressure">tryck</string>
     <string name="app_text_no_data">Inga väderdata tillgängliga</string>

@@ -174,13 +174,13 @@ class WeatherActivity : AppCompatActivity() {
             useUnitAsDescr = true
         )
         data.dailySunInfo?.let {
-            binding.currentSun.textSunTitle.text = "Sunrise & sunset"
-            binding.currentSun.textSunrise.text = "Sunrise"
+            binding.currentSun.textSunTitle.text = getString(R.string.app_sunset_sunrise)
+            binding.currentSun.textSunrise.text = getString(R.string.app_sunrise)
             binding.currentSun.textSunriseValue.text = it.sunriseValueStr
-            binding.currentSun.textSunset.text = "Sunset"
+            binding.currentSun.textSunset.text = getString(R.string.app_sunset)
             binding.currentSun.textSunsetValue.text = it.sunsetValueStr
-            binding.currentSun.textDawn.text = "Dawn"
-            binding.currentSun.textDusk.text = "Dusk"
+            binding.currentSun.textDawn.text = getString(R.string.app_dawn)
+            binding.currentSun.textDusk.text = getString(R.string.app_dusk)
             binding.currentSun.sunImage.setImageResource(it.iconId)
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {

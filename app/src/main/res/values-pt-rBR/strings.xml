@@ -78,7 +78,6 @@
     <string name="app_text_gusts">rajadas</string>
     <string name="app_text_dew_point">ponto de orvalho</string>
     <string name="app_text_humidity">umidade</string>
-    <string name="app_text_clear_sky">céu limpo</string>
     <string name="app_text_uv_index">índice UV</string>
     <string name="app_text_pressure">pressão</string>
     <string name="app_text_no_data">Nenhum dado meteorológico disponível</string>
