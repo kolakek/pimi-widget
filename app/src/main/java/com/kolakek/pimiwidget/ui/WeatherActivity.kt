@@ -139,7 +139,7 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun displayDailyWeather(data: DisplayData) {
-        dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA)) })
+        dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA, NA)) })
     }
 
     private fun displayCurrentConditions(data: DisplayData) {

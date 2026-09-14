@@ -311,7 +311,10 @@ object WeatherRenderer {
                 val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
                 val tempStr = "$maxTempStr/$minTempStr"
 
-                DailyItem(dateStr, iconId, tempStr)
+                val prob = weather.dailyPrecipProbMax.getOrNull(idx)?.toInt() ?: 0
+                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "${prob}%" else ""
+
+                DailyItem(dateStr, iconId, tempStr, probStr)
             }
     }
 

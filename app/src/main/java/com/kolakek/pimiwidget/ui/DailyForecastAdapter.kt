@@ -51,7 +51,8 @@ class DailyForecastAdapter :
 
         holder.binding.dailyDate.text = item.date
         holder.binding.dailyTemp.text = item.temp
-        holder.binding.dailyIcon.setImageResource(item.iconId)
+        holder.binding.dailyIcon.text = item.prob
+        holder.binding.dailyIcon.setCompoundDrawablesWithIntrinsicBounds(0, 0, item.iconId, 0)
 
         val background = when {
             itemCount == 1 -> R.drawable.app_item_background

@@ -43,6 +43,7 @@ data class WeatherData (
     val dailyWeatherCode: List<WeatherCode>,
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
+    val dailyPrecipProbMax: List<Double>,
     val dailySunriseMillis: List<Long>,
     val dailySunsetMillis: List<Long>,
     val dailyTimeMillis: List<Long>,

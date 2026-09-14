@@ -133,6 +133,7 @@ object WeatherService {
             dailyWeatherCode = dailyWeatherCode,
             dailyTempMinCelsius = providerData.daily.temperature_2m_min,
             dailyTempMaxCelsius = providerData.daily.temperature_2m_max,
+            dailyPrecipProbMax = providerData.daily.precipitation_probability_max,
             dailySunriseMillis = providerData.daily.sunrise.map { v -> v.toLong() * 1000L },
             dailySunsetMillis = providerData.daily.sunset.map { v -> v.toLong() * 1000L },
             dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L },

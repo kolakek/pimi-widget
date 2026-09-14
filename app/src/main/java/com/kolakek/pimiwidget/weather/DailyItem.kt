@@ -20,5 +20,6 @@ package com.kolakek.pimiwidget.weather
 data class DailyItem(
     val date: String,
     val iconId: Int,
-    val temp: String
+    val temp: String,
+    val prob: String
 )
