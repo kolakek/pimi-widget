@@ -19,6 +19,6 @@
       android:fillColor="#00000000"
       android:strokeColor="@color/m_s_night_stroke"/>
   <path
-      android:pathData="M3.5,50.5v21h17.5c9.27,-0.04 17.84,-4.68 22.92,-12.41l0.08,-0.12v-8.46H3.5Z"
+      android:pathData="M3.5,50.5v21h17.5c7.58,-0.03 14.64,-3.08 19.86,-8.57l0.14,-0.14v-12.29H3.5Z"
       android:fillColor="@color/m_s_night"/>
 </vector>
