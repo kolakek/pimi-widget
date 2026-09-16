@@ -51,6 +51,7 @@ class WeatherActivity : AppCompatActivity() {
 
     private val hourlyAdapter = HourlyForecastAdapter()
     private val dailyAdapter = DailyForecastAdapter()
+    private val dataBarAdapter = DataBarAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class WeatherActivity : AppCompatActivity() {
 
         binding.hourlyForecast.adapter = hourlyAdapter
         binding.dailyForecast.adapter = dailyAdapter
+        binding.hourlyRainDetails.hourlyDataBar.adapter = dataBarAdapter
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

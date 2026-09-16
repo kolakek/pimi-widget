@@ -137,14 +137,10 @@ object WeatherRenderer {
     ): WeatherItem? {
         val uvIndex = weather.currentUvIndex() ?: return null
 
-        val uvMaxStr = weather.todayUvIndexMax()?.let {
-            context.getString(R.string.widget_today) + ": ${it.toInt()}"
-        } ?: ""
-
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
-            unitStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
-            auxStr = uvMaxStr,
+            unitStr = "",
+            auxStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
             iconId = ConditionIcon.getUvIndexIconId(uvIndex),
             level = uvIndex
         )

@@ -19,38 +19,31 @@ package com.kolakek.pimiwidget.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.kolakek.pimiwidget.databinding.WeatherHourlyForecastBinding
-import com.kolakek.pimiwidget.weather.HourlyItem
+import com.kolakek.pimiwidget.databinding.WeatherDataBarBinding
 
-class HourlyForecastAdapter :
-    ListAdapter<HourlyItem, HourlyForecastAdapter.ViewHolder>(DiffCallback()) {
+class DataBarAdapter : RecyclerView.Adapter<DataBarAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: WeatherHourlyForecastBinding) :
-        RecyclerView.ViewHolder(binding.root)
-
-    class DiffCallback : DiffUtil.ItemCallback<HourlyItem>() {
-        override fun areItemsTheSame(oldItem: HourlyItem, newItem: HourlyItem) =
-            oldItem.time == newItem.time
-
-        override fun areContentsTheSame(oldItem: HourlyItem, newItem: HourlyItem) =
-            oldItem == newItem
-    }
+    class ViewHolder(val binding: WeatherDataBarBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = WeatherHourlyForecastBinding.inflate(
+        val binding = WeatherDataBarBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.binding.hourlyTime.text = item.time
-        holder.binding.hourlyTemp.text = item.temp
-        holder.binding.hourlyIcon.text = item.prob
-        holder.binding.hourlyIcon.setCompoundDrawablesWithIntrinsicBounds(0, item.iconId, 0, 0)
+        holder.binding.dataAmount.text = position.toString()
+        holder.binding.dataTime.text = "${position}:00"
+        val maxHeightPx = (48 * holder.itemView.resources.displayMetrics.density).toInt()
+        val params = holder.binding.dataBar.layoutParams
+        params.height = (maxHeightPx * (position / 23f)).toInt()
+        val color = android.graphics.Color.HSVToColor(floatArrayOf(position * 15f, 0.8f, 0.8f))
+        DrawableCompat.setTint(holder.binding.dataBar.background.mutate(), color)
+        holder.binding.dataBar.layoutParams = params
     }
+
+    override fun getItemCount() = 24
 }

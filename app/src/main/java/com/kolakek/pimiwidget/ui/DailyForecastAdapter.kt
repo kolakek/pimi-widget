@@ -23,13 +23,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.databinding.WeatherDailyBinding
+import com.kolakek.pimiwidget.databinding.WeatherDailyForecastBinding
 import com.kolakek.pimiwidget.weather.DailyItem
 
 class DailyForecastAdapter :
     ListAdapter<DailyItem, DailyForecastAdapter.ViewHolder>(DiffCallback()) {
 
-    class ViewHolder(val binding: WeatherDailyBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: WeatherDailyForecastBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<DailyItem>() {
         override fun areItemsTheSame(oldItem: DailyItem, newItem: DailyItem) =
@@ -40,7 +41,7 @@ class DailyForecastAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = WeatherDailyBinding.inflate(
+        val binding = WeatherDailyForecastBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return ViewHolder(binding)
