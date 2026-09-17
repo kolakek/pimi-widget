@@ -31,12 +31,14 @@ internal const val MINUTELY_VALUE = "temperature_2m,weather_code,cloud_cover," +
 internal const val HOURLY_KEY = "hourly"
 internal const val HOURLY_VALUE =
     "temperature_2m,weather_code,is_day,cloud_cover,uv_index,uv_index_clear_sky,visibility," +
-            "apparent_temperature,rain,showers,precipitation_probability,wind_gusts_10m,cape"
+            "apparent_temperature,rain,showers,snowfall,precipitation_probability," +
+            "wind_gusts_10m,cape"
 
 internal const val DAILY_KEY = "daily"
 internal const val DAILY_VALUE =
     "weather_code,temperature_2m_max,temperature_2m_min,cloud_cover_mean,cape_max," +
-            "precipitation_probability_max,visibility_mean,sunrise,sunset,uv_index_max"
+            "precipitation_probability_max,visibility_mean,sunrise,sunset,uv_index_max," +
+            "rain_sum,showers_sum,snowfall_sum"
 
 internal const val FORECAST_MINUTELY_KEY = "forecast_minutely_15"
 internal const val FORECAST_MINUTELY_VALUE = "24"
@@ -72,6 +74,8 @@ internal const val MIN_POP_THUNDERSTORM = 40
 internal const val MAX_VISIBILITY_FOG = 1000
 internal const val MIN_PROBABILITY_PRECIP = 30
 internal const val MIN_PROBABILITY_PRECIP_DISPLAY = 30
+
+internal const val RAIN_BAR_MAX_MM = 10
 
 internal const val CODE_LIGHT_SHOWERS = 237
 internal const val CODE_NO_PRECIP = 1138

@@ -20,12 +20,26 @@ package com.kolakek.pimiwidget.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.WeatherDataBarBinding
+import com.kolakek.pimiwidget.weather.DataBarItem
 
-class DataBarAdapter : RecyclerView.Adapter<DataBarAdapter.ViewHolder>() {
+class DataBarAdapter :
+    ListAdapter<DataBarItem, DataBarAdapter.ViewHolder>(DiffCallback()) {
 
-    class ViewHolder(val binding: WeatherDataBarBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: WeatherDataBarBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    class DiffCallback : DiffUtil.ItemCallback<DataBarItem>() {
+        override fun areItemsTheSame(oldItem: DataBarItem, newItem: DataBarItem) =
+            oldItem.level == newItem.level
+
+        override fun areContentsTheSame(oldItem: DataBarItem, newItem: DataBarItem) =
+            oldItem == newItem
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = WeatherDataBarBinding.inflate(
@@ -35,15 +49,21 @@ class DataBarAdapter : RecyclerView.Adapter<DataBarAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.dataAmount.text = position.toString()
-        holder.binding.dataTime.text = "${position}:00"
-        val maxHeightPx = (48 * holder.itemView.resources.displayMetrics.density).toInt()
+        val item = getItem(position)
+
+        holder.binding.dataTime.text = item.timeStr
+        holder.binding.dataValueTop.text = item.valStr
+        holder.binding.dataValueBottom.text = item.probStr
+
+        val maxHeightPx = holder.itemView.resources.getDimensionPixelSize(
+            R.dimen.app_bar_max_height
+        )
         val params = holder.binding.dataBar.layoutParams
-        params.height = (maxHeightPx * (position / 23f)).toInt()
+
+        params.height = (maxHeightPx * item.level).toInt().coerceAtLeast(4)
+        holder.binding.dataBar.layoutParams = params
+
         val color = android.graphics.Color.HSVToColor(floatArrayOf(position * 15f, 0.8f, 0.8f))
         DrawableCompat.setTint(holder.binding.dataBar.background.mutate(), color)
-        holder.binding.dataBar.layoutParams = params
     }
-
-    override fun getItemCount() = 24
 }

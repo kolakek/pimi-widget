@@ -36,6 +36,7 @@ import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.DailyItem
+import com.kolakek.pimiwidget.weather.DataBarItem
 import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.widget.WidgetUpdater
@@ -88,6 +89,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
+                        displayDetailsRain(displayData)
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
@@ -142,6 +144,16 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun displayDailyWeather(data: DisplayData) {
         dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA, NA)) })
+    }
+
+    private fun displayDetailsRain(data: DisplayData) {
+        dataBarAdapter.submitList(
+            data.detailsRain.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, NA)) }
+        )
+        binding.hourlyRainDetails.hourlyDetailsTitle.text = "Rain"
+        binding.hourlyRainDetails.hourlyDetailsDescr.text = "Today's total"
+        binding.hourlyRainDetails.hourlyDetailsValue.text = data.detailsRain.valStr ?: NA
+        binding.hourlyRainDetails.hourlyDetailsUnit.text = "mm"
     }
 
     private fun displayCurrentConditions(data: DisplayData) {

@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="Precipitation"
+            android:id="@+id/hourly_details_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -23,7 +23,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:text="Today's total"
+            android:id="@+id/hourly_details_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -36,7 +36,7 @@
             android:layout_marginBottom="2dp">
 
             <TextView
-                android:text="10"
+                android:id="@+id/hourly_details_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -47,7 +47,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:text="mm"
+                android:id="@+id/hourly_details_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"

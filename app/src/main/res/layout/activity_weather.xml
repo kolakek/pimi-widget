@@ -158,7 +158,7 @@
 
             <include
                 android:id="@+id/hourly_rain_details"
-                layout="@layout/weather_rain_details" />
+                layout="@layout/weather_hourly_details" />
 
             <TextView
                 android:text="@string/app_attribution_open_meteo"

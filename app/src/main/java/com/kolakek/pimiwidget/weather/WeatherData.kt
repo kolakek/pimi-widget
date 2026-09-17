@@ -36,6 +36,9 @@ data class WeatherData (
     val hourlyWeatherCode: List<WeatherCode>,
     val hourlyTempCelsius: List<Double>,
     val hourlyPrecipProb: List<Double>,
+    val hourlyRainMm: List<Double>,
+    val hourlyShowersMm: List<Double>,
+    val hourlySnowCm: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,
@@ -43,6 +46,9 @@ data class WeatherData (
     val dailyTempMinCelsius: List<Double>,
     val dailyTempMaxCelsius: List<Double>,
     val dailyPrecipProbMax: List<Double>,
+    val dailyRainMm: List<Double>,
+    val dailyShowersMm: List<Double>,
+    val dailySnowCm: List<Double>,
     val dailyUvIndexMax: List<Double>,
     val dailySunriseMillis: List<Long>,
     val dailySunsetMillis: List<Long>,
@@ -104,6 +110,14 @@ data class WeatherData (
 
     fun todayMaxTempCelsius(): Double? {
         return dailyTempMaxCelsius.getOrNull(todayIndex())
+    }
+
+    fun todayRainMm(): Double? {
+        return dailyRainMm.getOrNull(todayIndex())
+    }
+
+    fun todayShowersMm(): Double? {
+        return dailyShowersMm.getOrNull(todayIndex())
     }
 
     fun todayUvIndexMax(): Double? {

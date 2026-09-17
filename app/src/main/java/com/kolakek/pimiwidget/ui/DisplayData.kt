@@ -21,6 +21,7 @@ import android.content.Context
 import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.weather.DailyItem
+import com.kolakek.pimiwidget.weather.DetailsItem
 import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.LabeledIcon
 import com.kolakek.pimiwidget.weather.SunItem
@@ -35,6 +36,7 @@ data class DisplayData (
     val dailyHighLowTemp: String?,
     val hourlyWeather: List<HourlyItem>,
     val dailyWeather: List<DailyItem>,
+    val detailsRain: DetailsItem,
     val dailySunInfo: SunItem?,
     val currentWind: WeatherItem?,
     val currentHumidity: WeatherItem?,
@@ -88,6 +90,10 @@ data class DisplayData (
                 prefs.iconStyle,
                 IconColor.THEMED
             )
+            val detailsRain = WeatherRenderer.detailsRain(
+                context,
+                weather
+            )
             val currentWind = WeatherRenderer.currentWind(
                 context,
                 weather,
@@ -118,6 +124,7 @@ data class DisplayData (
                 currentFeelsLike = currentFeelsLikeString,
                 dailyHighLowTemp = dailyHighLowTempString,
                 hourlyWeather = hourlyWeather,
+                detailsRain = detailsRain,
                 dailyWeather = dailyWeather,
                 dailySunInfo = dailySunInfo,
                 currentWind = currentWind,

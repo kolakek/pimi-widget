@@ -315,6 +315,42 @@ object WeatherRenderer {
             }
     }
 
+    fun detailsRain(
+        context: Context,
+        weather: WeatherData
+    ): DetailsItem {
+        val barData = weather.hourlyTimeMillis.indices
+            .drop(weather.nextHourlyIndex().coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val rainMm = weather.hourlyRainMm.getOrNull(idx) ?: return@mapNotNull null
+                val showersMm = weather.hourlyShowersMm.getOrNull(idx) ?: return@mapNotNull null
+                val precipProb = weather.hourlyPrecipProb.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.hourlyTimeMillis[idx]
+
+                val sumMm = rainMm + showersMm
+
+                val probStr = "${precipProb.toInt()}%"
+                val valStr = "%.1f".format(sumMm)
+                val timeStr = formatTime(context, timeMillis)
+                val level = (sumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
+
+                DataBarItem(
+                    valStr = valStr,
+                    probStr = probStr,
+                    level = level,
+                    timeStr = timeStr
+                )
+            }
+        val rainMm = weather.todayRainMm()
+        val showersMm = weather.todayShowersMm()
+
+        val valStr = if (rainMm != null && showersMm != null) {
+            "%.1f".format(rainMm + showersMm)
+        } else null
+
+        return DetailsItem(valStr, barData)
+    }
+
     fun auxString(
         context: Context,
         weather: WeatherData,
