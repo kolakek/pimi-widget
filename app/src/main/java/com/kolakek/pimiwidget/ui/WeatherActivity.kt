@@ -148,7 +148,7 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun displayDetailsRain(data: DisplayData) {
         dataBarAdapter.submitList(
-            data.detailsRain.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, NA)) }
+            data.detailsRain.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
         )
         binding.hourlyRainDetails.hourlyDetailsTitle.text = "Rain"
         binding.hourlyRainDetails.hourlyDetailsDescr.text = "Today's total"

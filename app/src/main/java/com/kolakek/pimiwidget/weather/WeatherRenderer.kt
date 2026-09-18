@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.weather
 
 import android.content.Context
+import android.graphics.Color
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
@@ -330,14 +331,18 @@ object WeatherRenderer {
                 val sumMm = rainMm + showersMm
 
                 val probStr = "${precipProb.toInt()}%"
-                val valStr = "%.1f".format(sumMm)
+                val valStr = if (sumMm > 0.0) "%.1f".format(sumMm) else ""
                 val timeStr = formatTime(context, timeMillis)
                 val level = (sumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
+
+                val saturation = 0.1f + (level.toFloat() * (0.61f - 0.1f))
+                val color = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
 
                 DataBarItem(
                     valStr = valStr,
                     probStr = probStr,
                     level = level,
+                    color = color,
                     timeStr = timeStr
                 )
             }

@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.ui
 
+import android.graphics.drawable.LayerDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.DrawableCompat
@@ -35,7 +36,7 @@ class DataBarAdapter :
 
     class DiffCallback : DiffUtil.ItemCallback<DataBarItem>() {
         override fun areItemsTheSame(oldItem: DataBarItem, newItem: DataBarItem) =
-            oldItem.level == newItem.level
+            oldItem.timeStr == newItem.timeStr
 
         override fun areContentsTheSame(oldItem: DataBarItem, newItem: DataBarItem) =
             oldItem == newItem
@@ -60,10 +61,10 @@ class DataBarAdapter :
         )
         val params = holder.binding.dataBar.layoutParams
 
-        params.height = (maxHeightPx * item.level).toInt().coerceAtLeast(4)
+        params.height = (maxHeightPx * item.level).toInt().coerceAtLeast(2)
         holder.binding.dataBar.layoutParams = params
 
-        val color = android.graphics.Color.HSVToColor(floatArrayOf(position * 15f, 0.8f, 0.8f))
-        DrawableCompat.setTint(holder.binding.dataBar.background.mutate(), color)
+        val drawable = holder.binding.dataBar.background as LayerDrawable
+        DrawableCompat.setTint(drawable.getDrawable(0).mutate(), item.color)
     }
 }

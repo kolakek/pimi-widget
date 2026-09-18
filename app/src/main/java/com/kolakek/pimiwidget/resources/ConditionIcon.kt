@@ -38,7 +38,7 @@ object ConditionIcon {
                     .atStartOfDay(ZoneId.systemDefault())
                     .toInstant()
                     .toEpochMilli()
-                val preSunrise = sunriseMillis - 15 * 60 * 1000L
+                val preSunrise = sunriseMillis - 30 * 60 * 1000L
                 val step = (preSunrise - startOfDay).coerceAtLeast(0L) / 6
                 when {
                     timeMillis > preSunrise -> R.drawable.ms_d
@@ -57,7 +57,7 @@ object ConditionIcon {
                     .plusDays(1)
                     .toInstant()
                     .toEpochMilli() - 1
-                val postSunset = sunsetMillis + 15 * 60 * 1000L
+                val postSunset = sunsetMillis + 30 * 60 * 1000L
                 val step = (endOfDay - postSunset).coerceAtLeast(0L) / 6
                 when {
                     timeMillis < postSunset -> R.drawable.ms_n
@@ -71,8 +71,8 @@ object ConditionIcon {
             }
 
             else -> {
-                val postSunrise = sunriseMillis + 15 * 60 * 1000L
-                val preSunset = sunsetMillis - 15 * 60 * 1000L
+                val postSunrise = sunriseMillis + 30 * 60 * 1000L
+                val preSunset = sunsetMillis - 30 * 60 * 1000L
                 val step = (preSunset - postSunrise).coerceAtLeast(0L) / 13
                 when {
                     timeMillis < postSunrise -> R.drawable.ms_r

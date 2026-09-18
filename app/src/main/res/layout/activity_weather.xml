@@ -164,7 +164,7 @@
                 android:text="@string/app_attribution_open_meteo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="sans-serif-medium"

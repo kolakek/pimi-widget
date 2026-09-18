@@ -21,5 +21,6 @@ data class DataBarItem(
     val valStr: String,
     val probStr: String,
     val level: Double,
+    val color: Int,
     val timeStr: String,
 )

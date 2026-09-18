@@ -22,11 +22,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:padding="4dp"
-            android:textSize="11sp" />
+            android:textSize="12sp" />
 
         <View
             android:id="@+id/data_bar"
-            android:layout_width="28dp"
+            android:layout_width="32dp"
             android:layout_height="0dp"
             android:background="@drawable/app_bar_background" />
 
@@ -39,13 +39,13 @@
         android:fontFamily="sans-serif-medium"
         android:padding="4dp"
         android:textColor="?attr/colorOnSurface"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/data_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:textSize="11sp" />
+        android:textSize="12sp" />
 
 </LinearLayout>
