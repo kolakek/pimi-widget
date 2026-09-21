@@ -354,7 +354,7 @@ object WeatherRenderer {
             "%.1f".format(rainMm + showersMm)
         } else NA
 
-        return DetailsItem(valStr, barData)
+        return DetailsItem(valStr, "mm", barData)
     }
 
     fun detailsHumidity(
@@ -384,9 +384,41 @@ object WeatherRenderer {
                     timeStr = timeStr
                 )
             }
-        val valStr = weather.todayHumidityMean()?.let { "${it.toInt()}%" } ?: NA
+        val valStr = weather.todayHumidityMean()?.let { "${it.toInt()}" } ?: NA
 
-        return DetailsItem(valStr, barData)
+        return DetailsItem(valStr, "%", barData)
+    }
+
+    fun detailsUvIndex(
+        context: Context,
+        weather: WeatherData
+    ): DetailsItem {
+        val barData = weather.hourlyTimeMillis.indices
+            .drop(weather.nextHourlyIndex().coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val uvIndex = weather.hourlyUvIndex.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.hourlyTimeMillis[idx]
+
+                val valStr = "${uvIndex.toInt()}"
+                val timeStr = formatTime(context, timeMillis)
+                val level = (uvIndex / 11).coerceAtMost(1.0)
+
+                val h = 28f + (1f - level.toFloat()) * (48f - 28f)
+                val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
+
+                val color = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
+
+                DataBarItem(
+                    valStr = valStr,
+                    probStr = "",
+                    level = level,
+                    color = color,
+                    timeStr = timeStr
+                )
+            }
+        val valStr = weather.todayUvIndexMax()?.let { "${it.toInt()}" } ?: NA
+
+        return DetailsItem(valStr, "XXX", barData)
     }
 
     fun auxString(

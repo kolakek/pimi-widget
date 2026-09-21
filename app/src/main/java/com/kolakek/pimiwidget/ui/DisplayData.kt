@@ -38,6 +38,7 @@ data class DisplayData (
     val dailyWeather: List<DailyItem>,
     val detailsRain: DetailsItem,
     val detailsHumidity: DetailsItem,
+    val detailsUvIndex: DetailsItem,
     val dailySunInfo: SunItem?,
     val currentWind: WeatherItem?,
     val currentHumidity: WeatherItem?,
@@ -99,6 +100,10 @@ data class DisplayData (
                 context,
                 weather
             )
+            val detailsUvIndex = WeatherRenderer.detailsUvIndex(
+                context,
+                weather
+            )
             val currentWind = WeatherRenderer.currentWind(
                 context,
                 weather,
@@ -131,6 +136,7 @@ data class DisplayData (
                 hourlyWeather = hourlyWeather,
                 detailsRain = detailsRain,
                 detailsHumidity = detailsHumidity,
+                detailsUvIndex = detailsUvIndex,
                 dailyWeather = dailyWeather,
                 dailySunInfo = dailySunInfo,
                 currentWind = currentWind,

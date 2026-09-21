@@ -15,10 +15,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.weather
+package com.kolakek.pimiwidget.ui
 
-data class DetailsItem(
-    val valStr: String?,
-    val unitStr: String,
-    val barData: List<DataBarItem>
-)
+enum class HourlyDetails {
+    RAIN, HUMIDITY, UV_INDEX
+}

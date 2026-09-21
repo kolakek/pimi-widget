@@ -130,6 +130,7 @@ object WeatherService {
             hourlyShowersMm = providerData.hourly.showers,
             hourlySnowCm = providerData.hourly.snowfall,
             hourlyHumidity = providerData.hourly.relative_humidity_2m,
+            hourlyUvIndex = providerData.hourly.uv_index,
             hourlyIsDay = providerData.hourly.is_day.map { v -> v.toInt() == 1 },
             hourlyWarningCode = hourlyWarningCode,
             hourlyTimeMillis = providerData.hourly.time.map { v -> v.toLong() * 1000L },

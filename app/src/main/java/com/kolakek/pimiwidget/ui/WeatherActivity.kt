@@ -56,6 +56,8 @@ class WeatherActivity : AppCompatActivity() {
     private val dailyAdapter = DailyForecastAdapter()
     private val dataBarAdapter = DataBarAdapter()
 
+    private var activeHourlyDetails = HourlyDetails.RAIN
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -150,13 +152,15 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun displayDetails(data: DisplayData) {
         binding.hourlyDetails.buttonRain.setOnClickListener {
-            displayDetailsRain(data.detailsRain)
-
+            bindHourlyDetails(data, HourlyDetails.RAIN)
         }
         binding.hourlyDetails.buttonHumidity.setOnClickListener {
-            displayDetailsHumidity(data.detailsHumidity)
+            bindHourlyDetails(data, HourlyDetails.HUMIDITY)
         }
-        displayDetailsRain(data.detailsRain)
+        binding.hourlyDetails.buttonUvIndex.setOnClickListener {
+            bindHourlyDetails(data, HourlyDetails.UV_INDEX)
+        }
+        bindHourlyDetails(data, activeHourlyDetails)
     }
 
     private fun displayCurrentConditions(data: DisplayData) {
@@ -205,28 +209,39 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayDetailsRain(detailsItem: DetailsItem) {
+    private fun bindHourlyDetails(
+        displayData: DisplayData,
+        hourlyDetails: HourlyDetails
+    ) {
+        val detailsItem: DetailsItem
+        val titleString: String
+
+        when (hourlyDetails) {
+            HourlyDetails.RAIN -> {
+                detailsItem = displayData.detailsRain
+                titleString = "Today's total"
+            }
+            HourlyDetails.HUMIDITY -> {
+                detailsItem = displayData.detailsHumidity
+                titleString = "Today's average"
+            }
+            HourlyDetails.UV_INDEX -> {
+                detailsItem = displayData.detailsUvIndex
+                titleString = "Today's maximum"
+            }
+        }
         dataBarAdapter.submitList(
             detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
         )
-        binding.hourlyDetails.hourlyDetailsDescr.text = "Today's total"
-        binding.hourlyDetails.hourlyDetailsUnit.text = "mm"
+        binding.hourlyDetails.hourlyDetailsDescr.text = titleString
+        binding.hourlyDetails.hourlyDetailsUnit.text = detailsItem.unitStr
         binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
 
-        binding.hourlyDetails.buttonRain.isSelected = true
-        binding.hourlyDetails.buttonHumidity.isSelected = false
-    }
+        binding.hourlyDetails.buttonRain.isSelected = (hourlyDetails == HourlyDetails.RAIN)
+        binding.hourlyDetails.buttonHumidity.isSelected = (hourlyDetails == HourlyDetails.HUMIDITY)
+        binding.hourlyDetails.buttonUvIndex.isSelected = (hourlyDetails == HourlyDetails.UV_INDEX)
 
-    private fun displayDetailsHumidity(detailsItem: DetailsItem) {
-        dataBarAdapter.submitList(
-            detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
-        )
-        binding.hourlyDetails.hourlyDetailsDescr.text = "Today's average"
-        binding.hourlyDetails.hourlyDetailsUnit.text = "%"
-        binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
-
-        binding.hourlyDetails.buttonRain.isSelected = false
-        binding.hourlyDetails.buttonHumidity.isSelected = true
+        activeHourlyDetails = hourlyDetails
     }
 
     private fun bindConditionItem(

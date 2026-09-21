@@ -40,6 +40,7 @@ data class WeatherData (
     val hourlyShowersMm: List<Double>,
     val hourlySnowCm: List<Double>,
     val hourlyHumidity: List<Double>,
+    val hourlyUvIndex: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,
