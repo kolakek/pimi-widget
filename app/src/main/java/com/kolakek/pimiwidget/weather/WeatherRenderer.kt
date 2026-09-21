@@ -34,6 +34,7 @@ import com.kolakek.pimiwidget.settings.PressureUnit
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WindUnit
+import com.kolakek.pimiwidget.ui.NA
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
@@ -335,7 +336,7 @@ object WeatherRenderer {
                 val timeStr = formatTime(context, timeMillis)
                 val level = (sumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
 
-                val saturation = 0.1f + (level.toFloat() * (0.61f - 0.1f))
+                val saturation = 0.1f + level.toFloat() * (0.61f - 0.1f)
                 val color = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
 
                 DataBarItem(
@@ -351,7 +352,39 @@ object WeatherRenderer {
 
         val valStr = if (rainMm != null && showersMm != null) {
             "%.1f".format(rainMm + showersMm)
-        } else null
+        } else NA
+
+        return DetailsItem(valStr, barData)
+    }
+
+    fun detailsHumidity(
+        context: Context,
+        weather: WeatherData
+    ): DetailsItem {
+        val barData = weather.hourlyTimeMillis.indices
+            .drop(weather.nextHourlyIndex().coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val humidity = weather.hourlyHumidity.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.hourlyTimeMillis[idx]
+
+                val probStr = "${humidity.toInt()}%"
+                val timeStr = formatTime(context, timeMillis)
+                val level = (humidity / 100).coerceAtMost(1.0)
+
+                val h = 28f + (1f - level.toFloat()) * (48f - 28f)
+                val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
+
+                val color = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
+
+                DataBarItem(
+                    valStr = "",
+                    probStr = probStr,
+                    level = level,
+                    color = color,
+                    timeStr = timeStr
+                )
+            }
+        val valStr = weather.todayHumidityMean()?.let { "${it.toInt()}%" } ?: NA
 
         return DetailsItem(valStr, barData)
     }

@@ -28,6 +28,7 @@ data class ProviderDataDaily (
     val cape_max: List<Double>,
     val cloud_cover_mean: List<Double>,
     val precipitation_probability_max: List<Double>,
+    val relative_humidity_2m_mean: List<Double>,
     val rain_sum: List<Double>,
     val showers_sum: List<Double>,
     val snowfall_sum: List<Double>,

@@ -37,12 +37,14 @@ import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.settings.PreferencesHelper
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DataBarItem
+import com.kolakek.pimiwidget.weather.DetailsItem
 import com.kolakek.pimiwidget.weather.HourlyItem
 import com.kolakek.pimiwidget.weather.WeatherItem
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
+import kotlin.collections.ifEmpty
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -64,7 +66,7 @@ class WeatherActivity : AppCompatActivity() {
 
         binding.hourlyForecast.adapter = hourlyAdapter
         binding.dailyForecast.adapter = dailyAdapter
-        binding.hourlyRainDetails.hourlyDataBar.adapter = dataBarAdapter
+        binding.hourlyDetails.hourlyDataBar.adapter = dataBarAdapter
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -89,7 +91,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
-                        displayDetailsRain(displayData)
+                        displayDetails(displayData)
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
@@ -146,14 +148,15 @@ class WeatherActivity : AppCompatActivity() {
         dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA, NA)) })
     }
 
-    private fun displayDetailsRain(data: DisplayData) {
-        dataBarAdapter.submitList(
-            data.detailsRain.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
-        )
-        binding.hourlyRainDetails.hourlyDetailsTitle.text = "Rain"
-        binding.hourlyRainDetails.hourlyDetailsDescr.text = "Today's total"
-        binding.hourlyRainDetails.hourlyDetailsValue.text = data.detailsRain.valStr ?: NA
-        binding.hourlyRainDetails.hourlyDetailsUnit.text = "mm"
+    private fun displayDetails(data: DisplayData) {
+        binding.hourlyDetails.buttonRain.setOnClickListener {
+            displayDetailsRain(data.detailsRain)
+
+        }
+        binding.hourlyDetails.buttonHumidity.setOnClickListener {
+            displayDetailsHumidity(data.detailsHumidity)
+        }
+        displayDetailsRain(data.detailsRain)
     }
 
     private fun displayCurrentConditions(data: DisplayData) {
@@ -200,6 +203,30 @@ class WeatherActivity : AppCompatActivity() {
         } ?: run {
             binding.currentSun.root.visibility = View.GONE
         }
+    }
+
+    private fun displayDetailsRain(detailsItem: DetailsItem) {
+        dataBarAdapter.submitList(
+            detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
+        )
+        binding.hourlyDetails.hourlyDetailsDescr.text = "Today's total"
+        binding.hourlyDetails.hourlyDetailsUnit.text = "mm"
+        binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
+
+        binding.hourlyDetails.buttonRain.isSelected = true
+        binding.hourlyDetails.buttonHumidity.isSelected = false
+    }
+
+    private fun displayDetailsHumidity(detailsItem: DetailsItem) {
+        dataBarAdapter.submitList(
+            detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
+        )
+        binding.hourlyDetails.hourlyDetailsDescr.text = "Today's average"
+        binding.hourlyDetails.hourlyDetailsUnit.text = "%"
+        binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
+
+        binding.hourlyDetails.buttonRain.isSelected = false
+        binding.hourlyDetails.buttonHumidity.isSelected = true
     }
 
     private fun bindConditionItem(

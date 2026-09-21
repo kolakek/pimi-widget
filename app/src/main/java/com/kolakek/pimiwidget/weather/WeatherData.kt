@@ -39,6 +39,7 @@ data class WeatherData (
     val hourlyRainMm: List<Double>,
     val hourlyShowersMm: List<Double>,
     val hourlySnowCm: List<Double>,
+    val hourlyHumidity: List<Double>,
     val hourlyIsDay: List<Boolean>,
     val hourlyWarningCode: List<WarningCode>,
     val hourlyTimeMillis: List<Long>,
@@ -50,6 +51,7 @@ data class WeatherData (
     val dailyShowersMm: List<Double>,
     val dailySnowCm: List<Double>,
     val dailyUvIndexMax: List<Double>,
+    val dailyHumidityMean: List<Double>,
     val dailySunriseMillis: List<Long>,
     val dailySunsetMillis: List<Long>,
     val dailyTimeMillis: List<Long>,
@@ -118,6 +120,10 @@ data class WeatherData (
 
     fun todayShowersMm(): Double? {
         return dailyShowersMm.getOrNull(todayIndex())
+    }
+
+    fun todayHumidityMean(): Double? {
+        return dailyHumidityMean.getOrNull(todayIndex())
     }
 
     fun todayUvIndexMax(): Double? {

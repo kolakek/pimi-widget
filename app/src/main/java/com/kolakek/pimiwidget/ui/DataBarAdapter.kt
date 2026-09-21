@@ -61,7 +61,7 @@ class DataBarAdapter :
         )
         val params = holder.binding.dataBar.layoutParams
 
-        params.height = (maxHeightPx * item.level).toInt().coerceAtLeast(2)
+        params.height = (maxHeightPx * item.level).toInt().coerceAtLeast(4)
         holder.binding.dataBar.layoutParams = params
 
         val drawable = holder.binding.dataBar.background as LayerDrawable

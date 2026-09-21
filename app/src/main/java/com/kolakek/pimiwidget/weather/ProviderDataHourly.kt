@@ -34,6 +34,7 @@ data class ProviderDataHourly (
     val visibility: List<Double>,
     val wind_gusts_10m: List<Double>,
     val cape: List<Double>,
+    val relative_humidity_2m: List<Double>,
     val time: List<Double>,
     val weather_code: List<Double>,
     val is_day: List<Double>
