@@ -89,6 +89,8 @@
     <string name="app_text_humidity">Humidity</string>
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">Pressure</string>
+    <string name="app_text_rain">Rain</string>
+    <string name="app_text_hourly_details">Hourly details</string>
     <string name="app_text_no_data">No weather data available</string>
     <string name="app_text_weather_off">Weather disabled</string>
     <string name="app_text_enable_in_settings">Enable weather in widget settings</string>

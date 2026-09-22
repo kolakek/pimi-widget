@@ -22,13 +22,14 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="App.OutlineChip" parent="Widget.Material3.Button.OutlinedButton">
+    <style name="App.ToggleButton" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:minHeight">0dp</item>
         <item name="android:minWidth">0dp</item>
-        <item name="backgroundTint">@color/toggle_button_bg</item>
+        <item name="backgroundTint">@color/toggle_button</item>
+        <item name="strokeColor">?attr/colorPrimaryContainer</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
