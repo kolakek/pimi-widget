@@ -19,30 +19,36 @@
                 android:paddingVertical="8dp"
                 android:orientation="horizontal">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     style="@style/App.ToggleButton"
-                    android:text="@string/app_text_rain"
                     android:id="@+id/button_rain"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="4dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_text_rain"
+                    app:iconPadding="0dp"
+                    app:icon="@drawable/ic_rain" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     style="@style/App.ToggleButton"
                     android:id="@+id/button_humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
-                    android:text="@string/app_text_humidity" />
+                    android:contentDescription="@string/app_text_humidity"
+                    app:iconPadding="0dp"
+                    app:icon="@drawable/ic_humidity" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     style="@style/App.ToggleButton"
                     android:id="@+id/button_uv_index"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
-                    android:text="@string/app_text_uv_index" />
+                    android:contentDescription="@string/app_text_uv_index"
+                    app:iconPadding="0dp"
+                    app:icon="@drawable/ic_uv_index" />
 
             </LinearLayout>
 

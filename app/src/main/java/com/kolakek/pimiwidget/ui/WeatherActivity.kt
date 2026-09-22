@@ -30,6 +30,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.work.ExistingWorkPolicy
+import com.google.android.material.button.MaterialButton
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
@@ -239,10 +240,18 @@ class WeatherActivity : AppCompatActivity() {
         binding.hourlyDetails.hourlyDetailsUnit.text = detailsItem.unitStr
         binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
 
-        binding.hourlyDetails.buttonRain.isSelected = (dataBarType == DataBarType.RAIN)
-        binding.hourlyDetails.buttonHumidity.isSelected = (dataBarType == DataBarType.HUMIDITY)
-        binding.hourlyDetails.buttonUvIndex.isSelected = (dataBarType == DataBarType.UV_INDEX)
-
+        updateButtonState(
+            binding.hourlyDetails.buttonRain,
+            dataBarType == DataBarType.RAIN
+        )
+        updateButtonState(
+            binding.hourlyDetails.buttonHumidity,
+            dataBarType == DataBarType.HUMIDITY
+        )
+        updateButtonState(
+            binding.hourlyDetails.buttonUvIndex,
+            dataBarType == DataBarType.UV_INDEX
+        )
         selectedDataBar = dataBarType
     }
 
@@ -280,5 +289,16 @@ class WeatherActivity : AppCompatActivity() {
 
         binding.image.setImageResource(item.iconId)
         if (rotateByValue) binding.image.rotation = item.level.toFloat()
+    }
+
+    private fun updateButtonState(button: MaterialButton, selected: Boolean) {
+        button.isSelected = selected
+        if (selected) {
+            button.text = button.contentDescription
+            button.iconPadding = resources.getDimensionPixelSize(R.dimen.app_button_icon_padding)
+        } else {
+            button.text = ""
+            button.iconPadding = 0
+        }
     }
 }

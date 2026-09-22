@@ -5,4 +5,5 @@
     <dimen name="app_bar_max_height">64dp</dimen>
     <dimen name="app_bar_container_height">90dp</dimen>
     <dimen name="app_bar_stroke_width">1dp</dimen>
+    <dimen name="app_button_icon_padding">8dp</dimen>
 </resources>
