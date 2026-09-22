@@ -56,7 +56,9 @@ class WeatherActivity : AppCompatActivity() {
     private val dailyAdapter = DailyForecastAdapter()
     private val dataBarAdapter = DataBarAdapter()
 
-    private var activeHourlyDetails = HourlyDetails.RAIN
+    private var selectedDataBar = DataBarType.RAIN
+
+    enum class DataBarType { RAIN, HUMIDITY, UV_INDEX }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,7 +95,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
-                        displayDetails(displayData)
+                        displayHourlyDetails(displayData)
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
@@ -150,17 +152,17 @@ class WeatherActivity : AppCompatActivity() {
         dailyAdapter.submitList(data.dailyWeather.ifEmpty { listOf(DailyItem(NA, 0, NA, NA)) })
     }
 
-    private fun displayDetails(data: DisplayData) {
+    private fun displayHourlyDetails(data: DisplayData) {
         binding.hourlyDetails.buttonRain.setOnClickListener {
-            bindHourlyDetails(data, HourlyDetails.RAIN)
+            updateDataBar(data, DataBarType.RAIN)
         }
         binding.hourlyDetails.buttonHumidity.setOnClickListener {
-            bindHourlyDetails(data, HourlyDetails.HUMIDITY)
+            updateDataBar(data, DataBarType.HUMIDITY)
         }
         binding.hourlyDetails.buttonUvIndex.setOnClickListener {
-            bindHourlyDetails(data, HourlyDetails.UV_INDEX)
+            updateDataBar(data, DataBarType.UV_INDEX)
         }
-        bindHourlyDetails(data, activeHourlyDetails)
+        updateDataBar(data, selectedDataBar)
     }
 
     private fun displayCurrentConditions(data: DisplayData) {
@@ -209,23 +211,23 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun bindHourlyDetails(
+    private fun updateDataBar(
         displayData: DisplayData,
-        hourlyDetails: HourlyDetails
+        dataBarType: DataBarType
     ) {
         val detailsItem: DetailsItem
         val titleString: String
 
-        when (hourlyDetails) {
-            HourlyDetails.RAIN -> {
+        when (dataBarType) {
+            DataBarType.RAIN -> {
                 detailsItem = displayData.detailsRain
                 titleString = "Today's total"
             }
-            HourlyDetails.HUMIDITY -> {
+            DataBarType.HUMIDITY -> {
                 detailsItem = displayData.detailsHumidity
                 titleString = "Today's average"
             }
-            HourlyDetails.UV_INDEX -> {
+            DataBarType.UV_INDEX -> {
                 detailsItem = displayData.detailsUvIndex
                 titleString = "Today's maximum"
             }
@@ -237,11 +239,11 @@ class WeatherActivity : AppCompatActivity() {
         binding.hourlyDetails.hourlyDetailsUnit.text = detailsItem.unitStr
         binding.hourlyDetails.hourlyDetailsValue.text = detailsItem.valStr ?: NA
 
-        binding.hourlyDetails.buttonRain.isSelected = (hourlyDetails == HourlyDetails.RAIN)
-        binding.hourlyDetails.buttonHumidity.isSelected = (hourlyDetails == HourlyDetails.HUMIDITY)
-        binding.hourlyDetails.buttonUvIndex.isSelected = (hourlyDetails == HourlyDetails.UV_INDEX)
+        binding.hourlyDetails.buttonRain.isSelected = (dataBarType == DataBarType.RAIN)
+        binding.hourlyDetails.buttonHumidity.isSelected = (dataBarType == DataBarType.HUMIDITY)
+        binding.hourlyDetails.buttonUvIndex.isSelected = (dataBarType == DataBarType.UV_INDEX)
 
-        activeHourlyDetails = hourlyDetails
+        selectedDataBar = dataBarType
     }
 
     private fun bindConditionItem(
