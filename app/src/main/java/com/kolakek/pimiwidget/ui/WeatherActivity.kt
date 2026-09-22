@@ -233,7 +233,7 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
         dataBarAdapter.submitList(
-            detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, NA)) }
+            detailsItem.barData.ifEmpty { listOf(DataBarItem(NA, NA, 0.0, 0, 0, NA)) }
         )
         binding.hourlyDetails.hourlyDetailsDescr.text = titleString
         binding.hourlyDetails.hourlyDetailsUnit.text = detailsItem.unitStr

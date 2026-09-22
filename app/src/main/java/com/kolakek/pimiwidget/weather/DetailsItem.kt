@@ -19,6 +19,6 @@ package com.kolakek.pimiwidget.weather
 
 data class DetailsItem(
     val valStr: String?,
-    val unitStr: String,
+    val unitStr: String?,
     val barData: List<DataBarItem>
 )

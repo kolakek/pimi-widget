@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.ui
 
+import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -65,6 +66,16 @@ class DataBarAdapter :
         holder.binding.dataBar.layoutParams = params
 
         val drawable = holder.binding.dataBar.background as LayerDrawable
-        DrawableCompat.setTint(drawable.getDrawable(0).mutate(), item.color)
+        DrawableCompat.setTint(drawable.getDrawable(0).mutate(), item.fillColor)
+
+        val layerDrawable = holder.binding.dataBar.background as LayerDrawable
+        val fillDrawable = layerDrawable.getDrawable(0).mutate() as GradientDrawable
+        val strokeDrawable = layerDrawable.getDrawable(1).mutate() as GradientDrawable
+
+        fillDrawable.setColor(item.fillColor)
+        strokeDrawable.setStroke(
+            holder.itemView.resources.getDimensionPixelSize(R.dimen.app_bar_stroke_width),
+            item.strokeColor
+        )
     }
 }

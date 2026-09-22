@@ -34,7 +34,6 @@ import com.kolakek.pimiwidget.settings.PressureUnit
 import com.kolakek.pimiwidget.settings.TempUnit
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WindUnit
-import com.kolakek.pimiwidget.ui.NA
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
@@ -45,6 +44,7 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
+import androidx.core.graphics.toColorInt
 
 object WeatherRenderer {
 
@@ -337,22 +337,21 @@ object WeatherRenderer {
                 val level = (sumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
 
                 val saturation = 0.1f + level.toFloat() * (0.61f - 0.1f)
-                val color = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
+                val fillColor = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
+                val strokeColor = "#4C8DF6".toColorInt()
 
                 DataBarItem(
                     valStr = valStr,
                     probStr = probStr,
                     level = level,
-                    color = color,
+                    fillColor = fillColor,
+                    strokeColor = strokeColor,
                     timeStr = timeStr
                 )
             }
         val rainMm = weather.todayRainMm()
         val showersMm = weather.todayShowersMm()
-
-        val valStr = if (rainMm != null && showersMm != null) {
-            "%.1f".format(rainMm + showersMm)
-        } else NA
+        val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let { "%.1f".format(it) }
 
         return DetailsItem(valStr, "mm", barData)
     }
@@ -374,17 +373,19 @@ object WeatherRenderer {
                 val h = 28f + (1f - level.toFloat()) * (48f - 28f)
                 val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
 
-                val color = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
+                val fillColor = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
+                val strokeColor = "#D57A2D".toColorInt()
 
                 DataBarItem(
                     valStr = "",
                     probStr = probStr,
                     level = level,
-                    color = color,
+                    fillColor = fillColor,
+                    strokeColor = strokeColor,
                     timeStr = timeStr
                 )
             }
-        val valStr = weather.todayHumidityMean()?.let { "${it.toInt()}" } ?: NA
+        val valStr = weather.todayHumidityMean()?.let { "${it.toInt()}" }
 
         return DetailsItem(valStr, "%", barData)
     }
@@ -396,29 +397,51 @@ object WeatherRenderer {
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
-                val uvIndex = weather.hourlyUvIndex.getOrNull(idx) ?: return@mapNotNull null
+                val uvIndex = weather.hourlyUvIndex.getOrNull(idx)?.toInt() ?: return@mapNotNull null
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
-                val valStr = "${uvIndex.toInt()}"
+                val valStr = "$uvIndex"
                 val timeStr = formatTime(context, timeMillis)
-                val level = (uvIndex / 11).coerceAtMost(1.0)
+                val level = (uvIndex.toDouble() / 11).coerceAtMost(1.0)
 
-                val h = 28f + (1f - level.toFloat()) * (48f - 28f)
-                val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
-
-                val color = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
-
+                val fillColor: Int
+                val strokeColor: Int
+                when (uvIndex) {
+                    in 0 .. 2 -> {
+                        fillColor = "#53c0a8".toColorInt()
+                        strokeColor = "#53c0a8".toColorInt()
+                    }
+                    in 3 .. 5 -> {
+                        fillColor = "#ffcc5c".toColorInt()
+                        strokeColor = "#ffaa00".toColorInt()
+                    }
+                    in 6 .. 7 -> {
+                        fillColor = "#f58259".toColorInt()
+                        strokeColor = "#f45d2f".toColorInt()
+                    }
+                    in 8 .. 10 -> {
+                        fillColor = "#f0516b".toColorInt()
+                        strokeColor = "#f0516b".toColorInt()
+                    }
+                    else -> {
+                        fillColor = "#7c67ae".toColorInt()
+                        strokeColor = "#7c67ae".toColorInt()
+                    }
+                }
                 DataBarItem(
                     valStr = valStr,
                     probStr = "",
                     level = level,
-                    color = color,
+                    fillColor = fillColor,
+                    strokeColor = strokeColor,
                     timeStr = timeStr
                 )
             }
-        val valStr = weather.todayUvIndexMax()?.let { "${it.toInt()}" } ?: NA
+        val uvIndex = weather.todayUvIndexMax()
+        val valStr = uvIndex?.let { "${it.toInt()}" }
+        val unitStr = uvIndex?.let { context.getString(ConditionString.getUvIndexStringId(it)) }
 
-        return DetailsItem(valStr, "XXX", barData)
+        return DetailsItem(valStr, unitStr, barData)
     }
 
     fun auxString(
