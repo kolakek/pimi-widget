@@ -275,7 +275,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.image.setImageDrawable(null)
             return
         }
-        binding.textValue.text = item.valueStr
+        binding.textValue.text = item.valueStr ?: NA
 
         if (useUnitAsDescr) {
             binding.textUnit.text = null

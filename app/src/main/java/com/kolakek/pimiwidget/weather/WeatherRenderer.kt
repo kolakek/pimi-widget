@@ -45,6 +45,7 @@ import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
 import androidx.core.graphics.toColorInt
+import com.kolakek.pimiwidget.settings.RainUnit
 
 object WeatherRenderer {
 
@@ -94,18 +95,12 @@ object WeatherRenderer {
         val windKmh = weather.currentWindSpeedKmh() ?: return null
         val directionDeg = weather.currentWindDirectionDeg() ?: return null
 
-        val unitStr = if (windUnit == WindUnit.KMH) {
-            context.getString(R.string.kmh)
-        } else {
-            context.getString(R.string.mph)
-        }
         val gustsStr = weather.currentWindGustsKmh()?.let {
-            context.getString(R.string.app_text_gusts) + ": " + speedString(it, windUnit)
-        } ?: ""
-
+            context.getString(R.string.app_text_gusts) + ": ${windUnit.fromKmh(it).toInt()}"
+        }
         return WeatherItem(
-            valueStr = speedString(windKmh, windUnit),
-            unitStr = unitStr,
+            valueStr = "${windUnit.fromKmh(windKmh).toInt()}",
+            unitStr = windUnit.unitStr(context),
             auxStr = gustsStr,
             iconId = ConditionIcon.getWindIconId(),
             level = directionDeg,
@@ -122,8 +117,7 @@ object WeatherRenderer {
         val dewPointStr = weather.currentDewPointCelsius()?.let {
             context.getString(R.string.app_text_dew_point) + ": " +
                     temperatureString(context, it, tempUnit, false)
-        } ?: ""
-
+        }
         return WeatherItem(
             valueStr = "${humidity.toInt()}",
             unitStr = "%",
@@ -141,7 +135,6 @@ object WeatherRenderer {
 
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
-            unitStr = "",
             auxStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
             iconId = ConditionIcon.getUvIndexIconId(uvIndex),
             level = uvIndex
@@ -155,20 +148,16 @@ object WeatherRenderer {
     ): WeatherItem? {
         val pressureHpa = weather.currentPressureHpa() ?: return null
 
-        val unitStr = when (pressureUnit) {
-            PressureUnit.HPA -> context.getString(R.string.hpa)
-            PressureUnit.MB -> context.getString(R.string.mb)
-            PressureUnit.INHG -> context.getString(R.string.inhg)
-        }
-        val pressureStr = if (pressureUnit == PressureUnit.INHG) {
-            String.format(Locale.getDefault(), "%.1f", pressureHpa * 0.02953)
-        } else {
-            String.format(Locale.getDefault(), "%,.0f", pressureHpa)
-        }
+        val format = if (pressureUnit == PressureUnit.INHG) "%.1f" else "%,.0f"
+
+        val pressureStr = String.format(
+            Locale.getDefault(),
+            format,
+            pressureUnit.fromHpa(pressureHpa)
+        )
         return WeatherItem(
             valueStr = pressureStr,
-            unitStr = unitStr,
-            auxStr = "",
+            unitStr = pressureUnit.unitStr(context),
             iconId = ConditionIcon.getPressureIconId(pressureHpa),
             level = pressureHpa
         )
@@ -319,7 +308,8 @@ object WeatherRenderer {
 
     fun detailsRain(
         context: Context,
-        weather: WeatherData
+        weather: WeatherData,
+        rainUnit: RainUnit
     ): DetailsItem {
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
@@ -329,12 +319,13 @@ object WeatherRenderer {
                 val precipProb = weather.hourlyPrecipProb.getOrNull(idx) ?: return@mapNotNull null
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
-                val sumMm = rainMm + showersMm
+                val rainSumMm = rainMm + showersMm
+                val rainSum = rainUnit.fromMm(rainSumMm)
 
                 val probStr = "${precipProb.toInt()}%"
-                val valStr = if (sumMm > 0.0) "%.1f".format(sumMm) else ""
+                val valStr = if (rainSum > 0.0) "%.1f".format(rainSum) else ""
                 val timeStr = formatTime(context, timeMillis)
-                val level = (sumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
+                val level = (rainSumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
 
                 val saturation = 0.1f + level.toFloat() * (0.61f - 0.1f)
                 val fillColor = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
@@ -351,9 +342,10 @@ object WeatherRenderer {
             }
         val rainMm = weather.todayRainMm()
         val showersMm = weather.todayShowersMm()
-        val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let { "%.1f".format(it) }
-
-        return DetailsItem(valStr, "mm", barData)
+        val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let {
+            "%.1f".format(rainUnit.fromMm(it))
+        }
+        return DetailsItem(valStr, rainUnit.unitStr(context), barData)
     }
 
     fun detailsHumidity(
@@ -377,7 +369,6 @@ object WeatherRenderer {
                 val strokeColor = "#D57A2D".toColorInt()
 
                 DataBarItem(
-                    valStr = "",
                     probStr = probStr,
                     level = level,
                     fillColor = fillColor,
@@ -430,7 +421,6 @@ object WeatherRenderer {
                 }
                 DataBarItem(
                     valStr = valStr,
-                    probStr = "",
                     level = level,
                     fillColor = fillColor,
                     strokeColor = strokeColor,
@@ -472,24 +462,9 @@ object WeatherRenderer {
         tempUnit: TempUnit,
         fullUnit: Boolean
     ): String {
-        val isFahrenheit = (tempUnit == TempUnit.FAHRENHEIT)
-        val tempValue = if (isFahrenheit) tempCelsius * 1.8 + 32 else tempCelsius
-        val unit = if (fullUnit) {
-            if (isFahrenheit) {
-                context.getString(R.string.fahrenheit)
-            } else {
-                context.getString(R.string.celsius)
-            }
-        } else {
-            context.getString(R.string.degree)
-        }
+        val tempValue = tempUnit.fromCelsius(tempCelsius)
+        val unit = tempUnit.unitStr(context, fullUnit)
         return "${(tempValue + 0.5).toInt()}$unit"
-    }
-
-    private fun speedString(speedKmh: Double, windUnit: WindUnit): String {
-        val isMph = (windUnit == WindUnit.MPH)
-        val speed = if (isMph) speedKmh * 0.621371 else speedKmh
-        return "${(speed + 0.5).toInt()}"
     }
 
     private fun formatTime(context: Context, timeMillis: Long): String {

@@ -18,8 +18,8 @@
 package com.kolakek.pimiwidget.weather
 
 data class DataBarItem(
-    val valStr: String,
-    val probStr: String,
+    val valStr: String? = null,
+    val probStr: String? = null,
     val level: Double,
     val fillColor: Int,
     val strokeColor: Int,

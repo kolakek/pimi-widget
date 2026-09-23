@@ -17,6 +17,18 @@
 
 package com.kolakek.pimiwidget.settings
 
-enum class WindUnit {
-    KMH, MPH
+import android.content.Context
+import com.kolakek.pimiwidget.R
+
+enum class WindUnit(private val unitRes: Int) {
+    KMH(R.string.kmh) {
+        override fun fromKmh(value: Double) = value
+    },
+    MPH(R.string.mph) {
+        override fun fromKmh(value: Double) = value * 0.621371
+    };
+
+    abstract fun fromKmh(value: Double): Double
+
+    fun unitStr(context: Context) = context.getString(unitRes)
 }

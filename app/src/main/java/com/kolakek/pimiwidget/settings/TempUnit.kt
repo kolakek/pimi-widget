@@ -17,7 +17,19 @@
 
 package com.kolakek.pimiwidget.settings
 
-enum class TempUnit {
-    CELSIUS,
-    FAHRENHEIT
+import android.content.Context
+import com.kolakek.pimiwidget.R
+
+enum class TempUnit(private val unitRes: Int) {
+    CELSIUS(R.string.celsius) {
+        override fun fromCelsius(value: Double) = value
+    },
+    FAHRENHEIT(R.string.fahrenheit) {
+        override fun fromCelsius(value: Double) = value * 1.8 + 32.0
+    };
+
+    abstract fun fromCelsius(value: Double): Double
+
+    fun unitStr(context: Context, fullUnit: Boolean = true) =
+        if (fullUnit) context.getString(unitRes) else context.getString(R.string.degree)
 }

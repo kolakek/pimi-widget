@@ -94,7 +94,8 @@ data class DisplayData (
             )
             val detailsRain = WeatherRenderer.detailsRain(
                 context,
-                weather
+                weather,
+                prefs.rainUnit
             )
             val detailsHumidity = WeatherRenderer.detailsHumidity(
                 context,

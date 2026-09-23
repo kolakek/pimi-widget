@@ -17,11 +17,18 @@
 
 package com.kolakek.pimiwidget.settings
 
-data class AppPreferences (
-    val iconStyle: IconStyle,
-    val tempUnit: TempUnit,
-    val windUnit: WindUnit,
-    val pressureUnit: PressureUnit,
-    val rainUnit: RainUnit,
-    val showWeather: Boolean
-)
+import android.content.Context
+import com.kolakek.pimiwidget.R
+
+enum class RainUnit(private val unitRes: Int) {
+    MM(R.string.mm) {
+        override fun fromMm(value: Double) = value
+    },
+    INCH(R.string.inches) {
+        override fun fromMm(value: Double) = value / 25.4
+    };
+
+    abstract fun fromMm(value: Double): Double
+
+    fun unitStr(context: Context) = context.getString(unitRes)
+}

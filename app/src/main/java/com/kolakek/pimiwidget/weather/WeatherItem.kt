@@ -18,9 +18,9 @@
 package com.kolakek.pimiwidget.weather
 
 data class WeatherItem(
-    val valueStr: String,
-    val unitStr: String,
-    val auxStr: String,
+    val valueStr: String? = null,
+    val unitStr: String? = null,
+    val auxStr: String? = null,
     val iconId: Int,
     val level: Double
 )

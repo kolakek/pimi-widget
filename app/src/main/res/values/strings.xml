@@ -182,6 +182,8 @@
     <string name="hpa" translatable="false">hPa</string>
     <string name="mb" translatable="false">mbar</string>
     <string name="inhg" translatable="false">inHg</string>
+    <string name="mm" translatable="false">mm</string>
+    <string name="inches" translatable="false">in</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>
     <string name="hundred" translatable="false">100</string>
