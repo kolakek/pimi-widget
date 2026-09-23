@@ -174,16 +174,16 @@
     <string name="config_temp_celsius" translatable="false">Celsius</string>
     <string name="config_temp_fahrenheit" translatable="false">Fahrenheit</string>
 
-    <string name="celsius" translatable="false">\u2103</string>
-    <string name="fahrenheit" translatable="false">\u2109</string>
-    <string name="degree" translatable="false">\u00B0</string>
-    <string name="kmh" translatable="false">km/h</string>
-    <string name="mph" translatable="false">mph</string>
-    <string name="hpa" translatable="false">hPa</string>
-    <string name="mb" translatable="false">mbar</string>
-    <string name="inhg" translatable="false">inHg</string>
-    <string name="mm" translatable="false">mm</string>
-    <string name="inches" translatable="false">in</string>
+    <string name="unit_celsius" translatable="false">\u2103</string>
+    <string name="unit_fahrenheit" translatable="false">\u2109</string>
+    <string name="unit_degree" translatable="false">\u00B0</string>
+    <string name="unit_kmh" translatable="false">km/h</string>
+    <string name="unit_mph" translatable="false">mph</string>
+    <string name="unit_hpa" translatable="false">hPa</string>
+    <string name="unit_mb" translatable="false">mbar</string>
+    <string name="unit_inhg" translatable="false">inHg</string>
+    <string name="unit_mm" translatable="false">mm</string>
+    <string name="unit_in" translatable="false">in</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>
     <string name="hundred" translatable="false">100</string>

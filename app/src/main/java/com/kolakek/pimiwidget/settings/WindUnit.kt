@@ -21,10 +21,10 @@ import android.content.Context
 import com.kolakek.pimiwidget.R
 
 enum class WindUnit(private val unitRes: Int) {
-    KMH(R.string.kmh) {
+    KMH(R.string.unit_kmh) {
         override fun fromKmh(value: Double) = value
     },
-    MPH(R.string.mph) {
+    MPH(R.string.unit_mph) {
         override fun fromKmh(value: Double) = value * 0.621371
     };
 

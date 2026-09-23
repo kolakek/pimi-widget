@@ -21,13 +21,13 @@ import android.content.Context
 import com.kolakek.pimiwidget.R
 
 enum class PressureUnit(private val unitRes: Int) {
-    HPA(R.string.hpa) {
+    HPA(R.string.unit_hpa) {
         override fun fromHpa(value: Double) = value
     },
-    MB(R.string.mb) {
+    MB(R.string.unit_mb) {
         override fun fromHpa(value: Double) = value
     },
-    INHG(R.string.inhg) {
+    INHG(R.string.unit_inhg) {
         override fun fromHpa(value: Double) = value * 0.02953
     };
 

@@ -21,15 +21,15 @@ import android.content.Context
 import com.kolakek.pimiwidget.R
 
 enum class TempUnit(private val unitRes: Int) {
-    CELSIUS(R.string.celsius) {
+    CELSIUS(R.string.unit_celsius) {
         override fun fromCelsius(value: Double) = value
     },
-    FAHRENHEIT(R.string.fahrenheit) {
+    FAHRENHEIT(R.string.unit_fahrenheit) {
         override fun fromCelsius(value: Double) = value * 1.8 + 32.0
     };
 
     abstract fun fromCelsius(value: Double): Double
 
     fun unitStr(context: Context, fullUnit: Boolean = true) =
-        if (fullUnit) context.getString(unitRes) else context.getString(R.string.degree)
+        if (fullUnit) context.getString(unitRes) else context.getString(R.string.unit_degree)
 }
