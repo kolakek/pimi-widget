@@ -101,6 +101,8 @@
         android:id="@+id/hourly_data_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="6dp"
+        android:clipToPadding="false"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

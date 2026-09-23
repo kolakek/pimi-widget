@@ -148,11 +148,11 @@ object WeatherRenderer {
     ): WeatherItem? {
         val pressureHpa = weather.currentPressureHpa() ?: return null
 
-        val format = if (pressureUnit == PressureUnit.INHG) "%.1f" else "%,.0f"
+        val formatStr = if (pressureUnit == PressureUnit.INHG) "%.1f" else "%,.0f"
 
         val pressureStr = String.format(
             Locale.getDefault(),
-            format,
+            formatStr,
             pressureUnit.fromHpa(pressureHpa)
         )
         return WeatherItem(
@@ -271,7 +271,7 @@ object WeatherRenderer {
                 val timeStr = formatTime(context, timeMillis)
 
                 val prob = weather.hourlyPrecipProb.getOrNull(idx)?.toInt() ?: 0
-                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "${prob}%" else ""
+                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "$prob%" else ""
 
                 HourlyItem(timeStr, iconId, tempStr, probStr)
             }
@@ -300,7 +300,7 @@ object WeatherRenderer {
                 val tempStr = "$maxTempStr/$minTempStr"
 
                 val prob = weather.dailyPrecipProbMax.getOrNull(idx)?.toInt() ?: 0
-                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "${prob}%" else ""
+                val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "$prob%" else ""
 
                 DailyItem(dateStr, iconId, tempStr, probStr)
             }
@@ -311,6 +311,8 @@ object WeatherRenderer {
         weather: WeatherData,
         rainUnit: RainUnit
     ): DetailsItem {
+        val formatStr = if (rainUnit == RainUnit.INCH) "%.2f" else "%.1f"
+
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
@@ -319,13 +321,12 @@ object WeatherRenderer {
                 val precipProb = weather.hourlyPrecipProb.getOrNull(idx) ?: return@mapNotNull null
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
-                val rainSumMm = rainMm + showersMm
-                val rainSum = rainUnit.fromMm(rainSumMm)
+                val rainSum = rainUnit.fromMm(rainMm + showersMm)
 
                 val probStr = "${precipProb.toInt()}%"
-                val valStr = if (rainSum > 0.0) "%.1f".format(rainSum) else ""
+                val valStr = if (rainSum > 0.0) formatStr.format(rainSum) else ""
                 val timeStr = formatTime(context, timeMillis)
-                val level = (rainSumMm / RAIN_BAR_MAX_MM).coerceAtMost(1.0)
+                val level = (rainSum / rainUnit.fromMm(RAIN_BAR_MAX_MM)).coerceAtMost(1.0)
 
                 val saturation = 0.1f + level.toFloat() * (0.61f - 0.1f)
                 val fillColor = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
@@ -343,7 +344,7 @@ object WeatherRenderer {
         val rainMm = weather.todayRainMm()
         val showersMm = weather.todayShowersMm()
         val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let {
-            "%.1f".format(rainUnit.fromMm(it))
+            formatStr.format(rainUnit.fromMm(it))
         }
         return DetailsItem(valStr, rainUnit.unitStr(context), barData)
     }

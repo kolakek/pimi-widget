@@ -75,7 +75,7 @@ internal const val MAX_VISIBILITY_FOG = 1000
 internal const val MIN_PROBABILITY_PRECIP = 30
 internal const val MIN_PROBABILITY_PRECIP_DISPLAY = 30
 
-internal const val RAIN_BAR_MAX_MM = 10
+internal const val RAIN_BAR_MAX_MM = 10.0
 
 internal const val CODE_LIGHT_SHOWERS = 237
 internal const val CODE_NO_PRECIP = 1138
