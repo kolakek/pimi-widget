@@ -107,6 +107,7 @@
         <package android:name="com.vayunmathur.weather" />
         <package android:name="com.pranshulgg.weather_master_app" />
         <package android:name="com.tplink.weather" />
+        <package android:name="ch.ubique.fluidmeteo" />
     </queries>
 
 </manifest>

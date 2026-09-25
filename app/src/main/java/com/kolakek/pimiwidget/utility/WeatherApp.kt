@@ -75,6 +75,11 @@ enum class WeatherApp(val key: String, val packageName: String, val labelId: Int
         "de.dwd.warnapp",
         R.string.config_weather_app_dwd
     ),
+    FLUID(
+        "weather_app_fluid",
+        "ch.ubique.fluidmeteo",
+        R.string.config_weather_app_fluid
+    ),
     KNMI(
         "weather_app_knmi",
         "nl.knmi.weer",

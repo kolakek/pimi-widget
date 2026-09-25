@@ -218,5 +218,6 @@
     <string name="config_weather_app_maweather" translatable="false">MA Weather</string>
     <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
     <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
+    <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
 
 </resources>
