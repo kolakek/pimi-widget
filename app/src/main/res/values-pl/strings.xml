@@ -93,11 +93,11 @@
     <string name="app_text_sunset">zachód słońca</string>
     <string name="app_text_dusk">wieczór</string>
     <string name="app_text_dawn">ranek</string>
-    <string name="app_text_uv_0_1_2">niski</string>
-    <string name="app_text_uv_3_4_5">umiarkowany</string>
-    <string name="app_text_uv_6_7">wysoki</string>
-    <string name="app_text_uv_8_9_10">bardzo wysoki</string>
-    <string name="app_text_uv_11">ekstremalny</string>
+    <string name="mu_0_1_2">niski</string>
+    <string name="mu_3_4_5">umiarkowany</string>
+    <string name="mu_6_7">wysoki</string>
+    <string name="mu_8_9_10">bardzo wysoki</string>
+    <string name="mu_11">ekstremalny</string>
 
     <string name="widget_label">Data, pogoda i więcej</string>
     <string name="widget_date_prev">śr., 3 maj</string>

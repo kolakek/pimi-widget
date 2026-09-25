@@ -93,11 +93,11 @@
     <string name="app_text_sunset">perëndim</string>
     <string name="app_text_dawn">agim</string>
     <string name="app_text_dusk">muzg</string>
-    <string name="app_text_uv_0_1_2">e ulët</string>
-    <string name="app_text_uv_3_4_5">e moderuar</string>
-    <string name="app_text_uv_6_7">e lartë</string>
-    <string name="app_text_uv_8_9_10">shumë e lartë</string>
-    <string name="app_text_uv_11">ekstreme</string>
+    <string name="mu_0_1_2">e ulët</string>
+    <string name="mu_3_4_5">e moderuar</string>
+    <string name="mu_6_7">e lartë</string>
+    <string name="mu_8_9_10">shumë e lartë</string>
+    <string name="mu_11">ekstreme</string>
 
     <string name="widget_label">Data, moti dhe të tjera</string>
     <string name="widget_date_prev">enj, 28 nën</string>

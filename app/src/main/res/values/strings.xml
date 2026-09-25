@@ -102,11 +102,15 @@
     <string name="app_text_sunset">Sunset</string>
     <string name="app_text_dusk">Evening</string>
     <string name="app_text_dawn">Morning</string>
-    <string name="app_text_uv_0_1_2">Low</string>
-    <string name="app_text_uv_3_4_5">Moderate</string>
-    <string name="app_text_uv_6_7">High</string>
-    <string name="app_text_uv_8_9_10">Very high</string>
-    <string name="app_text_uv_11">Extreme</string>
+    <string name="app_today_total">Today\'s total</string>
+    <string name="app_today_average">Today\'s average</string>
+    <string name="app_today_maximum">Today\'s maximum</string>
+
+    <string name="mu_0_1_2">Low</string>
+    <string name="mu_3_4_5">Moderate</string>
+    <string name="mu_6_7">High</string>
+    <string name="mu_8_9_10">Very high</string>
+    <string name="mu_11">Extreme</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>
     <string name="wc_thunderstorm">Thunderstorm</string>

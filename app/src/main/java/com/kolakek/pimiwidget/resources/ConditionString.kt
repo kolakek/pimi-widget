@@ -23,11 +23,11 @@ object ConditionString {
 
     fun getUvIndexStringId(uvIndex: Double): Int {
         return when (uvIndex.toInt()) {
-            in 0 .. 2 -> R.string.app_text_uv_0_1_2
-            in 3 .. 5 -> R.string.app_text_uv_3_4_5
-            in 6 .. 7 -> R.string.app_text_uv_6_7
-            in 8 .. 10 -> R.string.app_text_uv_8_9_10
-            else -> R.string.app_text_uv_11
+            in 0 .. 2 -> R.string.mu_0_1_2
+            in 3 .. 5 -> R.string.mu_3_4_5
+            in 6 .. 7 -> R.string.mu_6_7
+            in 8 .. 10 -> R.string.mu_8_9_10
+            else -> R.string.mu_11
         }
     }
 }

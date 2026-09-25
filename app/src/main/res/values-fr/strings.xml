@@ -93,11 +93,11 @@
     <string name="app_text_sunset">coucher du soleil</string>
     <string name="app_text_dusk">soir</string>
     <string name="app_text_dawn">matin</string>
-    <string name="app_text_uv_0_1_2">faible</string>
-    <string name="app_text_uv_3_4_5">modérée</string>
-    <string name="app_text_uv_6_7">élevée</string>
-    <string name="app_text_uv_8_9_10">très élevée</string>
-    <string name="app_text_uv_11">extrême</string>
+    <string name="mu_0_1_2">faible</string>
+    <string name="mu_3_4_5">modérée</string>
+    <string name="mu_6_7">élevée</string>
+    <string name="mu_8_9_10">très élevée</string>
+    <string name="mu_11">extrême</string>
 
     <string name="widget_label">Date, météo et plus</string>
     <string name="widget_date_prev">dim. 14 juil.</string>

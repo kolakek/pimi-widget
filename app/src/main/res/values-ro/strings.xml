@@ -93,11 +93,11 @@
     <string name="app_text_sunset">apus</string>
     <string name="app_text_dusk">seară</string>
     <string name="app_text_dawn">dimineață</string>
-    <string name="app_text_uv_0_1_2">scăzut</string>
-    <string name="app_text_uv_3_4_5">moderat</string>
-    <string name="app_text_uv_6_7">ridicat</string>
-    <string name="app_text_uv_8_9_10">foarte ridicat</string>
-    <string name="app_text_uv_11">extrem</string>
+    <string name="mu_0_1_2">scăzut</string>
+    <string name="mu_3_4_5">moderat</string>
+    <string name="mu_6_7">ridicat</string>
+    <string name="mu_8_9_10">foarte ridicat</string>
+    <string name="mu_11">extrem</string>
 
     <string name="widget_label">Dată, vreme și altele</string>
     <string name="widget_date_prev">lun., 1 dec.</string>

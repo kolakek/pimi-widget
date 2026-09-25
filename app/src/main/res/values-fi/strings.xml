@@ -93,11 +93,11 @@
     <string name="app_text_sunset">auringonlasku</string>
     <string name="app_text_dusk">ilta</string>
     <string name="app_text_dawn">aamu</string>
-    <string name="app_text_uv_0_1_2">matala</string>
-    <string name="app_text_uv_3_4_5">kohtalainen</string>
-    <string name="app_text_uv_6_7">korkea</string>
-    <string name="app_text_uv_8_9_10">erittäin korkea</string>
-    <string name="app_text_uv_11">äärimmäinen</string>
+    <string name="mu_0_1_2">matala</string>
+    <string name="mu_3_4_5">kohtalainen</string>
+    <string name="mu_6_7">korkea</string>
+    <string name="mu_8_9_10">erittäin korkea</string>
+    <string name="mu_11">äärimmäinen</string>
 
     <string name="widget_label">Päivämäärä, sää ja muuta</string>
     <string name="widget_date_prev">la 6.12.</string>

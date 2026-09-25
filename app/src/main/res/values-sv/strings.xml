@@ -93,11 +93,11 @@
     <string name="app_text_sunset">solnedgång</string>
     <string name="app_text_dusk">kväll</string>
     <string name="app_text_dawn">morgon</string>
-    <string name="app_text_uv_0_1_2">låg</string>
-    <string name="app_text_uv_3_4_5">måttlig</string>
-    <string name="app_text_uv_6_7">hög</string>
-    <string name="app_text_uv_8_9_10">mycket hög</string>
-    <string name="app_text_uv_11">extrem</string>
+    <string name="mu_0_1_2">låg</string>
+    <string name="mu_3_4_5">måttlig</string>
+    <string name="mu_6_7">hög</string>
+    <string name="mu_8_9_10">mycket hög</string>
+    <string name="mu_11">extrem</string>
 
     <string name="widget_label">Datum, väder och mer</string>
     <string name="widget_date_prev">fre 6 jun</string>

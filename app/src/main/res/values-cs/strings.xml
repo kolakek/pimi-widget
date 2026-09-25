@@ -93,11 +93,11 @@
     <string name="app_text_sunset">západ slunce</string>
     <string name="app_text_dusk">večer</string>
     <string name="app_text_dawn">ráno</string>
-    <string name="app_text_uv_0_1_2">nízký</string>
-    <string name="app_text_uv_3_4_5">mírný</string>
-    <string name="app_text_uv_6_7">vysoký</string>
-    <string name="app_text_uv_8_9_10">velmi vysoký</string>
-    <string name="app_text_uv_11">extrémní</string>
+    <string name="mu_0_1_2">nízký</string>
+    <string name="mu_3_4_5">mírný</string>
+    <string name="mu_6_7">vysoký</string>
+    <string name="mu_8_9_10">velmi vysoký</string>
+    <string name="mu_11">extrémní</string>
 
     <string name="widget_label">Datum, počasí a další</string>
     <string name="widget_date_prev">út 28. 10.</string>

@@ -93,11 +93,11 @@
     <string name="app_text_sunset">закат</string>
     <string name="app_text_dusk">вечер</string>
     <string name="app_text_dawn">утро</string>
-    <string name="app_text_uv_0_1_2">низкий</string>
-    <string name="app_text_uv_3_4_5">умеренный</string>
-    <string name="app_text_uv_6_7">высокий</string>
-    <string name="app_text_uv_8_9_10">очень высокий</string>
-    <string name="app_text_uv_11">экстремальный</string>
+    <string name="mu_0_1_2">низкий</string>
+    <string name="mu_3_4_5">умеренный</string>
+    <string name="mu_6_7">высокий</string>
+    <string name="mu_8_9_10">очень высокий</string>
+    <string name="mu_11">экстремальный</string>
 
     <string name="widget_label">Дата, погода и прочее</string>
     <string name="widget_date_format">EEE, d MMM</string>

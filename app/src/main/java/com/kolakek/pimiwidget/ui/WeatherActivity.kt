@@ -222,15 +222,15 @@ class WeatherActivity : AppCompatActivity() {
         when (dataBarType) {
             DataBarType.RAIN -> {
                 detailsItem = displayData.detailsRain
-                titleString = "Today's total"
+                titleString = getString(R.string.app_today_total)
             }
             DataBarType.HUMIDITY -> {
                 detailsItem = displayData.detailsHumidity
-                titleString = "Today's average"
+                titleString = getString(R.string.app_today_average)
             }
             DataBarType.UV_INDEX -> {
                 detailsItem = displayData.detailsUvIndex
-                titleString = "Today's maximum"
+                titleString = getString(R.string.app_today_maximum)
             }
         }
         dataBarAdapter.submitList(

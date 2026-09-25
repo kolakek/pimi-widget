@@ -93,11 +93,11 @@
     <string name="app_text_sunset">pôr do sol</string>
     <string name="app_text_dusk">tarde</string>
     <string name="app_text_dawn">manhã</string>
-    <string name="app_text_uv_0_1_2">baixo</string>
-    <string name="app_text_uv_3_4_5">moderado</string>
-    <string name="app_text_uv_6_7">alto</string>
-    <string name="app_text_uv_8_9_10">muito alto</string>
-    <string name="app_text_uv_11">extremo</string>
+    <string name="mu_0_1_2">baixo</string>
+    <string name="mu_3_4_5">moderado</string>
+    <string name="mu_6_7">alto</string>
+    <string name="mu_8_9_10">muito alto</string>
+    <string name="mu_11">extremo</string>
 
     <string name="widget_label">Data, clima e mais</string>
     <string name="widget_date_prev">dom., 7 de set.</string>

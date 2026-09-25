@@ -93,11 +93,11 @@
     <string name="app_text_sunset">zonsondergang</string>
     <string name="app_text_dusk">avond</string>
     <string name="app_text_dawn">ochtend</string>
-    <string name="app_text_uv_0_1_2">laag</string>
-    <string name="app_text_uv_3_4_5">matig</string>
-    <string name="app_text_uv_6_7">hoog</string>
-    <string name="app_text_uv_8_9_10">zeer hoog</string>
-    <string name="app_text_uv_11">extreem</string>
+    <string name="mu_0_1_2">laag</string>
+    <string name="mu_3_4_5">matig</string>
+    <string name="mu_6_7">hoog</string>
+    <string name="mu_8_9_10">zeer hoog</string>
+    <string name="mu_11">extreem</string>
 
     <string name="widget_label">Datum, weer en meer</string>
     <string name="widget_date_prev">zat 27 apr</string>

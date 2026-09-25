@@ -93,11 +93,11 @@
     <string name="app_text_sunset">solnedgang</string>
     <string name="app_text_dusk">aften</string>
     <string name="app_text_dawn">morgen</string>
-    <string name="app_text_uv_0_1_2">lav</string>
-    <string name="app_text_uv_3_4_5">moderat</string>
-    <string name="app_text_uv_6_7">høj</string>
-    <string name="app_text_uv_8_9_10">meget høj</string>
-    <string name="app_text_uv_11">ekstrem</string>
+    <string name="mu_0_1_2">lav</string>
+    <string name="mu_3_4_5">moderat</string>
+    <string name="mu_6_7">høj</string>
+    <string name="mu_8_9_10">meget høj</string>
+    <string name="mu_11">ekstrem</string>
 
     <string name="widget_label">Dato, vejr og mere</string>
     <string name="widget_date_prev">tors. 5. jun.</string>
