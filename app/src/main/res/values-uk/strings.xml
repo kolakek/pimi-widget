@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Погода відключена</string>
     <string name="app_text_enable_in_settings">Увімкни погоду в налаштуваннях віджета</string>
     <string name="app_text_check_connection">Перевір своє інтернет-з\'єднання і спробуй знову</string>
-    <string name="app_button_try_again">Спробуй знову</string>
-    <string name="app_button_settings">Налаштування віджета</string>
+    <string name="app_text_button_try_again">Спробуй знову</string>
+    <string name="app_text_button_settings">Налаштування віджета</string>
 
     <string name="widget_label">Дата, погода та інше</string>
     <string name="widget_date_prev">нд, 24 сер.</string>

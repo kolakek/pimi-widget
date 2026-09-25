@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Tiempo desactivado</string>
     <string name="app_text_enable_in_settings">Activa el tiempo en los ajustes del widget</string>
     <string name="app_text_check_connection">Comprueba tu conexión a internet e inténtalo de nuevo</string>
-    <string name="app_button_try_again">Intentar de nuevo</string>
-    <string name="app_button_settings">Ajustes del widget</string>
+    <string name="app_text_button_try_again">Intentar de nuevo</string>
+    <string name="app_text_button_settings">Ajustes del widget</string>
 
     <string name="widget_label">Fecha, clima y más</string>
     <string name="widget_date_prev">sáb, 12 oct</string>

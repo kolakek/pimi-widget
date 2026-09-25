@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Ο καιρός είναι απενεργοποιημένος</string>
     <string name="app_text_enable_in_settings">Ενεργοποίησε τον καιρό στις ρυθμίσεις του widget</string>
     <string name="app_text_check_connection">Έλεγξε τη σύνδεσή σου στο διαδίκτυο και δοκίμασε ξανά</string>
-    <string name="app_button_try_again">Δοκίμασε ξανά</string>
-    <string name="app_button_settings">Ρυθμίσεις widget</string>
+    <string name="app_text_button_try_again">Δοκίμασε ξανά</string>
+    <string name="app_text_button_settings">Ρυθμίσεις widget</string>
 
     <string name="widget_label">Ημερομηνία, καιρός και άλλα</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>

@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Clima desativado</string>
     <string name="app_text_enable_in_settings">Ative o clima nas configurações do widget</string>
     <string name="app_text_check_connection">Verifique sua conexão com a internet e tente novamente</string>
-    <string name="app_button_try_again">Tentar novamente</string>
-    <string name="app_button_settings">Configurações do widget</string>
+    <string name="app_text_button_try_again">Tentar novamente</string>
+    <string name="app_text_button_settings">Configurações do widget</string>
 
     <string name="widget_label">Data, clima e mais</string>
     <string name="widget_date_prev">dom., 7 de set.</string>

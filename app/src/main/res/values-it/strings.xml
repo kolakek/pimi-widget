@@ -83,8 +83,8 @@
     <string name="app_text_weather_off">Meteo disattivato</string>
     <string name="app_text_enable_in_settings">Attiva il meteo nelle impostazioni del widget</string>
     <string name="app_text_check_connection">Controlla la tua connessione internet e riprova</string>
-    <string name="app_button_try_again">Riprova</string>
-    <string name="app_button_settings">Impostazioni widget</string>
+    <string name="app_text_button_try_again">Riprova</string>
+    <string name="app_text_button_settings">Impostazioni widget</string>
 
     <string name="widget_label">Data, meteo e altro</string>
     <string name="widget_date_prev">dom 2 giu</string>

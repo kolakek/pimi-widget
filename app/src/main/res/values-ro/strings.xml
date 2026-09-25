@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Vreme dezactivată</string>
     <string name="app_text_enable_in_settings">Activează vremea în setările widget-ului</string>
     <string name="app_text_check_connection">Verifică conexiunea la internet și încearcă din nou</string>
-    <string name="app_button_try_again">Încearcă din nou</string>
-    <string name="app_button_settings">Setările widget-ului</string>
+    <string name="app_text_button_try_again">Încearcă din nou</string>
+    <string name="app_text_button_settings">Setările widget-ului</string>
 
     <string name="widget_label">Dată, vreme și altele</string>
     <string name="widget_date_prev">lun., 1 dec.</string>

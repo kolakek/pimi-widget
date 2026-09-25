@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Sää poistettu käytöstä</string>
     <string name="app_text_enable_in_settings">Ota sää käyttöön widgetin asetuksissa</string>
     <string name="app_text_check_connection">Tarkista internetyhteytesi ja yritä uudelleen</string>
-    <string name="app_button_try_again">Yritä uudelleen</string>
-    <string name="app_button_settings">Widgetin asetukset</string>
+    <string name="app_text_button_try_again">Yritä uudelleen</string>
+    <string name="app_text_button_settings">Widgetin asetukset</string>
 
     <string name="widget_label">Päivämäärä, sää ja muuta</string>
     <string name="widget_date_prev">la 6.12.</string>

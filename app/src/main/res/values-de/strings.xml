@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Wetter deaktiviert</string>
     <string name="app_text_enable_in_settings">Aktiviere die Wetterfunktion in den Widget-Einstellungen</string>
     <string name="app_text_check_connection">Überprüfe deine Internetverbindung und versuche es erneut</string>
-    <string name="app_button_try_again">Erneut versuchen</string>
-    <string name="app_button_settings">Widget-Einstellungen</string>
+    <string name="app_text_button_try_again">Erneut versuchen</string>
+    <string name="app_text_button_settings">Widget-Einstellungen</string>
 
     <string name="widget_label">Datum, Wetter &amp; mehr</string>
     <string name="widget_date_prev">So., 3. Oct.</string>

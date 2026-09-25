@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Показ погоды отключен</string>
     <string name="app_text_enable_in_settings">Включите показ погоды в настройках виджета</string>
     <string name="app_text_check_connection">Проверьте соединение и попробуйте еще раз</string>
-    <string name="app_button_try_again">Еще раз</string>
-    <string name="app_button_settings">Настройки виджета</string>
+    <string name="app_text_button_try_again">Еще раз</string>
+    <string name="app_text_button_settings">Настройки виджета</string>
 
     <string name="widget_label">Дата, погода и прочее</string>
     <string name="widget_date_format">EEE, d MMM</string>

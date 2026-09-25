@@ -115,7 +115,7 @@ class WeatherActivity : AppCompatActivity() {
         if (prefs.showWeather) {
             binding.noDataTitle.text = getString(R.string.app_text_no_data)
             binding.noDataInfo.text = getString(R.string.app_text_check_connection)
-            binding.noDataButton.text = getString(R.string.app_button_try_again)
+            binding.noDataButton.text = getString(R.string.app_text_button_try_again)
             binding.noDataButton.setOnClickListener {
                 WorkManagerHelper.enqueueOneTimeWork(
                     this,
@@ -126,7 +126,7 @@ class WeatherActivity : AppCompatActivity() {
         } else {
             binding.noDataTitle.text = getString(R.string.app_text_weather_off)
             binding.noDataInfo.text = getString(R.string.app_text_enable_in_settings)
-            binding.noDataButton.text = getString(R.string.app_button_settings)
+            binding.noDataButton.text = getString(R.string.app_text_button_settings)
             binding.noDataButton.setOnClickListener {
                 startActivity(Intent(this, AppConfigureActivity::class.java))
             }
@@ -198,13 +198,13 @@ class WeatherActivity : AppCompatActivity() {
             useUnitAsDescr = true
         )
         data.dailySunInfo?.let {
-            binding.currentSun.textSunTitle.text = getString(R.string.app_sunset_sunrise)
-            binding.currentSun.textSunrise.text = getString(R.string.app_sunrise)
+            binding.currentSun.textSunTitle.text = getString(R.string.app_text_sunset_sunrise)
+            binding.currentSun.textSunrise.text = getString(R.string.app_text_sunrise)
             binding.currentSun.textSunriseValue.text = it.sunriseValueStr
-            binding.currentSun.textSunset.text = getString(R.string.app_sunset)
+            binding.currentSun.textSunset.text = getString(R.string.app_text_sunset)
             binding.currentSun.textSunsetValue.text = it.sunsetValueStr
-            binding.currentSun.textDawn.text = getString(R.string.app_dawn)
-            binding.currentSun.textDusk.text = getString(R.string.app_dusk)
+            binding.currentSun.textDawn.text = getString(R.string.app_text_dawn)
+            binding.currentSun.textDusk.text = getString(R.string.app_text_dusk)
             binding.currentSun.sunImage.setImageResource(it.iconId)
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {

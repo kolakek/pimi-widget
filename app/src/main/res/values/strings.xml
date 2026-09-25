@@ -89,24 +89,47 @@
     <string name="app_text_humidity">Humidity</string>
     <string name="app_text_uv_index">UV index</string>
     <string name="app_text_pressure">Pressure</string>
-    <string name="app_text_rain">Rain</string>
-    <string name="app_text_hourly_details">Hourly details</string>
     <string name="app_text_no_data">No weather data available</string>
     <string name="app_text_weather_off">Weather disabled</string>
     <string name="app_text_enable_in_settings">Enable weather in widget settings</string>
     <string name="app_text_check_connection">Check your connection and try again</string>
-    <string name="app_button_try_again">Try again</string>
-    <string name="app_button_settings">Widget settings</string>
-    <string name="app_sunset_sunrise">Sunrise &amp; sunset</string>
-    <string name="app_sunrise">Sunrise</string>
-    <string name="app_sunset">Sunset</string>
-    <string name="app_dusk">Dusk</string>
-    <string name="app_dawn">Dawn</string>
+    <string name="app_text_button_try_again">Try again</string>
+    <string name="app_text_button_settings">Widget settings</string>
 
+    <!-- Text on the button to enable the rain view -->
+    <string name="app_text_rain">Rain</string>
+
+    <!-- Section text for the hourly details -->
+    <string name="app_text_hourly_details">Hourly details</string>
+
+    <!-- Title for the view that shows the sunset and sunrise times  -->
+    <string name="app_text_sunset_sunrise">Sunrise &amp; sunset</string>
+
+    <!-- Label for the sunrise time display -->
+    <string name="app_text_sunrise">Sunrise</string>
+
+    <!-- Label for the sunset time display -->
+    <string name="app_text_sunset">Sunset</string>
+
+    <!-- Label on the sun track view for the dusk region -->
+    <string name="app_text_dusk">Evening</string>
+
+    <!-- Label on the sun track view for the dawn region -->
+    <string name="app_text_dawn">Morning</string>
+
+    <!-- Meaning of the UV levels 0..2 -->
     <string name="app_text_uv_0_1_2">Low</string>
+
+    <!-- Meaning of the UV levels 3..5 -->
     <string name="app_text_uv_3_4_5">Moderate</string>
+
+    <!-- Meaning of the UV levels 6..7 -->
     <string name="app_text_uv_6_7">High</string>
+
+    <!-- Meaning of the UV levels 8..10 -->
     <string name="app_text_uv_8_9_10">Very high</string>
+
+    <!-- Meaning of the UV levels 11+ -->
     <string name="app_text_uv_11">Extreme</string>
 
     <string name="wc_heavy_thunderstorms">Heavy thunderstorms</string>

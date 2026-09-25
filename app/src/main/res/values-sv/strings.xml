@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Väder inaktiverat</string>
     <string name="app_text_enable_in_settings">Aktivera väder i widgetinställningarna</string>
     <string name="app_text_check_connection">Kontrollera din internetanslutning och försök igen</string>
-    <string name="app_button_try_again">Försök igen</string>
-    <string name="app_button_settings">Widgetinställningar</string>
+    <string name="app_text_button_try_again">Försök igen</string>
+    <string name="app_text_button_settings">Widgetinställningar</string>
 
     <string name="widget_label">Datum, väder och mer</string>
     <string name="widget_date_prev">fre 6 jun</string>

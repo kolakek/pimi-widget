@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Météo désactivée</string>
     <string name="app_text_enable_in_settings">Active la météo dans les paramètres du widget</string>
     <string name="app_text_check_connection">Vérifie ta connexion internet et réessaie</string>
-    <string name="app_button_try_again">Réessayer</string>
-    <string name="app_button_settings">Paramètres du widget</string>
+    <string name="app_text_button_try_again">Réessayer</string>
+    <string name="app_text_button_settings">Paramètres du widget</string>
 
     <string name="widget_label">Date, météo et plus</string>
     <string name="widget_date_prev">dim. 14 juil.</string>

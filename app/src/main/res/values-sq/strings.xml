@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Moti i çaktivizuar</string>
     <string name="app_text_enable_in_settings">Aktivizo motin në cilësimet e widget-it</string>
     <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
-    <string name="app_button_try_again">Provo përsëri</string>
-    <string name="app_button_settings">Cilësimet e widget-it</string>
+    <string name="app_text_button_try_again">Provo përsëri</string>
+    <string name="app_text_button_settings">Cilësimet e widget-it</string>
 
     <string name="widget_label">Data, moti dhe të tjera</string>
     <string name="widget_date_prev">enj, 28 nën</string>

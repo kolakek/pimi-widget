@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">已停用天氣服務</string>
     <string name="app_text_enable_in_settings">請在小工具設定中啟用天氣</string>
     <string name="app_text_check_connection">請檢查網路連線後再試一次</string>
-    <string name="app_button_try_again">重試</string>
-    <string name="app_button_settings">小工具設定</string>
+    <string name="app_text_button_try_again">重試</string>
+    <string name="app_text_button_settings">小工具設定</string>
 
     <string name="widget_label">日期、天氣和其他</string>
     <string name="widget_date_format">EEE, MMM d</string>

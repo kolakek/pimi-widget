@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Pogoda wyłączona</string>
     <string name="app_text_enable_in_settings">Włącz pogodę w ustawieniach widgetu</string>
     <string name="app_text_check_connection">Sprawdź połączenie internetowe i spróbuj ponownie</string>
-    <string name="app_button_try_again">Spróbuj ponownie</string>
-    <string name="app_button_settings">Ustawienia widgetu</string>
+    <string name="app_text_button_try_again">Spróbuj ponownie</string>
+    <string name="app_text_button_settings">Ustawienia widgetu</string>
 
     <string name="widget_label">Data, pogoda i więcej</string>
     <string name="widget_date_prev">śr., 3 maj</string>

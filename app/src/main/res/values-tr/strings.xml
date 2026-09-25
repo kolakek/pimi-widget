@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Hava durumu devre dışı</string>
     <string name="app_text_enable_in_settings">Widget ayarlarından hava durumunu etkinleştir</string>
     <string name="app_text_check_connection">İnternet bağlantını kontrol et ve tekrar dene</string>
-    <string name="app_button_try_again">Tekrar dene</string>
-    <string name="app_button_settings">Widget ayarları</string>
+    <string name="app_text_button_try_again">Tekrar dene</string>
+    <string name="app_text_button_settings">Widget ayarları</string>
 
     <string name="widget_label">Tarih, hava durumu ve daha fazlası</string>
     <string name="widget_date_prev">29 Eki Paz</string>

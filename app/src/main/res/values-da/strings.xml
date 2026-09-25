@@ -84,8 +84,8 @@
     <string name="app_text_weather_off">Vejr deaktiveret</string>
     <string name="app_text_enable_in_settings">Aktivér vejret i widget-indstillingerne</string>
     <string name="app_text_check_connection">Tjek din internetforbindelse og prøv igen</string>
-    <string name="app_button_try_again">Prøv igen</string>
-    <string name="app_button_settings">Widget-indstillinger</string>
+    <string name="app_text_button_try_again">Prøv igen</string>
+    <string name="app_text_button_settings">Widget-indstillinger</string>
 
     <string name="widget_label">Dato, vejr og mere</string>
     <string name="widget_date_prev">tors. 5. jun.</string>
