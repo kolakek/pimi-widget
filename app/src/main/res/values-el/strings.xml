@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">ανατολή &amp; δύση ηλίου</string>
     <string name="app_text_sunrise">ανατολή ηλίου</string>
     <string name="app_text_sunset">δύση ηλίου</string>
-    <string name="app_text_dusk">βράδυ</string>
-    <string name="app_text_dawn">πρωί</string>
+    <string name="app_text_evening">βράδυ</string>
+    <string name="app_text_morning">πρωί</string>
+    <string name="app_today_total">σύνολο ημέρας</string>
+    <string name="app_today_average">μέσος όρος ημέρας</string>
+    <string name="app_today_maximum">μέγιστο ημέρας</string>
+
     <string name="mu_0_1_2">χαμηλή</string>
     <string name="mu_3_4_5">μέτρια</string>
     <string name="mu_6_7">υψηλή</string>

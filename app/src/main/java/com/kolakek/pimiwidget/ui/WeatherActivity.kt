@@ -203,8 +203,8 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentSun.textSunriseValue.text = it.sunriseValueStr
             binding.currentSun.textSunset.text = getString(R.string.app_text_sunset)
             binding.currentSun.textSunsetValue.text = it.sunsetValueStr
-            binding.currentSun.textDawn.text = getString(R.string.app_text_dawn)
-            binding.currentSun.textDusk.text = getString(R.string.app_text_dusk)
+            binding.currentSun.textDawn.text = getString(R.string.app_text_morning)
+            binding.currentSun.textDusk.text = getString(R.string.app_text_evening)
             binding.currentSun.sunImage.setImageResource(it.iconId)
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {

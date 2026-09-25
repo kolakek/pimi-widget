@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">gün doğumu &amp; batımı</string>
     <string name="app_text_sunrise">gün doğumu</string>
     <string name="app_text_sunset">gün batımı</string>
-    <string name="app_text_dusk">akşam</string>
-    <string name="app_text_dawn">sabah</string>
+    <string name="app_text_evening">akşam</string>
+    <string name="app_text_morning">sabah</string>
+    <string name="app_today_total">bugünkü miktar</string>
+    <string name="app_today_average">bugünkü ortalama</string>
+    <string name="app_today_maximum">bugünkü maksimum</string>
+
     <string name="mu_0_1_2">düşük</string>
     <string name="mu_3_4_5">orta</string>
     <string name="mu_6_7">yüksek</string>

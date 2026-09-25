@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">lever &amp; coucher du soleil</string>
     <string name="app_text_sunrise">lever du soleil</string>
     <string name="app_text_sunset">coucher du soleil</string>
-    <string name="app_text_dusk">soir</string>
-    <string name="app_text_dawn">matin</string>
+    <string name="app_text_evening">soir</string>
+    <string name="app_text_morning">matin</string>
+    <string name="app_today_total">quantité du jour</string>
+    <string name="app_today_average">moyenne du jour</string>
+    <string name="app_today_maximum">maximum du jour</string>
+
     <string name="mu_0_1_2">faible</string>
     <string name="mu_3_4_5">modérée</string>
     <string name="mu_6_7">élevée</string>

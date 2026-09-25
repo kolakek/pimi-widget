@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">východ &amp; západ slunce</string>
     <string name="app_text_sunrise">východ slunce</string>
     <string name="app_text_sunset">západ slunce</string>
-    <string name="app_text_dusk">večer</string>
-    <string name="app_text_dawn">ráno</string>
+    <string name="app_text_evening">večer</string>
+    <string name="app_text_morning">ráno</string>
+    <string name="app_today_total">dnešní úhrn</string>
+    <string name="app_today_average">dnešní průměr</string>
+    <string name="app_today_maximum">dnešní maximum</string>
+
     <string name="mu_0_1_2">nízký</string>
     <string name="mu_3_4_5">mírný</string>
     <string name="mu_6_7">vysoký</string>

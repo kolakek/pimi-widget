@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">salida &amp; puesta del sol</string>
     <string name="app_text_sunrise">salida del sol</string>
     <string name="app_text_sunset">puesta del sol</string>
-    <string name="app_text_dusk">tarde</string>
-    <string name="app_text_dawn">mañana</string>
+    <string name="app_text_evening">tarde</string>
+    <string name="app_text_morning">mañana</string>
+    <string name="app_today_total">total de hoy</string>
+    <string name="app_today_average">media de hoy</string>
+    <string name="app_today_maximum">máximo de hoy</string>
+
     <string name="mu_0_1_2">baja</string>
     <string name="mu_3_4_5">moderada</string>
     <string name="mu_6_7">alta</string>

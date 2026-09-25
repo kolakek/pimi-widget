@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">Sonnenaufgang &amp; Sonnenuntergang</string>
     <string name="app_text_sunrise">Sonnenaufgang</string>
     <string name="app_text_sunset">Sonnenuntergang</string>
-    <string name="app_text_dusk">Abend</string>
-    <string name="app_text_dawn">Morgen</string>
+    <string name="app_text_evening">Abend</string>
+    <string name="app_text_morning">Morgen</string>
+    <string name="app_today_total">Heutige Gesamtmenge</string>
+    <string name="app_today_average">Heutiger Durchschnitt</string>
+    <string name="app_today_maximum">Heutiger Maximalwert</string>
+
     <string name="mu_0_1_2">Niedrig</string>
     <string name="mu_3_4_5">Mäßig</string>
     <string name="mu_6_7">Hoch</string>

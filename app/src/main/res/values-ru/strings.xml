@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">восход &amp; закат</string>
     <string name="app_text_sunrise">восход</string>
     <string name="app_text_sunset">закат</string>
-    <string name="app_text_dusk">вечер</string>
-    <string name="app_text_dawn">утро</string>
+    <string name="app_text_evening">вечер</string>
+    <string name="app_text_morning">утро</string>
+    <string name="app_today_total">количество за день</string>
+    <string name="app_today_average">среднее за день</string>
+    <string name="app_today_maximum">максимум за день</string>
+
     <string name="mu_0_1_2">низкий</string>
     <string name="mu_3_4_5">умеренный</string>
     <string name="mu_6_7">высокий</string>

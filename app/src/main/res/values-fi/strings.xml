@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">auringonnousu &amp; auringonlasku</string>
     <string name="app_text_sunrise">auringonnousu</string>
     <string name="app_text_sunset">auringonlasku</string>
-    <string name="app_text_dusk">ilta</string>
-    <string name="app_text_dawn">aamu</string>
+    <string name="app_text_evening">ilta</string>
+    <string name="app_text_morning">aamu</string>
+    <string name="app_today_total">tämän päivän sademäärä</string>
+    <string name="app_today_average">tämän päivän keskiarvo</string>
+    <string name="app_today_maximum">tämän päivän maksimi</string>
+
     <string name="mu_0_1_2">matala</string>
     <string name="mu_3_4_5">kohtalainen</string>
     <string name="mu_6_7">korkea</string>

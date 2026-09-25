@@ -90,8 +90,12 @@
     <string name="app_text_sunset_sunrise">alba &amp; tramonto</string>
     <string name="app_text_sunrise">alba</string>
     <string name="app_text_sunset">tramonto</string>
-    <string name="app_text_dusk">sera</string>
-    <string name="app_text_dawn">mattina</string>
+    <string name="app_text_evening">sera</string>
+    <string name="app_text_morning">mattina</string>
+    <string name="app_today_total">totale di oggi</string>
+    <string name="app_today_average">media di oggi</string>
+    <string name="app_today_maximum">massimo di oggi</string>
+
     <string name="mu_0_1_2">bassa</string>
     <string name="mu_3_4_5">moderata</string>
     <string name="mu_6_7">alta</string>

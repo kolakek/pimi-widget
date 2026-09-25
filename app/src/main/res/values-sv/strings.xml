@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">soluppgång &amp; solnedgång</string>
     <string name="app_text_sunrise">soluppgång</string>
     <string name="app_text_sunset">solnedgång</string>
-    <string name="app_text_dusk">kväll</string>
-    <string name="app_text_dawn">morgon</string>
+    <string name="app_text_evening">kväll</string>
+    <string name="app_text_morning">morgon</string>
+    <string name="app_today_total">dagens mängd</string>
+    <string name="app_today_average">dagens genomsnitt</string>
+    <string name="app_today_maximum">dagens högsta</string>
+
     <string name="mu_0_1_2">låg</string>
     <string name="mu_3_4_5">måttlig</string>
     <string name="mu_6_7">hög</string>

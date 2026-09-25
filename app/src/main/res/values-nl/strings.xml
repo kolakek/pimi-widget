@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">zonsopgang &amp; zonsondergang</string>
     <string name="app_text_sunrise">zonsopgang</string>
     <string name="app_text_sunset">zonsondergang</string>
-    <string name="app_text_dusk">avond</string>
-    <string name="app_text_dawn">ochtend</string>
+    <string name="app_text_evening">avond</string>
+    <string name="app_text_morning">ochtend</string>
+    <string name="app_today_total">totaal vandaag</string>
+    <string name="app_today_average">gemiddelde vandaag</string>
+    <string name="app_today_maximum">maximum vandaag</string>
+
     <string name="mu_0_1_2">laag</string>
     <string name="mu_3_4_5">matig</string>
     <string name="mu_6_7">hoog</string>

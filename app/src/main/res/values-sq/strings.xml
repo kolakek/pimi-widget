@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">lindja &amp; perëndimi i diellit</string>
     <string name="app_text_sunrise">agim</string>
     <string name="app_text_sunset">perëndim</string>
-    <string name="app_text_dawn">agim</string>
-    <string name="app_text_dusk">muzg</string>
+    <string name="app_text_morning">agim</string>
+    <string name="app_text_evening">muzg</string>
+    <string name="app_today_total">sasia për sot</string>
+    <string name="app_today_average">mesatarja për sot</string>
+    <string name="app_today_maximum">maksimalja për sot</string>
+
     <string name="mu_0_1_2">e ulët</string>
     <string name="mu_3_4_5">e moderuar</string>
     <string name="mu_6_7">e lartë</string>

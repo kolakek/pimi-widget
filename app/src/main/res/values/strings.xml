@@ -100,8 +100,8 @@
     <string name="app_text_sunset_sunrise">Sunrise &amp; sunset</string>
     <string name="app_text_sunrise">Sunrise</string>
     <string name="app_text_sunset">Sunset</string>
-    <string name="app_text_dusk">Evening</string>
-    <string name="app_text_dawn">Morning</string>
+    <string name="app_text_evening">Evening</string>
+    <string name="app_text_morning">Morning</string>
     <string name="app_today_total">Today\'s total</string>
     <string name="app_today_average">Today\'s average</string>
     <string name="app_today_maximum">Today\'s maximum</string>

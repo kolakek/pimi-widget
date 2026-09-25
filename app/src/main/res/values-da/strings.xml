@@ -91,8 +91,12 @@
     <string name="app_text_sunset_sunrise">solopgang &amp; solnedgang</string>
     <string name="app_text_sunrise">solopgang</string>
     <string name="app_text_sunset">solnedgang</string>
-    <string name="app_text_dusk">aften</string>
-    <string name="app_text_dawn">morgen</string>
+    <string name="app_text_evening">aften</string>
+    <string name="app_text_morning">morgen</string>
+    <string name="app_today_total">dagens total</string>
+    <string name="app_today_average">dagens gennemsnit</string>
+    <string name="app_today_maximum">dagens maksimum</string>
+
     <string name="mu_0_1_2">lav</string>
     <string name="mu_3_4_5">moderat</string>
     <string name="mu_6_7">høj</string>
