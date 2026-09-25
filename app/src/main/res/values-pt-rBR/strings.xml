@@ -86,6 +86,18 @@
     <string name="app_text_check_connection">Verifique sua conexão com a internet e tente novamente</string>
     <string name="app_text_button_try_again">Tentar novamente</string>
     <string name="app_text_button_settings">Configurações do widget</string>
+    <string name="app_text_rain">chuva</string>
+    <string name="app_text_hourly_details">Detalhes de hora em hora</string>
+    <string name="app_text_sunset_sunrise">nascer &amp; pôr do sol</string>
+    <string name="app_text_sunrise">nascer do sol</string>
+    <string name="app_text_sunset">pôr do sol</string>
+    <string name="app_text_dusk">tarde</string>
+    <string name="app_text_dawn">manhã</string>
+    <string name="app_text_uv_0_1_2">baixo</string>
+    <string name="app_text_uv_3_4_5">moderado</string>
+    <string name="app_text_uv_6_7">alto</string>
+    <string name="app_text_uv_8_9_10">muito alto</string>
+    <string name="app_text_uv_11">extremo</string>
 
     <string name="widget_label">Data, clima e mais</string>
     <string name="widget_date_prev">dom., 7 de set.</string>

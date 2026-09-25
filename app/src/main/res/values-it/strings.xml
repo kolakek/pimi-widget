@@ -85,6 +85,18 @@
     <string name="app_text_check_connection">Controlla la tua connessione internet e riprova</string>
     <string name="app_text_button_try_again">Riprova</string>
     <string name="app_text_button_settings">Impostazioni widget</string>
+    <string name="app_text_rain">pioggia</string>
+    <string name="app_text_hourly_details">Dettagli orari</string>
+    <string name="app_text_sunset_sunrise">alba &amp; tramonto</string>
+    <string name="app_text_sunrise">alba</string>
+    <string name="app_text_sunset">tramonto</string>
+    <string name="app_text_dusk">sera</string>
+    <string name="app_text_dawn">mattina</string>
+    <string name="app_text_uv_0_1_2">bassa</string>
+    <string name="app_text_uv_3_4_5">moderata</string>
+    <string name="app_text_uv_6_7">alta</string>
+    <string name="app_text_uv_8_9_10">molto alta</string>
+    <string name="app_text_uv_11">estrema</string>
 
     <string name="widget_label">Data, meteo e altro</string>
     <string name="widget_date_prev">dom 2 giu</string>

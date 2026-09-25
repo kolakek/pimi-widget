@@ -86,6 +86,18 @@
     <string name="app_text_check_connection">İnternet bağlantını kontrol et ve tekrar dene</string>
     <string name="app_text_button_try_again">Tekrar dene</string>
     <string name="app_text_button_settings">Widget ayarları</string>
+    <string name="app_text_rain">yağmur</string>
+    <string name="app_text_hourly_details">Saatlik ayrıntılar</string>
+    <string name="app_text_sunset_sunrise">gün doğumu &amp; batımı</string>
+    <string name="app_text_sunrise">gün doğumu</string>
+    <string name="app_text_sunset">gün batımı</string>
+    <string name="app_text_dusk">akşam</string>
+    <string name="app_text_dawn">sabah</string>
+    <string name="app_text_uv_0_1_2">düşük</string>
+    <string name="app_text_uv_3_4_5">orta</string>
+    <string name="app_text_uv_6_7">yüksek</string>
+    <string name="app_text_uv_8_9_10">çok yüksek</string>
+    <string name="app_text_uv_11">aşırı</string>
 
     <string name="widget_label">Tarih, hava durumu ve daha fazlası</string>
     <string name="widget_date_prev">29 Eki Paz</string>
