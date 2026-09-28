@@ -11,8 +11,8 @@ android {
         applicationId = "com.kolakek.pimiwidget"
         minSdk = 33
         targetSdk = 37
-        versionCode = 23
-        versionName = "3.0.0"
+        versionCode = 24
+        versionName = "3.1.0"
     }
     dependenciesInfo {
         includeInApk = false
