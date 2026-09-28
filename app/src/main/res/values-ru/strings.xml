@@ -87,14 +87,14 @@
     <string name="app_text_button_try_again">Еще раз</string>
     <string name="app_text_button_settings">Настройки виджета</string>
     <string name="app_text_rain">дождь</string>
-    <string name="app_text_hourly_details">Почасовые данные</string>
+    <string name="app_text_hourly_details">Данные по часам</string>
     <string name="app_text_sunset_sunrise">восход &amp; закат</string>
     <string name="app_text_sunrise">восход</string>
     <string name="app_text_sunset">закат</string>
     <string name="app_text_evening">вечер</string>
     <string name="app_text_morning">утро</string>
-    <string name="app_today_total">количество за день</string>
-    <string name="app_today_average">среднее за день</string>
+    <string name="app_today_total">всего за сегодня</string>
+    <string name="app_today_average">в среднем за сегодня</string>
     <string name="app_today_maximum">максимум за день</string>
 
     <string name="mu_0_1_2">низкий</string>
