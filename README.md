@@ -8,9 +8,8 @@ Your day, at a glance
 
 * Displays date, weather & more
 * Standalone widget, no launcher icon
-* Tap the widget to open your favorite weather app
+* Built-in weather app, or choose your own
 * Lightweight and battery-efficient
-* Your location is shared only with the weather provider
 * No trackers, no ads, no Google Play dependencies
 
 ## Download
