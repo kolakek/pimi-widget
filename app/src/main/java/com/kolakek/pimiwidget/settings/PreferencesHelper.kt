@@ -102,10 +102,9 @@ object PreferencesHelper {
         val iconColor = when (iconColorPref) {
             ColorPref.LIGHT -> IconColor.LIGHT
             ColorPref.DARK -> IconColor.DARK
-            ColorPref.AUTO -> when (textColor) {
-                TextColor.LIGHT -> IconColor.LIGHT
-                TextColor.DARK -> IconColor.DARK
-                TextColor.DYNAMIC -> IconColor.DYNAMIC
+            ColorPref.AUTO -> when (widgetStylePref) {
+                WidgetStylePref.SOLID -> IconColor.LIGHT
+                else -> if (textColor == TextColor.DARK) IconColor.DARK else IconColor.LIGHT
             }
         }
         val widgetStyle = when (widgetStylePref) {

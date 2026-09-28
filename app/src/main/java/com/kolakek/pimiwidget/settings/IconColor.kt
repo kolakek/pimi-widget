@@ -20,6 +20,5 @@ package com.kolakek.pimiwidget.settings
 enum class IconColor {
     DARK,
     LIGHT,
-    DYNAMIC,
     THEMED
 }
