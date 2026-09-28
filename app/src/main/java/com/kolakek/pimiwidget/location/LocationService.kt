@@ -27,6 +27,7 @@ import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
 import java.util.Locale
@@ -122,7 +123,7 @@ object LocationService {
             abs(location.longitude), lonDir
         )
         return try {
-            withTimeout(LOCATION_TIMEOUT_MILLIS.milliseconds) {
+            withTimeout(LOCATION_NAME_TIMEOUT_MILLIS.milliseconds) {
                 suspendCancellableCoroutine { cont ->
                     Geocoder(context, Locale.getDefault()).getFromLocation(
                         location.latitude,
@@ -133,6 +134,8 @@ object LocationService {
                     }
                 }
             } ?: coordinates
+        } catch (_: TimeoutCancellationException) {
+            coordinates
         } catch (e: CancellationException) {
             throw e
         } catch (_: Exception) {
