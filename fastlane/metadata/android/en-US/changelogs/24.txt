@@ -1,0 +1,4 @@
+* Pimi weather app (no longer beta)
+* Additional third-party weather apps
+* Widget icon refinements
+* Bugfixes
