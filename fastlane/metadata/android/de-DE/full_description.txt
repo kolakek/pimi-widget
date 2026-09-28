@@ -1,6 +1,5 @@
 * Zeigt Datum, Wetter & mehr
 * Eigenständiges Widget, kein Symbol im App-Launcher
-* Antippen des Widgets öffnet deine bevorzugte Wetter-App
+* Integrierte Wetter-App, oder wähle deine eigene
 * Leichtgewichtig und akkusparend
-* Standortdaten werden nur mit dem Wetterdienst geteilt
 * Keine Tracker, keine Werbung, vollständig Open Source
