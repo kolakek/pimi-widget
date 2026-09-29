@@ -8,9 +8,10 @@ Your day, at a glance
 
 * Displays date, weather & more
 * Standalone widget, no launcher icon
-* Built-in weather app, or choose your own
+* Opens your favourite weather app
+* Built-in weather app included
 * Lightweight and battery-efficient
-* No trackers, no ads, no Google Play dependencies
+* No trackers, no ads, no Google services
 
 ## Download
 

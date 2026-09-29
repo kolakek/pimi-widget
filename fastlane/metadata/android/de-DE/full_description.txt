@@ -1,5 +1,6 @@
 * Zeigt Datum, Wetter & mehr
 * Eigenständiges Widget, kein Symbol im App-Launcher
-* Integrierte Wetter-App, oder wähle deine eigene
-* Leichtgewichtig und akkusparend
-* Keine Tracker, keine Werbung, vollständig Open Source
+* Öffnet deine bevorzugte Wetter-App
+* Integrierte Wetter-App inklusive
+* Leichtgewichtig und akkuschonend
+* Keine Tracker, keine Werbung, keine Google-Dienste
