@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -80,14 +79,12 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <ImageView
+            <include
                 android:id="@+id/sun_image"
-                android:layout_width="224dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="2dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                tools:ignore="ContentDescription" />
+                layout="@layout/weather_graphic" />
 
             <LinearLayout
                 android:layout_width="match_parent"

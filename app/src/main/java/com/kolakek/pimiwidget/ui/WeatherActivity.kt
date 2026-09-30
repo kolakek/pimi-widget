@@ -205,7 +205,16 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentSun.textSunsetValue.text = it.sunsetValueStr
             binding.currentSun.textDawn.text = getString(R.string.app_text_morning)
             binding.currentSun.textDusk.text = getString(R.string.app_text_evening)
-            binding.currentSun.sunImage.setImageResource(it.iconId)
+
+            binding.currentSun.sunImage.fillLayer.setImageResource(it.fillIconId)
+            binding.currentSun.sunImage.maskLayer.setImageResource(it.maskIconId)
+            binding.currentSun.sunImage.indicator.setImageResource(it.sunIconId)
+
+            binding.currentSun.sunImage.fillLayer.pivotX = 0f
+            binding.currentSun.sunImage.fillLayer.scaleX = it.fillScale
+            binding.currentSun.sunImage.indicator.translationX = it.sunX * displayDensity()
+            binding.currentSun.sunImage.indicator.translationY = it.sunY * displayDensity()
+
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {
             binding.currentSun.root.visibility = View.GONE
@@ -301,4 +310,6 @@ class WeatherActivity : AppCompatActivity() {
             button.iconPadding = 0
         }
     }
+
+    private fun displayDensity() = resources.displayMetrics.density
 }

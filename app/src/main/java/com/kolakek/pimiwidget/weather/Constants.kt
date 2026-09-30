@@ -94,3 +94,12 @@ internal const val WARN_SVR_GUSTS_MIN_KMH = 105
 internal const val WARN_XTR_GUSTS_MIN_KMH = 140
 internal const val WARN_SVR_TSTORM_MIN_CAPE = 1500
 internal const val WARN_XTR_TSTORM_MIN_CAPE = 2500
+
+internal const val FIG_SUN_PX_START = 4
+internal const val FIG_SUN_PX_SUNRISE = 47
+internal const val FIG_SUN_PX_SUNSET = 153
+internal const val FIG_SUN_PX_END = 196
+internal const val FIG_SUN_WIDTH = 200
+internal const val FIG_SUN_CIRC_RADIUS_SQ = 55*55
+internal const val FIG_SUN_CIRC_CENTER = 64
+internal const val FIG_SUN_ICON_HALF = 9

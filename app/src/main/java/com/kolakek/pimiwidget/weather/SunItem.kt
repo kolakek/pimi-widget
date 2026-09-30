@@ -20,5 +20,10 @@ package com.kolakek.pimiwidget.weather
 data class SunItem(
     val sunsetValueStr: String,
     val sunriseValueStr: String,
-    val iconId: Int
+    val fillIconId: Int,
+    val maskIconId: Int,
+    val sunIconId: Int,
+    val fillScale: Float,
+    val sunX: Float,
+    val sunY: Float
 )
