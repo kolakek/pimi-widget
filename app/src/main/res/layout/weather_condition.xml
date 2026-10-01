@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -79,14 +78,12 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="11sp" />
 
-            <ImageView
+            <include
                 android:id="@+id/image"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginVertical="2dp"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-                tools:ignore="ContentDescription" />
+                layout="@layout/weather_graphic" />
 
             <TextView
                 android:id="@+id/text_image_bottom"

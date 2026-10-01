@@ -17,11 +17,17 @@
 
 package com.kolakek.pimiwidget.resources
 
-internal const val SUN_PX_START = 4
-internal const val SUN_PX_SUNRISE = 47
-internal const val SUN_PX_SUNSET = 153
-internal const val SUN_PX_END = 196
-internal const val SUN_WIDTH = 200
-internal const val SUN_CIRC_RADIUS_SQ = 55*55
-internal const val SUN_CIRC_CENTER = 64
-internal const val SUN_ICON_HALF = 9
+internal const val MS_PX_START = 4
+internal const val MS_PX_SUNRISE = 47
+internal const val MS_PX_SUNSET = 153
+internal const val MS_PX_END = 196
+internal const val MS_WIDTH = 200
+internal const val MS_CIRC_RADIUS_SQ = 55*55
+internal const val MS_CIRC_CENTER = 64
+internal const val MS_ICON_HALF = 9
+
+internal const val MH_PY_START = 56
+internal const val MH_PY_END = 8
+internal const val MH_HEIGHT = 64
+internal const val MH_PX_ICON = 10
+internal const val MH_ICON_HALF = 3

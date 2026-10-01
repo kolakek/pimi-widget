@@ -282,7 +282,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.textValueDescr.text = null
             binding.textImageTop.text = null
             binding.textImageBottom.text = null
-            binding.image.setImageDrawable(null)
+            //binding.image.setImageDrawable(null)
             return
         }
         binding.textValue.text = item.valueStr ?: NA
@@ -297,8 +297,22 @@ class WeatherActivity : AppCompatActivity() {
         binding.textImageTop.text = topLabel
         binding.textImageBottom.text = bottomLabel
 
-        binding.image.setImageResource(item.iconId)
-        if (rotateByValue) binding.image.rotation = item.level.toFloat()
+        //binding.image.setImageResource(item.iconId)
+        //if (rotateByValue) binding.image.rotation = item.level.toFloat()
+
+        item.image?.let {
+            binding.image.backLayer.setImageResource(item.image.backResId)
+            binding.image.fillLayer.setImageResource(item.image.fillResId)
+            binding.image.maskLayer.setImageResource(item.image.maskResId)
+            binding.image.indicator.setImageResource(item.image.iconResId)
+
+            binding.image.fillLayer.pivotY = item.image.height * displayDensity()
+            binding.image.fillLayer.scaleY = item.image.scaleFactor
+            binding.image.indicator.translationX = item.image.posX * displayDensity()
+            binding.image.indicator.translationY = item.image.posY * displayDensity()
+
+            binding.image.fillLayer.setColorFilter(item.image.fillColor)
+        }
     }
 
     private fun updateButtonState(button: MaterialButton, selected: Boolean) {

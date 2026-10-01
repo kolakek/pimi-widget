@@ -114,6 +114,8 @@ object WeatherRenderer {
     ): WeatherItem? {
         val humidity = weather.currentHumidity() ?: return null
 
+        val image = ConditionIcon.humidityImage(humidity)
+
         val dewPointStr = weather.currentDewPointCelsius()?.let {
             context.getString(R.string.app_text_dew_point) + ": " +
                     temperatureString(context, it, tempUnit, false)
@@ -122,8 +124,9 @@ object WeatherRenderer {
             valueStr = "${humidity.toInt()}",
             unitStr = "%",
             auxStr = dewPointStr,
-            iconId = ConditionIcon.getHumidityIconId(humidity),
-            level = humidity
+            iconId = 0,
+            level = humidity,
+            image = image
         )
     }
 
@@ -242,7 +245,7 @@ object WeatherRenderer {
         val sunriseMillis = weather.todaySunriseMillis() ?: return null
         val sunsetMillis = weather.todaySunsetMillis() ?: return null
 
-        val sunImage = ConditionIcon.getSunTrackImage(
+        val sunImage = ConditionIcon.sunTrackImage(
             sunriseMillis = sunriseMillis,
             sunsetMillis = sunsetMillis,
             System.currentTimeMillis()
@@ -366,17 +369,11 @@ object WeatherRenderer {
                 val timeStr = formatTime(context, timeMillis)
                 val level = (humidity / 100).coerceAtMost(1.0)
 
-                val h = 28f + (1f - level.toFloat()) * (48f - 28f)
-                val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
-
-                val fillColor = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
-                val strokeColor = "#D57A2D".toColorInt()
-
                 DataBarItem(
                     probStr = probStr,
                     level = level,
-                    fillColor = fillColor,
-                    strokeColor = strokeColor,
+                    fillColor = ConditionIcon.humidityFillColor(humidity),
+                    strokeColor = ConditionIcon.humidityStrokeColor(),
                     timeStr = timeStr
                 )
             }

@@ -18,11 +18,13 @@
 package com.kolakek.pimiwidget.resources
 
 data class LayeredImage(
-    val backResId: Int,
-    val fillResId: Int,
-    val maskResId: Int,
-    val iconResId: Int,
-    val scaleFactor: Float,
-    val posX: Float,
-    val posY: Float
+    val backResId: Int = 0,
+    val fillResId: Int = 0,
+    val maskResId: Int = 0,
+    val iconResId: Int = 0,
+    val fillColor: Int = 0,
+    val scaleFactor: Float = 0f,
+    val height: Float = 0f,
+    val posX: Float = 0f,
+    val posY: Float = 0f
 )

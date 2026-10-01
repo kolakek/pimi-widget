@@ -17,6 +17,8 @@
 
 package com.kolakek.pimiwidget.resources
 
+import android.graphics.Color
+import androidx.core.graphics.toColorInt
 import com.kolakek.pimiwidget.R
 import java.time.LocalDate
 import java.time.ZoneId
@@ -25,7 +27,7 @@ import kotlin.math.sqrt
 
 object ConditionIcon {
 
-    fun getSunTrackImage(
+    fun sunTrackImage(
         sunriseMillis: Long,
         sunsetMillis: Long,
         currentMillis: Long
@@ -36,24 +38,24 @@ object ConditionIcon {
                     startOfDay(),
                     sunriseMillis,
                     currentMillis,
-                    SUN_PX_START,
-                    SUN_PX_SUNRISE
+                    MS_PX_START,
+                    MS_PX_SUNRISE
                 )
             currentMillis < sunsetMillis ->
                 sunTrackScaleFactor(
                     sunriseMillis,
                     sunsetMillis,
                     currentMillis,
-                    SUN_PX_SUNRISE,
-                    SUN_PX_SUNSET
+                    MS_PX_SUNRISE,
+                    MS_PX_SUNSET
                 )
             else ->
                 sunTrackScaleFactor(
                     sunsetMillis,
                     endOfDay(),
                     currentMillis,
-                    SUN_PX_SUNSET,
-                    SUN_PX_END
+                    MS_PX_SUNSET,
+                    MS_PX_END
                 )
         }
         val posX: Float
@@ -62,10 +64,10 @@ object ConditionIcon {
 
         if (currentMillis in sunriseMillis..sunsetMillis) {
             iconId = R.drawable.ms_i
-            posX = scaleFactor * SUN_WIDTH
-            val d = posX - SUN_WIDTH / 2
-            val a = SUN_CIRC_RADIUS_SQ - d.pow(2)
-            posY = SUN_CIRC_CENTER - sqrt(a.coerceAtLeast(0f))
+            posX = scaleFactor * MS_WIDTH
+            val d = posX - MS_WIDTH / 2
+            val a = MS_CIRC_RADIUS_SQ - d.pow(2)
+            posY = MS_CIRC_CENTER - sqrt(a.coerceAtLeast(0f))
         } else {
             iconId = 0
             posX = 0f
@@ -77,29 +79,43 @@ object ConditionIcon {
             maskResId = R.drawable.ms_m,
             iconResId = iconId,
             scaleFactor = scaleFactor,
-            posX = posX - SUN_ICON_HALF,
-            posY = posY - SUN_ICON_HALF
+            posX = posX - MS_ICON_HALF,
+            posY = posY - MS_ICON_HALF
         )
     }
 
-    fun getWindIconId(): Int {
-        return R.drawable.mw
+    fun humidityImage(humidity: Double): LayeredImage {
+        val h = humidity.toFloat() / 100
+        val posY = h * MH_PY_END + (1 - h) * MH_PY_START
+        val scaleFactor = (1 - posY / MH_HEIGHT).coerceIn(0f, 1f)
+        val fillColor = humidityFillColor(humidity)
+
+        return LayeredImage(
+            backResId = R.drawable.mh_b,
+            fillResId = R.drawable.mh_f,
+            maskResId = R.drawable.mh_m,
+            iconResId = R.drawable.mh_i,
+            fillColor = fillColor,
+            scaleFactor = scaleFactor,
+            height = MH_HEIGHT.toFloat(),
+            posX = MH_PX_ICON.toFloat(),
+            posY = posY - MH_ICON_HALF
+        )
     }
 
-    fun getHumidityIconId(humidity: Double): Int {
-        return when (humidity.toInt()) {
-            in 0 .. 5 -> R.drawable.mh_0
-            in 5 .. 15 -> R.drawable.mh_10
-            in 15 .. 25 -> R.drawable.mh_20
-            in 25 .. 35 -> R.drawable.mh_30
-            in 35 .. 45 -> R.drawable.mh_40
-            in 45 .. 55 -> R.drawable.mh_50
-            in 55 .. 65 -> R.drawable.mh_60
-            in 65 .. 75 -> R.drawable.mh_70
-            in 75 .. 85 -> R.drawable.mh_80
-            in 85 .. 95 -> R.drawable.mh_90
-            else -> R.drawable.mh_100
-        }
+    fun humidityFillColor(humidity: Double): Int {
+        val level = (humidity / 100).coerceAtMost(1.0)
+
+        val h = 28f + (1f - level.toFloat()) * (48f - 28f)
+        val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
+
+        return Color.HSVToColor(floatArrayOf(h, 0.85f, b))
+    }
+
+    fun humidityStrokeColor() = "#D57A2D".toColorInt()
+
+    fun getWindIconId(): Int {
+        return R.drawable.mw
     }
 
     fun getUvIndexIconId(uvIndex: Double): Int {
@@ -150,6 +166,6 @@ object ConditionIcon {
     private fun sunTrackScaleFactor(t1: Long, t2: Long, t: Long, a: Int, b: Int): Float {
         val r = (t2 - t).toFloat() / (t2 - t1).toFloat()
         val x = r * a + (1 - r) * b
-        return (x / SUN_WIDTH).coerceIn(0f, 1f)
+        return (x / MS_WIDTH).coerceIn(0f, 1f)
     }
 }
