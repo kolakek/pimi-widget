@@ -5,6 +5,13 @@
     tools:ignore="MergeRootFrame">
 
     <ImageView
+        android:id="@+id/back_layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
         android:id="@+id/fill_layer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -206,14 +206,15 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentSun.textDawn.text = getString(R.string.app_text_morning)
             binding.currentSun.textDusk.text = getString(R.string.app_text_evening)
 
-            binding.currentSun.sunImage.fillLayer.setImageResource(it.fillIconId)
-            binding.currentSun.sunImage.maskLayer.setImageResource(it.maskIconId)
-            binding.currentSun.sunImage.indicator.setImageResource(it.sunIconId)
+            binding.currentSun.sunImage.backLayer.setImageResource(it.image.backResId)
+            binding.currentSun.sunImage.fillLayer.setImageResource(it.image.fillResId)
+            binding.currentSun.sunImage.maskLayer.setImageResource(it.image.maskResId)
+            binding.currentSun.sunImage.indicator.setImageResource(it.image.iconResId)
 
             binding.currentSun.sunImage.fillLayer.pivotX = 0f
-            binding.currentSun.sunImage.fillLayer.scaleX = it.fillScale
-            binding.currentSun.sunImage.indicator.translationX = it.sunX * displayDensity()
-            binding.currentSun.sunImage.indicator.translationY = it.sunY * displayDensity()
+            binding.currentSun.sunImage.fillLayer.scaleX = it.image.scaleFactor
+            binding.currentSun.sunImage.indicator.translationX = it.image.posX * displayDensity()
+            binding.currentSun.sunImage.indicator.translationY = it.image.posY * displayDensity()
 
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {

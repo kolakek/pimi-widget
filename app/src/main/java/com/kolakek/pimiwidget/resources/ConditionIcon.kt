@@ -18,8 +18,69 @@
 package com.kolakek.pimiwidget.resources
 
 import com.kolakek.pimiwidget.R
+import java.time.LocalDate
+import java.time.ZoneId
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 object ConditionIcon {
+
+    fun getSunTrackImage(
+        sunriseMillis: Long,
+        sunsetMillis: Long,
+        currentMillis: Long
+    ): LayeredImage {
+        val scaleFactor = when {
+            currentMillis < sunriseMillis ->
+                sunTrackScaleFactor(
+                    startOfDay(),
+                    sunriseMillis,
+                    currentMillis,
+                    SUN_PX_START,
+                    SUN_PX_SUNRISE
+                )
+            currentMillis < sunsetMillis ->
+                sunTrackScaleFactor(
+                    sunriseMillis,
+                    sunsetMillis,
+                    currentMillis,
+                    SUN_PX_SUNRISE,
+                    SUN_PX_SUNSET
+                )
+            else ->
+                sunTrackScaleFactor(
+                    sunsetMillis,
+                    endOfDay(),
+                    currentMillis,
+                    SUN_PX_SUNSET,
+                    SUN_PX_END
+                )
+        }
+        val posX: Float
+        val posY: Float
+        val iconId: Int
+
+        if (currentMillis in sunriseMillis..sunsetMillis) {
+            iconId = R.drawable.ms_i
+            posX = scaleFactor * SUN_WIDTH
+            val d = posX - SUN_WIDTH / 2
+            val a = SUN_CIRC_RADIUS_SQ - d.pow(2)
+            posY = SUN_CIRC_CENTER - sqrt(a.coerceAtLeast(0f))
+        } else {
+            iconId = 0
+            posX = 0f
+            posY = 0f
+        }
+        return LayeredImage(
+            backResId = R.drawable.ms_b,
+            fillResId = R.drawable.ms_f,
+            maskResId = R.drawable.ms_m,
+            iconResId = iconId,
+            scaleFactor = scaleFactor,
+            posX = posX - SUN_ICON_HALF,
+            posY = posY - SUN_ICON_HALF
+        )
+    }
 
     fun getWindIconId(): Int {
         return R.drawable.mw
@@ -73,5 +134,22 @@ object ConditionIcon {
             in 1035..1045 -> R.drawable.mp_11
             else -> R.drawable.mp_12
         }
+    }
+
+    private fun startOfDay() = LocalDate.now()
+        .atStartOfDay(ZoneId.systemDefault())
+        .toInstant()
+        .toEpochMilli()
+
+    private fun endOfDay() = LocalDate.now()
+        .atStartOfDay(ZoneId.systemDefault())
+        .plusDays(1)
+        .toInstant()
+        .toEpochMilli() - 1
+
+    private fun sunTrackScaleFactor(t1: Long, t2: Long, t: Long, a: Int, b: Int): Float {
+        val r = (t2 - t).toFloat() / (t2 - t1).toFloat()
+        val x = r * a + (1 - r) * b
+        return (x / SUN_WIDTH).coerceIn(0f, 1f)
     }
 }

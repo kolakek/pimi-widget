@@ -46,8 +46,6 @@ import java.util.Date
 import java.util.Locale
 import androidx.core.graphics.toColorInt
 import com.kolakek.pimiwidget.settings.RainUnit
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 object WeatherRenderer {
 
@@ -243,58 +241,16 @@ object WeatherRenderer {
     ): SunItem? {
         val sunriseMillis = weather.todaySunriseMillis() ?: return null
         val sunsetMillis = weather.todaySunsetMillis() ?: return null
-        val currentMillis = System.currentTimeMillis()
 
-        val fillScale = when {
-            currentMillis < sunriseMillis ->
-                sunTrackScaleFactor(
-                    startOfDay(),
-                    sunriseMillis,
-                    currentMillis,
-                    FIG_SUN_PX_START,
-                    FIG_SUN_PX_SUNRISE
-                )
-            currentMillis < sunsetMillis ->
-                sunTrackScaleFactor(
-                    sunriseMillis,
-                    sunsetMillis,
-                    currentMillis,
-                    FIG_SUN_PX_SUNRISE,
-                    FIG_SUN_PX_SUNSET
-                )
-            else ->
-                sunTrackScaleFactor(
-                    sunsetMillis,
-                    endOfDay(),
-                    currentMillis,
-                    FIG_SUN_PX_SUNSET,
-                    FIG_SUN_PX_END
-                )
-        }
-        val sunX: Float
-        val sunY: Float
-        val sunIconId: Int
-
-        if (currentMillis in sunriseMillis..sunsetMillis) {
-            sunIconId = R.drawable.ms_sun
-            sunX = fillScale * FIG_SUN_WIDTH
-            val d = sunX - FIG_SUN_WIDTH / 2
-            val a = FIG_SUN_CIRC_RADIUS_SQ - d.pow(2)
-            sunY = FIG_SUN_CIRC_CENTER - sqrt(a.coerceAtLeast(0f))
-        } else {
-            sunIconId = 0
-            sunX = 0f
-            sunY = 0f
-        }
+        val sunImage = ConditionIcon.getSunTrackImage(
+            sunriseMillis = sunriseMillis,
+            sunsetMillis = sunsetMillis,
+            System.currentTimeMillis()
+        )
         return SunItem(
             sunriseValueStr = timeMillisToStr(context, sunriseMillis),
             sunsetValueStr = timeMillisToStr(context, sunsetMillis),
-            fillIconId = R.drawable.ms_fill,
-            maskIconId = R.drawable.ms_mask,
-            sunIconId = sunIconId,
-            fillScale = fillScale,
-            sunX = sunX - FIG_SUN_ICON_HALF,
-            sunY = sunY - FIG_SUN_ICON_HALF
+            image = sunImage
         )
     }
 
@@ -533,22 +489,5 @@ object WeatherRenderer {
 
     private fun timeMillisToStr(context: Context, timeMillis: Long): String {
         return DateFormat.getTimeFormat(context).format(Date(timeMillis))
-    }
-
-    private fun startOfDay() = LocalDate.now()
-        .atStartOfDay(ZoneId.systemDefault())
-        .toInstant()
-        .toEpochMilli()
-
-    private fun endOfDay() = LocalDate.now()
-        .atStartOfDay(ZoneId.systemDefault())
-        .plusDays(1)
-        .toInstant()
-        .toEpochMilli() - 1
-
-    private fun sunTrackScaleFactor(t1: Long, t2: Long, t: Long, a: Int, b: Int): Float {
-        val r = (t2 - t).toFloat() / (t2 - t1).toFloat()
-        val x = r * a + (1 - r) * b
-        return (x / FIG_SUN_WIDTH).coerceIn(0f, 1f)
     }
 }

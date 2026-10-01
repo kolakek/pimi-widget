@@ -15,12 +15,13 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.weather
+package com.kolakek.pimiwidget.resources
 
-import com.kolakek.pimiwidget.resources.LayeredImage
-
-data class SunItem(
-    val sunsetValueStr: String,
-    val sunriseValueStr: String,
-    val image: LayeredImage
-)
+internal const val SUN_PX_START = 4
+internal const val SUN_PX_SUNRISE = 47
+internal const val SUN_PX_SUNSET = 153
+internal const val SUN_PX_END = 196
+internal const val SUN_WIDTH = 200
+internal const val SUN_CIRC_RADIUS_SQ = 55*55
+internal const val SUN_CIRC_CENTER = 64
+internal const val SUN_ICON_HALF = 9

@@ -4,9 +4,9 @@
     android:viewportWidth="200"
     android:viewportHeight="80">
   <path
-      android:pathData="M0,0h200v51h-200z"
+      android:pathData="M0,0h200v50h-200z"
       android:fillColor="#aec6f6"/>
   <path
-      android:pathData="M0,51h200v29h-200z"
+      android:pathData="M0,50h200v30h-200z"
       android:fillColor="@color/m_s_night"/>
 </vector>
