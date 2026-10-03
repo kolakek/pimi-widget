@@ -87,27 +87,27 @@
     <string name="app_text_button_try_again">重試</string>
     <string name="app_text_button_settings">小工具設定</string>
     <string name="app_text_rain">雨</string>
-    <string name="app_text_hourly_details">每小時詳情</string>
-    <string name="app_text_sunset_sunrise">日出 &amp; 日落</string>
+    <string name="app_text_hourly_details">每小時資料</string>
+    <string name="app_text_sunset_sunrise">日出和日落</string>
     <string name="app_text_sunrise">日出</string>
     <string name="app_text_sunset">日落</string>
     <string name="app_text_evening">傍晚</string>
     <string name="app_text_morning">清晨</string>
-    <string name="app_today_total">今日雨量</string>
-    <string name="app_today_average">今日平均</string>
-    <string name="app_today_maximum">今日最高</string>
+    <string name="app_today_total">統計</string>
+    <string name="app_today_average">平均</string>
+    <string name="app_today_maximum">最高</string>
 
     <string name="mu_0_1_2">低</string>
-    <string name="mu_3_4_5">中等</string>
+    <string name="mu_3_4_5">中</string>
     <string name="mu_6_7">高</string>
-    <string name="mu_8_9_10">非常高</string>
+    <string name="mu_8_9_10">極高</string>
     <string name="mu_11">極端</string>
 
     <string name="widget_label">日期、天氣和其他</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_date_prev">7月4日 週日</string>
     <string name="widget_temp_prev">21\u2103</string>
-    <string name="widget_weather_prev">明天 19\u00B0 / 13\u00B0 · 小雨</string>
+    <string name="widget_weather_prev">明天 19\u00B0 / 13\u00B0 · 晴朗</string>
     <string name="widget_today">今天</string>
     <string name="widget_tomorrow">明天</string>
     <string name="widget_updated_at">更新於</string>
