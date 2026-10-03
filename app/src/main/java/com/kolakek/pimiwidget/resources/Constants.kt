@@ -32,6 +32,16 @@ internal const val MH_HEIGHT = 64
 internal const val MH_PX_ICON = 10
 internal const val MH_ICON_HALF = 3
 
+internal const val MU_PX_ICON = 0
 internal const val MU_PY_START = 54
 internal const val MU_PY_END = 10
 internal const val MU_HEIGHT = 64
+
+internal const val MP_P_CENTER = 1013f
+internal const val MP_P_RANGE = 20f
+internal const val MP_P_MIN = MP_P_CENTER - MP_P_RANGE
+internal const val MP_P_MAX = MP_P_CENTER + MP_P_RANGE
+internal const val MP_PX_ICON = 0
+internal const val MP_PY_START = 54
+internal const val MP_PY_END = 10
+internal const val MP_HEIGHT = 64

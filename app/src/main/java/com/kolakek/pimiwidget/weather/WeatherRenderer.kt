@@ -163,8 +163,9 @@ object WeatherRenderer {
         return WeatherItem(
             valueStr = pressureStr,
             unitStr = pressureUnit.unitStr(context),
-            iconId = ConditionIcon.getPressureIconId(pressureHpa),
-            level = pressureHpa
+            iconId = 0,
+            level = pressureHpa,
+            image = ConditionIcon.pressureImage(pressureHpa)
         )
     }
 

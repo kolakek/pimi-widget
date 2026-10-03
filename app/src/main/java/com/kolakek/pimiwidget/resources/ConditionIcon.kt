@@ -140,25 +140,26 @@ object ConditionIcon {
             fillColor = fillColor.toColorInt(),
             scaleFactor = scaleFactor,
             height = MU_HEIGHT.toFloat(),
+            posX = MU_PX_ICON.toFloat(),
             posY = posY - MH_ICON_HALF
         )
     }
 
-    fun getPressureIconId(pressure: Double): Int {
-        return when (pressure.toInt()) {
-            in 0..970 -> R.drawable.mp_1
-            in 970..985 -> R.drawable.mp_2
-            in 985..998 -> R.drawable.mp_3
-            in 998..1005 -> R.drawable.mp_4
-            in 1005..1009 -> R.drawable.mp_5
-            in 1009..1013 -> R.drawable.mp_6
-            in 1013..1017 -> R.drawable.mp_7
-            in 1017..1021 -> R.drawable.mp_8
-            in 1021..1027 -> R.drawable.mp_9
-            in 1027..1035 -> R.drawable.mp_10
-            in 1035..1045 -> R.drawable.mp_11
-            else -> R.drawable.mp_12
-        }
+    fun pressureImage(pressure: Double): LayeredImage {
+        val h = (pressure.toFloat().coerceIn(MP_P_MIN, MP_P_MAX) - MP_P_MIN) / (2 * MP_P_RANGE)
+        val posY = h * MP_PY_END + (1 - h) * MP_PY_START
+        val scaleFactor = (1 - posY / MP_HEIGHT).coerceIn(0f, 1f)
+
+        return LayeredImage(
+            backResId = R.drawable.mp_b,
+            fillResId = R.drawable.mp_f,
+            maskResId = R.drawable.mp_m,
+            iconResId = R.drawable.mh_i,
+            scaleFactor = scaleFactor,
+            height = MP_HEIGHT.toFloat(),
+            posX = MP_PX_ICON.toFloat(),
+            posY = posY - MH_ICON_HALF
+        )
     }
 
     private fun startOfDay() = LocalDate.now()
