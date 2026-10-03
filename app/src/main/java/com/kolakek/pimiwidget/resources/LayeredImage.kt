@@ -24,6 +24,7 @@ data class LayeredImage(
     val iconResId: Int = 0,
     val fillColor: Int = 0,
     val scaleFactor: Float = 0f,
+    val rotation: Float = 0f,
     val height: Float = 0f,
     val posX: Float = 0f,
     val posY: Float = 0f

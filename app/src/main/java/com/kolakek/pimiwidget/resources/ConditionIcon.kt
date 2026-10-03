@@ -114,9 +114,10 @@ object ConditionIcon {
 
     fun humidityStrokeColor() = "#D57A2D".toColorInt()
 
-    fun getWindIconId(): Int {
-        return R.drawable.mw
-    }
+    fun windImage(directionDeg: Double): LayeredImage = LayeredImage(
+        rotation = directionDeg.toFloat(),
+        iconResId = R.drawable.mw
+    )
 
     fun getUvIndexIconId(uvIndex: Double): Int {
         return when (uvIndex.toInt()) {

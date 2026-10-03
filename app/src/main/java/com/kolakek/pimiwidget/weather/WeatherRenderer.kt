@@ -102,8 +102,9 @@ object WeatherRenderer {
             valueStr = "${windUnit.fromKmh(windKmh).toInt()}",
             unitStr = windUnit.unitStr(context),
             auxStr = gustsStr,
-            iconId = ConditionIcon.getWindIconId(),
+            iconId = 0,
             level = directionDeg,
+            image = ConditionIcon.windImage(directionDeg)
         )
     }
 

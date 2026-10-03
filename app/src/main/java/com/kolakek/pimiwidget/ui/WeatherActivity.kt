@@ -310,6 +310,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.image.fillLayer.scaleY = item.image.scaleFactor
             binding.image.indicator.translationX = item.image.posX * displayDensity()
             binding.image.indicator.translationY = item.image.posY * displayDensity()
+            binding.image.indicator.rotation = item.image.rotation
 
             binding.image.fillLayer.setColorFilter(item.image.fillColor)
         }
