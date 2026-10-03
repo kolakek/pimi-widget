@@ -116,24 +116,32 @@ object ConditionIcon {
 
     fun windImage(directionDeg: Double): LayeredImage = LayeredImage(
         rotation = directionDeg.toFloat(),
-        iconResId = R.drawable.mw
+        iconResId = R.drawable.mw_i
     )
 
-    fun getUvIndexIconId(uvIndex: Double): Int {
-        return when (uvIndex.toInt()) {
-            0 -> R.drawable.mu_0
-            1 -> R.drawable.mu_1
-            2 -> R.drawable.mu_2
-            3 -> R.drawable.mu_3
-            4 -> R.drawable.mu_4
-            5 -> R.drawable.mu_5
-            6 -> R.drawable.mu_6
-            7 -> R.drawable.mu_7
-            8 -> R.drawable.mu_8
-            9 -> R.drawable.mu_9
-            10 -> R.drawable.mu_10
-            else -> R.drawable.mu_11
+    fun uvIndexImage(uvIndex: Double): LayeredImage {
+        val h = uvIndex.toFloat().coerceIn(0f, 11f) / 11
+        val posY = h * MU_PY_END + (1 - h) * MU_PY_START
+        val scaleFactor = (1 - posY / MU_HEIGHT).coerceIn(0f, 1f)
+
+        val (fillColor, backColor) = when (uvIndex.toInt()) {
+            in 0..2 -> "#53c0a8" to "#b9e0ce"
+            in 3..5 -> "#ffcc5c" to "#f3ebb7"
+            in 6..7 -> "#f58259" to "#fcc79f"
+            in 8..10 -> "#f0516b" to "#f7a9b6"
+            else -> "#7c67ae" to "#7c67ae"
         }
+        return LayeredImage(
+            backResId = R.drawable.mu_b,
+            fillResId = R.drawable.mu_f,
+            maskResId = R.drawable.mu_m,
+            iconResId = R.drawable.mh_i,
+            backColor = backColor.toColorInt(),
+            fillColor = fillColor.toColorInt(),
+            scaleFactor = scaleFactor,
+            height = MU_HEIGHT.toFloat(),
+            posY = posY - MH_ICON_HALF
+        )
     }
 
     fun getPressureIconId(pressure: Double): Int {

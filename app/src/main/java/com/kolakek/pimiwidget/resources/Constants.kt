@@ -31,3 +31,7 @@ internal const val MH_PY_END = 8
 internal const val MH_HEIGHT = 64
 internal const val MH_PX_ICON = 10
 internal const val MH_ICON_HALF = 3
+
+internal const val MU_PY_START = 54
+internal const val MU_PY_END = 10
+internal const val MU_HEIGHT = 64

@@ -313,6 +313,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.image.indicator.rotation = item.image.rotation
 
             binding.image.fillLayer.setColorFilter(item.image.fillColor)
+            binding.image.backLayer.setColorFilter(item.image.backColor)
         }
     }
 

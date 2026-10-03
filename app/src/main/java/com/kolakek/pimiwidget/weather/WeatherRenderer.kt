@@ -46,6 +46,7 @@ import java.util.Date
 import java.util.Locale
 import androidx.core.graphics.toColorInt
 import com.kolakek.pimiwidget.settings.RainUnit
+import kotlin.math.round
 
 object WeatherRenderer {
 
@@ -135,13 +136,13 @@ object WeatherRenderer {
         context: Context,
         weather: WeatherData
     ): WeatherItem? {
-        val uvIndex = weather.currentUvIndex() ?: return null
-
+        val uvIndex = weather.currentUvIndex()?.let { round(it) } ?: return null
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
             auxStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
-            iconId = ConditionIcon.getUvIndexIconId(uvIndex),
-            level = uvIndex
+            iconId = 0,
+            level = uvIndex,
+            image = ConditionIcon.uvIndexImage(uvIndex)
         )
     }
 
