@@ -23,7 +23,5 @@ data class WeatherItem(
     val valueStr: String? = null,
     val unitStr: String? = null,
     val auxStr: String? = null,
-    val iconId: Int,
-    val level: Double,
     val image: LayeredImage? = null
 )

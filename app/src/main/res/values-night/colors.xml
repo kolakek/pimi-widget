@@ -33,6 +33,6 @@
     <color name="m_s_fill_day">#aec6f6</color>
     <color name="m_s_fill_night">#296197</color>
     <color name="m_s_stroke_day">#aec6f6</color>
-    <color name="m_s_stroke_night">#296197</color>
+    <color name="m_s_stroke_night">#aec6f6</color>
 
 </resources>

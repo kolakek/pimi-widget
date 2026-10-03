@@ -172,8 +172,7 @@ class WeatherActivity : AppCompatActivity() {
             getString(R.string.app_text_title_wind),
             getString(R.string.north),
             null,
-            data.currentWind,
-            rotateByValue = true
+            data.currentWind
         )
         bindConditionItem(
             binding.currentHumidity,
@@ -271,7 +270,6 @@ class WeatherActivity : AppCompatActivity() {
         topLabel: String?,
         bottomLabel: String?,
         item: WeatherItem?,
-        rotateByValue: Boolean = false,
         useUnitAsDescr: Boolean = false
     ) {
         binding.textTitle.text = title
@@ -282,7 +280,6 @@ class WeatherActivity : AppCompatActivity() {
             binding.textValueDescr.text = null
             binding.textImageTop.text = null
             binding.textImageBottom.text = null
-            //binding.image.setImageDrawable(null)
             return
         }
         binding.textValue.text = item.valueStr ?: NA
@@ -294,26 +291,23 @@ class WeatherActivity : AppCompatActivity() {
             binding.textUnit.text = item.unitStr
             binding.textValueDescr.text = item.auxStr
         }
-        binding.textImageTop.text = topLabel
-        binding.textImageBottom.text = bottomLabel
-
-        //binding.image.setImageResource(item.iconId)
-        //if (rotateByValue) binding.image.rotation = item.level.toFloat()
-
         item.image?.let {
-            binding.image.backLayer.setImageResource(item.image.backResId)
-            binding.image.fillLayer.setImageResource(item.image.fillResId)
-            binding.image.maskLayer.setImageResource(item.image.maskResId)
-            binding.image.indicator.setImageResource(item.image.iconResId)
+            binding.image.backLayer.setImageResource(it.backResId)
+            binding.image.fillLayer.setImageResource(it.fillResId)
+            binding.image.maskLayer.setImageResource(it.maskResId)
+            binding.image.indicator.setImageResource(it.iconResId)
 
-            binding.image.fillLayer.pivotY = item.image.height * displayDensity()
-            binding.image.fillLayer.scaleY = item.image.scaleFactor
-            binding.image.indicator.translationX = item.image.posX * displayDensity()
-            binding.image.indicator.translationY = item.image.posY * displayDensity()
-            binding.image.indicator.rotation = item.image.rotation
+            binding.image.fillLayer.pivotY = it.height * displayDensity()
+            binding.image.fillLayer.scaleY = it.scaleFactor
+            binding.image.indicator.translationX = it.posX * displayDensity()
+            binding.image.indicator.translationY = it.posY * displayDensity()
+            binding.image.indicator.rotation = it.rotation
 
-            binding.image.fillLayer.setColorFilter(item.image.fillColor)
-            binding.image.backLayer.setColorFilter(item.image.backColor)
+            binding.image.fillLayer.setColorFilter(it.fillColor)
+            binding.image.backLayer.setColorFilter(it.backColor)
+
+            binding.textImageTop.text = topLabel
+            binding.textImageBottom.text = bottomLabel
         }
     }
 

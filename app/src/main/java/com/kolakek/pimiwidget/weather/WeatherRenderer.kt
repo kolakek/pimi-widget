@@ -103,8 +103,6 @@ object WeatherRenderer {
             valueStr = "${windUnit.fromKmh(windKmh).toInt()}",
             unitStr = windUnit.unitStr(context),
             auxStr = gustsStr,
-            iconId = 0,
-            level = directionDeg,
             image = ConditionIcon.windImage(directionDeg)
         )
     }
@@ -126,8 +124,6 @@ object WeatherRenderer {
             valueStr = "${humidity.toInt()}",
             unitStr = "%",
             auxStr = dewPointStr,
-            iconId = 0,
-            level = humidity,
             image = image
         )
     }
@@ -140,8 +136,6 @@ object WeatherRenderer {
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
             auxStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
-            iconId = 0,
-            level = uvIndex,
             image = ConditionIcon.uvIndexImage(uvIndex)
         )
     }
@@ -163,8 +157,6 @@ object WeatherRenderer {
         return WeatherItem(
             valueStr = pressureStr,
             unitStr = pressureUnit.unitStr(context),
-            iconId = 0,
-            level = pressureHpa,
             image = ConditionIcon.pressureImage(pressureHpa)
         )
     }
