@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.settings
 import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
+import android.content.res.Configuration
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
@@ -71,8 +72,11 @@ object PreferencesHelper {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
             IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
+        val iconColor = if (context.isNightMode()) IconColor.LIGHT else IconColor.DARK
+
         return AppPreferences(
             iconStyle = iconStyle,
+            iconColor = iconColor,
             tempUnit = tempUnitFromPref(tempUnitPref),
             windUnit = windUnitFromPref(systemUnitPref),
             pressureUnit = pressureUnitFromPref(systemUnitPref),
@@ -337,5 +341,10 @@ object PreferencesHelper {
             SystemUnitPref.UK -> RainUnit.MM
             SystemUnitPref.METRIC -> RainUnit.MM
         }
+    }
+
+    private fun Context.isNightMode(): Boolean {
+        val mode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return mode == Configuration.UI_MODE_NIGHT_YES
     }
 }
