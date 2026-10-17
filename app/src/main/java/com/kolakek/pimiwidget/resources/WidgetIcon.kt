@@ -27,9 +27,9 @@ enum class WidgetIcon {
     fun id(textColor: TextColor, widgetStyle: WidgetStyle): Int {
         return when (this) {
             SYNC -> when (widgetStyle) {
-                WidgetStyle.SHADOW -> R.drawable.ic_sync_light_shadow
+                WidgetStyle.CLASSIC_SHADOW -> R.drawable.ic_sync_light_shadow
 
-                WidgetStyle.DEFAULT ->
+                WidgetStyle.CLASSIC ->
                     if (textColor == TextColor.DARK) R.drawable.ic_sync_dark
                     else R.drawable.ic_sync_light
 

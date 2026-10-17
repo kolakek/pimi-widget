@@ -26,20 +26,19 @@ enum class TextIcon {
     BIRTHDAY;
 
     fun id(textColor: TextColor, widgetStyle: WidgetStyle): Int {
-        val needsShadow = widgetStyle == WidgetStyle.SHADOW
         return when (this) {
             ALARM -> when (textColor) {
                 TextColor.DYNAMIC -> R.drawable.ic_alarm_themed
                 TextColor.DARK -> R.drawable.ic_alarm_dark
                 TextColor.LIGHT ->
-                    if (needsShadow) R.drawable.ic_alarm_light_shadow
+                    if (widgetStyle.needsShadow) R.drawable.ic_alarm_light_shadow
                     else R.drawable.ic_alarm_light
             }
             BIRTHDAY -> when (textColor) {
                 TextColor.DYNAMIC -> R.drawable.ic_birthday_themed
                 TextColor.DARK -> R.drawable.ic_birthday_dark
                 TextColor.LIGHT ->
-                    if (needsShadow) R.drawable.ic_birthday_light_shadow
+                    if (widgetStyle.needsShadow) R.drawable.ic_birthday_light_shadow
                     else R.drawable.ic_birthday_light
             }
         }

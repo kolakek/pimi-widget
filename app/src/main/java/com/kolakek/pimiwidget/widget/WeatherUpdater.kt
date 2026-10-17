@@ -84,7 +84,11 @@ object WeatherUpdater {
                         auxStr = it
                     }
                 }
-                val sep = if (prefs.widgetStyle == WidgetStyle.SOLID) "" else " · "
+                val sep = when (prefs.widgetStyle) {
+                    WidgetStyle.CLASSIC -> " · "
+                    WidgetStyle.CLASSIC_SHADOW -> " · "
+                    WidgetStyle.SOLID -> ""
+                }
                 auxStr = auxStr?.prependIndent(sep)
 
                 auxStr?.let {

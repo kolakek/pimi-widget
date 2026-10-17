@@ -115,7 +115,7 @@ object PreferencesHelper {
             WidgetStylePref.SOLID -> WidgetStyle.SOLID
             WidgetStylePref.CLASSIC ->
                 if (textColor == TextColor.LIGHT && iconStylePref == IconStylePref.TWINKLE_SHADOW)
-                    WidgetStyle.SHADOW else WidgetStyle.DEFAULT
+                    WidgetStyle.CLASSIC_SHADOW else WidgetStyle.CLASSIC
         }
         val iconStyle = when (iconStylePref) {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
