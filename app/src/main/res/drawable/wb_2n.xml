@@ -42,14 +42,14 @@
       android:fillAlpha="0.95">
     <aapt:attr name="android:fillColor">
       <gradient
-          android:centerX="23.55"
-          android:centerY="26.56"
-          android:gradientRadius="36.7"
-          android:type="radial">
-        <item android:offset="0.24" android:color="#FFCCCCCC"/>
-        <item android:offset="0.33" android:color="#FFE1E2E2"/>
-        <item android:offset="0.43" android:color="#FFF4F5F7"/>
-        <item android:offset="0.5" android:color="#FFFCFDFF"/>
+          android:startX="18.59"
+          android:startY="20.13"
+          android:endX="6.33"
+          android:endY="9.84"
+          android:type="linear">
+        <item android:offset="0.09" android:color="#FFBFBFBF"/>
+        <item android:offset="0.57" android:color="#FFDFDFDF"/>
+        <item android:offset="0.84" android:color="#FFEDEDED"/>
       </gradient>
     </aapt:attr>
   </path>
