@@ -7,7 +7,8 @@
     <string name="config_section_about">關於</string>
     <string name="config_section_style">外觀</string>
     <string name="config_widget_style">小工具樣式</string>
-    <string name="config_widget_style_classic">透明</string>
+    <string name="config_widget_style_classic">經典</string>
+    <string name="config_widget_style_modern">現代</string>
     <string name="config_widget_style_solid">純色</string>
     <string name="config_weather_switch">天氣</string>
     <string name="app_attribution_open_meteo">Open-Meteo.com 提供天氣資料</string>

@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Aspetto</string>
     <string name="config_widget_style">Stile widget</string>
-    <string name="config_widget_style_classic">Trasparente</string>
+    <string name="config_widget_style_classic">Classico</string>
+    <string name="config_widget_style_modern">Moderno</string>
     <string name="config_widget_style_solid">Tinta unita</string>
     <string name="config_button_apply">Applica</string>
     <string name="config_weather_switch">Meteo</string>

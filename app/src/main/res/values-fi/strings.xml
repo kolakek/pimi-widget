@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Ulkoasu</string>
     <string name="config_widget_style">Vimpaimen tyyli</string>
-    <string name="config_widget_style_classic">Läpinäkyvä</string>
+    <string name="config_widget_style_classic">Klassinen</string>
+    <string name="config_widget_style_modern">Moderni</string>
     <string name="config_widget_style_solid">Yksivärinen</string>
     <string name="config_button_apply">Käytä</string>
     <string name="config_weather_switch">Sää</string>

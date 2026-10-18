@@ -108,9 +108,11 @@ object WidgetUpdater {
 
     private fun getWidgetLayout(widgetStyle: WidgetStyle): Int {
         return when (widgetStyle) {
-            WidgetStyle.CLASSIC -> R.layout.widget
-            WidgetStyle.CLASSIC_SHADOW -> R.layout.widget_shadow
             WidgetStyle.SOLID -> R.layout.widget_solid
+            WidgetStyle.CLASSIC -> R.layout.widget_classic
+            WidgetStyle.CLASSIC_SHADOW -> R.layout.widget_classic_shadow
+            WidgetStyle.MODERN -> R.layout.widget_modern
+            WidgetStyle.MODERN_SHADOW -> R.layout.widget_modern_shadow
         }
     }
 

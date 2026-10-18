@@ -8,7 +8,8 @@
     <string name="config_section_about">О приложении</string>
     <string name="config_section_style">Внешний вид</string>
     <string name="config_widget_style">Стиль виджета</string>
-    <string name="config_widget_style_classic">Прозрачный</string>
+    <string name="config_widget_style_classic">Классический</string>
+    <string name="config_widget_style_modern">Современный</string>
     <string name="config_widget_style_solid">Непрозрачный</string>
     <string name="config_weather_switch">Погода</string>
     <string name="config_birthday_switch">Дни рождения</string>

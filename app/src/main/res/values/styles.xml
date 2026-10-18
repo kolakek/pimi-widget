@@ -83,6 +83,7 @@
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
         <item name="android:layout_marginRight">12dp</item>
+        <item name="android:drawablePadding">4dp</item>
     </style>
 
     <style name="Widget.DateShadow" parent="Widget.Date">
@@ -117,6 +118,20 @@
     </style>
 
     <style name="Widget.WeatherShadow" parent="Widget.Weather">
+        <item name="android:shadowColor">#222222</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="Widget.WeatherAuxModern" parent="Widget.InnerView">
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:textSize">@dimen/widget_text_size_medium</item>
+        <item name="android:layout_marginVertical">6dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Widget.WeatherAuxModernShadow" parent="Widget.WeatherAuxModern">
         <item name="android:shadowColor">#222222</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
@@ -182,7 +197,7 @@
         <item name="android:drawablePadding">4dp</item>
     </style>
 
-    <style name="Widget.WeatherSolid" parent="Widget.InnerView">
+    <style name="Widget.WeatherAuxSolid" parent="Widget.InnerView">
         <item name="android:drawablePadding">4dp</item>
         <item name="android:textColor">@color/dynamic_text_color</item>
         <item name="android:textSize">@dimen/widget_text_size_medium</item>

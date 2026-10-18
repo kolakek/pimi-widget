@@ -20,5 +20,7 @@ package com.kolakek.pimiwidget.settings
 enum class WidgetStyle(val needsShadow: Boolean) {
     CLASSIC(false),
     CLASSIC_SHADOW(true),
+    MODERN(false),
+    MODERN_SHADOW(true),
     SOLID(false)
 }

@@ -57,11 +57,13 @@
 
     <array name="widget_styles">
         <item>@string/config_widget_style_solid</item>
+        <item>@string/config_widget_style_modern</item>
         <item>@string/config_widget_style_classic</item>
     </array>
 
     <array name="widget_styles_vals">
         <item>widget_style_solid</item>
+        <item>widget_style_modern</item>
         <item>widget_style_classic</item>
     </array>
 

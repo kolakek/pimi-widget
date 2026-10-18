@@ -9,7 +9,7 @@
             android:text="@string/widget_date_prev"/>
 
         <TextView
-            style="@style/Widget.WeatherSolid"
+            style="@style/Widget.WeatherAuxSolid"
             android:text="@string/widget_weather_prev"/>
 
     </LinearLayout>

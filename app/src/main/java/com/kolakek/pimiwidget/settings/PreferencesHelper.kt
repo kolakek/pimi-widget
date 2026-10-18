@@ -35,6 +35,7 @@ object PreferencesHelper {
 
     enum class WidgetStylePref(val key: String) {
         CLASSIC(KEY_WIDGET_STYLE_CLASSIC),
+        MODERN(KEY_WIDGET_STYLE_MODERN),
         SOLID(KEY_WIDGET_STYLE_SOLID)
     }
 
@@ -96,7 +97,9 @@ object PreferencesHelper {
 
         val textColor = when (textColorPref) {
             ColorPref.AUTO -> when (widgetStylePref) {
-                WidgetStylePref.CLASSIC -> getTextColorForWallpaper(context)
+                WidgetStylePref.CLASSIC,
+                WidgetStylePref.MODERN
+                    -> getTextColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.DYNAMIC
             }
 
@@ -111,11 +114,15 @@ object PreferencesHelper {
                 else -> if (textColor == TextColor.DARK) IconColor.DARK else IconColor.LIGHT
             }
         }
+        val needsShadowStyle =
+            (textColor == TextColor.LIGHT) && (iconStylePref == IconStylePref.TWINKLE_SHADOW)
+
         val widgetStyle = when (widgetStylePref) {
             WidgetStylePref.SOLID -> WidgetStyle.SOLID
             WidgetStylePref.CLASSIC ->
-                if (textColor == TextColor.LIGHT && iconStylePref == IconStylePref.TWINKLE_SHADOW)
-                    WidgetStyle.CLASSIC_SHADOW else WidgetStyle.CLASSIC
+                if (needsShadowStyle) WidgetStyle.CLASSIC_SHADOW else WidgetStyle.CLASSIC
+            WidgetStylePref.MODERN ->
+                if (needsShadowStyle) WidgetStyle.MODERN_SHADOW else WidgetStyle.MODERN
         }
         val iconStyle = when (iconStylePref) {
             IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
@@ -126,7 +133,6 @@ object PreferencesHelper {
             AuxDisplayPref.PLACE_CONDITION -> AuxDisplay.PLACE_CONDITION
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
         }
-
         return WidgetPreferences(
             showAlarms = getAlarmPreference(context),
             showWeather = getWeatherPreference(context),

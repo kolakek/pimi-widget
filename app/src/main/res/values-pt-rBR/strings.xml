@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Aparência</string>
     <string name="config_widget_style">Estilo do widget</string>
-    <string name="config_widget_style_classic">Transparente</string>
+    <string name="config_widget_style_classic">Clássico</string>
+    <string name="config_widget_style_modern">Moderno</string>
     <string name="config_widget_style_solid">Liso</string>
     <string name="config_button_apply">Aplicar</string>
     <string name="config_weather_switch">Clima</string>

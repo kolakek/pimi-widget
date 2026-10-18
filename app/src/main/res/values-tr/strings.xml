@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Görünüm</string>
     <string name="config_widget_style">Widget stili</string>
-    <string name="config_widget_style_classic">Şeffaf</string>
+    <string name="config_widget_style_classic">Klasik</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Düz</string>
     <string name="config_button_apply">Uygula</string>
     <string name="config_weather_switch">Hava durumu</string>
