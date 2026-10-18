@@ -108,6 +108,7 @@
     <string name="app_today_total">Today\'s total</string>
     <string name="app_today_average">Today\'s average</string>
     <string name="app_today_maximum">Today\'s maximum</string>
+    <string name="app_settings">Settings</string>
 
     <string name="mu_0_1_2">Low</string>
     <string name="mu_3_4_5">Moderate</string>

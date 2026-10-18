@@ -71,6 +71,10 @@
         <activity
             android:name=".ui.AppConfigureActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.AppWidgetConfigureActivity"
+            android:exported="false" />
     </application>
 
     <queries>

@@ -97,6 +97,9 @@ class WeatherActivity : AppCompatActivity() {
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
                         displayHourlyDetails(displayData)
+                        binding.settingsButton.setOnClickListener {
+                            startActivity(Intent(this@WeatherActivity, AppConfigureActivity::class.java))
+                        }
                         binding.content.visibility = View.VISIBLE
                         binding.noData.visibility = View.GONE
                     }
@@ -116,6 +119,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.noDataTitle.text = getString(R.string.app_text_no_data)
             binding.noDataInfo.text = getString(R.string.app_text_check_connection)
             binding.noDataButton.text = getString(R.string.app_text_button_try_again)
+            binding.noDataButton.visibility = View.VISIBLE
             binding.noDataButton.setOnClickListener {
                 WorkManagerHelper.enqueueOneTimeWork(
                     this,
@@ -126,10 +130,7 @@ class WeatherActivity : AppCompatActivity() {
         } else {
             binding.noDataTitle.text = getString(R.string.app_text_weather_off)
             binding.noDataInfo.text = getString(R.string.app_text_enable_in_settings)
-            binding.noDataButton.text = getString(R.string.app_text_button_settings)
-            binding.noDataButton.setOnClickListener {
-                startActivity(Intent(this, AppConfigureActivity::class.java))
-            }
+            binding.noDataButton.visibility = View.INVISIBLE
         }
     }
 
