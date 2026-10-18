@@ -40,8 +40,12 @@ object WeatherUpdater {
         views.setTextViewText(R.id.widget_weather_temp, null)
         views.setTextViewText(R.id.widget_weather_aux, null)
         views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, 0, 0)
-        views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
 
+        when (prefs.widgetStyle) {
+            WidgetStyle.SOLID -> views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
+
+            else -> views.setViewVisibility(R.id.widget_weather_aux, View.INVISIBLE)
+        }
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         views.setImageViewResource(

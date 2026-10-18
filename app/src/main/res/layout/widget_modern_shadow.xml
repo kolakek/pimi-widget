@@ -28,14 +28,8 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/Widget.InnerHorizontalContainer"
-        tools:ignore="UseCompoundDrawables">
-
-        <TextView
-            android:id="@+id/widget_weather_aux"
-            style="@style/Widget.WeatherAuxModernShadow" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/widget_weather_aux"
+        style="@style/Widget.WeatherAuxModernShadow" />
 
 </LinearLayout>
