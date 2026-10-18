@@ -55,6 +55,18 @@
         <item>icon_style_outlined</item>
     </array>
 
+    <array name="app_icon_styles">
+        <item>@string/config_icon_style_outlined</item>
+        <item>@string/config_icon_style_filled</item>
+        <item>@string/app_icon_style_widget</item>
+    </array>
+
+    <array name="app_icon_styles_vals">
+        <item>app_icon_style_outlined</item>
+        <item>app_icon_style_filled</item>
+        <item>app_icon_style_widget</item>
+    </array>
+
     <array name="widget_styles">
         <item>@string/config_widget_style_solid</item>
         <item>@string/config_widget_style_modern</item>

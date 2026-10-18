@@ -28,9 +28,15 @@ import com.kolakek.pimiwidget.utility.WeatherApp
 
 object PreferencesHelper {
 
-    enum class IconStylePref(val key: String) {
-        FLAT_SKETCH(KEY_ICON_STYLE_FLAT_SKETCH),
-        TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
+    enum class AppIconStylePref(val key: String) {
+        FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH),
+        TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW),
+        FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET)
+    }
+
+    enum class WidgetIconStylePref(val key: String) {
+        FLAT_SKETCH(KEY_WIDGET_ICON_STYLE_FLAT_SKETCH),
+        TWINKLE_SHADOW(KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW)
     }
 
     enum class WidgetStylePref(val key: String) {
@@ -65,13 +71,19 @@ object PreferencesHelper {
     }
 
     fun getAppPreferences(context: Context): AppPreferences {
-        val iconStylePref = getIconStylePreference(context)
+        val iconStylePref = getAppIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val systemUnitPref = getSystemUnitPreference(context)
 
         val iconStyle = when (iconStylePref) {
-            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
-            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            AppIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            AppIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            AppIconStylePref.FOLLOW_WIDGET -> {
+                when (getWidgetIconStylePreference(context)) {
+                    WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+                    WidgetIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+                }
+            }
         }
         val iconColor = if (context.isNightMode()) IconColor.LIGHT else IconColor.DARK
 
@@ -89,7 +101,7 @@ object PreferencesHelper {
     fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
         val iconColorPref = getIconColorPreference(context)
-        val iconStylePref = getIconStylePreference(context)
+        val iconStylePref = getWidgetIconStylePreference(context)
         val widgetStylePref = getWidgetStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
@@ -115,7 +127,7 @@ object PreferencesHelper {
             }
         }
         val needsShadowStyle =
-            (textColor == TextColor.LIGHT) && (iconStylePref == IconStylePref.TWINKLE_SHADOW)
+            (textColor == TextColor.LIGHT) && (iconStylePref == WidgetIconStylePref.TWINKLE_SHADOW)
 
         val widgetStyle = when (widgetStylePref) {
             WidgetStylePref.SOLID -> WidgetStyle.SOLID
@@ -125,8 +137,8 @@ object PreferencesHelper {
                 if (needsShadowStyle) WidgetStyle.MODERN_SHADOW else WidgetStyle.MODERN
         }
         val iconStyle = when (iconStylePref) {
-            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
-            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            WidgetIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
         val auxDisplay = when (auxDisplayPref) {
             AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
@@ -237,10 +249,19 @@ object PreferencesHelper {
         return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
     }
 
-    private fun getIconStylePreference(context: Context): IconStylePref {
+    private fun getWidgetIconStylePreference(context: Context): WidgetIconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_ICON_STYLE_LIST, null)
-        return IconStylePref.entries.find { it.key == key } ?: IconStylePref.TWINKLE_SHADOW
+            .getString(KEY_WIDGET_ICON_STYLE_LIST, null)
+        return WidgetIconStylePref.entries.find { it.key == key }
+            ?: WidgetIconStylePref.TWINKLE_SHADOW
+
+    }
+
+    private fun getAppIconStylePreference(context: Context): AppIconStylePref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_APP_ICON_STYLE_LIST, null)
+        return AppIconStylePref.entries.find { it.key == key }
+            ?: AppIconStylePref.FLAT_SKETCH
 
     }
 

@@ -44,9 +44,14 @@ internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
 internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"
 internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
 
-internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
-internal const val KEY_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"
-internal const val KEY_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
+internal const val KEY_WIDGET_ICON_STYLE_LIST = "icon_style_list"
+internal const val KEY_WIDGET_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"
+internal const val KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
+
+internal const val KEY_APP_ICON_STYLE_LIST = "app_icon_style_list"
+internal const val KEY_APP_ICON_STYLE_FLAT_SKETCH = "app_icon_style_outlined"
+internal const val KEY_APP_ICON_STYLE_TWINKLE_SHADOW = "app_icon_style_filled"
+internal const val KEY_APP_ICON_STYLE_WIDGET = "app_icon_style_widget"
 
 internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
 internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"

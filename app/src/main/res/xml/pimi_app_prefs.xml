@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="category_settings_units"
+        android:selectable="false"
+        android:title="@string/config_section_settings_units"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:defaultValue="temp_unit_auto"
+            android:entries="@array/temp_units"
+            android:entryValues="@array/temp_units_vals"
+            android:key="temp_list"
+            android:title="@string/config_temp"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="system_unit_auto"
+            android:entries="@array/system_units"
+            android:entryValues="@array/system_units_vals"
+            android:key="system_unit_list"
+            android:title="@string/config_unit_system"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_style"
+        android:selectable="false"
+        android:title="@string/config_section_style"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:defaultValue="app_icon_style_outlined"
+            android:entries="@array/app_icon_styles"
+            android:entryValues="@array/app_icon_styles_vals"
+            android:key="app_icon_style_list"
+            android:title="@string/config_icon_style"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>
