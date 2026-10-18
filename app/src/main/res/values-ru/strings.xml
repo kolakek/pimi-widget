@@ -64,6 +64,8 @@
     <string name="config_weather_app_nil">Нет в списке</string>
     <string name="config_weather_app_nil_alert_message">Чтобы ваше приложение погоды могло быть добавлено, создайте issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Открыть GitHub</string>
+    <string name="config_show_temp_unit">Показывать единицу температуры</string>
+    <string name="config_show_temp_unit_descr">Показывать символ Фаренгейта или Цельсия</string>
 
     <string name="app_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="app_text_now">Сейчас</string>

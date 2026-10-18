@@ -65,6 +65,8 @@
     <string name="config_unit_us">Statele Unite</string>
     <string name="config_unit_uk">Regatul Unit</string>
     <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
+    <string name="config_show_temp_unit">Afișează unitatea de temperatură</string>
+    <string name="config_show_temp_unit_descr">Afișează simbolul pentru Fahrenheit sau Celsius</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>

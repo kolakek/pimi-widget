@@ -65,6 +65,9 @@
     <string name="config_unit_us">Stati Uniti</string>
     <string name="config_unit_uk">Regno Unito</string>
     <string name="config_aux_view_place_condition">Luogo &amp; meteo</string>
+    <string name="config_show_temp_unit">Mostra unità di temperatura</string>
+    <string name="config_show_temp_unit_descr">Mostra simbolo per Fahrenheit o Celsius</string>
+
     <string name="app_text_now">Ora</string>
     <string name="app_text_hourly_forecast">Previsioni orarie</string>
     <string name="app_text_daily_forecast">Previsioni giornaliere</string>

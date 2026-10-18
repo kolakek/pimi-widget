@@ -65,6 +65,8 @@
     <string name="config_unit_us">USA</string>
     <string name="config_unit_uk">Storbritannien</string>
     <string name="config_aux_view_place_condition">Sted &amp; vejr</string>
+    <string name="config_show_temp_unit">Vis temperaturenhed</string>
+    <string name="config_show_temp_unit_descr">Vis symbol for Fahrenheit eller Celsius</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Timevis vejrudsigt</string>

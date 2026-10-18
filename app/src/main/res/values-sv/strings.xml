@@ -65,6 +65,8 @@
     <string name="config_unit_us">USA</string>
     <string name="config_unit_uk">Storbritannien</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
+    <string name="config_show_temp_unit">Visa temperatureenhet</string>
+    <string name="config_show_temp_unit_descr">Visa symbol för Fahrenheit eller Celsius</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

@@ -18,6 +18,13 @@
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
+            android:key="show_temp_unit"
+            android:title="@string/config_show_temp_unit"
+            android:summary="@string/config_show_temp_unit_descr"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
             android:key="permanent_alarm"
             android:title="@string/config_perm_alarm"
             android:summary="@string/config_perm_alarm_descr"

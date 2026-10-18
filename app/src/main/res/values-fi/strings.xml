@@ -65,6 +65,8 @@
     <string name="config_unit_us">Yhdysvallat</string>
     <string name="config_unit_uk">Yhdistynyt kuningaskunta</string>
     <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
+    <string name="config_show_temp_unit">Näytä lämpötilayksikkö</string>
+    <string name="config_show_temp_unit_descr">Näytä Fahrenheit- tai Celsius-symboli</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>

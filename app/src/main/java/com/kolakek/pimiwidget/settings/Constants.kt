@@ -60,6 +60,7 @@ internal const val KEY_LOCATION_FALLBACK = "location_fallback"
 internal const val KEY_DAILY_FORECAST = "daily_forecast"
 internal const val KEY_WEATHER_WARNING = "weather_warnings"
 internal const val KEY_PERMANENT_ALARM = "permanent_alarm"
+internal const val KEY_SHOW_TEMP_UNIT = "show_temp_unit"
 
 internal const val KEY_VERSION_FIELD = "build_number"
 internal const val KEY_SOURCE_CODE = "source_code"

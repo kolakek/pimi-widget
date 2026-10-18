@@ -65,6 +65,8 @@
     <string name="config_unit_us">美國</string>
     <string name="config_unit_uk">英國</string>
     <string name="config_aux_view_place_condition">天氣和地點</string>
+    <string name="config_show_temp_unit">顯示溫度單位</string>
+    <string name="config_show_temp_unit_descr">顯示華氏或攝氏符號</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

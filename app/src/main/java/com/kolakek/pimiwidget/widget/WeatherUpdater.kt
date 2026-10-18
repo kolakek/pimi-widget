@@ -58,7 +58,7 @@ object WeatherUpdater {
                 prefs.tempUnit,
                 prefs.iconStyle,
                 prefs.iconColor,
-                true
+                prefs.showTempUnit
             )?.let { it ->
 
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)

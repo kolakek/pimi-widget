@@ -141,6 +141,7 @@ object PreferencesHelper {
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
             permanentAlarm = getPermanentAlarmPreference(context),
+            showTempUnit = getShowTempUnitPreference(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -269,6 +270,11 @@ object PreferencesHelper {
     private fun getPermanentAlarmPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_PERMANENT_ALARM, false)
+    }
+
+    private fun getShowTempUnitPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
     private fun getWeatherApp(context: Context): WeatherApp {

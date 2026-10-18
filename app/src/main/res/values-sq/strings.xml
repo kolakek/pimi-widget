@@ -65,6 +65,8 @@
     <string name="config_unit_us">Shtetet e Bashkuara</string>
     <string name="config_unit_uk">Mbretëria e Bashkuar</string>
     <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
+    <string name="config_show_temp_unit">Shfaq njësinë e temperaturës</string>
+    <string name="config_show_temp_unit_descr">Shfaq simbolin për Fahrenheit ose Celsius</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshem</string>

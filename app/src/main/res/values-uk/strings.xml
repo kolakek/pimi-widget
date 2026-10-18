@@ -65,6 +65,8 @@
     <string name="config_unit_us">Сполучені Штати</string>
     <string name="config_unit_uk">Велика Британія</string>
     <string name="config_aux_view_place_condition">Місце &amp; погода</string>
+    <string name="config_show_temp_unit">Показувати одиницю температури</string>
+    <string name="config_show_temp_unit_descr">Показувати символ Фаренгейта або Цельсія</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>
