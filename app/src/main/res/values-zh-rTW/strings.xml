@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">請在小工具設定中啟用天氣</string>
     <string name="app_text_check_connection">請檢查網路連線後再試一次</string>
     <string name="app_text_button_try_again">重試</string>
-    <string name="app_text_button_settings">小工具設定</string>
     <string name="app_text_rain">雨</string>
     <string name="app_text_hourly_details">每小時詳情</string>
     <string name="app_text_sunset_sunrise">日出 &amp; 日落</string>

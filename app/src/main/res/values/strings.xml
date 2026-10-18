@@ -97,7 +97,6 @@
     <string name="app_text_enable_in_settings">Enable weather in widget settings</string>
     <string name="app_text_check_connection">Check your connection and try again</string>
     <string name="app_text_button_try_again">Try again</string>
-    <string name="app_text_button_settings">Widget settings</string>
     <string name="app_text_rain">Rain</string>
     <string name="app_text_hourly_details">Hourly details</string>
     <string name="app_text_sunset_sunrise">Sunrise &amp; sunset</string>

@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Activează vremea în setările widget-ului</string>
     <string name="app_text_check_connection">Verifică conexiunea la internet și încearcă din nou</string>
     <string name="app_text_button_try_again">Încearcă din nou</string>
-    <string name="app_text_button_settings">Setările widget-ului</string>
     <string name="app_text_rain">ploaie</string>
     <string name="app_text_hourly_details">Detalii din oră în oră</string>
     <string name="app_text_sunset_sunrise">răsărit &amp; apus</string>

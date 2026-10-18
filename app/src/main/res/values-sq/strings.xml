@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Aktivizo motin në cilësimet e widget-it</string>
     <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
     <string name="app_text_button_try_again">Provo përsëri</string>
-    <string name="app_text_button_settings">Cilësimet e widget-it</string>
     <string name="app_text_rain">shi</string>
     <string name="app_text_hourly_details">Detajet për çdo orë</string>
     <string name="app_text_sunset_sunrise">lindja &amp; perëndimi i diellit</string>

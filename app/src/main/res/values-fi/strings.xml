@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Ota sää käyttöön widgetin asetuksissa</string>
     <string name="app_text_check_connection">Tarkista internetyhteytesi ja yritä uudelleen</string>
     <string name="app_text_button_try_again">Yritä uudelleen</string>
-    <string name="app_text_button_settings">Widgetin asetukset</string>
     <string name="app_text_rain">sade</string>
     <string name="app_text_hourly_details">Tuntikohtaiset tiedot</string>
     <string name="app_text_sunset_sunrise">auringonnousu &amp; auringonlasku</string>

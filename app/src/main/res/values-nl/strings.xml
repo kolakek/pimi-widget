@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Schakel het weer in via de widgetinstellingen</string>
     <string name="app_text_check_connection">Controleer je internetverbinding en probeer opnieuw</string>
     <string name="app_text_button_try_again">Opnieuw proberen</string>
-    <string name="app_text_button_settings">Widgetinstellingen</string>
     <string name="app_text_rain">regen</string>
     <string name="app_text_hourly_details">Informatie per uur</string>
     <string name="app_text_sunset_sunrise">zonsopgang &amp; zonsondergang</string>

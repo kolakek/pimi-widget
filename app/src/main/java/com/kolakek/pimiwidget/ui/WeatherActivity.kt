@@ -88,8 +88,7 @@ class WeatherActivity : AppCompatActivity() {
                     }
                     if (displayData == null || !displayData.isValid()) {
                         displayNoDataInfo(prefs)
-                        binding.content.visibility = View.GONE
-                        binding.noData.visibility = View.VISIBLE
+                        finishNoDataDisplay()
                     } else {
                         displayPlace(displayData)
                         displayCurrentWeather(displayData)
@@ -97,11 +96,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
                         displayHourlyDetails(displayData)
-                        binding.settingsButton.setOnClickListener {
-                            startActivity(Intent(this@WeatherActivity, AppConfigureActivity::class.java))
-                        }
-                        binding.content.visibility = View.VISIBLE
-                        binding.noData.visibility = View.GONE
+                        finishDataDisplay()
                     }
                 }
             }
@@ -132,6 +127,19 @@ class WeatherActivity : AppCompatActivity() {
             binding.noDataInfo.text = getString(R.string.app_text_enable_in_settings)
             binding.noDataButton.visibility = View.INVISIBLE
         }
+    }
+
+    private fun finishNoDataDisplay() {
+        binding.content.visibility = View.GONE
+        binding.noData.visibility = View.VISIBLE
+    }
+
+    private fun finishDataDisplay() {
+        binding.settingsButton.setOnClickListener {
+            startActivity(Intent(this@WeatherActivity, AppConfigureActivity::class.java))
+        }
+        binding.content.visibility = View.VISIBLE
+        binding.noData.visibility = View.GONE
     }
 
     private fun displayPlace(data: DisplayData) {

@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Active la météo dans les paramètres du widget</string>
     <string name="app_text_check_connection">Vérifie ta connexion internet et réessaie</string>
     <string name="app_text_button_try_again">Réessayer</string>
-    <string name="app_text_button_settings">Paramètres du widget</string>
     <string name="app_text_rain">pluie</string>
     <string name="app_text_hourly_details">Détails par heure</string>
     <string name="app_text_sunset_sunrise">lever &amp; coucher du soleil</string>

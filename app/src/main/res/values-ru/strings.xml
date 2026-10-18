@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Включите показ погоды в настройках виджета</string>
     <string name="app_text_check_connection">Проверьте соединение и попробуйте еще раз</string>
     <string name="app_text_button_try_again">Еще раз</string>
-    <string name="app_text_button_settings">Настройки виджета</string>
     <string name="app_text_rain">дождь</string>
     <string name="app_text_hourly_details">Данные по часам</string>
     <string name="app_text_sunset_sunrise">восход и закат</string>

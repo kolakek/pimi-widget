@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Ative o clima nas configurações do widget</string>
     <string name="app_text_check_connection">Verifique sua conexão com a internet e tente novamente</string>
     <string name="app_text_button_try_again">Tentar novamente</string>
-    <string name="app_text_button_settings">Configurações do widget</string>
     <string name="app_text_rain">chuva</string>
     <string name="app_text_hourly_details">Detalhes de hora em hora</string>
     <string name="app_text_sunset_sunrise">nascer &amp; pôr do sol</string>

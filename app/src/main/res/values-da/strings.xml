@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Aktivér vejret i widget-indstillingerne</string>
     <string name="app_text_check_connection">Tjek din internetforbindelse og prøv igen</string>
     <string name="app_text_button_try_again">Prøv igen</string>
-    <string name="app_text_button_settings">Widget-indstillinger</string>
     <string name="app_text_rain">regn</string>
     <string name="app_text_hourly_details">Timevis detaljer</string>
     <string name="app_text_sunset_sunrise">solopgang &amp; solnedgang</string>

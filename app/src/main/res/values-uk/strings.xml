@@ -88,7 +88,6 @@
     <string name="app_text_enable_in_settings">Увімкни погоду в налаштуваннях віджета</string>
     <string name="app_text_check_connection">Перевір своє інтернет-з\'єднання і спробуй знову</string>
     <string name="app_text_button_try_again">Спробуй знову</string>
-    <string name="app_text_button_settings">Налаштування віджета</string>
     <string name="app_text_rain">дощ</string>
     <string name="app_text_hourly_details">Погодинні дані</string>
     <string name="app_text_sunset_sunrise">схід &amp; захід сонця</string>
