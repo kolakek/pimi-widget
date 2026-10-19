@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
     <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
     <string name="config_section_settings_units">Μονάδες</string>
-    <string name="config_unit_system">Σύστημα μονάδων</string>
-    <string name="config_unit_metric">Μετρικό</string>
-    <string name="config_unit_us">Ηνωμένες Πολιτείες</string>
-    <string name="config_unit_uk">Ηνωμένο Βασίλειο</string>
     <string name="config_aux_view_place_condition">Τοποθεσία &amp; καιρός</string>
     <string name="config_show_temp_unit">Εμφάνιση μονάδας θερμοκρασίας</string>
     <string name="config_show_temp_unit_descr">Εμφάνιση συμβόλου για Fahrenheit ή Celsius</string>

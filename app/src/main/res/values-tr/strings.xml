@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir issue aç.</string>
     <string name="config_weather_app_alert_button_github">GitHub\'ı aç</string>
     <string name="config_section_settings_units">Birimler</string>
-    <string name="config_unit_system">Birim sistemi</string>
-    <string name="config_unit_metric">Metrik</string>
-    <string name="config_unit_us">Amerika Birleşik Devletleri</string>
-    <string name="config_unit_uk">Birleşik Krallık</string>
     <string name="config_aux_view_place_condition">Konum &amp; hava</string>
     <string name="config_show_temp_unit">Sıcaklık birimini göster</string>
     <string name="config_show_temp_unit_descr">Fahrenheit veya Celsius sembolünü göster</string>

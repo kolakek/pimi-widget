@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
     <string name="config_weather_app_alert_button_github">Apri GitHub</string>
     <string name="config_section_settings_units">Eenheden</string>
-    <string name="config_unit_system">Eenhedensysteem</string>
-    <string name="config_unit_metric">Metrisch</string>
-    <string name="config_unit_us">Verenigde Staten</string>
-    <string name="config_unit_uk">Verenigd Koninkrijk</string>
     <string name="config_aux_view_place_condition">Plaats &amp; weer</string>
     <string name="config_show_temp_unit">Temperatuureenheid weergeven</string>
     <string name="config_show_temp_unit_descr">Symbool voor Fahrenheit of Celsius weergeven</string>

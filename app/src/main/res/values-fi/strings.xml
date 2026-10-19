@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi lisättävän, avaa issue GitHubissa.</string>
     <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
     <string name="config_section_settings_units">Yksiköt</string>
-    <string name="config_unit_system">Yksikköjärjestelmä</string>
-    <string name="config_unit_metric">Metrinen</string>
-    <string name="config_unit_us">Yhdysvallat</string>
-    <string name="config_unit_uk">Yhdistynyt kuningaskunta</string>
     <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
     <string name="config_show_temp_unit">Näytä lämpötilayksikkö</string>
     <string name="config_show_temp_unit_descr">Näytä Fahrenheit- tai Celsius-symboli</string>

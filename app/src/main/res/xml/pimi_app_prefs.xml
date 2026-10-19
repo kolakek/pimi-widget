@@ -11,20 +11,38 @@
         app:allowDividerBelow="false">
 
         <ListPreference
-            android:defaultValue="temp_unit_auto"
+            android:key="temp_list"
             android:entries="@array/temp_units"
             android:entryValues="@array/temp_units_vals"
-            android:key="temp_list"
+            android:defaultValue="temp_unit_auto"
             android:title="@string/config_temp"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            android:defaultValue="system_unit_auto"
-            android:entries="@array/system_units"
-            android:entryValues="@array/system_units_vals"
-            android:key="system_unit_list"
-            android:title="@string/config_unit_system"
+            android:key="rain_unit_list"
+            android:entries="@array/rain_units"
+            android:entryValues="@array/rain_units_vals"
+            android:defaultValue="rain_unit_auto"
+            android:title="@string/app_text_rain"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pressure_unit_list"
+            android:entries="@array/pressure_units"
+            android:entryValues="@array/pressure_units_vals"
+            android:defaultValue="pressure_unit_auto"
+            android:title="@string/app_text_pressure"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="wind_unit_list"
+            android:entries="@array/wind_units"
+            android:entryValues="@array/wind_units_vals"
+            android:defaultValue="wind_unit_auto"
+            android:title="@string/config_wind_speed"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 

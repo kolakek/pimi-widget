@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報。</string>
     <string name="config_weather_app_alert_button_github">前往 GitHub</string>
     <string name="config_section_settings_units">單位</string>
-    <string name="config_unit_system">觀測系統</string>
-    <string name="config_unit_metric">公制</string>
-    <string name="config_unit_us">美國</string>
-    <string name="config_unit_uk">英國</string>
     <string name="config_aux_view_place_condition">天氣和地點</string>
     <string name="config_show_temp_unit">顯示溫度單位</string>
     <string name="config_show_temp_unit_descr">顯示華氏或攝氏符號</string>

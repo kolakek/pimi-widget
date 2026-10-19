@@ -38,10 +38,6 @@
     <string name="config_option_auto">Automatic</string>
     <string name="config_option_follow_system">System default</string>
     <string name="config_temp">Temperature</string>
-    <string name="config_unit_system">Measurement system</string>
-    <string name="config_unit_metric">Metric</string>
-    <string name="config_unit_us">United States</string>
-    <string name="config_unit_uk">United Kingdom</string>
     <string name="config_daily_forecast">Show daily forecast</string>
     <string name="config_daily_forecast_summary">In the morning and evening</string>
     <string name="config_weather_warnings">Show weather alerts</string>
@@ -66,6 +62,19 @@
     <string name="config_weather_app_alert_button_github">Open GitHub</string>
     <string name="config_show_temp_unit">Show temperature unit</string>
     <string name="config_show_temp_unit_descr">Show symbol for Fahrenheit or Celsius</string>
+    <string name="config_title_settings">Settings</string>
+    <string name="config_wind_speed">Wind speed</string>
+    <string name="config_option_follow_widget">Follow widget</string>
+    <string name="config_unit_millimetres">Millimeters</string>
+    <string name="config_unit_inches">Inches</string>
+    <string name="config_unit_hectopascal">Hectopascals</string>
+    <string name="config_unit_millibar">Millibars</string>
+    <string name="config_unit_mm_mercury">Millimeters of mercury</string>
+    <string name="config_unit_inches_mercury">Inches of mercury</string>
+    <string name="config_unit_km_per_hour">Kilometers per hour</string>
+    <string name="config_unit_m_per_second">Meters per second</string>
+    <string name="config_unit_miles_per_hour">Miles per hour</string>
+    <string name="config_unit_knots">Knots</string>
 
     <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -107,8 +116,6 @@
     <string name="app_today_total">Today\'s total</string>
     <string name="app_today_average">Today\'s average</string>
     <string name="app_today_maximum">Today\'s maximum</string>
-    <string name="app_settings">Settings</string>
-    <string name="app_icon_style_widget">Follow widget</string>
 
     <string name="mu_0_1_2">Low</string>
     <string name="mu_3_4_5">Moderate</string>
@@ -185,9 +192,12 @@
     <string name="unit_fahrenheit" translatable="false">\u2109</string>
     <string name="unit_degree" translatable="false">\u00B0</string>
     <string name="unit_kmh" translatable="false">km/h</string>
+    <string name="unit_ms" translatable="false">m/s</string>
     <string name="unit_mph" translatable="false">mph</string>
+    <string name="unit_knot" translatable="false">kn</string>
     <string name="unit_hpa" translatable="false">hPa</string>
     <string name="unit_mb" translatable="false">mbar</string>
+    <string name="unit_mmhg" translatable="false">mmHg</string>
     <string name="unit_inhg" translatable="false">inHg</string>
     <string name="unit_mm" translatable="false">mm</string>
     <string name="unit_in" translatable="false">in</string>

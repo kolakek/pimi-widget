@@ -20,14 +20,17 @@ package com.kolakek.pimiwidget.settings
 import android.content.Context
 import com.kolakek.pimiwidget.R
 
-enum class PressureUnit(private val unitRes: Int) {
-    HPA(R.string.unit_hpa) {
+enum class PressureUnit(private val unitRes: Int, val format: String) {
+    HPA(R.string.unit_hpa, "%,.0f") {
         override fun fromHpa(value: Double) = value
     },
-    MB(R.string.unit_mb) {
+    MB(R.string.unit_mb, "%,.0f") {
         override fun fromHpa(value: Double) = value
     },
-    INHG(R.string.unit_inhg) {
+    MMHG(R.string.unit_mmhg, "%.1f") {
+        override fun fromHpa(value: Double) = value * 0.750062
+    },
+    INHG(R.string.unit_inhg, "%.1f") {
         override fun fromHpa(value: Double) = value * 0.02953
     };
 

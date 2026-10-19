@@ -38,10 +38,6 @@
     <string name="config_option_auto">Автоматически</string>
     <string name="config_option_follow_system">По умолчанию</string>
     <string name="config_temp">Температура</string>
-    <string name="config_unit_system">Система измерений</string>
-    <string name="config_unit_metric">Метрическая</string>
-    <string name="config_unit_us">США</string>
-    <string name="config_unit_uk">Великобритания</string>
     <string name="config_daily_forecast">Показывать ежедневный прогноз погоды</string>
     <string name="config_daily_forecast_summary">Утром и вечером</string>
     <string name="config_weather_warnings">Показывать предупреждения о погоде</string>

@@ -96,11 +96,20 @@ object WeatherRenderer {
         val windKmh = weather.currentWindSpeedKmh() ?: return null
         val directionDeg = weather.currentWindDirectionDeg() ?: return null
 
+        val windStr = String.format(
+            Locale.getDefault(),
+            windUnit.format,
+            windUnit.fromKmh(windKmh)
+        )
         val gustsStr = weather.currentWindGustsKmh()?.let {
-            context.getString(R.string.app_text_gusts) + ": ${windUnit.fromKmh(it).toInt()}"
+            context.getString(R.string.app_text_gusts) + ": " + String.format(
+                Locale.getDefault(),
+                windUnit.format,
+                windUnit.fromKmh(it)
+            )
         }
         return WeatherItem(
-            valueStr = "${windUnit.fromKmh(windKmh).toInt()}",
+            valueStr = windStr,
             unitStr = windUnit.unitStr(context),
             auxStr = gustsStr,
             image = ConditionIcon.windImage(directionDeg)
@@ -147,11 +156,9 @@ object WeatherRenderer {
     ): WeatherItem? {
         val pressureHpa = weather.currentPressureHpa() ?: return null
 
-        val formatStr = if (pressureUnit == PressureUnit.INHG) "%.1f" else "%,.0f"
-
         val pressureStr = String.format(
             Locale.getDefault(),
-            formatStr,
+            pressureUnit.format,
             pressureUnit.fromHpa(pressureHpa)
         )
         return WeatherItem(
@@ -312,8 +319,6 @@ object WeatherRenderer {
         weather: WeatherData,
         rainUnit: RainUnit
     ): DetailsItem {
-        val formatStr = if (rainUnit == RainUnit.INCH) "%.2f" else "%.1f"
-
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
@@ -325,7 +330,9 @@ object WeatherRenderer {
                 val rainSum = rainUnit.fromMm(rainMm + showersMm)
 
                 val probStr = "${precipProb.toInt()}%"
-                val valStr = if (rainSum > 0.0) formatStr.format(rainSum) else ""
+                val valStr = if (rainSum > 0.0) {
+                    String.format(Locale.getDefault(), rainUnit.format, rainSum)
+                } else ""
                 val timeStr = formatTime(context, timeMillis)
                 val level = (rainSum / rainUnit.fromMm(RAIN_BAR_MAX_MM)).coerceAtMost(1.0)
 
@@ -345,7 +352,7 @@ object WeatherRenderer {
         val rainMm = weather.todayRainMm()
         val showersMm = weather.todayShowersMm()
         val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let {
-            formatStr.format(rainUnit.fromMm(it))
+            String.format(Locale.getDefault(), rainUnit.format, rainUnit.fromMm(it))
         }
         return DetailsItem(valStr, rainUnit.unitStr(context), barData)
     }

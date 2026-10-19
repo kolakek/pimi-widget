@@ -13,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/app_settings" />
+            app:title="@string/config_title_settings" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/app_settings_fragment"

@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">För att få din väderapp tillagd, öppna ett issue på GitHub.</string>
     <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
     <string name="config_section_settings_units">Enheter</string>
-    <string name="config_unit_system">Enhetssystem</string>
-    <string name="config_unit_metric">Metriskt</string>
-    <string name="config_unit_us">USA</string>
-    <string name="config_unit_uk">Storbritannien</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
     <string name="config_show_temp_unit">Visa temperatureenhet</string>
     <string name="config_show_temp_unit_descr">Visa symbol för Fahrenheit eller Celsius</string>

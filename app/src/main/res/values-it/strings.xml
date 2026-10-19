@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
     <string name="config_weather_app_alert_button_github">Apri GitHub</string>
     <string name="config_section_settings_units">Unità</string>
-    <string name="config_unit_system">Sistema di unità</string>
-    <string name="config_unit_metric">Metrico</string>
-    <string name="config_unit_us">Stati Uniti</string>
-    <string name="config_unit_uk">Regno Unito</string>
     <string name="config_aux_view_place_condition">Luogo &amp; meteo</string>
     <string name="config_show_temp_unit">Mostra unità di temperatura</string>
     <string name="config_show_temp_unit_descr">Mostra simbolo per Fahrenheit o Celsius</string>

@@ -20,11 +20,11 @@ package com.kolakek.pimiwidget.settings
 import android.content.Context
 import com.kolakek.pimiwidget.R
 
-enum class RainUnit(private val unitRes: Int) {
-    MM(R.string.unit_mm) {
+enum class RainUnit(private val unitRes: Int, val format: String) {
+    MM(R.string.unit_mm, "%.1f") {
         override fun fromMm(value: Double) = value
     },
-    INCH(R.string.unit_in) {
+    INCH(R.string.unit_in, "%.2f") {
         override fun fromMm(value: Double) = value / 25.4
     };
 

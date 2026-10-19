@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Aby dodać swoją aplikację pogodową, otwórz issue na GitHubie.</string>
     <string name="config_weather_app_alert_button_github">Otwórz GitHub</string>
     <string name="config_section_settings_units">Jednostki</string>
-    <string name="config_unit_system">System jednostek</string>
-    <string name="config_unit_metric">Metryczny</string>
-    <string name="config_unit_us">Stany Zjednoczone</string>
-    <string name="config_unit_uk">Wielka Brytania</string>
     <string name="config_aux_view_place_condition">Miejsce &amp; pogoda</string>
     <string name="config_show_temp_unit">Pokaż jednostkę temperatury</string>
     <string name="config_show_temp_unit_descr">Pokaż symbol Fahrenheita lub Celsjusza</string>

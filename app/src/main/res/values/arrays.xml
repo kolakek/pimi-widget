@@ -13,18 +13,48 @@
         <item>temp_unit_fahrenheit</item>
     </array>
 
-    <array name="system_units">
+    <array name="rain_units">
         <item>@string/config_option_follow_system</item>
-        <item>@string/config_unit_metric</item>
-        <item>@string/config_unit_us</item>
-        <item>@string/config_unit_uk</item>
+        <item>@string/config_unit_millimetres</item>
+        <item>@string/config_unit_inches</item>
     </array>
 
-    <array name="system_units_vals">
-        <item>system_unit_auto</item>
-        <item>system_unit_metric</item>
-        <item>system_unit_us</item>
-        <item>system_unit_uk</item>
+    <array name="rain_units_vals">
+        <item>rain_unit_auto</item>
+        <item>rain_unit_mm</item>
+        <item>rain_unit_inch</item>
+    </array>
+
+    <array name="pressure_units">
+        <item>@string/config_option_follow_system</item>
+        <item>@string/config_unit_hectopascal</item>
+        <item>@string/config_unit_millibar</item>
+        <item>@string/config_unit_mm_mercury</item>
+        <item>@string/config_unit_inches_mercury</item>
+    </array>
+
+    <array name="pressure_units_vals">
+        <item>pressure_unit_auto</item>
+        <item>pressure_unit_hpa</item>
+        <item>pressure_unit_mb</item>
+        <item>pressure_unit_mmhg</item>
+        <item>pressure_unit_inhg</item>
+    </array>
+
+    <array name="wind_units">
+        <item>@string/config_option_follow_system</item>
+        <item>@string/config_unit_km_per_hour</item>
+        <item>@string/config_unit_m_per_second</item>
+        <item>@string/config_unit_miles_per_hour</item>
+        <item>@string/config_unit_knots</item>
+    </array>
+
+    <array name="wind_units_vals">
+        <item>wind_unit_auto</item>
+        <item>wind_unit_kmh</item>
+        <item>wind_unit_ms</item>
+        <item>wind_unit_mph</item>
+        <item>wind_unit_knot</item>
     </array>
 
     <array name="colors">
@@ -58,7 +88,7 @@
     <array name="app_icon_styles">
         <item>@string/config_icon_style_outlined</item>
         <item>@string/config_icon_style_filled</item>
-        <item>@string/app_icon_style_widget</item>
+        <item>@string/config_option_follow_widget</item>
     </array>
 
     <array name="app_icon_styles_vals">

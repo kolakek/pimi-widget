@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Për të shtuar aplikacionin tënd të motit, hap një issue në GitHub.</string>
     <string name="config_weather_app_alert_button_github">Hap GitHub</string>
     <string name="config_section_settings_units">Njësi</string>
-    <string name="config_unit_system">Sistemi i njësive</string>
-    <string name="config_unit_metric">Metrik</string>
-    <string name="config_unit_us">Shtetet e Bashkuara</string>
-    <string name="config_unit_uk">Mbretëria e Bashkuar</string>
     <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
     <string name="config_show_temp_unit">Shfaq njësinë e temperaturës</string>
     <string name="config_show_temp_unit_descr">Shfaq simbolin për Fahrenheit ose Celsius</string>

@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
     <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
     <string name="config_section_settings_units">Unități</string>
-    <string name="config_unit_system">Sistem de unități</string>
-    <string name="config_unit_metric">Metric</string>
-    <string name="config_unit_us">Statele Unite</string>
-    <string name="config_unit_uk">Regatul Unit</string>
     <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
     <string name="config_show_temp_unit">Afișează unitatea de temperatură</string>
     <string name="config_show_temp_unit_descr">Afișează simbolul pentru Fahrenheit sau Celsius</string>

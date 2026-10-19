@@ -60,10 +60,6 @@
     <string name="config_weather_app_nil_alert_message">Щоб додати свій погодний додаток, відкрийте issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Відкрити GitHub</string>
     <string name="config_section_settings_units">Одиниці</string>
-    <string name="config_unit_system">Система одиниць</string>
-    <string name="config_unit_metric">Метрична</string>
-    <string name="config_unit_us">Сполучені Штати</string>
-    <string name="config_unit_uk">Велика Британія</string>
     <string name="config_aux_view_place_condition">Місце &amp; погода</string>
     <string name="config_show_temp_unit">Показувати одиницю температури</string>
     <string name="config_show_temp_unit_descr">Показувати символ Фаренгейта або Цельсія</string>

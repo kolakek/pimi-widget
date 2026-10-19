@@ -46,16 +46,31 @@ object PreferencesHelper {
     }
 
     enum class TempUnitPref(val key: String) {
-        AUTO(KEY_TEMP_AUTO),
-        CELSIUS(KEY_TEMP_CELSIUS),
-        FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
+        AUTO(KEY_TEMP_UNIT_AUTO),
+        CELSIUS(KEY_TEMP_UNIT_CELSIUS),
+        FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT)
     }
 
-    enum class SystemUnitPref(val key: String) {
-        AUTO(KEY_SYSTEM_UNIT_AUTO),
-        METRIC(KEY_SYSTEM_UNIT_METRIC),
-        US(KEY_SYSTEM_UNIT_US),
-        UK(KEY_SYSTEM_UNIT_UK)
+    enum class RainUnitPref(val key: String) {
+        AUTO(KEY_RAIN_UNIT_AUTO),
+        MM(KEY_RAIN_UNIT_MM),
+        INCH(KEY_RAIN_UNIT_INCH)
+    }
+
+    enum class PressureUnitPref(val key: String) {
+        AUTO(KEY_PRESSURE_UNIT_AUTO),
+        HPA(KEY_PRESSURE_UNIT_HPA),
+        MB(KEY_PRESSURE_UNIT_MB),
+        MMHG(KEY_PRESSURE_UNIT_MMHG),
+        INHG(KEY_PRESSURE_UNIT_INHG)
+    }
+
+    enum class WindUnitPref(val key: String) {
+        AUTO(KEY_WIND_UNIT_AUTO),
+        KMH(KEY_WIND_UNIT_KMH),
+        MS(KEY_WIND_UNIT_MS),
+        MPH(KEY_WIND_UNIT_MPH),
+        KNOT(KEY_WIND_UNIT_KNOT),
     }
 
     enum class ColorPref(val key: String) {
@@ -73,7 +88,9 @@ object PreferencesHelper {
     fun getAppPreferences(context: Context): AppPreferences {
         val iconStylePref = getAppIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
-        val systemUnitPref = getSystemUnitPreference(context)
+        val rainUnitPref = getRainUnitPreference(context)
+        val windUnitPref = getWindUnitPreference(context)
+        val pressureUnitPref = getPressureUnitPreference(context)
 
         val iconStyle = when (iconStylePref) {
             AppIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
@@ -91,9 +108,9 @@ object PreferencesHelper {
             iconStyle = iconStyle,
             iconColor = iconColor,
             tempUnit = tempUnitFromPref(tempUnitPref),
-            windUnit = windUnitFromPref(systemUnitPref),
-            pressureUnit = pressureUnitFromPref(systemUnitPref),
-            rainUnit = rainUnitFromPref(systemUnitPref),
+            windUnit = windUnitFromPref(windUnitPref),
+            pressureUnit = pressureUnitFromPref(pressureUnitPref),
+            rainUnit = rainUnitFromPref(rainUnitPref),
             showWeather = getWeatherPreference(context),
         )
     }
@@ -271,10 +288,22 @@ object PreferencesHelper {
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
-    private fun getSystemUnitPreference(context: Context): SystemUnitPref {
+    private fun getRainUnitPreference(context: Context): RainUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_SYSTEM_UNIT_LIST, null)
-        return SystemUnitPref.entries.find { it.key == key } ?: SystemUnitPref.AUTO
+            .getString(KEY_RAIN_UNIT_LIST, null)
+        return RainUnitPref.entries.find { it.key == key } ?: RainUnitPref.AUTO
+    }
+
+    private fun getPressureUnitPreference(context: Context): PressureUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_PRESSURE_UNIT_LIST, null)
+        return PressureUnitPref.entries.find { it.key == key } ?: PressureUnitPref.AUTO
+    }
+
+    private fun getWindUnitPreference(context: Context): WindUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WIND_UNIT_LIST, null)
+        return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
     }
 
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
@@ -330,23 +359,25 @@ object PreferencesHelper {
         }
     }
 
-    private fun windUnitFromPref(systemUnitPref: SystemUnitPref): WindUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun windUnitFromPref(windUnitPref: WindUnitPref): WindUnit {
+        return when (windUnitPref) {
+            WindUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US, UnitSystem.UK -> WindUnit.MPH
                     UnitSystem.METRIC -> WindUnit.KMH
                 }
             }
 
-            SystemUnitPref.METRIC -> WindUnit.KMH
-            SystemUnitPref.US, SystemUnitPref.UK -> WindUnit.MPH
+            WindUnitPref.KMH -> WindUnit.KMH
+            WindUnitPref.MPH -> WindUnit.MPH
+            WindUnitPref.MS -> WindUnit.MS
+            WindUnitPref.KNOT -> WindUnit.KNOT
         }
     }
 
-    private fun pressureUnitFromPref(systemUnitPref: SystemUnitPref): PressureUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun pressureUnitFromPref(pressureUnitPref: PressureUnitPref): PressureUnit {
+        return when (pressureUnitPref) {
+            PressureUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US -> PressureUnit.INHG
                     UnitSystem.UK -> PressureUnit.MB
@@ -354,15 +385,16 @@ object PreferencesHelper {
                 }
             }
 
-            SystemUnitPref.US -> PressureUnit.INHG
-            SystemUnitPref.UK -> PressureUnit.MB
-            SystemUnitPref.METRIC -> PressureUnit.HPA
+            PressureUnitPref.HPA -> PressureUnit.HPA
+            PressureUnitPref.MB -> PressureUnit.MB
+            PressureUnitPref.INHG -> PressureUnit.INHG
+            PressureUnitPref.MMHG -> PressureUnit.MMHG
         }
     }
 
-    private fun rainUnitFromPref(systemUnitPref: SystemUnitPref): RainUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun rainUnitFromPref(rainUnitPref: RainUnitPref): RainUnit {
+        return when (rainUnitPref) {
+            RainUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US -> RainUnit.INCH
                     UnitSystem.UK -> RainUnit.MM
@@ -370,9 +402,8 @@ object PreferencesHelper {
                 }
             }
 
-            SystemUnitPref.US -> RainUnit.INCH
-            SystemUnitPref.UK -> RainUnit.MM
-            SystemUnitPref.METRIC -> RainUnit.MM
+            RainUnitPref.MM -> RainUnit.MM
+            RainUnitPref.INCH -> RainUnit.INCH
         }
     }
 
