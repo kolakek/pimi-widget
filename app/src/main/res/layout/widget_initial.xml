@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/dynamic_background_color">
+    android:background="@color/dynamic_background_color"
+    tools:ignore="Overdraw">
 
     <ImageView
         android:layout_width="48dp"

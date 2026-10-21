@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
     <string name="config_show_temp_unit">Zobrazit jednotku teploty</string>
     <string name="config_show_temp_unit_descr">Zobrazit symbol pro Fahrenheit nebo Celsius</string>
+    <string name="config_title_settings">Nastavení</string>
+    <string name="config_wind_speed">Rychlost větru</string>
+    <string name="config_option_follow_widget">Podle widgetu</string>
+    <string name="config_unit_millimetres">Milimetry</string>
+    <string name="config_unit_inches">Palce</string>
+    <string name="config_unit_hectopascal">Hektopascaly</string>
+    <string name="config_unit_millibar">Milibary</string>
+    <string name="config_unit_mm_mercury">Milimetry rtuťového sloupce</string>
+    <string name="config_unit_inches_mercury">Palce rtuťového sloupce</string>
+    <string name="config_unit_km_per_hour">Kilometry za hodinu</string>
+    <string name="config_unit_m_per_second">Metry za sekundu</string>
+    <string name="config_unit_miles_per_hour">Míle za hodinu</string>
+    <string name="config_unit_knots">Uzly</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>

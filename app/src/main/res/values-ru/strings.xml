@@ -62,6 +62,19 @@
     <string name="config_weather_app_alert_button_github">Открыть GitHub</string>
     <string name="config_show_temp_unit">Показывать единицу температуры</string>
     <string name="config_show_temp_unit_descr">Показывать символ Фаренгейта или Цельсия</string>
+    <string name="config_title_settings">Настройки</string>
+    <string name="config_wind_speed">Скорость ветра</string>
+    <string name="config_option_follow_widget">Как в виджете</string>
+    <string name="config_unit_millimetres">Миллиметры</string>
+    <string name="config_unit_inches">Дюймы</string>
+    <string name="config_unit_hectopascal">Гектопаскали</string>
+    <string name="config_unit_millibar">Миллибары</string>
+    <string name="config_unit_mm_mercury">Миллиметры ртутного столба</string>
+    <string name="config_unit_inches_mercury">Дюймы ртутного столба</string>
+    <string name="config_unit_km_per_hour">Километры в час</string>
+    <string name="config_unit_m_per_second">Метры в секунду</string>
+    <string name="config_unit_miles_per_hour">Мили в час</string>
+    <string name="config_unit_knots">Узлы</string>
 
     <string name="app_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="app_text_now">Сейчас</string>

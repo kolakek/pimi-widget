@@ -63,6 +63,20 @@
     <string name="config_aux_view_place_condition">Місце &amp; погода</string>
     <string name="config_show_temp_unit">Показувати одиницю температури</string>
     <string name="config_show_temp_unit_descr">Показувати символ Фаренгейта або Цельсія</string>
+    <string name="config_title_settings">Налаштування</string>
+    <string name="config_wind_speed">Швидкість вітру</string>
+    <string name="config_option_follow_widget">Як у віджеті</string>
+    <string name="config_unit_millimetres">Міліметри</string>
+    <string name="config_unit_inches">Дюйми</string>
+    <string name="config_unit_hectopascal">Гектопаскалі</string>
+    <string name="config_unit_millibar">Мілібари</string>
+    <string name="config_unit_mm_mercury">Міліметри ртутного стовпа</string>
+    <string name="config_unit_inches_mercury">Дюйми ртутного стовпа</string>
+    <string name="config_unit_km_per_hour">Кілометри на годину</string>
+    <string name="config_unit_m_per_second">Метри за секунду</string>
+    <string name="config_unit_miles_per_hour">Милі на годину</string>
+    <string name="config_unit_knots">Вузли</string>
+
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>

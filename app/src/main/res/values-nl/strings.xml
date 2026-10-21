@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Plaats &amp; weer</string>
     <string name="config_show_temp_unit">Temperatuureenheid weergeven</string>
     <string name="config_show_temp_unit_descr">Symbool voor Fahrenheit of Celsius weergeven</string>
+    <string name="config_title_settings">Instellingen</string>
+    <string name="config_wind_speed">Windsnelheid</string>
+    <string name="config_option_follow_widget">Zoals in de widget</string>
+    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_inches">Inch</string>
+    <string name="config_unit_hectopascal">Hectopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kwik</string>
+    <string name="config_unit_inches_mercury">Inch kwik</string>
+    <string name="config_unit_km_per_hour">Kilometer per uur</string>
+    <string name="config_unit_m_per_second">Meter per seconde</string>
+    <string name="config_unit_miles_per_hour">Mijl per uur</string>
+    <string name="config_unit_knots">Knopen</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>

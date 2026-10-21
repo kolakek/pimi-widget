@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Konum &amp; hava</string>
     <string name="config_show_temp_unit">Sıcaklık birimini göster</string>
     <string name="config_show_temp_unit_descr">Fahrenheit veya Celsius sembolünü göster</string>
+    <string name="config_title_settings">Ayarlar</string>
+    <string name="config_wind_speed">Rüzgar hızı</string>
+    <string name="config_option_follow_widget">Widget ile aynı</string>
+    <string name="config_unit_millimetres">Milimetre</string>
+    <string name="config_unit_inches">İnç</string>
+    <string name="config_unit_hectopascal">Hektopaskal</string>
+    <string name="config_unit_millibar">Milibar</string>
+    <string name="config_unit_mm_mercury">Milimetre civa</string>
+    <string name="config_unit_inches_mercury">İnç civa</string>
+    <string name="config_unit_km_per_hour">Kilometre/saat</string>
+    <string name="config_unit_m_per_second">Metre/saniye</string>
+    <string name="config_unit_miles_per_hour">Mil/saat</string>
+    <string name="config_unit_knots">Knot</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>

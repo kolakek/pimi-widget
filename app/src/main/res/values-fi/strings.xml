@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
     <string name="config_show_temp_unit">Näytä lämpötilayksikkö</string>
     <string name="config_show_temp_unit_descr">Näytä Fahrenheit- tai Celsius-symboli</string>
+    <string name="config_title_settings">Asetukset</string>
+    <string name="config_wind_speed">Tuulen nopeus</string>
+    <string name="config_option_follow_widget">Sama kuin widgetissä</string>
+    <string name="config_unit_millimetres">Millimetriä</string>
+    <string name="config_unit_inches">Tuumaa</string>
+    <string name="config_unit_hectopascal">Hehtopascalia</string>
+    <string name="config_unit_millibar">Millibaaria</string>
+    <string name="config_unit_mm_mercury">Millimetriä elohopeaa</string>
+    <string name="config_unit_inches_mercury">Tuumaa elohopeaa</string>
+    <string name="config_unit_km_per_hour">Kilometriä tunnissa</string>
+    <string name="config_unit_m_per_second">Metriä sekunnissa</string>
+    <string name="config_unit_miles_per_hour">Mailia tunnissa</string>
+    <string name="config_unit_knots">Solmua</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>

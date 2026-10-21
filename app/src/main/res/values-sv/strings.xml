@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
     <string name="config_show_temp_unit">Visa temperatureenhet</string>
     <string name="config_show_temp_unit_descr">Visa symbol för Fahrenheit eller Celsius</string>
+    <string name="config_title_settings">Inställningar</string>
+    <string name="config_wind_speed">Vindhastighet</string>
+    <string name="config_option_follow_widget">Samma som widgeten</string>
+    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_inches">Tum</string>
+    <string name="config_unit_hectopascal">Hektopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kvicksilver</string>
+    <string name="config_unit_inches_mercury">Tum kvicksilver</string>
+    <string name="config_unit_km_per_hour">Kilometer per timme</string>
+    <string name="config_unit_m_per_second">Meter per sekund</string>
+    <string name="config_unit_miles_per_hour">Miles per timme</string>
+    <string name="config_unit_knots">Knop</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

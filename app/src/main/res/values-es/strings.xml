@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Lugar &amp; tiempo</string>
     <string name="config_show_temp_unit">Mostrar unidad de temperatura</string>
     <string name="config_show_temp_unit_descr">Mostrar símbolo de Fahrenheit o Celsius</string>
+    <string name="config_title_settings">Ajustes</string>
+    <string name="config_wind_speed">Velocidad del viento</string>
+    <string name="config_option_follow_widget">Igual que el widget</string>
+    <string name="config_unit_millimetres">Milímetros</string>
+    <string name="config_unit_inches">Pulgadas</string>
+    <string name="config_unit_hectopascal">Hectopascales</string>
+    <string name="config_unit_millibar">Milibares</string>
+    <string name="config_unit_mm_mercury">Milímetros de mercurio</string>
+    <string name="config_unit_inches_mercury">Pulgadas de mercurio</string>
+    <string name="config_unit_km_per_hour">Kilómetros por hora</string>
+    <string name="config_unit_m_per_second">Metros por segundo</string>
+    <string name="config_unit_miles_per_hour">Millas por hora</string>
+    <string name="config_unit_knots">Nudos</string>
 
     <string name="app_text_now">Ahora</string>
     <string name="app_text_hourly_forecast">Previsión por horas</string>

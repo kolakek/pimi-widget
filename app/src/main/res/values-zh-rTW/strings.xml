@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">天氣和地點</string>
     <string name="config_show_temp_unit">顯示溫度單位</string>
     <string name="config_show_temp_unit_descr">顯示華氏或攝氏符號</string>
+    <string name="config_title_settings">設定</string>
+    <string name="config_wind_speed">風速</string>
+    <string name="config_option_follow_widget">與小工具相同</string>
+    <string name="config_unit_millimetres">毫米</string>
+    <string name="config_unit_inches">英吋</string>
+    <string name="config_unit_hectopascal">百帕</string>
+    <string name="config_unit_millibar">毫巴</string>
+    <string name="config_unit_mm_mercury">毫米汞柱</string>
+    <string name="config_unit_inches_mercury">英吋汞柱</string>
+    <string name="config_unit_km_per_hour">公里/小時</string>
+    <string name="config_unit_m_per_second">公尺/秒</string>
+    <string name="config_unit_miles_per_hour">英里/小時</string>
+    <string name="config_unit_knots">節</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

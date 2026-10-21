@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Sted &amp; vejr</string>
     <string name="config_show_temp_unit">Vis temperaturenhed</string>
     <string name="config_show_temp_unit_descr">Vis symbol for Fahrenheit eller Celsius</string>
+    <string name="config_title_settings">Indstillinger</string>
+    <string name="config_wind_speed">Vindhastighed</string>
+    <string name="config_option_follow_widget">Samme som widget</string>
+    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_inches">Tommer</string>
+    <string name="config_unit_hectopascal">Hektopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kviksølv</string>
+    <string name="config_unit_inches_mercury">Tommer kviksølv</string>
+    <string name="config_unit_km_per_hour">Kilometer i timen</string>
+    <string name="config_unit_m_per_second">Meter i sekundet</string>
+    <string name="config_unit_miles_per_hour">Miles i timen</string>
+    <string name="config_unit_knots">Knob</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Timevis vejrudsigt</string>

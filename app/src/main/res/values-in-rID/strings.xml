@@ -8,7 +8,8 @@
     <string name="config_section_about">Tentang t</string>
     <string name="config_section_style">Tampilan</string>
     <string name="config_widget_style">Gaya widget</string>
-    <string name="config_widget_style_classic">Transparansi</string>
+    <string name="config_widget_style_classic">Klasik</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Padat</string>
     <string name="config_weather_switch">Cuaca</string>
     <string name="config_birthday_switch">Ulang tahun</string>
@@ -37,10 +38,6 @@
     <string name="config_option_auto">Otomatis</string>
     <string name="config_option_follow_system">Bawaan sistem</string>
     <string name="config_temp">Suhu</string>
-    <string name="config_unit_system">Sistem pengukuran</string>
-    <string name="config_unit_metric">Metrik</string>
-    <string name="config_unit_us">United States</string>
-    <string name="config_unit_uk">United Kingdom</string>
     <string name="config_daily_forecast">Tampilkan perkiraan cuaca harian</string>
     <string name="config_daily_forecast_summary">Pada pagi dan sore hari</string>
     <string name="config_weather_warnings">Tampilkan peringatan cuaca</string>
@@ -63,6 +60,21 @@
     <string name="config_weather_app_nil">Tidak terdaftar</string>
     <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuaca anda, please open an issue on GitHub.</string>
     <string name="config_weather_app_alert_button_github">Buka GitHub</string>
+    <string name="config_show_temp_unit">Tampilkan satuan suhu</string>
+    <string name="config_show_temp_unit_descr">Tampilkan simbol Fahrenheit atau Celsius</string>
+    <string name="config_title_settings">Setelan</string>
+    <string name="config_wind_speed">Kecepatan angin</string>
+    <string name="config_option_follow_widget">Ikuti widget</string>
+    <string name="config_unit_millimetres">Milimeter</string>
+    <string name="config_unit_inches">Inci</string>
+    <string name="config_unit_hectopascal">Hektopaskal</string>
+    <string name="config_unit_millibar">Milibar</string>
+    <string name="config_unit_mm_mercury">Milimeter air raksa</string>
+    <string name="config_unit_inches_mercury">Inci air raksa</string>
+    <string name="config_unit_km_per_hour">Kilometer per jam</string>
+    <string name="config_unit_m_per_second">Meter per detik</string>
+    <string name="config_unit_miles_per_hour">Mil per jam</string>
+    <string name="config_unit_knots">Knot</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -94,7 +106,6 @@
     <string name="app_text_enable_in_settings">Hidupkan cuaca di setelan widget</string>
     <string name="app_text_check_connection">Periksa koneksi internet anda dan coba lagi</string>
     <string name="app_text_button_try_again">Coba lagi</string>
-    <string name="app_text_button_settings">Setelan widget</string>
     <string name="app_text_rain">Hujan</string>
     <string name="app_text_hourly_details">Detail per jam</string>
     <string name="app_text_sunset_sunrise">Matahari terbit &amp; terbenam</string>
@@ -153,71 +164,15 @@
     <string name="warn_tstorm_extreme">Peringatan badai petir ekstrem</string>
 
     <plurals name="days">
-        <item quantity="one">1 hari</item>
         <item quantity="other">%d hari</item>
     </plurals>
 
     <plurals name="hours">
-        <item quantity="one">1 jam</item>
         <item quantity="other">%d jam</item>
     </plurals>
 
     <plurals name="minutes">
-        <item quantity="one">1 menit</item>
         <item quantity="other">%d menit</item>
     </plurals>
-
-    <!-- Non-translatable -->
-
-    <string name="app_name" translatable="false">Pimi widget</string>
-
-    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
-    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
-    <string name="config_debug_alert_status_time" translatable="false">%1$s (%2$s)</string>
-    <string name="config_temp_celsius" translatable="false">Celsius</string>
-    <string name="config_temp_fahrenheit" translatable="false">Fahrenheit</string>
-
-    <string name="unit_celsius" translatable="false">\u2103</string>
-    <string name="unit_fahrenheit" translatable="false">\u2109</string>
-    <string name="unit_degree" translatable="false">\u00B0</string>
-    <string name="unit_kmh" translatable="false">km/h</string>
-    <string name="unit_mph" translatable="false">mph</string>
-    <string name="unit_hpa" translatable="false">hPa</string>
-    <string name="unit_mb" translatable="false">mbar</string>
-    <string name="unit_inhg" translatable="false">inHg</string>
-    <string name="unit_mm" translatable="false">mm</string>
-    <string name="unit_in" translatable="false">in</string>
-    <string name="north" translatable="false">N</string>
-    <string name="zero" translatable="false">0</string>
-    <string name="hundred" translatable="false">100</string>
-    <string name="eleven_plus" translatable="false">11+</string>
-
-    <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
-    <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
-    <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
-    <string name="config_weather_app_bura" translatable="false">Bura</string>
-    <string name="config_weather_app_meteofr" translatable="false">Météo-France</string>
-    <string name="config_weather_app_knmi" translatable="false">KNMI</string>
-    <string name="config_weather_app_dwd" translatable="false">WarnWetter</string>
-    <string name="config_weather_app_metoff" translatable="false">Met Office</string>
-    <string name="config_weather_app_aemet" translatable="false">Aemet</string>
-    <string name="config_weather_app_meteoswiss" translatable="false">MeteoSwiss</string>
-    <string name="config_weather_app_yr" translatable="false">Yr</string>
-    <string name="config_weather_app_bom" translatable="false">BOM Weather</string>
-    <string name="config_weather_app_can" translatable="false">WeatherCAN</string>
-    <string name="config_weather_app_dmi" translatable="false">DMI Vejr</string>
-    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
-    <string name="config_weather_app_xiaomi" translatable="false">Weather - By Xiaomi</string>
-    <string name="config_weather_app_oppo" translatable="false">OPPO Weather</string>
-    <string name="config_weather_app_accu" translatable="false">AccuWeather</string>
-    <string name="config_weather_app_openw" translatable="false">OpenWeather</string>
-    <string name="config_weather_app_yahoo" translatable="false">Yahoo Weather</string>
-    <string name="config_weather_app_msn" translatable="false">MSN Weather</string>
-    <string name="config_weather_app_asus" translatable="false">ASUS Weather</string>
-    <string name="config_weather_app_sams" translatable="false">Samsung Weather</string>
-    <string name="config_weather_app_maweather" translatable="false">MA Weather</string>
-    <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
-    <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
-    <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
 
 </resources>

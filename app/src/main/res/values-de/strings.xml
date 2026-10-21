@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Ort &amp; Wetter</string>
     <string name="config_show_temp_unit">Temperatureinheit anzeigen</string>
     <string name="config_show_temp_unit_descr">Symbol für Fahrenheit oder Celsius anzeigen</string>
+    <string name="config_title_settings">Einstellungen</string>
+    <string name="config_wind_speed">Windgeschwindigkeit</string>
+    <string name="config_option_follow_widget">Wie im Widget</string>
+    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_inches">Zoll</string>
+    <string name="config_unit_hectopascal">Hektopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter Quecksilbersäule</string>
+    <string name="config_unit_inches_mercury">Zoll Quecksilbersäule</string>
+    <string name="config_unit_km_per_hour">Kilometer pro Stunde</string>
+    <string name="config_unit_m_per_second">Meter pro Sekunde</string>
+    <string name="config_unit_miles_per_hour">Meilen pro Stunde</string>
+    <string name="config_unit_knots">Knoten</string>
 
     <string name="app_text_now">Jetzt</string>
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>

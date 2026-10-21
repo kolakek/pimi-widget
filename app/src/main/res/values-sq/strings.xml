@@ -63,6 +63,19 @@
     <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
     <string name="config_show_temp_unit">Shfaq njësinë e temperaturës</string>
     <string name="config_show_temp_unit_descr">Shfaq simbolin për Fahrenheit ose Celsius</string>
+    <string name="config_title_settings">Cilësimet</string>
+    <string name="config_wind_speed">Shpejtësia e erës</string>
+    <string name="config_option_follow_widget">Si në widget</string>
+    <string name="config_unit_millimetres">Milimetra</string>
+    <string name="config_unit_inches">Inç</string>
+    <string name="config_unit_hectopascal">Hektopaskal</string>
+    <string name="config_unit_millibar">Milibar</string>
+    <string name="config_unit_mm_mercury">Milimetra zhivë</string>
+    <string name="config_unit_inches_mercury">Inç zhivë</string>
+    <string name="config_unit_km_per_hour">Kilometra në orë</string>
+    <string name="config_unit_m_per_second">Metra në sekondë</string>
+    <string name="config_unit_miles_per_hour">Milje në orë</string>
+    <string name="config_unit_knots">Nyje</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshem</string>
