@@ -120,6 +120,11 @@ enum class WeatherApp(val key: String, val packageName: String, val labelId: Int
         "com.coloros.weather2",
         R.string.config_weather_app_oppo
     ),
+    OVERCAST(
+        "weather_app_overcast",
+        "com.sameerasw.overcast",
+        R.string.config_weather_app_overcast
+    ),
     OVERMORROW(
         "weather_app_overmorrow",
         "com.marotidev.Overmorrow",
