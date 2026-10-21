@@ -20,11 +20,11 @@
 
         <TextView
             android:id="@+id/widget_alarm"
-            style="@style/Widget.DateShadow" />
+            style="@style/Widget.EventShadow" />
 
         <TextView
             android:id="@+id/widget_birthday"
-            style="@style/Widget.DateShadow" />
+            style="@style/Widget.EventShadow" />
 
     </LinearLayout>
 
