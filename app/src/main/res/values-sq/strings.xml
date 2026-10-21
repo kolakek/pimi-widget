@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Shpejtësia e erës</string>
     <string name="config_option_follow_widget">Si në widget</string>
     <string name="config_unit_millimeters">Milimetra</string>
+    <string name="config_unit_centimeters">Centimetra</string>
     <string name="config_unit_inches">Inç</string>
     <string name="config_unit_hectopascal">Hektopaskal</string>
     <string name="config_unit_millibar">Milibar</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
     <string name="app_text_button_try_again">Provo përsëri</string>
     <string name="app_text_rain">shi</string>
+    <string name="app_text_snow">Bora</string>
     <string name="app_text_hourly_details">Detajet për çdo orë</string>
     <string name="app_text_sunset_sunrise">lindja &amp; perëndimi i diellit</string>
     <string name="app_text_sunrise">agim</string>

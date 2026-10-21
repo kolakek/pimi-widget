@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Vindhastighet</string>
     <string name="config_option_follow_widget">Samma som widgeten</string>
     <string name="config_unit_millimeters">Millimeter</string>
+    <string name="config_unit_centimeters">Centimeter</string>
     <string name="config_unit_inches">Tum</string>
     <string name="config_unit_hectopascal">Hektopascal</string>
     <string name="config_unit_millibar">Millibar</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Kontrollera din internetanslutning och försök igen</string>
     <string name="app_text_button_try_again">Försök igen</string>
     <string name="app_text_rain">regn</string>
+    <string name="app_text_snow">Snö</string>
     <string name="app_text_hourly_details">Information timme för timme</string>
     <string name="app_text_sunset_sunrise">soluppgång &amp; solnedgång</string>
     <string name="app_text_sunrise">soluppgång</string>

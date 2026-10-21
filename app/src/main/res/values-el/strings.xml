@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Ταχύτητα ανέμου</string>
     <string name="config_option_follow_widget">Όπως στο widget</string>
     <string name="config_unit_millimeters">Χιλιοστά</string>
+    <string name="config_unit_centimeters">Εκατοστά</string>
     <string name="config_unit_inches">Ίντσες</string>
     <string name="config_unit_hectopascal">Εκτοπασκάλ</string>
     <string name="config_unit_millibar">Μιλιμπάρ</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Έλεγξε τη σύνδεσή σου στο διαδίκτυο και δοκίμασε ξανά</string>
     <string name="app_text_button_try_again">Δοκίμασε ξανά</string>
     <string name="app_text_rain">βροχή</string>
+    <string name="app_text_snow">Χιόνι</string>
     <string name="app_text_hourly_details">Ωριαίες λεπτομέρειες</string>
     <string name="app_text_sunset_sunrise">ανατολή &amp; δύση ηλίου</string>
     <string name="app_text_sunrise">ανατολή ηλίου</string>

@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Velocidad del viento</string>
     <string name="config_option_follow_widget">Igual que el widget</string>
     <string name="config_unit_millimeters">Milímetros</string>
+    <string name="config_unit_centimeters">Centímetros</string>
     <string name="config_unit_inches">Pulgadas</string>
     <string name="config_unit_hectopascal">Hectopascales</string>
     <string name="config_unit_millibar">Milibares</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Comprueba tu conexión a internet e inténtalo de nuevo</string>
     <string name="app_text_button_try_again">Intentar de nuevo</string>
     <string name="app_text_rain">lluvia</string>
+    <string name="app_text_snow">Nieve</string>
     <string name="app_text_hourly_details">Información por horas</string>
     <string name="app_text_sunset_sunrise">salida &amp; puesta del sol</string>
     <string name="app_text_sunrise">salida del sol</string>

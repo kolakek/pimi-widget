@@ -67,6 +67,7 @@
     <string name="config_wind_speed">風速</string>
     <string name="config_option_follow_widget">與小工具相同</string>
     <string name="config_unit_millimeters">毫米</string>
+    <string name="config_unit_centimeters">公分</string>
     <string name="config_unit_inches">英吋</string>
     <string name="config_unit_hectopascal">百帕</string>
     <string name="config_unit_millibar">毫巴</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">請檢查網路連線後再試一次</string>
     <string name="app_text_button_try_again">重試</string>
     <string name="app_text_rain">雨</string>
+    <string name="app_text_snow">雪</string>
     <string name="app_text_hourly_details">每小時資料</string>
     <string name="app_text_sunset_sunrise">日出和日落</string>
     <string name="app_text_sunrise">日出</string>

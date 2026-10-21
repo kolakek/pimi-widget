@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Rychlost větru</string>
     <string name="config_option_follow_widget">Podle widgetu</string>
     <string name="config_unit_millimeters">Milimetry</string>
+    <string name="config_unit_centimeters">Centimetry</string>
     <string name="config_unit_inches">Palce</string>
     <string name="config_unit_hectopascal">Hektopascaly</string>
     <string name="config_unit_millibar">Milibary</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Zkontroluj své internetové připojení a zkus to znovu</string>
     <string name="app_text_button_try_again">Zkusit znovu</string>
     <string name="app_text_rain">déšť</string>
+    <string name="app_text_snow">Sníh</string>
     <string name="app_text_hourly_details">Podrobnosti po hodině</string>
     <string name="app_text_sunset_sunrise">východ &amp; západ slunce</string>
     <string name="app_text_sunrise">východ slunce</string>

@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Windsnelheid</string>
     <string name="config_option_follow_widget">Zoals in de widget</string>
     <string name="config_unit_millimeters">Millimeter</string>
+    <string name="config_unit_centimeters">Centimeters</string>
     <string name="config_unit_inches">Inch</string>
     <string name="config_unit_hectopascal">Hectopascal</string>
     <string name="config_unit_millibar">Millibar</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Controleer je internetverbinding en probeer opnieuw</string>
     <string name="app_text_button_try_again">Opnieuw proberen</string>
     <string name="app_text_rain">regen</string>
+    <string name="app_text_snow">Sneeuw</string>
     <string name="app_text_hourly_details">Informatie per uur</string>
     <string name="app_text_sunset_sunrise">zonsopgang &amp; zonsondergang</string>
     <string name="app_text_sunrise">zonsopgang</string>

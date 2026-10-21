@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Швидкість вітру</string>
     <string name="config_option_follow_widget">Як у віджеті</string>
     <string name="config_unit_millimeters">Міліметри</string>
+    <string name="config_unit_centimeters">Сантиметри</string>
     <string name="config_unit_inches">Дюйми</string>
     <string name="config_unit_hectopascal">Гектопаскалі</string>
     <string name="config_unit_millibar">Мілібари</string>
@@ -99,6 +100,7 @@
     <string name="app_text_check_connection">Перевір своє інтернет-з\'єднання і спробуй знову</string>
     <string name="app_text_button_try_again">Спробуй знову</string>
     <string name="app_text_rain">дощ</string>
+    <string name="app_text_snow">Сніг</string>
     <string name="app_text_hourly_details">Погодинні дані</string>
     <string name="app_text_sunset_sunrise">схід &amp; захід сонця</string>
     <string name="app_text_sunrise">схід сонця</string>

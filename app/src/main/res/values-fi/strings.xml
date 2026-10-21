@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Tuulen nopeus</string>
     <string name="config_option_follow_widget">Sama kuin widgetissä</string>
     <string name="config_unit_millimeters">Millimetriä</string>
+    <string name="config_unit_centimeters">Senttimetrit</string>
     <string name="config_unit_inches">Tuumaa</string>
     <string name="config_unit_hectopascal">Hehtopascalia</string>
     <string name="config_unit_millibar">Millibaaria</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Tarkista internetyhteytesi ja yritä uudelleen</string>
     <string name="app_text_button_try_again">Yritä uudelleen</string>
     <string name="app_text_rain">sade</string>
+    <string name="app_text_snow">Lumi</string>
     <string name="app_text_hourly_details">Tuntikohtaiset tiedot</string>
     <string name="app_text_sunset_sunrise">auringonnousu &amp; auringonlasku</string>
     <string name="app_text_sunrise">auringonnousu</string>

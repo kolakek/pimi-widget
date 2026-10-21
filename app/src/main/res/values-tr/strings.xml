@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Rüzgar hızı</string>
     <string name="config_option_follow_widget">Widget ile aynı</string>
     <string name="config_unit_millimeters">Milimetre</string>
+    <string name="config_unit_centimeters">Santimetre</string>
     <string name="config_unit_inches">İnç</string>
     <string name="config_unit_hectopascal">Hektopaskal</string>
     <string name="config_unit_millibar">Milibar</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">İnternet bağlantını kontrol et ve tekrar dene</string>
     <string name="app_text_button_try_again">Tekrar dene</string>
     <string name="app_text_rain">yağmur</string>
+    <string name="app_text_snow">Kar</string>
     <string name="app_text_hourly_details">Saatlik ayrıntılar</string>
     <string name="app_text_sunset_sunrise">gün doğumu &amp; batımı</string>
     <string name="app_text_sunrise">gün doğumu</string>

@@ -67,6 +67,7 @@
     <string name="config_wind_speed">Viteza vântului</string>
     <string name="config_option_follow_widget">Ca în widget</string>
     <string name="config_unit_millimeters">Milimetri</string>
+    <string name="config_unit_centimeters">Centimetri</string>
     <string name="config_unit_inches">Inchi</string>
     <string name="config_unit_hectopascal">Hectopascali</string>
     <string name="config_unit_millibar">Milibari</string>
@@ -98,6 +99,7 @@
     <string name="app_text_check_connection">Verifică conexiunea la internet și încearcă din nou</string>
     <string name="app_text_button_try_again">Încearcă din nou</string>
     <string name="app_text_rain">ploaie</string>
+    <string name="app_text_snow">Zăpadă</string>
     <string name="app_text_hourly_details">Detalii din oră în oră</string>
     <string name="app_text_sunset_sunrise">răsărit &amp; apus</string>
     <string name="app_text_sunrise">răsărit</string>
