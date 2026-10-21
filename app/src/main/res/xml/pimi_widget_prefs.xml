@@ -44,6 +44,12 @@
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
 
+        <Preference
+            android:key="fixed_location"
+            android:title="@string/config_fixed_location"
+            android:summary="@string/config_fixed_location_summary_device"
+            app:iconSpaceReserved="false" />
+
         <CheckBoxPreference
             android:key="weather_warnings"
             android:title="@string/config_weather_warnings"

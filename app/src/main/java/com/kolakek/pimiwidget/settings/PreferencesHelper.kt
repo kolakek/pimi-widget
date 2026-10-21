@@ -23,6 +23,9 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
+import com.kolakek.pimiwidget.location.FIXED_LOCATION_NAME
+import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.location.LocationFormat
 import com.kolakek.pimiwidget.utility.WeatherApp
 
 object PreferencesHelper {
@@ -137,8 +140,48 @@ object PreferencesHelper {
             iconColor = iconColor,
             textColor = textColor,
             auxDisplay = auxDisplay,
-            weatherApp = weatherApp
+            weatherApp = weatherApp,
+            fixedLocation = getFixedLocation(context)
         )
+    }
+
+    /**
+     * Returns the location chosen by the user, or null when the device location is used.
+     * The returned time is the time of the call, as a fixed location does not age.
+     */
+    fun getFixedLocation(context: Context): LocationData? {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val lat = prefs.getString(KEY_FIXED_LOCATION_LAT, null)?.toDoubleOrNull()
+        val long = prefs.getString(KEY_FIXED_LOCATION_LONG, null)?.toDoubleOrNull()
+        if (lat == null || long == null) return null
+
+        val place = prefs.getString(KEY_FIXED_LOCATION_NAME, null)
+            ?.takeIf { it.isNotBlank() }
+            ?: LocationFormat.coordinatesLabel(lat, long)
+
+        return LocationData(
+            timeMillis = System.currentTimeMillis(),
+            lat = lat,
+            long = long,
+            place = place,
+            locationType = FIXED_LOCATION_NAME
+        )
+    }
+
+    fun setFixedLocation(context: Context, lat: Double, long: Double, place: String) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_FIXED_LOCATION_LAT, lat.toString())
+            putString(KEY_FIXED_LOCATION_LONG, long.toString())
+            putString(KEY_FIXED_LOCATION_NAME, place)
+        }
+    }
+
+    fun clearFixedLocation(context: Context) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            remove(KEY_FIXED_LOCATION_LAT)
+            remove(KEY_FIXED_LOCATION_LONG)
+            remove(KEY_FIXED_LOCATION_NAME)
+        }
     }
 
     fun setWeatherPreference(context: Context, value: Boolean) {

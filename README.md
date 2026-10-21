@@ -35,6 +35,8 @@ All download options provide the same APK file, signed with the same signing key
 
 The widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider ([Open-Meteo](https://open-meteo.com/)) to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device. You can view the data exchanged with the weather provider by long-pressing the **Build number** in the widget settings.
 
+If you choose a fixed location (see [Fixed Location](#fixed-location)), the widget does not use or request any location permission. Only the coordinates of the chosen place and your IP address are shared with Open-Meteo. When you search for a place by name, the text you type and your system language are also sent to the Open-Meteo geocoding API.
+
 ### Usage
 
 This app does not provide a launcher icon. It is a widget-only application. To use it, add the widget to your home screen via the Android widget picker.
@@ -52,6 +54,10 @@ The widget displays the forecast for the next 15 minutes as the current weather.
 ### Location Access
 
 In most cases, coarse location access is sufficient. For this to work, network-based location services must be enabled in your system settings (sometimes labeled as "Location Accuracy"). If only GPS-based location is available, fine location access must be granted to the widget.
+
+### Fixed Location
+
+If you prefer not to share your device location, open the widget settings, tap **Weather location** and either search for a place by name or enter its latitude and longitude. The widget then shows the weather of that place and does not need any location permission. To go back to the device location, open the same dialog and tap **Use device location**. Place names come from the Open-Meteo geocoding API, which is based on [GeoNames](https://www.geonames.org/).
 
 ### Weather and Calendar Apps
 
