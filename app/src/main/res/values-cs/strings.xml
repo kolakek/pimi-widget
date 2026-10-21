@@ -66,7 +66,7 @@
     <string name="config_title_settings">Nastavení</string>
     <string name="config_wind_speed">Rychlost větru</string>
     <string name="config_option_follow_widget">Podle widgetu</string>
-    <string name="config_unit_millimetres">Milimetry</string>
+    <string name="config_unit_millimeters">Milimetry</string>
     <string name="config_unit_inches">Palce</string>
     <string name="config_unit_hectopascal">Hektopascaly</string>
     <string name="config_unit_millibar">Milibary</string>

@@ -66,7 +66,7 @@
     <string name="config_title_settings">Setări</string>
     <string name="config_wind_speed">Viteza vântului</string>
     <string name="config_option_follow_widget">Ca în widget</string>
-    <string name="config_unit_millimetres">Milimetri</string>
+    <string name="config_unit_millimeters">Milimetri</string>
     <string name="config_unit_inches">Inchi</string>
     <string name="config_unit_hectopascal">Hectopascali</string>
     <string name="config_unit_millibar">Milibari</string>

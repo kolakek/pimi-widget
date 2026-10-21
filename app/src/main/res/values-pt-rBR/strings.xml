@@ -66,7 +66,7 @@
     <string name="config_title_settings">Configurações</string>
     <string name="config_wind_speed">Velocidade do vento</string>
     <string name="config_option_follow_widget">Igual ao widget</string>
-    <string name="config_unit_millimetres">Milímetros</string>
+    <string name="config_unit_millimeters">Milímetros</string>
     <string name="config_unit_inches">Polegadas</string>
     <string name="config_unit_hectopascal">Hectopascais</string>
     <string name="config_unit_millibar">Milibares</string>

@@ -65,7 +65,7 @@
     <string name="config_title_settings">Setelan</string>
     <string name="config_wind_speed">Kecepatan angin</string>
     <string name="config_option_follow_widget">Ikuti widget</string>
-    <string name="config_unit_millimetres">Milimeter</string>
+    <string name="config_unit_millimeters">Milimeter</string>
     <string name="config_unit_inches">Inci</string>
     <string name="config_unit_hectopascal">Hektopaskal</string>
     <string name="config_unit_millibar">Milibar</string>

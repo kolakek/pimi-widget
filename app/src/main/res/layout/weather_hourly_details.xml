@@ -32,6 +32,16 @@
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/App.ToggleButton"
+                    android:id="@+id/button_snow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:contentDescription="@string/app_text_snow"
+                    app:iconPadding="0dp"
+                    app:icon="@drawable/ic_snow" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/App.ToggleButton"
                     android:id="@+id/button_humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

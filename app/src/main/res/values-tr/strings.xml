@@ -66,7 +66,7 @@
     <string name="config_title_settings">Ayarlar</string>
     <string name="config_wind_speed">Rüzgar hızı</string>
     <string name="config_option_follow_widget">Widget ile aynı</string>
-    <string name="config_unit_millimetres">Milimetre</string>
+    <string name="config_unit_millimeters">Milimetre</string>
     <string name="config_unit_inches">İnç</string>
     <string name="config_unit_hectopascal">Hektopaskal</string>
     <string name="config_unit_millibar">Milibar</string>

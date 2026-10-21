@@ -66,7 +66,7 @@
     <string name="config_title_settings">Instellingen</string>
     <string name="config_wind_speed">Windsnelheid</string>
     <string name="config_option_follow_widget">Zoals in de widget</string>
-    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_millimeters">Millimeter</string>
     <string name="config_unit_inches">Inch</string>
     <string name="config_unit_hectopascal">Hectopascal</string>
     <string name="config_unit_millibar">Millibar</string>

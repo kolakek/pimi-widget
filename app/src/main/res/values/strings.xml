@@ -65,7 +65,8 @@
     <string name="config_title_settings">Settings</string>
     <string name="config_wind_speed">Wind speed</string>
     <string name="config_option_follow_widget">Follow widget</string>
-    <string name="config_unit_millimetres">Millimeters</string>
+    <string name="config_unit_millimeters">Millimeters</string>
+    <string name="config_unit_centimeters">Centimeters</string>
     <string name="config_unit_inches">Inches</string>
     <string name="config_unit_hectopascal">Hectopascals</string>
     <string name="config_unit_millibar">Millibars</string>
@@ -107,6 +108,7 @@
     <string name="app_text_check_connection">Check your connection and try again</string>
     <string name="app_text_button_try_again">Try again</string>
     <string name="app_text_rain">Rain</string>
+    <string name="app_text_snow">Snow</string>
     <string name="app_text_hourly_details">Hourly details</string>
     <string name="app_text_sunset_sunrise">Sunrise &amp; sunset</string>
     <string name="app_text_sunrise">Sunrise</string>
@@ -200,6 +202,7 @@
     <string name="unit_mmhg" translatable="false">mmHg</string>
     <string name="unit_inhg" translatable="false">inHg</string>
     <string name="unit_mm" translatable="false">mm</string>
+    <string name="unit_cm" translatable="false">cm</string>
     <string name="unit_in" translatable="false">in</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>

@@ -66,7 +66,7 @@
     <string name="config_title_settings">Inställningar</string>
     <string name="config_wind_speed">Vindhastighet</string>
     <string name="config_option_follow_widget">Samma som widgeten</string>
-    <string name="config_unit_millimetres">Millimeter</string>
+    <string name="config_unit_millimeters">Millimeter</string>
     <string name="config_unit_inches">Tum</string>
     <string name="config_unit_hectopascal">Hektopascal</string>
     <string name="config_unit_millibar">Millibar</string>

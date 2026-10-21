@@ -65,7 +65,7 @@
     <string name="config_title_settings">Настройки</string>
     <string name="config_wind_speed">Скорость ветра</string>
     <string name="config_option_follow_widget">Как в виджете</string>
-    <string name="config_unit_millimetres">Миллиметры</string>
+    <string name="config_unit_millimeters">Миллиметры</string>
     <string name="config_unit_inches">Дюймы</string>
     <string name="config_unit_hectopascal">Гектопаскали</string>
     <string name="config_unit_millibar">Миллибары</string>

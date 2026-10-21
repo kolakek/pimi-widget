@@ -24,5 +24,6 @@ data class AppPreferences (
     val windUnit: WindUnit,
     val pressureUnit: PressureUnit,
     val rainUnit: RainUnit,
+    val snowUnit: SnowUnit,
     val showWeather: Boolean
 )

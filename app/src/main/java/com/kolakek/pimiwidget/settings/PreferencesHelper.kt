@@ -57,6 +57,12 @@ object PreferencesHelper {
         INCH(KEY_RAIN_UNIT_INCH)
     }
 
+    enum class SnowUnitPref(val key: String) {
+        AUTO(KEY_SNOW_UNIT_AUTO),
+        CM(KEY_SNOW_UNIT_CM),
+        INCH(KEY_SNOW_UNIT_INCH)
+    }
+
     enum class PressureUnitPref(val key: String) {
         AUTO(KEY_PRESSURE_UNIT_AUTO),
         HPA(KEY_PRESSURE_UNIT_HPA),
@@ -89,6 +95,7 @@ object PreferencesHelper {
         val iconStylePref = getAppIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val rainUnitPref = getRainUnitPreference(context)
+        val snowUnitPref = getSnowUnitPreference(context)
         val windUnitPref = getWindUnitPreference(context)
         val pressureUnitPref = getPressureUnitPreference(context)
 
@@ -111,6 +118,7 @@ object PreferencesHelper {
             windUnit = windUnitFromPref(windUnitPref),
             pressureUnit = pressureUnitFromPref(pressureUnitPref),
             rainUnit = rainUnitFromPref(rainUnitPref),
+            snowUnit = snowUnitFromPref(snowUnitPref),
             showWeather = getWeatherPreference(context),
         )
     }
@@ -294,6 +302,12 @@ object PreferencesHelper {
         return RainUnitPref.entries.find { it.key == key } ?: RainUnitPref.AUTO
     }
 
+    private fun getSnowUnitPreference(context: Context): SnowUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_SNOW_UNIT_LIST, null)
+        return SnowUnitPref.entries.find { it.key == key } ?: SnowUnitPref.AUTO
+    }
+
     private fun getPressureUnitPreference(context: Context): PressureUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_PRESSURE_UNIT_LIST, null)
@@ -404,6 +418,21 @@ object PreferencesHelper {
 
             RainUnitPref.MM -> RainUnit.MM
             RainUnitPref.INCH -> RainUnit.INCH
+        }
+    }
+
+    private fun snowUnitFromPref(snowUnitPref: SnowUnitPref): SnowUnit {
+        return when (snowUnitPref) {
+            SnowUnitPref.AUTO -> {
+                when (UnitSystem.fromLocale()) {
+                    UnitSystem.US -> SnowUnit.INCH
+                    UnitSystem.UK -> SnowUnit.CM
+                    UnitSystem.METRIC -> SnowUnit.CM
+                }
+            }
+
+            SnowUnitPref.CM -> SnowUnit.CM
+            SnowUnitPref.INCH -> SnowUnit.INCH
         }
     }
 

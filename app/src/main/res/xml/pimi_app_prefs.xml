@@ -29,6 +29,15 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
+            android:key="snow_unit_list"
+            android:entries="@array/snow_units"
+            android:entryValues="@array/snow_units_vals"
+            android:defaultValue="snow_unit_auto"
+            android:title="@string/app_text_snow"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
             android:key="pressure_unit_list"
             android:entries="@array/pressure_units"
             android:entryValues="@array/pressure_units_vals"

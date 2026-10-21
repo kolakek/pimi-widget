@@ -85,10 +85,11 @@ object ConditionIcon {
     }
 
     fun humidityImage(humidity: Double): LayeredImage {
-        val h = humidity.toFloat() / 100
+        val level = (humidity / 100).coerceAtMost(1.0)
+        val h = level.toFloat()
         val posY = h * MH_PY_END + (1 - h) * MH_PY_START
         val scaleFactor = (1 - posY / MH_HEIGHT).coerceIn(0f, 1f)
-        val fillColor = humidityFillColor(humidity)
+        val fillColor = humidityFillColor(level)
 
         return LayeredImage(
             backResId = R.drawable.mh_b,
@@ -103,9 +104,7 @@ object ConditionIcon {
         )
     }
 
-    fun humidityFillColor(humidity: Double): Int {
-        val level = (humidity / 100).coerceAtMost(1.0)
-
+    fun humidityFillColor(level: Double): Int {
         val h = 28f + (1f - level.toFloat()) * (48f - 28f)
         val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
 
@@ -113,6 +112,18 @@ object ConditionIcon {
     }
 
     fun humidityStrokeColor() = "#D57A2D".toColorInt()
+
+    fun rainFillColor(level: Double): Int {
+        val s = 0.1f + level.toFloat() * (0.61f - 0.1f)
+
+        return Color.HSVToColor(floatArrayOf(216f, s, 1.0f))
+    }
+
+    fun rainStrokeColor() = "#4C8DF6".toColorInt()
+
+    fun snowFillColor() = "#e8eaed".toColorInt()
+
+    fun snowStrokeColor() = "#70757a".toColorInt()
 
     fun windImage(directionDeg: Double): LayeredImage = LayeredImage(
         rotation = directionDeg.toFloat(),
@@ -124,12 +135,12 @@ object ConditionIcon {
         val posY = h * MU_PY_END + (1 - h) * MU_PY_START
         val scaleFactor = (1 - posY / MU_HEIGHT).coerceIn(0f, 1f)
 
-        val (fillColor, backColor) = when (uvIndex.toInt()) {
-            in 0..2 -> "#53c0a8" to "#b9e0ce"
-            in 3..5 -> "#ffcc5c" to "#f3ebb7"
-            in 6..7 -> "#f58259" to "#fcc79f"
-            in 8..10 -> "#f0516b" to "#f7a9b6"
-            else -> "#7c67ae" to "#7c67ae"
+        val backColor = when (uvIndex.toInt()) {
+            in 0..2 -> "#b9e0ce"
+            in 3..5 -> "#f3ebb7"
+            in 6..7 -> "#fcc79f"
+            in 8..10 -> "#f7a9b6"
+            else -> "#7c67ae"
         }
         return LayeredImage(
             backResId = R.drawable.mu_b,
@@ -137,12 +148,34 @@ object ConditionIcon {
             maskResId = R.drawable.mu_m,
             iconResId = R.drawable.mh_i,
             backColor = backColor.toColorInt(),
-            fillColor = fillColor.toColorInt(),
+            fillColor = uvIndexFillColor(uvIndex),
             scaleFactor = scaleFactor,
             height = MU_HEIGHT.toFloat(),
             posX = MU_PX_ICON.toFloat(),
             posY = posY - MH_ICON_HALF
         )
+    }
+
+    fun uvIndexFillColor(uvIndex: Double): Int {
+        val fillColor = when (uvIndex.toInt()) {
+            in 0..2 -> "#53c0a8"
+            in 3..5 -> "#ffcc5c"
+            in 6..7 -> "#f58259"
+            in 8..10 -> "#f0516b"
+            else -> "#7c67ae"
+        }
+        return fillColor.toColorInt()
+    }
+
+    fun uvIndexStrokeColor(uvIndex: Double): Int {
+        val strokeColor = when (uvIndex.toInt()) {
+            in 0..2 -> "#53c0a8"
+            in 3..5 -> "#ffaa00"
+            in 6..7 -> "#f45d2f"
+            in 8..10 -> "#f0516b"
+            else -> "#7c67ae"
+        }
+        return strokeColor.toColorInt()
     }
 
     fun pressureImage(pressure: Double): LayeredImage {

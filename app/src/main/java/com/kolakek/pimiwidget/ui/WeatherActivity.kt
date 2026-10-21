@@ -59,7 +59,7 @@ class WeatherActivity : AppCompatActivity() {
 
     private var selectedDataBar = DataBarType.RAIN
 
-    enum class DataBarType { RAIN, HUMIDITY, UV_INDEX }
+    enum class DataBarType { RAIN, SNOW, HUMIDITY, UV_INDEX }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -166,6 +166,9 @@ class WeatherActivity : AppCompatActivity() {
         binding.hourlyDetails.buttonRain.setOnClickListener {
             updateDataBar(data, DataBarType.RAIN)
         }
+        binding.hourlyDetails.buttonSnow.setOnClickListener {
+            updateDataBar(data, DataBarType.SNOW)
+        }
         binding.hourlyDetails.buttonHumidity.setOnClickListener {
             updateDataBar(data, DataBarType.HUMIDITY)
         }
@@ -242,6 +245,10 @@ class WeatherActivity : AppCompatActivity() {
                 detailsItem = displayData.detailsRain
                 titleString = getString(R.string.app_today_total)
             }
+            DataBarType.SNOW -> {
+                detailsItem = displayData.detailsSnow
+                titleString = getString(R.string.app_today_total)
+            }
             DataBarType.HUMIDITY -> {
                 detailsItem = displayData.detailsHumidity
                 titleString = getString(R.string.app_today_average)
@@ -261,6 +268,10 @@ class WeatherActivity : AppCompatActivity() {
         updateButtonState(
             binding.hourlyDetails.buttonRain,
             dataBarType == DataBarType.RAIN
+        )
+        updateButtonState(
+            binding.hourlyDetails.buttonSnow,
+            dataBarType == DataBarType.SNOW
         )
         updateButtonState(
             binding.hourlyDetails.buttonHumidity,

@@ -15,7 +15,7 @@
 
     <array name="rain_units">
         <item>@string/config_option_follow_system</item>
-        <item>@string/config_unit_millimetres</item>
+        <item>@string/config_unit_millimeters</item>
         <item>@string/config_unit_inches</item>
     </array>
 
@@ -23,6 +23,18 @@
         <item>rain_unit_auto</item>
         <item>rain_unit_mm</item>
         <item>rain_unit_inch</item>
+    </array>
+
+    <array name="snow_units">
+        <item>@string/config_option_follow_system</item>
+        <item>@string/config_unit_centimeters</item>
+        <item>@string/config_unit_inches</item>
+    </array>
+
+    <array name="snow_units_vals">
+        <item>snow_unit_auto</item>
+        <item>snow_unit_cm</item>
+        <item>snow_unit_inch</item>
     </array>
 
     <array name="pressure_units">

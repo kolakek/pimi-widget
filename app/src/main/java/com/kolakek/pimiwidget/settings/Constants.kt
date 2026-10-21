@@ -32,6 +32,11 @@ internal const val KEY_RAIN_UNIT_AUTO = "rain_unit_auto"
 internal const val KEY_RAIN_UNIT_MM = "rain_unit_mm"
 internal const val KEY_RAIN_UNIT_INCH = "rain_unit_inch"
 
+internal const val KEY_SNOW_UNIT_LIST = "snow_unit_list"
+internal const val KEY_SNOW_UNIT_AUTO = "snow_unit_auto"
+internal const val KEY_SNOW_UNIT_CM = "snow_unit_cm"
+internal const val KEY_SNOW_UNIT_INCH = "snow_unit_inch"
+
 internal const val KEY_PRESSURE_UNIT_LIST = "pressure_unit_list"
 internal const val KEY_PRESSURE_UNIT_AUTO = "pressure_unit_auto"
 internal const val KEY_PRESSURE_UNIT_HPA = "pressure_unit_hpa"

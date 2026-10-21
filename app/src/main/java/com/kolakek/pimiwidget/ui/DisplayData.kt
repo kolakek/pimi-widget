@@ -36,6 +36,7 @@ data class DisplayData (
     val hourlyWeather: List<HourlyItem>,
     val dailyWeather: List<DailyItem>,
     val detailsRain: DetailsItem,
+    val detailsSnow: DetailsItem,
     val detailsHumidity: DetailsItem,
     val detailsUvIndex: DetailsItem,
     val dailySunInfo: SunItem?,
@@ -96,6 +97,11 @@ data class DisplayData (
                 weather,
                 prefs.rainUnit
             )
+            val detailsSnow = WeatherRenderer.detailsSnow(
+                context,
+                weather,
+                prefs.snowUnit
+            )
             val detailsHumidity = WeatherRenderer.detailsHumidity(
                 context,
                 weather
@@ -135,6 +141,7 @@ data class DisplayData (
                 dailyHighLowTemp = dailyHighLowTempString,
                 hourlyWeather = hourlyWeather,
                 detailsRain = detailsRain,
+                detailsSnow = detailsSnow,
                 detailsHumidity = detailsHumidity,
                 detailsUvIndex = detailsUvIndex,
                 dailyWeather = dailyWeather,
