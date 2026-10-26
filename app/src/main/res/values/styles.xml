@@ -22,6 +22,13 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
     <style name="App.ToggleButton" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?attr/colorOnSurface</item>

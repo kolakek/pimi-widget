@@ -71,10 +71,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
+        val fixedLocationField: Preference? = findPreference(KEY_FIXED_LOCATION)
 
         var debugCount = 0
 
+        // A fixed location works without any location permission.
         if (weatherSwitch?.isChecked == true &&
+            PreferencesHelper.getFixedLocation(context) == null &&
             isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         ) {
             deleteWeatherData(context)
@@ -159,6 +162,11 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             true
         }
+        updateFixedLocationSummary(context)
+        fixedLocationField?.setOnPreferenceClickListener {
+            showFixedLocationDialog(context)
+            true
+        }
         handleWeatherAppPreference(context)
     }
 
@@ -183,7 +191,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
             return true
         }
-        if (isDenied(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        // The location permissions are only needed for the device location.
+        val usesDeviceLocation = PreferencesHelper.getFixedLocation(context) == null
+        if (usesDeviceLocation && isDenied(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
             askForPermission(
                 context,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -194,7 +204,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             return false
         }
-        if (isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+        if (usesDeviceLocation && isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
             askForPermission(
                 context,
                 Manifest.permission.ACCESS_BACKGROUND_LOCATION,
@@ -216,6 +226,48 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         weatherSwitch?.isChecked = true
 
         return true
+    }
+
+    private fun updateFixedLocationSummary(context: Context) {
+        val fixedLocation = PreferencesHelper.getFixedLocation(context)
+        findPreference<Preference>(KEY_FIXED_LOCATION)?.summary =
+            if (fixedLocation != null) {
+                getString(R.string.config_fixed_location_summary_fixed, fixedLocation.place)
+            } else {
+                getString(R.string.config_fixed_location_summary_device)
+            }
+    }
+
+    private fun showFixedLocationDialog(context: Context) {
+        FixedLocationDialog(
+            context = context,
+            scope = lifecycleScope,
+            current = PreferencesHelper.getFixedLocation(context),
+            onSelected = { lat, long, place ->
+                PreferencesHelper.setFixedLocation(context, lat, long, place)
+                onLocationSourceChanged(context)
+            },
+            onUseDeviceLocation = {
+                PreferencesHelper.clearFixedLocation(context)
+                onLocationSourceChanged(context)
+            }
+        ).show()
+    }
+
+    private fun onLocationSourceChanged(context: Context) {
+        updateFixedLocationSummary(context)
+
+        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
+        if (weatherSwitch?.isChecked != true) return
+
+        lifecycleScope.launch {
+            // Drop the data of the previous place so the widget never shows it for the new one.
+            DataRepository.deleteLocationData(context)
+            DataRepository.deleteWeatherData(context)
+            // Same flow as turning the weather on: it asks for the location permissions only
+            // when the device location is used, then fetches the weather right away.
+            weatherSwitchCallback(context, true)
+        }
     }
 
     private fun birthdaySwitchCallback(context: Context, isChecked: Boolean): Boolean {
