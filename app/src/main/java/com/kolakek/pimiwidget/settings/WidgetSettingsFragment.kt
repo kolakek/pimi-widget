@@ -71,6 +71,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
+        val weatherLocationList: ListPreference? = findPreference(KEY_WEATHER_LOCATION_LIST)
         val fixedLocationField: Preference? = findPreference(KEY_FIXED_LOCATION)
 
         var debugCount = 0
@@ -162,9 +163,13 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             true
         }
+        weatherLocationList?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == KEY_WEATHER_LOCATION_SET) setWeatherLocation(context)
+            false
+        }
         updateFixedLocationSummary(context)
         fixedLocationField?.setOnPreferenceClickListener {
-            showFixedLocationDialog(context)
+            setWeatherLocation(context)
             true
         }
         handleWeatherAppPreference(context)
@@ -238,19 +243,14 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
     }
 
-    private fun showFixedLocationDialog(context: Context) {
+    private fun setWeatherLocation(context: Context) {
         FixedLocationDialog(
             context = context,
             scope = lifecycleScope,
-            current = PreferencesHelper.getFixedLocation(context),
             onSelected = { lat, long, place ->
                 PreferencesHelper.setFixedLocation(context, lat, long, place)
                 onLocationSourceChanged(context)
             },
-            onUseDeviceLocation = {
-                PreferencesHelper.clearFixedLocation(context)
-                onLocationSourceChanged(context)
-            }
         ).show()
     }
 

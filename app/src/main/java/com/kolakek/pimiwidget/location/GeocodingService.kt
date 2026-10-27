@@ -27,6 +27,7 @@ import java.util.Locale
 /** A place found by a text search. */
 data class GeocodingPlace(
     val label: String,
+    val name: String,
     val lat: Double,
     val long: Double
 )
@@ -73,6 +74,7 @@ object GeocodingService {
             .map {
                 GeocodingPlace(
                     label = LocationFormat.placeLabel(it.name, it.admin1, it.country),
+                    name = it.name,
                     lat = it.latitude,
                     long = it.longitude
                 )

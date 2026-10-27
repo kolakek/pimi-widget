@@ -143,12 +143,12 @@
 
     <array name="weather_locations">
         <item>@string/config_weather_location_device</item>
-        <item>@string/config_weather_location_fixed</item>
+        <item>@string/config_weather_location_set</item>
     </array>
 
     <array name="weather_locations_vals">
         <item>weather_location_device</item>
-        <item>weather_location_fixed</item>
+        <item>weather_location_set</item>
     </array>
 
 </resources>
