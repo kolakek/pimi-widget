@@ -26,7 +26,7 @@
     <string name="config_debug_background_service">Služba na pozadí</string>
     <string name="config_location_fallback">Použít poslední polohu</string>
     <string name="config_location_fallback_summary">Když je služba určování polohy zařízení vypnuta</string>
-    <string name="config_fixed_location">Poloha pro počasí</string>
+    <string name="config_weather_location">Poloha pro počasí</string>
     <string name="config_fixed_location_summary_device">Poloha zařízení</string>
     <string name="config_fixed_location_summary_fixed">Pevná: %1$s</string>
     <string name="config_fixed_location_search_hint">Hledat místo</string>

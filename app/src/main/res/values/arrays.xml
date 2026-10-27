@@ -141,4 +141,14 @@
         <item>weather_app_default</item>
     </array>
 
+    <array name="weather_locations">
+        <item>@string/config_weather_location_device</item>
+        <item>@string/config_weather_location_fixed</item>
+    </array>
+
+    <array name="weather_locations_vals">
+        <item>weather_location_device</item>
+        <item>weather_location_fixed</item>
+    </array>
+
 </resources>

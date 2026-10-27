@@ -46,7 +46,7 @@
 
         <Preference
             android:key="fixed_location"
-            android:title="@string/config_fixed_location"
+            android:title="@string/config_weather_location"
             android:summary="@string/config_fixed_location_summary_device"
             app:iconSpaceReserved="false" />
 
@@ -63,6 +63,15 @@
             android:summary="@string/config_daily_forecast_summary"
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:key="weather_location_list"
+            android:entries="@array/weather_locations"
+            android:entryValues="@array/weather_locations_vals"
+            android:defaultValue="weather_location_device"
+            android:title="@string/config_weather_location"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
 
         <ListPreference
             android:defaultValue="weather_app_default"

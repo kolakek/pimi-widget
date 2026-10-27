@@ -26,7 +26,7 @@
     <string name="config_debug_background_service">Фоновий сервіс</string>
     <string name="config_location_fallback">Використовувати попереднє місцезнаходження</string>
     <string name="config_location_fallback_summary">Коли служба геолокації пристрою вимкнена</string>
-    <string name="config_fixed_location">Місцезнаходження для погоди</string>
+    <string name="config_weather_location">Місцезнаходження для погоди</string>
     <string name="config_fixed_location_summary_device">Місцезнаходження пристрою</string>
     <string name="config_fixed_location_summary_fixed">Фіксоване: %1$s</string>
     <string name="config_fixed_location_search_hint">Пошук місця</string>

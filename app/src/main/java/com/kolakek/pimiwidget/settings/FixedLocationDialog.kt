@@ -75,7 +75,7 @@ class FixedLocationDialog(
         }
 
         val alertDialog = AlertDialog.Builder(context)
-            .setTitle(R.string.config_fixed_location)
+            .setTitle(R.string.config_weather_location)
             .setView(binding.root)
             .setPositiveButton(R.string.config_fixed_location_button_use_coordinates, null)
             .setNegativeButton(R.string.config_alert_button_cancel, null)

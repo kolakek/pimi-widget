@@ -28,7 +28,7 @@
     <string name="config_debug_background_service">Фоновый сервис</string>
     <string name="config_location_fallback">Использовать последнее местоположение</string>
     <string name="config_location_fallback_summary">Когда сервис геолокации устройства выключен</string>
-    <string name="config_fixed_location">Местоположение для погоды</string>
+    <string name="config_weather_location">Местоположение для погоды</string>
     <string name="config_fixed_location_summary_device">Местоположение устройства</string>
     <string name="config_fixed_location_summary_fixed">Фиксированное: %1$s</string>
     <string name="config_fixed_location_search_hint">Поиск места</string>

@@ -26,7 +26,7 @@
     <string name="config_debug_background_service">Shërbimi në sfond</string>
     <string name="config_location_fallback">Përdor vendndodhjen e mëparshme</string>
     <string name="config_location_fallback_summary">Kur shërbimi i vendndodhjes së pajisjes është i çaktivizuar</string>
-    <string name="config_fixed_location">Vendndodhja e motit</string>
+    <string name="config_weather_location">Vendndodhja e motit</string>
     <string name="config_fixed_location_summary_device">Vendndodhja e pajisjes</string>
     <string name="config_fixed_location_summary_fixed">E fiksuar: %1$s</string>
     <string name="config_fixed_location_search_hint">Kërko një vend</string>

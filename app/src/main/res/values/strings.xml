@@ -28,7 +28,9 @@
     <string name="config_debug_background_service">Background service</string>
     <string name="config_location_fallback">Use last location</string>
     <string name="config_location_fallback_summary">When the device location service is turned off</string>
-    <string name="config_fixed_location">Weather location</string>
+    <string name="config_weather_location">Weather location</string>
+    <string name="config_weather_location_device">Device location</string>
+    <string name="config_weather_location_fixed">Fixed location</string>
     <string name="config_fixed_location_summary_device">Device location</string>
     <string name="config_fixed_location_summary_fixed">Fixed: %1$s</string>
     <string name="config_fixed_location_search_hint">Search for a place</string>

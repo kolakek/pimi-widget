@@ -26,7 +26,7 @@
     <string name="config_debug_background_service">Hintergrunddienst</string>
     <string name="config_location_fallback">Letzten Standort verwenden</string>
     <string name="config_location_fallback_summary">Wenn der Gerätestandortdienst deaktiviert ist</string>
-    <string name="config_fixed_location">Wetterstandort</string>
+    <string name="config_weather_location">Wetterstandort</string>
     <string name="config_fixed_location_summary_device">Gerätestandort</string>
     <string name="config_fixed_location_summary_fixed">Fest: %1$s</string>
     <string name="config_fixed_location_search_hint">Nach einem Ort suchen</string>

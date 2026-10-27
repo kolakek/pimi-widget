@@ -26,7 +26,7 @@
     <string name="config_debug_background_service">Serviço em segundo plano</string>
     <string name="config_location_fallback">Usar localização anterior</string>
     <string name="config_location_fallback_summary">Quando o serviço de localização do dispositivo está desativado</string>
-    <string name="config_fixed_location">Localização do clima</string>
+    <string name="config_weather_location">Localização do clima</string>
     <string name="config_fixed_location_summary_device">Localização do dispositivo</string>
     <string name="config_fixed_location_summary_fixed">Fixa: %1$s</string>
     <string name="config_fixed_location_search_hint">Pesquisar um lugar</string>
