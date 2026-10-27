@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Vzhled</string>
     <string name="config_widget_style">Styl widgetu</string>
-    <string name="config_widget_style_classic">Průhledný</string>
+    <string name="config_widget_style_classic">Klasický</string>
+    <string name="config_widget_style_modern">Moderní</string>
     <string name="config_widget_style_solid">Jednobarevný</string>
     <string name="config_button_apply">Použít</string>
     <string name="config_weather_switch">Počasí</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Chcete-li přidat svou aplikaci počasí, otevřete issue na GitHubu.</string>
     <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
     <string name="config_section_settings_units">Jednotky</string>
-    <string name="config_unit_system">Soustava jednotek</string>
-    <string name="config_unit_metric">Metrická</string>
-    <string name="config_unit_us">Spojené státy</string>
-    <string name="config_unit_uk">Spojené království</string>
     <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
+    <string name="config_show_temp_unit">Zobrazit jednotku teploty</string>
+    <string name="config_show_temp_unit_descr">Zobrazit symbol pro Fahrenheit nebo Celsius</string>
+    <string name="config_title_settings">Nastavení</string>
+    <string name="config_wind_speed">Rychlost větru</string>
+    <string name="config_option_follow_widget">Podle widgetu</string>
+    <string name="config_unit_millimeters">Milimetry</string>
+    <string name="config_unit_centimeters">Centimetry</string>
+    <string name="config_unit_inches">Palce</string>
+    <string name="config_unit_hectopascal">Hektopascaly</string>
+    <string name="config_unit_millibar">Milibary</string>
+    <string name="config_unit_mm_mercury">Milimetry rtuťového sloupce</string>
+    <string name="config_unit_inches_mercury">Palce rtuťového sloupce</string>
+    <string name="config_unit_km_per_hour">Kilometry za hodinu</string>
+    <string name="config_unit_m_per_second">Metry za sekundu</string>
+    <string name="config_unit_miles_per_hour">Míle za hodinu</string>
+    <string name="config_unit_knots">Uzly</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Zapni počasí v nastavení widgetu</string>
     <string name="app_text_check_connection">Zkontroluj své internetové připojení a zkus to znovu</string>
     <string name="app_text_button_try_again">Zkusit znovu</string>
-    <string name="app_text_button_settings">Nastavení widgetu</string>
     <string name="app_text_rain">déšť</string>
+    <string name="app_text_snow">Sníh</string>
     <string name="app_text_hourly_details">Podrobnosti po hodině</string>
     <string name="app_text_sunset_sunrise">východ &amp; západ slunce</string>
     <string name="app_text_sunrise">východ slunce</string>

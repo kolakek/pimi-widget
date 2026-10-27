@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Wygląd</string>
     <string name="config_widget_style">Styl widżetu</string>
-    <string name="config_widget_style_classic">Przezroczysty</string>
+    <string name="config_widget_style_classic">Klasyczny</string>
+    <string name="config_widget_style_modern">Nowoczesny</string>
     <string name="config_widget_style_solid">Jednolity</string>
     <string name="config_button_apply">Zastosuj</string>
     <string name="config_weather_switch">Pogoda</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Aby dodać swoją aplikację pogodową, otwórz issue na GitHubie.</string>
     <string name="config_weather_app_alert_button_github">Otwórz GitHub</string>
     <string name="config_section_settings_units">Jednostki</string>
-    <string name="config_unit_system">System jednostek</string>
-    <string name="config_unit_metric">Metryczny</string>
-    <string name="config_unit_us">Stany Zjednoczone</string>
-    <string name="config_unit_uk">Wielka Brytania</string>
     <string name="config_aux_view_place_condition">Miejsce &amp; pogoda</string>
+    <string name="config_show_temp_unit">Pokaż jednostkę temperatury</string>
+    <string name="config_show_temp_unit_descr">Pokaż symbol Fahrenheita lub Celsjusza</string>
+    <string name="config_title_settings">Ustawienia</string>
+    <string name="config_wind_speed">Prędkość wiatru</string>
+    <string name="config_option_follow_widget">Jak w widżecie</string>
+    <string name="config_unit_millimeters">Milimetry</string>
+    <string name="config_unit_centimeters">Centymetry</string>
+    <string name="config_unit_inches">Cale</string>
+    <string name="config_unit_hectopascal">Hektopaskale</string>
+    <string name="config_unit_millibar">Milibary</string>
+    <string name="config_unit_mm_mercury">Milimetry słupa rtęci</string>
+    <string name="config_unit_inches_mercury">Cale słupa rtęci</string>
+    <string name="config_unit_km_per_hour">Kilometry na godzinę</string>
+    <string name="config_unit_m_per_second">Metry na sekundę</string>
+    <string name="config_unit_miles_per_hour">Mile na godzinę</string>
+    <string name="config_unit_knots">Węzły</string>
 
     <string name="app_text_now">Teraz</string>
     <string name="app_text_hourly_forecast">Prognoza godzinowa</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Włącz pogodę w ustawieniach widgetu</string>
     <string name="app_text_check_connection">Sprawdź połączenie internetowe i spróbuj ponownie</string>
     <string name="app_text_button_try_again">Spróbuj ponownie</string>
-    <string name="app_text_button_settings">Ustawienia widgetu</string>
     <string name="app_text_rain">deszcz</string>
+    <string name="app_text_snow">Śnieg</string>
     <string name="app_text_hourly_details">Szczegóły godzinowe</string>
     <string name="app_text_sunset_sunrise">wschód &amp; zachód słońca</string>
     <string name="app_text_sunrise">wschód słońca</string>

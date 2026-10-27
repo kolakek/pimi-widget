@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Pamja</string>
     <string name="config_widget_style">Stili i miniaplikacionit</string>
-    <string name="config_widget_style_classic">Transparente</string>
+    <string name="config_widget_style_classic">Klasik</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Njëngjyrësh</string>
     <string name="config_button_apply">Apliko</string>
     <string name="config_weather_switch">Moti</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Për të shtuar aplikacionin tënd të motit, hap një issue në GitHub.</string>
     <string name="config_weather_app_alert_button_github">Hap GitHub</string>
     <string name="config_section_settings_units">Njësi</string>
-    <string name="config_unit_system">Sistemi i njësive</string>
-    <string name="config_unit_metric">Metrik</string>
-    <string name="config_unit_us">Shtetet e Bashkuara</string>
-    <string name="config_unit_uk">Mbretëria e Bashkuar</string>
     <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
+    <string name="config_show_temp_unit">Shfaq njësinë e temperaturës</string>
+    <string name="config_show_temp_unit_descr">Shfaq simbolin për Fahrenheit ose Celsius</string>
+    <string name="config_title_settings">Cilësimet</string>
+    <string name="config_wind_speed">Shpejtësia e erës</string>
+    <string name="config_option_follow_widget">Si në widget</string>
+    <string name="config_unit_millimeters">Milimetra</string>
+    <string name="config_unit_centimeters">Centimetra</string>
+    <string name="config_unit_inches">Inç</string>
+    <string name="config_unit_hectopascal">Hektopaskal</string>
+    <string name="config_unit_millibar">Milibar</string>
+    <string name="config_unit_mm_mercury">Milimetra zhivë</string>
+    <string name="config_unit_inches_mercury">Inç zhivë</string>
+    <string name="config_unit_km_per_hour">Kilometra në orë</string>
+    <string name="config_unit_m_per_second">Metra në sekondë</string>
+    <string name="config_unit_miles_per_hour">Milje në orë</string>
+    <string name="config_unit_knots">Nyje</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshem</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Aktivizo motin në cilësimet e widget-it</string>
     <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
     <string name="app_text_button_try_again">Provo përsëri</string>
-    <string name="app_text_button_settings">Cilësimet e widget-it</string>
     <string name="app_text_rain">shi</string>
+    <string name="app_text_snow">Bora</string>
     <string name="app_text_hourly_details">Detajet për çdo orë</string>
     <string name="app_text_sunset_sunrise">lindja &amp; perëndimi i diellit</string>
     <string name="app_text_sunrise">agim</string>

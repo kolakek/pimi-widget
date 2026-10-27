@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Ulkoasu</string>
     <string name="config_widget_style">Vimpaimen tyyli</string>
-    <string name="config_widget_style_classic">Läpinäkyvä</string>
+    <string name="config_widget_style_classic">Klassinen</string>
+    <string name="config_widget_style_modern">Moderni</string>
     <string name="config_widget_style_solid">Yksivärinen</string>
     <string name="config_button_apply">Käytä</string>
     <string name="config_weather_switch">Sää</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi lisättävän, avaa issue GitHubissa.</string>
     <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
     <string name="config_section_settings_units">Yksiköt</string>
-    <string name="config_unit_system">Yksikköjärjestelmä</string>
-    <string name="config_unit_metric">Metrinen</string>
-    <string name="config_unit_us">Yhdysvallat</string>
-    <string name="config_unit_uk">Yhdistynyt kuningaskunta</string>
     <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
+    <string name="config_show_temp_unit">Näytä lämpötilayksikkö</string>
+    <string name="config_show_temp_unit_descr">Näytä Fahrenheit- tai Celsius-symboli</string>
+    <string name="config_title_settings">Asetukset</string>
+    <string name="config_wind_speed">Tuulen nopeus</string>
+    <string name="config_option_follow_widget">Sama kuin widgetissä</string>
+    <string name="config_unit_millimeters">Millimetriä</string>
+    <string name="config_unit_centimeters">Senttimetrit</string>
+    <string name="config_unit_inches">Tuumaa</string>
+    <string name="config_unit_hectopascal">Hehtopascalia</string>
+    <string name="config_unit_millibar">Millibaaria</string>
+    <string name="config_unit_mm_mercury">Millimetriä elohopeaa</string>
+    <string name="config_unit_inches_mercury">Tuumaa elohopeaa</string>
+    <string name="config_unit_km_per_hour">Kilometriä tunnissa</string>
+    <string name="config_unit_m_per_second">Metriä sekunnissa</string>
+    <string name="config_unit_miles_per_hour">Mailia tunnissa</string>
+    <string name="config_unit_knots">Solmua</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Ota sää käyttöön widgetin asetuksissa</string>
     <string name="app_text_check_connection">Tarkista internetyhteytesi ja yritä uudelleen</string>
     <string name="app_text_button_try_again">Yritä uudelleen</string>
-    <string name="app_text_button_settings">Widgetin asetukset</string>
     <string name="app_text_rain">sade</string>
+    <string name="app_text_snow">Lumi</string>
     <string name="app_text_hourly_details">Tuntikohtaiset tiedot</string>
     <string name="app_text_sunset_sunrise">auringonnousu &amp; auringonlasku</string>
     <string name="app_text_sunrise">auringonnousu</string>

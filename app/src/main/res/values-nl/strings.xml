@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Uiterlijk</string>
     <string name="config_widget_style">Widgetstijl</string>
-    <string name="config_widget_style_classic">Transparant</string>
+    <string name="config_widget_style_classic">Klassiek</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Effen</string>
     <string name="config_button_apply">Toepassen</string>
     <string name="config_weather_switch">Weer</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
     <string name="config_weather_app_alert_button_github">Apri GitHub</string>
     <string name="config_section_settings_units">Eenheden</string>
-    <string name="config_unit_system">Eenhedensysteem</string>
-    <string name="config_unit_metric">Metrisch</string>
-    <string name="config_unit_us">Verenigde Staten</string>
-    <string name="config_unit_uk">Verenigd Koninkrijk</string>
     <string name="config_aux_view_place_condition">Plaats &amp; weer</string>
+    <string name="config_show_temp_unit">Temperatuureenheid weergeven</string>
+    <string name="config_show_temp_unit_descr">Symbool voor Fahrenheit of Celsius weergeven</string>
+    <string name="config_title_settings">Instellingen</string>
+    <string name="config_wind_speed">Windsnelheid</string>
+    <string name="config_option_follow_widget">Zoals in de widget</string>
+    <string name="config_unit_millimeters">Millimeter</string>
+    <string name="config_unit_centimeters">Centimeters</string>
+    <string name="config_unit_inches">Inch</string>
+    <string name="config_unit_hectopascal">Hectopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kwik</string>
+    <string name="config_unit_inches_mercury">Inch kwik</string>
+    <string name="config_unit_km_per_hour">Kilometer per uur</string>
+    <string name="config_unit_m_per_second">Meter per seconde</string>
+    <string name="config_unit_miles_per_hour">Mijl per uur</string>
+    <string name="config_unit_knots">Knopen</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Schakel het weer in via de widgetinstellingen</string>
     <string name="app_text_check_connection">Controleer je internetverbinding en probeer opnieuw</string>
     <string name="app_text_button_try_again">Opnieuw proberen</string>
-    <string name="app_text_button_settings">Widgetinstellingen</string>
     <string name="app_text_rain">regen</string>
+    <string name="app_text_snow">Sneeuw</string>
     <string name="app_text_hourly_details">Informatie per uur</string>
     <string name="app_text_sunset_sunrise">zonsopgang &amp; zonsondergang</string>
     <string name="app_text_sunrise">zonsopgang</string>

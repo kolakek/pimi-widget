@@ -19,7 +19,6 @@ package com.kolakek.pimiwidget.ui
 
 import android.content.Context
 import com.kolakek.pimiwidget.settings.AppPreferences
-import com.kolakek.pimiwidget.settings.IconColor
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DetailsItem
 import com.kolakek.pimiwidget.weather.HourlyItem
@@ -37,6 +36,7 @@ data class DisplayData (
     val hourlyWeather: List<HourlyItem>,
     val dailyWeather: List<DailyItem>,
     val detailsRain: DetailsItem,
+    val detailsSnow: DetailsItem,
     val detailsHumidity: DetailsItem,
     val detailsUvIndex: DetailsItem,
     val dailySunInfo: SunItem?,
@@ -61,7 +61,7 @@ data class DisplayData (
                 weather,
                 prefs.tempUnit,
                 prefs.iconStyle,
-                IconColor.THEMED,
+                prefs.iconColor,
                 fullUnit = false
             )
             val currentConditionString = WeatherRenderer.currentConditionString(
@@ -83,19 +83,24 @@ data class DisplayData (
                 weather,
                 prefs.tempUnit,
                 prefs.iconStyle,
-                IconColor.THEMED
+                prefs.iconColor
             )
             val dailyWeather = WeatherRenderer.dailyWeather(
                 context,
                 weather,
                 prefs.tempUnit,
                 prefs.iconStyle,
-                IconColor.THEMED
+                prefs.iconColor
             )
             val detailsRain = WeatherRenderer.detailsRain(
                 context,
                 weather,
                 prefs.rainUnit
+            )
+            val detailsSnow = WeatherRenderer.detailsSnow(
+                context,
+                weather,
+                prefs.snowUnit
             )
             val detailsHumidity = WeatherRenderer.detailsHumidity(
                 context,
@@ -136,6 +141,7 @@ data class DisplayData (
                 dailyHighLowTemp = dailyHighLowTempString,
                 hourlyWeather = hourlyWeather,
                 detailsRain = detailsRain,
+                detailsSnow = detailsSnow,
                 detailsHumidity = detailsHumidity,
                 detailsUvIndex = detailsUvIndex,
                 dailyWeather = dailyWeather,

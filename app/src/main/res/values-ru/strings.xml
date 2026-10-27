@@ -8,7 +8,8 @@
     <string name="config_section_about">О приложении</string>
     <string name="config_section_style">Внешний вид</string>
     <string name="config_widget_style">Стиль виджета</string>
-    <string name="config_widget_style_classic">Прозрачный</string>
+    <string name="config_widget_style_classic">Классический</string>
+    <string name="config_widget_style_modern">Современный</string>
     <string name="config_widget_style_solid">Непрозрачный</string>
     <string name="config_weather_switch">Погода</string>
     <string name="config_birthday_switch">Дни рождения</string>
@@ -53,10 +54,6 @@
     <string name="config_option_auto">Автоматически</string>
     <string name="config_option_follow_system">По умолчанию</string>
     <string name="config_temp">Температура</string>
-    <string name="config_unit_system">Система измерений</string>
-    <string name="config_unit_metric">Метрическая</string>
-    <string name="config_unit_us">США</string>
-    <string name="config_unit_uk">Великобритания</string>
     <string name="config_daily_forecast">Показывать ежедневный прогноз погоды</string>
     <string name="config_daily_forecast_summary">Утром и вечером</string>
     <string name="config_weather_warnings">Показывать предупреждения о погоде</string>
@@ -79,6 +76,22 @@
     <string name="config_weather_app_nil">Нет в списке</string>
     <string name="config_weather_app_nil_alert_message">Чтобы ваше приложение погоды могло быть добавлено, создайте issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Открыть GitHub</string>
+    <string name="config_show_temp_unit">Показывать единицу температуры</string>
+    <string name="config_show_temp_unit_descr">Показывать символ Фаренгейта или Цельсия</string>
+    <string name="config_title_settings">Настройки</string>
+    <string name="config_wind_speed">Скорость ветра</string>
+    <string name="config_option_follow_widget">Как в виджете</string>
+    <string name="config_unit_millimeters">Миллиметры</string>
+    <string name="config_unit_centimeters">Сантиметры</string>
+    <string name="config_unit_inches">Дюймы</string>
+    <string name="config_unit_hectopascal">Гектопаскали</string>
+    <string name="config_unit_millibar">Миллибары</string>
+    <string name="config_unit_mm_mercury">Миллиметры ртутного столба</string>
+    <string name="config_unit_inches_mercury">Дюймы ртутного столба</string>
+    <string name="config_unit_km_per_hour">Километры в час</string>
+    <string name="config_unit_m_per_second">Метры в секунду</string>
+    <string name="config_unit_miles_per_hour">Мили в час</string>
+    <string name="config_unit_knots">Узлы</string>
 
     <string name="app_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="app_text_now">Сейчас</string>
@@ -101,17 +114,17 @@
     <string name="app_text_enable_in_settings">Включите показ погоды в настройках виджета</string>
     <string name="app_text_check_connection">Проверьте соединение и попробуйте еще раз</string>
     <string name="app_text_button_try_again">Еще раз</string>
-    <string name="app_text_button_settings">Настройки виджета</string>
     <string name="app_text_rain">дождь</string>
+    <string name="app_text_snow">Снег</string>
     <string name="app_text_hourly_details">Данные по часам</string>
-    <string name="app_text_sunset_sunrise">восход &amp; закат</string>
+    <string name="app_text_sunset_sunrise">восход и закат</string>
     <string name="app_text_sunrise">восход</string>
     <string name="app_text_sunset">закат</string>
     <string name="app_text_evening">вечер</string>
     <string name="app_text_morning">утро</string>
     <string name="app_today_total">всего за сегодня</string>
     <string name="app_today_average">в среднем за сегодня</string>
-    <string name="app_today_maximum">максимум за день</string>
+    <string name="app_today_maximum">максимум за сегодня</string>
 
     <string name="mu_0_1_2">низкий</string>
     <string name="mu_3_4_5">умеренный</string>

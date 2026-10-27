@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Utseende</string>
     <string name="config_widget_style">Widgetstil</string>
-    <string name="config_widget_style_classic">Genomskinlig</string>
+    <string name="config_widget_style_classic">Klassisk</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Enfärgad</string>
     <string name="config_button_apply">Tillämpa</string>
     <string name="config_weather_switch">Väder</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">För att få din väderapp tillagd, öppna ett issue på GitHub.</string>
     <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
     <string name="config_section_settings_units">Enheter</string>
-    <string name="config_unit_system">Enhetssystem</string>
-    <string name="config_unit_metric">Metriskt</string>
-    <string name="config_unit_us">USA</string>
-    <string name="config_unit_uk">Storbritannien</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
+    <string name="config_show_temp_unit">Visa temperatureenhet</string>
+    <string name="config_show_temp_unit_descr">Visa symbol för Fahrenheit eller Celsius</string>
+    <string name="config_title_settings">Inställningar</string>
+    <string name="config_wind_speed">Vindhastighet</string>
+    <string name="config_option_follow_widget">Samma som widgeten</string>
+    <string name="config_unit_millimeters">Millimeter</string>
+    <string name="config_unit_centimeters">Centimeter</string>
+    <string name="config_unit_inches">Tum</string>
+    <string name="config_unit_hectopascal">Hektopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kvicksilver</string>
+    <string name="config_unit_inches_mercury">Tum kvicksilver</string>
+    <string name="config_unit_km_per_hour">Kilometer per timme</string>
+    <string name="config_unit_m_per_second">Meter per sekund</string>
+    <string name="config_unit_miles_per_hour">Miles per timme</string>
+    <string name="config_unit_knots">Knop</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Aktivera väder i widgetinställningarna</string>
     <string name="app_text_check_connection">Kontrollera din internetanslutning och försök igen</string>
     <string name="app_text_button_try_again">Försök igen</string>
-    <string name="app_text_button_settings">Widgetinställningar</string>
     <string name="app_text_rain">regn</string>
+    <string name="app_text_snow">Snö</string>
     <string name="app_text_hourly_details">Information timme för timme</string>
     <string name="app_text_sunset_sunrise">soluppgång &amp; solnedgång</string>
     <string name="app_text_sunrise">soluppgång</string>

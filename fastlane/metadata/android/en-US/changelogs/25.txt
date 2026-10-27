@@ -1,0 +1,7 @@
+* Added an additional widget style
+* More responsive weather app graphics
+* Added support for the Essentials Weather app
+* Indonesian translation (thanks to Baydra)
+* Options to select individual weather units
+* Option to hide the temperature unit
+* Cleaned up resources to reduce APK size

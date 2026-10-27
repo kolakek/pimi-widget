@@ -19,9 +19,11 @@ package com.kolakek.pimiwidget.settings
 
 data class AppPreferences (
     val iconStyle: IconStyle,
+    val iconColor: IconColor,
     val tempUnit: TempUnit,
     val windUnit: WindUnit,
     val pressureUnit: PressureUnit,
     val rainUnit: RainUnit,
+    val snowUnit: SnowUnit,
     val showWeather: Boolean
 )

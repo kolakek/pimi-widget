@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="category_settings_units"
+        android:selectable="false"
+        android:title="@string/config_section_settings_units"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:key="temp_list"
+            android:entries="@array/temp_units"
+            android:entryValues="@array/temp_units_vals"
+            android:defaultValue="temp_unit_auto"
+            android:title="@string/config_temp"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="rain_unit_list"
+            android:entries="@array/rain_units"
+            android:entryValues="@array/rain_units_vals"
+            android:defaultValue="rain_unit_auto"
+            android:title="@string/app_text_rain"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="snow_unit_list"
+            android:entries="@array/snow_units"
+            android:entryValues="@array/snow_units_vals"
+            android:defaultValue="snow_unit_auto"
+            android:title="@string/app_text_snow"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pressure_unit_list"
+            android:entries="@array/pressure_units"
+            android:entryValues="@array/pressure_units_vals"
+            android:defaultValue="pressure_unit_auto"
+            android:title="@string/app_text_pressure"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="wind_unit_list"
+            android:entries="@array/wind_units"
+            android:entryValues="@array/wind_units_vals"
+            android:defaultValue="wind_unit_auto"
+            android:title="@string/config_wind_speed"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_style"
+        android:selectable="false"
+        android:title="@string/config_section_style"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <ListPreference
+            android:defaultValue="app_icon_style_outlined"
+            android:entries="@array/app_icon_styles"
+            android:entryValues="@array/app_icon_styles_vals"
+            android:key="app_icon_style_list"
+            android:title="@string/config_icon_style"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

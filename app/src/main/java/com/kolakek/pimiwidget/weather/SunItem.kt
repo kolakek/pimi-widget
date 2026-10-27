@@ -17,8 +17,10 @@
 
 package com.kolakek.pimiwidget.weather
 
+import com.kolakek.pimiwidget.resources.LayeredImage
+
 data class SunItem(
     val sunsetValueStr: String,
     val sunriseValueStr: String,
-    val iconId: Int
+    val image: LayeredImage
 )

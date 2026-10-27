@@ -123,6 +123,10 @@ data class WeatherData (
         return dailyShowersMm.getOrNull(todayIndex())
     }
 
+    fun todaySnowCm(): Double? {
+        return dailySnowCm.getOrNull(todayIndex())
+    }
+
     fun todayHumidityMean(): Double? {
         return dailyHumidityMean.getOrNull(todayIndex())
     }

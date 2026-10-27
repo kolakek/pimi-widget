@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Εμφάνιση</string>
     <string name="config_widget_style">Στυλ γραφικού στοιχείου</string>
-    <string name="config_widget_style_classic">Διαφανές</string>
+    <string name="config_widget_style_classic">Κλασικό</string>
+    <string name="config_widget_style_modern">Μοντέρνο</string>
     <string name="config_widget_style_solid">Μονόχρωμο</string>
     <string name="config_button_apply">Εφαρμογή</string>
     <string name="config_weather_switch">Καιρός</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
     <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
     <string name="config_section_settings_units">Μονάδες</string>
-    <string name="config_unit_system">Σύστημα μονάδων</string>
-    <string name="config_unit_metric">Μετρικό</string>
-    <string name="config_unit_us">Ηνωμένες Πολιτείες</string>
-    <string name="config_unit_uk">Ηνωμένο Βασίλειο</string>
     <string name="config_aux_view_place_condition">Τοποθεσία &amp; καιρός</string>
+    <string name="config_show_temp_unit">Εμφάνιση μονάδας θερμοκρασίας</string>
+    <string name="config_show_temp_unit_descr">Εμφάνιση συμβόλου για Fahrenheit ή Celsius</string>
+    <string name="config_title_settings">Ρυθμίσεις</string>
+    <string name="config_wind_speed">Ταχύτητα ανέμου</string>
+    <string name="config_option_follow_widget">Όπως στο widget</string>
+    <string name="config_unit_millimeters">Χιλιοστά</string>
+    <string name="config_unit_centimeters">Εκατοστά</string>
+    <string name="config_unit_inches">Ίντσες</string>
+    <string name="config_unit_hectopascal">Εκτοπασκάλ</string>
+    <string name="config_unit_millibar">Μιλιμπάρ</string>
+    <string name="config_unit_mm_mercury">Χιλιοστά στήλης υδραργύρου</string>
+    <string name="config_unit_inches_mercury">Ίντσες στήλης υδραργύρου</string>
+    <string name="config_unit_km_per_hour">Χιλιόμετρα ανά ώρα</string>
+    <string name="config_unit_m_per_second">Μέτρα ανά δευτερόλεπτο</string>
+    <string name="config_unit_miles_per_hour">Μίλια ανά ώρα</string>
+    <string name="config_unit_knots">Κόμβοι</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Ενεργοποίησε τον καιρό στις ρυθμίσεις του widget</string>
     <string name="app_text_check_connection">Έλεγξε τη σύνδεσή σου στο διαδίκτυο και δοκίμασε ξανά</string>
     <string name="app_text_button_try_again">Δοκίμασε ξανά</string>
-    <string name="app_text_button_settings">Ρυθμίσεις widget</string>
     <string name="app_text_rain">βροχή</string>
+    <string name="app_text_snow">Χιόνι</string>
     <string name="app_text_hourly_details">Ωριαίες λεπτομέρειες</string>
     <string name="app_text_sunset_sunrise">ανατολή &amp; δύση ηλίου</string>
     <string name="app_text_sunrise">ανατολή ηλίου</string>

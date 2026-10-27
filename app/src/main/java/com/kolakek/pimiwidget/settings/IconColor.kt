@@ -19,6 +19,5 @@ package com.kolakek.pimiwidget.settings
 
 enum class IconColor {
     DARK,
-    LIGHT,
-    THEMED
+    LIGHT
 }

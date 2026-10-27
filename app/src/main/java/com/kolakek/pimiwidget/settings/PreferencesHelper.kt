@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.settings
 import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
+import android.content.res.Configuration
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
@@ -30,27 +31,55 @@ import com.kolakek.pimiwidget.utility.WeatherApp
 
 object PreferencesHelper {
 
-    enum class IconStylePref(val key: String) {
-        FLAT_SKETCH(KEY_ICON_STYLE_FLAT_SKETCH),
-        TWINKLE_SHADOW(KEY_ICON_STYLE_TWINKLE_SHADOW)
+    enum class AppIconStylePref(val key: String) {
+        FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH),
+        TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW),
+        FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET)
+    }
+
+    enum class WidgetIconStylePref(val key: String) {
+        FLAT_SKETCH(KEY_WIDGET_ICON_STYLE_FLAT_SKETCH),
+        TWINKLE_SHADOW(KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW)
     }
 
     enum class WidgetStylePref(val key: String) {
         CLASSIC(KEY_WIDGET_STYLE_CLASSIC),
+        MODERN(KEY_WIDGET_STYLE_MODERN),
         SOLID(KEY_WIDGET_STYLE_SOLID)
     }
 
     enum class TempUnitPref(val key: String) {
-        AUTO(KEY_TEMP_AUTO),
-        CELSIUS(KEY_TEMP_CELSIUS),
-        FAHRENHEIT(KEY_TEMP_FAHRENHEIT)
+        AUTO(KEY_TEMP_UNIT_AUTO),
+        CELSIUS(KEY_TEMP_UNIT_CELSIUS),
+        FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT)
     }
 
-    enum class SystemUnitPref(val key: String) {
-        AUTO(KEY_SYSTEM_UNIT_AUTO),
-        METRIC(KEY_SYSTEM_UNIT_METRIC),
-        US(KEY_SYSTEM_UNIT_US),
-        UK(KEY_SYSTEM_UNIT_UK)
+    enum class RainUnitPref(val key: String) {
+        AUTO(KEY_RAIN_UNIT_AUTO),
+        MM(KEY_RAIN_UNIT_MM),
+        INCH(KEY_RAIN_UNIT_INCH)
+    }
+
+    enum class SnowUnitPref(val key: String) {
+        AUTO(KEY_SNOW_UNIT_AUTO),
+        CM(KEY_SNOW_UNIT_CM),
+        INCH(KEY_SNOW_UNIT_INCH)
+    }
+
+    enum class PressureUnitPref(val key: String) {
+        AUTO(KEY_PRESSURE_UNIT_AUTO),
+        HPA(KEY_PRESSURE_UNIT_HPA),
+        MB(KEY_PRESSURE_UNIT_MB),
+        MMHG(KEY_PRESSURE_UNIT_MMHG),
+        INHG(KEY_PRESSURE_UNIT_INHG)
+    }
+
+    enum class WindUnitPref(val key: String) {
+        AUTO(KEY_WIND_UNIT_AUTO),
+        KMH(KEY_WIND_UNIT_KMH),
+        MS(KEY_WIND_UNIT_MS),
+        MPH(KEY_WIND_UNIT_MPH),
+        KNOT(KEY_WIND_UNIT_KNOT),
     }
 
     enum class ColorPref(val key: String) {
@@ -66,20 +95,33 @@ object PreferencesHelper {
     }
 
     fun getAppPreferences(context: Context): AppPreferences {
-        val iconStylePref = getIconStylePreference(context)
+        val iconStylePref = getAppIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
-        val systemUnitPref = getSystemUnitPreference(context)
+        val rainUnitPref = getRainUnitPreference(context)
+        val snowUnitPref = getSnowUnitPreference(context)
+        val windUnitPref = getWindUnitPreference(context)
+        val pressureUnitPref = getPressureUnitPreference(context)
 
         val iconStyle = when (iconStylePref) {
-            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
-            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            AppIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            AppIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            AppIconStylePref.FOLLOW_WIDGET -> {
+                when (getWidgetIconStylePreference(context)) {
+                    WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+                    WidgetIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+                }
+            }
         }
+        val iconColor = if (context.isNightMode()) IconColor.LIGHT else IconColor.DARK
+
         return AppPreferences(
             iconStyle = iconStyle,
+            iconColor = iconColor,
             tempUnit = tempUnitFromPref(tempUnitPref),
-            windUnit = windUnitFromPref(systemUnitPref),
-            pressureUnit = pressureUnitFromPref(systemUnitPref),
-            rainUnit = rainUnitFromPref(systemUnitPref),
+            windUnit = windUnitFromPref(windUnitPref),
+            pressureUnit = pressureUnitFromPref(pressureUnitPref),
+            rainUnit = rainUnitFromPref(rainUnitPref),
+            snowUnit = snowUnitFromPref(snowUnitPref),
             showWeather = getWeatherPreference(context),
         )
     }
@@ -87,7 +129,7 @@ object PreferencesHelper {
     fun getWidgetPreferences(context: Context): WidgetPreferences {
         val textColorPref = getTextColorPreference(context)
         val iconColorPref = getIconColorPreference(context)
-        val iconStylePref = getIconStylePreference(context)
+        val iconStylePref = getWidgetIconStylePreference(context)
         val widgetStylePref = getWidgetStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
@@ -95,7 +137,9 @@ object PreferencesHelper {
 
         val textColor = when (textColorPref) {
             ColorPref.AUTO -> when (widgetStylePref) {
-                WidgetStylePref.CLASSIC -> getTextColorForWallpaper(context)
+                WidgetStylePref.CLASSIC,
+                WidgetStylePref.MODERN
+                    -> getTextColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.DYNAMIC
             }
 
@@ -110,22 +154,25 @@ object PreferencesHelper {
                 else -> if (textColor == TextColor.DARK) IconColor.DARK else IconColor.LIGHT
             }
         }
+        val needsShadowStyle =
+            (textColor == TextColor.LIGHT) && (iconStylePref == WidgetIconStylePref.TWINKLE_SHADOW)
+
         val widgetStyle = when (widgetStylePref) {
             WidgetStylePref.SOLID -> WidgetStyle.SOLID
             WidgetStylePref.CLASSIC ->
-                if (textColor == TextColor.LIGHT && iconStylePref == IconStylePref.TWINKLE_SHADOW)
-                    WidgetStyle.SHADOW else WidgetStyle.DEFAULT
+                if (needsShadowStyle) WidgetStyle.CLASSIC_SHADOW else WidgetStyle.CLASSIC
+            WidgetStylePref.MODERN ->
+                if (needsShadowStyle) WidgetStyle.MODERN_SHADOW else WidgetStyle.MODERN
         }
         val iconStyle = when (iconStylePref) {
-            IconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
-            IconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
+            WidgetIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
+            WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
         val auxDisplay = when (auxDisplayPref) {
             AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
             AuxDisplayPref.PLACE_CONDITION -> AuxDisplay.PLACE_CONDITION
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
         }
-
         return WidgetPreferences(
             showAlarms = getAlarmPreference(context),
             showWeather = getWeatherPreference(context),
@@ -134,6 +181,7 @@ object PreferencesHelper {
             showDailyForecast = getDailyForecastPreference(context),
             showWeatherWarning = getWeatherWarningPreference(context),
             permanentAlarm = getPermanentAlarmPreference(context),
+            showTempUnit = getShowTempUnitPreference(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -269,10 +317,19 @@ object PreferencesHelper {
         return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
     }
 
-    private fun getIconStylePreference(context: Context): IconStylePref {
+    private fun getWidgetIconStylePreference(context: Context): WidgetIconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_ICON_STYLE_LIST, null)
-        return IconStylePref.entries.find { it.key == key } ?: IconStylePref.TWINKLE_SHADOW
+            .getString(KEY_WIDGET_ICON_STYLE_LIST, null)
+        return WidgetIconStylePref.entries.find { it.key == key }
+            ?: WidgetIconStylePref.TWINKLE_SHADOW
+
+    }
+
+    private fun getAppIconStylePreference(context: Context): AppIconStylePref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_APP_ICON_STYLE_LIST, null)
+        return AppIconStylePref.entries.find { it.key == key }
+            ?: AppIconStylePref.FLAT_SKETCH
 
     }
 
@@ -282,10 +339,28 @@ object PreferencesHelper {
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
-    private fun getSystemUnitPreference(context: Context): SystemUnitPref {
+    private fun getRainUnitPreference(context: Context): RainUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_SYSTEM_UNIT_LIST, null)
-        return SystemUnitPref.entries.find { it.key == key } ?: SystemUnitPref.AUTO
+            .getString(KEY_RAIN_UNIT_LIST, null)
+        return RainUnitPref.entries.find { it.key == key } ?: RainUnitPref.AUTO
+    }
+
+    private fun getSnowUnitPreference(context: Context): SnowUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_SNOW_UNIT_LIST, null)
+        return SnowUnitPref.entries.find { it.key == key } ?: SnowUnitPref.AUTO
+    }
+
+    private fun getPressureUnitPreference(context: Context): PressureUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_PRESSURE_UNIT_LIST, null)
+        return PressureUnitPref.entries.find { it.key == key } ?: PressureUnitPref.AUTO
+    }
+
+    private fun getWindUnitPreference(context: Context): WindUnitPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WIND_UNIT_LIST, null)
+        return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
     }
 
     private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
@@ -302,6 +377,11 @@ object PreferencesHelper {
     private fun getPermanentAlarmPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_PERMANENT_ALARM, false)
+    }
+
+    private fun getShowTempUnitPreference(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
     private fun getWeatherApp(context: Context): WeatherApp {
@@ -336,23 +416,25 @@ object PreferencesHelper {
         }
     }
 
-    private fun windUnitFromPref(systemUnitPref: SystemUnitPref): WindUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun windUnitFromPref(windUnitPref: WindUnitPref): WindUnit {
+        return when (windUnitPref) {
+            WindUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US, UnitSystem.UK -> WindUnit.MPH
                     UnitSystem.METRIC -> WindUnit.KMH
                 }
             }
 
-            SystemUnitPref.METRIC -> WindUnit.KMH
-            SystemUnitPref.US, SystemUnitPref.UK -> WindUnit.MPH
+            WindUnitPref.KMH -> WindUnit.KMH
+            WindUnitPref.MPH -> WindUnit.MPH
+            WindUnitPref.MS -> WindUnit.MS
+            WindUnitPref.KNOT -> WindUnit.KNOT
         }
     }
 
-    private fun pressureUnitFromPref(systemUnitPref: SystemUnitPref): PressureUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun pressureUnitFromPref(pressureUnitPref: PressureUnitPref): PressureUnit {
+        return when (pressureUnitPref) {
+            PressureUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US -> PressureUnit.INHG
                     UnitSystem.UK -> PressureUnit.MB
@@ -360,15 +442,16 @@ object PreferencesHelper {
                 }
             }
 
-            SystemUnitPref.US -> PressureUnit.INHG
-            SystemUnitPref.UK -> PressureUnit.MB
-            SystemUnitPref.METRIC -> PressureUnit.HPA
+            PressureUnitPref.HPA -> PressureUnit.HPA
+            PressureUnitPref.MB -> PressureUnit.MB
+            PressureUnitPref.INHG -> PressureUnit.INHG
+            PressureUnitPref.MMHG -> PressureUnit.MMHG
         }
     }
 
-    private fun rainUnitFromPref(systemUnitPref: SystemUnitPref): RainUnit {
-        return when (systemUnitPref) {
-            SystemUnitPref.AUTO -> {
+    private fun rainUnitFromPref(rainUnitPref: RainUnitPref): RainUnit {
+        return when (rainUnitPref) {
+            RainUnitPref.AUTO -> {
                 when (UnitSystem.fromLocale()) {
                     UnitSystem.US -> RainUnit.INCH
                     UnitSystem.UK -> RainUnit.MM
@@ -376,9 +459,28 @@ object PreferencesHelper {
                 }
             }
 
-            SystemUnitPref.US -> RainUnit.INCH
-            SystemUnitPref.UK -> RainUnit.MM
-            SystemUnitPref.METRIC -> RainUnit.MM
+            RainUnitPref.MM -> RainUnit.MM
+            RainUnitPref.INCH -> RainUnit.INCH
         }
+    }
+
+    private fun snowUnitFromPref(snowUnitPref: SnowUnitPref): SnowUnit {
+        return when (snowUnitPref) {
+            SnowUnitPref.AUTO -> {
+                when (UnitSystem.fromLocale()) {
+                    UnitSystem.US -> SnowUnit.INCH
+                    UnitSystem.UK -> SnowUnit.CM
+                    UnitSystem.METRIC -> SnowUnit.CM
+                }
+            }
+
+            SnowUnitPref.CM -> SnowUnit.CM
+            SnowUnitPref.INCH -> SnowUnit.INCH
+        }
+    }
+
+    private fun Context.isNightMode(): Boolean {
+        val mode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return mode == Configuration.UI_MODE_NIGHT_YES
     }
 }

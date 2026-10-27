@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Udseende</string>
     <string name="config_widget_style">Widgetstil</string>
-    <string name="config_widget_style_classic">Gennemsigtig</string>
+    <string name="config_widget_style_classic">Klassisk</string>
+    <string name="config_widget_style_modern">Moderne</string>
     <string name="config_widget_style_solid">Ensfarvet</string>
     <string name="config_button_apply">Anvend</string>
     <string name="config_weather_switch">Vejr</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">For at få din vejr-app tilføjet, opret et issue på GitHub.</string>
     <string name="config_weather_app_alert_button_github">Åbn GitHub</string>
     <string name="config_section_settings_units">Enheder</string>
-    <string name="config_unit_system">Enhedssystem</string>
-    <string name="config_unit_metric">Metrisk</string>
-    <string name="config_unit_us">USA</string>
-    <string name="config_unit_uk">Storbritannien</string>
     <string name="config_aux_view_place_condition">Sted &amp; vejr</string>
+    <string name="config_show_temp_unit">Vis temperaturenhed</string>
+    <string name="config_show_temp_unit_descr">Vis symbol for Fahrenheit eller Celsius</string>
+    <string name="config_title_settings">Indstillinger</string>
+    <string name="config_wind_speed">Vindhastighed</string>
+    <string name="config_option_follow_widget">Samme som widget</string>
+    <string name="config_unit_millimeters">Millimeter</string>
+    <string name="config_unit_centimeters">Centimeter</string>
+    <string name="config_unit_inches">Tommer</string>
+    <string name="config_unit_hectopascal">Hektopascal</string>
+    <string name="config_unit_millibar">Millibar</string>
+    <string name="config_unit_mm_mercury">Millimeter kviksølv</string>
+    <string name="config_unit_inches_mercury">Tommer kviksølv</string>
+    <string name="config_unit_km_per_hour">Kilometer i timen</string>
+    <string name="config_unit_m_per_second">Meter i sekundet</string>
+    <string name="config_unit_miles_per_hour">Miles i timen</string>
+    <string name="config_unit_knots">Knob</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Timevis vejrudsigt</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Aktivér vejret i widget-indstillingerne</string>
     <string name="app_text_check_connection">Tjek din internetforbindelse og prøv igen</string>
     <string name="app_text_button_try_again">Prøv igen</string>
-    <string name="app_text_button_settings">Widget-indstillinger</string>
     <string name="app_text_rain">regn</string>
+    <string name="app_text_snow">Sne</string>
     <string name="app_text_hourly_details">Timevis detaljer</string>
     <string name="app_text_sunset_sunrise">solopgang &amp; solnedgang</string>
     <string name="app_text_sunrise">solopgang</string>

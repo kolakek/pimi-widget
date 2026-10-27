@@ -8,7 +8,8 @@
     <string name="config_section_about">About</string>
     <string name="config_section_style">Appearance</string>
     <string name="config_widget_style">Widget style</string>
-    <string name="config_widget_style_classic">Transparent</string>
+    <string name="config_widget_style_classic">Classic</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Solid</string>
     <string name="config_weather_switch">Weather</string>
     <string name="config_birthday_switch">Birthdays</string>
@@ -53,10 +54,6 @@
     <string name="config_option_auto">Automatic</string>
     <string name="config_option_follow_system">System default</string>
     <string name="config_temp">Temperature</string>
-    <string name="config_unit_system">Measurement system</string>
-    <string name="config_unit_metric">Metric</string>
-    <string name="config_unit_us">United States</string>
-    <string name="config_unit_uk">United Kingdom</string>
     <string name="config_daily_forecast">Show daily forecast</string>
     <string name="config_daily_forecast_summary">In the morning and evening</string>
     <string name="config_weather_warnings">Show weather alerts</string>
@@ -79,6 +76,22 @@
     <string name="config_weather_app_nil">Not listed</string>
     <string name="config_weather_app_nil_alert_message">To have your weather app added, please open an issue on GitHub.</string>
     <string name="config_weather_app_alert_button_github">Open GitHub</string>
+    <string name="config_show_temp_unit">Show temperature unit</string>
+    <string name="config_show_temp_unit_descr">Show symbol for Fahrenheit or Celsius</string>
+    <string name="config_title_settings">Settings</string>
+    <string name="config_wind_speed">Wind speed</string>
+    <string name="config_option_follow_widget">Follow widget</string>
+    <string name="config_unit_millimeters">Millimeters</string>
+    <string name="config_unit_centimeters">Centimeters</string>
+    <string name="config_unit_inches">Inches</string>
+    <string name="config_unit_hectopascal">Hectopascals</string>
+    <string name="config_unit_millibar">Millibars</string>
+    <string name="config_unit_mm_mercury">Millimeters of mercury</string>
+    <string name="config_unit_inches_mercury">Inches of mercury</string>
+    <string name="config_unit_km_per_hour">Kilometers per hour</string>
+    <string name="config_unit_m_per_second">Meters per second</string>
+    <string name="config_unit_miles_per_hour">Miles per hour</string>
+    <string name="config_unit_knots">Knots</string>
 
     <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -110,8 +123,8 @@
     <string name="app_text_enable_in_settings">Enable weather in widget settings</string>
     <string name="app_text_check_connection">Check your connection and try again</string>
     <string name="app_text_button_try_again">Try again</string>
-    <string name="app_text_button_settings">Widget settings</string>
     <string name="app_text_rain">Rain</string>
+    <string name="app_text_snow">Snow</string>
     <string name="app_text_hourly_details">Hourly details</string>
     <string name="app_text_sunset_sunrise">Sunrise &amp; sunset</string>
     <string name="app_text_sunrise">Sunrise</string>
@@ -197,11 +210,15 @@
     <string name="unit_fahrenheit" translatable="false">\u2109</string>
     <string name="unit_degree" translatable="false">\u00B0</string>
     <string name="unit_kmh" translatable="false">km/h</string>
+    <string name="unit_ms" translatable="false">m/s</string>
     <string name="unit_mph" translatable="false">mph</string>
+    <string name="unit_knot" translatable="false">kn</string>
     <string name="unit_hpa" translatable="false">hPa</string>
     <string name="unit_mb" translatable="false">mbar</string>
+    <string name="unit_mmhg" translatable="false">mmHg</string>
     <string name="unit_inhg" translatable="false">inHg</string>
     <string name="unit_mm" translatable="false">mm</string>
+    <string name="unit_cm" translatable="false">cm</string>
     <string name="unit_in" translatable="false">in</string>
     <string name="north" translatable="false">N</string>
     <string name="zero" translatable="false">0</string>
@@ -235,5 +252,6 @@
     <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
     <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
     <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
+    <string name="config_weather_app_overcast" translatable="false">Overcast</string>
 
 </resources>

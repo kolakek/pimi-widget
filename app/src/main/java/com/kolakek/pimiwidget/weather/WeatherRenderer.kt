@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.weather
 
 import android.content.Context
-import android.graphics.Color
 import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
@@ -44,8 +43,9 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
-import androidx.core.graphics.toColorInt
 import com.kolakek.pimiwidget.settings.RainUnit
+import com.kolakek.pimiwidget.settings.SnowUnit
+import kotlin.math.round
 
 object WeatherRenderer {
 
@@ -95,15 +95,23 @@ object WeatherRenderer {
         val windKmh = weather.currentWindSpeedKmh() ?: return null
         val directionDeg = weather.currentWindDirectionDeg() ?: return null
 
+        val windStr = String.format(
+            Locale.getDefault(),
+            windUnit.format,
+            windUnit.fromKmh(windKmh)
+        )
         val gustsStr = weather.currentWindGustsKmh()?.let {
-            context.getString(R.string.app_text_gusts) + ": ${windUnit.fromKmh(it).toInt()}"
+            context.getString(R.string.app_text_gusts) + ": " + String.format(
+                Locale.getDefault(),
+                windUnit.format,
+                windUnit.fromKmh(it)
+            )
         }
         return WeatherItem(
-            valueStr = "${windUnit.fromKmh(windKmh).toInt()}",
+            valueStr = windStr,
             unitStr = windUnit.unitStr(context),
             auxStr = gustsStr,
-            iconId = ConditionIcon.getWindIconId(),
-            level = directionDeg,
+            image = ConditionIcon.windImage(directionDeg)
         )
     }
 
@@ -114,6 +122,8 @@ object WeatherRenderer {
     ): WeatherItem? {
         val humidity = weather.currentHumidity() ?: return null
 
+        val image = ConditionIcon.humidityImage(humidity)
+
         val dewPointStr = weather.currentDewPointCelsius()?.let {
             context.getString(R.string.app_text_dew_point) + ": " +
                     temperatureString(context, it, tempUnit, false)
@@ -122,8 +132,7 @@ object WeatherRenderer {
             valueStr = "${humidity.toInt()}",
             unitStr = "%",
             auxStr = dewPointStr,
-            iconId = ConditionIcon.getHumidityIconId(humidity),
-            level = humidity
+            image = image
         )
     }
 
@@ -131,13 +140,11 @@ object WeatherRenderer {
         context: Context,
         weather: WeatherData
     ): WeatherItem? {
-        val uvIndex = weather.currentUvIndex() ?: return null
-
+        val uvIndex = weather.currentUvIndex()?.let { round(it) } ?: return null
         return WeatherItem(
             valueStr = "${uvIndex.toInt()}",
             auxStr = context.getString(ConditionString.getUvIndexStringId(uvIndex)),
-            iconId = ConditionIcon.getUvIndexIconId(uvIndex),
-            level = uvIndex
+            image = ConditionIcon.uvIndexImage(uvIndex)
         )
     }
 
@@ -148,18 +155,15 @@ object WeatherRenderer {
     ): WeatherItem? {
         val pressureHpa = weather.currentPressureHpa() ?: return null
 
-        val formatStr = if (pressureUnit == PressureUnit.INHG) "%.1f" else "%,.0f"
-
         val pressureStr = String.format(
             Locale.getDefault(),
-            formatStr,
+            pressureUnit.format,
             pressureUnit.fromHpa(pressureHpa)
         )
         return WeatherItem(
             valueStr = pressureStr,
             unitStr = pressureUnit.unitStr(context),
-            iconId = ConditionIcon.getPressureIconId(pressureHpa),
-            level = pressureHpa
+            image = ConditionIcon.pressureImage(pressureHpa)
         )
     }
 
@@ -239,15 +243,18 @@ object WeatherRenderer {
         context: Context,
         weather: WeatherData
     ): SunItem? {
-
         val sunriseMillis = weather.todaySunriseMillis() ?: return null
         val sunsetMillis = weather.todaySunsetMillis() ?: return null
-        val currentMillis = System.currentTimeMillis()
 
+        val sunImage = ConditionIcon.sunTrackImage(
+            sunriseMillis = sunriseMillis,
+            sunsetMillis = sunsetMillis,
+            System.currentTimeMillis()
+        )
         return SunItem(
             sunriseValueStr = timeMillisToStr(context, sunriseMillis),
             sunsetValueStr = timeMillisToStr(context, sunsetMillis),
-            iconId = ConditionIcon.getSunTrackIconId(currentMillis, sunriseMillis, sunsetMillis)
+            image = sunImage
         )
     }
 
@@ -311,42 +318,85 @@ object WeatherRenderer {
         weather: WeatherData,
         rainUnit: RainUnit
     ): DetailsItem {
-        val formatStr = if (rainUnit == RainUnit.INCH) "%.2f" else "%.1f"
-
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
                 val rainMm = weather.hourlyRainMm.getOrNull(idx) ?: return@mapNotNull null
                 val showersMm = weather.hourlyShowersMm.getOrNull(idx) ?: return@mapNotNull null
                 val precipProb = weather.hourlyPrecipProb.getOrNull(idx) ?: return@mapNotNull null
+                val tempCelsius = weather.hourlyTempCelsius.getOrNull(idx) ?: return@mapNotNull null
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
-                val rainSum = rainUnit.fromMm(rainMm + showersMm)
+                val rainVal = rainUnit.fromMm(rainMm + showersMm)
 
-                val probStr = "${precipProb.toInt()}%"
-                val valStr = if (rainSum > 0.0) formatStr.format(rainSum) else ""
+                val probStr = if (rainVal > 0.0 || tempCelsius > RAIN_MIN_TEMP_C) {
+                    "${precipProb.toInt()}%"
+                } else "0%"
+
+                val valStr = if (rainVal > 0.0) {
+                    String.format(Locale.getDefault(), rainUnit.format, rainVal)
+                } else ""
+
                 val timeStr = formatTime(context, timeMillis)
-                val level = (rainSum / rainUnit.fromMm(RAIN_BAR_MAX_MM)).coerceAtMost(1.0)
-
-                val saturation = 0.1f + level.toFloat() * (0.61f - 0.1f)
-                val fillColor = Color.HSVToColor(floatArrayOf(216f, saturation, 1.0f))
-                val strokeColor = "#4C8DF6".toColorInt()
+                val level = (rainVal / rainUnit.fromMm(RAIN_BAR_MAX_MM)).coerceAtMost(1.0)
 
                 DataBarItem(
                     valStr = valStr,
                     probStr = probStr,
                     level = level,
-                    fillColor = fillColor,
-                    strokeColor = strokeColor,
+                    fillColor = ConditionIcon.rainFillColor(level),
+                    strokeColor = ConditionIcon.rainStrokeColor(),
                     timeStr = timeStr
                 )
             }
         val rainMm = weather.todayRainMm()
         val showersMm = weather.todayShowersMm()
         val valStr = (rainMm?.plus(showersMm ?: 0.0) ?: showersMm)?.let {
-            formatStr.format(rainUnit.fromMm(it))
+            String.format(Locale.getDefault(), rainUnit.format, rainUnit.fromMm(it))
         }
         return DetailsItem(valStr, rainUnit.unitStr(context), barData)
+    }
+
+    fun detailsSnow(
+        context: Context,
+        weather: WeatherData,
+        snowUnit: SnowUnit
+    ): DetailsItem {
+        val barData = weather.hourlyTimeMillis.indices
+            .drop(weather.nextHourlyIndex().coerceAtLeast(0))
+            .mapNotNull { idx ->
+                val snowCm = weather.hourlySnowCm.getOrNull(idx) ?: return@mapNotNull null
+                val precipProb = weather.hourlyPrecipProb.getOrNull(idx) ?: return@mapNotNull null
+                val tempCelsius = weather.hourlyTempCelsius.getOrNull(idx) ?: return@mapNotNull null
+                val timeMillis = weather.hourlyTimeMillis[idx]
+
+                val snow = snowUnit.fromCm(snowCm)
+
+                val probStr = if (snow > 0.0 || tempCelsius < SNOW_MAX_TEMP_C) {
+                    "${precipProb.toInt()}%"
+                } else "0%"
+
+                val valStr = if (snow > 0.0) {
+                    String.format(Locale.getDefault(), snowUnit.format, snow)
+                } else ""
+
+                val timeStr = formatTime(context, timeMillis)
+                val level = (snow / snowUnit.fromCm(SNOW_BAR_MAX_CM)).coerceAtMost(1.0)
+
+                DataBarItem(
+                    valStr = valStr,
+                    probStr = probStr,
+                    level = level,
+                    fillColor = ConditionIcon.snowFillColor(),
+                    strokeColor = ConditionIcon.snowStrokeColor(),
+                    timeStr = timeStr
+                )
+            }
+        val snowCm = weather.todaySnowCm()
+        val valStr = snowCm?.let {
+            String.format(Locale.getDefault(), snowUnit.format, snowUnit.fromCm(it))
+        }
+        return DetailsItem(valStr, snowUnit.unitStr(context), barData)
     }
 
     fun detailsHumidity(
@@ -363,17 +413,11 @@ object WeatherRenderer {
                 val timeStr = formatTime(context, timeMillis)
                 val level = (humidity / 100).coerceAtMost(1.0)
 
-                val h = 28f + (1f - level.toFloat()) * (48f - 28f)
-                val b = 0.92f + (1f - level.toFloat()) * (0.98f - 0.92f)
-
-                val fillColor = Color.HSVToColor(floatArrayOf(h, 0.85f, b))
-                val strokeColor = "#D57A2D".toColorInt()
-
                 DataBarItem(
                     probStr = probStr,
                     level = level,
-                    fillColor = fillColor,
-                    strokeColor = strokeColor,
+                    fillColor = ConditionIcon.humidityFillColor(level),
+                    strokeColor = ConditionIcon.humidityStrokeColor(),
                     timeStr = timeStr
                 )
             }
@@ -389,42 +433,18 @@ object WeatherRenderer {
         val barData = weather.hourlyTimeMillis.indices
             .drop(weather.nextHourlyIndex().coerceAtLeast(0))
             .mapNotNull { idx ->
-                val uvIndex = weather.hourlyUvIndex.getOrNull(idx)?.toInt() ?: return@mapNotNull null
+                val uvIndex = weather.hourlyUvIndex.getOrNull(idx) ?: return@mapNotNull null
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
-                val valStr = "$uvIndex"
+                val valStr = "${uvIndex.toInt()}"
                 val timeStr = formatTime(context, timeMillis)
-                val level = (uvIndex.toDouble() / 11).coerceAtMost(1.0)
+                val level = (uvIndex / 11).coerceAtMost(1.0)
 
-                val fillColor: Int
-                val strokeColor: Int
-                when (uvIndex) {
-                    in 0 .. 2 -> {
-                        fillColor = "#53c0a8".toColorInt()
-                        strokeColor = "#53c0a8".toColorInt()
-                    }
-                    in 3 .. 5 -> {
-                        fillColor = "#ffcc5c".toColorInt()
-                        strokeColor = "#ffaa00".toColorInt()
-                    }
-                    in 6 .. 7 -> {
-                        fillColor = "#f58259".toColorInt()
-                        strokeColor = "#f45d2f".toColorInt()
-                    }
-                    in 8 .. 10 -> {
-                        fillColor = "#f0516b".toColorInt()
-                        strokeColor = "#f0516b".toColorInt()
-                    }
-                    else -> {
-                        fillColor = "#7c67ae".toColorInt()
-                        strokeColor = "#7c67ae".toColorInt()
-                    }
-                }
                 DataBarItem(
                     valStr = valStr,
                     level = level,
-                    fillColor = fillColor,
-                    strokeColor = strokeColor,
+                    fillColor = ConditionIcon.uvIndexFillColor(uvIndex),
+                    strokeColor = ConditionIcon.uvIndexStrokeColor(uvIndex),
                     timeStr = timeStr
                 )
             }

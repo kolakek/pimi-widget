@@ -59,7 +59,7 @@ class WeatherActivity : AppCompatActivity() {
 
     private var selectedDataBar = DataBarType.RAIN
 
-    enum class DataBarType { RAIN, HUMIDITY, UV_INDEX }
+    enum class DataBarType { RAIN, SNOW, HUMIDITY, UV_INDEX }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,8 +88,7 @@ class WeatherActivity : AppCompatActivity() {
                     }
                     if (displayData == null || !displayData.isValid()) {
                         displayNoDataInfo(prefs)
-                        binding.content.visibility = View.GONE
-                        binding.noData.visibility = View.VISIBLE
+                        finishNoDataDisplay()
                     } else {
                         displayPlace(displayData)
                         displayCurrentWeather(displayData)
@@ -97,8 +96,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayDailyWeather(displayData)
                         displayCurrentConditions(displayData)
                         displayHourlyDetails(displayData)
-                        binding.content.visibility = View.VISIBLE
-                        binding.noData.visibility = View.GONE
+                        finishDataDisplay()
                     }
                 }
             }
@@ -116,6 +114,7 @@ class WeatherActivity : AppCompatActivity() {
             binding.noDataTitle.text = getString(R.string.app_text_no_data)
             binding.noDataInfo.text = getString(R.string.app_text_check_connection)
             binding.noDataButton.text = getString(R.string.app_text_button_try_again)
+            binding.noDataButton.visibility = View.VISIBLE
             binding.noDataButton.setOnClickListener {
                 WorkManagerHelper.enqueueOneTimeWork(
                     this,
@@ -126,11 +125,21 @@ class WeatherActivity : AppCompatActivity() {
         } else {
             binding.noDataTitle.text = getString(R.string.app_text_weather_off)
             binding.noDataInfo.text = getString(R.string.app_text_enable_in_settings)
-            binding.noDataButton.text = getString(R.string.app_text_button_settings)
-            binding.noDataButton.setOnClickListener {
-                startActivity(Intent(this, AppConfigureActivity::class.java))
-            }
+            binding.noDataButton.visibility = View.INVISIBLE
         }
+    }
+
+    private fun finishNoDataDisplay() {
+        binding.content.visibility = View.GONE
+        binding.noData.visibility = View.VISIBLE
+    }
+
+    private fun finishDataDisplay() {
+        binding.settingsButton.setOnClickListener {
+            startActivity(Intent(this@WeatherActivity, AppConfigureActivity::class.java))
+        }
+        binding.content.visibility = View.VISIBLE
+        binding.noData.visibility = View.GONE
     }
 
     private fun displayPlace(data: DisplayData) {
@@ -157,6 +166,9 @@ class WeatherActivity : AppCompatActivity() {
         binding.hourlyDetails.buttonRain.setOnClickListener {
             updateDataBar(data, DataBarType.RAIN)
         }
+        binding.hourlyDetails.buttonSnow.setOnClickListener {
+            updateDataBar(data, DataBarType.SNOW)
+        }
         binding.hourlyDetails.buttonHumidity.setOnClickListener {
             updateDataBar(data, DataBarType.HUMIDITY)
         }
@@ -172,8 +184,7 @@ class WeatherActivity : AppCompatActivity() {
             getString(R.string.app_text_title_wind),
             getString(R.string.north),
             null,
-            data.currentWind,
-            rotateByValue = true
+            data.currentWind
         )
         bindConditionItem(
             binding.currentHumidity,
@@ -205,7 +216,17 @@ class WeatherActivity : AppCompatActivity() {
             binding.currentSun.textSunsetValue.text = it.sunsetValueStr
             binding.currentSun.textDawn.text = getString(R.string.app_text_morning)
             binding.currentSun.textDusk.text = getString(R.string.app_text_evening)
-            binding.currentSun.sunImage.setImageResource(it.iconId)
+
+            binding.currentSun.sunImage.backLayer.setImageResource(it.image.backResId)
+            binding.currentSun.sunImage.fillLayer.setImageResource(it.image.fillResId)
+            binding.currentSun.sunImage.maskLayer.setImageResource(it.image.maskResId)
+            binding.currentSun.sunImage.indicator.setImageResource(it.image.iconResId)
+
+            binding.currentSun.sunImage.fillLayer.pivotX = 0f
+            binding.currentSun.sunImage.fillLayer.scaleX = it.image.scaleFactor
+            binding.currentSun.sunImage.indicator.translationX = it.image.posX * displayDensity()
+            binding.currentSun.sunImage.indicator.translationY = it.image.posY * displayDensity()
+
             binding.currentSun.root.visibility = View.VISIBLE
         } ?: run {
             binding.currentSun.root.visibility = View.GONE
@@ -222,6 +243,10 @@ class WeatherActivity : AppCompatActivity() {
         when (dataBarType) {
             DataBarType.RAIN -> {
                 detailsItem = displayData.detailsRain
+                titleString = getString(R.string.app_today_total)
+            }
+            DataBarType.SNOW -> {
+                detailsItem = displayData.detailsSnow
                 titleString = getString(R.string.app_today_total)
             }
             DataBarType.HUMIDITY -> {
@@ -245,6 +270,10 @@ class WeatherActivity : AppCompatActivity() {
             dataBarType == DataBarType.RAIN
         )
         updateButtonState(
+            binding.hourlyDetails.buttonSnow,
+            dataBarType == DataBarType.SNOW
+        )
+        updateButtonState(
             binding.hourlyDetails.buttonHumidity,
             dataBarType == DataBarType.HUMIDITY
         )
@@ -261,7 +290,6 @@ class WeatherActivity : AppCompatActivity() {
         topLabel: String?,
         bottomLabel: String?,
         item: WeatherItem?,
-        rotateByValue: Boolean = false,
         useUnitAsDescr: Boolean = false
     ) {
         binding.textTitle.text = title
@@ -272,7 +300,6 @@ class WeatherActivity : AppCompatActivity() {
             binding.textValueDescr.text = null
             binding.textImageTop.text = null
             binding.textImageBottom.text = null
-            binding.image.setImageDrawable(null)
             return
         }
         binding.textValue.text = item.valueStr ?: NA
@@ -284,11 +311,24 @@ class WeatherActivity : AppCompatActivity() {
             binding.textUnit.text = item.unitStr
             binding.textValueDescr.text = item.auxStr
         }
-        binding.textImageTop.text = topLabel
-        binding.textImageBottom.text = bottomLabel
+        item.image?.let {
+            binding.image.backLayer.setImageResource(it.backResId)
+            binding.image.fillLayer.setImageResource(it.fillResId)
+            binding.image.maskLayer.setImageResource(it.maskResId)
+            binding.image.indicator.setImageResource(it.iconResId)
 
-        binding.image.setImageResource(item.iconId)
-        if (rotateByValue) binding.image.rotation = item.level.toFloat()
+            binding.image.fillLayer.pivotY = it.height * displayDensity()
+            binding.image.fillLayer.scaleY = it.scaleFactor
+            binding.image.indicator.translationX = it.posX * displayDensity()
+            binding.image.indicator.translationY = it.posY * displayDensity()
+            binding.image.indicator.rotation = it.rotation
+
+            binding.image.fillLayer.setColorFilter(it.fillColor)
+            binding.image.backLayer.setColorFilter(it.backColor)
+
+            binding.textImageTop.text = topLabel
+            binding.textImageBottom.text = bottomLabel
+        }
     }
 
     private fun updateButtonState(button: MaterialButton, selected: Boolean) {
@@ -301,4 +341,6 @@ class WeatherActivity : AppCompatActivity() {
             button.iconPadding = 0
         }
     }
+
+    private fun displayDensity() = resources.displayMetrics.density
 }

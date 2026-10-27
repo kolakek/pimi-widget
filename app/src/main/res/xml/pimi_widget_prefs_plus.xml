@@ -18,6 +18,13 @@
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
+            android:key="show_temp_unit"
+            android:title="@string/config_show_temp_unit"
+            android:summary="@string/config_show_temp_unit_descr"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
             android:key="permanent_alarm"
             android:title="@string/config_perm_alarm"
             android:summary="@string/config_perm_alarm_descr"
@@ -51,31 +58,12 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="category_settings_units"
-        android:selectable="false"
-        android:title="@string/config_section_settings_units"
-        app:iconSpaceReserved="false"
-        app:allowDividerAbove="false"
-        app:allowDividerBelow="false">
-
         <ListPreference
             android:defaultValue="temp_unit_auto"
             android:entries="@array/temp_units"
             android:entryValues="@array/temp_units_vals"
             android:key="temp_list"
             android:title="@string/config_temp"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            android:defaultValue="system_unit_auto"
-            android:entries="@array/system_units"
-            android:entryValues="@array/system_units_vals"
-            android:key="system_unit_list"
-            android:title="@string/config_unit_system"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 

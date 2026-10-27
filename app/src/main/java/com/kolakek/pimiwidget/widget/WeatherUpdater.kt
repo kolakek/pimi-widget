@@ -40,8 +40,12 @@ object WeatherUpdater {
         views.setTextViewText(R.id.widget_weather_temp, null)
         views.setTextViewText(R.id.widget_weather_aux, null)
         views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, 0, 0)
-        views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
 
+        when (prefs.widgetStyle) {
+            WidgetStyle.SOLID -> views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
+
+            else -> views.setViewVisibility(R.id.widget_weather_aux, View.INVISIBLE)
+        }
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         views.setImageViewResource(
@@ -58,7 +62,7 @@ object WeatherUpdater {
                 prefs.tempUnit,
                 prefs.iconStyle,
                 prefs.iconColor,
-                true
+                prefs.showTempUnit
             )?.let { it ->
 
                 views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
@@ -84,7 +88,14 @@ object WeatherUpdater {
                         auxStr = it
                     }
                 }
-                val sep = if (prefs.widgetStyle == WidgetStyle.SOLID) "" else " · "
+                val sep = when (prefs.widgetStyle) {
+                    WidgetStyle.SOLID,
+                    WidgetStyle.MODERN,
+                    WidgetStyle.MODERN_SHADOW -> ""
+
+                    WidgetStyle.CLASSIC,
+                    WidgetStyle.CLASSIC_SHADOW -> " · "
+                }
                 auxStr = auxStr?.prependIndent(sep)
 
                 auxStr?.let {

@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Görünüm</string>
     <string name="config_widget_style">Widget stili</string>
-    <string name="config_widget_style_classic">Şeffaf</string>
+    <string name="config_widget_style_classic">Klasik</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Düz</string>
     <string name="config_button_apply">Uygula</string>
     <string name="config_weather_switch">Hava durumu</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir issue aç.</string>
     <string name="config_weather_app_alert_button_github">GitHub\'ı aç</string>
     <string name="config_section_settings_units">Birimler</string>
-    <string name="config_unit_system">Birim sistemi</string>
-    <string name="config_unit_metric">Metrik</string>
-    <string name="config_unit_us">Amerika Birleşik Devletleri</string>
-    <string name="config_unit_uk">Birleşik Krallık</string>
     <string name="config_aux_view_place_condition">Konum &amp; hava</string>
+    <string name="config_show_temp_unit">Sıcaklık birimini göster</string>
+    <string name="config_show_temp_unit_descr">Fahrenheit veya Celsius sembolünü göster</string>
+    <string name="config_title_settings">Ayarlar</string>
+    <string name="config_wind_speed">Rüzgar hızı</string>
+    <string name="config_option_follow_widget">Widget ile aynı</string>
+    <string name="config_unit_millimeters">Milimetre</string>
+    <string name="config_unit_centimeters">Santimetre</string>
+    <string name="config_unit_inches">İnç</string>
+    <string name="config_unit_hectopascal">Hektopaskal</string>
+    <string name="config_unit_millibar">Milibar</string>
+    <string name="config_unit_mm_mercury">Milimetre civa</string>
+    <string name="config_unit_inches_mercury">İnç civa</string>
+    <string name="config_unit_km_per_hour">Kilometre/saat</string>
+    <string name="config_unit_m_per_second">Metre/saniye</string>
+    <string name="config_unit_miles_per_hour">Mil/saat</string>
+    <string name="config_unit_knots">Knot</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Widget ayarlarından hava durumunu etkinleştir</string>
     <string name="app_text_check_connection">İnternet bağlantını kontrol et ve tekrar dene</string>
     <string name="app_text_button_try_again">Tekrar dene</string>
-    <string name="app_text_button_settings">Widget ayarları</string>
     <string name="app_text_rain">yağmur</string>
+    <string name="app_text_snow">Kar</string>
     <string name="app_text_hourly_details">Saatlik ayrıntılar</string>
     <string name="app_text_sunset_sunrise">gün doğumu &amp; batımı</string>
     <string name="app_text_sunrise">gün doğumu</string>

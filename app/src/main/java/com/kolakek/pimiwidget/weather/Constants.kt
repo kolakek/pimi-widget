@@ -76,6 +76,9 @@ internal const val MIN_PROBABILITY_PRECIP = 30
 internal const val MIN_PROBABILITY_PRECIP_DISPLAY = 30
 
 internal const val RAIN_BAR_MAX_MM = 10.0
+internal const val SNOW_BAR_MAX_CM = 5.0
+internal const val RAIN_MIN_TEMP_C = 0.0
+internal const val SNOW_MAX_TEMP_C = 3.0
 
 internal const val CODE_LIGHT_SHOWERS = 237
 internal const val CODE_NO_PRECIP = 1138

@@ -29,7 +29,6 @@ object WarningIcon {
         textColor: TextColor,
         widgetStyle: WidgetStyle
     ): Int {
-        val needsShadow = widgetStyle == WidgetStyle.SHADOW
         return when (warningLevel) {
             WarningLevel.NONE -> 0
 
@@ -38,7 +37,7 @@ object WarningIcon {
                     TextColor.DYNAMIC -> R.drawable.ic_warn_sevr_themed
                     TextColor.DARK -> R.drawable.ic_warn_sevr_dark
                     TextColor.LIGHT ->
-                        if (needsShadow) R.drawable.ic_warn_sevr_light_shadow
+                        if (widgetStyle.needsShadow) R.drawable.ic_warn_sevr_light_shadow
                         else R.drawable.ic_warn_sevr_light
                 }
 
@@ -46,7 +45,7 @@ object WarningIcon {
                 when (textColor) {
                     TextColor.DARK, TextColor.DYNAMIC -> R.drawable.ic_warn_extr
                     TextColor.LIGHT ->
-                        if (needsShadow) R.drawable.ic_warn_extr_shadow
+                        if (widgetStyle.needsShadow) R.drawable.ic_warn_extr_shadow
                         else R.drawable.ic_warn_extr
                 }
         }

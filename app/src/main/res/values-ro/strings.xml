@@ -2,7 +2,8 @@
 
     <string name="config_section_style">Aspect</string>
     <string name="config_widget_style">Stilul widgetului</string>
-    <string name="config_widget_style_classic">Transparent</string>
+    <string name="config_widget_style_classic">Clasic</string>
+    <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Uni</string>
     <string name="config_button_apply">Aplică</string>
     <string name="config_weather_switch">Vremea</string>
@@ -75,11 +76,23 @@
     <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
     <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
     <string name="config_section_settings_units">Unități</string>
-    <string name="config_unit_system">Sistem de unități</string>
-    <string name="config_unit_metric">Metric</string>
-    <string name="config_unit_us">Statele Unite</string>
-    <string name="config_unit_uk">Regatul Unit</string>
     <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
+    <string name="config_show_temp_unit">Afișează unitatea de temperatură</string>
+    <string name="config_show_temp_unit_descr">Afișează simbolul pentru Fahrenheit sau Celsius</string>
+    <string name="config_title_settings">Setări</string>
+    <string name="config_wind_speed">Viteza vântului</string>
+    <string name="config_option_follow_widget">Ca în widget</string>
+    <string name="config_unit_millimeters">Milimetri</string>
+    <string name="config_unit_centimeters">Centimetri</string>
+    <string name="config_unit_inches">Inchi</string>
+    <string name="config_unit_hectopascal">Hectopascali</string>
+    <string name="config_unit_millibar">Milibari</string>
+    <string name="config_unit_mm_mercury">Milimetri coloană de mercur</string>
+    <string name="config_unit_inches_mercury">Inchi coloană de mercur</string>
+    <string name="config_unit_km_per_hour">Kilometri pe oră</string>
+    <string name="config_unit_m_per_second">Metri pe secundă</string>
+    <string name="config_unit_miles_per_hour">Mile pe oră</string>
+    <string name="config_unit_knots">Noduri</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>
@@ -101,8 +114,8 @@
     <string name="app_text_enable_in_settings">Activează vremea în setările widget-ului</string>
     <string name="app_text_check_connection">Verifică conexiunea la internet și încearcă din nou</string>
     <string name="app_text_button_try_again">Încearcă din nou</string>
-    <string name="app_text_button_settings">Setările widget-ului</string>
     <string name="app_text_rain">ploaie</string>
+    <string name="app_text_snow">Zăpadă</string>
     <string name="app_text_hourly_details">Detalii din oră în oră</string>
     <string name="app_text_sunset_sunrise">răsărit &amp; apus</string>
     <string name="app_text_sunrise">răsărit</string>
