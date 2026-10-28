@@ -17,7 +17,9 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.Manifest
+import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.Manifest.permission.READ_CONTACTS
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -42,6 +44,7 @@ import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.location.FIXED_LOCATION_NAME
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.utility.WeatherApp
@@ -72,20 +75,17 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
         val weatherLocationList: ListPreference? = findPreference(KEY_WEATHER_LOCATION_LIST)
-        val fixedLocationField: Preference? = findPreference(KEY_FIXED_LOCATION)
 
         var debugCount = 0
 
-        // A fixed location works without any location permission.
         if (weatherSwitch?.isChecked == true &&
-            PreferencesHelper.getFixedLocation(context) == null &&
-            isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+            usesDeviceLocation() &&
+            isPermissionDenied(context, ACCESS_BACKGROUND_LOCATION)
         ) {
-            deleteWeatherData(context)
-            weatherSwitch.isChecked = false
+            disableWeather(context)
         }
         if (birthdaySwitch?.isChecked == true &&
-            isDenied(context, Manifest.permission.READ_CONTACTS)
+            isPermissionDenied(context, READ_CONTACTS)
         ) {
             deleteBirthdayData(context)
             birthdaySwitch.isChecked = false
@@ -164,14 +164,21 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         weatherLocationList?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == KEY_WEATHER_LOCATION_SET) setWeatherLocation(context)
-            false
+            when (newValue) {
+                KEY_WEATHER_LOCATION_SET -> {
+                    selectFixedLocation(context)
+                    false
+                }
+                KEY_WEATHER_LOCATION_DEVICE -> {
+                    if (isPermissionDenied(context, ACCESS_BACKGROUND_LOCATION)) {
+                        disableWeather(context)
+                    }
+                    true
+                }
+                else -> true
+            }
         }
-        updateFixedLocationSummary(context)
-        fixedLocationField?.setOnPreferenceClickListener {
-            setWeatherLocation(context)
-            true
-        }
+        buildWeatherLocationList()
         handleWeatherAppPreference(context)
     }
 
@@ -188,20 +195,14 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun weatherSwitchCallback(context: Context, isChecked: Boolean): Boolean {
-        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
-
         if (!isChecked) {
-            deleteWeatherData(context)
-            weatherSwitch?.isChecked = false
-
+            disableWeather(context)
             return true
         }
-        // The location permissions are only needed for the device location.
-        val usesDeviceLocation = PreferencesHelper.getFixedLocation(context) == null
-        if (usesDeviceLocation && isDenied(context, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+        if (usesDeviceLocation() && isPermissionDenied(context, ACCESS_COARSE_LOCATION)) {
             askForPermission(
                 context,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
+                ACCESS_COARSE_LOCATION,
                 getString(R.string.config_loc_perm_alert_title),
                 getString(R.string.config_loc_perm_alert_message)
             ) {
@@ -209,10 +210,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             return false
         }
-        if (usesDeviceLocation && isDenied(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+        if (usesDeviceLocation() && isPermissionDenied(context, ACCESS_BACKGROUND_LOCATION)) {
             askForPermission(
                 context,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                ACCESS_BACKGROUND_LOCATION,
                 getString(R.string.config_bg_perm_alert_title),
                 getString(
                     R.string.config_bg_perm_alert_message,
@@ -228,46 +229,53 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             action = UpdateAction.WEATHER_FETCH_THEN_REFRESH,
             workPolicy = ExistingWorkPolicy.REPLACE
         )
-        weatherSwitch?.isChecked = true
+        enableWeather()
 
         return true
     }
 
-    private fun updateFixedLocationSummary(context: Context) {
-        val fixedLocation = PreferencesHelper.getFixedLocation(context)
-        findPreference<Preference>(KEY_FIXED_LOCATION)?.summary =
-            if (fixedLocation != null) {
-                getString(R.string.config_fixed_location_summary_fixed, fixedLocation.place)
-            } else {
-                getString(R.string.config_fixed_location_summary_device)
-            }
+    private fun buildWeatherLocationList(
+        fixedLocationName: String? = null
+    ) {
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_LOCATION_LIST)
+        val entries = mutableListOf<CharSequence>()
+        val entryValues = mutableListOf<CharSequence>()
+
+        entries.add(getString(R.string.config_weather_location_device))
+        entryValues.add(KEY_WEATHER_LOCATION_DEVICE)
+
+        if (listPreference?.value == KEY_WEATHER_LOCATION_FIXED || fixedLocationName != null) {
+            entries.add(fixedLocationName ?: "TBD") // ToDo
+            entryValues.add(KEY_WEATHER_LOCATION_FIXED)
+        }
+        entries.add(getString(R.string.config_weather_location_set_fixed))
+        entryValues.add(KEY_WEATHER_LOCATION_SET)
+
+        listPreference?.entries = entries.toTypedArray()
+        listPreference?.entryValues = entryValues.toTypedArray()
+        listPreference?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
     }
 
-    private fun setWeatherLocation(context: Context) {
+    private fun selectFixedLocation(context: Context) {
         FixedLocationDialog(
             context = context,
             scope = lifecycleScope,
             onSelected = { lat, long, place ->
-                PreferencesHelper.setFixedLocation(context, lat, long, place)
-                onLocationSourceChanged(context)
+                lifecycleScope.launch {
+                    DataRepository.storeLocationData(
+                        context,
+                        LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
+                    )
+                    setFixedLocationPreference()
+                    buildWeatherLocationList(place)
+                }
             },
         ).show()
     }
 
-    private fun onLocationSourceChanged(context: Context) {
-        updateFixedLocationSummary(context)
-
-        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
-        if (weatherSwitch?.isChecked != true) return
-
-        lifecycleScope.launch {
-            // Drop the data of the previous place so the widget never shows it for the new one.
-            DataRepository.deleteLocationData(context)
-            DataRepository.deleteWeatherData(context)
-            // Same flow as turning the weather on: it asks for the location permissions only
-            // when the device location is used, then fetches the weather right away.
-            weatherSwitchCallback(context, true)
-        }
+    private fun setFixedLocationPreference() {
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_LOCATION_LIST)
+        listPreference?.value = KEY_WEATHER_LOCATION_FIXED
     }
 
     private fun birthdaySwitchCallback(context: Context, isChecked: Boolean): Boolean {
@@ -279,10 +287,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
             return true
         }
-        if (isDenied(context, Manifest.permission.READ_CONTACTS)) {
+        if (isPermissionDenied(context, READ_CONTACTS)) {
             askForPermission(
                 context,
-                Manifest.permission.READ_CONTACTS,
+                READ_CONTACTS,
                 getString(R.string.config_contact_perm_alert_title),
                 getString(R.string.config_contact_perm_alert_message),
             ) {
@@ -307,7 +315,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         message: String,
         onGranted: () -> Unit
     ) {
-        onPermissionGranted = { if (isGranted(context, permission)) onGranted() }
+        onPermissionGranted = { if (isPermissionGranted(context, permission)) onGranted() }
         if (shouldShowRequestPermissionRationale(permission)) {
             showRationaleDialog(context, permission, title, message)
         } else {
@@ -315,13 +323,27 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun isGranted(context: Context, permission: String?): Boolean =
+    private fun isPermissionGranted(context: Context, permission: String?): Boolean =
         permission?.let {
             ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
         } ?: false
 
-    private fun isDenied(context: Context, permission: String?): Boolean =
-        !isGranted(context, permission)
+    private fun isPermissionDenied(context: Context, permission: String?): Boolean =
+        !isPermissionGranted(context, permission)
+
+    private fun usesDeviceLocation(): Boolean {
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_LOCATION_LIST)
+        return listPreference?.value == KEY_WEATHER_LOCATION_DEVICE
+    }
+
+    private fun enableWeather() {
+        findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked = true
+    }
+
+    private fun disableWeather(context: Context) {
+        deleteWeatherData(context)
+        findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked = false
+    }
 
     private fun showDebugDialog(
         context: Context
@@ -445,7 +467,6 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
 
     private fun deleteWeatherData(context: Context) {
         lifecycleScope.launch {
-            DataRepository.deleteLocationData(context)
             DataRepository.deleteWeatherData(context)
         }
     }

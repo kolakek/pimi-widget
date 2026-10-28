@@ -44,15 +44,6 @@ class FixedLocationDialog(
     private var dialog: AlertDialog? = null
 
     fun show() {
-        val alertDialog = AlertDialog.Builder(context)
-            .setTitle(R.string.config_weather_location)
-            .setView(binding.root)
-            .setNegativeButton(R.string.config_alert_button_cancel, null)
-            .create()
-        alertDialog.setOnDismissListener { searchJob?.cancel() }
-        alertDialog.show()
-        dialog = alertDialog
-
         binding.searchLayout.setEndIconOnClickListener { startSearch() }
         binding.searchInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -60,16 +51,22 @@ class FixedLocationDialog(
                 true
             } else false
         }
+        dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.config_weather_location)
+            .setView(binding.root)
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .setOnDismissListener { searchJob?.cancel() }
+            .show()
     }
 
     private fun startSearch() {
+        searchJob?.cancel()
         val query = binding.searchInput.text?.toString()?.trim().orEmpty()
         if (query.length < GEOCODING_MIN_QUERY_LENGTH) {
             binding.resultsContainer.removeAllViews()
             showStatus(R.string.config_fixed_location_search_too_short)
             return
         }
-        searchJob?.cancel()
         binding.resultsContainer.removeAllViews()
         binding.searchStatus.visibility = View.GONE
         binding.searchProgress.visibility = View.VISIBLE
@@ -95,7 +92,7 @@ class FixedLocationDialog(
             return
         }
         val inflater = LayoutInflater.from(context)
-        places.forEachIndexed { _, place ->
+        places.forEach { place ->
             val row = ItemLocationResultBinding.inflate(inflater, binding.resultsContainer, false)
             val parts = place.label.split(", ", limit = 2)
 
