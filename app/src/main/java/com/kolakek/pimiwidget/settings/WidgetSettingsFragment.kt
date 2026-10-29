@@ -117,12 +117,8 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     context,
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
-                return@setOnPreferenceChangeListener weatherSwitchCallback(true)
             }
-            if (newValue == false) {
-                return@setOnPreferenceChangeListener weatherSwitchCallback(false)
-            }
-            false
+            weatherSwitchCallback(newValue == true)
         }
         birthdaySwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -130,12 +126,8 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     context,
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
-                return@setOnPreferenceChangeListener birthdaySwitchCallback(true)
             }
-            if (newValue == false) {
-                return@setOnPreferenceChangeListener birthdaySwitchCallback(false)
-            }
-            false
+            birthdaySwitchCallback(newValue == true)
         }
         alarmSwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
