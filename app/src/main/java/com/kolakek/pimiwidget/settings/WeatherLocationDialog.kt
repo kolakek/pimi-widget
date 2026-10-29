@@ -24,7 +24,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.databinding.DialogFixedLocationBinding
+import com.kolakek.pimiwidget.databinding.DialogWeatherLocationBinding
 import com.kolakek.pimiwidget.databinding.ItemLocationResultBinding
 import com.kolakek.pimiwidget.location.GEOCODING_MIN_QUERY_LENGTH
 import com.kolakek.pimiwidget.location.GeocodingPlace
@@ -34,16 +34,21 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class FixedLocationDialog(
+class WeatherLocationDialog(
     private val context: Context,
     private val scope: CoroutineScope,
-    private val onSelected: (lat: Double, long: Double, place: String) -> Unit,
+    private val onDeviceLocationSelected: () -> Unit,
+    private val onFixedLocationSelected: (lat: Double, long: Double, place: String) -> Unit,
 ) {
-    private val binding = DialogFixedLocationBinding.inflate(LayoutInflater.from(context))
+    private val binding = DialogWeatherLocationBinding.inflate(LayoutInflater.from(context))
     private var searchJob: Job? = null
     private var dialog: AlertDialog? = null
 
     fun show() {
+        binding.deviceLocation.setOnClickListener {
+            onDeviceLocationSelected()
+            dialog?.dismiss()
+        }
         binding.searchLayout.setEndIconOnClickListener { startSearch() }
         binding.searchInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -100,7 +105,7 @@ class FixedLocationDialog(
             row.resultSubtitle.text = parts.getOrNull(1).orEmpty()
             row.resultSubtitle.visibility = if (parts.size > 1) View.VISIBLE else View.GONE
             row.root.setOnClickListener {
-                onSelected(place.lat, place.long, place.name)
+                onFixedLocationSelected(place.lat, place.long, place.name)
                 dialog?.dismiss()
             }
             binding.resultsContainer.addView(row.root)

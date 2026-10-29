@@ -85,10 +85,9 @@ internal const val KEY_WEATHER_WARNING = "weather_warnings"
 internal const val KEY_PERMANENT_ALARM = "permanent_alarm"
 internal const val KEY_SHOW_TEMP_UNIT = "show_temp_unit"
 
-internal const val KEY_WEATHER_LOCATION_LIST = "weather_location_list"
+internal const val KEY_WEATHER_LOCATION = "weather_location"
 internal const val KEY_WEATHER_LOCATION_DEVICE = "weather_location_device"
 internal const val KEY_WEATHER_LOCATION_FIXED = "weather_location_fixed"
-internal const val KEY_WEATHER_LOCATION_SET = "weather_location_set"
 
 internal const val KEY_FIXED_LOCATION = "fixed_location"
 internal const val KEY_FIXED_LOCATION_LAT = "fixed_location_lat"

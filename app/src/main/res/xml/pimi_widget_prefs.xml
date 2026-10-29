@@ -58,11 +58,10 @@
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
 
-        <ListPreference
-            android:key="weather_location_list"
+        <Preference
+            android:key="weather_location"
             android:title="@string/config_weather_location"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+            app:iconSpaceReserved="false" />
 
         <ListPreference
             android:defaultValue="weather_app_default"
