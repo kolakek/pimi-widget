@@ -21,36 +21,8 @@ import com.kolakek.pimiwidget.utility.HttpClientProvider
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.http.URLBuilder
-import kotlinx.serialization.Serializable
 import java.util.Locale
 
-/** A place found by a text search. */
-data class GeocodingPlace(
-    val label: String,
-    val name: String,
-    val lat: Double,
-    val long: Double
-)
-
-// The API omits empty fields, and omits "results" when nothing matches.
-@Serializable
-internal data class GeocodingResponse(
-    val results: List<GeocodingResult> = emptyList()
-)
-
-@Serializable
-internal data class GeocodingResult(
-    val name: String,
-    val latitude: Double,
-    val longitude: Double,
-    val admin1: String? = null,
-    val country: String? = null
-)
-
-/**
- * Looks up places by name with the Open-Meteo geocoding API, the same provider used
- * for the weather data. Only the typed text and the language code are sent.
- */
 object GeocodingService {
 
     suspend fun search(
@@ -69,7 +41,7 @@ object GeocodingService {
         return response.results
             .filter {
                 it.latitude in -MAX_LATITUDE..MAX_LATITUDE &&
-                    it.longitude in -MAX_LONGITUDE..MAX_LONGITUDE
+                        it.longitude in -MAX_LONGITUDE..MAX_LONGITUDE
             }
             .map {
                 GeocodingPlace(
