@@ -249,6 +249,12 @@ object PreferencesHelper {
         return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.SOLID
     }
 
+    fun setWeatherLocationPreference(context: Context, pref: WeatherLocationPref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_WEATHER_LOCATION, pref.key)
+        }
+    }
+
     private fun getWeatherPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)

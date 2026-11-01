@@ -48,6 +48,10 @@ class PimiWidget : AppWidgetProvider() {
     override fun onDisabled(context: Context) {
         WorkManagerHelper.cancelPeriodicWork(context)
         PreferencesHelper.setWeatherPreference(context, false)
+        PreferencesHelper.setWeatherLocationPreference(
+            context,
+            PreferencesHelper.WeatherLocationPref.DEVICE
+        )
         runBlocking { DataRepository.deleteAllData(context) }
     }
 
