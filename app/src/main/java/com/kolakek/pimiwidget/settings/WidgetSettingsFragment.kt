@@ -118,7 +118,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
             }
-            weatherSwitchCallback(newValue == true)
+            weatherSwitchCallback(isChecked = newValue == true, canShowLocationDialog = true)
         }
         birthdaySwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -151,7 +151,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             true
         }
         weatherLocationField?.setOnPreferenceClickListener {
-            selectWeatherLocation()
+            selectWeatherLocation(isWeatherEnabled())
             true
         }
         setWeatherLocationSummary()
@@ -170,7 +170,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun weatherSwitchCallback(isChecked: Boolean): Boolean {
+    private fun weatherSwitchCallback(
+        isChecked: Boolean,
+        canShowLocationDialog: Boolean = false
+    ): Boolean {
         if (!isChecked) {
             disableWeather()
             return true
@@ -178,6 +181,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (usesDeviceLocation() && isPermissionDenied(ACCESS_COARSE_LOCATION)) {
             disableWeather()
 
+            if (canShowLocationDialog) {
+                selectWeatherLocation(true)
+                return false
+            }
             askPermission(
                 ACCESS_COARSE_LOCATION,
                 getString(R.string.config_loc_perm_alert_title),
@@ -190,6 +197,10 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         if (usesDeviceLocation() && isPermissionDenied(ACCESS_BACKGROUND_LOCATION)) {
             disableWeather()
 
+            if (canShowLocationDialog) {
+                selectWeatherLocation(true)
+                return false
+            }
             askPermission(
                 ACCESS_BACKGROUND_LOCATION,
                 getString(R.string.config_bg_perm_alert_title),
@@ -207,7 +218,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         return true
     }
 
-    private fun deviceLocationCallback() {
+    private fun deviceLocationCallback(enableWeather: Boolean) {
         lifecycleScope.launch {
             DataRepository.deleteLocationData(requireContext())
 
@@ -217,11 +228,16 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             findPreference<Preference>(KEY_WEATHER_LOCATION)?.summary =
                 getString(R.string.config_weather_location_device)
 
-            weatherSwitchCallback(isWeatherEnabled())
+            weatherSwitchCallback(enableWeather)
         }
     }
 
-    private fun fixedLocationCallback(lat: Double, long: Double, place: String) {
+    private fun fixedLocationCallback(
+        lat: Double,
+        long: Double,
+        place: String,
+        enableWeather: Boolean
+    ) {
         lifecycleScope.launch {
             DataRepository.storeLocationData(
                 requireContext(),
@@ -232,19 +248,19 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             findPreference<Preference>(KEY_WEATHER_LOCATION)?.summary = place
 
-            weatherSwitchCallback(isWeatherEnabled())
+            weatherSwitchCallback(enableWeather)
         }
     }
 
-    private fun selectWeatherLocation() {
+    private fun selectWeatherLocation(enableWeather: Boolean) {
         WeatherLocationDialog(
             context = requireContext(),
             scope = lifecycleScope,
             onDeviceLocationSelected = {
-                deviceLocationCallback()
+                deviceLocationCallback(enableWeather)
             },
             onFixedLocationSelected = { lat, long, place ->
-                fixedLocationCallback(lat, long, place)
+                fixedLocationCallback(lat, long, place, enableWeather)
             },
         ).show()
     }
