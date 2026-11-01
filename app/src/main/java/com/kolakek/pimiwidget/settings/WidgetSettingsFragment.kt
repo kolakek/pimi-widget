@@ -470,6 +470,9 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     private fun deleteWeatherData() {
         lifecycleScope.launch {
             DataRepository.deleteWeatherData(requireContext())
+            if (usesDeviceLocation()) {
+                DataRepository.deleteLocationData(requireContext())
+            }
         }
     }
 

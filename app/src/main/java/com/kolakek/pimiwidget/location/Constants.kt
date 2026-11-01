@@ -23,10 +23,12 @@ internal const val LOCATION_PROVIDER = LocationManager.FUSED_PROVIDER
 internal const val LOCATION_MAX_AGE_MILLIS = 60 * 60 * 1000L
 internal const val LOCATION_TIMEOUT_MILLIS = 30 * 1000L
 internal const val LOCATION_NAME_TIMEOUT_MILLIS = 5 * 1000L
+
 internal const val FRESH_LOCATION_NAME = "FreshLocation"
 internal const val CACHED_LOCATION_NAME = "CachedLocation"
 internal const val STORED_LOCATION_NAME = "StoredLocation"
 internal const val FIXED_LOCATION_NAME = "FixedLocation"
+
 internal const val GEOCODING_URL = "https://geocoding-api.open-meteo.com/v1/search"
 internal const val GEOCODING_RESULT_COUNT = 10
 internal const val GEOCODING_MIN_QUERY_LENGTH = 2

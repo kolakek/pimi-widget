@@ -29,8 +29,6 @@
     <string name="config_location_fallback">使用最後位置</string>
     <string name="config_location_fallback_summary">裝置停用定位服務時</string>
     <string name="config_weather_location">天氣位置</string>
-    <string name="config_fixed_location_summary_device">裝置位置</string>
-    <string name="config_fixed_location_summary_fixed">固定：%1$s</string>
     <string name="config_fixed_location_search_hint">搜尋地點</string>
     <string name="config_fixed_location_search_button">搜尋</string>
     <string name="config_fixed_location_search_too_short">請至少輸入 2 個字元</string>

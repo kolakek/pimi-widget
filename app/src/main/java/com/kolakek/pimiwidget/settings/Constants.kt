@@ -89,11 +89,6 @@ internal const val KEY_WEATHER_LOCATION = "weather_location"
 internal const val KEY_WEATHER_LOCATION_DEVICE = "weather_location_device"
 internal const val KEY_WEATHER_LOCATION_FIXED = "weather_location_fixed"
 
-internal const val KEY_FIXED_LOCATION = "fixed_location"
-internal const val KEY_FIXED_LOCATION_LAT = "fixed_location_lat"
-internal const val KEY_FIXED_LOCATION_LONG = "fixed_location_long"
-internal const val KEY_FIXED_LOCATION_NAME = "fixed_location_name"
-
 internal const val KEY_VERSION_FIELD = "build_number"
 internal const val KEY_SOURCE_CODE = "source_code"
 

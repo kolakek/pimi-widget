@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Önceki konumu kullan</string>
     <string name="config_location_fallback_summary">Cihazın konum hizmeti kapatıldığında</string>
     <string name="config_weather_location">Hava durumu konumu</string>
-    <string name="config_fixed_location_summary_device">Cihaz konumu</string>
-    <string name="config_fixed_location_summary_fixed">Sabit: %1$s</string>
     <string name="config_fixed_location_search_hint">Bir yer ara</string>
     <string name="config_fixed_location_search_button">Ara</string>
     <string name="config_fixed_location_search_too_short">En az 2 karakter yaz</string>

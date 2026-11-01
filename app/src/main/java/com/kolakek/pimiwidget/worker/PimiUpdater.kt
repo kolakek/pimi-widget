@@ -110,10 +110,11 @@ object PimiUpdater {
         context: Context,
         prefs: WidgetPreferences
     ): WeatherData {
-        // A fixed location needs neither location permissions nor the location service.
-        val locationData = prefs.fixedLocation?.also {
-            DataRepository.storeLocationData(context, it)
-        } ?: LocationService.fetchLocation(context, prefs.useLocationFallback)
+        val locationData = LocationService.fetchLocation(
+            context,
+            prefs.locationSource,
+            prefs.useLocationFallback
+        )
         return WeatherService.fetchWeather(context, locationData)
     }
 

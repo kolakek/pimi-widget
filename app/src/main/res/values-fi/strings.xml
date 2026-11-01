@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
     <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
     <string name="config_weather_location">Sääsijainti</string>
-    <string name="config_fixed_location_summary_device">Laitteen sijainti</string>
-    <string name="config_fixed_location_summary_fixed">Kiinteä: %1$s</string>
     <string name="config_fixed_location_search_hint">Hae paikkaa</string>
     <string name="config_fixed_location_search_button">Hae</string>
     <string name="config_fixed_location_search_too_short">Kirjoita vähintään 2 merkkiä</string>

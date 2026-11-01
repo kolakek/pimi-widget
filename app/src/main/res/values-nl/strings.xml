@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Vorige locatie gebruiken</string>
     <string name="config_location_fallback_summary">Wanneer de locatieservice van het apparaat is uitgeschakeld</string>
     <string name="config_weather_location">Weerlocatie</string>
-    <string name="config_fixed_location_summary_device">Apparaatlocatie</string>
-    <string name="config_fixed_location_summary_fixed">Vast: %1$s</string>
     <string name="config_fixed_location_search_hint">Zoek een plaats</string>
     <string name="config_fixed_location_search_button">Zoeken</string>
     <string name="config_fixed_location_search_too_short">Typ ten minste 2 tekens</string>

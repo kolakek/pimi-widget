@@ -30,10 +30,6 @@
     <string name="config_location_fallback_summary">When the device location service is turned off</string>
     <string name="config_weather_location">Weather location</string>
     <string name="config_weather_location_device">Device location</string>
-    <string name="config_weather_location_fixed">Fixed location</string>
-    <string name="config_weather_location_set_fixed">Select fixed location</string>
-    <string name="config_fixed_location_summary_device">Device location</string>
-    <string name="config_fixed_location_summary_fixed">Fixed: %1$s</string>
     <string name="config_fixed_location_search_hint">Search for a place</string>
     <string name="config_fixed_location_search_button">Search</string>
     <string name="config_fixed_location_search_too_short">Type at least 2 characters</string>

@@ -40,23 +40,38 @@ object LocationService {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_COARSE_LOCATION])
     suspend fun fetchLocation(
         context: Context,
+        locationSource: LocationSource,
         useLocationFallback: Boolean
     ): LocationData {
-        val locationManager = context.getSystemService(LocationManager::class.java)
+        when (locationSource) {
+            LocationSource.FIXED -> {
+                getFixedLocation(context)?.let { return it }
+            }
 
-        getLastKnownLocation(locationManager, context)?.let {
-            DataRepository.storeLocationData(context, it)
-            return it
-        }
-        getCurrentLocation(locationManager, context)?.let {
-            DataRepository.storeLocationData(context, it)
-            return it
-        }
-        getStoredLocation(locationManager, context, useLocationFallback)?.let {
-            DataRepository.storeLocationData(context, it)
-            return it
+            LocationSource.DEVICE -> {
+                val locationManager = context.getSystemService(LocationManager::class.java)
+
+                getLastKnownLocation(locationManager, context)?.let {
+                    DataRepository.storeLocationData(context, it)
+                    return it
+                }
+                getCurrentLocation(locationManager, context)?.let {
+                    DataRepository.storeLocationData(context, it)
+                    return it
+                }
+                getStoredLocation(locationManager, context, useLocationFallback)?.let {
+                    DataRepository.storeLocationData(context, it)
+                    return it
+                }
+            }
         }
         throw LocationUnavailableException("Failed to obtain location")
+    }
+
+    private suspend fun getFixedLocation(context: Context): LocationData? {
+        val locationData = DataRepository.loadLocationData(context)
+
+        return if (locationData?.locationType == FIXED_LOCATION_NAME) locationData else null
     }
 
     private suspend fun getStoredLocation(

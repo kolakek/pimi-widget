@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Folosește locația anterioară</string>
     <string name="config_location_fallback_summary">Când serviciul de localizare al dispozitivului este dezactivat</string>
     <string name="config_weather_location">Locație meteo</string>
-    <string name="config_fixed_location_summary_device">Locația dispozitivului</string>
-    <string name="config_fixed_location_summary_fixed">Fixă: %1$s</string>
     <string name="config_fixed_location_search_hint">Caută un loc</string>
     <string name="config_fixed_location_search_button">Caută</string>
     <string name="config_fixed_location_search_too_short">Introdu cel puțin 2 caractere</string>

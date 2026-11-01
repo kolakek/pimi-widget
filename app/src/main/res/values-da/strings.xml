@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Brug tidligere placering</string>
     <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
     <string name="config_weather_location">Vejrplacering</string>
-    <string name="config_fixed_location_summary_device">Enhedens placering</string>
-    <string name="config_fixed_location_summary_fixed">Fast: %1$s</string>
     <string name="config_fixed_location_search_hint">Søg efter et sted</string>
     <string name="config_fixed_location_search_button">Søg</string>
     <string name="config_fixed_location_search_too_short">Skriv mindst 2 tegn</string>

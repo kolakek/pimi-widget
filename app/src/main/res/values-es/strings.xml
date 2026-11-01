@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Usar la ubicación anterior</string>
     <string name="config_location_fallback_summary">Cuando el servicio de ubicación del dispositivo está desactivado</string>
     <string name="config_weather_location">Ubicación del tiempo</string>
-    <string name="config_fixed_location_summary_device">Ubicación del dispositivo</string>
-    <string name="config_fixed_location_summary_fixed">Fija: %1$s</string>
     <string name="config_fixed_location_search_hint">Buscar un lugar</string>
     <string name="config_fixed_location_search_button">Buscar</string>
     <string name="config_fixed_location_search_too_short">Introduce al menos 2 caracteres</string>

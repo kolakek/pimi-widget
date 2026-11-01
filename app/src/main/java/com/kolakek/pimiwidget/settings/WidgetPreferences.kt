@@ -17,7 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
-import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.utility.WeatherApp
 
 data class WidgetPreferences (
@@ -36,6 +36,5 @@ data class WidgetPreferences (
     val tempUnit: TempUnit,
     val auxDisplay: AuxDisplay,
     val weatherApp: WeatherApp,
-    // Null means the device location is used.
-    val fixedLocation: LocationData? = null
+    val locationSource: LocationSource
 )

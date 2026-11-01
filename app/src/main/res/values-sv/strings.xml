@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Använd tidigare plats</string>
     <string name="config_location_fallback_summary">När enhetens platstjänst är inaktiverad</string>
     <string name="config_weather_location">Väderplats</string>
-    <string name="config_fixed_location_summary_device">Enhetens plats</string>
-    <string name="config_fixed_location_summary_fixed">Fast: %1$s</string>
     <string name="config_fixed_location_search_hint">Sök efter en plats</string>
     <string name="config_fixed_location_search_button">Sök</string>
     <string name="config_fixed_location_search_too_short">Skriv minst 2 tecken</string>

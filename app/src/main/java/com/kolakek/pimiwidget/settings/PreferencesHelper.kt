@@ -24,9 +24,7 @@ import android.content.res.Configuration
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
-import com.kolakek.pimiwidget.location.FIXED_LOCATION_NAME
-import com.kolakek.pimiwidget.location.LocationData
-import com.kolakek.pimiwidget.location.LocationFormat
+import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.utility.WeatherApp
 
 object PreferencesHelper {
@@ -94,6 +92,11 @@ object PreferencesHelper {
         PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION)
     }
 
+    enum class WeatherLocationPref(val key: String) {
+        DEVICE(KEY_WEATHER_LOCATION_DEVICE),
+        FIXED(KEY_WEATHER_LOCATION_FIXED)
+    }
+
     fun getAppPreferences(context: Context): AppPreferences {
         val iconStylePref = getAppIconStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
@@ -133,6 +136,7 @@ object PreferencesHelper {
         val widgetStylePref = getWidgetStylePreference(context)
         val tempUnitPref = getTempUnitPreference(context)
         val auxDisplayPref = getAuxDisplayPreference(context)
+        val weatherLocationPref = getWeatherLocationPreference(context)
         val weatherApp = getWeatherApp(context)
 
         val textColor = when (textColorPref) {
@@ -173,6 +177,10 @@ object PreferencesHelper {
             AuxDisplayPref.PLACE_CONDITION -> AuxDisplay.PLACE_CONDITION
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
         }
+        val locationSource = when (weatherLocationPref) {
+            WeatherLocationPref.DEVICE -> LocationSource.DEVICE
+            WeatherLocationPref.FIXED -> LocationSource.FIXED
+        }
         return WidgetPreferences(
             showAlarms = getAlarmPreference(context),
             showWeather = getWeatherPreference(context),
@@ -189,47 +197,8 @@ object PreferencesHelper {
             textColor = textColor,
             auxDisplay = auxDisplay,
             weatherApp = weatherApp,
-            fixedLocation = getFixedLocation(context)
+            locationSource = locationSource
         )
-    }
-
-    /**
-     * Returns the location chosen by the user, or null when the device location is used.
-     * The returned time is the time of the call, as a fixed location does not age.
-     */
-    fun getFixedLocation(context: Context): LocationData? {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val lat = prefs.getString(KEY_FIXED_LOCATION_LAT, null)?.toDoubleOrNull()
-        val long = prefs.getString(KEY_FIXED_LOCATION_LONG, null)?.toDoubleOrNull()
-        if (lat == null || long == null) return null
-
-        val place = prefs.getString(KEY_FIXED_LOCATION_NAME, null)
-            ?.takeIf { it.isNotBlank() }
-            ?: LocationFormat.coordinatesLabel(lat, long)
-
-        return LocationData(
-            timeMillis = System.currentTimeMillis(),
-            lat = lat,
-            long = long,
-            place = place,
-            locationType = FIXED_LOCATION_NAME
-        )
-    }
-
-    fun setFixedLocation(context: Context, lat: Double, long: Double, place: String) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_FIXED_LOCATION_LAT, lat.toString())
-            putString(KEY_FIXED_LOCATION_LONG, long.toString())
-            putString(KEY_FIXED_LOCATION_NAME, place)
-        }
-    }
-
-    fun clearFixedLocation(context: Context) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            remove(KEY_FIXED_LOCATION_LAT)
-            remove(KEY_FIXED_LOCATION_LONG)
-            remove(KEY_FIXED_LOCATION_NAME)
-        }
     }
 
     fun setWeatherPreference(context: Context, value: Boolean) {
@@ -322,7 +291,6 @@ object PreferencesHelper {
             .getString(KEY_WIDGET_ICON_STYLE_LIST, null)
         return WidgetIconStylePref.entries.find { it.key == key }
             ?: WidgetIconStylePref.TWINKLE_SHADOW
-
     }
 
     private fun getAppIconStylePreference(context: Context): AppIconStylePref {
@@ -330,7 +298,6 @@ object PreferencesHelper {
             .getString(KEY_APP_ICON_STYLE_LIST, null)
         return AppIconStylePref.entries.find { it.key == key }
             ?: AppIconStylePref.FLAT_SKETCH
-
     }
 
     private fun getTempUnitPreference(context: Context): TempUnitPref {
@@ -382,6 +349,12 @@ object PreferencesHelper {
     private fun getShowTempUnitPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_SHOW_TEMP_UNIT, true)
+    }
+
+    private fun getWeatherLocationPreference(context: Context): WeatherLocationPref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_WEATHER_LOCATION, null)
+        return WeatherLocationPref.entries.find { it.key == key } ?: WeatherLocationPref.DEVICE
     }
 
     private fun getWeatherApp(context: Context): WeatherApp {

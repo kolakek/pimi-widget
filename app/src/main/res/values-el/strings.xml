@@ -27,8 +27,6 @@
     <string name="config_location_fallback">Χρήση προηγούμενης τοποθεσίας</string>
     <string name="config_location_fallback_summary">Όταν η υπηρεσία τοποθεσίας της συσκευής είναι απενεργοποιημένη</string>
     <string name="config_weather_location">Τοποθεσία καιρού</string>
-    <string name="config_fixed_location_summary_device">Τοποθεσία συσκευής</string>
-    <string name="config_fixed_location_summary_fixed">Σταθερή: %1$s</string>
     <string name="config_fixed_location_search_hint">Αναζήτηση τοποθεσίας</string>
     <string name="config_fixed_location_search_button">Αναζήτηση</string>
     <string name="config_fixed_location_search_too_short">Πληκτρολόγησε τουλάχιστον 2 χαρακτήρες</string>
