@@ -86,7 +86,7 @@
     <string name="widget_tomorrow">Besok</string>
     <string name="widget_updated_at">Disegarkan</string>
 
-    <string name="app_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
+    <string name="config_weather_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
     <string name="app_text_now">Saat ini</string>
     <string name="app_text_hourly_forecast">Perkiraan cuaca per jam</string>
     <string name="app_text_daily_forecast">Perkiraan cuaca harian</string>

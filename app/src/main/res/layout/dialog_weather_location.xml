@@ -69,10 +69,9 @@
             android:layout_marginTop="12dp"
             android:gravity="center"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
             android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:visibility="gone" />
+            android:text="@string/config_geocoding_attribution_open_meteo"
+            android:textColor="?attr/colorOnSurfaceVariant" />
 
         <LinearLayout
             android:id="@+id/results_container"

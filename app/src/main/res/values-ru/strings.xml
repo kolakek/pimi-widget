@@ -83,7 +83,7 @@
     <string name="config_unit_miles_per_hour">Мили в час</string>
     <string name="config_unit_knots">Узлы</string>
 
-    <string name="app_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
+    <string name="config_weather_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="app_text_now">Сейчас</string>
     <string name="app_text_hourly_forecast">Прогноз по часам</string>
     <string name="app_text_daily_forecast">Прогноз по дням</string>
