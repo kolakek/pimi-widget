@@ -17,36 +17,12 @@
 
 package com.kolakek.pimiwidget.location
 
-import java.util.Locale
-
-/**
- * Pure helpers for user entered locations. They have no Android dependencies so they
- * can be unit tested on the JVM.
- */
 object LocationFormat {
 
-    /**
-     * Builds a display label such as "Berlin, Germany". Blank parts are dropped and
-     * repeated parts are shown once (a search result can have the same city and
-     * region name).
-     */
     fun placeLabel(name: String, region: String?, country: String?): String =
         listOfNotNull(name, region, country)
             .map { it.trim() }
             .filter { it.isNotEmpty() }
             .distinct()
             .joinToString(", ")
-
-    /** Label used when the user gives coordinates without a name, e.g. "52.52, 13.41". */
-    fun coordinatesLabel(lat: Double, long: Double): String =
-        String.format(Locale.US, "%.2f, %.2f", lat, long)
-
-    /**
-     * Parses a coordinate typed by the user. Accepts a comma as decimal separator.
-     * Returns null when the text is not a finite number inside [min, max].
-     */
-    fun parseCoordinate(text: String, min: Double, max: Double): Double? {
-        val value = text.trim().replace(',', '.').toDoubleOrNull() ?: return null
-        return if (value.isFinite() && value in min..max) value else null
-    }
 }
