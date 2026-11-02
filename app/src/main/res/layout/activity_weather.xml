@@ -20,36 +20,19 @@
             android:orientation="vertical"
             android:paddingHorizontal="16dp">
 
-            <LinearLayout
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/place_bar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp"
-                android:background="@drawable/app_place_background"
-                android:includeFontPadding="false"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/place_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="18sp"
-                    android:drawablePadding="16dp"
-                    app:drawableLeftCompat="@drawable/ic_location" />
-
-                <ImageView
-                    android:id="@+id/settings_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_settings"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    tools:ignore="ContentDescription" />
-
-            </LinearLayout>
+                android:hint="@string/config_fixed_location_search_hint"
+                android:textAppearance="@style/App.PlaceBarText"
+                app:defaultMarginsEnabled="false"
+                app:navigationIcon="@drawable/ic_location"
+                app:tintNavigationIcon="false"
+                app:menu="@menu/weather_place_bar"
+                app:backgroundTint="?attr/colorSurfaceContainerHighest" />
 
             <LinearLayout
                 android:layout_width="match_parent"

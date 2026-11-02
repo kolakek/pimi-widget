@@ -42,6 +42,11 @@
         <item name="cornerRadius">8dp</item>
     </style>
 
+    <style name="App.PlaceBarText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="Widget.Base" parent="android:Widget">
         <item name="android:background">#00000000</item>
         <item name="android:clipToOutline">true</item>

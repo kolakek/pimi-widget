@@ -73,6 +73,10 @@ class WeatherActivity : AppCompatActivity() {
         binding.dailyForecast.adapter = dailyAdapter
         binding.hourlyDetails.hourlyDataBar.adapter = dataBarAdapter
 
+        binding.placeBar.setOnMenuItemClickListener {
+            startActivity(Intent(this, AppConfigureActivity::class.java))
+            true
+        }
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             binding.content.updatePadding(top = bars.top, bottom = bars.bottom)
@@ -135,15 +139,13 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun finishDataDisplay() {
-        binding.settingsButton.setOnClickListener {
-            startActivity(Intent(this@WeatherActivity, AppConfigureActivity::class.java))
-        }
         binding.content.visibility = View.VISIBLE
         binding.noData.visibility = View.GONE
     }
 
     private fun displayPlace(data: DisplayData) {
-        binding.placeName.text = data.place
+        @Suppress("UsePropertyAccessSyntax")
+        binding.placeBar.setText(data.place)
     }
 
     private fun displayCurrentWeather(data: DisplayData) {
