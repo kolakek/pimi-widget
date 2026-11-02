@@ -84,11 +84,8 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         ) {
             disableWeather()
         }
-        if (birthdaySwitch?.isChecked == true &&
-            isPermissionDenied(READ_CONTACTS)
-        ) {
-            deleteBirthdayData()
-            birthdaySwitch.isChecked = false
+        if (birthdaySwitch?.isChecked == true && isPermissionDenied(READ_CONTACTS)) {
+            disableBirthday()
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {
@@ -214,12 +211,12 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             return false
         }
         enableWeather()
-
         return true
     }
 
     private fun deviceLocationCallback(enableWeather: Boolean) {
         lifecycleScope.launch {
+            DataRepository.deleteWeatherData(requireContext())
             DataRepository.deleteLocationData(requireContext())
 
             preferenceManager.sharedPreferences?.edit {
@@ -239,6 +236,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
         enableWeather: Boolean
     ) {
         lifecycleScope.launch {
+            DataRepository.deleteWeatherData(requireContext())
             DataRepository.storeLocationData(
                 requireContext(),
                 LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
@@ -277,12 +275,8 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun birthdaySwitchCallback(isChecked: Boolean): Boolean {
-        val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
-
         if (!isChecked) {
-            deleteBirthdayData()
-            birthdaySwitch?.isChecked = false
-
+            disableBirthday()
             return true
         }
         if (isPermissionDenied(READ_CONTACTS)) {
@@ -295,13 +289,7 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             }
             return false
         }
-        WorkManagerHelper.enqueueOneTimeWork(
-            requireContext(),
-            action = UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH,
-            workPolicy = ExistingWorkPolicy.REPLACE
-        )
-        birthdaySwitch?.isChecked = true
-
+        enableBirthday()
         return true
     }
 
@@ -344,8 +332,30 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun disableWeather() {
-        deleteWeatherData()
+        lifecycleScope.launch {
+            DataRepository.deleteWeatherData(requireContext())
+            if (usesDeviceLocation()) {
+                DataRepository.deleteLocationData(requireContext())
+            }
+        }
         findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked = false
+    }
+
+    private fun enableBirthday() {
+        WorkManagerHelper.enqueueOneTimeWork(
+            requireContext(),
+            action = UpdateAction.BIRTHDAY_FETCH_THEN_REFRESH,
+            workPolicy = ExistingWorkPolicy.REPLACE
+        )
+        findPreference<SwitchPreferenceCompat>(KEY_BIRTHDAY_SWITCH)?.isChecked = true
+    }
+
+    private fun disableBirthday() {
+        lifecycleScope.launch {
+            BirthdayUpdater.deleteDismissHash(requireContext())
+            DataRepository.deleteBirthdayData(requireContext())
+        }
+        findPreference<SwitchPreferenceCompat>(KEY_BIRTHDAY_SWITCH)?.isChecked = false
     }
 
     private fun showDebugDialog() {
@@ -464,22 +474,6 @@ class WidgetSettingsFragment : PreferenceFragmentCompat() {
             ageMins < 180 -> resources.getQuantityString(R.plurals.minutes, ageMins, ageMins)
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
-        }
-    }
-
-    private fun deleteWeatherData() {
-        lifecycleScope.launch {
-            DataRepository.deleteWeatherData(requireContext())
-            if (usesDeviceLocation()) {
-                DataRepository.deleteLocationData(requireContext())
-            }
-        }
-    }
-
-    private fun deleteBirthdayData() {
-        lifecycleScope.launch {
-            BirthdayUpdater.deleteDismissHash(requireContext())
-            DataRepository.deleteBirthdayData(requireContext())
         }
     }
 
