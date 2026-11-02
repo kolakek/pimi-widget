@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
     <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
     <string name="config_weather_location">Sääsijainti</string>
-    <string name="config_fixed_location_search_hint">Hae paikkaa</string>
     <string name="config_fixed_location_search_button">Hae</string>
-    <string name="config_fixed_location_search_too_short">Kirjoita vähintään 2 merkkiä</string>
-    <string name="config_fixed_location_search_empty">Paikkoja ei löytynyt</string>
-    <string name="config_fixed_location_search_error">Haku epäonnistui. Tarkista internetyhteytesi.</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_icon_color">Kuvakkeen väri</string>

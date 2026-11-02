@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Använd tidigare plats</string>
     <string name="config_location_fallback_summary">När enhetens platstjänst är inaktiverad</string>
     <string name="config_weather_location">Väderplats</string>
-    <string name="config_fixed_location_search_hint">Sök efter en plats</string>
     <string name="config_fixed_location_search_button">Sök</string>
-    <string name="config_fixed_location_search_too_short">Skriv minst 2 tecken</string>
-    <string name="config_fixed_location_search_empty">Inga platser hittades</string>
-    <string name="config_fixed_location_search_error">Sökningen misslyckades. Kontrollera din internetanslutning.</string>
     <string name="config_text_color">Textfärg</string>
     <string name="config_icon_color">Ikonfärg</string>
     <string name="config_icon_style">Ikonstil</string>

@@ -29,11 +29,7 @@
     <string name="config_location_fallback">Использовать последнее местоположение</string>
     <string name="config_location_fallback_summary">Когда сервис геолокации устройства выключен</string>
     <string name="config_weather_location">Местоположение для погоды</string>
-    <string name="config_fixed_location_search_hint">Поиск места</string>
     <string name="config_fixed_location_search_button">Найти</string>
-    <string name="config_fixed_location_search_too_short">Введите не менее 2 символов</string>
-    <string name="config_fixed_location_search_empty">Места не найдены</string>
-    <string name="config_fixed_location_search_error">Не удалось выполнить поиск. Проверьте подключение к интернету.</string>
     <string name="config_icon_style">Стиль значка</string>
     <string name="config_text_color">Цвет текста</string>
     <string name="config_icon_color">Цвет значка</string>

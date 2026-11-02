@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Vorige locatie gebruiken</string>
     <string name="config_location_fallback_summary">Wanneer de locatieservice van het apparaat is uitgeschakeld</string>
     <string name="config_weather_location">Weerlocatie</string>
-    <string name="config_fixed_location_search_hint">Zoek een plaats</string>
     <string name="config_fixed_location_search_button">Zoeken</string>
-    <string name="config_fixed_location_search_too_short">Typ ten minste 2 tekens</string>
-    <string name="config_fixed_location_search_empty">Geen plaatsen gevonden</string>
-    <string name="config_fixed_location_search_error">Zoeken mislukt. Controleer je internetverbinding.</string>
     <string name="config_text_color">Tekstkleur</string>
     <string name="config_icon_color">Icoonkleur</string>
     <string name="config_icon_style">Icoonstijl</string>

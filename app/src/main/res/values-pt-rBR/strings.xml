@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Usar localização anterior</string>
     <string name="config_location_fallback_summary">Quando o serviço de localização do dispositivo está desativado</string>
     <string name="config_weather_location">Localização do clima</string>
-    <string name="config_fixed_location_search_hint">Pesquisar um lugar</string>
     <string name="config_fixed_location_search_button">Pesquisar</string>
-    <string name="config_fixed_location_search_too_short">Digite pelo menos 2 caracteres</string>
-    <string name="config_fixed_location_search_empty">Nenhum lugar encontrado</string>
-    <string name="config_fixed_location_search_error">A pesquisa falhou. Verifique sua conexão com a internet.</string>
     <string name="config_text_color">Cor do texto</string>
     <string name="config_icon_color">Cor do ícone</string>
     <string name="config_icon_style">Estilo de ícones</string>

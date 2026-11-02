@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Використовувати попереднє місцезнаходження</string>
     <string name="config_location_fallback_summary">Коли служба геолокації пристрою вимкнена</string>
     <string name="config_weather_location">Місцезнаходження для погоди</string>
-    <string name="config_fixed_location_search_hint">Пошук місця</string>
     <string name="config_fixed_location_search_button">Знайти</string>
-    <string name="config_fixed_location_search_too_short">Введи щонайменше 2 символи</string>
-    <string name="config_fixed_location_search_empty">Місць не знайдено</string>
-    <string name="config_fixed_location_search_error">Не вдалося виконати пошук. Перевір підключення до інтернету.</string>
     <string name="config_text_color">Колір тексту</string>
     <string name="config_icon_color">Колір значка</string>
     <string name="config_icon_style">Стиль іконок</string>

@@ -21,7 +21,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.DialogWeatherLocationBinding
@@ -69,11 +68,9 @@ class WeatherLocationDialog(
         val query = binding.searchInput.text?.toString()?.trim().orEmpty()
         if (query.length < GEOCODING_MIN_QUERY_LENGTH) {
             binding.resultsContainer.removeAllViews()
-            showStatus(R.string.config_fixed_location_search_too_short)
             return
         }
         binding.resultsContainer.removeAllViews()
-        binding.searchStatus.visibility = View.GONE
         binding.searchProgress.visibility = View.VISIBLE
 
         searchJob = scope.launch {
@@ -82,18 +79,16 @@ class WeatherLocationDialog(
             } catch (e: CancellationException) {
                 throw e
             } catch (_: Exception) {
-                showStatus(R.string.config_fixed_location_search_error)
+                binding.searchProgress.visibility = View.INVISIBLE
             }
         }
     }
 
     private fun showResults(places: List<GeocodingPlace>) {
-        binding.searchProgress.visibility = View.GONE
+        binding.searchProgress.visibility = View.INVISIBLE
         binding.resultsContainer.removeAllViews()
-        binding.searchStatus.visibility = View.GONE
 
         if (places.isEmpty()) {
-            showStatus(R.string.config_fixed_location_search_empty)
             return
         }
         val inflater = LayoutInflater.from(context)
@@ -110,11 +105,5 @@ class WeatherLocationDialog(
             }
             binding.resultsContainer.addView(row.root)
         }
-    }
-
-    private fun showStatus(@StringRes messageId: Int) {
-        binding.searchProgress.visibility = View.GONE
-        binding.searchStatus.setText(messageId)
-        binding.searchStatus.visibility = View.VISIBLE
     }
 }

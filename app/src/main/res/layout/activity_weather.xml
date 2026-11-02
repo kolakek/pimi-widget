@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"
-                android:hint="@string/config_fixed_location_search_hint"
+                android:hint="@string/config_fixed_location_search_open_meteo"
                 android:textAppearance="@style/App.PlaceBarText"
                 app:defaultMarginsEnabled="false"
                 app:navigationIcon="@drawable/ic_location"
@@ -217,7 +217,7 @@
         android:id="@+id/place_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="@string/config_fixed_location_search_hint"
+        android:hint="@string/config_fixed_location_search_placeholder"
         app:layout_anchor="@id/place_bar">
 
     </com.google.android.material.search.SearchView>

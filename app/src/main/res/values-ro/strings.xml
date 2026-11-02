@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Folosește locația anterioară</string>
     <string name="config_location_fallback_summary">Când serviciul de localizare al dispozitivului este dezactivat</string>
     <string name="config_weather_location">Locație meteo</string>
-    <string name="config_fixed_location_search_hint">Caută un loc</string>
     <string name="config_fixed_location_search_button">Caută</string>
-    <string name="config_fixed_location_search_too_short">Introdu cel puțin 2 caractere</string>
-    <string name="config_fixed_location_search_empty">Nu s-a găsit niciun loc</string>
-    <string name="config_fixed_location_search_error">Căutarea a eșuat. Verifică conexiunea la internet.</string>
     <string name="config_text_color">Culoarea textului</string>
     <string name="config_icon_color">Culoarea pictogramei</string>
     <string name="config_icon_style">Stilul pictogramelor</string>

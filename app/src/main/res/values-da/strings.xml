@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Brug tidligere placering</string>
     <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
     <string name="config_weather_location">Vejrplacering</string>
-    <string name="config_fixed_location_search_hint">Søg efter et sted</string>
     <string name="config_fixed_location_search_button">Søg</string>
-    <string name="config_fixed_location_search_too_short">Skriv mindst 2 tegn</string>
-    <string name="config_fixed_location_search_empty">Ingen steder fundet</string>
-    <string name="config_fixed_location_search_error">Søgningen mislykkedes. Tjek din internetforbindelse.</string>
     <string name="config_text_color">Tekstfarve</string>
     <string name="config_icon_color">Ikonfarve</string>
     <string name="config_icon_style">Ikonstil</string>

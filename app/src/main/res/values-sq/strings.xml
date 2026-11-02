@@ -27,11 +27,7 @@
     <string name="config_location_fallback">Përdor vendndodhjen e mëparshme</string>
     <string name="config_location_fallback_summary">Kur shërbimi i vendndodhjes së pajisjes është i çaktivizuar</string>
     <string name="config_weather_location">Vendndodhja e motit</string>
-    <string name="config_fixed_location_search_hint">Kërko një vend</string>
     <string name="config_fixed_location_search_button">Kërko</string>
-    <string name="config_fixed_location_search_too_short">Shkruaj të paktën 2 karaktere</string>
-    <string name="config_fixed_location_search_empty">Nuk u gjet asnjë vend</string>
-    <string name="config_fixed_location_search_error">Kërkimi dështoi. Kontrollo lidhjen tënde me internetin.</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
     <string name="config_icon_color">Ngjyra e ikonës</string>
     <string name="config_icon_style">Stili i ikonave</string>

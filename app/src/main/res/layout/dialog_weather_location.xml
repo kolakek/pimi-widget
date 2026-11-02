@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,32 +11,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
-        android:paddingTop="8dp">
-
-        <TextView
-            android:id="@+id/device_location"
-            android:text="@string/config_weather_location_device"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:paddingVertical="8dp"
-            android:includeFontPadding="false"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true"
-            android:minHeight="48dp"
-            android:textAppearance="?attr/textAppearanceBodyLarge"
-            android:textColor="?attr/colorOnSurface"
-            android:drawablePadding="16dp"
-            android:drawableStart="@drawable/ic_my_location"
-            tools:ignore="UseCompatTextViewDrawableXml" />
+        android:paddingTop="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/App.TextInputLayout"
             android:id="@+id/search_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/config_fixed_location_search_hint"
+            android:hint="@string/config_fixed_location_search_open_meteo"
+            app:placeholderText="@string/config_fixed_location_search_placeholder"
             app:endIconContentDescription="@string/config_fixed_location_search_button"
             app:endIconDrawable="@drawable/ic_search"
             app:endIconMode="custom">
@@ -57,27 +39,33 @@
             android:id="@+id/search_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="6dp"
             android:indeterminate="true"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:trackCornerRadius="2dp" />
 
         <TextView
-            android:id="@+id/search_status"
+            android:id="@+id/device_location"
+            android:text="@string/config_weather_location_device"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:text="@string/config_geocoding_attribution_open_meteo"
-            android:textColor="?attr/colorOnSurfaceVariant" />
+            android:paddingVertical="8dp"
+            android:includeFontPadding="false"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurface"
+            android:drawablePadding="16dp"
+            android:drawableStart="@drawable/ic_my_location"
+            tools:ignore="UseCompatTextViewDrawableXml" />
 
         <LinearLayout
             android:id="@+id/results_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:orientation="vertical" />
 
     </LinearLayout>
