@@ -31,6 +31,7 @@
     <string name="config_location_fallback_summary">When the device location service is turned off</string>
     <string name="config_weather_location">Weather location</string>
     <string name="config_weather_location_device">Device location</string>
+    <string name="config_weather_location_device_descr">Follows your location</string>
     <string name="config_fixed_location_search_button">Search</string>
     <string name="config_fixed_location_search_open_meteo">Search with Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">New York, United States</string>

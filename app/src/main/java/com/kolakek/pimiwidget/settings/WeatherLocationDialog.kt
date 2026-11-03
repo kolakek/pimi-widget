@@ -44,7 +44,10 @@ class WeatherLocationDialog(
     private var dialog: AlertDialog? = null
 
     fun show() {
-        binding.deviceLocation.setOnClickListener {
+        binding.deviceLocation.title.setText(R.string.config_weather_location_device)
+        binding.deviceLocation.subtitle.setText(R.string.config_weather_location_device_descr)
+        binding.deviceLocation.icon.setImageResource(R.drawable.ic_my_location)
+        binding.deviceLocation.root.setOnClickListener {
             onDeviceLocationSelected()
             dialog?.dismiss()
         }
@@ -96,9 +99,10 @@ class WeatherLocationDialog(
             val row = ItemLocationResultBinding.inflate(inflater, binding.resultsContainer, false)
             val parts = place.label.split(", ", limit = 2)
 
-            row.resultTitle.text = parts[0]
-            row.resultSubtitle.text = parts.getOrNull(1).orEmpty()
-            row.resultSubtitle.visibility = if (parts.size > 1) View.VISIBLE else View.GONE
+            row.icon.setImageResource(R.drawable.ic_location)
+            row.title.text = parts[0]
+            row.subtitle.text = parts.getOrNull(1).orEmpty()
+            row.subtitle.visibility = if (parts.size > 1) View.VISIBLE else View.GONE
             row.root.setOnClickListener {
                 onFixedLocationSelected(place.lat, place.long, place.name)
                 dialog?.dismiss()

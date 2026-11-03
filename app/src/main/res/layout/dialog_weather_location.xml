@@ -1,6 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
@@ -45,22 +44,9 @@
             android:visibility="invisible"
             app:trackCornerRadius="2dp" />
 
-        <TextView
+        <include
             android:id="@+id/device_location"
-            android:text="@string/config_weather_location_device"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="8dp"
-            android:includeFontPadding="false"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true"
-            android:minHeight="48dp"
-            android:textAppearance="?attr/textAppearanceBodyLarge"
-            android:textColor="?attr/colorOnSurface"
-            android:drawablePadding="16dp"
-            android:drawableStart="@drawable/ic_my_location"
-            tools:ignore="UseCompatTextViewDrawableXml" />
+            layout="@layout/item_location_result" />
 
         <LinearLayout
             android:id="@+id/results_container"
