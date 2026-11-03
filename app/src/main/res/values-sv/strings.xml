@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Använd tidigare plats</string>
     <string name="config_location_fallback_summary">När enhetens platstjänst är inaktiverad</string>
     <string name="config_weather_location">Väderplats</string>
+    <string name="config_weather_location_device">Enhetens plats</string>
+    <string name="config_weather_location_device_descr">Följer din plats</string>
     <string name="config_fixed_location_search_button">Sök</string>
+    <string name="config_fixed_location_search_open_meteo">Sök med Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Stockholm, Sverige</string>
     <string name="config_text_color">Textfärg</string>
     <string name="config_icon_color">Ikonfärg</string>
     <string name="config_icon_style">Ikonstil</string>

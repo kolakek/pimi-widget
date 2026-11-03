@@ -28,6 +28,13 @@
     <string name="config_debug_background_service">Layanan latar belakang</string>
     <string name="config_location_fallback">Gunakan lokasi terakhir</string>
     <string name="config_location_fallback_summary">Saat Layanan lokasi perangkat dimatikan</string>
+    <string name="config_weather_location">Lokasi cuaca</string>
+    <string name="config_weather_location_device">Lokasi perangkat</string>
+    <string name="config_weather_location_device_descr">Mengikuti lokasimu</string>
+    <string name="config_weather_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
+    <string name="config_fixed_location_search_button">Cari</string>
+    <string name="config_fixed_location_search_open_meteo">Cari dengan Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Jakarta, Indonesia</string>
     <string name="config_icon_style">Gaya ikon</string>
     <string name="config_text_color">Warna teks</string>
     <string name="config_icon_color">Warna ikon</string>
@@ -79,14 +86,13 @@
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, MMM d</string>
-    <string name="widget_date_prev">Min, Jul 4</string>
-    <string name="widget_temp_prev">71\u2109</string>
-    <string name="widget_weather_prev">Besok 67\u00B0 / 52\u00B0 · Hujan ringan</string>
+    <string name="widget_date_prev">Min, 17 Agu</string>
+    <string name="widget_temp_prev">30\u2103</string>
+    <string name="widget_weather_prev">Besok 32\u00B0 / 25\u00B0 · Cerah berawan</string>
     <string name="widget_today">Hari ini</string>
     <string name="widget_tomorrow">Besok</string>
     <string name="widget_updated_at">Disegarkan</string>
 
-    <string name="config_weather_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
     <string name="app_text_now">Saat ini</string>
     <string name="app_text_hourly_forecast">Perkiraan cuaca per jam</string>
     <string name="app_text_daily_forecast">Perkiraan cuaca harian</string>

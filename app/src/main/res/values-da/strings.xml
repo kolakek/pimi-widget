@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Brug tidligere placering</string>
     <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
     <string name="config_weather_location">Vejrplacering</string>
+    <string name="config_weather_location_device">Enhedens placering</string>
+    <string name="config_weather_location_device_descr">Følger din placering</string>
     <string name="config_fixed_location_search_button">Søg</string>
+    <string name="config_fixed_location_search_open_meteo">Søg med Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">København, Danmark</string>
     <string name="config_text_color">Tekstfarve</string>
     <string name="config_icon_color">Ikonfarve</string>
     <string name="config_icon_style">Ikonstil</string>

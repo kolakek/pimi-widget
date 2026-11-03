@@ -26,8 +26,12 @@
     <string name="config_debug_background_service">Servizio in background</string>
     <string name="config_location_fallback">Usa posizione precedente</string>
     <string name="config_location_fallback_summary">Quando il servizio di localizzazione del dispositivo è disattivato</string>
-    <string name="config_weather_location">Posizione del meteo</string>
+    <string name="config_weather_location">Posizione meteo</string>
+    <string name="config_weather_location_device">Posizione del dispositivo</string>
+    <string name="config_weather_location_device_descr">Segue la tua posizione</string>
     <string name="config_fixed_location_search_button">Cerca</string>
+    <string name="config_fixed_location_search_open_meteo">Cerca con Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Roma, Italia</string>
     <string name="config_text_color">Colore del testo</string>
     <string name="config_icon_color">Colore dell’icona</string>
     <string name="config_icon_style">Stile icone</string>

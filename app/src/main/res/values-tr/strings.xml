@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Önceki konumu kullan</string>
     <string name="config_location_fallback_summary">Cihazın konum hizmeti kapatıldığında</string>
     <string name="config_weather_location">Hava durumu konumu</string>
+    <string name="config_weather_location_device">Cihaz konumu</string>
+    <string name="config_weather_location_device_descr">Konumunu takip eder</string>
     <string name="config_fixed_location_search_button">Ara</string>
+    <string name="config_fixed_location_search_open_meteo">Open-Meteo ile ara</string>
+    <string name="config_fixed_location_search_placeholder">İstanbul, Türkiye</string>
     <string name="config_text_color">Metin rengi</string>
     <string name="config_icon_color">Simge rengi</string>
     <string name="config_icon_style">İkon stili</string>

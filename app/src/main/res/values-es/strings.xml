@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Usar la ubicación anterior</string>
     <string name="config_location_fallback_summary">Cuando el servicio de ubicación del dispositivo está desactivado</string>
     <string name="config_weather_location">Ubicación del tiempo</string>
+    <string name="config_weather_location_device">Ubicación del dispositivo</string>
+    <string name="config_weather_location_device_descr">Sigue tu ubicación</string>
     <string name="config_fixed_location_search_button">Buscar</string>
+    <string name="config_fixed_location_search_open_meteo">Buscar con Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Madrid, España</string>
     <string name="config_text_color">Color del texto</string>
     <string name="config_icon_color">Color del icono</string>
     <string name="config_icon_style">Estilo de iconos</string>

@@ -29,7 +29,12 @@
     <string name="config_location_fallback">Использовать последнее местоположение</string>
     <string name="config_location_fallback_summary">Когда сервис геолокации устройства выключен</string>
     <string name="config_weather_location">Местоположение для погоды</string>
+    <string name="config_weather_location_device">Местоположение устройства</string>
+    <string name="config_weather_location_device_descr">Следует за твоим местоположением</string>
+    <string name="config_weather_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="config_fixed_location_search_button">Найти</string>
+    <string name="config_fixed_location_search_open_meteo">Поиск через Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Москва, Россия</string>
     <string name="config_icon_style">Стиль значка</string>
     <string name="config_text_color">Цвет текста</string>
     <string name="config_icon_color">Цвет значка</string>
@@ -79,7 +84,6 @@
     <string name="config_unit_miles_per_hour">Мили в час</string>
     <string name="config_unit_knots">Узлы</string>
 
-    <string name="config_weather_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="app_text_now">Сейчас</string>
     <string name="app_text_hourly_forecast">Прогноз по часам</string>
     <string name="app_text_daily_forecast">Прогноз по дням</string>

@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Використовувати попереднє місцезнаходження</string>
     <string name="config_location_fallback_summary">Коли служба геолокації пристрою вимкнена</string>
     <string name="config_weather_location">Місцезнаходження для погоди</string>
+    <string name="config_weather_location_device">Місцезнаходження пристрою</string>
+    <string name="config_weather_location_device_descr">Стежить за твоїм місцезнаходженням</string>
     <string name="config_fixed_location_search_button">Знайти</string>
+    <string name="config_fixed_location_search_open_meteo">Пошук через Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Київ, Україна</string>
     <string name="config_text_color">Колір тексту</string>
     <string name="config_icon_color">Колір значка</string>
     <string name="config_icon_style">Стиль іконок</string>

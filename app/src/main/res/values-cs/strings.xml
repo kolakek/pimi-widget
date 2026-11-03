@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Použít poslední polohu</string>
     <string name="config_location_fallback_summary">Když je služba určování polohy zařízení vypnuta</string>
     <string name="config_weather_location">Poloha pro počasí</string>
+    <string name="config_weather_location_device">Poloha zařízení</string>
+    <string name="config_weather_location_device_descr">Sleduje tvou polohu</string>
     <string name="config_fixed_location_search_button">Hledat</string>
+    <string name="config_fixed_location_search_open_meteo">Hledat přes Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Praha, Česko</string>
     <string name="config_text_color">Barva textu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_icon_color">Barva ikony</string>

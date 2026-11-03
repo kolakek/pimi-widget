@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Usar localização anterior</string>
     <string name="config_location_fallback_summary">Quando o serviço de localização do dispositivo está desativado</string>
     <string name="config_weather_location">Localização do clima</string>
+    <string name="config_weather_location_device">Localização do dispositivo</string>
+    <string name="config_weather_location_device_descr">Segue sua localização</string>
     <string name="config_fixed_location_search_button">Pesquisar</string>
+    <string name="config_fixed_location_search_open_meteo">Pesquisar no Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Rio de Janeiro, Brasil</string>
     <string name="config_text_color">Cor do texto</string>
     <string name="config_icon_color">Cor do ícone</string>
     <string name="config_icon_style">Estilo de ícones</string>

@@ -26,8 +26,12 @@
     <string name="config_debug_background_service">Taustapalvelu</string>
     <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
     <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
-    <string name="config_weather_location">Sääsijainti</string>
+    <string name="config_weather_location">Sään sijainti</string>
+    <string name="config_weather_location_device">Laitteen sijainti</string>
+    <string name="config_weather_location_device_descr">Seuraa sijaintiasi</string>
     <string name="config_fixed_location_search_button">Hae</string>
+    <string name="config_fixed_location_search_open_meteo">Hae Open-Meteon avulla</string>
+    <string name="config_fixed_location_search_placeholder">Helsinki, Suomi</string>
     <string name="config_text_color">Tekstin väri</string>
     <string name="config_icon_style">Kuvaketyyli</string>
     <string name="config_icon_color">Kuvakkeen väri</string>

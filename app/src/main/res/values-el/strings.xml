@@ -27,7 +27,11 @@
     <string name="config_location_fallback">Χρήση προηγούμενης τοποθεσίας</string>
     <string name="config_location_fallback_summary">Όταν η υπηρεσία τοποθεσίας της συσκευής είναι απενεργοποιημένη</string>
     <string name="config_weather_location">Τοποθεσία καιρού</string>
+    <string name="config_weather_location_device">Τοποθεσία συσκευής</string>
+    <string name="config_weather_location_device_descr">Ακολουθεί την τοποθεσία σου</string>
     <string name="config_fixed_location_search_button">Αναζήτηση</string>
+    <string name="config_fixed_location_search_open_meteo">Αναζήτηση μέσω Open-Meteo</string>
+    <string name="config_fixed_location_search_placeholder">Αθήνα, Ελλάδα</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
     <string name="config_icon_color">Χρώμα εικονιδίου</string>
     <string name="config_icon_style">Στυλ εικονιδίων</string>
