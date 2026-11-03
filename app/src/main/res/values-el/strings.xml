@@ -9,9 +9,9 @@
     <string name="config_weather_switch">Καιρός</string>
     <string name="config_weather_attribution_open_meteo">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_birthday_switch">Γενέθλια</string>
-    <string name="config_birthday_switch_summary">Εμφάνιση των γενεθλίων των επαφών σας</string>
+    <string name="config_birthday_switch_summary">Εμφάνιση των γενεθλίων των επαφών σου</string>
     <string name="config_contact_perm_alert_title">Απαιτείται πρόσβαση στις επαφές</string>
-    <string name="config_contact_perm_alert_message">Για την εμφάνιση των γενεθλίων, αυτή η εφαρμογή χρειάζεται πρόσβαση στις επαφές σας.</string>
+    <string name="config_contact_perm_alert_message">Για την εμφάνιση των γενεθλίων, αυτή η εφαρμογή χρειάζεται πρόσβαση στις επαφές σου.</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
     <string name="config_show_alarms">Ξυπνητήρια</string>
     <string name="config_show_alarms_descr">Εμφάνιση επερχόμενων ξυπνητηριών</string>
@@ -51,16 +51,16 @@
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
     <string name="config_weather_warnings_summary">Για ακραίες καιρικές συνθήκες μέσα στην επόμενη ώρα</string>
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
-    <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σας η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σας.</string>
+    <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σου, η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σου.</string>
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>
-    <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σας στο παρασκήνιο. Επιλέξτε "%s" στην επόμενη οθόνη.</string>
-    <string name="config_alert_button_ok">ΟΚ</string>
+    <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σου στο παρασκήνιο. Επίλεξε «%s» στην επόμενη οθόνη.</string>
+    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Ακύρωση</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
     <string name="config_aux_view_title">Εμφάνιση λεπτομερειών</string>
     <string name="config_aux_view_nothing">Χωρίς λεπτομέρειες</string>
-    <string name="config_aux_view_update_time">Χρόνος ανανέωσης</string>
+    <string name="config_aux_view_update_time">Ώρα ανανέωσης</string>
     <string name="config_weather_app">Εφαρμογή καιρού</string>
     <string name="config_weather_app_nil">Δεν περιλαμβάνεται</string>
     <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
@@ -98,14 +98,14 @@
     <string name="app_text_dew_point">σημείο δρόσου</string>
     <string name="app_text_humidity">υγρασία</string>
     <string name="app_text_uv_index">δείκτης UV</string>
-    <string name="app_text_pressure">ατμοσφαιρική πίεση</string>
+    <string name="app_text_pressure">πίεση</string>
     <string name="app_text_no_data">Δεν υπάρχουν διαθέσιμα δεδομένα καιρού</string>
     <string name="app_text_weather_off">Ο καιρός είναι απενεργοποιημένος</string>
     <string name="app_text_enable_in_settings">Ενεργοποίησε τον καιρό στις ρυθμίσεις του widget</string>
     <string name="app_text_check_connection">Έλεγξε τη σύνδεσή σου στο διαδίκτυο και δοκίμασε ξανά</string>
     <string name="app_text_button_try_again">Δοκίμασε ξανά</string>
     <string name="app_text_rain">βροχή</string>
-    <string name="app_text_snow">Χιόνι</string>
+    <string name="app_text_snow">χιόνι</string>
     <string name="app_text_hourly_details">Ωριαίες λεπτομέρειες</string>
     <string name="app_text_sunset_sunrise">ανατολή &amp; δύση ηλίου</string>
     <string name="app_text_sunrise">ανατολή ηλίου</string>
@@ -116,11 +116,11 @@
     <string name="app_today_average">μέσος όρος ημέρας</string>
     <string name="app_today_maximum">μέγιστο ημέρας</string>
 
-    <string name="mu_0_1_2">χαμηλή</string>
-    <string name="mu_3_4_5">μέτρια</string>
-    <string name="mu_6_7">υψηλή</string>
-    <string name="mu_8_9_10">πολύ υψηλή</string>
-    <string name="mu_11">ακραία</string>
+    <string name="mu_0_1_2">χαμηλός</string>
+    <string name="mu_3_4_5">μέτριος</string>
+    <string name="mu_6_7">υψηλός</string>
+    <string name="mu_8_9_10">πολύ υψηλός</string>
+    <string name="mu_11">ακραίος</string>
 
     <string name="widget_label">Ημερομηνία, καιρός και άλλα</string>
     <string name="widget_date_prev">Τρι 25 Μαρ</string>
@@ -159,13 +159,13 @@
     <string name="wc_clear_sky_day">ηλιοφάνεια</string>
     <string name="wc_clear_sky_night">αίθριος</string>
 
-    <string name="warn_uv_extreme">προειδοποίηση ακραίας UV</string>
+    <string name="warn_uv_extreme">προειδοποίηση ακραίας ακτινοβολίας UV</string>
     <string name="warn_heat_extreme">προειδοποίηση ακραίας ζέστης</string>
     <string name="warn_rain_extreme">προειδοποίηση ακραίας βροχής</string>
     <string name="warn_gusts_extreme">προειδοποίηση ακραίων ριπών ανέμου</string>
     <string name="warn_tstorm_extreme">προειδοποίηση ακραίας καταιγίδας</string>
     <string name="warn_no_warning">καμία προειδοποίηση</string>
-    <string name="warn_uv_severe">προειδοποίηση έντονης UV</string>
+    <string name="warn_uv_severe">προειδοποίηση έντονης ακτινοβολίας UV</string>
     <string name="warn_heat_severe">προειδοποίηση έντονης ζέστης</string>
     <string name="warn_rain_severe">προειδοποίηση έντονης βροχής</string>
     <string name="warn_gusts_severe">προειδοποίηση ισχυρών ριπών ανέμου</string>

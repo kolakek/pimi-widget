@@ -24,7 +24,7 @@
     <string name="config_debug_button_weather">Se vejrforspørgsel</string>
     <string name="config_debug_button_location">Se placering</string>
     <string name="config_debug_background_service">Baggrundstjeneste</string>
-    <string name="config_location_fallback">Brug tidligere placering</string>
+    <string name="config_location_fallback">Brug seneste placering</string>
     <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
     <string name="config_weather_location">Vejrplacering</string>
     <string name="config_weather_location_device">Enhedens placering</string>
@@ -46,9 +46,9 @@
     <string name="config_section_weather">Vejrindstillinger</string>
     <string name="config_section_settings_plus">Yderligere indstillinger</string>
     <string name="config_section_about">Om</string>
-    <string name="config_daily_forecast">Vis daglig prognose</string>
+    <string name="config_daily_forecast">Vis daglig vejrudsigt</string>
     <string name="config_daily_forecast_summary">Morgen og aften</string>
-    <string name="config_weather_warnings">Vis vejralarmer</string>
+    <string name="config_weather_warnings">Vis vejrvarsler</string>
     <string name="config_weather_warnings_summary">Ved ekstreme vejrforhold inden for den næste time</string>
     <string name="config_loc_perm_alert_title">Placeringstilladelse kræves</string>
     <string name="config_loc_perm_alert_message">For at vise vejret i dit område har appen brug for adgang til din placering.</string>
@@ -91,8 +91,8 @@
     <string name="app_text_feels_like">føles som</string>
     <string name="app_text_max_temp">højeste</string>
     <string name="app_text_min_temp">laveste</string>
-    <string name="app_text_pressure_high">højtryk</string>
-    <string name="app_text_pressure_low">lavtryk</string>
+    <string name="app_text_pressure_high">højt</string>
+    <string name="app_text_pressure_low">lavt</string>
     <string name="app_text_title_wind">vind</string>
     <string name="app_text_gusts">vindstød</string>
     <string name="app_text_dew_point">dugpunkt</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Tjek din internetforbindelse og prøv igen</string>
     <string name="app_text_button_try_again">Prøv igen</string>
     <string name="app_text_rain">regn</string>
-    <string name="app_text_snow">Sne</string>
+    <string name="app_text_snow">sne</string>
     <string name="app_text_hourly_details">Timevis detaljer</string>
     <string name="app_text_sunset_sunrise">solopgang &amp; solnedgang</string>
     <string name="app_text_sunrise">solopgang</string>
@@ -147,7 +147,7 @@
     <string name="wc_drizzle">finregn</string>
     <string name="wc_heavy_snow">kraftigt snefald</string>
     <string name="wc_snow">sne</string>
-    <string name="wc_light_snow">let sne</string>
+    <string name="wc_light_snow">let snefald</string>
     <string name="wc_snow_grains">snegryn</string>
     <string name="wc_fog">tåge</string>
     <string name="wc_overcast">overskyet</string>
@@ -164,7 +164,7 @@
     <string name="warn_rain_extreme">varsel om ekstrem regn</string>
     <string name="warn_gusts_extreme">varsel om ekstreme vindstød</string>
     <string name="warn_tstorm_extreme">varsel om ekstremt tordenvejr</string>
-    <string name="warn_no_warning">ingen advarsler</string>
+    <string name="warn_no_warning">ingen varsler</string>
     <string name="warn_uv_severe">varsel om høj UV-stråling</string>
     <string name="warn_heat_severe">varsel om intens varme</string>
     <string name="warn_rain_severe">varsel om kraftig regn</string>

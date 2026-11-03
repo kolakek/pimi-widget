@@ -17,7 +17,7 @@
     <string name="config_show_alarms_descr">Mostrar próximas alarmas</string>
     <string name="config_perm_alarm">Mostrar siempre el icono de alarma</string>
     <string name="config_perm_alarm_descr">Acceso rápido a la aplicación Reloj</string>
-    <string name="config_debug_info">Estado de la app</string>
+    <string name="config_debug_info">Estado de la aplicación</string>
     <string name="config_debug_weather_data_age">Antigüedad de los datos meteorológicos</string>
     <string name="config_debug_last_valid_location">Última ubicación válida</string>
     <string name="config_debug_last_work_status">Estado de la última ejecución</string>
@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Sol de la mañana</string>
     <string name="config_icon_color_evening">Sol de la tarde</string>
     <string name="config_option_auto">Automático</string>
-    <string name="config_option_follow_system">Predeterminado del sistema</string>
+    <string name="config_option_follow_system">Igual que el sistema</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_section_features">De un vistazo</string>
     <string name="config_section_weather">Ajustes del tiempo</string>
@@ -49,18 +49,18 @@
     <string name="config_daily_forecast">Mostrar previsión diaria</string>
     <string name="config_daily_forecast_summary">Por la mañana y por la noche</string>
     <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
-    <string name="config_weather_warnings_summary">Para condiciones climáticas adversas en la próxima hora</string>
+    <string name="config_weather_warnings_summary">Para condiciones meteorológicas adversas en la próxima hora</string>
     <string name="config_loc_perm_alert_title">Permiso de ubicación requerido</string>
-    <string name="config_loc_perm_alert_message">Para mostrar el clima de tu zona actual, esta app necesita acceder a tu ubicación.</string>
+    <string name="config_loc_perm_alert_message">Para mostrar el tiempo de tu zona actual, esta aplicación necesita acceder a tu ubicación.</string>
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>
-    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del clima requieren acceso a tu ubicación en segundo plano. Selecciona “%s” en la siguiente pantalla.</string>
+    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del tiempo requieren acceso a tu ubicación en segundo plano. Selecciona «%s» en la siguiente pantalla.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Cancelar</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
     <string name="config_aux_view_title">Mostrar detalles</string>
     <string name="config_aux_view_nothing">Sin detalles</string>
-    <string name="config_aux_view_update_time">Tiempo de actualización</string>
+    <string name="config_aux_view_update_time">Hora de actualización</string>
     <string name="config_weather_app">Aplicación del tiempo</string>
     <string name="config_weather_app_nil">No incluida</string>
     <string name="config_weather_app_nil_alert_message">Para añadir tu aplicación del tiempo, abre un issue en GitHub.</string>
@@ -94,7 +94,7 @@
     <string name="app_text_pressure_high">alta</string>
     <string name="app_text_pressure_low">baja</string>
     <string name="app_text_title_wind">viento</string>
-    <string name="app_text_gusts">ráfagas</string>
+    <string name="app_text_gusts">rachas</string>
     <string name="app_text_dew_point">punto de rocío</string>
     <string name="app_text_humidity">humedad</string>
     <string name="app_text_uv_index">índice UV</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Comprueba tu conexión a internet e inténtalo de nuevo</string>
     <string name="app_text_button_try_again">Intentar de nuevo</string>
     <string name="app_text_rain">lluvia</string>
-    <string name="app_text_snow">Nieve</string>
+    <string name="app_text_snow">nieve</string>
     <string name="app_text_hourly_details">Información por horas</string>
     <string name="app_text_sunset_sunrise">salida &amp; puesta del sol</string>
     <string name="app_text_sunrise">salida del sol</string>
@@ -122,7 +122,7 @@
     <string name="mu_8_9_10">muy alta</string>
     <string name="mu_11">extrema</string>
 
-    <string name="widget_label">Fecha, clima y más</string>
+    <string name="widget_label">Fecha, tiempo y más</string>
     <string name="widget_date_prev">sáb, 12 oct</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">mañana 19\u00B0 / 13\u00B0 · lluvia débil</string>

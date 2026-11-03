@@ -30,7 +30,7 @@
     <string name="config_location_fallback_summary">Когда сервис геолокации устройства выключен</string>
     <string name="config_weather_location">Местоположение для погоды</string>
     <string name="config_weather_location_device">Местоположение устройства</string>
-    <string name="config_weather_location_device_descr">Следует за твоим местоположением</string>
+    <string name="config_weather_location_device_descr">Следует за вашим местоположением</string>
     <string name="config_weather_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="config_fixed_location_search_button">Найти</string>
     <string name="config_fixed_location_search_open_meteo">Поиск через Open-Meteo</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Проверьте соединение и попробуйте еще раз</string>
     <string name="app_text_button_try_again">Еще раз</string>
     <string name="app_text_rain">дождь</string>
-    <string name="app_text_snow">Снег</string>
+    <string name="app_text_snow">снег</string>
     <string name="app_text_hourly_details">Данные по часам</string>
     <string name="app_text_sunset_sunrise">восход и закат</string>
     <string name="app_text_sunrise">восход</string>
@@ -125,11 +125,11 @@
     <string name="widget_label">Дата, погода и прочее</string>
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_date_prev">ср, 12 апр.</string>
-    <string name="widget_temp_prev">22\u2103</string>
+    <string name="widget_temp_prev">8\u2103</string>
     <string name="widget_today">сегодня</string>
     <string name="widget_tomorrow">завтра</string>
     <string name="widget_updated_at">обновлено в</string>
-    <string name="widget_weather_prev">завтра 19\u00B0 / 13\u00B0 · Легкий дождь</string>
+    <string name="widget_weather_prev">завтра 9\u00B0 / 1\u00B0 · Легкий дождь</string>
 
     <string name="wc_heavy_thunderstorms">Сильные грозы</string>
     <string name="wc_thunderstorm">Гроза</string>

@@ -30,7 +30,7 @@
     <string name="config_location_fallback_summary">裝置停用定位服務時</string>
     <string name="config_weather_location">天氣位置</string>
     <string name="config_weather_location_device">裝置位置</string>
-    <string name="config_weather_location_device_descr">跟隨你的位置</string>
+    <string name="config_weather_location_device_descr">跟隨您的位置</string>
     <string name="config_fixed_location_search_button">搜尋</string>
     <string name="config_fixed_location_search_open_meteo">使用 Open-Meteo 搜尋</string>
     <string name="config_fixed_location_search_placeholder">新北市，台灣</string>

@@ -24,10 +24,10 @@
     <string name="config_debug_button_weather">Voir la requête météo</string>
     <string name="config_debug_button_location">Voir la localisation</string>
     <string name="config_debug_background_service">Service en arrière-plan</string>
-    <string name="config_location_fallback">Utiliser le dernier emplacement</string>
-    <string name="config_location_fallback_summary">Quand le service de localisation de l\'appareil est désactivé</string>
+    <string name="config_location_fallback">Utiliser la dernière position connue</string>
+    <string name="config_location_fallback_summary">Quand le service de localisation de l’appareil est désactivé</string>
     <string name="config_weather_location">Emplacement météo</string>
-    <string name="config_weather_location_device">Position de l\'appareil</string>
+    <string name="config_weather_location_device">Position de l’appareil</string>
     <string name="config_weather_location_device_descr">Suit ta position</string>
     <string name="config_fixed_location_search_button">Rechercher</string>
     <string name="config_fixed_location_search_open_meteo">Rechercher avec Open-Meteo</string>
@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Soleil du matin</string>
     <string name="config_icon_color_evening">Soleil du soir</string>
     <string name="config_option_auto">Automatique</string>
-    <string name="config_option_follow_system">Par défaut du système</string>
+    <string name="config_option_follow_system">Comme le système</string>
     <string name="config_temp">Température</string>
     <string name="config_section_features">Aperçu</string>
     <string name="config_section_weather">Paramètres météo</string>
@@ -53,7 +53,7 @@
     <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
     <string name="config_loc_perm_alert_message">Pour afficher la météo de ta région actuelle, cette application a besoin d’accéder à ta position.</string>
     <string name="config_bg_perm_alert_title">Autorisation de localisation en arrière-plan</string>
-    <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Veuillez sélectionner « %s » sur l’écran suivant.</string>
+    <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Sélectionne « %s » sur l’écran suivant.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annuler</string>
     <string name="config_source_code">Code source</string>
@@ -67,7 +67,7 @@
     <string name="config_weather_app_alert_button_github">Ouvrir GitHub</string>
     <string name="config_section_settings_units">Unités</string>
     <string name="config_aux_view_place_condition">Lieu &amp; météo</string>
-    <string name="config_show_temp_unit">Afficher l\'unité de température</string>
+    <string name="config_show_temp_unit">Afficher l’unité de température</string>
     <string name="config_show_temp_unit_descr">Afficher le symbole Fahrenheit ou Celsius</string>
     <string name="config_title_settings">Paramètres</string>
     <string name="config_wind_speed">Vitesse du vent</string>
@@ -105,27 +105,27 @@
     <string name="app_text_check_connection">Vérifie ta connexion internet et réessaie</string>
     <string name="app_text_button_try_again">Réessayer</string>
     <string name="app_text_rain">pluie</string>
-    <string name="app_text_snow">Neige</string>
+    <string name="app_text_snow">neige</string>
     <string name="app_text_hourly_details">Détails par heure</string>
     <string name="app_text_sunset_sunrise">lever &amp; coucher du soleil</string>
     <string name="app_text_sunrise">lever du soleil</string>
     <string name="app_text_sunset">coucher du soleil</string>
     <string name="app_text_evening">soir</string>
     <string name="app_text_morning">matin</string>
-    <string name="app_today_total">quantité du jour</string>
+    <string name="app_today_total">cumul du jour</string>
     <string name="app_today_average">moyenne du jour</string>
     <string name="app_today_maximum">maximum du jour</string>
 
     <string name="mu_0_1_2">faible</string>
-    <string name="mu_3_4_5">modérée</string>
-    <string name="mu_6_7">élevée</string>
-    <string name="mu_8_9_10">très élevée</string>
+    <string name="mu_3_4_5">modéré</string>
+    <string name="mu_6_7">élevé</string>
+    <string name="mu_8_9_10">très élevé</string>
     <string name="mu_11">extrême</string>
 
     <string name="widget_label">Date, météo et plus</string>
     <string name="widget_date_prev">dim. 14 juil.</string>
     <string name="widget_temp_prev">21\u2103</string>
-    <string name="widget_weather_prev">demain 19\u00B0 / 13\u00B0 · faible pluie</string>
+    <string name="widget_weather_prev">demain 19\u00B0 / 13\u00B0 · pluie faible</string>
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">aujourd’hui</string>
     <string name="widget_tomorrow">demain</string>

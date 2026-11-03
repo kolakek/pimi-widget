@@ -20,7 +20,7 @@
     <string name="config_debug_info">Appstatus</string>
     <string name="config_debug_weather_data_age">Ålder på väderdata</string>
     <string name="config_debug_last_valid_location">Senaste giltiga plats</string>
-    <string name="config_debug_last_work_status">Status för nästa arbete</string>
+    <string name="config_debug_last_work_status">Status för senaste körning</string>
     <string name="config_debug_button_weather">Visa väderfråga</string>
     <string name="config_debug_button_location">Visa plats</string>
     <string name="config_debug_background_service">Bakgrundstjänst</string>
@@ -53,7 +53,7 @@
     <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
     <string name="config_loc_perm_alert_message">För att visa vädret i ditt område behöver appen åtkomst till din plats.</string>
     <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>
-    <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj "%s" på nästa skärm.</string>
+    <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj ”%s” på nästa skärm.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Avbryt</string>
     <string name="config_source_code">Källkod</string>
@@ -67,7 +67,7 @@
     <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
     <string name="config_section_settings_units">Enheter</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
-    <string name="config_show_temp_unit">Visa temperatureenhet</string>
+    <string name="config_show_temp_unit">Visa temperaturenhet</string>
     <string name="config_show_temp_unit_descr">Visa symbol för Fahrenheit eller Celsius</string>
     <string name="config_title_settings">Inställningar</string>
     <string name="config_wind_speed">Vindhastighet</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Kontrollera din internetanslutning och försök igen</string>
     <string name="app_text_button_try_again">Försök igen</string>
     <string name="app_text_rain">regn</string>
-    <string name="app_text_snow">Snö</string>
+    <string name="app_text_snow">snö</string>
     <string name="app_text_hourly_details">Information timme för timme</string>
     <string name="app_text_sunset_sunrise">soluppgång &amp; solnedgång</string>
     <string name="app_text_sunrise">soluppgång</string>
@@ -123,7 +123,7 @@
     <string name="mu_11">extrem</string>
 
     <string name="widget_label">Datum, väder och mer</string>
-    <string name="widget_date_prev">fre 6 jun</string>
+    <string name="widget_date_prev">fre 6 juni</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">imorgon 19\u00B0 / 13\u00B0 · lätt regn</string>
     <string name="widget_date_format">EEE d MMM</string>

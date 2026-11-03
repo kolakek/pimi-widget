@@ -53,14 +53,14 @@
     <string name="config_loc_perm_alert_title">Permesso di posizione richiesto</string>
     <string name="config_loc_perm_alert_message">Per mostrare il meteo nella tua area attuale, questa app necessita dell’accesso alla tua posizione.</string>
     <string name="config_bg_perm_alert_title">Permesso posizione in background</string>
-    <string name="config_bg_perm_alert_message">Aggiornamenti meteo affidabili richiedono l’accesso alla posizione in background. Seleziona “%s” nella schermata successiva.</string>
+    <string name="config_bg_perm_alert_message">Aggiornamenti meteo affidabili richiedono l’accesso alla posizione in background. Seleziona «%s» nella schermata successiva.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annulla</string>
     <string name="config_source_code">Codice sorgente</string>
     <string name="config_source_code_summary">Visualizza codice sorgente e documentazione su GitHub</string>
     <string name="config_aux_view_title">Mostra dettagli</string>
     <string name="config_aux_view_nothing">Senza dettagli</string>
-    <string name="config_aux_view_update_time">Tempo di aggiornamento</string>
+    <string name="config_aux_view_update_time">Ora di aggiornamento</string>
     <string name="config_weather_app">App meteo</string>
     <string name="config_weather_app_nil">Non elencata</string>
     <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Controlla la tua connessione internet e riprova</string>
     <string name="app_text_button_try_again">Riprova</string>
     <string name="app_text_rain">pioggia</string>
-    <string name="app_text_snow">Neve</string>
+    <string name="app_text_snow">neve</string>
     <string name="app_text_hourly_details">Dettagli orari</string>
     <string name="app_text_sunset_sunrise">alba &amp; tramonto</string>
     <string name="app_text_sunrise">alba</string>
@@ -116,11 +116,11 @@
     <string name="app_today_average">media di oggi</string>
     <string name="app_today_maximum">massimo di oggi</string>
 
-    <string name="mu_0_1_2">bassa</string>
-    <string name="mu_3_4_5">moderata</string>
-    <string name="mu_6_7">alta</string>
-    <string name="mu_8_9_10">molto alta</string>
-    <string name="mu_11">estrema</string>
+    <string name="mu_0_1_2">basso</string>
+    <string name="mu_3_4_5">moderato</string>
+    <string name="mu_6_7">alto</string>
+    <string name="mu_8_9_10">molto alto</string>
+    <string name="mu_11">estremo</string>
 
     <string name="widget_label">Data, meteo e altro</string>
     <string name="widget_date_prev">dom 2 giu</string>

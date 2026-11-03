@@ -61,10 +61,10 @@
     <string name="config_aux_view_title">Details tonen</string>
     <string name="config_aux_view_nothing">Geen details</string>
     <string name="config_aux_view_update_time">Verversingstijd</string>
-    <string name="config_weather_app">App meteo</string>
-    <string name="config_weather_app_nil">Non elencata</string>
-    <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Apri GitHub</string>
+    <string name="config_weather_app">Weer-app</string>
+    <string name="config_weather_app_nil">Niet vermeld</string>
+    <string name="config_weather_app_nil_alert_message">Open een issue op GitHub om je weer-app te laten toevoegen.</string>
+    <string name="config_weather_app_alert_button_github">GitHub openen</string>
     <string name="config_section_settings_units">Eenheden</string>
     <string name="config_aux_view_place_condition">Plaats &amp; weer</string>
     <string name="config_show_temp_unit">Temperatuureenheid weergeven</string>
@@ -73,7 +73,7 @@
     <string name="config_wind_speed">Windsnelheid</string>
     <string name="config_option_follow_widget">Zoals in de widget</string>
     <string name="config_unit_millimeters">Millimeter</string>
-    <string name="config_unit_centimeters">Centimeters</string>
+    <string name="config_unit_centimeters">Centimeter</string>
     <string name="config_unit_inches">Inch</string>
     <string name="config_unit_hectopascal">Hectopascal</string>
     <string name="config_unit_millibar">Millibar</string>
@@ -102,10 +102,10 @@
     <string name="app_text_no_data">Geen weergegevens beschikbaar</string>
     <string name="app_text_weather_off">Weer uitgeschakeld</string>
     <string name="app_text_enable_in_settings">Schakel het weer in via de widgetinstellingen</string>
-    <string name="app_text_check_connection">Controleer je internetverbinding en probeer opnieuw</string>
+    <string name="app_text_check_connection">Controleer je internetverbinding en probeer het opnieuw</string>
     <string name="app_text_button_try_again">Opnieuw proberen</string>
     <string name="app_text_rain">regen</string>
-    <string name="app_text_snow">Sneeuw</string>
+    <string name="app_text_snow">sneeuw</string>
     <string name="app_text_hourly_details">Informatie per uur</string>
     <string name="app_text_sunset_sunrise">zonsopgang &amp; zonsondergang</string>
     <string name="app_text_sunrise">zonsopgang</string>
@@ -123,9 +123,9 @@
     <string name="mu_11">extreem</string>
 
     <string name="widget_label">Datum, weer en meer</string>
-    <string name="widget_date_prev">zat 27 apr</string>
-    <string name="widget_temp_prev">21\u2103</string>
-    <string name="widget_weather_prev">morgen 19\u00B0 / 13\u00B0 · lichte regen</string>
+    <string name="widget_date_prev">za 27 apr</string>
+    <string name="widget_temp_prev">13\u2103</string>
+    <string name="widget_weather_prev">morgen 14\u00B0 / 6\u00B0 · lichte regen</string>
     <string name="widget_date_format">EEE d MMM</string>
     <string name="widget_today">vandaag</string>
     <string name="widget_tomorrow">morgen</string>
@@ -163,13 +163,13 @@
     <string name="warn_heat_extreme">waarschuwing voor extreme hitte</string>
     <string name="warn_rain_extreme">waarschuwing voor extreme regen</string>
     <string name="warn_gusts_extreme">waarschuwing voor extreme windstoten</string>
-    <string name="warn_tstorm_extreme">waarschuwing voor extreme onweer</string>
+    <string name="warn_tstorm_extreme">waarschuwing voor extreem onweer</string>
     <string name="warn_no_warning">geen waarschuwingen</string>
     <string name="warn_uv_severe">waarschuwing voor hoge UV-straling</string>
-    <string name="warn_heat_severe">waarschuwing voor zeer hoge hitte</string>
+    <string name="warn_heat_severe">waarschuwing voor grote hitte</string>
     <string name="warn_rain_severe">waarschuwing voor intense regen</string>
     <string name="warn_gusts_severe">waarschuwing voor sterke windstoten</string>
-    <string name="warn_tstorm_severe">waarschuwing voor zware onweer</string>
+    <string name="warn_tstorm_severe">waarschuwing voor zwaar onweer</string>
 
     <plurals name="days">
         <item quantity="one">1 dag</item>

@@ -11,7 +11,7 @@
     <string name="config_birthday_switch">Urodziny</string>
     <string name="config_birthday_switch_summary">Pokazuj urodziny swoich kontaktów</string>
     <string name="config_contact_perm_alert_title">Wymagany dostęp do kontaktów</string>
-    <string name="config_contact_perm_alert_message">Aby wyświetlać urodziny, ta aplikacja potrzebuje dostępu do Twoich kontaktów.</string>
+    <string name="config_contact_perm_alert_message">Aby wyświetlać urodziny, ta aplikacja potrzebuje dostępu do twoich kontaktów.</string>
     <string name="config_version_title">Numer kompilacji</string>
     <string name="config_show_alarms">Alarmy</string>
     <string name="config_show_alarms_descr">Pokazuj nadchodzące alarmy</string>
@@ -51,7 +51,7 @@
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
     <string name="config_weather_warnings_summary">W przypadku ekstremalnych warunków pogodowych w ciągu najbliższej godziny</string>
     <string name="config_loc_perm_alert_title">Wymagane uprawnienie lokalizacji</string>
-    <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w Twojej okolicy, aplikacja potrzebuje dostępu do Twojej lokalizacji.</string>
+    <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w twojej okolicy, aplikacja potrzebuje dostępu do twojej lokalizacji.</string>
     <string name="config_bg_perm_alert_title">Uprawnienie lokalizacji w tle</string>
     <string name="config_bg_perm_alert_message">Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle. Wybierz „%s” na następnym ekranie.</string>
     <string name="config_alert_button_ok">OK</string>
@@ -60,7 +60,7 @@
     <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>
     <string name="config_aux_view_title">Pokaż szczegóły</string>
     <string name="config_aux_view_nothing">Bez szczegółów</string>
-    <string name="config_aux_view_update_time">Czas odświeżania</string>
+    <string name="config_aux_view_update_time">Godzina odświeżenia</string>
     <string name="config_weather_app">Aplikacja pogodowa</string>
     <string name="config_weather_app_nil">Nie ma na liście</string>
     <string name="config_weather_app_nil_alert_message">Aby dodać swoją aplikację pogodową, otwórz issue na GitHubie.</string>
@@ -101,18 +101,18 @@
     <string name="app_text_pressure">ciśnienie</string>
     <string name="app_text_no_data">Brak dostępnych danych pogodowych</string>
     <string name="app_text_weather_off">Pogoda wyłączona</string>
-    <string name="app_text_enable_in_settings">Włącz pogodę w ustawieniach widgetu</string>
+    <string name="app_text_enable_in_settings">Włącz pogodę w ustawieniach widżetu</string>
     <string name="app_text_check_connection">Sprawdź połączenie internetowe i spróbuj ponownie</string>
     <string name="app_text_button_try_again">Spróbuj ponownie</string>
     <string name="app_text_rain">deszcz</string>
-    <string name="app_text_snow">Śnieg</string>
+    <string name="app_text_snow">śnieg</string>
     <string name="app_text_hourly_details">Szczegóły godzinowe</string>
     <string name="app_text_sunset_sunrise">wschód &amp; zachód słońca</string>
     <string name="app_text_sunrise">wschód słońca</string>
     <string name="app_text_sunset">zachód słońca</string>
     <string name="app_text_evening">wieczór</string>
     <string name="app_text_morning">ranek</string>
-    <string name="app_today_total">dzisiejsza ilość</string>
+    <string name="app_today_total">dzisiejsza suma</string>
     <string name="app_today_average">dzisiejsza średnia</string>
     <string name="app_today_maximum">dzisiejsze maksimum</string>
 

@@ -48,7 +48,7 @@
     <string name="config_section_about">Sobre</string>
     <string name="config_daily_forecast">Mostrar previsão diária</string>
     <string name="config_daily_forecast_summary">De manhã e à noite</string>
-    <string name="config_weather_warnings">Exibir alertas de tempo</string>
+    <string name="config_weather_warnings">Mostrar alertas meteorológicos</string>
     <string name="config_weather_warnings_summary">Para condições climáticas severas na próxima hora</string>
     <string name="config_loc_perm_alert_title">Permissão de localização necessária</string>
     <string name="config_loc_perm_alert_message">Para mostrar o clima da sua região atual, este app precisa acessar sua localização.</string>
@@ -60,7 +60,7 @@
     <string name="config_source_code_summary">Ver código-fonte e documentação no GitHub</string>
     <string name="config_aux_view_title">Mostrar detalhes</string>
     <string name="config_aux_view_nothing">Sem detalhes</string>
-    <string name="config_aux_view_update_time">Tempo de atualização</string>
+    <string name="config_aux_view_update_time">Hora da atualização</string>
     <string name="config_weather_app">Aplicativo de clima</string>
     <string name="config_weather_app_nil">Não listado</string>
     <string name="config_weather_app_nil_alert_message">Para adicionar seu aplicativo de clima, abra um issue no GitHub.</string>
@@ -105,7 +105,7 @@
     <string name="app_text_check_connection">Verifique sua conexão com a internet e tente novamente</string>
     <string name="app_text_button_try_again">Tentar novamente</string>
     <string name="app_text_rain">chuva</string>
-    <string name="app_text_snow">Neve</string>
+    <string name="app_text_snow">neve</string>
     <string name="app_text_hourly_details">Detalhes de hora em hora</string>
     <string name="app_text_sunset_sunrise">nascer &amp; pôr do sol</string>
     <string name="app_text_sunrise">nascer do sol</string>
@@ -154,8 +154,8 @@
     <string name="wc_mostly_cloudy">predominantemente nublado</string>
     <string name="wc_partly_cloudy_day">parcialmente ensolarado</string>
     <string name="wc_partly_cloudy_night">parcialmente nublado</string>
-    <string name="wc_mainly_clear_day">majoritariamente ensolarado</string>
-    <string name="wc_mainly_clear_night">majoritariamente limpo</string>
+    <string name="wc_mainly_clear_day">predominantemente ensolarado</string>
+    <string name="wc_mainly_clear_night">predominantemente limpo</string>
     <string name="wc_clear_sky_day">ensolarado</string>
     <string name="wc_clear_sky_night">céu limpo</string>
 

@@ -1,7 +1,7 @@
 <resources>
 
     <string name="config_section_style">Pamja</string>
-    <string name="config_widget_style">Stili i miniaplikacionit</string>
+    <string name="config_widget_style">Stili i widget-it</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Njëngjyrësh</string>
@@ -85,17 +85,17 @@
     <string name="config_unit_knots">Nyje</string>
 
     <string name="app_text_now">Tani</string>
-    <string name="app_text_hourly_forecast">Parashikimi i përorshem</string>
+    <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>
     <string name="app_text_daily_forecast">Parashikimi ditor</string>
     <string name="app_text_current_conditions">Kushtet aktuale</string>
-    <string name="app_text_feels_like">ndihet si</string>>
+    <string name="app_text_feels_like">ndihet si</string>
     <string name="app_text_max_temp">e lartë</string>
     <string name="app_text_min_temp">e ulët</string>
     <string name="app_text_pressure_high">e lartë</string>
     <string name="app_text_pressure_low">e ulët</string>
     <string name="app_text_title_wind">era</string>
-    <string name="app_text_gusts">gushta</string>
-    <string name="app_text_dew_point">pika e kondensimit</string>/string>
+    <string name="app_text_gusts">shpërthime ere</string>
+    <string name="app_text_dew_point">pika e kondensimit</string>
     <string name="app_text_humidity">lagështia</string>
     <string name="app_text_uv_index">indeksi UV</string>
     <string name="app_text_pressure">trysnia</string>
@@ -105,27 +105,27 @@
     <string name="app_text_check_connection">Kontrollo lidhjen tënde me internetin dhe provo përsëri</string>
     <string name="app_text_button_try_again">Provo përsëri</string>
     <string name="app_text_rain">shi</string>
-    <string name="app_text_snow">Bora</string>
+    <string name="app_text_snow">dëborë</string>
     <string name="app_text_hourly_details">Detajet për çdo orë</string>
     <string name="app_text_sunset_sunrise">lindja &amp; perëndimi i diellit</string>
-    <string name="app_text_sunrise">agim</string>
+    <string name="app_text_sunrise">lindje</string>
     <string name="app_text_sunset">perëndim</string>
-    <string name="app_text_morning">agim</string>
-    <string name="app_text_evening">muzg</string>
+    <string name="app_text_morning">mëngjes</string>
+    <string name="app_text_evening">mbrëmje</string>
     <string name="app_today_total">sasia për sot</string>
     <string name="app_today_average">mesatarja për sot</string>
     <string name="app_today_maximum">maksimalja për sot</string>
 
-    <string name="mu_0_1_2">e ulët</string>
-    <string name="mu_3_4_5">e moderuar</string>
-    <string name="mu_6_7">e lartë</string>
-    <string name="mu_8_9_10">shumë e lartë</string>
-    <string name="mu_11">ekstreme</string>
+    <string name="mu_0_1_2">i ulët</string>
+    <string name="mu_3_4_5">i moderuar</string>
+    <string name="mu_6_7">i lartë</string>
+    <string name="mu_8_9_10">shumë i lartë</string>
+    <string name="mu_11">ekstrem</string>
 
     <string name="widget_label">Data, moti dhe të tjera</string>
     <string name="widget_date_prev">enj, 28 nën</string>
-    <string name="widget_temp_prev">21\u2103</string>
-    <string name="widget_weather_prev">nesër 19\u00B0 / 13\u00B0 · shi i lehtë</string>
+    <string name="widget_temp_prev">12\u2103</string>
+    <string name="widget_weather_prev">nesër 14\u00B0 / 5\u00B0 · shi i lehtë</string>
     <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_today">sot</string>
     <string name="widget_tomorrow">nesër</string>

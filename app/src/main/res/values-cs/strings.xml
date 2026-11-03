@@ -9,7 +9,7 @@
     <string name="config_weather_switch">Počasí</string>
     <string name="config_weather_attribution_open_meteo">Meteorologická data z Open-Meteo.com</string>
     <string name="config_birthday_switch">Narozeniny</string>
-    <string name="config_birthday_switch_summary">Zobrazovat narozeniny vašich kontaktů</string>
+    <string name="config_birthday_switch_summary">Zobrazovat narozeniny tvých kontaktů</string>
     <string name="config_contact_perm_alert_title">Vyžadován přístup ke kontaktům</string>
     <string name="config_contact_perm_alert_message">Pro zobrazení narozenin tato aplikace potřebuje přístup k tvým kontaktům.</string>
     <string name="config_version_title">Číslo sestavení</string>
@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Ranní slunce</string>
     <string name="config_icon_color_evening">Večerní slunce</string>
     <string name="config_option_auto">Automaticky</string>
-    <string name="config_option_follow_system">Výchozí nastavení systému</string>
+    <string name="config_option_follow_system">Podle systému</string>
     <string name="config_temp">Teplota</string>
     <string name="config_section_features">Přehled událostí</string>
     <string name="config_section_weather">Nastavení počasí</string>
@@ -51,7 +51,7 @@
     <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
     <string name="config_weather_warnings_summary">Pro extrémní povětrnostní podmínky během následující hodiny</string>
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
-    <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve vaší oblasti tato aplikace potřebuje přístup k vaší poloze.</string>
+    <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve tvé oblasti tato aplikace potřebuje přístup k tvé poloze.</string>
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>
     <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
     <string name="config_alert_button_ok">OK</string>
@@ -63,7 +63,7 @@
     <string name="config_aux_view_update_time">Čas aktualizace</string>
     <string name="config_weather_app">Aplikace počasí</string>
     <string name="config_weather_app_nil">Není v seznamu</string>
-    <string name="config_weather_app_nil_alert_message">Chcete-li přidat svou aplikaci počasí, otevřete issue na GitHubu.</string>
+    <string name="config_weather_app_nil_alert_message">Pokud chceš přidat svou aplikaci počasí, otevři issue na GitHubu.</string>
     <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
     <string name="config_section_settings_units">Jednotky</string>
     <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
@@ -88,7 +88,7 @@
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>
     <string name="app_text_daily_forecast">Denní předpověď</string>
     <string name="app_text_current_conditions">Aktuální podmínky</string>
-    <string name="app_text_feels_like">pocit</string>
+    <string name="app_text_feels_like">pocitově</string>
     <string name="app_text_max_temp">nejvyšší</string>
     <string name="app_text_min_temp">nejnižší</string>
     <string name="app_text_pressure_high">vysoký</string>
@@ -105,8 +105,8 @@
     <string name="app_text_check_connection">Zkontroluj své internetové připojení a zkus to znovu</string>
     <string name="app_text_button_try_again">Zkusit znovu</string>
     <string name="app_text_rain">déšť</string>
-    <string name="app_text_snow">Sníh</string>
-    <string name="app_text_hourly_details">Podrobnosti po hodině</string>
+    <string name="app_text_snow">sníh</string>
+    <string name="app_text_hourly_details">Podrobnosti po hodinách</string>
     <string name="app_text_sunset_sunrise">východ &amp; západ slunce</string>
     <string name="app_text_sunrise">východ slunce</string>
     <string name="app_text_sunset">západ slunce</string>
@@ -117,7 +117,7 @@
     <string name="app_today_maximum">dnešní maximum</string>
 
     <string name="mu_0_1_2">nízký</string>
-    <string name="mu_3_4_5">mírný</string>
+    <string name="mu_3_4_5">střední</string>
     <string name="mu_6_7">vysoký</string>
     <string name="mu_8_9_10">velmi vysoký</string>
     <string name="mu_11">extrémní</string>
@@ -164,7 +164,7 @@
     <string name="warn_rain_extreme">výstraha před extrémním deštěm</string>
     <string name="warn_gusts_extreme">výstraha před extrémními poryvy větru</string>
     <string name="warn_tstorm_extreme">výstraha před extrémními bouřkami</string>
-    <string name="warn_no_warning">žádná varování</string>
+    <string name="warn_no_warning">žádné výstrahy</string>
     <string name="warn_uv_severe">výstraha před silným UV zářením</string>
     <string name="warn_heat_severe">výstraha před vysokými teplotami</string>
     <string name="warn_rain_severe">výstraha před intenzivním deštěm</string>

@@ -9,9 +9,9 @@
     <string name="config_weather_switch">Погода</string>
     <string name="config_weather_attribution_open_meteo">Дані погоди від Open-Meteo.com</string>
     <string name="config_birthday_switch">Дні народження</string>
-    <string name="config_birthday_switch_summary">Показувати дні народження ваших контактів</string>
+    <string name="config_birthday_switch_summary">Показувати дні народження твоїх контактів</string>
     <string name="config_contact_perm_alert_title">Потрібен доступ до контактів</string>
-    <string name="config_contact_perm_alert_message">Щоб показувати дні народження, цей застосунок потребує доступу до ваших контактів.</string>
+    <string name="config_contact_perm_alert_message">Щоб показувати дні народження, цей застосунок потребує доступу до твоїх контактів.</string>
     <string name="config_version_title">Номер збірки</string>
     <string name="config_show_alarms">Будильники</string>
     <string name="config_show_alarms_descr">Показувати майбутні будильники</string>
@@ -51,9 +51,9 @@
     <string name="config_weather_warnings">Показувати попередження про погоду</string>
     <string name="config_weather_warnings_summary">Для екстремальних погодних умов протягом наступної години</string>
     <string name="config_loc_perm_alert_title">Потрібен доступ до геолокації</string>
-    <string name="config_loc_perm_alert_message">Щоб показувати погоду у вашому регіоні, цьому застосунку потрібен доступ до вашої геолокації.</string>
+    <string name="config_loc_perm_alert_message">Щоб показувати погоду у твоєму регіоні, цьому застосунку потрібен доступ до твоєї геолокації.</string>
     <string name="config_bg_perm_alert_title">Доступ до геолокації у фоні</string>
-    <string name="config_bg_perm_alert_message">Надійні оновлення погоди потребують доступу до вашої геолокації у фоновому режимі. Оберіть "%s" на наступному екрані.</string>
+    <string name="config_bg_perm_alert_message">Надійні оновлення погоди потребують доступу до твоєї геолокації у фоновому режимі. Обери «%s» на наступному екрані.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Скасувати</string>
     <string name="config_source_code">Вихідний код</string>
@@ -63,7 +63,7 @@
     <string name="config_aux_view_title">Показувати деталі</string>
     <string name="config_weather_app">Погодний додаток</string>
     <string name="config_weather_app_nil">Відсутній у списку</string>
-    <string name="config_weather_app_nil_alert_message">Щоб додати свій погодний додаток, відкрийте issue на GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">Щоб додати свій погодний застосунок, відкрий issue на GitHub.</string>
     <string name="config_weather_app_alert_button_github">Відкрити GitHub</string>
     <string name="config_section_settings_units">Одиниці</string>
     <string name="config_aux_view_place_condition">Місце &amp; погода</string>
@@ -83,7 +83,6 @@
     <string name="config_unit_m_per_second">Метри за секунду</string>
     <string name="config_unit_miles_per_hour">Милі на годину</string>
     <string name="config_unit_knots">Вузли</string>
-
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>
@@ -106,7 +105,7 @@
     <string name="app_text_check_connection">Перевір своє інтернет-з\'єднання і спробуй знову</string>
     <string name="app_text_button_try_again">Спробуй знову</string>
     <string name="app_text_rain">дощ</string>
-    <string name="app_text_snow">Сніг</string>
+    <string name="app_text_snow">сніг</string>
     <string name="app_text_hourly_details">Погодинні дані</string>
     <string name="app_text_sunset_sunrise">схід &amp; захід сонця</string>
     <string name="app_text_sunrise">схід сонця</string>
@@ -124,7 +123,7 @@
     <string name="mu_11">екстремальний</string>
 
     <string name="widget_label">Дата, погода та інше</string>
-    <string name="widget_date_prev">нд, 24 сер.</string>
+    <string name="widget_date_prev">нд, 24 серп.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">завтра 19\u00B0 / 13\u00B0 · слабкий дощ</string>
     <string name="widget_date_format">EEE, d MMM</string>

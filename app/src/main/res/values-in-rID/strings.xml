@@ -5,7 +5,7 @@
     <string name="config_section_weather">Setelan cuaca</string>
     <string name="config_section_settings_plus">Setelan tambahan</string>
     <string name="config_section_settings_units">Satuan</string>
-    <string name="config_section_about">Tentang t</string>
+    <string name="config_section_about">Tentang</string>
     <string name="config_section_style">Tampilan</string>
     <string name="config_widget_style">Gaya widget</string>
     <string name="config_widget_style_classic">Klasik</string>
@@ -52,7 +52,7 @@
     <string name="config_loc_perm_alert_title">Izin lokasi diperlukan</string>
     <string name="config_loc_perm_alert_message">Untuk menampilkan cuaca di area anda saat ini, aplikasi ini memerlukan akses ke lokasi anda.</string>
     <string name="config_bg_perm_alert_title">Izin lokasi latar belakang</string>
-    <string name="config_bg_perm_alert_message">Pembaruan cuaca yang akurat memerlukan akses lokasi anda di latar belakang. Tolong pilih\"%s\" di layar selanjutnya.</string>
+    <string name="config_bg_perm_alert_message">Pembaruan cuaca yang akurat memerlukan akses lokasi anda di latar belakang. Tolong pilih \"%s\" di layar selanjutnya.</string>
     <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Batal</string>
     <string name="config_debug_button_weather">Lihat pencarian cuaca</string>
@@ -65,7 +65,7 @@
     <string name="config_aux_view_title">Tampilkan detail</string>
     <string name="config_weather_app">Aplikasi cuaca</string>
     <string name="config_weather_app_nil">Tidak terdaftar</string>
-    <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuaca anda, please open an issue on GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuaca anda, buka issue di GitHub.</string>
     <string name="config_weather_app_alert_button_github">Buka GitHub</string>
     <string name="config_show_temp_unit">Tampilkan satuan suhu</string>
     <string name="config_show_temp_unit_descr">Tampilkan simbol Fahrenheit atau Celsius</string>
@@ -85,7 +85,7 @@
     <string name="config_unit_knots">Knot</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
-    <string name="widget_date_format">EEE, MMM d</string>
+    <string name="widget_date_format">EEE, d MMM</string>
     <string name="widget_date_prev">Min, 17 Agu</string>
     <string name="widget_temp_prev">30\u2103</string>
     <string name="widget_weather_prev">Besok 32\u00B0 / 25\u00B0 · Cerah berawan</string>
