@@ -213,13 +213,4 @@
 
     </LinearLayout>
 
-    <com.google.android.material.search.SearchView
-        android:id="@+id/place_search"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/config_fixed_location_search_placeholder"
-        app:layout_anchor="@id/place_bar">
-
-    </com.google.android.material.search.SearchView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

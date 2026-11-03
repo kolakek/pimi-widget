@@ -73,6 +73,8 @@ class WeatherActivity : AppCompatActivity() {
         binding.dailyForecast.adapter = dailyAdapter
         binding.hourlyDetails.hourlyDataBar.adapter = dataBarAdapter
 
+        binding.placeBar.isClickable = false
+        binding.placeBar.isFocusable = false
         binding.placeBar.setOnMenuItemClickListener {
             startActivity(Intent(this, AppConfigureActivity::class.java))
             true
