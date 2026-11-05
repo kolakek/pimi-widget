@@ -4,12 +4,16 @@
 
     <LinearLayout style="@style/Widget.InnerVerticalContainerSolid">
 
-        <TextView
-            style="@style/Widget.DateSolid"
-            android:text="@string/widget_date_prev"/>
+        <LinearLayout style="@style/Widget.PrimaryRowSolid">
+
+            <TextView
+                style="@style/Widget.DateSolid"
+                android:text="@string/widget_date_prev"/>
+
+        </LinearLayout>
 
         <TextView
-            style="@style/Widget.WeatherAuxSolid"
+            style="@style/Widget.AuxSolid"
             android:text="@string/widget_weather_prev"/>
 
     </LinearLayout>
@@ -24,7 +28,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Widget.WeatherTempSolid"
+            style="@style/Widget.TempSolid"
             android:text="@string/widget_temp_prev"/>
 
     </LinearLayout>

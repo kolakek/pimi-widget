@@ -3,24 +3,24 @@
     android:id="@+id/widget_root"
     style="@style/Widget.VerticalContainer">
 
-    <LinearLayout style="@style/Widget.InnerHorizontalContainer">
+    <LinearLayout style="@style/Widget.PrimaryRowClassic">
 
         <TextClock
             android:id="@+id/widget_date"
-            style="@style/Widget.Date" />
+            style="@style/Widget.DateClassic" />
 
         <TextView
             android:id="@+id/widget_alarm"
-            style="@style/Widget.Event" />
+            style="@style/Widget.EventClassic" />
 
         <TextView
             android:id="@+id/widget_birthday"
-            style="@style/Widget.Event" />
+            style="@style/Widget.EventClassic" />
 
     </LinearLayout>
 
     <LinearLayout
-        style="@style/Widget.InnerHorizontalContainer"
+        style="@style/Widget.SecondaryRowClassic"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
@@ -30,11 +30,11 @@
 
         <TextView
             android:id="@+id/widget_weather_temp"
-            style="@style/Widget.Weather" />
+            style="@style/Widget.TempClassic" />
 
         <TextView
             android:id="@+id/widget_weather_aux"
-            style="@style/Widget.Weather" />
+            style="@style/Widget.AuxClassic" />
 
     </LinearLayout>
 

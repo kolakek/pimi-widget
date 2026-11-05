@@ -5,7 +5,7 @@
 
     <LinearLayout style="@style/Widget.InnerVerticalContainerSolid">
 
-        <LinearLayout style="@style/Widget.InnerHorizontalContainer">
+        <LinearLayout style="@style/Widget.PrimaryRowSolid">
 
             <TextClock
                 android:id="@+id/widget_date"
@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/widget_weather_aux"
-            style="@style/Widget.WeatherAuxSolid" />
+            style="@style/Widget.AuxSolid" />
 
     </LinearLayout>
 
@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/widget_weather_temp"
-            style="@style/Widget.WeatherTempSolid" />
+            style="@style/Widget.TempSolid" />
 
     </LinearLayout>
 
