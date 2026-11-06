@@ -17,4 +17,4 @@
 
 package com.kolakek.pimiwidget.ui
 
-internal const val NA = "--"
+internal const val NA = "––"

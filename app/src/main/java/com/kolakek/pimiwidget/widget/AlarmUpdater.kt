@@ -24,6 +24,7 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.TextIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.ui.NA
 import java.util.Date
 
 object AlarmUpdater {
@@ -38,8 +39,10 @@ object AlarmUpdater {
 
         if (!prefs.showAlarms) return
 
-        if (prefs.permanentAlarm) showIcon(views, prefs)
-
+        if (prefs.permanentAlarm) {
+            showIcon(views, prefs)
+            views.setTextViewText(R.id.widget_alarm, NA)
+        }
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
 
