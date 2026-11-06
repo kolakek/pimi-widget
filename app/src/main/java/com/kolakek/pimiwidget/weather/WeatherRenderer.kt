@@ -46,6 +46,7 @@ import java.util.Locale
 import com.kolakek.pimiwidget.settings.RainUnit
 import com.kolakek.pimiwidget.settings.SnowUnit
 import kotlin.math.round
+import kotlin.math.roundToInt
 
 object WeatherRenderer {
 
@@ -483,9 +484,9 @@ object WeatherRenderer {
         tempUnit: TempUnit,
         fullUnit: Boolean
     ): String {
-        val tempValue = tempUnit.fromCelsius(tempCelsius)
+        val value = tempUnit.fromCelsius(tempCelsius).roundToInt()
         val unit = tempUnit.unitStr(context, fullUnit)
-        return "${(tempValue + 0.5).toInt()}$unit"
+        return "$value$unit".replace('-', '\u2212')
     }
 
     private fun formatTime(context: Context, timeMillis: Long): String {
