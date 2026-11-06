@@ -8,13 +8,13 @@
 
             <TextView
                 style="@style/Widget.Date.Solid"
-                android:text="@string/widget_date_prev"/>
+                android:text="@string/widget_date_prev" />
 
         </LinearLayout>
 
         <TextView
             style="@style/Widget.Aux.Solid"
-            android:text="@string/widget_weather_prev"/>
+            android:text="@string/widget_weather_prev" />
 
     </LinearLayout>
 
@@ -29,7 +29,8 @@
 
         <TextView
             style="@style/Widget.Temp.Solid"
-            android:text="@string/widget_temp_prev"/>
+            android:text="@string/widget_temp_prev"
+            tools:ignore="TextSizeCheck" />
 
     </LinearLayout>
 

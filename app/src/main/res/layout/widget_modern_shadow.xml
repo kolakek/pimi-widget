@@ -7,7 +7,8 @@
 
         <TextClock
             android:id="@+id/widget_date"
-            style="@style/Widget.Date.Modern.Shadow" />
+            style="@style/Widget.Date.Modern.Shadow"
+            tools:ignore="TextContrastCheck" />
 
         <ImageView
             android:id="@+id/widget_weather_icon"
