@@ -1,27 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_root"
-    style="@style/Widget.VerticalContainer">
+    style="@style/Widget.Container">
 
-    <LinearLayout style="@style/Widget.PrimaryRowClassic">
+    <LinearLayout style="@style/Widget.Row.Primary">
 
         <TextClock
             android:id="@+id/widget_date"
-            style="@style/Widget.DateClassicShadow" />
+            style="@style/Widget.Date.Shadow" />
 
         <TextView
             android:id="@+id/widget_alarm"
-            style="@style/Widget.EventClassicShadow" />
+            style="@style/Widget.Event.Shadow" />
 
         <TextView
             android:id="@+id/widget_birthday"
-            style="@style/Widget.EventClassicShadow" />
+            style="@style/Widget.Event.Shadow" />
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/Widget.SecondaryRowClassic"
-        tools:ignore="UseCompoundDrawables">
+    <LinearLayout style="@style/Widget.Row">
 
         <ImageView
             android:id="@+id/widget_weather_icon"
@@ -30,11 +28,11 @@
 
         <TextView
             android:id="@+id/widget_weather_temp"
-            style="@style/Widget.TempClassicShadow" />
+            style="@style/Widget.Temp.Classic.Shadow" />
 
         <TextView
             android:id="@+id/widget_weather_aux"
-            style="@style/Widget.AuxClassicShadow" />
+            style="@style/Widget.Aux.Classic.Shadow" />
 
     </LinearLayout>
 

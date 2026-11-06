@@ -1,34 +1,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.HorizontalContainerSolid">
+    style="@style/Widget.Container.Solid">
 
-    <LinearLayout style="@style/Widget.InnerVerticalContainerSolid">
+    <LinearLayout style="@style/Widget.Container.Inner.Vertical.Solid">
 
-        <LinearLayout style="@style/Widget.PrimaryRowSolid">
+        <LinearLayout style="@style/Widget.Row.Primary">
 
             <TextView
-                style="@style/Widget.DateSolid"
+                style="@style/Widget.Date.Solid"
                 android:text="@string/widget_date_prev"/>
 
         </LinearLayout>
 
         <TextView
-            style="@style/Widget.AuxSolid"
+            style="@style/Widget.Aux.Solid"
             android:text="@string/widget_weather_prev"/>
 
     </LinearLayout>
 
     <LinearLayout
-        style="@style/Widget.WeatherContainerSolid"
+        style="@style/Widget.Container.Weather.Solid"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            style="@style/Widget.WeatherIconSolid"
+            style="@style/Widget.WeatherIcon.Solid"
             android:src="@drawable/wb_0d"
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Widget.TempSolid"
+            style="@style/Widget.Temp.Solid"
             android:text="@string/widget_temp_prev"/>
 
     </LinearLayout>
