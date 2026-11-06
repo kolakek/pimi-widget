@@ -21,11 +21,11 @@
 
         <TextView
             android:id="@+id/widget_alarm"
-            style="@style/Widget.Event.Modern.Shadow" />
+            style="@style/Widget.Event.Shadow" />
 
         <TextView
             android:id="@+id/widget_birthday"
-            style="@style/Widget.Event.Modern.Shadow" />
+            style="@style/Widget.Event.Shadow" />
 
     </LinearLayout>
 
