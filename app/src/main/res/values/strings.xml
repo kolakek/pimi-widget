@@ -27,8 +27,8 @@
     <string name="config_debug_last_valid_location">Last valid location</string>
     <string name="config_debug_last_work_status">Last work status</string>
     <string name="config_debug_background_service">Background service</string>
-    <string name="config_location_fallback">Use last location</string>
-    <string name="config_location_fallback_summary">When the device location service is turned off</string>
+    <string name="config_location_fallback">Use last device location</string>
+    <string name="config_location_fallback_summary">When location is turned off in Android settings</string>
     <string name="config_weather_location">Weather location</string>
     <string name="config_weather_location_device">Device location</string>
     <string name="config_weather_location_device_descr">Follows your location</string>

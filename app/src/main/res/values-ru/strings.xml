@@ -26,8 +26,8 @@
     <string name="config_debug_last_valid_location">Последнее используемое местоположение</string>
     <string name="config_debug_last_work_status">Последний статус работы сервиса</string>
     <string name="config_debug_background_service">Фоновый сервис</string>
-    <string name="config_location_fallback">Использовать последнее местоположение</string>
-    <string name="config_location_fallback_summary">Когда сервис геолокации устройства выключен</string>
+    <string name="config_location_fallback">Использовать последнее местоположение устройства</string>
+    <string name="config_location_fallback_summary">Когда геолокация отключена в настройках Android</string>
     <string name="config_weather_location">Местоположение для погоды</string>
     <string name="config_weather_location_device">Местоположение устройства</string>
     <string name="config_weather_location_device_descr">Следует за вашим местоположением</string>

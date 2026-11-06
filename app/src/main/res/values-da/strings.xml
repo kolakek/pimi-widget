@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Se vejrforspørgsel</string>
     <string name="config_debug_button_location">Se placering</string>
     <string name="config_debug_background_service">Baggrundstjeneste</string>
-    <string name="config_location_fallback">Brug seneste placering</string>
-    <string name="config_location_fallback_summary">Når enhedens placeringstjeneste er slået fra</string>
+    <string name="config_location_fallback">Brug enhedens seneste placering</string>
+    <string name="config_location_fallback_summary">Når placering er slået fra i Android-indstillingerne</string>
     <string name="config_weather_location">Vejrplacering</string>
     <string name="config_weather_location_device">Enhedens placering</string>
     <string name="config_weather_location_device_descr">Følger din placering</string>

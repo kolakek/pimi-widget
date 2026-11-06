@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Vezi interogarea meteo</string>
     <string name="config_debug_button_location">Vezi locația</string>
     <string name="config_debug_background_service">Serviciu în fundal</string>
-    <string name="config_location_fallback">Folosește locația anterioară</string>
-    <string name="config_location_fallback_summary">Când serviciul de localizare al dispozitivului este dezactivat</string>
+    <string name="config_location_fallback">Folosește ultima locație a dispozitivului</string>
+    <string name="config_location_fallback_summary">Când locația este dezactivată în setările Android</string>
     <string name="config_weather_location">Locație meteo</string>
     <string name="config_weather_location_device">Locația dispozitivului</string>
     <string name="config_weather_location_device_descr">Îți urmărește locația</string>

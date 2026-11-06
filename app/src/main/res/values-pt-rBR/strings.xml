@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Ver consulta de clima</string>
     <string name="config_debug_button_location">Ver localização</string>
     <string name="config_debug_background_service">Serviço em segundo plano</string>
-    <string name="config_location_fallback">Usar localização anterior</string>
-    <string name="config_location_fallback_summary">Quando o serviço de localização do dispositivo está desativado</string>
+    <string name="config_location_fallback">Usar a última localização do dispositivo</string>
+    <string name="config_location_fallback_summary">Quando a localização estiver desativada nas configurações do Android</string>
     <string name="config_weather_location">Localização do clima</string>
     <string name="config_weather_location_device">Localização do dispositivo</string>
     <string name="config_weather_location_device_descr">Segue sua localização</string>

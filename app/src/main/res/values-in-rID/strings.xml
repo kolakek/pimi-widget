@@ -26,8 +26,8 @@
     <string name="config_debug_last_valid_location">Lokasi valid terakhir</string>
     <string name="config_debug_last_work_status">Status berfungsi terakhir</string>
     <string name="config_debug_background_service">Layanan latar belakang</string>
-    <string name="config_location_fallback">Gunakan lokasi terakhir</string>
-    <string name="config_location_fallback_summary">Saat Layanan lokasi perangkat dimatikan</string>
+    <string name="config_location_fallback">Gunakan lokasi perangkat terakhir</string>
+    <string name="config_location_fallback_summary">Saat lokasi dimatikan di setelan Android</string>
     <string name="config_weather_location">Lokasi cuaca</string>
     <string name="config_weather_location_device">Lokasi perangkat</string>
     <string name="config_weather_location_device_descr">Mengikuti lokasimu</string>

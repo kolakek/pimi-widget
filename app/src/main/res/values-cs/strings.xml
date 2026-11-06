@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Zobrazit dotaz na počasí</string>
     <string name="config_debug_button_location">Zobrazit polohu</string>
     <string name="config_debug_background_service">Služba na pozadí</string>
-    <string name="config_location_fallback">Použít poslední polohu</string>
-    <string name="config_location_fallback_summary">Když je služba určování polohy zařízení vypnuta</string>
+    <string name="config_location_fallback">Použít poslední polohu zařízení</string>
+    <string name="config_location_fallback_summary">Když je poloha vypnutá v nastavení Androidu</string>
     <string name="config_weather_location">Poloha pro počasí</string>
     <string name="config_weather_location_device">Poloha zařízení</string>
     <string name="config_weather_location_device_descr">Sleduje tvou polohu</string>

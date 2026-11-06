@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Wetterabfrage anzeigen</string>
     <string name="config_debug_button_location">Standort anzeigen</string>
     <string name="config_debug_background_service">Hintergrunddienst</string>
-    <string name="config_location_fallback">Letzten Standort verwenden</string>
-    <string name="config_location_fallback_summary">Wenn der Gerätestandortdienst deaktiviert ist</string>
+    <string name="config_location_fallback">Letzten Gerätestandort verwenden</string>
+    <string name="config_location_fallback_summary">Wenn der Standort in den Android-Einstellungen deaktiviert ist</string>
     <string name="config_weather_location">Wetterstandort</string>
     <string name="config_weather_location_device">Gerätestandort</string>
     <string name="config_weather_location_device_descr">Folgt deinem Standort</string>

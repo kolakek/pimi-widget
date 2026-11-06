@@ -26,8 +26,8 @@
     <string name="config_debug_last_valid_location">最後有效位置</string>
     <string name="config_debug_last_work_status">最後運作狀態</string>
     <string name="config_debug_background_service">背景服務</string>
-    <string name="config_location_fallback">使用最後位置</string>
-    <string name="config_location_fallback_summary">裝置停用定位服務時</string>
+    <string name="config_location_fallback">使用裝置最後位置</string>
+    <string name="config_location_fallback_summary">在 Android 設定中關閉定位時</string>
     <string name="config_weather_location">天氣位置</string>
     <string name="config_weather_location_device">裝置位置</string>
     <string name="config_weather_location_device_descr">跟隨您的位置</string>

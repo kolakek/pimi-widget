@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Näytä säähaku</string>
     <string name="config_debug_button_location">Näytä sijainti</string>
     <string name="config_debug_background_service">Taustapalvelu</string>
-    <string name="config_location_fallback">Käytä viimeistä sijaintia</string>
-    <string name="config_location_fallback_summary">Kun laitteen sijaintipalvelu on poistettu käytöstä</string>
+    <string name="config_location_fallback">Käytä laitteen viimeisintä sijaintia</string>
+    <string name="config_location_fallback_summary">Kun sijainti on poistettu käytöstä Androidin asetuksissa</string>
     <string name="config_weather_location">Sään sijainti</string>
     <string name="config_weather_location_device">Laitteen sijainti</string>
     <string name="config_weather_location_device_descr">Seuraa sijaintiasi</string>

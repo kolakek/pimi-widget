@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Voir la requête météo</string>
     <string name="config_debug_button_location">Voir la localisation</string>
     <string name="config_debug_background_service">Service en arrière-plan</string>
-    <string name="config_location_fallback">Utiliser la dernière position connue</string>
-    <string name="config_location_fallback_summary">Quand le service de localisation de l’appareil est désactivé</string>
+    <string name="config_location_fallback">Utiliser la dernière position de l’appareil</string>
+    <string name="config_location_fallback_summary">Quand la localisation est désactivée dans les paramètres Android</string>
     <string name="config_weather_location">Emplacement météo</string>
     <string name="config_weather_location_device">Position de l’appareil</string>
     <string name="config_weather_location_device_descr">Suit ta position</string>

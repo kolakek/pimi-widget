@@ -24,8 +24,8 @@
     <string name="config_debug_button_weather">Hava durumu sorgusunu görüntüle</string>
     <string name="config_debug_button_location">Konumu görüntüle</string>
     <string name="config_debug_background_service">Arka plan servisi</string>
-    <string name="config_location_fallback">Önceki konumu kullan</string>
-    <string name="config_location_fallback_summary">Cihazın konum hizmeti kapatıldığında</string>
+    <string name="config_location_fallback">Son cihaz konumunu kullan</string>
+    <string name="config_location_fallback_summary">Android ayarlarında konum kapalıyken</string>
     <string name="config_weather_location">Hava durumu konumu</string>
     <string name="config_weather_location_device">Cihaz konumu</string>
     <string name="config_weather_location_device_descr">Konumunu takip eder</string>
