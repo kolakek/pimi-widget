@@ -1,13 +1,16 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Config.Coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/content"
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/Config.AppBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -15,14 +18,15 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/config_title_settings" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/app_settings_fragment"
-            android:name="com.kolakek.pimiwidget.settings.AppSettingsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/app_settings_fragment"
+        android:name="com.kolakek.pimiwidget.settings.AppSettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

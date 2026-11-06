@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Προσθήκη</string>
+    <string name="config_button_update">Ενημέρωση</string>
     <string name="config_section_style">Εμφάνιση</string>
     <string name="config_widget_style">Στυλ γραφικού στοιχείου</string>
     <string name="config_widget_style_classic">Κλασικό</string>
     <string name="config_widget_style_modern">Μοντέρνο</string>
     <string name="config_widget_style_solid">Μονόχρωμο</string>
-    <string name="config_button_apply">Εφαρμογή</string>
     <string name="config_weather_switch">Καιρός</string>
     <string name="config_weather_attribution_open_meteo">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_birthday_switch">Γενέθλια</string>

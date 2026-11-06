@@ -21,42 +21,27 @@ import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.google.android.material.button.MaterialButton
+import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
 import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
-class WidgetConfigureActivity : FragmentActivity() {
+class WidgetConfigureActivity : AppCompatActivity() {
 
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
 
-    private fun finishWidgetConfigureActivity() {
-        val context = this@WidgetConfigureActivity
-
-        WidgetUpdater.updateWidgets(context)
-        MigrateApp.storeCurrentVersionCode(context)
-
-        val resultValue = Intent()
-
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-        setResult(RESULT_OK, resultValue)
-
-        finish()
-    }
-
-    public override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setResult(RESULT_CANCELED)
 
-        appWidgetId = intent?.extras?.getInt(
+        appWidgetId = intent.getIntExtra(
             AppWidgetManager.EXTRA_APPWIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID
-        ) ?: AppWidgetManager.INVALID_APPWIDGET_ID
-
+        )
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish()
             return
@@ -66,13 +51,49 @@ class WidgetConfigureActivity : FragmentActivity() {
         val binding = PimiWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val initialTopPadding = binding.toolbarContent.paddingTop
+        setSupportActionBar(binding.toolbar)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbarContent) { view, insets ->
-            val topInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            view.updatePadding(top = initialTopPadding + topInset)
-            insets
+        supportFragmentManager.addOnBackStackChangedListener {
+            updateBackButton(binding.applyButton)
         }
-        binding.button.setOnClickListener { finishWidgetConfigureActivity() }
+        updateBackButton(binding.applyButton)
+
+        val isConfigured = PreferencesHelper.getWidgetConfiguredPreference(this, appWidgetId)
+        val strId = if (isConfigured) R.string.config_button_update else R.string.config_button_add
+
+        binding.applyButton.setText(strId)
+        binding.applyButton.setOnClickListener { finishWidgetConfigureActivity() }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+
+    private fun finishWidgetConfigureActivity() {
+        val context = this@WidgetConfigureActivity
+
+        WidgetUpdater.updateWidgets(context)
+        MigrateApp.storeCurrentVersionCode(context)
+
+        PreferencesHelper.setWidgetConfiguredPreference(this, appWidgetId, true)
+
+        val resultValue = Intent()
+        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        setResult(RESULT_OK, resultValue)
+
+        finish()
+    }
+
+    private fun updateBackButton(applyButton: MaterialButton) {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setTitle(R.string.config_section_settings_plus)
+            applyButton.isVisible = false
+        } else {
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            supportActionBar?.setTitle(R.string.app_name)
+            applyButton.isVisible = true
+        }
     }
 }

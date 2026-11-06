@@ -201,9 +201,20 @@ object PreferencesHelper {
         )
     }
 
-    fun setWeatherPreference(context: Context, value: Boolean) {
+    fun getWidgetConfiguredPreference(context: Context, appWidgetId: Int): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean("${KEY_WIDGET_CONFIGURED}_$appWidgetId", false)
+    }
+
+    fun setWidgetConfiguredPreference(context: Context, appWidgetId: Int, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putBoolean(KEY_WEATHER_SWITCH, value)
+            putBoolean("${KEY_WIDGET_CONFIGURED}_$appWidgetId", value)
+        }
+    }
+
+    fun deleteWidgetConfiguredPreference(context: Context, appWidgetId: Int) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            remove("${KEY_WIDGET_CONFIGURED}_$appWidgetId")
         }
     }
 
@@ -247,12 +258,6 @@ object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIDGET_STYLE_LIST, null)
         return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.SOLID
-    }
-
-    fun setWeatherLocationPreference(context: Context, pref: WeatherLocationPref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_WEATHER_LOCATION, pref.key)
-        }
     }
 
     private fun getWeatherPreference(context: Context): Boolean {

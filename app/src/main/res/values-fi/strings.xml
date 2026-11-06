@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Lisää</string>
+    <string name="config_button_update">Päivitä</string>
     <string name="config_section_style">Ulkoasu</string>
     <string name="config_widget_style">Widgetin tyyli</string>
     <string name="config_widget_style_classic">Klassinen</string>
     <string name="config_widget_style_modern">Moderni</string>
     <string name="config_widget_style_solid">Yksivärinen</string>
-    <string name="config_button_apply">Käytä</string>
     <string name="config_weather_switch">Sää</string>
     <string name="config_weather_attribution_open_meteo">Säätiedot Open-Meteo.comista</string>
     <string name="config_birthday_switch">Syntymäpäivät</string>

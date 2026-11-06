@@ -20,9 +20,6 @@ package com.kolakek.pimiwidget.ui
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import com.kolakek.pimiwidget.databinding.PimiAppConfigureBinding
 
 class AppConfigureActivity : AppCompatActivity() {
@@ -34,11 +31,6 @@ class AppConfigureActivity : AppCompatActivity() {
         val binding = PimiAppConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.content) { view, insets ->
-            val topInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            view.updatePadding(top = topInset)
-            insets
-        }
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

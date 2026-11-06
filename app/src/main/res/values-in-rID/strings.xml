@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="config_button_apply">Terapkan</string>
+    <string name="config_button_add">Tambahkan</string>
+    <string name="config_button_update">Perbarui</string>
     <string name="config_section_features">Sekilas</string>
     <string name="config_section_weather">Setelan cuaca</string>
     <string name="config_section_settings_plus">Setelan tambahan</string>

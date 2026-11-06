@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Ajouter</string>
+    <string name="config_button_update">Mettre à jour</string>
     <string name="config_section_style">Apparence</string>
     <string name="config_widget_style">Style du widget</string>
     <string name="config_widget_style_classic">Classique</string>
     <string name="config_widget_style_modern">Moderne</string>
     <string name="config_widget_style_solid">Uni</string>
-    <string name="config_button_apply">Appliquer</string>
     <string name="config_weather_switch">Météo</string>
     <string name="config_weather_attribution_open_meteo">Données météo par Open-Meteo.com</string>
     <string name="config_birthday_switch">Anniversaires</string>

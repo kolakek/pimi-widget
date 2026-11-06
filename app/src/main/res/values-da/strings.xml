@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Tilføj</string>
+    <string name="config_button_update">Opdater</string>
     <string name="config_section_style">Udseende</string>
     <string name="config_widget_style">Widgetstil</string>
     <string name="config_widget_style_classic">Klassisk</string>
     <string name="config_widget_style_modern">Moderne</string>
     <string name="config_widget_style_solid">Ensfarvet</string>
-    <string name="config_button_apply">Anvend</string>
     <string name="config_weather_switch">Vejr</string>
     <string name="config_weather_attribution_open_meteo">Vejrdata fra Open-Meteo.com</string>
     <string name="config_birthday_switch">Fødselsdage</string>

@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="config_button_apply">套用</string>
+    <string name="config_button_add">新增</string>
+    <string name="config_button_update">更新</string>
     <string name="config_section_features">資訊一覽</string>
     <string name="config_section_weather">天氣設定</string>
     <string name="config_section_settings_plus">更多設定</string>

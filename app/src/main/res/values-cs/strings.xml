@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Přidat</string>
+    <string name="config_button_update">Aktualizovat</string>
     <string name="config_section_style">Vzhled</string>
     <string name="config_widget_style">Styl widgetu</string>
     <string name="config_widget_style_classic">Klasický</string>
     <string name="config_widget_style_modern">Moderní</string>
     <string name="config_widget_style_solid">Jednobarevný</string>
-    <string name="config_button_apply">Použít</string>
     <string name="config_weather_switch">Počasí</string>
     <string name="config_weather_attribution_open_meteo">Meteorologická data z Open-Meteo.com</string>
     <string name="config_birthday_switch">Narozeniny</string>

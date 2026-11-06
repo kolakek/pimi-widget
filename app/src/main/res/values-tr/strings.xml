@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Ekle</string>
+    <string name="config_button_update">Güncelle</string>
     <string name="config_section_style">Görünüm</string>
     <string name="config_widget_style">Widget stili</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Düz</string>
-    <string name="config_button_apply">Uygula</string>
     <string name="config_weather_switch">Hava durumu</string>
     <string name="config_weather_attribution_open_meteo">Open-Meteo.com\'dan hava durumu verileri</string>
     <string name="config_birthday_switch">Doğum günleri</string>

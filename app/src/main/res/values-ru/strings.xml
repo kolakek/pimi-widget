@@ -1,6 +1,7 @@
 <resources>
 
-    <string name="config_button_apply">Применить</string>
+    <string name="config_button_add">Добавить</string>
+    <string name="config_button_update">Обновить</string>
     <string name="config_section_features">Самое главное</string>
     <string name="config_section_weather">Настройки погоды</string>
     <string name="config_section_settings_plus">Дополнительные настройки</string>

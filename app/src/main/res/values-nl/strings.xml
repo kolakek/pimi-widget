@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Toevoegen</string>
+    <string name="config_button_update">Bijwerken</string>
     <string name="config_section_style">Uiterlijk</string>
     <string name="config_widget_style">Widgetstijl</string>
     <string name="config_widget_style_classic">Klassiek</string>
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Effen</string>
-    <string name="config_button_apply">Toepassen</string>
     <string name="config_weather_switch">Weer</string>
     <string name="config_weather_attribution_open_meteo">Weergegevens van Open-Meteo.com</string>
     <string name="config_birthday_switch">Verjaardagen</string>

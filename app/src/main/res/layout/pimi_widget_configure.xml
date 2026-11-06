@@ -1,6 +1,6 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Config.Coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,33 +8,25 @@
     <com.google.android.material.appbar.AppBarLayout
         style="@style/Config.AppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:liftOnScroll="true">
 
-        <LinearLayout
-            android:id="@+id/toolbarContent"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="24dp"
-                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                android:text="@string/app_name" />
+            android:layout_height="?attr/actionBarSize">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button"
+                android:id="@+id/apply_button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:minWidth="280dp"
-                android:text="@string/config_button_apply" />
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                tools:text="@string/config_button_update" />
 
-        </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -22,9 +22,12 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import androidx.core.content.edit
+import androidx.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
@@ -45,13 +48,15 @@ class PimiWidget : AppWidgetProvider() {
         WorkManagerHelper.enqueuePeriodicWork(context)
     }
 
+    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
+        super.onDeleted(context, appWidgetIds)
+        appWidgetIds.forEach { PreferencesHelper.deleteWidgetConfiguredPreference(context, it) }
+    }
+
     override fun onDisabled(context: Context) {
         WorkManagerHelper.cancelPeriodicWork(context)
-        PreferencesHelper.setWeatherPreference(context, false)
-        PreferencesHelper.setWeatherLocationPreference(
-            context,
-            PreferencesHelper.WeatherLocationPref.DEVICE
-        )
+        PreferenceManager.getDefaultSharedPreferences(context).edit { clear() }
+        context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE).edit { clear() }
         runBlocking { DataRepository.deleteAllData(context) }
     }
 

@@ -18,6 +18,10 @@
 package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.preference.PreferenceFragmentCompat
 import com.kolakek.pimiwidget.R
 
@@ -25,5 +29,17 @@ class AppSettingsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_app_prefs, rootKey)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        listView.clipToPadding = false
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
+            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            listView.updatePadding(bottom = bottomInset)
+            insets
+        }
     }
 }

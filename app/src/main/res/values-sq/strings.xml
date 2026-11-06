@@ -1,11 +1,12 @@
 <resources>
 
+    <string name="config_button_add">Shto</string>
+    <string name="config_button_update">Përditëso</string>
     <string name="config_section_style">Pamja</string>
     <string name="config_widget_style">Stili i widget-it</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Njëngjyrësh</string>
-    <string name="config_button_apply">Apliko</string>
     <string name="config_weather_switch">Moti</string>
     <string name="config_weather_attribution_open_meteo">Të dhëna moti nga Open-Meteo.com</string>
     <string name="config_birthday_switch">Ditëlindjet</string>
