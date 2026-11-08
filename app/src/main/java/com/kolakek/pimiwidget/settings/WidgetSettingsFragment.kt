@@ -37,7 +37,6 @@ import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
@@ -56,7 +55,7 @@ import io.ktor.http.URLBuilder
 import kotlinx.coroutines.launch
 import java.util.Date
 
-class WidgetSettingsFragment : PreferenceFragmentCompat() {
+class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private var onPermissionGranted: (() -> Unit)? = null
 

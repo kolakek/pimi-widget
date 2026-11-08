@@ -22,10 +22,9 @@ import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
-import androidx.preference.PreferenceFragmentCompat
 import com.kolakek.pimiwidget.R
 
-class AppSettingsFragment : PreferenceFragmentCompat() {
+class AppSettingsFragment : CardPreferenceFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_app_prefs, rootKey)

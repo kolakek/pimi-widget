@@ -19,10 +19,9 @@ package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
 import androidx.preference.ListPreference
-import androidx.preference.PreferenceFragmentCompat
 import com.kolakek.pimiwidget.R
 
-class WidgetSettingsPlusFragment : PreferenceFragmentCompat() {
+class WidgetSettingsPlusFragment : CardPreferenceFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_plus, rootKey)

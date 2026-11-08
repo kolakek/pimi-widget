@@ -1,0 +1,15 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorControlHighlight">
+  <item>
+    <inset android:insetTop="@dimen/app_pref_card_gap_half">
+      <shape>
+        <solid android:color="?attr/colorSurfaceBright" />
+        <corners
+            android:topLeftRadius="4dp"
+            android:topRightRadius="4dp"
+            android:bottomLeftRadius="24dp"
+            android:bottomRightRadius="24dp" />
+      </shape>
+    </inset>
+  </item>
+</ripple>

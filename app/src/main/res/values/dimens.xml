@@ -7,4 +7,7 @@
     <dimen name="app_bar_container_height">96dp</dimen>
     <dimen name="app_bar_stroke_width">1dp</dimen>
     <dimen name="app_button_icon_padding">8dp</dimen>
+    <dimen name="app_pref_card_margin">16dp</dimen>
+    <dimen name="app_pref_category_padding_start">8dp</dimen>
+    <dimen name="app_pref_card_gap_half">1.5dp</dimen>
 </resources>
