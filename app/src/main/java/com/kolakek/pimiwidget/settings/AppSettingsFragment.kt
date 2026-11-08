@@ -25,6 +25,7 @@ import androidx.core.view.updatePadding
 import com.kolakek.pimiwidget.R
 
 class AppSettingsFragment : CardPreferenceFragment() {
+    override val titleRes = R.string.config_title_settings
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_app_prefs, rootKey)

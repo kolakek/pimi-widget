@@ -22,8 +22,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import com.google.android.material.button.MaterialButton
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
 import com.kolakek.pimiwidget.utility.MigrateApp
@@ -54,9 +52,9 @@ class WidgetConfigureActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         supportFragmentManager.addOnBackStackChangedListener {
-            updateBackButton(binding.applyButton)
+            updateBackButton()
         }
-        updateBackButton(binding.applyButton)
+        updateBackButton()
 
         val isConfigured = PreferencesHelper.getWidgetConfiguredPreference(this, appWidgetId)
         val strId = if (isConfigured) R.string.config_button_update else R.string.config_button_add
@@ -85,15 +83,11 @@ class WidgetConfigureActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun updateBackButton(applyButton: MaterialButton) {
+    private fun updateBackButton() {
         if (supportFragmentManager.backStackEntryCount > 0) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setTitle(R.string.config_section_settings_plus)
-            applyButton.isVisible = false
         } else {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
-            supportActionBar?.setTitle(R.string.app_name)
-            applyButton.isVisible = true
         }
     }
 }

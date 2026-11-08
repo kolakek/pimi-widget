@@ -56,6 +56,7 @@ import kotlinx.coroutines.launch
 import java.util.Date
 
 class WidgetSettingsFragment : CardPreferenceFragment() {
+    override val titleRes = R.string.app_name
 
     private var onPermissionGranted: (() -> Unit)? = null
 
@@ -72,8 +73,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
-        val widgetStyleList: ListPreference? = findPreference(KEY_WIDGET_STYLE_LIST)
         val weatherLocationField: Preference? = findPreference(KEY_WEATHER_LOCATION)
+        val widgetStyleField: Preference? = findPreference(KEY_WIDGET_STYLE)
 
         var debugCount = 0
 
@@ -85,6 +86,19 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         }
         if (birthdaySwitch?.isChecked == true && isPermissionDenied(READ_CONTACTS)) {
             disableBirthday()
+        }
+        widgetStyleField?.setOnPreferenceClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .setTransition(TRANSIT_FRAGMENT_FADE)
+                .replace(R.id.widget_settings_fragment, WidgetSettingsStyleFragment())
+                .addToBackStack(null)
+                .commit()
+            true
+        }
+        widgetStyleField?.summaryProvider = Preference.SummaryProvider<Preference> { pref ->
+            val stored = pref.sharedPreferences?.getString(KEY_WIDGET_STYLE_LIST, null)
+            getString(WidgetStylePref.fromKey(stored).labelRes)
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {
@@ -132,18 +146,6 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
             }
-            true
-        }
-        widgetStyleList?.setOnPreferenceChangeListener { _, newValue ->
-            PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
-            PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
-            PreferencesHelper.setAuxDisplayPreference(
-                context,
-                if (newValue == KEY_WIDGET_STYLE_SOLID) {
-                    PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
-                }
-                else PreferencesHelper.AuxDisplayPref.NOTHING
-            )
             true
         }
         weatherLocationField?.setOnPreferenceClickListener {

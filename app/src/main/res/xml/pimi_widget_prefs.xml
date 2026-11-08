@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
@@ -82,14 +82,10 @@
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
 
-        <ListPreference
-            android:defaultValue="widget_style_solid"
-            android:entries="@array/widget_styles"
-            android:entryValues="@array/widget_styles_vals"
-            android:key="widget_style_list"
+        <Preference
+            android:key="widget_style"
             android:title="@string/config_widget_style"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+            app:iconSpaceReserved="false" />
 
         <ListPreference
             android:defaultValue="icon_style_filled"

@@ -23,6 +23,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.settings.WidgetStylePref
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 
@@ -46,7 +47,7 @@ object MigrateApp {
             )
             PreferencesHelper.setWidgetStylePreference(
                 context,
-                PreferencesHelper.WidgetStylePref.CLASSIC
+                WidgetStylePref.CLASSIC
             )
             PreferencesHelper.setAuxDisplayPreference(
                 context,
@@ -58,7 +59,7 @@ object MigrateApp {
             )
         }
         if (previousVersionCode < 23) {
-            val widgetStyleSolid = PreferencesHelper.WidgetStylePref.SOLID
+            val widgetStyleSolid = WidgetStylePref.SOLID
             val auxDisplayPlace = PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
             val auxDisplayNothing = PreferencesHelper.AuxDisplayPref.NOTHING
 

@@ -40,12 +40,6 @@ object PreferencesHelper {
         TWINKLE_SHADOW(KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW)
     }
 
-    enum class WidgetStylePref(val key: String) {
-        CLASSIC(KEY_WIDGET_STYLE_CLASSIC),
-        MODERN(KEY_WIDGET_STYLE_MODERN),
-        SOLID(KEY_WIDGET_STYLE_SOLID)
-    }
-
     enum class TempUnitPref(val key: String) {
         AUTO(KEY_TEMP_UNIT_AUTO),
         CELSIUS(KEY_TEMP_UNIT_CELSIUS),
@@ -254,11 +248,11 @@ object PreferencesHelper {
         }
     }
 
-    fun getWidgetStylePreference(context: Context): WidgetStylePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WIDGET_STYLE_LIST, null)
-        return WidgetStylePref.entries.find { it.key == key } ?: WidgetStylePref.SOLID
-    }
+    fun getWidgetStylePreference(context: Context): WidgetStylePref =
+        WidgetStylePref.fromKey(
+            PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(KEY_WIDGET_STYLE_LIST, null)
+        )
 
     private fun getWeatherPreference(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)

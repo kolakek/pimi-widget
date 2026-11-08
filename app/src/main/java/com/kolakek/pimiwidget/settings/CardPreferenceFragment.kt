@@ -20,6 +20,7 @@ package com.kolakek.pimiwidget.settings
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -33,6 +34,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kolakek.pimiwidget.R
 
 abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
+
+    @get:StringRes
+    abstract val titleRes: Int
 
     @SuppressLint("RestrictedApi")
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> =
@@ -64,6 +68,8 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().setTitle(titleRes)
 
         val horizontal = resources.getDimensionPixelSize(R.dimen.app_pref_card_margin)
         listView.updatePadding(left = horizontal, right = horizontal)

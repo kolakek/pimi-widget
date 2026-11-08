@@ -22,6 +22,7 @@ import androidx.preference.ListPreference
 import com.kolakek.pimiwidget.R
 
 class WidgetSettingsPlusFragment : CardPreferenceFragment() {
+    override val titleRes = R.string.config_section_settings_plus
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_plus, rootKey)
@@ -29,7 +30,7 @@ class WidgetSettingsPlusFragment : CardPreferenceFragment() {
         val textColorList: ListPreference? = findPreference(KEY_TEXT_COLOR_LIST)
         val widgetStylePref = PreferencesHelper.getWidgetStylePreference(preferenceManager.context)
 
-        if (widgetStylePref == PreferencesHelper.WidgetStylePref.SOLID) {
+        if (widgetStylePref == WidgetStylePref.SOLID) {
             textColorList?.value = KEY_COLOR_AUTO
             textColorList?.isEnabled = false
         }
