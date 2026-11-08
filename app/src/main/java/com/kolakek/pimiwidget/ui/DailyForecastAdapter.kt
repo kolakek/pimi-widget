@@ -57,9 +57,9 @@ class DailyForecastAdapter :
 
         val background = when {
             itemCount == 1 -> R.drawable.app_item_background
-            position == 0 -> R.drawable.app_top_item_background
-            position == itemCount - 1 -> R.drawable.app_bottom_item_background
-            else -> R.drawable.app_mid_item_background
+            position == 0 -> R.drawable.app_item_background_top
+            position == itemCount - 1 -> R.drawable.app_item_background_bottom
+            else -> R.drawable.app_item_background_mid
         }
         holder.itemView.setBackgroundResource(background)
     }
