@@ -99,6 +99,5 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
             listView.updatePadding(bottom = bottomInset)
             insets
         }
-        setDivider(null)
     }
 }

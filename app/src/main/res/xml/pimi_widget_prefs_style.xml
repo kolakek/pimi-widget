@@ -8,6 +8,8 @@
     <PreferenceCategory
         android:key="widget_style_list"
         android:title="@string/config_widget_style"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
 
     </PreferenceCategory>
