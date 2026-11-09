@@ -33,6 +33,9 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
         val current = WidgetStylePref.fromKey(
             prefs.getString(KEY_WIDGET_STYLE_LIST, null)
         )
+        val preview = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
+        preview?.style = current
+
         val radios = WidgetStylePref.entries.associateWith { style ->
             RadioPreference(preferenceManager.context, null).apply {
                 key = style.key
@@ -46,6 +49,7 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
                 radios.forEach { (s, r) -> r.isChecked = s == style }
                 prefs.edit { putString(KEY_WIDGET_STYLE_LIST, style.key) }
                 onStyleSelected(style)
+                preview?.style = style
                 false
             }
         }

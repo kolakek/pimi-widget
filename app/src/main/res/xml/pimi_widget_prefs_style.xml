@@ -2,6 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <com.kolakek.pimiwidget.settings.WidgetPreviewPreference
+        app:key="widget_style_preview" />
+
     <PreferenceCategory
         android:key="widget_style_list"
         android:title="@string/config_widget_style"

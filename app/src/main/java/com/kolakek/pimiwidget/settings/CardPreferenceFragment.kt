@@ -25,6 +25,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.core.view.updatePaddingRelative
+import androidx.preference.Preference
 import androidx.preference.PreferenceGroupAdapter
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.PreferenceCategory
@@ -43,26 +44,31 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
         object : PreferenceGroupAdapter(preferenceScreen) {
             override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
+                val view = holder.itemView
+                val item = getItem(position) ?: return
 
-                val item = getItem(position)
-                if (item is PreferenceCategory) {
-                    val start = holder.itemView.resources.getDimensionPixelSize(
-                        R.dimen.app_pref_category_padding_start
+                when {
+                    item is PreferenceCategory -> view.updatePaddingRelative(
+                        start = view.resources.getDimensionPixelSize(
+                            R.dimen.app_pref_category_padding_start
+                        )
                     )
-                    holder.itemView.updatePaddingRelative(start = start)
-                    return
+                    item.parent is PreferenceCategory -> view.setBackgroundResource(
+                        cardBackground(item, position)
+                    )
                 }
-                val prevIsItem = position > 0 && getItem(position - 1) !is PreferenceCategory
-                val nextIsItem = position < itemCount - 1 && getItem(position + 1) !is PreferenceCategory
+            }
 
-                holder.itemView.setBackgroundResource(
-                    when {
-                        !prevIsItem && !nextIsItem -> R.drawable.app_pref_background
-                        !prevIsItem -> R.drawable.app_pref_background_top
-                        !nextIsItem -> R.drawable.app_pref_background_bottom
-                        else -> R.drawable.app_pref_background_mid
-                    }
-                )
+            private fun cardBackground(item: Preference, pos: Int): Int {
+                val isFirst = pos == 0 || getItem(pos - 1)?.parent != item.parent
+                val isLast = pos == itemCount - 1 || getItem(pos + 1)?.parent != item.parent
+
+                return when {
+                    isFirst && isLast -> R.drawable.app_pref_background
+                    isFirst -> R.drawable.app_pref_background_top
+                    isLast -> R.drawable.app_pref_background_bottom
+                    else -> R.drawable.app_pref_background_mid
+                }
             }
         }
 
@@ -93,5 +99,6 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
             listView.updatePadding(bottom = bottomInset)
             insets
         }
+        setDivider(null)
     }
 }
