@@ -88,6 +88,7 @@ internal const val KEY_PERMANENT_ALARM = "permanent_alarm"
 internal const val KEY_SHOW_TEMP_UNIT = "show_temp_unit"
 internal const val KEY_WIDGET_STYLE = "widget_style"
 internal const val KEY_WIDGET_STYLE_PREV = "widget_style_preview"
+internal const val KEY_WIDGET_TRANSPARENCY = "widget_transparency"
 
 internal const val KEY_WEATHER_LOCATION = "weather_location"
 internal const val KEY_WEATHER_LOCATION_DEVICE = "weather_location_device"

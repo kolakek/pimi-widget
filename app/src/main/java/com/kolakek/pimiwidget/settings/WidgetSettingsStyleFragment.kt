@@ -29,12 +29,17 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_style, rootKey)
 
         val prefs = preferenceManager.sharedPreferences ?: return
+
         val category: PreferenceCategory = findPreference(KEY_WIDGET_STYLE_LIST) ?: return
+        val preview = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
+        val slider = findPreference<SliderPreference>(KEY_WIDGET_TRANSPARENCY)
+
         val current = WidgetStylePref.fromKey(
             prefs.getString(KEY_WIDGET_STYLE_LIST, null)
         )
-        val preview = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
         preview?.style = current
+        preview?.backgroundTransparency = slider?.value ?: 100
+        slider?.onValueChange = { preview?.backgroundTransparency = it }
 
         val radios = WidgetStylePref.entries.associateWith { style ->
             RadioPreference(preferenceManager.context, null).apply {

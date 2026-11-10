@@ -179,14 +179,18 @@
     <style name="Widget.Container.Solid" parent="Widget.Base">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginHorizontal">8dp</item>
         <item name="android:paddingStart">28dp</item>
         <item name="android:paddingEnd">12dp</item>
         <item name="android:paddingVertical">12dp</item>
-        <item name="android:background">@drawable/widget_background</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:baselineAligned">false</item>
+    </style>
+
+    <style name="Widget.Container.Solid.Frame" parent="Widget.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">8dp</item>
     </style>
 
     <style name="Widget.Container.Inner.Vertical.Solid" parent="Widget.Container.Inner.Vertical">
@@ -201,6 +205,13 @@
         <item name="android:background">@drawable/widget_icon_background</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget.Background.Solid" parent="Widget.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/widget_background</item>
     </style>
 
     <style name="Widget.WeatherIcon.Solid" parent="Widget.Base">

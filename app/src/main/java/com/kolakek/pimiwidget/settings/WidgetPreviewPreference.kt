@@ -38,6 +38,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         isSelectable = false
     }
 
+    var backgroundTransparency = 0
+        set(value) {
+            field = value
+            notifyChanged()
+        }
+
     var style: WidgetStylePref = WidgetStylePref.DEFAULT
         set(value) {
             field = value
@@ -64,7 +70,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetWeatherIcon,
                         widgetWeatherTemp,
                         widgetWeatherAux,
-                        true
+                        useSep = true
                     )
                 }.root
 
@@ -82,7 +88,8 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                     fillPreview(
                         widgetWeatherIcon,
                         widgetWeatherTemp,
-                        widgetWeatherAux
+                        widgetWeatherAux,
+                        widgetBackground
                     )
                 }.root
         }
@@ -93,6 +100,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         icon: ImageView,
         temp: TextView,
         aux: TextView,
+        background: ImageView? = null,
         useSep: Boolean = false
     ) {
         val tempStr = context.getString(R.string.widget_temp_prev)
@@ -101,5 +109,9 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         icon.setImageResource(R.drawable.wc_0d)
         temp.text = tempStr
         aux.text = if (useSep) " · $auxStr" else auxStr
+
+        background?.let {
+            it.imageAlpha = (100 - backgroundTransparency) * 255 / 100
+        }
     }
 }

@@ -14,4 +14,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:key="widget_background_category"
+        app:title="XXX"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false">
+
+        <com.kolakek.pimiwidget.settings.SliderPreference
+            app:key="widget_transparency"
+            app:title="XXX" />
+
+    </PreferenceCategory>
+
 </androidx.preference.PreferenceScreen>

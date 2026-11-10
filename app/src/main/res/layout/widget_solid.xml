@@ -1,45 +1,55 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_root"
-    style="@style/Widget.Container.Solid">
+    style="@style/Widget.Container.Solid.Frame">
 
-    <LinearLayout style="@style/Widget.Container.Inner.Vertical.Solid">
+    <ImageView
+        android:id="@+id/widget_background"
+        style="@style/Widget.Background.Solid"
+        tools:ignore="ContentDescription" />
 
-        <LinearLayout style="@style/Widget.Row.Primary">
+    <LinearLayout style="@style/Widget.Container.Solid">
 
-            <TextClock
-                android:id="@+id/widget_date"
-                style="@style/Widget.Date.Solid" />
+        <LinearLayout style="@style/Widget.Container.Inner.Vertical.Solid">
+
+            <LinearLayout style="@style/Widget.Row.Primary">
+
+                <TextClock
+                    android:id="@+id/widget_date"
+                    style="@style/Widget.Date.Solid" />
+
+                <TextView
+                    android:id="@+id/widget_alarm"
+                    style="@style/Widget.Event.Solid" />
+
+                <TextView
+                    android:id="@+id/widget_birthday"
+                    style="@style/Widget.Event.Solid" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/widget_alarm"
-                style="@style/Widget.Event.Solid" />
-
-            <TextView
-                android:id="@+id/widget_birthday"
-                style="@style/Widget.Event.Solid" />
+                android:id="@+id/widget_weather_aux"
+                style="@style/Widget.Aux.Solid" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/widget_weather_aux"
-            style="@style/Widget.Aux.Solid" />
+        <LinearLayout
+            style="@style/Widget.Container.Weather.Solid"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/widget_weather_icon"
+                style="@style/Widget.WeatherIcon.Solid"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/widget_weather_temp"
+                style="@style/Widget.Temp.Solid" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/Widget.Container.Weather.Solid"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            android:id="@+id/widget_weather_icon"
-            style="@style/Widget.WeatherIcon.Solid"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/widget_weather_temp"
-            style="@style/Widget.Temp.Solid" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

@@ -26,6 +26,7 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.TextColor
 import com.kolakek.pimiwidget.settings.WidgetPreferences
+import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.utility.WeatherApp
 import java.util.Locale
 
@@ -79,6 +80,16 @@ object CoreUpdater {
             views.setTextColor(R.id.widget_birthday, it)
             views.setTextColor(R.id.widget_weather_aux, it)
             views.setTextColor(R.id.widget_weather_temp, it)
+        }
+        when (prefs.widgetStyle) {
+            WidgetStyle.CLASSIC,
+            WidgetStyle.CLASSIC_SHADOW,
+            WidgetStyle.MODERN,
+            WidgetStyle.MODERN_SHADOW -> {
+            }
+
+            WidgetStyle.SOLID ->
+                views.setInt(R.id.widget_background, "setImageAlpha", 100)
         }
     }
 }
