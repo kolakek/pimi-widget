@@ -184,6 +184,7 @@ object PreferencesHelper {
             showWeatherWarning = getWeatherWarningPreference(context),
             permanentAlarm = getPermanentAlarmPreference(context),
             showTempUnit = getShowTempUnitPreference(context),
+            backgroundAlpha = getBackgroundAlphaPreference(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -360,6 +361,12 @@ object PreferencesHelper {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WEATHER_LOCATION, null)
         return WeatherLocationPref.entries.find { it.key == key } ?: WeatherLocationPref.DEVICE
+    }
+
+    private fun getBackgroundAlphaPreference(context: Context): Int {
+        val transparency = PreferenceManager.getDefaultSharedPreferences(context)
+            .getInt(KEY_WIDGET_TRANSPARENCY, 0)
+        return (100 - transparency) * 255 / 100
     }
 
     private fun getWeatherApp(context: Context): WeatherApp {

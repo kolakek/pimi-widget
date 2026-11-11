@@ -28,8 +28,12 @@ import androidx.preference.PreferenceViewHolder
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.PrefWidgetPreviewBinding
 import com.kolakek.pimiwidget.databinding.WidgetClassicBinding
+import com.kolakek.pimiwidget.databinding.WidgetClassicShadowBinding
 import com.kolakek.pimiwidget.databinding.WidgetModernBinding
+import com.kolakek.pimiwidget.databinding.WidgetModernShadowBinding
 import com.kolakek.pimiwidget.databinding.WidgetSolidBinding
+import com.kolakek.pimiwidget.resources.WeatherIcon
+import com.kolakek.pimiwidget.weather.WeatherCode
 
 class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preference(context, attrs) {
 
@@ -38,17 +42,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         isSelectable = false
     }
 
-    var backgroundTransparency = 0
-        set(value) {
-            field = value
-            notifyChanged()
-        }
-
-    var style: WidgetStylePref = WidgetStylePref.DEFAULT
-        set(value) {
-            field = value
-            notifyChanged()
-        }
+    fun refresh() = notifyChanged()
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
@@ -63,55 +57,56 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
 
         container.removeAllViews()
 
-        val widget = when (style) {
-            WidgetStylePref.CLASSIC ->
+        val prefs = PreferencesHelper.getWidgetPreferences(context)
+
+        val widget = when (prefs.widgetStyle) {
+            WidgetStyle.CLASSIC ->
                 WidgetClassicBinding.inflate(inflater, container, false).apply {
-                    fillPreview(
-                        widgetWeatherIcon,
-                        widgetWeatherTemp,
-                        widgetWeatherAux,
-                        useSep = true
-                    )
+                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs, useSep = true)
                 }.root
 
-            WidgetStylePref.MODERN ->
+            WidgetStyle.CLASSIC_SHADOW ->
+                WidgetClassicShadowBinding.inflate(inflater, container, false).apply {
+                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs, useSep = true)
+                }.root
+
+            WidgetStyle.MODERN ->
                 WidgetModernBinding.inflate(inflater, container, false).apply {
-                    fillPreview(
-                        widgetWeatherIcon,
-                        widgetWeatherTemp,
-                        widgetWeatherAux
-                    )
+                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs)
                 }.root
 
-            WidgetStylePref.SOLID ->
+            WidgetStyle.MODERN_SHADOW ->
+                WidgetModernShadowBinding.inflate(inflater, container, false).apply {
+                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs)
+                }.root
+
+            WidgetStyle.SOLID ->
                 WidgetSolidBinding.inflate(inflater, container, false).apply {
-                    fillPreview(
-                        widgetWeatherIcon,
-                        widgetWeatherTemp,
-                        widgetWeatherAux,
-                        widgetBackground
-                    )
+                    fillPreview(weatherIcon, weatherTemp, weatherAux, widgetBackground, prefs)
                 }.root
         }
         container.addView(widget)
     }
 
     private fun fillPreview(
-        icon: ImageView,
-        temp: TextView,
-        aux: TextView,
-        background: ImageView? = null,
+        weatherIcon: ImageView?,
+        weatherTemp: TextView?,
+        weatherAux: TextView?,
+        background: ImageView?,
+        prefs: WidgetPreferences,
         useSep: Boolean = false
     ) {
-        val tempStr = context.getString(R.string.widget_temp_prev)
+        weatherIcon?.setImageResource(
+            WeatherIcon.getWeatherIconId(
+                WeatherCode.MAINLY_CLEAR,
+                true,
+                prefs.iconStyle,
+                prefs.iconColor
+            )
+        )
+        background?.imageAlpha = prefs.backgroundAlpha
+        weatherTemp?.text = context.getString(R.string.widget_temp_prev)
         val auxStr = context.getString(R.string.widget_weather_prev)
-
-        icon.setImageResource(R.drawable.wc_0d)
-        temp.text = tempStr
-        aux.text = if (useSep) " · $auxStr" else auxStr
-
-        background?.let {
-            it.imageAlpha = (100 - backgroundTransparency) * 255 / 100
-        }
+        weatherAux?.text = if (useSep) " · $auxStr" else auxStr
     }
 }

@@ -6,31 +6,31 @@
     <LinearLayout style="@style/Widget.Row.Primary">
 
         <TextClock
-            android:id="@+id/widget_date"
+            android:id="@+id/date"
             style="@style/Widget.Date.Modern"
             tools:ignore="TextContrastCheck" />
 
         <ImageView
-            android:id="@+id/widget_weather_icon"
+            android:id="@+id/weather_icon"
             style="@style/Widget.WeatherIcon"
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/widget_weather_temp"
+            android:id="@+id/weather_temp"
             style="@style/Widget.Temp.Modern" />
 
         <TextView
-            android:id="@+id/widget_alarm"
+            android:id="@+id/alarm"
             style="@style/Widget.Event" />
 
         <TextView
-            android:id="@+id/widget_birthday"
+            android:id="@+id/birthday"
             style="@style/Widget.Event" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/widget_weather_aux"
+        android:id="@+id/weather_aux"
         style="@style/Widget.Aux.Modern" />
 
 </LinearLayout>

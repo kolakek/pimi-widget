@@ -36,24 +36,24 @@ object WeatherUpdater {
         weatherData: WeatherData?
     ): WeatherUpdateStatus {
 
-        views.setImageViewResource(R.id.widget_weather_icon, 0)
-        views.setTextViewText(R.id.widget_weather_temp, null)
-        views.setTextViewText(R.id.widget_weather_aux, null)
-        views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, 0, 0)
+        views.setImageViewResource(R.id.weather_icon, 0)
+        views.setTextViewText(R.id.weather_temp, null)
+        views.setTextViewText(R.id.weather_aux, null)
+        views.setTextViewCompoundDrawables(R.id.weather_aux, 0, 0, 0, 0)
 
         when (prefs.widgetStyle) {
-            WidgetStyle.SOLID -> views.setViewVisibility(R.id.widget_weather_aux, View.GONE)
+            WidgetStyle.SOLID -> views.setViewVisibility(R.id.weather_aux, View.GONE)
 
-            else -> views.setViewVisibility(R.id.widget_weather_aux, View.INVISIBLE)
+            else -> views.setViewVisibility(R.id.weather_aux, View.INVISIBLE)
         }
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         views.setImageViewResource(
-            R.id.widget_weather_icon,
+            R.id.weather_icon,
             WidgetIcon.SYNC.id(prefs.textColor, prefs.widgetStyle)
         )
         if (prefs.widgetStyle == WidgetStyle.SOLID) {
-            views.setViewVisibility(R.id.widget_weather_temp, View.GONE)
+            views.setViewVisibility(R.id.weather_temp, View.GONE)
         }
         weatherData?.let { data ->
             WeatherRenderer.currentWeather(
@@ -65,9 +65,9 @@ object WeatherUpdater {
                 prefs.showTempUnit
             )?.let { it ->
 
-                views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
-                views.setViewVisibility(R.id.widget_weather_temp, View.VISIBLE)
-                views.setTextViewText(R.id.widget_weather_temp, it.text)
+                views.setImageViewResource(R.id.weather_icon, it.iconId)
+                views.setViewVisibility(R.id.weather_temp, View.VISIBLE)
+                views.setTextViewText(R.id.weather_temp, it.text)
 
                 var auxStr: String? = null
                 var auxIcon = 0
@@ -99,9 +99,9 @@ object WeatherUpdater {
                 auxStr = auxStr?.prependIndent(sep)
 
                 auxStr?.let {
-                    views.setViewVisibility(R.id.widget_weather_aux, View.VISIBLE)
-                    views.setTextViewText(R.id.widget_weather_aux, auxStr)
-                    views.setTextViewCompoundDrawables(R.id.widget_weather_aux, 0, 0, auxIcon, 0)
+                    views.setViewVisibility(R.id.weather_aux, View.VISIBLE)
+                    views.setTextViewText(R.id.weather_aux, auxStr)
+                    views.setTextViewCompoundDrawables(R.id.weather_aux, 0, 0, auxIcon, 0)
                 }
 
             } ?: return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH

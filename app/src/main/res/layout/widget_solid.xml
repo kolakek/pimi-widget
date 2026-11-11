@@ -16,21 +16,21 @@
             <LinearLayout style="@style/Widget.Row.Primary">
 
                 <TextClock
-                    android:id="@+id/widget_date"
+                    android:id="@+id/date"
                     style="@style/Widget.Date.Solid" />
 
                 <TextView
-                    android:id="@+id/widget_alarm"
+                    android:id="@+id/alarm"
                     style="@style/Widget.Event.Solid" />
 
                 <TextView
-                    android:id="@+id/widget_birthday"
+                    android:id="@+id/birthday"
                     style="@style/Widget.Event.Solid" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/widget_weather_aux"
+                android:id="@+id/weather_aux"
                 style="@style/Widget.Aux.Solid" />
 
         </LinearLayout>
@@ -40,12 +40,12 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/widget_weather_icon"
+                android:id="@+id/weather_icon"
                 style="@style/Widget.WeatherIcon.Solid"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/widget_weather_temp"
+                android:id="@+id/weather_temp"
                 style="@style/Widget.Temp.Solid" />
 
         </LinearLayout>

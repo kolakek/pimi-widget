@@ -34,14 +34,14 @@ object AlarmUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences
     ) {
-        views.setTextViewText(R.id.widget_alarm, null)
-        views.setTextViewCompoundDrawables(R.id.widget_alarm, 0, 0, 0, 0)
+        views.setTextViewText(R.id.alarm, null)
+        views.setTextViewCompoundDrawables(R.id.alarm, 0, 0, 0, 0)
 
         if (!prefs.showAlarms) return
 
         if (prefs.permanentAlarm) {
             showIcon(views, prefs)
-            views.setTextViewText(R.id.widget_alarm, NA)
+            views.setTextViewText(R.id.alarm, NA)
         }
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
@@ -49,7 +49,7 @@ object AlarmUpdater {
         if (nextAlarmMillis - System.currentTimeMillis() > ALARM_LOOK_AHEAD_MILLIS) return
 
         views.setTextViewText(
-            R.id.widget_alarm,
+            R.id.alarm,
             DateFormat.getTimeFormat(context).format(Date(nextAlarmMillis))
         )
         showIcon(views, prefs)
@@ -57,7 +57,7 @@ object AlarmUpdater {
 
     private fun showIcon(views: RemoteViews, prefs: WidgetPreferences) {
         views.setTextViewCompoundDrawables(
-            R.id.widget_alarm,
+            R.id.alarm,
             TextIcon.ALARM.id(prefs.textColor, prefs.widgetStyle),
             0,
             0,

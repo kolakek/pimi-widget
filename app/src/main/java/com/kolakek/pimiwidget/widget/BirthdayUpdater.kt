@@ -42,8 +42,8 @@ object BirthdayUpdater {
         birthdayData: BirthdayData?
     ): BirthdayUpdateStatus {
 
-        views.setTextViewText(R.id.widget_birthday, null)
-        views.setTextViewCompoundDrawables(R.id.widget_birthday, 0, 0, 0, 0)
+        views.setTextViewText(R.id.birthday, null)
+        views.setTextViewCompoundDrawables(R.id.birthday, 0, 0, 0, 0)
 
         if (!prefs.showBirthdays) return BirthdayUpdateStatus.NO_BIRTHDAYS
 
@@ -62,9 +62,9 @@ object BirthdayUpdater {
                 val lengthCue = data.names.size - birthdayIndex - 1
                 val str = if (lengthCue > 0) "$it +$lengthCue" else it
 
-                views.setTextViewText(R.id.widget_birthday, str)
+                views.setTextViewText(R.id.birthday, str)
                 views.setTextViewCompoundDrawables(
-                    R.id.widget_birthday,
+                    R.id.birthday,
                     TextIcon.BIRTHDAY.id(prefs.textColor, prefs.widgetStyle),
                     0,
                     0,

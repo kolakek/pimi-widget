@@ -42,8 +42,8 @@ object CoreUpdater {
             Locale.getDefault(),
             context.getString(R.string.widget_date_format)
         )
-        views.setCharSequence(R.id.widget_date, "setFormat12Hour", pattern)
-        views.setCharSequence(R.id.widget_date, "setFormat24Hour", pattern)
+        views.setCharSequence(R.id.date, "setFormat12Hour", pattern)
+        views.setCharSequence(R.id.date, "setFormat24Hour", pattern)
 
         views.setOnClickPendingIntent(R.id.widget_root, null)
 
@@ -52,22 +52,22 @@ object CoreUpdater {
             Intent.CATEGORY_APP_CALENDAR,
             appWidgetId
         )
-        views.setOnClickPendingIntent(R.id.widget_date, calendarIntent)
+        views.setOnClickPendingIntent(R.id.date, calendarIntent)
 
         val weatherAppIntent = if (prefs.weatherApp == WeatherApp.PIMI) {
             WidgetIntent.pimiWeatherIntent(context, appWidgetId)
         } else {
             WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
         }
-        views.setOnClickPendingIntent(R.id.widget_weather_icon, weatherAppIntent)
-        views.setOnClickPendingIntent(R.id.widget_weather_temp, weatherAppIntent)
+        views.setOnClickPendingIntent(R.id.weather_icon, weatherAppIntent)
+        views.setOnClickPendingIntent(R.id.weather_temp, weatherAppIntent)
 
         views.setOnClickPendingIntent(
-            R.id.widget_alarm,
+            R.id.alarm,
             WidgetIntent.actionIntent(context, AlarmClock.ACTION_SHOW_ALARMS, appWidgetId)
         )
         views.setOnClickPendingIntent(
-            R.id.widget_birthday,
+            R.id.birthday,
             WidgetIntent.birthdayDismissIntent(context, appWidgetId)
         )
         when (prefs.textColor) {
@@ -75,11 +75,11 @@ object CoreUpdater {
             TextColor.DARK -> Color.BLACK
             TextColor.DYNAMIC -> null
         }?.let {
-            views.setTextColor(R.id.widget_date, it)
-            views.setTextColor(R.id.widget_alarm, it)
-            views.setTextColor(R.id.widget_birthday, it)
-            views.setTextColor(R.id.widget_weather_aux, it)
-            views.setTextColor(R.id.widget_weather_temp, it)
+            views.setTextColor(R.id.date, it)
+            views.setTextColor(R.id.alarm, it)
+            views.setTextColor(R.id.birthday, it)
+            views.setTextColor(R.id.weather_aux, it)
+            views.setTextColor(R.id.weather_temp, it)
         }
         when (prefs.widgetStyle) {
             WidgetStyle.CLASSIC,
@@ -89,7 +89,7 @@ object CoreUpdater {
             }
 
             WidgetStyle.SOLID ->
-                views.setInt(R.id.widget_background, "setImageAlpha", 100)
+                views.setInt(R.id.widget_background, "setImageAlpha", prefs.backgroundAlpha)
         }
     }
 }

@@ -29,12 +29,12 @@ object VisibilityUpdater {
     ) {
         when (birthdayUpdateStatus) {
             BirthdayUpdateStatus.NO_BIRTHDAYS -> {
-                views.setViewVisibility(R.id.widget_birthday, View.GONE)
-                views.setViewVisibility(R.id.widget_alarm, View.VISIBLE)
+                views.setViewVisibility(R.id.birthday, View.GONE)
+                views.setViewVisibility(R.id.alarm, View.VISIBLE)
             }
             BirthdayUpdateStatus.HAS_BIRTHDAYS -> {
-                views.setViewVisibility(R.id.widget_birthday, View.VISIBLE)
-                views.setViewVisibility(R.id.widget_alarm, View.GONE)
+                views.setViewVisibility(R.id.birthday, View.VISIBLE)
+                views.setViewVisibility(R.id.alarm, View.GONE)
             }
         }
     }

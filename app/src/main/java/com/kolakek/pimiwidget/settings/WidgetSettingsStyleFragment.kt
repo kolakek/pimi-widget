@@ -30,34 +30,21 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
 
         val prefs = preferenceManager.sharedPreferences ?: return
 
-        val category: PreferenceCategory = findPreference(KEY_WIDGET_STYLE_LIST) ?: return
-        val preview = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
-        val slider = findPreference<SliderPreference>(KEY_WIDGET_TRANSPARENCY)
+        val styleCategory = findPreference<PreferenceCategory>(KEY_WIDGET_STYLE_LIST)
+        val previewPreference = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
+        val transparencySlider = findPreference<SliderPreference>(KEY_WIDGET_TRANSPARENCY)
 
-        val current = WidgetStylePref.fromKey(
-            prefs.getString(KEY_WIDGET_STYLE_LIST, null)
-        )
-        preview?.style = current
-        preview?.backgroundTransparency = slider?.value ?: 100
-        slider?.onValueChange = { preview?.backgroundTransparency = it }
-
-        val radios = WidgetStylePref.entries.associateWith { style ->
-            RadioPreference(preferenceManager.context, null).apply {
-                key = style.key
-                setTitle(style.labelRes)
-                isChecked = style == current
-            }.also { category.addPreference(it) }
+        styleCategory?.addRadioGroup(
+            options = WidgetStylePref.entries,
+            current = WidgetStylePref.fromKey(prefs.getString(KEY_WIDGET_STYLE_LIST, null)),
+            keyOf = { it.key },
+            labelOf = { it.labelRes },
+        ) { style ->
+            prefs.edit { putString(KEY_WIDGET_STYLE_LIST, style.key) }
+            onStyleSelected(style)
+            previewPreference?.refresh()
         }
-
-        radios.forEach { (style, radio) ->
-            radio.setOnPreferenceChangeListener { _, _ ->
-                radios.forEach { (s, r) -> r.isChecked = s == style }
-                prefs.edit { putString(KEY_WIDGET_STYLE_LIST, style.key) }
-                onStyleSelected(style)
-                preview?.style = style
-                false
-            }
-        }
+        transparencySlider?.onValueChange = { previewPreference?.refresh() }
     }
 
     private fun onStyleSelected(style: WidgetStylePref) {
