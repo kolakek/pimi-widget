@@ -70,9 +70,32 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/widget_aux_text"
-            style="@style/Widget.Aux.Classic.Shadow" />
+        <LinearLayout
+            android:id="@+id/widget_aux"
+            style="@style/Widget.Container.Inner.Horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:text="@string/separator"
+                style="@style/Widget.Aux.Classic.Shadow" />
+
+            <TextView
+                android:id="@+id/widget_aux_text"
+                style="@style/Widget.Aux.Classic.Shadow" />
+
+            <ImageView
+                android:id="@+id/widget_warn_svr_icon"
+                android:src="@drawable/ic_warn_sevr_shadow"
+                style="@style/Widget.WarnIcon.Classic"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/widget_warn_xtr_icon"
+                android:src="@drawable/ic_warn_extr_shadow"
+                style="@style/Widget.WarnIcon.Classic"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

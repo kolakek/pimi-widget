@@ -80,6 +80,7 @@ object CoreUpdater {
             views.setImageColorRes(R.id.widget_sync_icon, tempColor)
             views.setImageColorRes(R.id.widget_alarm_icon, textColor)
             views.setImageColorRes(R.id.widget_birthday_icon, textColor)
+            views.setImageColorRes(R.id.widget_warn_svr_icon, textColor)
         }
         if (prefs.widgetStyle.hasBackground) {
             views.setImageAlpha(R.id.widget_background, prefs.backgroundAlpha)

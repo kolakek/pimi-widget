@@ -220,6 +220,7 @@
     <string name="zero" translatable="false">0</string>
     <string name="hundred" translatable="false">100</string>
     <string name="eleven_plus" translatable="false">11+</string>
+    <string name="separator" translatable="false">" · "</string>
 
     <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
     <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>

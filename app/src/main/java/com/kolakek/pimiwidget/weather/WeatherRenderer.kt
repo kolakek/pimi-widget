@@ -22,8 +22,6 @@ import android.text.format.DateFormat
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.resources.ConditionIcon
 import com.kolakek.pimiwidget.resources.ConditionString
-import com.kolakek.pimiwidget.resources.WarningIcon
-import com.kolakek.pimiwidget.resources.WarningString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
 import com.kolakek.pimiwidget.settings.AuxDisplay
@@ -168,20 +166,16 @@ object WeatherRenderer {
         )
     }
 
-    fun currentWarning(
-        context: Context,
-        weather: WeatherData,
-        prefs: WidgetPreferences
-    ): LabeledIcon? {
+    fun currentWarningStr(context: Context, weather: WeatherData): String? {
         val warningCode = weather.nextHourlyWarningCode() ?: return null
+        if (warningCode == WarningCode.NO_WARNING) return null
+        return context.getString(warningCode.labelRes)
+    }
 
-        if (warningCode == WarningCode.NO_WARNING)
-            return null
-
-        return LabeledIcon(
-            context.getString(WarningString.getWarningStrId(warningCode)),
-            WarningIcon.getWarningIconId(warningCode.level, prefs.textColor, prefs.widgetStyle)
-        )
+    fun currentWarningLevel(weather: WeatherData): WarningLevel? {
+        val warningCode = weather.nextHourlyWarningCode() ?: return null
+        if (warningCode == WarningCode.NO_WARNING) return null
+        return warningCode.level
     }
 
     fun forecastString(
@@ -222,7 +216,7 @@ object WeatherRenderer {
         val dayStr = context.getString(
             if (useToday) R.string.widget_today else R.string.widget_tomorrow
         )
-        return "$dayStr $maxTempStr/$minTempStr · $weatherStr"
+        return "$dayStr $maxTempStr/$minTempStr${context.getString(R.string.separator)}$weatherStr"
     }
 
     fun dailyHighLowTempString(
@@ -236,7 +230,8 @@ object WeatherRenderer {
         val minTempStr = temperatureString(context, minTemp, tempUnit, false)
         val maxTempStr = temperatureString(context, maxTemp, tempUnit, false)
 
-        return context.getString(R.string.app_text_max_temp) + ": " + maxTempStr + " · " +
+        return context.getString(R.string.app_text_max_temp) + ": " + maxTempStr +
+                context.getString(R.string.separator) +
                 context.getString(R.string.app_text_min_temp) + ": " + minTempStr
     }
 
@@ -473,7 +468,8 @@ object WeatherRenderer {
 
             AuxDisplay.PLACE_CONDITION -> {
                 if (weather.place.first().isDigit()) return null
-                weather.place + " · " + currentConditionString(context, weather)
+                weather.place + context.getString(R.string.separator) +
+                        currentConditionString(context, weather)
             }
         }
     }

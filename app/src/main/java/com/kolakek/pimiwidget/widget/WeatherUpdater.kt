@@ -22,7 +22,7 @@ import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WidgetStyle
+import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherRenderer
 
@@ -37,14 +37,11 @@ object WeatherUpdater {
 
         views.setViewVisibility(R.id.widget_weather_icon, View.GONE)
         views.setViewVisibility(R.id.widget_temp_text, View.GONE)
+        views.setViewVisibility(R.id.widget_sync_icon, View.GONE)
+        views.setViewVisibility(R.id.widget_aux, View.GONE)
+        views.setViewVisibility(R.id.widget_warn_svr_icon, View.GONE)
+        views.setViewVisibility(R.id.widget_warn_xtr_icon, View.GONE)
 
-        views.setTextViewCompoundDrawables(R.id.widget_aux_text, 0, 0, 0, 0)
-
-        when (prefs.widgetStyle) {
-            WidgetStyle.SOLID -> views.setViewVisibility(R.id.widget_aux_text, View.GONE)
-
-            else -> views.setViewVisibility(R.id.widget_aux_text, View.INVISIBLE)
-        }
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         views.setViewVisibility(R.id.widget_sync_icon, View.VISIBLE)
@@ -57,8 +54,7 @@ object WeatherUpdater {
                 prefs.iconStyle,
                 prefs.iconColor,
                 prefs.showTempUnit
-            )?.let { it ->
-
+            )?.let {
                 views.setViewVisibility(R.id.widget_sync_icon, View.GONE)
                 views.setViewVisibility(R.id.widget_weather_icon, View.VISIBLE)
                 views.setViewVisibility(R.id.widget_temp_text, View.VISIBLE)
@@ -67,40 +63,33 @@ object WeatherUpdater {
                 views.setTextViewText(R.id.widget_temp_text, it.text)
 
                 var auxStr: String? = null
-                var auxIcon = 0
+                var warnLevel: WarningLevel? = null
 
                 if (prefs.showWeatherWarning) {
-                    WeatherRenderer.currentWarning(context, data, prefs)?.let{
-                        auxStr = it.text
-                        auxIcon = it.iconId
-                    }
+                    auxStr = WeatherRenderer.currentWarningStr(context, data)
+                    warnLevel = WeatherRenderer.currentWarningLevel(data)
                 }
                 if (auxStr == null && prefs.showDailyForecast) {
-                    WeatherRenderer.forecastString(context, data, prefs)?.let {
-                        auxStr = it
-                    }
+                    auxStr = WeatherRenderer.forecastString(context, data, prefs)
                 }
                 if (auxStr == null) {
-                    WeatherRenderer.auxString(context, data, prefs)?.let {
-                        auxStr = it
-                    }
+                    auxStr = WeatherRenderer.auxString(context, data, prefs)
                 }
-                val sep = when (prefs.widgetStyle) {
-                    WidgetStyle.SOLID,
-                    WidgetStyle.MODERN,
-                    WidgetStyle.MODERN_SHADOW -> ""
-
-                    WidgetStyle.CLASSIC,
-                    WidgetStyle.CLASSIC_SHADOW -> " · "
-                }
-                auxStr = auxStr?.prependIndent(sep)
-
                 auxStr?.let {
-                    views.setViewVisibility(R.id.widget_aux_text, View.VISIBLE)
+                    views.setViewVisibility(R.id.widget_aux, View.VISIBLE)
                     views.setTextViewText(R.id.widget_aux_text, auxStr)
-                    views.setTextViewCompoundDrawables(R.id.widget_aux_text, 0, 0, auxIcon, 0)
                 }
+                when (warnLevel) {
+                    WarningLevel.NONE -> {}
 
+                    WarningLevel.SEVERE ->
+                        views.setViewVisibility(R.id.widget_warn_svr_icon, View.VISIBLE)
+
+                    WarningLevel.EXTREME ->
+                        views.setViewVisibility(R.id.widget_warn_xtr_icon, View.VISIBLE)
+
+                    null -> {}
+                }
             } ?: return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH
 
             val isFresh = System.currentTimeMillis() - data.timeMillis < WEATHER_UPDATE_AGE_MILLIS

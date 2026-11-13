@@ -55,9 +55,28 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/widget_aux_text"
-                style="@style/Widget.Aux.Solid" />
+            <LinearLayout
+                android:id="@+id/widget_aux"
+                style="@style/Widget.Container.Inner.Horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/widget_warn_svr_icon"
+                    android:src="@drawable/ic_warn_sevr"
+                    style="@style/Widget.WarnIcon.Solid"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/widget_warn_xtr_icon"
+                    android:src="@drawable/ic_warn_extr"
+                    style="@style/Widget.WarnIcon.Solid"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/widget_aux_text"
+                    style="@style/Widget.Aux.Solid" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

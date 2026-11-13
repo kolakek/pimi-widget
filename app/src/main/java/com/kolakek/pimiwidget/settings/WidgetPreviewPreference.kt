@@ -69,8 +69,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
-                        prefs,
-                        true
+                        prefs
                     )
                 }.root
 
@@ -82,8 +81,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
-                        prefs,
-                        true
+                        prefs
                     )
                 }.root
 
@@ -132,18 +130,17 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         date:TextView?,
         temp: TextView?,
         aux: TextView?,
-        prefs: WidgetPreferences,
-        useSep: Boolean = false
+        prefs: WidgetPreferences
     ) {
         icon?.setImageResource(
             WeatherIcon.getWeatherIconId(
                 WeatherCode.MAINLY_CLEAR,
-                true,
+                isDay = true,
                 prefs.iconStyle,
                 prefs.iconColor
             )
         )
-        when (prefs.textColor) {
+        when (prefs.textColor) { // todo
             TextColor.LIGHT -> Color.WHITE
             TextColor.DARK -> Color.BLACK
             TextColor.DYNAMIC -> null
@@ -154,7 +151,6 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         }
         background?.imageAlpha = prefs.backgroundAlpha
         temp?.text = context.getString(R.string.widget_temp_prev)
-        val auxStr = context.getString(R.string.widget_weather_prev)
-        aux?.text = if (useSep) " · $auxStr" else auxStr
+        aux?.text = context.getString(R.string.widget_weather_prev)
     }
 }

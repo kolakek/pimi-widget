@@ -123,6 +123,24 @@
         <item name="android:layout_marginEnd">2dp</item>
     </style>
 
+    <style name="Widget.WarnIcon" parent="Widget.Base">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Widget.WarnIcon.Solid" parent="Widget.WarnIcon">
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <style name="Widget.WarnIcon.Modern" parent="Widget.WarnIcon">
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <style name="Widget.WarnIcon.Classic" parent="Widget.WarnIcon">
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
     <style name="Widget.Date" parent="Widget.Text.Primary">
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
