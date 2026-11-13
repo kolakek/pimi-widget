@@ -69,22 +69,16 @@
         <item>wind_unit_knot</item>
     </array>
 
-    <array name="colors">
+    <array name="icon_colors">
         <item>@string/config_option_auto</item>
-        <item>@string/config_color_light</item>
-        <item>@string/config_color_dark</item>
+        <item>@string/config_icon_color_morning</item>
+        <item>@string/config_icon_color_evening</item>
     </array>
 
     <array name="colors_vals">
         <item>color_auto</item>
         <item>color_light</item>
         <item>color_dark</item>
-    </array>
-
-    <array name="icon_colors">
-        <item>@string/config_option_auto</item>
-        <item>@string/config_icon_color_morning</item>
-        <item>@string/config_icon_color_evening</item>
     </array>
 
     <array name="icon_styles">
