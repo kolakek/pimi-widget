@@ -24,6 +24,7 @@ import com.kolakek.pimiwidget.data.AuxDisplay
 import com.kolakek.pimiwidget.data.IconStyle
 import com.kolakek.pimiwidget.data.TempUnit
 import com.kolakek.pimiwidget.data.TextColor
+import com.kolakek.pimiwidget.data.WidgetColor
 import com.kolakek.pimiwidget.data.WidgetStyle
 
 data class WidgetSettings (
@@ -40,6 +41,7 @@ data class WidgetSettings (
     val widgetStyle: WidgetStyle,
     val textColor: TextColor,
     val iconColor: IconColor,
+    val widgetColor: WidgetColor,
     val tempUnit: TempUnit,
     val auxDisplay: AuxDisplay,
     val weatherApp: WeatherApp,

@@ -64,6 +64,7 @@ object SettingsRepository {
     }
 
     fun loadWidgetSettings(context: Context): WidgetSettings {
+        val widgetColorPref = getWidgetColorPref(context)
         val textColorPref = getTextColorPref(context)
         val iconColorPref = getIconColorPref(context)
         val iconStylePref = getWidgetIconStylePref(context)
@@ -73,6 +74,12 @@ object SettingsRepository {
         val weatherLocationPref = getLocationSourcePref(context)
         val weatherApp = getWeatherApp(context)
 
+        val widgetColor = when (widgetColorPref) {
+            WidgetColorPref.DYNAMIC -> WidgetColor.DYNAMIC
+            WidgetColorPref.SYSTEM -> WidgetColor.SYSTEM
+            WidgetColorPref.LIGHT -> WidgetColor.LIGHT
+            WidgetColorPref.DARK -> WidgetColor.DARK
+        }
         val textColor = when (textColorPref) {
             TextColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.CLASSIC,
@@ -130,6 +137,7 @@ object SettingsRepository {
             widgetStyle = widgetStyle,
             iconColor = iconColor,
             textColor = textColor,
+            widgetColor = widgetColor,
             auxDisplay = auxDisplay,
             weatherApp = weatherApp,
             locationSource = locationSource
@@ -219,6 +227,12 @@ object SettingsRepository {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_ALARM_SWITCH, false)
     }
+
+    fun getWidgetColorPref(context: Context): WidgetColorPref =
+        WidgetColorPref.fromKey(
+            PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(KEY_WIDGET_COLOR_LIST, null)
+        )
 
     fun getTextColorPref(context: Context): TextColorPref =
         TextColorPref.fromKey(

@@ -66,14 +66,14 @@ object CoreUpdater {
             R.id.widget_birthday,
             WidgetIntent.birthdayDismissIntent(context, appWidgetId)
         )
-        val textColor = settings.widgetStyle.textColor(settings.textColor)
+        val textColor = settings.widgetStyle.textColor(settings.textColor, settings.widgetColor)
         views.setTextColorRes(R.id.widget_date_text, textColor)
         views.setTextColorRes(R.id.widget_alarm_text, textColor)
         views.setTextColorRes(R.id.widget_birthday_text, textColor)
         views.setTextColorRes(R.id.widget_aux_text, textColor)
         views.setTextColorRes(R.id.widget_aux_text_sep, textColor)
 
-        val tempColor = settings.widgetStyle.tempTextColor(settings.textColor)
+        val tempColor = settings.widgetStyle.tempTextColor(settings.textColor, settings.widgetColor)
         views.setTextColorRes(R.id.widget_temp_text, tempColor)
 
         if (!settings.widgetStyle.needsShadow) {
@@ -82,10 +82,10 @@ object CoreUpdater {
             views.setImageColorRes(R.id.widget_birthday_icon, textColor)
             views.setImageColorRes(R.id.widget_warn_svr_icon, textColor)
         }
-        settings.widgetStyle.backgroundColor()?.let {
+        settings.widgetStyle.backgroundColor(settings.widgetColor)?.let {
             views.setImageColorRes(R.id.widget_background, it)
         }
-        settings.widgetStyle.iconBackgroundColor()?.let {
+        settings.widgetStyle.iconBackgroundColor(settings.widgetColor)?.let {
             views.setImageColorRes(R.id.widget_icon_background, it)
         }
         views.setImageAlpha(R.id.widget_background, settings.backgroundAlpha)
