@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Shto</string>
     <string name="config_button_update">Përditëso</string>
-    <string name="config_section_style">Pamja</string>
+    <string name="config_section_appearance">Pamja</string>
     <string name="config_widget_style">Stili i widget-it</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>

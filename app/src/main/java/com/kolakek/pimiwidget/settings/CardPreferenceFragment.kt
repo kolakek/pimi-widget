@@ -81,6 +81,7 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
         listView.updatePadding(left = horizontal, right = horizontal)
 
         listView.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
+        listView.itemAnimator = null
 
         listView.isVerticalScrollBarEnabled = false
         listView.addOnScrollListener(

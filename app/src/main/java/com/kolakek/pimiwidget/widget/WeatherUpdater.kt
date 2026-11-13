@@ -21,7 +21,6 @@ import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.resources.WidgetIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.settings.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
@@ -36,25 +35,20 @@ object WeatherUpdater {
         weatherData: WeatherData?
     ): WeatherUpdateStatus {
 
-        views.setImageViewResource(R.id.weather_icon, 0)
-        views.setTextViewText(R.id.weather_temp, null)
-        views.setTextViewText(R.id.weather_aux, null)
-        views.setTextViewCompoundDrawables(R.id.weather_aux, 0, 0, 0, 0)
+        views.setViewVisibility(R.id.widget_weather_icon, View.GONE)
+        views.setViewVisibility(R.id.widget_temp_text, View.GONE)
+
+        views.setTextViewCompoundDrawables(R.id.widget_aux_text, 0, 0, 0, 0)
 
         when (prefs.widgetStyle) {
-            WidgetStyle.SOLID -> views.setViewVisibility(R.id.weather_aux, View.GONE)
+            WidgetStyle.SOLID -> views.setViewVisibility(R.id.widget_aux_text, View.GONE)
 
-            else -> views.setViewVisibility(R.id.weather_aux, View.INVISIBLE)
+            else -> views.setViewVisibility(R.id.widget_aux_text, View.INVISIBLE)
         }
         if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
-        views.setImageViewResource(
-            R.id.weather_icon,
-            WidgetIcon.SYNC.id(prefs.textColor, prefs.widgetStyle)
-        )
-        if (prefs.widgetStyle == WidgetStyle.SOLID) {
-            views.setViewVisibility(R.id.weather_temp, View.GONE)
-        }
+        views.setViewVisibility(R.id.widget_sync_icon, View.VISIBLE)
+
         weatherData?.let { data ->
             WeatherRenderer.currentWeather(
                 context,
@@ -65,9 +59,12 @@ object WeatherUpdater {
                 prefs.showTempUnit
             )?.let { it ->
 
-                views.setImageViewResource(R.id.weather_icon, it.iconId)
-                views.setViewVisibility(R.id.weather_temp, View.VISIBLE)
-                views.setTextViewText(R.id.weather_temp, it.text)
+                views.setViewVisibility(R.id.widget_sync_icon, View.GONE)
+                views.setViewVisibility(R.id.widget_weather_icon, View.VISIBLE)
+                views.setViewVisibility(R.id.widget_temp_text, View.VISIBLE)
+
+                views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
+                views.setTextViewText(R.id.widget_temp_text, it.text)
 
                 var auxStr: String? = null
                 var auxIcon = 0
@@ -99,9 +96,9 @@ object WeatherUpdater {
                 auxStr = auxStr?.prependIndent(sep)
 
                 auxStr?.let {
-                    views.setViewVisibility(R.id.weather_aux, View.VISIBLE)
-                    views.setTextViewText(R.id.weather_aux, auxStr)
-                    views.setTextViewCompoundDrawables(R.id.weather_aux, 0, 0, auxIcon, 0)
+                    views.setViewVisibility(R.id.widget_aux_text, View.VISIBLE)
+                    views.setTextViewText(R.id.widget_aux_text, auxStr)
+                    views.setTextViewCompoundDrawables(R.id.widget_aux_text, 0, 0, auxIcon, 0)
                 }
 
             } ?: return WeatherUpdateStatus.NEEDS_DATA_AND_REFRESH

@@ -20,9 +20,9 @@ package com.kolakek.pimiwidget.widget
 import android.app.AlarmManager
 import android.content.Context
 import android.text.format.DateFormat
+import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.resources.TextIcon
 import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.ui.NA
 import java.util.Date
@@ -34,14 +34,14 @@ object AlarmUpdater {
         views: RemoteViews,
         prefs: WidgetPreferences
     ) {
-        views.setTextViewText(R.id.alarm, null)
-        views.setTextViewCompoundDrawables(R.id.alarm, 0, 0, 0, 0)
+        views.setTextViewText(R.id.widget_alarm_text, null)
+        views.setViewVisibility(R.id.widget_alarm_icon, View.GONE)
 
         if (!prefs.showAlarms) return
 
         if (prefs.permanentAlarm) {
-            showIcon(views, prefs)
-            views.setTextViewText(R.id.alarm, NA)
+            views.setTextViewText(R.id.widget_alarm_text, NA)
+            views.setViewVisibility(R.id.widget_alarm_icon, View.VISIBLE)
         }
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val nextAlarmMillis = alarmManager.nextAlarmClock?.triggerTime ?: return
@@ -49,19 +49,9 @@ object AlarmUpdater {
         if (nextAlarmMillis - System.currentTimeMillis() > ALARM_LOOK_AHEAD_MILLIS) return
 
         views.setTextViewText(
-            R.id.alarm,
+            R.id.widget_alarm_text,
             DateFormat.getTimeFormat(context).format(Date(nextAlarmMillis))
         )
-        showIcon(views, prefs)
-    }
-
-    private fun showIcon(views: RemoteViews, prefs: WidgetPreferences) {
-        views.setTextViewCompoundDrawables(
-            R.id.alarm,
-            TextIcon.ALARM.id(prefs.textColor, prefs.widgetStyle),
-            0,
-            0,
-            0
-        )
+        views.setViewVisibility(R.id.widget_alarm_icon, View.VISIBLE)
     }
 }

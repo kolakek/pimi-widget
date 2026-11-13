@@ -7,7 +7,7 @@
     <string name="config_section_settings_plus">Setelan tambahan</string>
     <string name="config_section_settings_units">Satuan</string>
     <string name="config_section_about">Tentang</string>
-    <string name="config_section_style">Tampilan</string>
+    <string name="config_section_appearance">Tampilan</string>
     <string name="config_widget_style">Gaya widget</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>

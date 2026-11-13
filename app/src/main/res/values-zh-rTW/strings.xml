@@ -6,7 +6,7 @@
     <string name="config_section_weather">天氣設定</string>
     <string name="config_section_settings_plus">更多設定</string>
     <string name="config_section_about">關於</string>
-    <string name="config_section_style">外觀</string>
+    <string name="config_section_appearance">外觀</string>
     <string name="config_widget_style">小工具樣式</string>
     <string name="config_widget_style_classic">經典</string>
     <string name="config_widget_style_modern">現代</string>

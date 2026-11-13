@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Додати</string>
     <string name="config_button_update">Оновити</string>
-    <string name="config_section_style">Вигляд</string>
+    <string name="config_section_appearance">Вигляд</string>
     <string name="config_widget_style">Стиль віджета</string>
     <string name="config_widget_style_classic">Класичний</string>
     <string name="config_widget_style_modern">Сучасний</string>

@@ -7,7 +7,7 @@
     <string name="config_section_settings_plus">More settings</string>
     <string name="config_section_settings_units">Units</string>
     <string name="config_section_about">About</string>
-    <string name="config_section_style">Appearance</string>
+    <string name="config_section_appearance">Appearance</string>
     <string name="config_widget_style">Widget style</string>
     <string name="config_widget_style_classic">Classic</string>
     <string name="config_widget_style_modern">Modern</string>
@@ -41,6 +41,11 @@
     <string name="config_icon_color">Icon color</string>
     <string name="config_color_light">Light</string>
     <string name="config_color_dark">Dark</string>
+    <string name="config_color_dynamic">Dynamic</string>
+    <string name="config_color_system">System</string>
+    <string name="config_section_style">Style</string>
+    <string name="config_color">Color</string>
+    <string name="config_transparency">Transparency</string>
     <string name="config_icon_color_morning">Morning sun</string>
     <string name="config_icon_color_evening">Evening sun</string>
     <string name="config_option_auto">Automatic</string>

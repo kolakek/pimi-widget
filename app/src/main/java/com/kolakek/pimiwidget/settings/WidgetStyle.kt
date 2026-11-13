@@ -17,10 +17,37 @@
 
 package com.kolakek.pimiwidget.settings
 
-enum class WidgetStyle(val needsShadow: Boolean) {
-    CLASSIC(false),
-    CLASSIC_SHADOW(true),
-    MODERN(false),
-    MODERN_SHADOW(true),
-    SOLID(false)
+import androidx.annotation.ColorRes
+import com.kolakek.pimiwidget.R
+
+enum class WidgetStyle(val needsShadow: Boolean, val hasBackground: Boolean) {
+    CLASSIC(false, false),
+    CLASSIC_SHADOW(true, false),
+    MODERN(false, false),
+    MODERN_SHADOW(true, false),
+    SOLID(false, true);
+
+    @ColorRes
+    fun textColor(textColor: TextColor): Int = when (this) {
+        SOLID -> textColor.colorRes // todo
+        CLASSIC, CLASSIC_SHADOW, MODERN, MODERN_SHADOW -> textColor.colorRes
+    }
+
+    @ColorRes
+    fun tempTextColor(textColor: TextColor): Int = when (this) {
+        SOLID -> R.color.dynamic_temp_color // todo
+        CLASSIC, CLASSIC_SHADOW, MODERN, MODERN_SHADOW -> textColor.colorRes
+    }
+
+    @ColorRes
+    fun backgroundColor(): Int? = when (this) {
+        SOLID -> R.color.dynamic_background_color // todo
+        CLASSIC, CLASSIC_SHADOW, MODERN, MODERN_SHADOW -> null
+    }
+
+    @ColorRes
+    fun iconBackgroundColor(): Int? = when (this) {
+        SOLID -> R.color.dynamic_icon_background_color // todo
+        CLASSIC, CLASSIC_SHADOW, MODERN, MODERN_SHADOW -> null
+    }
 }

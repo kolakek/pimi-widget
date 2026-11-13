@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Añadir</string>
     <string name="config_button_update">Actualizar</string>
-    <string name="config_section_style">Apariencia</string>
+    <string name="config_section_appearance">Apariencia</string>
     <string name="config_widget_style">Estilo del widget</string>
     <string name="config_widget_style_classic">Clásico</string>
     <string name="config_widget_style_modern">Moderno</string>

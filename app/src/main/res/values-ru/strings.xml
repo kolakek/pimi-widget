@@ -7,7 +7,7 @@
     <string name="config_section_settings_plus">Дополнительные настройки</string>
     <string name="config_section_settings_units">Единицы измерения</string>
     <string name="config_section_about">О приложении</string>
-    <string name="config_section_style">Внешний вид</string>
+    <string name="config_section_appearance">Внешний вид</string>
     <string name="config_widget_style">Стиль виджета</string>
     <string name="config_widget_style_classic">Классический</string>
     <string name="config_widget_style_modern">Современный</string>

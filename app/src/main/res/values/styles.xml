@@ -108,6 +108,21 @@
         <item name="android:layout_height">24dp</item>
     </style>
 
+    <style name="Widget.SyncIcon" parent="Widget.WeatherIcon">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Widget.SyncIcon.Modern" parent="Widget.SyncIcon">
+        <item name="android:layout_marginEnd">14dp</item>
+    </style>
+
+    <style name="Widget.EventIcon" parent="Widget.Base">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
     <style name="Widget.Date" parent="Widget.Text.Primary">
         <item name="android:format12Hour">@string/widget_date_format</item>
         <item name="android:format24Hour">@string/widget_date_format</item>
@@ -202,9 +217,20 @@
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/widget_icon_background</item>
+    </style>
+
+    <style name="Widget.Container.Weather.Solid.Content" parent="Widget.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget.Background.Weather.Solid" parent="Widget.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/widget_icon_background</item>
     </style>
 
     <style name="Widget.Background.Solid" parent="Widget.Base">

@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Ekle</string>
     <string name="config_button_update">Güncelle</string>
-    <string name="config_section_style">Görünüm</string>
+    <string name="config_section_appearance">Görünüm</string>
     <string name="config_widget_style">Widget stili</string>
     <string name="config_widget_style_classic">Klasik</string>
     <string name="config_widget_style_modern">Modern</string>

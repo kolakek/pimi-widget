@@ -16,39 +16,81 @@
             <LinearLayout style="@style/Widget.Row.Primary">
 
                 <TextClock
-                    android:id="@+id/date"
+                    android:id="@+id/widget_date_text"
                     style="@style/Widget.Date.Solid" />
 
-                <TextView
-                    android:id="@+id/alarm"
-                    style="@style/Widget.Event.Solid" />
+                <LinearLayout
+                    android:id="@+id/widget_alarm"
+                    style="@style/Widget.Container.Inner.Horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
-                <TextView
-                    android:id="@+id/birthday"
-                    style="@style/Widget.Event.Solid" />
+                    <ImageView
+                        android:id="@+id/widget_alarm_icon"
+                        android:src="@drawable/ic_alarm"
+                        style="@style/Widget.EventIcon"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/widget_alarm_text"
+                        style="@style/Widget.Event.Solid" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/widget_birthday"
+                    style="@style/Widget.Container.Inner.Horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/widget_birthday_icon"
+                        android:src="@drawable/ic_birthday"
+                        style="@style/Widget.EventIcon"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/widget_birthday_text"
+                        style="@style/Widget.Event.Solid" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/weather_aux"
+                android:id="@+id/widget_aux_text"
                 style="@style/Widget.Aux.Solid" />
 
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/Widget.Container.Weather.Solid"
-            tools:ignore="UseCompoundDrawables">
+        <FrameLayout style="@style/Widget.Container.Weather.Solid">
 
             <ImageView
-                android:id="@+id/weather_icon"
-                style="@style/Widget.WeatherIcon.Solid"
+                android:id="@+id/widget_icon_background"
+                style="@style/Widget.Background.Weather.Solid"
                 tools:ignore="ContentDescription" />
 
-            <TextView
-                android:id="@+id/weather_temp"
-                style="@style/Widget.Temp.Solid" />
+            <LinearLayout
+                android:id="@+id/widget_weather"
+                style="@style/Widget.Container.Weather.Solid.Content"
+                tools:ignore="UseCompoundDrawables">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/widget_sync_icon"
+                    android:src="@drawable/ic_sync"
+                    style="@style/Widget.SyncIcon"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/widget_weather_icon"
+                    style="@style/Widget.WeatherIcon.Solid"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/widget_temp_text"
+                    style="@style/Widget.Temp.Solid" />
+
+            </LinearLayout>
+
+        </FrameLayout>
 
     </LinearLayout>
 

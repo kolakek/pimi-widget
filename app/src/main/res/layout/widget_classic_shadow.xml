@@ -6,33 +6,72 @@
     <LinearLayout style="@style/Widget.Row.Primary">
 
         <TextClock
-            android:id="@+id/date"
+            android:id="@+id/widget_date_text"
             style="@style/Widget.Date.Shadow"
             tools:ignore="TextContrastCheck" />
 
-        <TextView
-            android:id="@+id/alarm"
-            style="@style/Widget.Event.Shadow" />
+        <LinearLayout
+            android:id="@+id/widget_alarm"
+            style="@style/Widget.Container.Inner.Horizontal"
+            tools:ignore="UseCompoundDrawables">
 
-        <TextView
-            android:id="@+id/birthday"
-            style="@style/Widget.Event.Shadow" />
+            <ImageView
+                android:id="@+id/widget_alarm_icon"
+                android:src="@drawable/ic_alarm_shadow"
+                style="@style/Widget.EventIcon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/widget_alarm_text"
+                style="@style/Widget.Event.Shadow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_birthday"
+            style="@style/Widget.Container.Inner.Horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/widget_birthday_icon"
+                android:src="@drawable/ic_birthday_shadow"
+                style="@style/Widget.EventIcon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/widget_birthday_text"
+                style="@style/Widget.Event.Shadow" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout style="@style/Widget.Row">
 
-        <ImageView
-            android:id="@+id/weather_icon"
-            style="@style/Widget.WeatherIcon"
-            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:id="@+id/widget_weather"
+            style="@style/Widget.Container.Inner.Horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/widget_sync_icon"
+                android:src="@drawable/ic_sync_shadow"
+                style="@style/Widget.SyncIcon"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/widget_weather_icon"
+                style="@style/Widget.WeatherIcon"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/widget_temp_text"
+                style="@style/Widget.Temp.Classic.Shadow" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/weather_temp"
-            style="@style/Widget.Temp.Classic.Shadow" />
-
-        <TextView
-            android:id="@+id/weather_aux"
+            android:id="@+id/widget_aux_text"
             style="@style/Widget.Aux.Classic.Shadow" />
 
     </LinearLayout>

@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Toevoegen</string>
     <string name="config_button_update">Bijwerken</string>
-    <string name="config_section_style">Uiterlijk</string>
+    <string name="config_section_appearance">Uiterlijk</string>
     <string name="config_widget_style">Widgetstijl</string>
     <string name="config_widget_style_classic">Klassiek</string>
     <string name="config_widget_style_modern">Modern</string>

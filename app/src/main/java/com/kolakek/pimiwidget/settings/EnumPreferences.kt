@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 
 fun <T> PreferenceCategory.addRadioGroup(
@@ -41,5 +42,23 @@ fun <T> PreferenceCategory.addRadioGroup(
             onSelected(option)
             false
         }
+    }
+}
+
+fun <T> ListPreference.setOptions(
+    options: List<T>,
+    default: T,
+    keyOf: (T) -> String,
+    labelOf: (T) -> Int,
+    onSelected: (T) -> Unit = {},
+) {
+    entries = options.map { context.getString(labelOf(it)) }.toTypedArray()
+    entryValues = options.map(keyOf).toTypedArray()
+
+    if (findIndexOfValue(value) < 0) value = keyOf(default)
+
+    setOnPreferenceChangeListener { _, newValue ->
+        options.firstOrNull { keyOf(it) == newValue }?.let(onSelected)
+        true
     }
 }

@@ -59,6 +59,12 @@ internal const val KEY_COLOR_LIGHT = "color_light"
 internal const val KEY_COLOR_DARK = "color_dark"
 internal const val KEY_COLOR_AUTO = "color_auto"
 
+internal const val KEY_WIDGET_COLOR_LIST = "widget_color_list"
+internal const val KEY_WIDGET_COLOR_DYNAMIC = "widget_color_dynamic"
+internal const val KEY_WIDGET_COLOR_SYSTEM = "widget_color_system"
+internal const val KEY_WIDGET_COLOR_LIGHT = "widget_color_light"
+internal const val KEY_WIDGET_COLOR_DARK = "widget_color_dark"
+
 internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
 internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
 internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"

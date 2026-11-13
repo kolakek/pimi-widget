@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Přidat</string>
     <string name="config_button_update">Aktualizovat</string>
-    <string name="config_section_style">Vzhled</string>
+    <string name="config_section_appearance">Vzhled</string>
     <string name="config_widget_style">Styl widgetu</string>
     <string name="config_widget_style_classic">Klasický</string>
     <string name="config_widget_style_modern">Moderní</string>

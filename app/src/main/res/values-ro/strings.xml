@@ -2,7 +2,7 @@
 
     <string name="config_button_add">Adaugă</string>
     <string name="config_button_update">Actualizează</string>
-    <string name="config_section_style">Aspect</string>
+    <string name="config_section_appearance">Aspect</string>
     <string name="config_widget_style">Stilul widgetului</string>
     <string name="config_widget_style_classic">Clasic</string>
     <string name="config_widget_style_modern">Modern</string>

@@ -7,7 +7,7 @@
 
     <PreferenceCategory
         android:key="widget_style_list"
-        android:title="@string/config_widget_style"
+        android:title="@string/config_section_style"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
@@ -15,15 +15,26 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:key="widget_background_category"
-        app:title="XXX"
+        app:title="@string/config_section_appearance"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
 
+        <ListPreference
+            android:key="text_color_list"
+            android:title="@string/config_text_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="widget_color_list"
+            android:title="@string/config_color"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
         <com.kolakek.pimiwidget.settings.SliderPreference
             app:key="widget_transparency"
-            app:title="XXX" />
+            app:title="@string/config_transparency" />
 
     </PreferenceCategory>
 

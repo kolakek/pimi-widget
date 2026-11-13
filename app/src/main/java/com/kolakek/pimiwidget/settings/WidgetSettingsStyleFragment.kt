@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
 import androidx.core.content.edit
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import com.kolakek.pimiwidget.R
 
@@ -30,27 +31,52 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
 
         val prefs = preferenceManager.sharedPreferences ?: return
 
-        val styleCategory = findPreference<PreferenceCategory>(KEY_WIDGET_STYLE_LIST)
         val previewPreference = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
+        val styleCategory = findPreference<PreferenceCategory>(KEY_WIDGET_STYLE_LIST)
+        val widgetColorList = findPreference<ListPreference>(KEY_WIDGET_COLOR_LIST)
+        val textColorList = findPreference<ListPreference>(KEY_TEXT_COLOR_LIST)
         val transparencySlider = findPreference<SliderPreference>(KEY_WIDGET_TRANSPARENCY)
 
         styleCategory?.addRadioGroup(
             options = WidgetStylePref.entries,
             current = WidgetStylePref.fromKey(prefs.getString(KEY_WIDGET_STYLE_LIST, null)),
             keyOf = { it.key },
-            labelOf = { it.labelRes },
+            labelOf = { it.labelRes }
         ) { style ->
             prefs.edit { putString(KEY_WIDGET_STYLE_LIST, style.key) }
-            onStyleSelected(style)
+            matchWidgetSettings(style)
+            handleVisibility(style,widgetColorList,textColorList,transparencySlider)
             previewPreference?.refresh()
         }
-        transparencySlider?.onValueChange = { previewPreference?.refresh() }
+        textColorList?.setOptions(
+            options = TextColorPref.entries,
+            default = TextColorPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        ) {
+            previewPreference?.refresh()
+        }
+        widgetColorList?.setOptions(
+            options = WidgetColorPref.entries,
+            default = WidgetColorPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        ) {
+            previewPreference?.refresh()
+        }
+        transparencySlider?.onValueChange = {
+            previewPreference?.refresh()
+        }
+        handleVisibility(
+            WidgetStylePref.fromKey(prefs.getString(KEY_WIDGET_STYLE_LIST, null)),
+            widgetColorList,
+            textColorList,
+            transparencySlider
+        )
     }
 
-    private fun onStyleSelected(style: WidgetStylePref) {
+    private fun matchWidgetSettings(style: WidgetStylePref) {
         val context = requireContext()
-        PreferencesHelper.setTextColorPreference(context, PreferencesHelper.ColorPref.AUTO)
-        PreferencesHelper.setIconColorPreference(context, PreferencesHelper.ColorPref.AUTO)
         PreferencesHelper.setAuxDisplayPreference(
             context,
             when (style) {
@@ -61,5 +87,26 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
                     PreferencesHelper.AuxDisplayPref.NOTHING
             }
         )
+    }
+
+    private fun handleVisibility(
+        widgetStylePref: WidgetStylePref,
+        widgetColorList: ListPreference?,
+        textColorList: ListPreference?,
+        transparencySlider: SliderPreference?
+    ) {
+        when (widgetStylePref) {
+            WidgetStylePref.SOLID -> {
+                textColorList?.isVisible = false
+                widgetColorList?.isVisible = true
+                transparencySlider?.isVisible = true
+            }
+
+            WidgetStylePref.CLASSIC, WidgetStylePref.MODERN -> {
+                textColorList?.isVisible = true
+                widgetColorList?.isVisible = false
+                transparencySlider?.isVisible = false
+            }
+        }
     }
 }

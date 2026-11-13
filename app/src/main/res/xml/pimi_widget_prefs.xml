@@ -77,7 +77,7 @@
     <PreferenceCategory
         android:key="category_style"
         android:selectable="false"
-        android:title="@string/config_section_style"
+        android:title="@string/config_section_appearance"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">

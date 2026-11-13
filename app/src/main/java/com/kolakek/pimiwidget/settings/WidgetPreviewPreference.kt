@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.settings
 
 import android.app.WallpaperManager
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
@@ -62,41 +63,79 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         val widget = when (prefs.widgetStyle) {
             WidgetStyle.CLASSIC ->
                 WidgetClassicBinding.inflate(inflater, container, false).apply {
-                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs, useSep = true)
+                    fillPreview(
+                        null,
+                        widgetWeatherIcon,
+                        widgetDateText,
+                        widgetTempText,
+                        widgetAuxText,
+                        prefs,
+                        true
+                    )
                 }.root
 
             WidgetStyle.CLASSIC_SHADOW ->
                 WidgetClassicShadowBinding.inflate(inflater, container, false).apply {
-                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs, useSep = true)
+                    fillPreview(
+                        null,
+                        widgetWeatherIcon,
+                        widgetDateText,
+                        widgetTempText,
+                        widgetAuxText,
+                        prefs,
+                        true
+                    )
                 }.root
 
             WidgetStyle.MODERN ->
                 WidgetModernBinding.inflate(inflater, container, false).apply {
-                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs)
+                    fillPreview(
+                        null,
+                        widgetWeatherIcon,
+                        widgetDateText,
+                        widgetTempText,
+                        widgetAuxText,
+                        prefs
+                    )
                 }.root
 
             WidgetStyle.MODERN_SHADOW ->
                 WidgetModernShadowBinding.inflate(inflater, container, false).apply {
-                    fillPreview(weatherIcon, weatherTemp, weatherAux, null, prefs)
+                    fillPreview(
+                        null,
+                        widgetWeatherIcon,
+                        widgetDateText,
+                        widgetTempText,
+                        widgetAuxText,
+                        prefs
+                    )
                 }.root
 
             WidgetStyle.SOLID ->
                 WidgetSolidBinding.inflate(inflater, container, false).apply {
-                    fillPreview(weatherIcon, weatherTemp, weatherAux, widgetBackground, prefs)
+                    fillPreview(
+                        widgetBackground,
+                        widgetWeatherIcon,
+                        widgetDateText,
+                        widgetTempText,
+                        widgetAuxText,
+                        prefs
+                    )
                 }.root
         }
         container.addView(widget)
     }
 
     private fun fillPreview(
-        weatherIcon: ImageView?,
-        weatherTemp: TextView?,
-        weatherAux: TextView?,
         background: ImageView?,
+        icon: ImageView?,
+        date:TextView?,
+        temp: TextView?,
+        aux: TextView?,
         prefs: WidgetPreferences,
         useSep: Boolean = false
     ) {
-        weatherIcon?.setImageResource(
+        icon?.setImageResource(
             WeatherIcon.getWeatherIconId(
                 WeatherCode.MAINLY_CLEAR,
                 true,
@@ -104,9 +143,18 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 prefs.iconColor
             )
         )
+        when (prefs.textColor) {
+            TextColor.LIGHT -> Color.WHITE
+            TextColor.DARK -> Color.BLACK
+            TextColor.DYNAMIC -> null
+        }?.let {
+            temp?.setTextColor(it)
+            aux?.setTextColor(it)
+            date?.setTextColor(it)
+        }
         background?.imageAlpha = prefs.backgroundAlpha
-        weatherTemp?.text = context.getString(R.string.widget_temp_prev)
+        temp?.text = context.getString(R.string.widget_temp_prev)
         val auxStr = context.getString(R.string.widget_weather_prev)
-        weatherAux?.text = if (useSep) " · $auxStr" else auxStr
+        aux?.text = if (useSep) " · $auxStr" else auxStr
     }
 }
