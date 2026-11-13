@@ -19,11 +19,11 @@ package com.kolakek.pimiwidget.settings
 
 import android.app.WallpaperManager
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.kolakek.pimiwidget.R
@@ -65,10 +65,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 WidgetClassicBinding.inflate(inflater, container, false).apply {
                     fillPreview(
                         null,
+                        null,
                         widgetWeatherIcon,
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
+                        widgetAuxTextSep,
                         prefs
                     )
                 }.root
@@ -77,10 +79,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 WidgetClassicShadowBinding.inflate(inflater, container, false).apply {
                     fillPreview(
                         null,
+                        null,
                         widgetWeatherIcon,
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
+                        widgetAuxTextSep,
                         prefs
                     )
                 }.root
@@ -89,10 +93,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 WidgetModernBinding.inflate(inflater, container, false).apply {
                     fillPreview(
                         null,
+                        null,
                         widgetWeatherIcon,
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
+                        null,
                         prefs
                     )
                 }.root
@@ -101,10 +107,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 WidgetModernShadowBinding.inflate(inflater, container, false).apply {
                     fillPreview(
                         null,
+                        null,
                         widgetWeatherIcon,
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
+                        null,
                         prefs
                     )
                 }.root
@@ -113,10 +121,12 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 WidgetSolidBinding.inflate(inflater, container, false).apply {
                     fillPreview(
                         widgetBackground,
+                        widgetIconBackground,
                         widgetWeatherIcon,
                         widgetDateText,
                         widgetTempText,
                         widgetAuxText,
+                        null,
                         prefs
                     )
                 }.root
@@ -126,13 +136,15 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
 
     private fun fillPreview(
         background: ImageView?,
-        icon: ImageView?,
-        date:TextView?,
-        temp: TextView?,
-        aux: TextView?,
+        iconBackground: ImageView?,
+        weatherIcon: ImageView?,
+        dateText:TextView?,
+        tempText: TextView?,
+        auxText: TextView?,
+        auxTextSep: TextView?,
         prefs: WidgetPreferences
     ) {
-        icon?.setImageResource(
+        weatherIcon?.setImageResource(
             WeatherIcon.getWeatherIconId(
                 WeatherCode.MAINLY_CLEAR,
                 isDay = true,
@@ -140,17 +152,23 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                 prefs.iconColor
             )
         )
-        when (prefs.textColor) { // todo
-            TextColor.LIGHT -> Color.WHITE
-            TextColor.DARK -> Color.BLACK
-            TextColor.DYNAMIC -> null
-        }?.let {
-            temp?.setTextColor(it)
-            aux?.setTextColor(it)
-            date?.setTextColor(it)
+        val textColor = prefs.widgetStyle.textColor(prefs.textColor)
+        dateText?.setTextColor(ContextCompat.getColor(context, textColor))
+        auxText?.setTextColor(ContextCompat.getColor(context, textColor))
+        auxTextSep?.setTextColor(ContextCompat.getColor(context, textColor))
+
+        val tempColor = prefs.widgetStyle.tempTextColor(prefs.textColor)
+        tempText?.setTextColor(ContextCompat.getColor(context, tempColor))
+
+        prefs.widgetStyle.backgroundColor()?.let {
+            background?.setColorFilter(ContextCompat.getColor(context, it))
+        }
+        prefs.widgetStyle.iconBackgroundColor()?.let {
+            iconBackground?.setColorFilter(ContextCompat.getColor(context, it))
         }
         background?.imageAlpha = prefs.backgroundAlpha
-        temp?.text = context.getString(R.string.widget_temp_prev)
-        aux?.text = context.getString(R.string.widget_weather_prev)
+
+        tempText?.text = context.getString(R.string.widget_temp_prev)
+        auxText?.text = context.getString(R.string.widget_weather_prev)
     }
 }

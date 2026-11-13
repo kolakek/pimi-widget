@@ -20,12 +20,12 @@ package com.kolakek.pimiwidget.settings
 import androidx.annotation.ColorRes
 import com.kolakek.pimiwidget.R
 
-enum class WidgetStyle(val needsShadow: Boolean, val hasBackground: Boolean) {
-    CLASSIC(false, false),
-    CLASSIC_SHADOW(true, false),
-    MODERN(false, false),
-    MODERN_SHADOW(true, false),
-    SOLID(false, true);
+enum class WidgetStyle(val needsShadow: Boolean) {
+    CLASSIC(false),
+    CLASSIC_SHADOW(true),
+    MODERN(false),
+    MODERN_SHADOW(true),
+    SOLID(false);
 
     @ColorRes
     fun textColor(textColor: TextColor): Int = when (this) {

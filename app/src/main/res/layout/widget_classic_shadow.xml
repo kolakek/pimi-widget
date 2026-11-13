@@ -76,6 +76,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <TextView
+                android:id="@+id/widget_aux_text_sep"
                 android:text="@string/separator"
                 style="@style/Widget.Aux.Classic.Shadow" />
 
