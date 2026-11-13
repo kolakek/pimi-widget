@@ -21,7 +21,6 @@ import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.weather.WarningLevel
 import com.kolakek.pimiwidget.weather.WeatherData
 import com.kolakek.pimiwidget.weather.WeatherRenderer
@@ -31,7 +30,7 @@ object WeatherUpdater {
     fun updateViews(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         weatherData: WeatherData?
     ): WeatherUpdateStatus {
 
@@ -42,7 +41,7 @@ object WeatherUpdater {
         views.setViewVisibility(R.id.widget_warn_svr_icon, View.GONE)
         views.setViewVisibility(R.id.widget_warn_xtr_icon, View.GONE)
 
-        if (!prefs.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
+        if (!settings.showWeather) return WeatherUpdateStatus.NO_ACTION_NEEDED
 
         views.setViewVisibility(R.id.widget_sync_icon, View.VISIBLE)
 
@@ -50,10 +49,10 @@ object WeatherUpdater {
             WeatherRenderer.currentWeather(
                 context,
                 data,
-                prefs.tempUnit,
-                prefs.iconStyle,
-                prefs.iconColor,
-                prefs.showTempUnit
+                settings.tempUnit,
+                settings.iconStyle,
+                settings.iconColor,
+                settings.showTempUnit
             )?.let {
                 views.setViewVisibility(R.id.widget_sync_icon, View.GONE)
                 views.setViewVisibility(R.id.widget_weather_icon, View.VISIBLE)
@@ -65,15 +64,15 @@ object WeatherUpdater {
                 var auxStr: String? = null
                 var warnLevel: WarningLevel? = null
 
-                if (prefs.showWeatherWarning) {
+                if (settings.showWeatherWarning) {
                     auxStr = WeatherRenderer.currentWarningStr(context, data)
                     warnLevel = WeatherRenderer.currentWarningLevel(data)
                 }
-                if (auxStr == null && prefs.showDailyForecast) {
-                    auxStr = WeatherRenderer.forecastString(context, data, prefs)
+                if (auxStr == null && settings.showDailyForecast) {
+                    auxStr = WeatherRenderer.forecastString(context, data, settings)
                 }
                 if (auxStr == null) {
-                    auxStr = WeatherRenderer.auxString(context, data, prefs)
+                    auxStr = WeatherRenderer.auxString(context, data, settings)
                 }
                 auxStr?.let {
                     views.setViewVisibility(R.id.widget_aux, View.VISIBLE)

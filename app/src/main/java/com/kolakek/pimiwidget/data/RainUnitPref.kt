@@ -15,20 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import android.content.Context
-import com.kolakek.pimiwidget.R
-
-enum class SnowUnit(private val unitRes: Int, val format: String) {
-    CM(R.string.unit_cm, "%.1f") {
-        override fun fromCm(value: Double) = value
-    },
-    INCH(R.string.unit_in, "%.1f") {
-        override fun fromCm(value: Double) = value / 2.54
-    };
-
-    abstract fun fromCm(value: Double): Double
-
-    fun unitStr(context: Context) = context.getString(unitRes)
+enum class RainUnitPref(val key: String) {
+    AUTO(KEY_RAIN_UNIT_AUTO),
+    MM(KEY_RAIN_UNIT_MM),
+    INCH(KEY_RAIN_UNIT_INCH)
 }

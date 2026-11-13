@@ -15,19 +15,23 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.ui
 
-import androidx.annotation.StringRes
-import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.IconColor
+import com.kolakek.pimiwidget.data.IconStyle
+import com.kolakek.pimiwidget.data.PressureUnit
+import com.kolakek.pimiwidget.data.RainUnit
+import com.kolakek.pimiwidget.data.SnowUnit
+import com.kolakek.pimiwidget.data.TempUnit
+import com.kolakek.pimiwidget.data.WindUnit
 
-enum class WidgetColorPref(val key: String, @StringRes val labelRes: Int) {
-    DYNAMIC(KEY_WIDGET_COLOR_DYNAMIC, R.string.config_color_dynamic),
-    SYSTEM(KEY_WIDGET_COLOR_SYSTEM, R.string.config_color_system),
-    LIGHT(KEY_WIDGET_COLOR_LIGHT, R.string.config_color_light),
-    DARK(KEY_WIDGET_COLOR_DARK, R.string.config_color_dark);
-
-    companion object {
-        val DEFAULT = DYNAMIC
-        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
-    }
-}
+data class AppSettings (
+    val iconStyle: IconStyle,
+    val iconColor: IconColor,
+    val tempUnit: TempUnit,
+    val windUnit: WindUnit,
+    val pressureUnit: PressureUnit,
+    val rainUnit: RainUnit,
+    val snowUnit: SnowUnit,
+    val showWeather: Boolean
+)

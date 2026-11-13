@@ -15,18 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import androidx.annotation.StringRes
-import com.kolakek.pimiwidget.R
-
-enum class WidgetStylePref(val key: String, @StringRes val labelRes: Int) {
-    CLASSIC(KEY_WIDGET_STYLE_CLASSIC, R.string.config_widget_style_classic),
-    MODERN(KEY_WIDGET_STYLE_MODERN, R.string.config_widget_style_modern),
-    SOLID(KEY_WIDGET_STYLE_SOLID, R.string.config_widget_style_solid);
-
-    companion object {
-        val DEFAULT = SOLID
-        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
-    }
+enum class IconStyle {
+    FLAT_SKETCH,
+    TWINKLE_SHADOW
 }

@@ -17,8 +17,8 @@
 
 package com.kolakek.pimiwidget.resources
 
-import com.kolakek.pimiwidget.settings.IconColor
-import com.kolakek.pimiwidget.settings.IconStyle
+import com.kolakek.pimiwidget.data.IconColor
+import com.kolakek.pimiwidget.data.IconStyle
 import com.kolakek.pimiwidget.weather.WeatherCode
 
 object WeatherIcon {

@@ -1,0 +1,105 @@
+/*
+ * This file is part of Pimi Widget.
+ *
+ * Pimi Widget is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package com.kolakek.pimiwidget.data
+
+internal const val KEY_WIDGET_CONFIGURED = "widget_configured"
+internal const val KEY_BIRTHDAY_SWITCH = "birthday_switch"
+internal const val KEY_ALARM_SWITCH = "alarm_switch"
+internal const val KEY_WEATHER_SWITCH = "weather_switch"
+internal const val KEY_LOCATION_FALLBACK = "location_fallback"
+internal const val KEY_DAILY_FORECAST = "daily_forecast"
+internal const val KEY_WEATHER_WARNING = "weather_warnings"
+internal const val KEY_PERMANENT_ALARM = "permanent_alarm"
+internal const val KEY_SHOW_TEMP_UNIT = "show_temp_unit"
+internal const val KEY_WIDGET_STYLE = "widget_style"
+internal const val KEY_WIDGET_STYLE_PREV = "widget_style_preview"
+internal const val KEY_WIDGET_TRANSPARENCY = "widget_transparency"
+internal const val KEY_VERSION_FIELD = "build_number"
+internal const val KEY_SOURCE_CODE = "source_code"
+internal const val KEY_WEATHER_APP_LIST = "weather_app_list"
+internal const val KEY_DEFAULT_WEATHER_APP = "weather_app_default"
+internal const val KEY_NIL_WEATHER_APP = "weather_app_nil"
+
+internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
+internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
+internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"
+internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
+
+internal const val KEY_TEMP_UNIT_LIST = "temp_list"
+internal const val KEY_TEMP_UNIT_AUTO = "temp_unit_auto"
+internal const val KEY_TEMP_UNIT_CELSIUS = "temp_unit_celsius"
+internal const val KEY_TEMP_UNIT_FAHRENHEIT = "temp_unit_fahrenheit"
+
+internal const val KEY_RAIN_UNIT_LIST = "rain_unit_list"
+internal const val KEY_RAIN_UNIT_AUTO = "rain_unit_auto"
+internal const val KEY_RAIN_UNIT_MM = "rain_unit_mm"
+internal const val KEY_RAIN_UNIT_INCH = "rain_unit_inch"
+
+internal const val KEY_SNOW_UNIT_LIST = "snow_unit_list"
+internal const val KEY_SNOW_UNIT_AUTO = "snow_unit_auto"
+internal const val KEY_SNOW_UNIT_CM = "snow_unit_cm"
+internal const val KEY_SNOW_UNIT_INCH = "snow_unit_inch"
+
+internal const val KEY_PRESSURE_UNIT_LIST = "pressure_unit_list"
+internal const val KEY_PRESSURE_UNIT_AUTO = "pressure_unit_auto"
+internal const val KEY_PRESSURE_UNIT_HPA = "pressure_unit_hpa"
+internal const val KEY_PRESSURE_UNIT_MB = "pressure_unit_mb"
+internal const val KEY_PRESSURE_UNIT_MMHG = "pressure_unit_mmhg"
+internal const val KEY_PRESSURE_UNIT_INHG = "pressure_unit_inhg"
+
+internal const val KEY_WIND_UNIT_LIST = "wind_unit_list"
+internal const val KEY_WIND_UNIT_AUTO = "wind_unit_auto"
+internal const val KEY_WIND_UNIT_KMH = "wind_unit_kmh"
+internal const val KEY_WIND_UNIT_MS = "wind_unit_ms"
+internal const val KEY_WIND_UNIT_MPH = "wind_unit_mph"
+internal const val KEY_WIND_UNIT_KNOT = "wind_unit_knot"
+
+internal const val KEY_ICON_COLOR_LIST = "icon_color_list"
+internal const val KEY_ICON_COLOR_LIGHT = "color_light"
+internal const val KEY_ICON_COLOR_DARK = "color_dark"
+internal const val KEY_ICON_COLOR_AUTO = "color_auto"
+
+internal const val KEY_TEXT_COLOR_LIST = "text_color_list"
+internal const val KEY_TEXT_COLOR_LIGHT = "color_light"
+internal const val KEY_TEXT_COLOR_DARK = "color_dark"
+internal const val KEY_TEXT_COLOR_AUTO = "color_auto"
+
+internal const val KEY_WIDGET_COLOR_LIST = "widget_color_list"
+internal const val KEY_WIDGET_COLOR_DYNAMIC = "widget_color_dynamic"
+internal const val KEY_WIDGET_COLOR_SYSTEM = "widget_color_system"
+internal const val KEY_WIDGET_COLOR_LIGHT = "widget_color_light"
+internal const val KEY_WIDGET_COLOR_DARK = "widget_color_dark"
+
+internal const val KEY_WIDGET_ICON_STYLE_LIST = "icon_style_list"
+internal const val KEY_WIDGET_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"
+internal const val KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW = "icon_style_filled"
+
+internal const val KEY_APP_ICON_STYLE_LIST = "app_icon_style_list"
+internal const val KEY_APP_ICON_STYLE_FLAT_SKETCH = "app_icon_style_outlined"
+internal const val KEY_APP_ICON_STYLE_TWINKLE_SHADOW = "app_icon_style_filled"
+internal const val KEY_APP_ICON_STYLE_WIDGET = "app_icon_style_widget"
+
+internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
+internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
+internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
+internal const val KEY_DISPLAY_PLACE_CONDITION = "aux_view_place_condition"
+
+internal const val KEY_LOCATION_SOURCE_LIST = "location_source_list"
+internal const val KEY_LOCATION_SOURCE_DEVICE = "location_source_device"
+internal const val KEY_LOCATION_SOURCE_FIXED = "location_source_fixed"
+

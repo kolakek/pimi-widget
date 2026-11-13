@@ -15,9 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-enum class IconColor {
-    DARK,
-    LIGHT
+enum class AuxDisplay {
+    NOTHING,
+    UPDATE_TIME,
+    PLACE_CONDITION
 }

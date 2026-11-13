@@ -22,8 +22,12 @@ import androidx.core.content.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
-import com.kolakek.pimiwidget.settings.PreferencesHelper
-import com.kolakek.pimiwidget.settings.WidgetStylePref
+import com.kolakek.pimiwidget.data.AuxDisplayPref
+import com.kolakek.pimiwidget.data.IconColorPref
+import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.data.TempUnitPref
+import com.kolakek.pimiwidget.data.TextColorPref
+import com.kolakek.pimiwidget.data.WidgetStylePref
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 
@@ -33,40 +37,40 @@ object MigrateApp {
         val previousVersionCode = getPreviousVersionCode(context)
 
         if (previousVersionCode < 22) {
-            PreferencesHelper.setTempUnitPreference(
+            SettingsRepository.setTempUnitPref(
                 context,
-                PreferencesHelper.TempUnitPref.AUTO
+                TempUnitPref.AUTO
             )
-            PreferencesHelper.setTextColorPreference(
+            SettingsRepository.setTextColorPref(
                 context,
-                PreferencesHelper.ColorPref.AUTO
+                TextColorPref.AUTO
             )
-            PreferencesHelper.setIconColorPreference(
+            SettingsRepository.setIconColorPref(
                 context,
-                PreferencesHelper.ColorPref.AUTO
+                IconColorPref.AUTO
             )
-            PreferencesHelper.setWidgetStylePreference(
+            SettingsRepository.setWidgetStylePref(
                 context,
                 WidgetStylePref.CLASSIC
             )
-            PreferencesHelper.setAuxDisplayPreference(
+            SettingsRepository.setAuxDisplayPref(
                 context,
-                PreferencesHelper.AuxDisplayPref.NOTHING
+                AuxDisplayPref.NOTHING
             )
-            PreferencesHelper.setLocationFallbackPreference(
+            SettingsRepository.setLocationFallback(
                 context,
                 true
             )
         }
         if (previousVersionCode < 23) {
             val widgetStyleSolid = WidgetStylePref.SOLID
-            val auxDisplayPlace = PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
-            val auxDisplayNothing = PreferencesHelper.AuxDisplayPref.NOTHING
+            val auxDisplayPlace = AuxDisplayPref.PLACE_CONDITION
+            val auxDisplayNothing = AuxDisplayPref.NOTHING
 
-            if (PreferencesHelper.getWidgetStylePreference(context) == widgetStyleSolid) {
-                PreferencesHelper.setAuxDisplayPreference(context, auxDisplayPlace)
+            if (SettingsRepository.getWidgetStylePref(context) == widgetStyleSolid) {
+                SettingsRepository.setAuxDisplayPref(context, auxDisplayPlace)
             } else {
-                PreferencesHelper.setAuxDisplayPreference(context, auxDisplayNothing)
+                SettingsRepository.setAuxDisplayPref(context, auxDisplayNothing)
             }
         }
         storeCurrentVersionCode(context)

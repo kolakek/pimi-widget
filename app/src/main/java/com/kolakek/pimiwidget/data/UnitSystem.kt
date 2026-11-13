@@ -15,10 +15,26 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-enum class AuxDisplay {
-    NOTHING,
-    UPDATE_TIME,
-    PLACE_CONDITION
+import java.util.Locale
+
+enum class UnitSystem {
+    METRIC, US, UK;
+
+    companion object {
+        fun fromLocale(locale: Locale = Locale.getDefault()): UnitSystem {
+            return locale.getUnicodeLocaleType("ms")?.let {
+                when (it) {
+                    "ussystem" -> US
+                    "uksystem" -> UK
+                    else -> METRIC
+                }
+            } ?: when (locale.country) {
+                "US", "LR", "MM" -> US
+                "GB" -> UK
+                else -> METRIC
+            }
+        }
+    }
 }

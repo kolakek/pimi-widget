@@ -59,7 +59,7 @@
             app:iconSpaceReserved="false" />
 
         <Preference
-            android:key="weather_location"
+            android:key="location_source_list"
             android:title="@string/config_weather_location"
             app:iconSpaceReserved="false" />
 

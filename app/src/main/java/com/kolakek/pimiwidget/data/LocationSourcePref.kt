@@ -15,26 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import android.content.Context
-import com.kolakek.pimiwidget.R
-
-enum class WindUnit(private val unitRes: Int, val format: String) {
-    KMH(R.string.unit_kmh, "%.0f") {
-        override fun fromKmh(value: Double) = value
-    },
-    MS(R.string.unit_ms, "%.1f") {
-        override fun fromKmh(value: Double) = value / 3.6
-    },
-    MPH(R.string.unit_mph, "%.0f") {
-        override fun fromKmh(value: Double) = value * 0.621371
-    },
-    KNOT(R.string.unit_knot, "%.1f") {
-        override fun fromKmh(value: Double) = value / 1.852
-    };
-
-    abstract fun fromKmh(value: Double): Double
-
-    fun unitStr(context: Context) = context.getString(unitRes)
+enum class LocationSourcePref(val key: String) {
+    DEVICE(KEY_LOCATION_SOURCE_DEVICE),
+    FIXED(KEY_LOCATION_SOURCE_FIXED)
 }

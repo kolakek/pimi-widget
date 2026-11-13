@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
 import android.app.WallpaperColors
 import android.app.WallpaperManager
@@ -25,85 +25,25 @@ import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.location.LocationSource
+import com.kolakek.pimiwidget.ui.AppSettings
+import com.kolakek.pimiwidget.widget.WidgetSettings
 import com.kolakek.pimiwidget.utility.WeatherApp
 
-object PreferencesHelper {
+object SettingsRepository {
 
-    enum class AppIconStylePref(val key: String) {
-        FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH),
-        TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW),
-        FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET)
-    }
-
-    enum class WidgetIconStylePref(val key: String) {
-        FLAT_SKETCH(KEY_WIDGET_ICON_STYLE_FLAT_SKETCH),
-        TWINKLE_SHADOW(KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW)
-    }
-
-    enum class TempUnitPref(val key: String) {
-        AUTO(KEY_TEMP_UNIT_AUTO),
-        CELSIUS(KEY_TEMP_UNIT_CELSIUS),
-        FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT)
-    }
-
-    enum class RainUnitPref(val key: String) {
-        AUTO(KEY_RAIN_UNIT_AUTO),
-        MM(KEY_RAIN_UNIT_MM),
-        INCH(KEY_RAIN_UNIT_INCH)
-    }
-
-    enum class SnowUnitPref(val key: String) {
-        AUTO(KEY_SNOW_UNIT_AUTO),
-        CM(KEY_SNOW_UNIT_CM),
-        INCH(KEY_SNOW_UNIT_INCH)
-    }
-
-    enum class PressureUnitPref(val key: String) {
-        AUTO(KEY_PRESSURE_UNIT_AUTO),
-        HPA(KEY_PRESSURE_UNIT_HPA),
-        MB(KEY_PRESSURE_UNIT_MB),
-        MMHG(KEY_PRESSURE_UNIT_MMHG),
-        INHG(KEY_PRESSURE_UNIT_INHG)
-    }
-
-    enum class WindUnitPref(val key: String) {
-        AUTO(KEY_WIND_UNIT_AUTO),
-        KMH(KEY_WIND_UNIT_KMH),
-        MS(KEY_WIND_UNIT_MS),
-        MPH(KEY_WIND_UNIT_MPH),
-        KNOT(KEY_WIND_UNIT_KNOT),
-    }
-
-    enum class ColorPref(val key: String) {
-        AUTO(KEY_COLOR_AUTO),
-        LIGHT(KEY_COLOR_LIGHT),
-        DARK(KEY_COLOR_DARK)
-    }
-
-    enum class AuxDisplayPref(val key: String) {
-        NOTHING(KEY_DISPLAY_NOTHING),
-        UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
-        PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION)
-    }
-
-    enum class WeatherLocationPref(val key: String) {
-        DEVICE(KEY_WEATHER_LOCATION_DEVICE),
-        FIXED(KEY_WEATHER_LOCATION_FIXED)
-    }
-
-    fun getAppPreferences(context: Context): AppPreferences {
-        val iconStylePref = getAppIconStylePreference(context)
-        val tempUnitPref = getTempUnitPreference(context)
-        val rainUnitPref = getRainUnitPreference(context)
-        val snowUnitPref = getSnowUnitPreference(context)
-        val windUnitPref = getWindUnitPreference(context)
-        val pressureUnitPref = getPressureUnitPreference(context)
+    fun loadAppSettings(context: Context): AppSettings {
+        val iconStylePref = getAppIconStylePref(context)
+        val tempUnitPref = getTempUnitPref(context)
+        val rainUnitPref = getRainUnitPref(context)
+        val snowUnitPref = getSnowUnitPref(context)
+        val windUnitPref = getWindUnitPref(context)
+        val pressureUnitPref = getPressureUnitPref(context)
 
         val iconStyle = when (iconStylePref) {
             AppIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
             AppIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
             AppIconStylePref.FOLLOW_WIDGET -> {
-                when (getWidgetIconStylePreference(context)) {
+                when (getWidgetIconStylePref(context)) {
                     WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
                     WidgetIconStylePref.TWINKLE_SHADOW -> IconStyle.TWINKLE_SHADOW
                 }
@@ -111,7 +51,7 @@ object PreferencesHelper {
         }
         val iconColor = if (context.isNightMode()) IconColor.LIGHT else IconColor.DARK
 
-        return AppPreferences(
+        return AppSettings(
             iconStyle = iconStyle,
             iconColor = iconColor,
             tempUnit = tempUnitFromPref(tempUnitPref),
@@ -119,35 +59,35 @@ object PreferencesHelper {
             pressureUnit = pressureUnitFromPref(pressureUnitPref),
             rainUnit = rainUnitFromPref(rainUnitPref),
             snowUnit = snowUnitFromPref(snowUnitPref),
-            showWeather = getWeatherPreference(context),
+            showWeather = isWeatherEnabled(context),
         )
     }
 
-    fun getWidgetPreferences(context: Context): WidgetPreferences {
-        val textColorPref = getTextColorPreference(context)
-        val iconColorPref = getIconColorPreference(context)
-        val iconStylePref = getWidgetIconStylePreference(context)
-        val widgetStylePref = getWidgetStylePreference(context)
-        val tempUnitPref = getTempUnitPreference(context)
-        val auxDisplayPref = getAuxDisplayPreference(context)
-        val weatherLocationPref = getWeatherLocationPreference(context)
+    fun loadWidgetSettings(context: Context): WidgetSettings {
+        val textColorPref = getTextColorPref(context)
+        val iconColorPref = getIconColorPref(context)
+        val iconStylePref = getWidgetIconStylePref(context)
+        val widgetStylePref = getWidgetStylePref(context)
+        val tempUnitPref = getTempUnitPref(context)
+        val auxDisplayPref = getAuxDisplayPref(context)
+        val weatherLocationPref = getLocationSourcePref(context)
         val weatherApp = getWeatherApp(context)
 
         val textColor = when (textColorPref) {
-            ColorPref.AUTO -> when (widgetStylePref) {
+            TextColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.CLASSIC,
                 WidgetStylePref.MODERN
                     -> getTextColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.DYNAMIC
             }
 
-            ColorPref.DARK -> TextColor.DARK
-            ColorPref.LIGHT -> TextColor.LIGHT
+            TextColorPref.DARK -> TextColor.DARK
+            TextColorPref.LIGHT -> TextColor.LIGHT
         }
         val iconColor = when (iconColorPref) {
-            ColorPref.LIGHT -> IconColor.LIGHT
-            ColorPref.DARK -> IconColor.DARK
-            ColorPref.AUTO -> when (widgetStylePref) {
+            IconColorPref.LIGHT -> IconColor.LIGHT
+            IconColorPref.DARK -> IconColor.DARK
+            IconColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.SOLID -> IconColor.LIGHT
                 else -> if (textColor == TextColor.DARK) IconColor.DARK else IconColor.LIGHT
             }
@@ -172,19 +112,19 @@ object PreferencesHelper {
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME
         }
         val locationSource = when (weatherLocationPref) {
-            WeatherLocationPref.DEVICE -> LocationSource.DEVICE
-            WeatherLocationPref.FIXED -> LocationSource.FIXED
+            LocationSourcePref.DEVICE -> LocationSource.DEVICE
+            LocationSourcePref.FIXED -> LocationSource.FIXED
         }
-        return WidgetPreferences(
-            showAlarms = getAlarmPreference(context),
-            showWeather = getWeatherPreference(context),
-            showBirthdays = getBirthdayPreference(context),
-            useLocationFallback = getLocationFallbackPreference(context),
-            showDailyForecast = getDailyForecastPreference(context),
-            showWeatherWarning = getWeatherWarningPreference(context),
-            permanentAlarm = getPermanentAlarmPreference(context),
-            showTempUnit = getShowTempUnitPreference(context),
-            backgroundAlpha = getBackgroundAlphaPreference(context),
+        return WidgetSettings(
+            showAlarms = isAlarmEnabled(context),
+            showWeather = isWeatherEnabled(context),
+            showBirthday = isBirthdayEnabled(context),
+            useLocationFallback = useLocationFallback(context),
+            showDailyForecast = isDailyForecastEnabled(context),
+            showWeatherWarning = isWeatherWarningEnabled(context),
+            showPermanentAlarm = showPermanentAlarm(context),
+            showTempUnit = showTempUnit(context),
+            backgroundAlpha = getBackgroundAlpha(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -196,174 +136,174 @@ object PreferencesHelper {
         )
     }
 
-    fun getWidgetConfiguredPreference(context: Context, appWidgetId: Int): Boolean {
+    fun isWidgetConfigured(context: Context, appWidgetId: Int): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean("${KEY_WIDGET_CONFIGURED}_$appWidgetId", false)
     }
 
-    fun setWidgetConfiguredPreference(context: Context, appWidgetId: Int, value: Boolean) {
+    fun setWidgetConfigured(context: Context, appWidgetId: Int, value: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putBoolean("${KEY_WIDGET_CONFIGURED}_$appWidgetId", value)
         }
     }
 
-    fun deleteWidgetConfiguredPreference(context: Context, appWidgetId: Int) {
+    fun removeWidgetConfigured(context: Context, appWidgetId: Int) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             remove("${KEY_WIDGET_CONFIGURED}_$appWidgetId")
         }
     }
 
-    fun setTempUnitPreference(context: Context, pref: TempUnitPref) {
+    fun setTempUnitPref(context: Context, pref: TempUnitPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_TEMP_UNIT_LIST, pref.key)
         }
     }
 
-    fun setTextColorPreference(context: Context, pref: ColorPref) {
+    fun setTextColorPref(context: Context, pref: TextColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_TEXT_COLOR_LIST, pref.key)
         }
     }
 
-    fun setIconColorPreference(context: Context, pref: ColorPref) {
+    fun setIconColorPref(context: Context, pref: IconColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_ICON_COLOR_LIST, pref.key)
         }
     }
 
-    fun setWidgetStylePreference(context: Context, pref: WidgetStylePref) {
+    fun setWidgetStylePref(context: Context, pref: WidgetStylePref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_WIDGET_STYLE_LIST, pref.key)
         }
     }
 
-    fun setAuxDisplayPreference(context: Context, pref: AuxDisplayPref) {
+    fun setAuxDisplayPref(context: Context, pref: AuxDisplayPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putString(KEY_AUX_DISPLAY_LIST, pref.key)
         }
     }
 
-    fun setLocationFallbackPreference(context: Context, pref: Boolean) {
+    fun setLocationFallback(context: Context, pref: Boolean) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
             putBoolean(KEY_LOCATION_FALLBACK, pref)
         }
     }
 
-    fun getWidgetStylePreference(context: Context): WidgetStylePref =
+    fun getWidgetStylePref(context: Context): WidgetStylePref =
         WidgetStylePref.fromKey(
             PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(KEY_WIDGET_STYLE_LIST, null)
         )
 
-    private fun getWeatherPreference(context: Context): Boolean {
+    private fun isWeatherEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)
     }
 
-    private fun getBirthdayPreference(context: Context): Boolean {
+    private fun isBirthdayEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_BIRTHDAY_SWITCH, false)
     }
 
-    private fun getDailyForecastPreference(context: Context): Boolean {
+    private fun isDailyForecastEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)
     }
 
-    private fun getWeatherWarningPreference(context: Context): Boolean {
+    private fun isWeatherWarningEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_WARNING, true)
     }
 
-    private fun getAlarmPreference(context: Context): Boolean {
+    private fun isAlarmEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_ALARM_SWITCH, false)
     }
 
-    private fun getTextColorPreference(context: Context): ColorPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEXT_COLOR_LIST, null)
-        return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
-    }
+    fun getTextColorPref(context: Context): TextColorPref =
+        TextColorPref.fromKey(
+            PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(KEY_TEXT_COLOR_LIST, null)
+        )
 
-    private fun getIconColorPreference(context: Context): ColorPref {
+    private fun getIconColorPref(context: Context): IconColorPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_ICON_COLOR_LIST, null)
-        return ColorPref.entries.find { it.key == key } ?: ColorPref.AUTO
+        return IconColorPref.entries.find { it.key == key } ?: IconColorPref.AUTO
     }
 
-    private fun getWidgetIconStylePreference(context: Context): WidgetIconStylePref {
+    private fun getWidgetIconStylePref(context: Context): WidgetIconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIDGET_ICON_STYLE_LIST, null)
         return WidgetIconStylePref.entries.find { it.key == key }
             ?: WidgetIconStylePref.TWINKLE_SHADOW
     }
 
-    private fun getAppIconStylePreference(context: Context): AppIconStylePref {
+    private fun getAppIconStylePref(context: Context): AppIconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_APP_ICON_STYLE_LIST, null)
         return AppIconStylePref.entries.find { it.key == key }
             ?: AppIconStylePref.FLAT_SKETCH
     }
 
-    private fun getTempUnitPreference(context: Context): TempUnitPref {
+    private fun getTempUnitPref(context: Context): TempUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_TEMP_UNIT_LIST, null)
         return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
     }
 
-    private fun getRainUnitPreference(context: Context): RainUnitPref {
+    private fun getRainUnitPref(context: Context): RainUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_RAIN_UNIT_LIST, null)
         return RainUnitPref.entries.find { it.key == key } ?: RainUnitPref.AUTO
     }
 
-    private fun getSnowUnitPreference(context: Context): SnowUnitPref {
+    private fun getSnowUnitPref(context: Context): SnowUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_SNOW_UNIT_LIST, null)
         return SnowUnitPref.entries.find { it.key == key } ?: SnowUnitPref.AUTO
     }
 
-    private fun getPressureUnitPreference(context: Context): PressureUnitPref {
+    private fun getPressureUnitPref(context: Context): PressureUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_PRESSURE_UNIT_LIST, null)
         return PressureUnitPref.entries.find { it.key == key } ?: PressureUnitPref.AUTO
     }
 
-    private fun getWindUnitPreference(context: Context): WindUnitPref {
+    private fun getWindUnitPref(context: Context): WindUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIND_UNIT_LIST, null)
         return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
     }
 
-    private fun getAuxDisplayPreference(context: Context): AuxDisplayPref {
+    private fun getAuxDisplayPref(context: Context): AuxDisplayPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_AUX_DISPLAY_LIST, null)
         return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.PLACE_CONDITION
     }
 
-    private fun getLocationFallbackPreference(context: Context): Boolean {
+    private fun useLocationFallback(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_LOCATION_FALLBACK, true)
     }
 
-    private fun getPermanentAlarmPreference(context: Context): Boolean {
+    private fun showPermanentAlarm(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_PERMANENT_ALARM, false)
     }
 
-    private fun getShowTempUnitPreference(context: Context): Boolean {
+    private fun showTempUnit(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
-    private fun getWeatherLocationPreference(context: Context): WeatherLocationPref {
+    private fun getLocationSourcePref(context: Context): LocationSourcePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WEATHER_LOCATION, null)
-        return WeatherLocationPref.entries.find { it.key == key } ?: WeatherLocationPref.DEVICE
+            .getString(KEY_LOCATION_SOURCE_LIST, null)
+        return LocationSourcePref.entries.find { it.key == key } ?: LocationSourcePref.DEVICE
     }
 
-    private fun getBackgroundAlphaPreference(context: Context): Int {
+    private fun getBackgroundAlpha(context: Context): Int {
         val transparency = PreferenceManager.getDefaultSharedPreferences(context)
             .getInt(KEY_WIDGET_TRANSPARENCY, 0)
         return (100 - transparency) * 255 / 100

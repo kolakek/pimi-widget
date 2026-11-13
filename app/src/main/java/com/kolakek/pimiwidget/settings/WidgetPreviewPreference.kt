@@ -27,6 +27,8 @@ import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.data.WidgetStyle
 import com.kolakek.pimiwidget.databinding.PrefWidgetPreviewBinding
 import com.kolakek.pimiwidget.databinding.WidgetClassicBinding
 import com.kolakek.pimiwidget.databinding.WidgetClassicShadowBinding
@@ -35,6 +37,7 @@ import com.kolakek.pimiwidget.databinding.WidgetModernShadowBinding
 import com.kolakek.pimiwidget.databinding.WidgetSolidBinding
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.weather.WeatherCode
+import com.kolakek.pimiwidget.widget.WidgetSettings
 
 class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preference(context, attrs) {
 
@@ -58,9 +61,9 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
 
         container.removeAllViews()
 
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val settings = SettingsRepository.loadWidgetSettings(context)
 
-        val widget = when (prefs.widgetStyle) {
+        val widget = when (settings.widgetStyle) {
             WidgetStyle.CLASSIC ->
                 WidgetClassicBinding.inflate(inflater, container, false).apply {
                     fillPreview(
@@ -71,7 +74,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetTempText,
                         widgetAuxText,
                         widgetAuxTextSep,
-                        prefs
+                        settings
                     )
                 }.root
 
@@ -85,7 +88,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetTempText,
                         widgetAuxText,
                         widgetAuxTextSep,
-                        prefs
+                        settings
                     )
                 }.root
 
@@ -99,7 +102,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetTempText,
                         widgetAuxText,
                         null,
-                        prefs
+                        settings
                     )
                 }.root
 
@@ -113,7 +116,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetTempText,
                         widgetAuxText,
                         null,
-                        prefs
+                        settings
                     )
                 }.root
 
@@ -127,7 +130,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
                         widgetTempText,
                         widgetAuxText,
                         null,
-                        prefs
+                        settings
                     )
                 }.root
         }
@@ -142,31 +145,31 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         tempText: TextView?,
         auxText: TextView?,
         auxTextSep: TextView?,
-        prefs: WidgetPreferences
+        settings: WidgetSettings
     ) {
         weatherIcon?.setImageResource(
             WeatherIcon.getWeatherIconId(
                 WeatherCode.MAINLY_CLEAR,
                 isDay = true,
-                prefs.iconStyle,
-                prefs.iconColor
+                settings.iconStyle,
+                settings.iconColor
             )
         )
-        val textColor = prefs.widgetStyle.textColor(prefs.textColor)
+        val textColor = settings.widgetStyle.textColor(settings.textColor)
         dateText?.setTextColor(ContextCompat.getColor(context, textColor))
         auxText?.setTextColor(ContextCompat.getColor(context, textColor))
         auxTextSep?.setTextColor(ContextCompat.getColor(context, textColor))
 
-        val tempColor = prefs.widgetStyle.tempTextColor(prefs.textColor)
+        val tempColor = settings.widgetStyle.tempTextColor(settings.textColor)
         tempText?.setTextColor(ContextCompat.getColor(context, tempColor))
 
-        prefs.widgetStyle.backgroundColor()?.let {
+        settings.widgetStyle.backgroundColor()?.let {
             background?.setColorFilter(ContextCompat.getColor(context, it))
         }
-        prefs.widgetStyle.iconBackgroundColor()?.let {
+        settings.widgetStyle.iconBackgroundColor()?.let {
             iconBackground?.setColorFilter(ContextCompat.getColor(context, it))
         }
-        background?.imageAlpha = prefs.backgroundAlpha
+        background?.imageAlpha = settings.backgroundAlpha
 
         tempText?.text = context.getString(R.string.widget_temp_prev)
         auxText?.text = context.getString(R.string.widget_weather_prev)

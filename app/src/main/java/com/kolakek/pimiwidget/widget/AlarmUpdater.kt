@@ -23,7 +23,6 @@ import android.text.format.DateFormat
 import android.view.View
 import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.ui.NA
 import java.util.Date
 
@@ -32,14 +31,14 @@ object AlarmUpdater {
     fun updateViews(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences
+        settings: WidgetSettings
     ) {
         views.setTextViewText(R.id.widget_alarm_text, null)
         views.setViewVisibility(R.id.widget_alarm_icon, View.GONE)
 
-        if (!prefs.showAlarms) return
+        if (!settings.showAlarms) return
 
-        if (prefs.permanentAlarm) {
+        if (settings.showPermanentAlarm) {
             views.setTextViewText(R.id.widget_alarm_text, NA)
             views.setViewVisibility(R.id.widget_alarm_icon, View.VISIBLE)
         }

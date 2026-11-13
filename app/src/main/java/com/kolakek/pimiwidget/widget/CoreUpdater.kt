@@ -24,7 +24,6 @@ import android.text.format.DateFormat
 import android.widget.RemoteViews
 import androidx.annotation.ColorRes
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.WeatherApp
 import java.util.Locale
 
@@ -34,7 +33,7 @@ object CoreUpdater {
         context: Context,
         views: RemoteViews,
         appWidgetId: Int,
-        prefs: WidgetPreferences
+        settings: WidgetSettings
     ) {
         val pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
@@ -52,10 +51,10 @@ object CoreUpdater {
         )
         views.setOnClickPendingIntent(R.id.widget_date_text, calendarIntent)
 
-        val weatherAppIntent = if (prefs.weatherApp == WeatherApp.PIMI) {
+        val weatherAppIntent = if (settings.weatherApp == WeatherApp.PIMI) {
             WidgetIntent.pimiWeatherIntent(context, appWidgetId)
         } else {
-            WidgetIntent.appIntent(context, appWidgetId, prefs.weatherApp.packageName)
+            WidgetIntent.appIntent(context, appWidgetId, settings.weatherApp.packageName)
         }
         views.setOnClickPendingIntent(R.id.widget_weather, weatherAppIntent)
 
@@ -67,29 +66,29 @@ object CoreUpdater {
             R.id.widget_birthday,
             WidgetIntent.birthdayDismissIntent(context, appWidgetId)
         )
-        val textColor = prefs.widgetStyle.textColor(prefs.textColor)
+        val textColor = settings.widgetStyle.textColor(settings.textColor)
         views.setTextColorRes(R.id.widget_date_text, textColor)
         views.setTextColorRes(R.id.widget_alarm_text, textColor)
         views.setTextColorRes(R.id.widget_birthday_text, textColor)
         views.setTextColorRes(R.id.widget_aux_text, textColor)
         views.setTextColorRes(R.id.widget_aux_text_sep, textColor)
 
-        val tempColor = prefs.widgetStyle.tempTextColor(prefs.textColor)
+        val tempColor = settings.widgetStyle.tempTextColor(settings.textColor)
         views.setTextColorRes(R.id.widget_temp_text, tempColor)
 
-        if (!prefs.widgetStyle.needsShadow) {
+        if (!settings.widgetStyle.needsShadow) {
             views.setImageColorRes(R.id.widget_sync_icon, tempColor)
             views.setImageColorRes(R.id.widget_alarm_icon, textColor)
             views.setImageColorRes(R.id.widget_birthday_icon, textColor)
             views.setImageColorRes(R.id.widget_warn_svr_icon, textColor)
         }
-        prefs.widgetStyle.backgroundColor()?.let {
+        settings.widgetStyle.backgroundColor()?.let {
             views.setImageColorRes(R.id.widget_background, it)
         }
-        prefs.widgetStyle.iconBackgroundColor()?.let {
+        settings.widgetStyle.iconBackgroundColor()?.let {
             views.setImageColorRes(R.id.widget_icon_background, it)
         }
-        views.setImageAlpha(R.id.widget_background, prefs.backgroundAlpha)
+        views.setImageAlpha(R.id.widget_background, settings.backgroundAlpha)
     }
 
     private fun RemoteViews.setTextColorRes(viewId: Int, @ColorRes colorRes: Int) =

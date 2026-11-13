@@ -15,26 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import android.content.Context
-import com.kolakek.pimiwidget.R
-
-enum class PressureUnit(private val unitRes: Int, val format: String) {
-    HPA(R.string.unit_hpa, "%,.0f") {
-        override fun fromHpa(value: Double) = value
-    },
-    MB(R.string.unit_mb, "%,.0f") {
-        override fun fromHpa(value: Double) = value
-    },
-    MMHG(R.string.unit_mmhg, "%.1f") {
-        override fun fromHpa(value: Double) = value * 0.750062
-    },
-    INHG(R.string.unit_inhg, "%.1f") {
-        override fun fromHpa(value: Double) = value * 0.02953
-    };
-
-    abstract fun fromHpa(value: Double): Double
-
-    fun unitStr(context: Context) = context.getString(unitRes)
+enum class TempUnitPref(val key: String) {
+    AUTO(KEY_TEMP_UNIT_AUTO),
+    CELSIUS(KEY_TEMP_UNIT_CELSIUS),
+    FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT)
 }

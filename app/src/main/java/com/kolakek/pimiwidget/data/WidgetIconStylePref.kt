@@ -15,21 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import android.content.Context
-import com.kolakek.pimiwidget.R
-
-enum class TempUnit(private val unitRes: Int) {
-    CELSIUS(R.string.unit_celsius) {
-        override fun fromCelsius(value: Double) = value
-    },
-    FAHRENHEIT(R.string.unit_fahrenheit) {
-        override fun fromCelsius(value: Double) = value * 1.8 + 32.0
-    };
-
-    abstract fun fromCelsius(value: Double): Double
-
-    fun unitStr(context: Context, fullUnit: Boolean = true) =
-        if (fullUnit) context.getString(unitRes) else context.getString(R.string.unit_degree)
+enum class WidgetIconStylePref(val key: String) {
+    FLAT_SKETCH(KEY_WIDGET_ICON_STYLE_FLAT_SKETCH),
+    TWINKLE_SHADOW(KEY_WIDGET_ICON_STYLE_TWINKLE_SHADOW)
 }

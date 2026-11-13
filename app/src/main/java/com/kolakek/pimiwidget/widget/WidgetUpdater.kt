@@ -24,46 +24,45 @@ import android.widget.RemoteViews
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.data.DataRepository
-import com.kolakek.pimiwidget.settings.PreferencesHelper
-import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WidgetStyle
+import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.data.WidgetStyle
 import com.kolakek.pimiwidget.weather.WeatherData
 import kotlinx.coroutines.runBlocking
 
 object WidgetUpdater {
 
     fun updateWidgets(context: Context) {
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
+        val settings = SettingsRepository.loadWidgetSettings(context)
 
-        val weatherData = if (prefs.showWeather) {
+        val weatherData = if (settings.showWeather) {
             runBlocking { DataRepository.loadWeatherData(context) }
         } else null
 
-        val birthdayData = if (prefs.showBirthdays) {
+        val birthdayData = if (settings.showBirthday) {
             runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
-        updateViews(context, prefs, partialUpdate = false) { views, appWidgetId ->
-            CoreUpdater.updateViews(context, views, appWidgetId, prefs)
-            AlarmUpdater.updateViews(context, views, prefs)
-            WeatherUpdater.updateViews(context, views, prefs, weatherData)
-            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
+        updateViews(context, settings, partialUpdate = false) { views, appWidgetId ->
+            CoreUpdater.updateViews(context, views, appWidgetId, settings)
+            AlarmUpdater.updateViews(context, views, settings)
+            WeatherUpdater.updateViews(context, views, settings, weatherData)
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, settings, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
     }
 
     fun refreshWidgets(
         context: Context,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         weatherData: WeatherData?,
         birthdayData: BirthdayData?
     ): WeatherUpdateStatus {
         var lastWeatherStatus = WeatherUpdateStatus.NO_ACTION_NEEDED
 
-        updateViews(context, prefs, partialUpdate = true) { views, _ ->
-            AlarmUpdater.updateViews(context, views, prefs)
-            lastWeatherStatus = WeatherUpdater.updateViews(context, views, prefs, weatherData)
-            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
+        updateViews(context, settings, partialUpdate = true) { views, _ ->
+            AlarmUpdater.updateViews(context, views, settings)
+            lastWeatherStatus = WeatherUpdater.updateViews(context, views, settings, weatherData)
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, settings, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
         return lastWeatherStatus
@@ -71,37 +70,37 @@ object WidgetUpdater {
 
     fun refreshWeather(
         context: Context,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         weatherData: WeatherData?
     ) {
-        updateViews(context, prefs, partialUpdate = true) { views, _ ->
-            WeatherUpdater.updateViews(context, views, prefs, weatherData)
+        updateViews(context, settings, partialUpdate = true) { views, _ ->
+            WeatherUpdater.updateViews(context, views, settings, weatherData)
         }
     }
 
     fun refreshAlarms(context: Context) {
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
-        updateViews(context, prefs, partialUpdate = true) { views, _ ->
-            AlarmUpdater.updateViews(context, views, prefs)
+        val settings = SettingsRepository.loadWidgetSettings(context)
+        updateViews(context, settings, partialUpdate = true) { views, _ ->
+            AlarmUpdater.updateViews(context, views, settings)
         }
     }
 
     fun refreshBirthdays(context: Context) {
-        val prefs = PreferencesHelper.getWidgetPreferences(context)
-        val birthdayData = if (prefs.showBirthdays) {
+        val settings = SettingsRepository.loadWidgetSettings(context)
+        val birthdayData = if (settings.showBirthday) {
             runBlocking { DataRepository.loadBirthdayData(context) }
         } else null
 
-        refreshBirthdays(context, prefs, birthdayData)
+        refreshBirthdays(context, settings, birthdayData)
     }
 
     fun refreshBirthdays(
         context: Context,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         birthdayData: BirthdayData?
     ) {
-        updateViews(context, prefs, partialUpdate = true) { views, _ ->
-            val birthdayStatus = BirthdayUpdater.updateViews(context, views, prefs, birthdayData)
+        updateViews(context, settings, partialUpdate = true) { views, _ ->
+            val birthdayStatus = BirthdayUpdater.updateViews(context, views, settings, birthdayData)
             VisibilityUpdater.updateEventViews(views, birthdayStatus)
         }
     }
@@ -118,7 +117,7 @@ object WidgetUpdater {
 
     private inline fun updateViews(
         context: Context,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         partialUpdate: Boolean,
         update: (RemoteViews, Int) -> Unit
     ) {
@@ -129,7 +128,7 @@ object WidgetUpdater {
         for (appWidgetId in appWidgetIds) {
             val views = RemoteViews(
                 context.packageName,
-                getWidgetLayout(prefs.widgetStyle)
+                getWidgetLayout(settings.widgetStyle)
             )
             update(views, appWidgetId)
             if (partialUpdate) appWidgetManager.partiallyUpdateAppWidget(appWidgetId, views)

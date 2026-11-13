@@ -34,8 +34,7 @@ import com.google.android.material.button.MaterialButton
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
-import com.kolakek.pimiwidget.settings.AppPreferences
-import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DataBarItem
 import com.kolakek.pimiwidget.weather.DetailsItem
@@ -87,13 +86,13 @@ class WeatherActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherData.collect { weather ->
-                    val prefs = PreferencesHelper.getAppPreferences(this@WeatherActivity)
+                    val settings = SettingsRepository.loadAppSettings(this@WeatherActivity)
 
                     val displayData = weather?.let {
-                        DisplayData.collect(this@WeatherActivity, it, prefs)
+                        DisplayData.collect(this@WeatherActivity, it, settings)
                     }
                     if (displayData == null || !displayData.isValid()) {
-                        displayNoDataInfo(prefs)
+                        displayNoDataInfo(settings)
                         finishNoDataDisplay()
                     } else {
                         displayPlace(displayData)
@@ -111,12 +110,12 @@ class WeatherActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        val prefs = PreferencesHelper.getWidgetPreferences(this)
-        WidgetUpdater.refreshWeather(this, prefs, viewModel.weatherData.value)
+        val settings = SettingsRepository.loadWidgetSettings(this)
+        WidgetUpdater.refreshWeather(this, settings, viewModel.weatherData.value)
     }
 
-    private fun displayNoDataInfo(prefs: AppPreferences) {
-        if (prefs.showWeather) {
+    private fun displayNoDataInfo(settings: AppSettings) {
+        if (settings.showWeather) {
             binding.noDataTitle.text = getString(R.string.app_text_no_data)
             binding.noDataInfo.text = getString(R.string.app_text_check_connection)
             binding.noDataButton.text = getString(R.string.app_text_button_try_again)

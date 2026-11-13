@@ -24,13 +24,13 @@ import com.kolakek.pimiwidget.resources.ConditionIcon
 import com.kolakek.pimiwidget.resources.ConditionString
 import com.kolakek.pimiwidget.resources.WeatherIcon
 import com.kolakek.pimiwidget.resources.WeatherString
-import com.kolakek.pimiwidget.settings.AuxDisplay
-import com.kolakek.pimiwidget.settings.IconColor
-import com.kolakek.pimiwidget.settings.IconStyle
-import com.kolakek.pimiwidget.settings.PressureUnit
-import com.kolakek.pimiwidget.settings.TempUnit
-import com.kolakek.pimiwidget.settings.WidgetPreferences
-import com.kolakek.pimiwidget.settings.WindUnit
+import com.kolakek.pimiwidget.data.AuxDisplay
+import com.kolakek.pimiwidget.data.IconColor
+import com.kolakek.pimiwidget.data.IconStyle
+import com.kolakek.pimiwidget.data.PressureUnit
+import com.kolakek.pimiwidget.data.TempUnit
+import com.kolakek.pimiwidget.widget.WidgetSettings
+import com.kolakek.pimiwidget.data.WindUnit
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_OFF
 import com.kolakek.pimiwidget.widget.FORECAST_TODAY_HOUR_ON
 import com.kolakek.pimiwidget.widget.FORECAST_TOMORROW_HOUR_OFF
@@ -41,8 +41,8 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Date
 import java.util.Locale
-import com.kolakek.pimiwidget.settings.RainUnit
-import com.kolakek.pimiwidget.settings.SnowUnit
+import com.kolakek.pimiwidget.data.RainUnit
+import com.kolakek.pimiwidget.data.SnowUnit
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -181,7 +181,7 @@ object WeatherRenderer {
     fun forecastString(
         context: Context,
         weather: WeatherData,
-        prefs: WidgetPreferences
+        settings: WidgetSettings
     ): String? {
         val nowTimeMillis = System.currentTimeMillis()
 
@@ -207,8 +207,8 @@ object WeatherRenderer {
         val tempCelsiusMin = weather.dailyTempMinCelsius.getOrNull(idx) ?: return null
         val tempCelsiusMax = weather.dailyTempMaxCelsius.getOrNull(idx) ?: return null
 
-        val minTempStr = temperatureString(context, tempCelsiusMin, prefs.tempUnit, false)
-        val maxTempStr = temperatureString(context, tempCelsiusMax, prefs.tempUnit, false)
+        val minTempStr = temperatureString(context, tempCelsiusMin, settings.tempUnit, false)
+        val maxTempStr = temperatureString(context, tempCelsiusMax, settings.tempUnit, false)
 
         val weatherStr = context.getString(
             WeatherString.shortStringId(weatherCode, isDay = true)
@@ -454,9 +454,9 @@ object WeatherRenderer {
     fun auxString(
         context: Context,
         weather: WeatherData,
-        prefs: WidgetPreferences
+        settings: WidgetSettings
     ): String? {
-        return when (prefs.auxDisplay) {
+        return when (settings.auxDisplay) {
 
             AuxDisplay.NOTHING -> null
 

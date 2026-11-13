@@ -15,19 +15,25 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.widget
 
+import com.kolakek.pimiwidget.data.IconColor
 import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.utility.WeatherApp
+import com.kolakek.pimiwidget.data.AuxDisplay
+import com.kolakek.pimiwidget.data.IconStyle
+import com.kolakek.pimiwidget.data.TempUnit
+import com.kolakek.pimiwidget.data.TextColor
+import com.kolakek.pimiwidget.data.WidgetStyle
 
-data class WidgetPreferences (
+data class WidgetSettings (
     val showAlarms: Boolean,
     val showWeather: Boolean,
-    val showBirthdays: Boolean,
+    val showBirthday: Boolean,
     val useLocationFallback: Boolean,
     val showDailyForecast: Boolean,
     val showWeatherWarning: Boolean,
-    val permanentAlarm: Boolean,
+    val showPermanentAlarm: Boolean,
     val showTempUnit: Boolean,
     val backgroundAlpha: Int,
     val iconStyle: IconStyle,

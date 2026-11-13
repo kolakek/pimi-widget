@@ -23,7 +23,6 @@ import android.widget.RemoteViews
 import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
-import com.kolakek.pimiwidget.settings.WidgetPreferences
 import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.KEY_BIRTHDAY_DISMISS_HASH
 import java.time.LocalDate
@@ -38,14 +37,14 @@ object BirthdayUpdater {
     fun updateViews(
         context: Context,
         views: RemoteViews,
-        prefs: WidgetPreferences,
+        settings: WidgetSettings,
         birthdayData: BirthdayData?
     ): BirthdayUpdateStatus {
 
         views.setTextViewText(R.id.widget_birthday_text, null)
         views.setViewVisibility(R.id.widget_birthday_icon, View.GONE)
 
-        if (!prefs.showBirthdays) return BirthdayUpdateStatus.NO_BIRTHDAYS
+        if (!settings.showBirthday) return BirthdayUpdateStatus.NO_BIRTHDAYS
 
         birthdayData?.let { data ->
             if (data.names.isEmpty()) return BirthdayUpdateStatus.NO_BIRTHDAYS

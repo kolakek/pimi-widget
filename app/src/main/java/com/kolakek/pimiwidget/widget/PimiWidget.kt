@@ -26,7 +26,7 @@ import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
-import com.kolakek.pimiwidget.settings.PreferencesHelper
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
@@ -50,7 +50,7 @@ class PimiWidget : AppWidgetProvider() {
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         super.onDeleted(context, appWidgetIds)
-        appWidgetIds.forEach { PreferencesHelper.deleteWidgetConfiguredPreference(context, it) }
+        appWidgetIds.forEach { SettingsRepository.removeWidgetConfigured(context, it) }
     }
 
     override fun onDisabled(context: Context) {

@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.ui
 
 import android.content.Context
-import com.kolakek.pimiwidget.settings.AppPreferences
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DetailsItem
 import com.kolakek.pimiwidget.weather.HourlyItem
@@ -54,14 +53,14 @@ data class DisplayData (
         fun collect(
             context: Context,
             weather: WeatherData,
-            prefs: AppPreferences
+            settings: AppSettings
         ): DisplayData {
             val currentWeather = WeatherRenderer.currentWeather(
                 context,
                 weather,
-                prefs.tempUnit,
-                prefs.iconStyle,
-                prefs.iconColor,
+                settings.tempUnit,
+                settings.iconStyle,
+                settings.iconColor,
                 fullUnit = false
             )
             val currentConditionString = WeatherRenderer.currentConditionString(
@@ -71,36 +70,36 @@ data class DisplayData (
             val currentFeelsLikeString = WeatherRenderer.currentFeelsLikeString(
                 context,
                 weather,
-                prefs.tempUnit
+                settings.tempUnit
             )
             val dailyHighLowTempString = WeatherRenderer.dailyHighLowTempString(
                 context,
                 weather,
-                prefs.tempUnit
+                settings.tempUnit
             )
             val hourlyWeather = WeatherRenderer.hourlyWeather(
                 context,
                 weather,
-                prefs.tempUnit,
-                prefs.iconStyle,
-                prefs.iconColor
+                settings.tempUnit,
+                settings.iconStyle,
+                settings.iconColor
             )
             val dailyWeather = WeatherRenderer.dailyWeather(
                 context,
                 weather,
-                prefs.tempUnit,
-                prefs.iconStyle,
-                prefs.iconColor
+                settings.tempUnit,
+                settings.iconStyle,
+                settings.iconColor
             )
             val detailsRain = WeatherRenderer.detailsRain(
                 context,
                 weather,
-                prefs.rainUnit
+                settings.rainUnit
             )
             val detailsSnow = WeatherRenderer.detailsSnow(
                 context,
                 weather,
-                prefs.snowUnit
+                settings.snowUnit
             )
             val detailsHumidity = WeatherRenderer.detailsHumidity(
                 context,
@@ -113,17 +112,17 @@ data class DisplayData (
             val currentWind = WeatherRenderer.currentWind(
                 context,
                 weather,
-                prefs.windUnit
+                settings.windUnit
             )
             val currentHumidity = WeatherRenderer.currentHumidity(
                 context,
                 weather,
-                prefs.tempUnit
+                settings.tempUnit
             )
             val currentPressure = WeatherRenderer.currentPressure(
                 context,
                 weather,
-                prefs.pressureUnit
+                settings.pressureUnit
             )
             val currentUvIndex = WeatherRenderer.currentUvIndex(
                 context,

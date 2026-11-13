@@ -22,6 +22,16 @@ import androidx.core.content.edit
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.AuxDisplayPref
+import com.kolakek.pimiwidget.data.KEY_TEXT_COLOR_LIST
+import com.kolakek.pimiwidget.data.KEY_WIDGET_COLOR_LIST
+import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
+import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_PREV
+import com.kolakek.pimiwidget.data.KEY_WIDGET_TRANSPARENCY
+import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.data.TextColorPref
+import com.kolakek.pimiwidget.data.WidgetColorPref
+import com.kolakek.pimiwidget.data.WidgetStylePref
 
 class WidgetSettingsStyleFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_widget_style
@@ -77,14 +87,14 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
 
     private fun matchWidgetSettings(style: WidgetStylePref) {
         val context = requireContext()
-        PreferencesHelper.setAuxDisplayPreference(
+        SettingsRepository.setAuxDisplayPref(
             context,
             when (style) {
                 WidgetStylePref.SOLID ->
-                    PreferencesHelper.AuxDisplayPref.PLACE_CONDITION
+                    AuxDisplayPref.PLACE_CONDITION
 
                 WidgetStylePref.CLASSIC, WidgetStylePref.MODERN ->
-                    PreferencesHelper.AuxDisplayPref.NOTHING
+                    AuxDisplayPref.NOTHING
             }
         )
     }

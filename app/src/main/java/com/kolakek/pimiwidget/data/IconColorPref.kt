@@ -15,15 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-data class AppPreferences (
-    val iconStyle: IconStyle,
-    val iconColor: IconColor,
-    val tempUnit: TempUnit,
-    val windUnit: WindUnit,
-    val pressureUnit: PressureUnit,
-    val rainUnit: RainUnit,
-    val snowUnit: SnowUnit,
-    val showWeather: Boolean
-)
+enum class IconColorPref(val key: String) {
+    AUTO(KEY_ICON_COLOR_AUTO),
+    LIGHT(KEY_ICON_COLOR_LIGHT),
+    DARK(KEY_ICON_COLOR_DARK)
+}

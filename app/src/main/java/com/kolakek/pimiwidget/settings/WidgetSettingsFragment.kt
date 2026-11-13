@@ -43,6 +43,20 @@ import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.data.KEY_ALARM_SWITCH
+import com.kolakek.pimiwidget.data.KEY_BIRTHDAY_SWITCH
+import com.kolakek.pimiwidget.data.KEY_DEFAULT_WEATHER_APP
+import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_DEVICE
+import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_FIXED
+import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_LIST
+import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
+import com.kolakek.pimiwidget.data.KEY_SOURCE_CODE
+import com.kolakek.pimiwidget.data.KEY_VERSION_FIELD
+import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
+import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
+import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE
+import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
+import com.kolakek.pimiwidget.data.WidgetStylePref
 import com.kolakek.pimiwidget.location.FIXED_LOCATION_NAME
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.utility.AppLookup
@@ -73,7 +87,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
-        val weatherLocationField: Preference? = findPreference(KEY_WEATHER_LOCATION)
+        val weatherLocationField: Preference? = findPreference(KEY_LOCATION_SOURCE_LIST)
         val widgetStyleField: Preference? = findPreference(KEY_WIDGET_STYLE)
 
         var debugCount = 0
@@ -221,9 +235,9 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             DataRepository.deleteLocationData(requireContext())
 
             preferenceManager.sharedPreferences?.edit {
-                putString(KEY_WEATHER_LOCATION, KEY_WEATHER_LOCATION_DEVICE)
+                putString(KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_DEVICE)
             }
-            findPreference<Preference>(KEY_WEATHER_LOCATION)?.summary =
+            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary =
                 getString(R.string.config_weather_location_device)
 
             weatherSwitchCallback(enableWeather)
@@ -243,9 +257,9 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
                 LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
             )
             preferenceManager.sharedPreferences?.edit {
-                putString(KEY_WEATHER_LOCATION, KEY_WEATHER_LOCATION_FIXED)
+                putString(KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_FIXED)
             }
-            findPreference<Preference>(KEY_WEATHER_LOCATION)?.summary = place
+            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary = place
 
             weatherSwitchCallback(enableWeather)
         }
@@ -266,7 +280,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private fun setWeatherLocationSummary() {
         lifecycleScope.launch {
-            findPreference<Preference>(KEY_WEATHER_LOCATION)?.summary =
+            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary =
                 if (usesDeviceLocation()) {
                     getString(R.string.config_weather_location_device)
                 } else {
@@ -317,8 +331,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private fun usesDeviceLocation() =
         preferenceManager.sharedPreferences?.getString(
-            KEY_WEATHER_LOCATION, KEY_WEATHER_LOCATION_DEVICE
-        ) == KEY_WEATHER_LOCATION_DEVICE
+            KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_DEVICE
+        ) == KEY_LOCATION_SOURCE_DEVICE
 
     private fun isWeatherEnabled() =
         findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked == true

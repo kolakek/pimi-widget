@@ -15,13 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import androidx.annotation.ColorRes
-import com.kolakek.pimiwidget.R
-
-enum class TextColor(@ColorRes val colorRes: Int) {
-    DARK(R.color.text_color_black),
-    LIGHT(R.color.text_color_white),
-    DYNAMIC(R.color.dynamic_text_color)
+enum class AppIconStylePref(val key: String) {
+    FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH),
+    TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW),
+    FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET)
 }

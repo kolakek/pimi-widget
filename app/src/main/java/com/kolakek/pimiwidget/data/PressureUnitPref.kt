@@ -15,20 +15,12 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.settings
+package com.kolakek.pimiwidget.data
 
-import android.content.Context
-import com.kolakek.pimiwidget.R
-
-enum class RainUnit(private val unitRes: Int, val format: String) {
-    MM(R.string.unit_mm, "%.1f") {
-        override fun fromMm(value: Double) = value
-    },
-    INCH(R.string.unit_in, "%.2f") {
-        override fun fromMm(value: Double) = value / 25.4
-    };
-
-    abstract fun fromMm(value: Double): Double
-
-    fun unitStr(context: Context) = context.getString(unitRes)
+enum class PressureUnitPref(val key: String) {
+    AUTO(KEY_PRESSURE_UNIT_AUTO),
+    HPA(KEY_PRESSURE_UNIT_HPA),
+    MB(KEY_PRESSURE_UNIT_MB),
+    MMHG(KEY_PRESSURE_UNIT_MMHG),
+    INHG(KEY_PRESSURE_UNIT_INHG)
 }

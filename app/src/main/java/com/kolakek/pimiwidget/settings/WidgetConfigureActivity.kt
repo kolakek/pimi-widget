@@ -23,6 +23,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
 import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.widget.WidgetUpdater
@@ -56,7 +57,7 @@ class WidgetConfigureActivity : AppCompatActivity() {
         }
         updateBackButton()
 
-        val isConfigured = PreferencesHelper.getWidgetConfiguredPreference(this, appWidgetId)
+        val isConfigured = SettingsRepository.isWidgetConfigured(this, appWidgetId)
         val strId = if (isConfigured) R.string.config_button_update else R.string.config_button_add
 
         binding.applyButton.setText(strId)
@@ -74,7 +75,7 @@ class WidgetConfigureActivity : AppCompatActivity() {
         WidgetUpdater.updateWidgets(context)
         MigrateApp.storeCurrentVersionCode(context)
 
-        PreferencesHelper.setWidgetConfiguredPreference(this, appWidgetId, true)
+        SettingsRepository.setWidgetConfigured(this, appWidgetId, true)
 
         val resultValue = Intent()
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
