@@ -46,7 +46,7 @@
 
     </LinearLayout>
 
-    <LinearLayout style="@style/Widget.Row">
+    <LinearLayout style="@style/Widget.Row.Primary">
 
         <LinearLayout
             android:id="@+id/widget_weather"

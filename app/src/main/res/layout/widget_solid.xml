@@ -57,7 +57,7 @@
 
             <LinearLayout
                 android:id="@+id/widget_aux"
-                style="@style/Widget.Container.Inner.Horizontal"
+                style="@style/Widget.Row.Secondary"
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView
