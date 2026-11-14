@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dynamic_background_color">@android:color/system_accent2_800</color>
-    <color name="dynamic_text_color">@android:color/system_accent1_50</color>
-    <color name="dynamic_icon_background_color">@android:color/system_accent1_600</color>
-    <color name="dynamic_temp_color">@android:color/system_accent1_50</color>
+    <color name="widget_color_background_dynamic">@android:color/system_accent2_800</color>
+    <color name="widget_color_text_dynamic">@android:color/system_accent1_50</color>
+    <color name="widget_color_icon_background_dynamic">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_dynamic">@android:color/system_accent1_10</color>
+
+    <color name="widget_color_background_system">#3D4043</color>
+    <color name="widget_color_text_system">#E3E3E3</color>
+    <color name="widget_color_icon_background_system">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_system">@android:color/system_accent1_10</color>
 
     <color name="app_item_background">?colorSurfaceBright</color>
 

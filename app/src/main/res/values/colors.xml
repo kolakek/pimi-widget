@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dynamic_background_color">@android:color/system_accent1_100</color>
-    <color name="dynamic_text_color">@android:color/system_accent1_900</color>
-    <color name="dynamic_icon_background_color">@android:color/system_accent1_600</color>
-    <color name="dynamic_temp_color">@android:color/system_accent1_100</color>
+    <color name="widget_color_background_dynamic">@android:color/system_accent1_100</color>
+    <color name="widget_color_text_dynamic">@android:color/system_accent1_900</color>
+    <color name="widget_color_icon_background_dynamic">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_dynamic">@android:color/system_accent1_10</color>
+
+    <color name="widget_color_background_system">#F1F3F4</color>
+    <color name="widget_color_text_system">#1F1F1F</color>
+    <color name="widget_color_icon_background_system">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_system">@android:color/system_accent1_10</color>
+
+    <color name="widget_color_background_light">#F1F3F4</color>
+    <color name="widget_color_text_light">#1F1F1F</color>
+    <color name="widget_color_icon_background_light">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_light">@android:color/system_accent1_10</color>
+
+    <color name="widget_color_background_dark">#3D4043</color>
+    <color name="widget_color_text_dark">#E3E3E3</color>
+    <color name="widget_color_icon_background_dark">@android:color/system_accent1_600</color>
+    <color name="widget_color_temp_dark">@android:color/system_accent1_10</color>
 
     <color name="text_color_white">@android:color/white</color>
     <color name="text_color_black">@android:color/black</color>

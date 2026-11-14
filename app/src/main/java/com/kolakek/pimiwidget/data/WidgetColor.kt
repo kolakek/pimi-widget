@@ -27,28 +27,28 @@ enum class WidgetColor(
     @ColorRes val iconBackgroundColorRes: Int
 ) {
     DYNAMIC(
-        R.color.dynamic_text_color,
-        R.color.dynamic_temp_color,
-        R.color.dynamic_background_color,
-        R.color.dynamic_icon_background_color
+        R.color.widget_color_text_dynamic,
+        R.color.widget_color_temp_dynamic,
+        R.color.widget_color_background_dynamic,
+        R.color.widget_color_icon_background_dynamic
     ),
     SYSTEM(
-        R.color.dynamic_text_color,
-        R.color.dynamic_temp_color,
-        R.color.dynamic_background_color,
-        R.color.dynamic_icon_background_color
+        R.color.widget_color_text_system,
+        R.color.widget_color_temp_system,
+        R.color.widget_color_background_system,
+        R.color.widget_color_icon_background_system
     ),
     LIGHT(
-        R.color.dynamic_text_color,
-        R.color.dynamic_temp_color,
-        R.color.dynamic_background_color,
-        R.color.dynamic_icon_background_color
+        R.color.widget_color_text_light,
+        R.color.widget_color_temp_light,
+        R.color.widget_color_background_light,
+        R.color.widget_color_icon_background_light
     ),
     DARK(
-        R.color.dynamic_text_color,
-        R.color.dynamic_temp_color,
-        R.color.dynamic_background_color,
-        R.color.dynamic_icon_background_color
+        R.color.widget_color_text_dark,
+        R.color.widget_color_temp_dark,
+        R.color.widget_color_background_dark,
+        R.color.widget_color_icon_background_dark
     )
 }
 

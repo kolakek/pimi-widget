@@ -264,11 +264,11 @@
     </style>
 
     <style name="Widget.Date.Solid" parent="Widget.Date">
-        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textColor">@color/widget_color_text_dynamic</item>
     </style>
 
     <style name="Widget.Event.Solid" parent="Widget.Event">
-        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textColor">@color/widget_color_text_dynamic</item>
     </style>
 
     <style name="Widget.Temp.Solid" parent="Widget.Base">
@@ -276,13 +276,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">2dp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textColor">@color/dynamic_temp_color</item>
+        <item name="android:textColor">@color/widget_color_temp_dynamic</item>
         <item name="android:textSize" tools:ignore="SpUsage">14dp</item>
     </style>
 
     <style name="Widget.Aux.Solid" parent="Widget.Text">
         <item name="android:textSize">@dimen/widget_text_size_medium</item>
-        <item name="android:textColor">@color/dynamic_text_color</item>
+        <item name="android:textColor">@color/widget_color_text_dynamic</item>
         <item name="android:drawablePadding">4dp</item>
         <item name="android:layout_marginVertical">4dp</item>
     </style>
