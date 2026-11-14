@@ -74,31 +74,35 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         requireActivity().setTitle(titleRes)
 
-        val horizontal = resources.getDimensionPixelSize(R.dimen.app_pref_card_margin)
-        listView.updatePadding(left = horizontal, right = horizontal)
+        listView.apply {
+            addItemDecoration(
+                CardInsetDecoration(
+                    resources.getDimensionPixelSize(R.dimen.app_pref_card_margin)
+                )
+            )
+            clipToPadding = false
+            itemAnimator = null
 
-        listView.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
-        listView.itemAnimator = null
-
-        listView.isVerticalScrollBarEnabled = false
-        listView.addOnScrollListener(
-            object : RecyclerView.OnScrollListener() {
-                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                    if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
-                        recyclerView.isVerticalScrollBarEnabled = true
-                        recyclerView.removeOnScrollListener(this)
-                    }
-                }
-            }
-        )
-        listView.clipToPadding = false
+            showScrollbarOnFirstDrag()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
             val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
             listView.updatePadding(bottom = bottomInset)
             insets
         }
+    }
+
+    private fun RecyclerView.showScrollbarOnFirstDrag() {
+        isVerticalScrollBarEnabled = false
+        addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+                    recyclerView.isVerticalScrollBarEnabled = true
+                    recyclerView.removeOnScrollListener(this)
+                }
+            }
+        })
     }
 }
