@@ -17,25 +17,12 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
-import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.READ_CONTACTS
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
-import androidx.core.content.edit
-import androidx.core.net.toUri
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
-import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import androidx.lifecycle.lifecycleScope
-import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -45,24 +32,16 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_ALARM_SWITCH
 import com.kolakek.pimiwidget.data.KEY_BIRTHDAY_SWITCH
-import com.kolakek.pimiwidget.data.KEY_DEFAULT_WEATHER_APP
-import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_DEVICE
-import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_FIXED
-import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_LIST
-import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
 import com.kolakek.pimiwidget.data.KEY_SOURCE_CODE
 import com.kolakek.pimiwidget.data.KEY_VERSION_FIELD
-import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE
 import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
 import com.kolakek.pimiwidget.data.WidgetStylePref
-import com.kolakek.pimiwidget.location.FIXED_LOCATION_NAME
 import com.kolakek.pimiwidget.location.LocationData
-import com.kolakek.pimiwidget.utility.AppLookup
-import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.BirthdayUpdater
+import com.kolakek.pimiwidget.widget.openUrl
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -72,42 +51,30 @@ import java.util.Date
 class WidgetSettingsFragment : CardPreferenceFragment() {
     override val titleRes = R.string.app_name
 
-    private var onPermissionGranted: (() -> Unit)? = null
+    private val permissionHandler = PermissionHandler(this)
 
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { onPermissionGranted?.invoke() }
+    private val weatherHandler = WeatherSettingsHandler(this)
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
 
         val context = requireContext()
-        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
+        val weatherSwitch: PrimarySwitchPreference? = findPreference(KEY_WEATHER_SWITCH)
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
-        val weatherLocationField: Preference? = findPreference(KEY_LOCATION_SOURCE_LIST)
         val widgetStyleField: Preference? = findPreference(KEY_WIDGET_STYLE)
 
         var debugCount = 0
 
-        if (weatherSwitch?.isChecked == true &&
-            usesDeviceLocation() &&
-            isPermissionDenied(ACCESS_BACKGROUND_LOCATION)
+        if (birthdaySwitch?.isChecked == true &&
+            permissionHandler.isPermissionDenied(READ_CONTACTS)
         ) {
-            disableWeather()
-        }
-        if (birthdaySwitch?.isChecked == true && isPermissionDenied(READ_CONTACTS)) {
             disableBirthday()
         }
         widgetStyleField?.setOnPreferenceClickListener {
-            parentFragmentManager
-                .beginTransaction()
-                .setTransition(TRANSIT_FRAGMENT_FADE)
-                .replace(R.id.widget_settings_fragment, WidgetSettingsStyleFragment())
-                .addToBackStack(null)
-                .commit()
+            openSubScreen(WidgetSettingsStyleFragment())
             true
         }
         widgetStyleField?.summaryProvider = Preference.SummaryProvider<Preference> { pref ->
@@ -116,12 +83,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {
-                parentFragmentManager
-                    .beginTransaction()
-                    .setTransition(TRANSIT_FRAGMENT_FADE)
-                    .replace(R.id.widget_settings_fragment, WidgetSettingsPlusFragment())
-                    .addToBackStack(null)
-                    .commit()
+                openSubScreen(WidgetSettingsPlusFragment())
             } else
                 debugCount++
             true
@@ -132,7 +94,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         versionField?.summary = BuildConfig.VERSION_CODE.toString()
 
         sourceCodeField?.setOnPreferenceClickListener {
-            startUrlActivity(SOURCE_CODE_URL)
+            openUrl(SOURCE_CODE_URL)
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
@@ -142,7 +104,14 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
             }
-            weatherSwitchCallback(isChecked = newValue == true, canShowLocationDialog = true)
+            weatherHandler.weatherSwitchCallback(
+                weatherEnabled = newValue == true,
+                canShowLocationDialog = true
+            )
+        }
+        weatherSwitch?.setOnPreferenceClickListener {
+            openSubScreen(WidgetSettingsWeatherFragment())
+            true
         }
         birthdaySwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -162,131 +131,16 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             }
             true
         }
-        weatherLocationField?.setOnPreferenceClickListener {
-            selectWeatherLocation(isWeatherEnabled())
-            true
-        }
-        setWeatherLocationSummary()
-        handleWeatherAppPreference()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        listView.clipToPadding = false
-
-        ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
-            val bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
-            listView.updatePadding(bottom = bottomInset)
-            insets
-        }
+        weatherHandler.refreshSwitch()
     }
 
-    private fun weatherSwitchCallback(
-        isChecked: Boolean,
-        canShowLocationDialog: Boolean = false
-    ): Boolean {
-        if (!isChecked) {
-            disableWeather()
-            return true
-        }
-        if (usesDeviceLocation() && isPermissionDenied(ACCESS_COARSE_LOCATION)) {
-            disableWeather()
-
-            if (canShowLocationDialog) {
-                selectWeatherLocation(true)
-                return false
-            }
-            askPermission(
-                ACCESS_COARSE_LOCATION,
-                getString(R.string.config_loc_perm_alert_title),
-                getString(R.string.config_loc_perm_alert_message)
-            ) {
-                weatherSwitchCallback(true)
-            }
-            return false
-        }
-        if (usesDeviceLocation() && isPermissionDenied(ACCESS_BACKGROUND_LOCATION)) {
-            disableWeather()
-
-            if (canShowLocationDialog) {
-                selectWeatherLocation(true)
-                return false
-            }
-            askPermission(
-                ACCESS_BACKGROUND_LOCATION,
-                getString(R.string.config_bg_perm_alert_title),
-                getString(
-                    R.string.config_bg_perm_alert_message,
-                    requireContext().packageManager.backgroundPermissionOptionLabel
-                )
-            ) {
-                weatherSwitchCallback(true)
-            }
-            return false
-        }
-        enableWeather()
-        return true
-    }
-
-    private fun deviceLocationCallback(enableWeather: Boolean) {
-        lifecycleScope.launch {
-            DataRepository.deleteWeatherData(requireContext())
-            DataRepository.deleteLocationData(requireContext())
-
-            preferenceManager.sharedPreferences?.edit {
-                putString(KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_DEVICE)
-            }
-            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary =
-                getString(R.string.config_weather_location_device)
-
-            weatherSwitchCallback(enableWeather)
-        }
-    }
-
-    private fun fixedLocationCallback(
-        lat: Double,
-        long: Double,
-        place: String,
-        enableWeather: Boolean
-    ) {
-        lifecycleScope.launch {
-            DataRepository.deleteWeatherData(requireContext())
-            DataRepository.storeLocationData(
-                requireContext(),
-                LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
-            )
-            preferenceManager.sharedPreferences?.edit {
-                putString(KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_FIXED)
-            }
-            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary = place
-
-            weatherSwitchCallback(enableWeather)
-        }
-    }
-
-    private fun selectWeatherLocation(enableWeather: Boolean) {
-        WeatherLocationDialog(
-            context = requireContext(),
-            scope = lifecycleScope,
-            onDeviceLocationSelected = {
-                deviceLocationCallback(enableWeather)
-            },
-            onFixedLocationSelected = { lat, long, place ->
-                fixedLocationCallback(lat, long, place, enableWeather)
-            },
-        ).show()
-    }
-
-    private fun setWeatherLocationSummary() {
-        lifecycleScope.launch {
-            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary =
-                if (usesDeviceLocation()) {
-                    getString(R.string.config_weather_location_device)
-                } else {
-                    DataRepository.loadLocationData(requireContext())?.place
-                }
-        }
+    override fun onResume() {
+        super.onResume()
+        weatherHandler.enforcePermission()
     }
 
     private fun birthdaySwitchCallback(isChecked: Boolean): Boolean {
@@ -294,8 +148,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             disableBirthday()
             return true
         }
-        if (isPermissionDenied(READ_CONTACTS)) {
-            askPermission(
+        if (permissionHandler.isPermissionDenied(READ_CONTACTS)) {
+            permissionHandler.askPermission(
                 READ_CONTACTS,
                 getString(R.string.config_contact_perm_alert_title),
                 getString(R.string.config_contact_perm_alert_message),
@@ -306,54 +160,6 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         }
         enableBirthday()
         return true
-    }
-
-    private fun askPermission(
-        permission: String,
-        title: String,
-        message: String,
-        onGranted: () -> Unit
-    ) {
-        onPermissionGranted = { if (isPermissionGranted(permission)) onGranted() }
-        if (shouldShowRequestPermissionRationale(permission)) {
-            showRationaleDialog(permission, title, message)
-        } else {
-            requestPermissionLauncher.launch(permission)
-        }
-    }
-
-    private fun isPermissionGranted(permission: String) =
-        ContextCompat.checkSelfPermission(requireContext(), permission) ==
-                PackageManager.PERMISSION_GRANTED
-
-    private fun isPermissionDenied(permission: String): Boolean =
-        !isPermissionGranted(permission)
-
-    private fun usesDeviceLocation() =
-        preferenceManager.sharedPreferences?.getString(
-            KEY_LOCATION_SOURCE_LIST, KEY_LOCATION_SOURCE_DEVICE
-        ) == KEY_LOCATION_SOURCE_DEVICE
-
-    private fun isWeatherEnabled() =
-        findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked == true
-
-    private fun enableWeather() {
-        WorkManagerHelper.enqueueOneTimeWork(
-            requireContext(),
-            action = UpdateAction.WEATHER_FETCH_THEN_REFRESH,
-            workPolicy = ExistingWorkPolicy.REPLACE
-        )
-        findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked = true
-    }
-
-    private fun disableWeather() {
-        lifecycleScope.launch {
-            DataRepository.deleteWeatherData(requireContext())
-            if (usesDeviceLocation()) {
-                DataRepository.deleteLocationData(requireContext())
-            }
-        }
-        findPreference<SwitchPreferenceCompat>(KEY_WEATHER_SWITCH)?.isChecked = false
     }
 
     private fun enableBirthday() {
@@ -432,7 +238,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         dialog: AlertDialog,
         locationData: LocationData
     ) {
-        startUrlActivity(
+        openUrl(
             URLBuilder(LOCATION_URL).apply {
                 parameters.append("mlat", locationData.lat.toString())
                 parameters.append("mlon", locationData.long.toString())
@@ -446,29 +252,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         dialog: AlertDialog,
         locationData: LocationData
     ) {
-        startUrlActivity(WeatherService.weatherUrl(locationData, "iso8601").toString())
+        openUrl(WeatherService.weatherUrl(locationData, "iso8601").toString())
         dialog.dismiss()
-    }
-
-    private fun startUrlActivity(url: String) {
-        startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
-    }
-
-    private fun showRationaleDialog(
-        permission: String,
-        title: String,
-        message: String
-    ) {
-        AlertDialog.Builder(requireContext())
-            .setMessage(message)
-            .setTitle(title)
-            .setCancelable(false)
-            .setPositiveButton(R.string.config_alert_button_ok) { dialog, _ ->
-                requestPermissionLauncher.launch(permission)
-                dialog.dismiss()
-            }
-            .setNegativeButton(R.string.config_alert_button_cancel, null)
-            .show()
     }
 
     private fun createDebugMessage(
@@ -490,50 +275,5 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
         }
-    }
-
-    private fun handleWeatherAppPreference() {
-        val installedApps = WeatherApp.entries.filter { app ->
-            AppLookup.isAppInstalled(requireContext(), app.packageName)
-        }
-        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
-        val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
-        val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
-
-        installedApps.forEach {
-            entries.add(getString(it.labelId))
-            entryValues.add(it.key)
-        }
-        entries.add(getString(R.string.config_weather_app_nil))
-        entryValues.add(KEY_NIL_WEATHER_APP)
-
-        listPreference?.entries = entries.toTypedArray()
-        listPreference?.entryValues = entryValues.toTypedArray()
-
-        val currentApp = listPreference?.value
-        val isCurrentAppInstalled = installedApps.any {
-            it.key == currentApp
-        }
-        if (!isCurrentAppInstalled) {
-            listPreference?.value = KEY_DEFAULT_WEATHER_APP
-        }
-        listPreference?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == KEY_NIL_WEATHER_APP) {
-                showUnlistedAppDialog()
-                return@setOnPreferenceChangeListener false
-            }
-            true
-        }
-    }
-
-    private fun showUnlistedAppDialog() {
-        AlertDialog.Builder(requireContext())
-            .setMessage(R.string.config_weather_app_nil_alert_message)
-            .setPositiveButton(R.string.config_weather_app_alert_button_github) { dialog, _ ->
-                startUrlActivity(ISSUE_TRACKER_URL)
-                dialog.dismiss()
-            }
-            .setNegativeButton(R.string.config_alert_button_cancel, null)
-            .show()
     }
 }

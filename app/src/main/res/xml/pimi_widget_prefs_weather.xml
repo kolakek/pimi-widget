@@ -1,0 +1,51 @@
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:key="weather_switch"
+        android:summary="@string/config_weather_attribution_open_meteo"
+        android:title="@string/config_weather_switch"
+        android:widgetLayout="@layout/preference_switch"
+        android:defaultValue="false"
+        app:iconSpaceReserved="false" />
+
+    <PreferenceCategory
+        android:key="category_weather"
+        android:selectable="false"
+        android:title="@string/config_section_weather"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <CheckBoxPreference
+            android:key="weather_warnings"
+            android:title="@string/config_weather_warnings"
+            android:summary="@string/config_weather_warnings_summary"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
+            android:key="daily_forecast"
+            android:title="@string/config_daily_forecast"
+            android:summary="@string/config_daily_forecast_summary"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="location_source_list"
+            android:title="@string/config_weather_location"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="weather_app_default"
+            android:entries="@array/weather_apps"
+            android:entryValues="@array/weather_apps_vals"
+            android:key="weather_app_list"
+            android:title="@string/config_weather_app"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

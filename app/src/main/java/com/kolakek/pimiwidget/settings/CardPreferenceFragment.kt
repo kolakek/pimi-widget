@@ -25,6 +25,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.core.view.updatePaddingRelative
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroupAdapter
 import androidx.preference.PreferenceViewHolder
@@ -92,6 +94,16 @@ abstract class CardPreferenceFragment : PreferenceFragmentCompat() {
             listView.updatePadding(bottom = bottomInset)
             insets
         }
+    }
+
+    protected fun openSubScreen(fragment: Fragment) {
+        val containerId = (requireView().parent as View).id
+        parentFragmentManager.beginTransaction()
+            .setReorderingAllowed(true)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .replace(containerId, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun RecyclerView.showScrollbarOnFirstDrag() {

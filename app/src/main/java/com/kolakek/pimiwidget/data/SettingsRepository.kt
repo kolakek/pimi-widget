@@ -203,7 +203,31 @@ object SettingsRepository {
                 .getString(KEY_WIDGET_STYLE_LIST, null)
         )
 
-    private fun isWeatherEnabled(context: Context): Boolean {
+    fun getWidgetColorPref(context: Context): WidgetColorPref =
+        WidgetColorPref.fromKey(
+            PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(KEY_WIDGET_COLOR_LIST, null)
+        )
+
+    fun getTextColorPref(context: Context): TextColorPref =
+        TextColorPref.fromKey(
+            PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(KEY_TEXT_COLOR_LIST, null)
+        )
+
+    fun getLocationSourcePref(context: Context): LocationSourcePref {
+        val key = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(KEY_LOCATION_SOURCE_LIST, null)
+        return LocationSourcePref.entries.find { it.key == key } ?: LocationSourcePref.DEVICE
+    }
+
+    fun setLocationSourcePref(context: Context, pref: LocationSourcePref) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(KEY_LOCATION_SOURCE_LIST, pref.key)
+        }
+    }
+
+    fun isWeatherEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_SWITCH, false)
     }
@@ -227,18 +251,6 @@ object SettingsRepository {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_ALARM_SWITCH, false)
     }
-
-    fun getWidgetColorPref(context: Context): WidgetColorPref =
-        WidgetColorPref.fromKey(
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(KEY_WIDGET_COLOR_LIST, null)
-        )
-
-    fun getTextColorPref(context: Context): TextColorPref =
-        TextColorPref.fromKey(
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(KEY_TEXT_COLOR_LIST, null)
-        )
 
     private fun getIconColorPref(context: Context): IconColorPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
@@ -309,12 +321,6 @@ object SettingsRepository {
     private fun showTempUnit(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_SHOW_TEMP_UNIT, true)
-    }
-
-    private fun getLocationSourcePref(context: Context): LocationSourcePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_LOCATION_SOURCE_LIST, null)
-        return LocationSourcePref.entries.find { it.key == key } ?: LocationSourcePref.DEVICE
     }
 
     private fun getBackgroundAlpha(context: Context): Int {
