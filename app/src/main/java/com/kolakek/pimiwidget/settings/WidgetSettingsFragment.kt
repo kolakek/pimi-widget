@@ -25,6 +25,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
+import androidx.preference.TwoStatePreference
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
@@ -59,7 +60,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
 
         val context = requireContext()
-        val weatherSwitch: PrimarySwitchPreference? = findPreference(KEY_WEATHER_SWITCH)
+        val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)

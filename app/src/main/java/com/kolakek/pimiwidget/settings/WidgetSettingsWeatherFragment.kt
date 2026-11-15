@@ -23,7 +23,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
-import androidx.preference.SwitchPreferenceCompat
+import androidx.preference.TwoStatePreference
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
@@ -48,7 +48,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
         val context = requireContext()
 
-        val weatherSwitch: SwitchPreferenceCompat? = findPreference(KEY_WEATHER_SWITCH)
+        val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
         val weatherLocationField: Preference? = findPreference(KEY_LOCATION_SOURCE_LIST)
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->

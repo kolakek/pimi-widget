@@ -2,13 +2,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <SwitchPreferenceCompat
+    <com.kolakek.pimiwidget.settings.MainSwitchPreference
         android:key="weather_switch"
-        android:summary="@string/config_weather_attribution_open_meteo"
-        android:title="@string/config_weather_switch"
-        android:widgetLayout="@layout/preference_switch"
-        android:defaultValue="false"
-        app:iconSpaceReserved="false" />
+        android:title="@string/config_weather_enable_switch"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="category_weather"

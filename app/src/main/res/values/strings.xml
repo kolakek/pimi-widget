@@ -46,6 +46,7 @@
     <string name="config_section_style">Style</string>
     <string name="config_color">Color</string>
     <string name="config_transparency">Transparency</string>
+    <string name="config_weather_enable_switch">Enable weather</string>
     <string name="config_icon_color_morning">Morning sun</string>
     <string name="config_icon_color_evening">Evening sun</string>
     <string name="config_option_auto">Automatic</string>

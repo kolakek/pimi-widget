@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/app_pref_card_margin"
+    android:layout_marginTop="16dp"
+    android:minHeight="72dp"
+    android:paddingStart="32dp"
+    android:paddingEnd="20dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/app_main_switch_background">
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/main_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:background="@null" />
+
+</LinearLayout>
