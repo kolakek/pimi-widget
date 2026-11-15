@@ -47,6 +47,10 @@
     <string name="config_color">Color</string>
     <string name="config_transparency">Transparency</string>
     <string name="config_weather_enable_switch">Enable weather</string>
+    <string name="config_weather_provider">Weather provider</string>
+    <string name="config_temp_unit">Temperature unit</string>
+    <string name="config_section_general">General</string>
+    <string name="config_section_display">Display</string>
     <string name="config_icon_color_morning">Morning sun</string>
     <string name="config_icon_color_evening">Evening sun</string>
     <string name="config_option_auto">Automatic</string>
@@ -55,7 +59,7 @@
     <string name="config_daily_forecast">Show daily forecast</string>
     <string name="config_daily_forecast_summary">In the morning and evening</string>
     <string name="config_weather_warnings">Show weather alerts</string>
-    <string name="config_weather_warnings_summary">For severe weather conditions within the hour</string>
+    <string name="config_weather_warnings_summary">For severe weather within the hour</string>
     <string name="config_loc_perm_alert_title">Location permission required</string>
     <string name="config_loc_perm_alert_message">To show the weather for your current area, this app requires access to your location.</string>
     <string name="config_bg_perm_alert_title">Background location permission</string>

@@ -8,9 +8,37 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
-        android:key="category_weather"
         android:selectable="false"
-        android:title="@string/config_section_weather"
+        android:title="@string/config_section_general"
+        app:iconSpaceReserved="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false">
+
+        <Preference
+            android:title="@string/config_weather_provider"
+            android:summary="@string/config_weather_attribution_open_meteo"
+            android:selectable="false"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="location_source_list"
+            android:title="@string/config_weather_location"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="weather_app_default"
+            android:entries="@array/weather_apps"
+            android:entryValues="@array/weather_apps_vals"
+            android:key="weather_app_list"
+            android:title="@string/config_weather_app"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:selectable="false"
+        android:title="@string/config_section_display"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
@@ -29,17 +57,12 @@
             android:defaultValue="true"
             app:iconSpaceReserved="false" />
 
-        <Preference
-            android:key="location_source_list"
-            android:title="@string/config_weather_location"
-            app:iconSpaceReserved="false" />
-
         <ListPreference
-            android:defaultValue="weather_app_default"
-            android:entries="@array/weather_apps"
-            android:entryValues="@array/weather_apps_vals"
-            android:key="weather_app_list"
-            android:title="@string/config_weather_app"
+            android:defaultValue="temp_unit_auto"
+            android:entries="@array/temp_units"
+            android:entryValues="@array/temp_units_vals"
+            android:key="temp_list"
+            android:title="@string/config_temp_unit"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
