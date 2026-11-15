@@ -22,13 +22,25 @@ import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import androidx.preference.ListPreference
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
+import com.kolakek.pimiwidget.data.TempUnitPref
 
 class AppSettingsFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_title_settings
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_app_prefs, rootKey)
+
+        val tempUnitList: ListPreference? = findPreference(KEY_TEMP_UNIT_LIST)
+
+        tempUnitList?.setOptions(
+            options = TempUnitPref.entries,
+            default = TempUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

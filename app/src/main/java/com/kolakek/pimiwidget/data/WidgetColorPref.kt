@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.data
 
+import android.content.SharedPreferences
 import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
@@ -29,5 +30,8 @@ enum class WidgetColorPref(val key: String, @StringRes val labelRes: Int) {
     companion object {
         val DEFAULT = DYNAMIC
         fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_WIDGET_COLOR_LIST, null)
+        )
     }
 }

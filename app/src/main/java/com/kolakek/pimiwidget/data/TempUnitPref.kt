@@ -17,8 +17,23 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class TempUnitPref(val key: String) {
-    AUTO(KEY_TEMP_UNIT_AUTO),
-    CELSIUS(KEY_TEMP_UNIT_CELSIUS),
-    FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import androidx.core.content.edit
+import com.kolakek.pimiwidget.R
+
+enum class TempUnitPref(val key: String, @StringRes val labelRes: Int) {
+    AUTO(KEY_TEMP_UNIT_AUTO, R.string.config_option_follow_system),
+    CELSIUS(KEY_TEMP_UNIT_CELSIUS, R.string.config_temp_celsius),
+    FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT, R.string.config_temp_fahrenheit);
+
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_TEMP_UNIT_LIST, key) }
+
+    companion object {
+        val DEFAULT = CELSIUS
+        fun fromKey(key: String?) = entries.find { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_TEMP_UNIT_LIST, null)
+        )
+    }
 }

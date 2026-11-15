@@ -17,7 +17,9 @@
 
 package com.kolakek.pimiwidget.data
 
+import android.content.SharedPreferences
 import androidx.annotation.StringRes
+import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class TextColorPref(val key: String, @StringRes val labelRes: Int) {
@@ -25,8 +27,13 @@ enum class TextColorPref(val key: String, @StringRes val labelRes: Int) {
     LIGHT(KEY_TEXT_COLOR_LIGHT, R.string.config_color_light),
     DARK(KEY_TEXT_COLOR_DARK, R.string.config_color_dark);
 
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_TEXT_COLOR_LIST, key) }
+
     companion object {
         val DEFAULT = AUTO
         fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_TEXT_COLOR_LIST, null)
+        )
     }
 }

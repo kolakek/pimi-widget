@@ -30,8 +30,10 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_DEFAULT_WEATHER_APP
 import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_LIST
 import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
+import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
+import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.utility.WeatherApp
 import com.kolakek.pimiwidget.widget.openUrl
@@ -50,6 +52,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
         val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
         val weatherLocationField: Preference? = findPreference(KEY_LOCATION_SOURCE_LIST)
+        val tempUnitList: ListPreference? = findPreference(KEY_TEMP_UNIT_LIST)
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -63,6 +66,12 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
                 canShowLocationDialog = true
             )
         }
+        tempUnitList?.setOptions(
+            options = TempUnitPref.entries,
+            default = TempUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
         weatherLocationField?.setOnPreferenceClickListener {
             weatherHandler.selectWeatherLocation()
             true

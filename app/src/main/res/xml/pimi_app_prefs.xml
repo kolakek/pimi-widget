@@ -12,9 +12,6 @@
 
         <ListPreference
             android:key="temp_list"
-            android:entries="@array/temp_units"
-            android:entryValues="@array/temp_units_vals"
-            android:defaultValue="temp_unit_auto"
             android:title="@string/config_temp"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />

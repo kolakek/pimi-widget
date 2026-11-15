@@ -161,17 +161,11 @@ object SettingsRepository {
         }
     }
 
-    fun setTempUnitPref(context: Context, pref: TempUnitPref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_TEMP_UNIT_LIST, pref.key)
-        }
-    }
+    fun setTempUnitPref(context: Context, pref: TempUnitPref) =
+        pref.save(prefs(context))
 
-    fun setTextColorPref(context: Context, pref: TextColorPref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_TEXT_COLOR_LIST, pref.key)
-        }
-    }
+    fun setTextColorPref(context: Context, pref: TextColorPref) =
+        pref.save(prefs(context))
 
     fun setIconColorPref(context: Context, pref: IconColorPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
@@ -179,11 +173,11 @@ object SettingsRepository {
         }
     }
 
-    fun setWidgetStylePref(context: Context, pref: WidgetStylePref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_WIDGET_STYLE_LIST, pref.key)
-        }
-    }
+    fun getWidgetStylePref(context: Context): WidgetStylePref =
+        WidgetStylePref.fromPrefs(prefs(context))
+
+    fun setWidgetStylePref(context: Context, pref: WidgetStylePref) =
+        pref.save(prefs(context))
 
     fun setAuxDisplayPref(context: Context, pref: AuxDisplayPref) {
         PreferenceManager.getDefaultSharedPreferences(context).edit {
@@ -197,23 +191,11 @@ object SettingsRepository {
         }
     }
 
-    fun getWidgetStylePref(context: Context): WidgetStylePref =
-        WidgetStylePref.fromKey(
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(KEY_WIDGET_STYLE_LIST, null)
-        )
-
     fun getWidgetColorPref(context: Context): WidgetColorPref =
-        WidgetColorPref.fromKey(
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(KEY_WIDGET_COLOR_LIST, null)
-        )
+        WidgetColorPref.fromPrefs(prefs(context))
 
     fun getTextColorPref(context: Context): TextColorPref =
-        TextColorPref.fromKey(
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(KEY_TEXT_COLOR_LIST, null)
-        )
+        TextColorPref.fromPrefs(prefs(context))
 
     fun getLocationSourcePref(context: Context): LocationSourcePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
@@ -272,11 +254,8 @@ object SettingsRepository {
             ?: AppIconStylePref.FLAT_SKETCH
     }
 
-    private fun getTempUnitPref(context: Context): TempUnitPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_TEMP_UNIT_LIST, null)
-        return TempUnitPref.entries.find { it.key == key } ?: TempUnitPref.AUTO
-    }
+    private fun getTempUnitPref(context: Context) =
+        TempUnitPref.fromPrefs(prefs(context))
 
     private fun getRainUnitPref(context: Context): RainUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
@@ -428,4 +407,6 @@ object SettingsRepository {
         val mode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return mode == Configuration.UI_MODE_NIGHT_YES
     }
+
+    private fun prefs(context: Context) = PreferenceManager.getDefaultSharedPreferences(context)
 }

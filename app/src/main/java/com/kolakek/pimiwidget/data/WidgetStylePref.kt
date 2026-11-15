@@ -17,7 +17,9 @@
 
 package com.kolakek.pimiwidget.data
 
+import android.content.SharedPreferences
 import androidx.annotation.StringRes
+import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class WidgetStylePref(val key: String, @StringRes val labelRes: Int) {
@@ -25,8 +27,13 @@ enum class WidgetStylePref(val key: String, @StringRes val labelRes: Int) {
     MODERN(KEY_WIDGET_STYLE_MODERN, R.string.config_widget_style_modern),
     SOLID(KEY_WIDGET_STYLE_SOLID, R.string.config_widget_style_solid);
 
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_WIDGET_STYLE_LIST, key) }
+
     companion object {
         val DEFAULT = SOLID
         fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_WIDGET_STYLE_LIST, null)
+        )
     }
 }
