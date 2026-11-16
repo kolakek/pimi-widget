@@ -23,7 +23,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.data.AuxDisplayPref
-import com.kolakek.pimiwidget.data.IconColorPref
+import com.kolakek.pimiwidget.data.WidgetIconColorPref
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.data.TextColorPref
@@ -45,9 +45,9 @@ object MigrateApp {
                 context,
                 TextColorPref.AUTO
             )
-            SettingsRepository.setIconColorPref(
+            SettingsRepository.setWidgetIconColorPref(
                 context,
-                IconColorPref.AUTO
+                WidgetIconColorPref.AUTO
             )
             SettingsRepository.setWidgetStylePref(
                 context,

@@ -1,0 +1,26 @@
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.kolakek.pimiwidget.settings.IconPreviewPreference
+        app:key="preview_icon" />
+
+    <PreferenceCategory
+        android:key="category_icon_style"
+        android:title="@string/config_section_style"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_icon_color"
+        android:title="@string/config_section_color"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false">
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

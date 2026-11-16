@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Pesquisar no Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Rio de Janeiro, Brasil</string>
     <string name="config_text_color">Cor do texto</string>
-    <string name="config_icon_color">Cor do ícone</string>
     <string name="config_icon_style">Estilo de ícones</string>
     <string name="config_color_light">Claro</string>
     <string name="config_color_dark">Escuro</string>

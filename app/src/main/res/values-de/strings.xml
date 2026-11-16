@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Mit Open-Meteo suchen</string>
     <string name="config_fixed_location_search_placeholder">Berlin, Deutschland</string>
     <string name="config_text_color">Textfarbe</string>
-    <string name="config_icon_color">Symbolfarbe</string>
     <string name="config_icon_style">Symbolstil</string>
     <string name="config_color_light">Hell</string>
     <string name="config_color_dark">Dunkel</string>

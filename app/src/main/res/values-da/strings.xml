@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Søg med Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">København, Danmark</string>
     <string name="config_text_color">Tekstfarve</string>
-    <string name="config_icon_color">Ikonfarve</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Lys</string>
     <string name="config_color_dark">Mørk</string>

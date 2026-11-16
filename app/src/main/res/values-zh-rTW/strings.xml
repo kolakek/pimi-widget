@@ -37,7 +37,6 @@
     <string name="config_fixed_location_search_placeholder">新北市，台灣</string>
     <string name="config_icon_style">圖示主題</string>
     <string name="config_text_color">文字色彩</string>
-    <string name="config_icon_color">圖示顏色</string>
     <string name="config_color_light">淺色</string>
     <string name="config_color_dark">深色</string>
     <string name="config_icon_color_morning">黎明</string>

@@ -48,14 +48,10 @@
             android:title="@string/config_widget_style"
             app:iconSpaceReserved="false" />
 
-        <ListPreference
-            android:defaultValue="icon_style_filled"
-            android:entries="@array/icon_styles"
-            android:entryValues="@array/icon_styles_vals"
-            android:key="icon_style_list"
+        <Preference
+            android:key="widget_icon_style"
             android:title="@string/config_icon_style"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 

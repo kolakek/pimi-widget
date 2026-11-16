@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Cerca con Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Roma, Italia</string>
     <string name="config_text_color">Colore del testo</string>
-    <string name="config_icon_color">Colore dell’icona</string>
     <string name="config_icon_style">Stile icone</string>
     <string name="config_color_light">Chiaro</string>
     <string name="config_color_dark">Scuro</string>

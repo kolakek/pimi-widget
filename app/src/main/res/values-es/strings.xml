@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Buscar con Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Madrid, España</string>
     <string name="config_text_color">Color del texto</string>
-    <string name="config_icon_color">Color del icono</string>
     <string name="config_icon_style">Estilo de iconos</string>
     <string name="config_color_light">Claro</string>
     <string name="config_color_dark">Oscuro</string>

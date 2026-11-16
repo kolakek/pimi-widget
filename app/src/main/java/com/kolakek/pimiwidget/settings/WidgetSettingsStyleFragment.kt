@@ -26,7 +26,6 @@ import com.kolakek.pimiwidget.data.AuxDisplayPref
 import com.kolakek.pimiwidget.data.KEY_TEXT_COLOR_LIST
 import com.kolakek.pimiwidget.data.KEY_WIDGET_COLOR_LIST
 import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
-import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_PREV
 import com.kolakek.pimiwidget.data.KEY_WIDGET_TRANSPARENCY
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TextColorPref

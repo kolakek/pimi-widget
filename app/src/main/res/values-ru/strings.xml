@@ -38,7 +38,6 @@
     <string name="config_fixed_location_search_placeholder">Москва, Россия</string>
     <string name="config_icon_style">Стиль значка</string>
     <string name="config_text_color">Цвет текста</string>
-    <string name="config_icon_color">Цвет значка</string>
     <string name="config_color_light">Светлый</string>
     <string name="config_color_dark">Темный</string>
     <string name="config_icon_color_morning">Утреннее солнце</string>

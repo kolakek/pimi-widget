@@ -33,16 +33,13 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_ALARM_SWITCH
 import com.kolakek.pimiwidget.data.KEY_BIRTHDAY_SWITCH
-import com.kolakek.pimiwidget.data.KEY_SOURCE_CODE
-import com.kolakek.pimiwidget.data.KEY_VERSION_FIELD
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
-import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE
 import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.WidgetStylePref
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.BirthdayUpdater
-import com.kolakek.pimiwidget.widget.openUrl
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -66,6 +63,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
         val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
         val widgetStyleField: Preference? = findPreference(KEY_WIDGET_STYLE)
+        val iconStyleField: Preference? = findPreference(KEY_WIDGET_ICON_STYLE)
 
         var debugCount = 0
 
@@ -78,9 +76,16 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             openSubScreen(WidgetSettingsStyleFragment())
             true
         }
+        iconStyleField?.summaryProvider = Preference.SummaryProvider<Preference> {
+            getString(SettingsRepository.getWidgetIconStylePref(context).labelRes)
+        }
         widgetStyleField?.summaryProvider = Preference.SummaryProvider<Preference> { pref ->
             val stored = pref.sharedPreferences?.getString(KEY_WIDGET_STYLE_LIST, null)
             getString(WidgetStylePref.fromKey(stored).labelRes)
+        }
+        iconStyleField?.setOnPreferenceClickListener {
+            openSubScreen(WidgetSettingsIconFragment())
+            true
         }
         versionField?.setOnPreferenceClickListener {
             if (debugCount == 2) {

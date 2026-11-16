@@ -14,6 +14,19 @@
         <item name="android:colorBackground">?attr/colorSurfaceBright</item>
     </style>
 
+    <style name="Config.IconPreview.Row" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Config.IconPreview.Icon" parent="">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
     <style name="App.SectionTitle" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

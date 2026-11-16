@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preview_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp"
+    android:minHeight="120dp"
+    android:padding="12dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription">
+
+    <LinearLayout style="@style/Config.IconPreview.Row">
+        <ImageView android:id="@+id/icon_1" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_2" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_3" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_4" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_5" style="@style/Config.IconPreview.Icon" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Config.IconPreview.Row">
+        <ImageView android:id="@+id/icon_6" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_7" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_8" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_9" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_10" style="@style/Config.IconPreview.Icon" />
+        <ImageView android:id="@+id/icon_11" style="@style/Config.IconPreview.Icon" />
+    </LinearLayout>
+
+</LinearLayout>

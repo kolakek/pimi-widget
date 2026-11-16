@@ -17,7 +17,6 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.app.WallpaperManager
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -54,10 +53,7 @@ class WidgetPreviewPreference(context: Context, attrs: AttributeSet?) : Preferen
         val inflater = LayoutInflater.from(context)
         val container = binding.previewContainer
 
-        val wallpaperColor = WallpaperManager
-            .getInstance(context)
-            .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)?.primaryColor?.toArgb()
-        wallpaperColor?.let { container.setBackgroundColor(it) }
+        context.wallpaperColor()?.let { container.setBackgroundColor(it) }
 
         container.removeAllViews()
 

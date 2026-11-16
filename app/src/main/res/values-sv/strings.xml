@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Sök med Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Stockholm, Sverige</string>
     <string name="config_text_color">Textfärg</string>
-    <string name="config_icon_color">Ikonfärg</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Ljus</string>
     <string name="config_color_dark">Mörk</string>

@@ -65,7 +65,7 @@ object SettingsRepository {
     fun loadWidgetSettings(context: Context): WidgetSettings {
         val widgetColorPref = getWidgetColorPref(context)
         val textColorPref = getTextColorPref(context)
-        val iconColorPref = getIconColorPref(context)
+        val iconColorPref = getWidgetIconColorPref(context)
         val iconStylePref = getWidgetIconStylePref(context)
         val widgetStylePref = getWidgetStylePref(context)
         val tempUnitPref = getTempUnitPref(context)
@@ -91,9 +91,9 @@ object SettingsRepository {
             TextColorPref.LIGHT -> TextColor.LIGHT
         }
         val iconColor = when (iconColorPref) {
-            IconColorPref.LIGHT -> IconColor.LIGHT
-            IconColorPref.DARK -> IconColor.DARK
-            IconColorPref.AUTO -> when (widgetStylePref) {
+            WidgetIconColorPref.LIGHT -> IconColor.LIGHT
+            WidgetIconColorPref.DARK -> IconColor.DARK
+            WidgetIconColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.SOLID -> IconColor.LIGHT
                 else -> if (textColor == TextColor.DARK) IconColor.DARK else IconColor.LIGHT
             }
@@ -166,11 +166,17 @@ object SettingsRepository {
     fun setTextColorPref(context: Context, pref: TextColorPref) =
         pref.save(prefs(context))
 
-    fun setIconColorPref(context: Context, pref: IconColorPref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_ICON_COLOR_LIST, pref.key)
-        }
-    }
+    fun getWidgetIconStylePref(context: Context): WidgetIconStylePref =
+        WidgetIconStylePref.fromPrefs(prefs(context))
+
+    fun setWidgetIconStylePref(context: Context, pref: WidgetIconStylePref) =
+        pref.save(prefs(context))
+
+    fun getWidgetIconColorPref(context: Context): WidgetIconColorPref =
+        WidgetIconColorPref.fromPrefs(prefs(context))
+
+    fun setWidgetIconColorPref(context: Context, pref: WidgetIconColorPref) =
+        pref.save(prefs(context))
 
     fun getWidgetStylePref(context: Context): WidgetStylePref =
         WidgetStylePref.fromPrefs(prefs(context))
@@ -231,19 +237,6 @@ object SettingsRepository {
     private fun isAlarmEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_ALARM_SWITCH, false)
-    }
-
-    private fun getIconColorPref(context: Context): IconColorPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_ICON_COLOR_LIST, null)
-        return IconColorPref.entries.find { it.key == key } ?: IconColorPref.AUTO
-    }
-
-    private fun getWidgetIconStylePref(context: Context): WidgetIconStylePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WIDGET_ICON_STYLE_LIST, null)
-        return WidgetIconStylePref.entries.find { it.key == key }
-            ?: WidgetIconStylePref.TWINKLE_SHADOW
     }
 
     private fun getAppIconStylePref(context: Context): AppIconStylePref {

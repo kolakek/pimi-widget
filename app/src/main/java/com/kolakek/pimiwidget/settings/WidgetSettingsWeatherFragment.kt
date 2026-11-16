@@ -36,7 +36,6 @@ import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.data.WeatherApp
-import com.kolakek.pimiwidget.widget.openUrl
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
 

@@ -15,8 +15,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.widget
+package com.kolakek.pimiwidget.settings
 
+import android.app.WallpaperManager
+import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
@@ -24,3 +26,6 @@ import androidx.fragment.app.Fragment
 fun Fragment.openUrl(url: String) {
     startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
 }
+
+fun Context.wallpaperColor(): Int? = WallpaperManager.getInstance(this)
+    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)?.primaryColor?.toArgb()

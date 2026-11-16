@@ -21,3 +21,15 @@ internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val ISSUE_TRACKER_URL = "https://github.com/kolakek/pimi-widget/issues"
 internal const val LOCATION_URL = "https://www.openstreetmap.org"
 internal const val LOCATION_URL_ZOOM = 13
+
+internal const val KEY_WIDGET_STYLE = "widget_style"
+internal const val KEY_WIDGET_STYLE_PREV = "widget_style_preview"
+internal const val KEY_WIDGET_ICON_STYLE = "widget_icon_style"
+
+internal const val KEY_VERSION_FIELD = "build_number"
+internal const val KEY_SOURCE_CODE = "source_code"
+
+internal const val KEY_PREVIEW_ICON = "preview_icon"
+
+internal const val KEY_CATEGORY_ICON_STYLE = "category_icon_style"
+internal const val KEY_CATEGORY_ICON_COLOR = "category_icon_color"

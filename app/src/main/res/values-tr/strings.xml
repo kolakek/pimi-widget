@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Open-Meteo ile ara</string>
     <string name="config_fixed_location_search_placeholder">İstanbul, Türkiye</string>
     <string name="config_text_color">Metin rengi</string>
-    <string name="config_icon_color">Simge rengi</string>
     <string name="config_icon_style">Simge stili</string>
     <string name="config_color_light">Açık</string>
     <string name="config_color_dark">Koyu</string>

@@ -38,13 +38,12 @@
     <string name="config_fixed_location_search_placeholder">New York, United States</string>
     <string name="config_icon_style">Icon style</string>
     <string name="config_text_color">Text color</string>
-    <string name="config_icon_color">Icon color</string>
     <string name="config_color_light">Light</string>
     <string name="config_color_dark">Dark</string>
     <string name="config_color_dynamic">Dynamic</string>
     <string name="config_color_system">System</string>
     <string name="config_section_style">Style</string>
-    <string name="config_color">Color</string>
+    <string name="config_section_color">Color</string>
     <string name="config_transparency">Transparency</string>
     <string name="config_weather_enable_switch">Enable weather</string>
     <string name="config_weather_provider">Weather provider</string>

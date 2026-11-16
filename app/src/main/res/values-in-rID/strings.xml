@@ -38,7 +38,6 @@
     <string name="config_fixed_location_search_placeholder">Jakarta, Indonesia</string>
     <string name="config_icon_style">Gaya ikon</string>
     <string name="config_text_color">Warna teks</string>
-    <string name="config_icon_color">Warna ikon</string>
     <string name="config_color_light">Terang</string>
     <string name="config_color_dark">Gelap</string>
     <string name="config_icon_color_morning">Matahari pagi</string>

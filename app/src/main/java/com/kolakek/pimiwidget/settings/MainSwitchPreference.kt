@@ -24,8 +24,11 @@ import androidx.preference.TwoStatePreference
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.PreferenceMainSwitchBinding
 
-class MainSwitchPreference(context: Context, attrs: AttributeSet?) : TwoStatePreference(context, attrs) {
-    init { layoutResource = R.layout.preference_main_switch }
+class MainSwitchPreference(context: Context, attrs: AttributeSet?) :
+    TwoStatePreference(context, attrs) {
+    init {
+        layoutResource = R.layout.preference_main_switch
+    }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)

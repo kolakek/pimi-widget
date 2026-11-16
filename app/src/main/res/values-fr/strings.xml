@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Rechercher avec Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Paris, France</string>
     <string name="config_text_color">Couleur du texte</string>
-    <string name="config_icon_color">Couleur de l’icône</string>
     <string name="config_icon_style">Style des icônes</string>
     <string name="config_color_light">Clair</string>
     <string name="config_color_dark">Sombre</string>

@@ -34,7 +34,6 @@
     <string name="config_fixed_location_search_open_meteo">Kërko me Open-Meteo</string>
     <string name="config_fixed_location_search_placeholder">Tiranë, Shqipëri</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
-    <string name="config_icon_color">Ngjyra e ikonës</string>
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>
     <string name="config_color_dark">E errët</string>

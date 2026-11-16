@@ -28,7 +28,7 @@
 
         <ListPreference
             android:key="widget_color_list"
-            android:title="@string/config_color"
+            android:title="@string/config_section_color"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="true" />
 
