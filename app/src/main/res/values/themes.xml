@@ -3,6 +3,15 @@
     <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <item name="alertDialogTheme">@style/Config.MaterialDialogAlert</item>
         <item name="android:windowBackground">?attr/colorSurfaceContainer</item>
+        <item name="android:textAppearanceListItem">@style/TextAppearance.Material3.BodyLarge</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="preferenceCategoryTitleTextColor">?attr/colorPrimary</item>
+        <item name="materialSwitchStyle">@style/Widget.PimiWidget.Switch</item>
+        <item name="homeAsUpIndicator">@drawable/app_back_button</item>
+    </style>
+
+    <style name="Widget.PimiWidget.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbIcon">@drawable/app_switch_thumb_icon</item>
     </style>
 
 </resources>

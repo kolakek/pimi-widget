@@ -19,7 +19,7 @@ package com.kolakek.pimiwidget.widget
 
 import com.kolakek.pimiwidget.data.IconColor
 import com.kolakek.pimiwidget.location.LocationSource
-import com.kolakek.pimiwidget.utility.WeatherApp
+import com.kolakek.pimiwidget.data.WeatherApp
 import com.kolakek.pimiwidget.data.AuxDisplay
 import com.kolakek.pimiwidget.data.IconStyle
 import com.kolakek.pimiwidget.data.TempUnit

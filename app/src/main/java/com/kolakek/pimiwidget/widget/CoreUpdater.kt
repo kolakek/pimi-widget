@@ -24,7 +24,7 @@ import android.text.format.DateFormat
 import android.widget.RemoteViews
 import androidx.annotation.ColorRes
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.utility.WeatherApp
+import com.kolakek.pimiwidget.data.WeatherApp
 import java.util.Locale
 
 object CoreUpdater {

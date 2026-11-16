@@ -15,8 +15,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.kolakek.pimiwidget.utility
+package com.kolakek.pimiwidget.data
 
+import android.content.SharedPreferences
 import com.kolakek.pimiwidget.R
 
 enum class WeatherApp(val key: String, val packageName: String, val labelId: Int) {
@@ -164,5 +165,13 @@ enum class WeatherApp(val key: String, val packageName: String, val labelId: Int
         "weather_app_yr",
         "no.nrk.yr",
         R.string.config_weather_app_yr
-    )
+    );
+
+    companion object {
+        val DEFAULT = PIMI
+        fun fromKey(key: String?) = entries.find { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_WEATHER_APP_LIST, null)
+        )
+    }
 }

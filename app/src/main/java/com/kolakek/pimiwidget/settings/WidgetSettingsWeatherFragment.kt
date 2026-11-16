@@ -35,7 +35,7 @@ import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
-import com.kolakek.pimiwidget.utility.WeatherApp
+import com.kolakek.pimiwidget.data.WeatherApp
 import com.kolakek.pimiwidget.widget.openUrl
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
@@ -104,7 +104,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
     private fun handleWeatherAppPreference() {
         val installedApps = WeatherApp.entries.filter { app ->
-            AppLookup.isAppInstalled(requireContext(), app.packageName)
+            app == WeatherApp.PIMI || AppLookup.isAppInstalled(requireContext(), app.packageName)
         }
         val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
         val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()

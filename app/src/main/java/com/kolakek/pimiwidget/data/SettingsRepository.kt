@@ -27,7 +27,6 @@ import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.ui.AppSettings
 import com.kolakek.pimiwidget.widget.WidgetSettings
-import com.kolakek.pimiwidget.utility.WeatherApp
 
 object SettingsRepository {
 
@@ -308,11 +307,8 @@ object SettingsRepository {
         return (100 - transparency) * 255 / 100
     }
 
-    private fun getWeatherApp(context: Context): WeatherApp {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WEATHER_APP_LIST, null)
-        return WeatherApp.entries.find { it.key == key } ?: WeatherApp.PIMI
-    }
+    private fun getWeatherApp(context: Context): WeatherApp =
+        WeatherApp.fromPrefs(prefs(context))
 
     private fun getTextColorForWallpaper(context: Context): TextColor {
         val needsLightText = WallpaperManager

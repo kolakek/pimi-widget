@@ -1,8 +1,0 @@
-<resources>
-
-    <style name="Theme.PimiWidget" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
-        <item name="alertDialogTheme">@style/Config.MaterialDialogAlert</item>
-        <item name="android:windowBackground">?attr/colorSurfaceContainer</item>
-    </style>
-
-</resources>
