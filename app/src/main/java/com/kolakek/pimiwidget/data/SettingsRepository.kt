@@ -163,6 +163,15 @@ object SettingsRepository {
     fun setTempUnitPref(context: Context, pref: TempUnitPref) =
         pref.save(prefs(context))
 
+    fun getWidgetColorPref(context: Context): WidgetColorPref =
+        WidgetColorPref.fromPrefs(prefs(context))
+
+    fun setWidgetColorPref(context: Context, pref: WidgetColorPref) =
+        pref.save(prefs(context))
+
+    fun getTextColorPref(context: Context): TextColorPref =
+        TextColorPref.fromPrefs(prefs(context))
+
     fun setTextColorPref(context: Context, pref: TextColorPref) =
         pref.save(prefs(context))
 
@@ -195,12 +204,6 @@ object SettingsRepository {
             putBoolean(KEY_LOCATION_FALLBACK, pref)
         }
     }
-
-    fun getWidgetColorPref(context: Context): WidgetColorPref =
-        WidgetColorPref.fromPrefs(prefs(context))
-
-    fun getTextColorPref(context: Context): TextColorPref =
-        TextColorPref.fromPrefs(prefs(context))
 
     fun getLocationSourcePref(context: Context): LocationSourcePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)

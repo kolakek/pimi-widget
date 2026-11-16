@@ -18,14 +18,9 @@
 package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
-import androidx.core.content.edit
-import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.AuxDisplayPref
-import com.kolakek.pimiwidget.data.KEY_TEXT_COLOR_LIST
-import com.kolakek.pimiwidget.data.KEY_WIDGET_COLOR_LIST
-import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
 import com.kolakek.pimiwidget.data.KEY_WIDGET_TRANSPARENCY
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TextColorPref
@@ -38,48 +33,51 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_style, rootKey)
 
-        val prefs = preferenceManager.sharedPreferences ?: return
+        val context = requireContext()
 
-        val previewPreference = findPreference<WidgetPreviewPreference>(KEY_WIDGET_STYLE_PREV)
-        val styleCategory = findPreference<PreferenceCategory>(KEY_WIDGET_STYLE_LIST)
-        val widgetColorList = findPreference<ListPreference>(KEY_WIDGET_COLOR_LIST)
-        val textColorList = findPreference<ListPreference>(KEY_TEXT_COLOR_LIST)
-        val transparencySlider = findPreference<SliderPreference>(KEY_WIDGET_TRANSPARENCY)
+        val previewPreference: WidgetPreviewPreference? = findPreference(KEY_PREVIEW_WIDGET)
+        val styleCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_WIDGET_STYLE)
+        val textColorCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_TEXT_COLOR)
+        val widgetColorCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_WIDGET_COLOR)
+
+        val transparencySlider: SliderPreference? = findPreference(KEY_WIDGET_TRANSPARENCY)
 
         styleCategory?.addRadioGroup(
             options = WidgetStylePref.entries,
-            current = WidgetStylePref.fromKey(prefs.getString(KEY_WIDGET_STYLE_LIST, null)),
+            current = SettingsRepository.getWidgetStylePref(context),
             keyOf = { it.key },
             labelOf = { it.labelRes }
         ) { style ->
-            prefs.edit { putString(KEY_WIDGET_STYLE_LIST, style.key) }
+            SettingsRepository.setWidgetStylePref(context, style)
             matchWidgetSettings(style)
-            handleVisibility(style,widgetColorList,textColorList,transparencySlider)
+            handleVisibility(style, widgetColorCategory, textColorCategory, transparencySlider)
             previewPreference?.refresh()
         }
-        textColorList?.setOptions(
+        textColorCategory?.addRadioGroup(
             options = TextColorPref.entries,
-            default = TextColorPref.DEFAULT,
+            current = SettingsRepository.getTextColorPref(context),
             keyOf = { it.key },
             labelOf = { it.labelRes }
-        ) {
+        ) { color ->
+            SettingsRepository.setTextColorPref(context, color)
             previewPreference?.refresh()
         }
-        widgetColorList?.setOptions(
+        widgetColorCategory?.addRadioGroup(
             options = WidgetColorPref.entries,
-            default = WidgetColorPref.DEFAULT,
+            current = SettingsRepository.getWidgetColorPref(context),
             keyOf = { it.key },
             labelOf = { it.labelRes }
-        ) {
+        ) { color ->
+            SettingsRepository.setWidgetColorPref(context, color)
             previewPreference?.refresh()
         }
         transparencySlider?.onValueChange = {
             previewPreference?.refresh()
         }
         handleVisibility(
-            WidgetStylePref.fromKey(prefs.getString(KEY_WIDGET_STYLE_LIST, null)),
-            widgetColorList,
-            textColorList,
+            SettingsRepository.getWidgetStylePref(context),
+            widgetColorCategory,
+            textColorCategory,
             transparencySlider
         )
     }
@@ -100,20 +98,20 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
 
     private fun handleVisibility(
         widgetStylePref: WidgetStylePref,
-        widgetColorList: ListPreference?,
-        textColorList: ListPreference?,
+        widgetColorCategory: PreferenceCategory?,
+        textColorCategory: PreferenceCategory?,
         transparencySlider: SliderPreference?
     ) {
         when (widgetStylePref) {
             WidgetStylePref.SOLID -> {
-                textColorList?.isVisible = false
-                widgetColorList?.isVisible = true
+                textColorCategory?.isVisible = false
+                widgetColorCategory?.isVisible = true
                 transparencySlider?.isVisible = true
             }
 
             WidgetStylePref.CLASSIC, WidgetStylePref.MODERN -> {
-                textColorList?.isVisible = true
-                widgetColorList?.isVisible = false
+                textColorCategory?.isVisible = true
+                widgetColorCategory?.isVisible = false
                 transparencySlider?.isVisible = false
             }
         }

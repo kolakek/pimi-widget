@@ -32,11 +32,6 @@ internal const val KEY_WEATHER_APP_LIST = "weather_app_list"
 internal const val KEY_DEFAULT_WEATHER_APP = "weather_app_default"
 internal const val KEY_NIL_WEATHER_APP = "weather_app_nil"
 
-internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
-internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
-internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"
-internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
-
 internal const val KEY_TEMP_UNIT_LIST = "temp_list"
 internal const val KEY_TEMP_UNIT_AUTO = "temp_unit_auto"
 internal const val KEY_TEMP_UNIT_CELSIUS = "temp_unit_celsius"
@@ -76,6 +71,11 @@ internal const val KEY_WIDGET_COLOR_DYNAMIC = "widget_color_dynamic"
 internal const val KEY_WIDGET_COLOR_SYSTEM = "widget_color_system"
 internal const val KEY_WIDGET_COLOR_LIGHT = "widget_color_light"
 internal const val KEY_WIDGET_COLOR_DARK = "widget_color_dark"
+
+internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
+internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
+internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"
+internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
 
 internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"

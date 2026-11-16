@@ -28,7 +28,6 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_DEFAULT_WEATHER_APP
-import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_LIST
 import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
 import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
@@ -50,7 +49,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         val context = requireContext()
 
         val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
-        val weatherLocationField: Preference? = findPreference(KEY_LOCATION_SOURCE_LIST)
+        val locationField: Preference? = findPreference(KEY_FIELD_LOCATION_SOURCE)
         val tempUnitList: ListPreference? = findPreference(KEY_TEMP_UNIT_LIST)
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
@@ -71,11 +70,11 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
             keyOf = { it.key },
             labelOf = { it.labelRes }
         )
-        weatherLocationField?.setOnPreferenceClickListener {
+        locationField?.setOnPreferenceClickListener {
             weatherHandler.selectWeatherLocation()
             true
         }
-        setWeatherLocationSummary()
+        setWeatherLocationSummary(locationField)
         handleWeatherAppPreference()
     }
 
@@ -89,10 +88,10 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         weatherHandler.enforcePermission()
     }
 
-    private fun setWeatherLocationSummary() {
+    private fun setWeatherLocationSummary(locationField: Preference?) {
         val context = requireContext()
         lifecycleScope.launch {
-            findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary =
+            locationField?.summary =
                 if (weatherHandler.usesDeviceLocation()) {
                     getString(R.string.config_weather_location_device)
                 } else {

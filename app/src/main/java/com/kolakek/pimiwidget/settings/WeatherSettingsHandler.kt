@@ -26,7 +26,6 @@ import androidx.preference.TwoStatePreference
 import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
-import com.kolakek.pimiwidget.data.KEY_LOCATION_SOURCE_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.LocationSourcePref
 import com.kolakek.pimiwidget.data.SettingsRepository
@@ -189,7 +188,7 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
         weatherEnabled: Boolean
     ) {
         SettingsRepository.setLocationSourcePref(fragment.requireContext(), source)
-        fragment.findPreference<Preference>(KEY_LOCATION_SOURCE_LIST)?.summary = summary
+        fragment.findPreference<Preference>(KEY_FIELD_LOCATION_SOURCE)?.summary = summary
         weatherSwitchCallback(weatherEnabled)
     }
 }

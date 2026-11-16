@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.data
 
 import android.content.SharedPreferences
 import androidx.annotation.StringRes
+import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class WidgetColorPref(val key: String, @StringRes val labelRes: Int) {
@@ -26,6 +27,8 @@ enum class WidgetColorPref(val key: String, @StringRes val labelRes: Int) {
     SYSTEM(KEY_WIDGET_COLOR_SYSTEM, R.string.config_color_system),
     LIGHT(KEY_WIDGET_COLOR_LIGHT, R.string.config_color_light),
     DARK(KEY_WIDGET_COLOR_DARK, R.string.config_color_dark);
+
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_WIDGET_COLOR_LIST, key) }
 
     companion object {
         val DEFAULT = DYNAMIC

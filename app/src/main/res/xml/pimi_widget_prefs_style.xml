@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.kolakek.pimiwidget.settings.WidgetPreviewPreference
-        app:key="widget_style_preview" />
+        app:key="preview_widget" />
 
     <PreferenceCategory
-        android:key="widget_style_list"
+        android:key="category_widget_style"
         android:title="@string/config_section_style"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false"
@@ -15,26 +15,25 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/config_section_appearance"
+        android:key="category_text_color"
+        android:title="@string/config_text_color"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
 
-        <ListPreference
-            android:key="text_color_list"
-            android:title="@string/config_text_color"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
 
-        <ListPreference
-            android:key="widget_color_list"
-            android:title="@string/config_section_color"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+    <PreferenceCategory
+        android:key="category_widget_color"
+        android:title="@string/config_section_color"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false">
 
         <com.kolakek.pimiwidget.settings.SliderPreference
             app:key="widget_transparency"
-            app:title="@string/config_transparency" />
+            app:title="@string/config_transparency"
+            app:order="100" />
 
     </PreferenceCategory>
 

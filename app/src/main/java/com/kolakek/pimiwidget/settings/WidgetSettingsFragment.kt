@@ -34,9 +34,7 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_ALARM_SWITCH
 import com.kolakek.pimiwidget.data.KEY_BIRTHDAY_SWITCH
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
-import com.kolakek.pimiwidget.data.KEY_WIDGET_STYLE_LIST
 import com.kolakek.pimiwidget.data.SettingsRepository
-import com.kolakek.pimiwidget.data.WidgetStylePref
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.BirthdayUpdater
@@ -60,10 +58,10 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
         val birthdaySwitch: SwitchPreferenceCompat? = findPreference(KEY_BIRTHDAY_SWITCH)
         val alarmSwitch: SwitchPreferenceCompat? = findPreference(KEY_ALARM_SWITCH)
-        val versionField: LongPressPreference? = findPreference(KEY_VERSION_FIELD)
-        val sourceCodeField: Preference? = findPreference(KEY_SOURCE_CODE)
-        val widgetStyleField: Preference? = findPreference(KEY_WIDGET_STYLE)
-        val iconStyleField: Preference? = findPreference(KEY_WIDGET_ICON_STYLE)
+        val versionField: LongPressPreference? = findPreference(KEY_FIELD_VERSION)
+        val sourceCodeField: Preference? = findPreference(KEY_FIELD_SOURCE_CODE)
+        val widgetStyleField: Preference? = findPreference(KEY_FIELD_WIDGET_STYLE)
+        val iconStyleField: Preference? = findPreference(KEY_FIELD_ICON_STYLE)
 
         var debugCount = 0
 
@@ -79,9 +77,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         iconStyleField?.summaryProvider = Preference.SummaryProvider<Preference> {
             getString(SettingsRepository.getWidgetIconStylePref(context).labelRes)
         }
-        widgetStyleField?.summaryProvider = Preference.SummaryProvider<Preference> { pref ->
-            val stored = pref.sharedPreferences?.getString(KEY_WIDGET_STYLE_LIST, null)
-            getString(WidgetStylePref.fromKey(stored).labelRes)
+        widgetStyleField?.summaryProvider = Preference.SummaryProvider<Preference> {
+            getString(SettingsRepository.getWidgetStylePref(context).labelRes)
         }
         iconStyleField?.setOnPreferenceClickListener {
             openSubScreen(WidgetSettingsIconFragment())

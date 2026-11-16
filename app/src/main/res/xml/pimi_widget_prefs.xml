@@ -44,12 +44,12 @@
         app:allowDividerBelow="false">
 
         <Preference
-            android:key="widget_style"
+            android:key="field_widget_style"
             android:title="@string/config_widget_style"
             app:iconSpaceReserved="false" />
 
         <Preference
-            android:key="widget_icon_style"
+            android:key="field_icon_style"
             android:title="@string/config_icon_style"
             app:iconSpaceReserved="false" />
 
@@ -64,13 +64,13 @@
         app:allowDividerBelow="false">
 
         <Preference
-            android:key="source_code"
+            android:key="field_source_code"
             android:summary="@string/config_source_code_summary"
             android:title="@string/config_source_code"
             app:iconSpaceReserved="false" />
 
         <com.kolakek.pimiwidget.settings.LongPressPreference
-            android:key="build_number"
+            android:key="field_build_number"
             android:title="@string/config_version_title"
             app:iconSpaceReserved="false" />
 
