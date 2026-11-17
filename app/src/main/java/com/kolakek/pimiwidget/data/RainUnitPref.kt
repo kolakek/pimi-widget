@@ -17,8 +17,20 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class RainUnitPref(val key: String) {
-    AUTO(KEY_RAIN_UNIT_AUTO),
-    MM(KEY_RAIN_UNIT_MM),
-    INCH(KEY_RAIN_UNIT_INCH)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import com.kolakek.pimiwidget.R
+
+enum class RainUnitPref(val key: String, @StringRes val labelRes: Int) {
+    AUTO(KEY_RAIN_UNIT_AUTO, R.string.config_option_follow_system),
+    MM(KEY_RAIN_UNIT_MM, R.string.config_unit_millimeters),
+    INCH(KEY_RAIN_UNIT_INCH, R.string.config_unit_inches);
+
+    companion object {
+        val DEFAULT = AUTO
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_RAIN_UNIT_LIST, null)
+        )
+    }
 }

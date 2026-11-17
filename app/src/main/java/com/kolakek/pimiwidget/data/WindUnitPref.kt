@@ -17,10 +17,22 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class WindUnitPref(val key: String) {
-    AUTO(KEY_WIND_UNIT_AUTO),
-    KMH(KEY_WIND_UNIT_KMH),
-    MS(KEY_WIND_UNIT_MS),
-    MPH(KEY_WIND_UNIT_MPH),
-    KNOT(KEY_WIND_UNIT_KNOT),
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import com.kolakek.pimiwidget.R
+
+enum class WindUnitPref(val key: String, @StringRes val labelRes: Int) {
+    AUTO(KEY_WIND_UNIT_AUTO, R.string.config_option_follow_system),
+    KMH(KEY_WIND_UNIT_KMH, R.string.config_unit_km_per_hour),
+    MS(KEY_WIND_UNIT_MS, R.string.config_unit_m_per_second),
+    MPH(KEY_WIND_UNIT_MPH, R.string.config_unit_miles_per_hour),
+    KNOT(KEY_WIND_UNIT_KNOT, R.string.config_unit_knots);
+
+    companion object {
+        val DEFAULT = AUTO
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_WIND_UNIT_LIST, null)
+        )
+    }
 }

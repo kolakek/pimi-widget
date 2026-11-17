@@ -24,8 +24,18 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.preference.ListPreference
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.AppIconStylePref
+import com.kolakek.pimiwidget.data.KEY_APP_ICON_STYLE_LIST
+import com.kolakek.pimiwidget.data.KEY_PRESSURE_UNIT_LIST
+import com.kolakek.pimiwidget.data.KEY_RAIN_UNIT_LIST
+import com.kolakek.pimiwidget.data.KEY_SNOW_UNIT_LIST
 import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
+import com.kolakek.pimiwidget.data.KEY_WIND_UNIT_LIST
+import com.kolakek.pimiwidget.data.PressureUnitPref
+import com.kolakek.pimiwidget.data.RainUnitPref
+import com.kolakek.pimiwidget.data.SnowUnitPref
 import com.kolakek.pimiwidget.data.TempUnitPref
+import com.kolakek.pimiwidget.data.WindUnitPref
 
 class AppSettingsFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_title_settings
@@ -33,11 +43,46 @@ class AppSettingsFragment : CardPreferenceFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_app_prefs, rootKey)
 
+        val iconStyleList: ListPreference? = findPreference(KEY_APP_ICON_STYLE_LIST)
         val tempUnitList: ListPreference? = findPreference(KEY_TEMP_UNIT_LIST)
+        val rainUnitList: ListPreference? = findPreference(KEY_RAIN_UNIT_LIST)
+        val snowUnitList: ListPreference? = findPreference(KEY_SNOW_UNIT_LIST)
+        val windUnitList: ListPreference? = findPreference(KEY_WIND_UNIT_LIST)
+        val pressureUnitList: ListPreference? = findPreference(KEY_PRESSURE_UNIT_LIST)
 
         tempUnitList?.setOptions(
             options = TempUnitPref.entries,
             default = TempUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
+        rainUnitList?.setOptions(
+            options = RainUnitPref.entries,
+            default = RainUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
+        snowUnitList?.setOptions(
+            options = SnowUnitPref.entries,
+            default = SnowUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
+        pressureUnitList?.setOptions(
+            options = PressureUnitPref.entries,
+            default = PressureUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
+        windUnitList?.setOptions(
+            options = WindUnitPref.entries,
+            default = WindUnitPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
+        iconStyleList?.setOptions(
+            options = AppIconStylePref.entries,
+            default = AppIconStylePref.DEFAULT,
             keyOf = { it.key },
             labelOf = { it.labelRes }
         )

@@ -17,10 +17,22 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class PressureUnitPref(val key: String) {
-    AUTO(KEY_PRESSURE_UNIT_AUTO),
-    HPA(KEY_PRESSURE_UNIT_HPA),
-    MB(KEY_PRESSURE_UNIT_MB),
-    MMHG(KEY_PRESSURE_UNIT_MMHG),
-    INHG(KEY_PRESSURE_UNIT_INHG)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import com.kolakek.pimiwidget.R
+
+enum class PressureUnitPref(val key: String, @StringRes val labelRes: Int) {
+    AUTO(KEY_PRESSURE_UNIT_AUTO, R.string.config_option_follow_system),
+    HPA(KEY_PRESSURE_UNIT_HPA, R.string.config_unit_hectopascal),
+    MB(KEY_PRESSURE_UNIT_MB, R.string.config_unit_millibar),
+    MMHG(KEY_PRESSURE_UNIT_MMHG, R.string.config_unit_mm_mercury),
+    INHG(KEY_PRESSURE_UNIT_INHG, R.string.config_unit_inches_mercury);
+
+    companion object {
+        val DEFAULT = AUTO
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_PRESSURE_UNIT_LIST, null)
+        )
+    }
 }

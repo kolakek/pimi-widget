@@ -17,8 +17,20 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class SnowUnitPref(val key: String) {
-    AUTO(KEY_SNOW_UNIT_AUTO),
-    CM(KEY_SNOW_UNIT_CM),
-    INCH(KEY_SNOW_UNIT_INCH)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import com.kolakek.pimiwidget.R
+
+enum class SnowUnitPref(val key: String, @StringRes val labelRes: Int) {
+    AUTO(KEY_SNOW_UNIT_AUTO, R.string.config_option_follow_system),
+    CM(KEY_SNOW_UNIT_CM, R.string.config_unit_centimeters),
+    INCH(KEY_SNOW_UNIT_INCH, R.string.config_unit_inches);
+
+    companion object {
+        val DEFAULT = AUTO
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_SNOW_UNIT_LIST, null)
+        )
+    }
 }

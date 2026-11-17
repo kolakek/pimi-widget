@@ -83,7 +83,7 @@ object SettingsRepository {
             TextColorPref.AUTO -> when (widgetStylePref) {
                 WidgetStylePref.CLASSIC,
                 WidgetStylePref.MODERN
-                    -> getTextColorForWallpaper(context)
+                    -> textColorForWallpaper(context)
                 WidgetStylePref.SOLID -> TextColor.DYNAMIC
             }
 
@@ -130,7 +130,7 @@ object SettingsRepository {
             showWeatherWarning = isWeatherWarningEnabled(context),
             showPermanentAlarm = isPermanentAlarmIconEnabled(context),
             showTempUnit = isTempUnitDisplayEnabled(context),
-            backgroundAlpha = getBackgroundAlpha(context),
+            backgroundAlpha = getWidgetAlpha(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -206,6 +206,15 @@ object SettingsRepository {
             .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
+    fun getWidgetAlpha(context: Context): Int {
+        val transparency = PreferenceManager.getDefaultSharedPreferences(context)
+            .getInt(KEY_WIDGET_TRANSPARENCY, 0)
+        return (100 - transparency) * 255 / 100
+    }
+
+    fun getWeatherApp(context: Context): WeatherApp =
+        WeatherApp.fromPrefs(prefs(context))
+
     fun getWidgetColorPref(context: Context): WidgetColorPref =
         WidgetColorPref.fromPrefs(prefs(context))
 
@@ -254,47 +263,22 @@ object SettingsRepository {
     fun setLocationSourcePref(context: Context, pref: LocationSourcePref) =
         pref.save(prefs(context))
 
-    private fun getAppIconStylePref(context: Context): AppIconStylePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_APP_ICON_STYLE_LIST, null)
-        return AppIconStylePref.entries.find { it.key == key }
-            ?: AppIconStylePref.FLAT_SKETCH
-    }
+    fun getRainUnitPref(context: Context): RainUnitPref =
+        RainUnitPref.fromPrefs(prefs(context))
 
-    private fun getRainUnitPref(context: Context): RainUnitPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_RAIN_UNIT_LIST, null)
-        return RainUnitPref.entries.find { it.key == key } ?: RainUnitPref.AUTO
-    }
+    fun getSnowUnitPref(context: Context): SnowUnitPref =
+        SnowUnitPref.fromPrefs(prefs(context))
 
-    private fun getSnowUnitPref(context: Context): SnowUnitPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_SNOW_UNIT_LIST, null)
-        return SnowUnitPref.entries.find { it.key == key } ?: SnowUnitPref.AUTO
-    }
+    fun getPressureUnitPref(context: Context): PressureUnitPref =
+        PressureUnitPref.fromPrefs(prefs(context))
 
-    private fun getPressureUnitPref(context: Context): PressureUnitPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_PRESSURE_UNIT_LIST, null)
-        return PressureUnitPref.entries.find { it.key == key } ?: PressureUnitPref.AUTO
-    }
+    fun getWindUnitPref(context: Context): WindUnitPref =
+        WindUnitPref.fromPrefs(prefs(context))
 
-    private fun getWindUnitPref(context: Context): WindUnitPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_WIND_UNIT_LIST, null)
-        return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
-    }
+    fun getAppIconStylePref(context: Context): AppIconStylePref =
+        AppIconStylePref.fromPrefs(prefs(context))
 
-    private fun getBackgroundAlpha(context: Context): Int {
-        val transparency = PreferenceManager.getDefaultSharedPreferences(context)
-            .getInt(KEY_WIDGET_TRANSPARENCY, 0)
-        return (100 - transparency) * 255 / 100
-    }
-
-    private fun getWeatherApp(context: Context): WeatherApp =
-        WeatherApp.fromPrefs(prefs(context))
-
-    private fun getTextColorForWallpaper(context: Context): TextColor {
+    private fun textColorForWallpaper(context: Context): TextColor {
         val needsLightText = WallpaperManager
             .getInstance(context)
             .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)

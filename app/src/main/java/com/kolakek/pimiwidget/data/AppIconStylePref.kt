@@ -17,8 +17,20 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class AppIconStylePref(val key: String) {
-    FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH),
-    TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW),
-    FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import com.kolakek.pimiwidget.R
+
+enum class AppIconStylePref(val key: String, @StringRes val labelRes: Int) {
+    FLAT_SKETCH(KEY_APP_ICON_STYLE_FLAT_SKETCH, R.string.config_icon_style_outlined),
+    TWINKLE_SHADOW(KEY_APP_ICON_STYLE_TWINKLE_SHADOW, R.string.config_icon_style_filled),
+    FOLLOW_WIDGET(KEY_APP_ICON_STYLE_WIDGET, R.string.config_option_follow_widget);
+
+    companion object {
+        val DEFAULT = FLAT_SKETCH
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_APP_ICON_STYLE_LIST, null)
+        )
+    }
 }
