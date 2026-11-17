@@ -170,22 +170,22 @@ object SettingsRepository {
             .getBoolean(KEY_BIRTHDAY_SWITCH, false)
     }
 
-    fun isAlarmEnabled(context: Context): Boolean {
+    private fun isAlarmEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_ALARM_SWITCH, false)
     }
 
-    fun isDailyForecastEnabled(context: Context): Boolean {
+    private fun isDailyForecastEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_DAILY_FORECAST, true)
     }
 
-    fun isWeatherWarningEnabled(context: Context): Boolean {
+    private fun isWeatherWarningEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_WEATHER_WARNING, true)
     }
 
-    fun isLocationFallbackEnabled(context: Context): Boolean {
+    private fun isLocationFallbackEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_LOCATION_FALLBACK, true)
     }
@@ -196,23 +196,23 @@ object SettingsRepository {
         }
     }
 
-    fun isPermanentAlarmIconEnabled(context: Context): Boolean {
+    private fun isPermanentAlarmIconEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_PERMANENT_ALARM, false)
     }
 
-    fun isTempUnitDisplayEnabled(context: Context): Boolean {
+    private fun isTempUnitDisplayEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
-    fun getWidgetAlpha(context: Context): Int {
+    private fun getWidgetAlpha(context: Context): Int {
         val transparency = PreferenceManager.getDefaultSharedPreferences(context)
             .getInt(KEY_WIDGET_TRANSPARENCY, 0)
         return (100 - transparency) * 255 / 100
     }
 
-    fun getWeatherApp(context: Context): WeatherApp =
+    private fun getWeatherApp(context: Context): WeatherApp =
         WeatherApp.fromPrefs(prefs(context))
 
     fun getWidgetColorPref(context: Context): WidgetColorPref =
@@ -221,7 +221,7 @@ object SettingsRepository {
     fun setWidgetColorPref(context: Context, pref: WidgetColorPref) =
         pref.save(prefs(context))
 
-    fun getTempUnitPref(context: Context) =
+    private fun getTempUnitPref(context: Context) =
         TempUnitPref.fromPrefs(prefs(context))
 
     fun setTempUnitPref(context: Context, pref: TempUnitPref) =
@@ -251,7 +251,7 @@ object SettingsRepository {
     fun setWidgetStylePref(context: Context, pref: WidgetStylePref) =
         pref.save(prefs(context))
 
-    fun getAuxDisplayPref(context: Context): AuxDisplayPref =
+    private fun getAuxDisplayPref(context: Context): AuxDisplayPref =
         AuxDisplayPref.fromPrefs(prefs(context))
 
     fun setAuxDisplayPref(context: Context, pref: AuxDisplayPref) =
@@ -263,19 +263,19 @@ object SettingsRepository {
     fun setLocationSourcePref(context: Context, pref: LocationSourcePref) =
         pref.save(prefs(context))
 
-    fun getRainUnitPref(context: Context): RainUnitPref =
+    private fun getRainUnitPref(context: Context): RainUnitPref =
         RainUnitPref.fromPrefs(prefs(context))
 
-    fun getSnowUnitPref(context: Context): SnowUnitPref =
+    private fun getSnowUnitPref(context: Context): SnowUnitPref =
         SnowUnitPref.fromPrefs(prefs(context))
 
-    fun getPressureUnitPref(context: Context): PressureUnitPref =
+    private fun getPressureUnitPref(context: Context): PressureUnitPref =
         PressureUnitPref.fromPrefs(prefs(context))
 
-    fun getWindUnitPref(context: Context): WindUnitPref =
+    private fun getWindUnitPref(context: Context): WindUnitPref =
         WindUnitPref.fromPrefs(prefs(context))
 
-    fun getAppIconStylePref(context: Context): AppIconStylePref =
+    private fun getAppIconStylePref(context: Context): AppIconStylePref =
         AppIconStylePref.fromPrefs(prefs(context))
 
     private fun textColorForWallpaper(context: Context): TextColor {

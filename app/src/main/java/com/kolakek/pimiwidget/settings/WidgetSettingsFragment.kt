@@ -65,7 +65,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
         var debugCount = 0
 
-        if (birthdaySwitch?.isChecked == true &&
+        if (SettingsRepository.isBirthdayEnabled(context) &&
             permissionHandler.isPermissionDenied(READ_CONTACTS)
         ) {
             disableBirthday()
