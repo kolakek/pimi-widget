@@ -153,11 +153,7 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
             DataRepository.deleteWeatherData(context)
             DataRepository.deleteLocationData(context)
 
-            applyLocationSource(
-                LocationSourcePref.DEVICE,
-                fragment.getString(R.string.config_weather_location_device),
-                weatherEnabled
-            )
+            applyLocationSource(weatherEnabled, LocationSourcePref.DEVICE)
         }
     }
 
@@ -174,18 +170,14 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
                 context,
                 LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
             )
-            applyLocationSource(
-                LocationSourcePref.FIXED,
-                place,
-                weatherEnabled
-            )
+            applyLocationSource(weatherEnabled, LocationSourcePref.FIXED, place)
         }
     }
 
     private fun applyLocationSource(
+        weatherEnabled: Boolean,
         source: LocationSourcePref,
-        summary: String,
-        weatherEnabled: Boolean
+        summary: String = fragment.getString(source.labelRes),
     ) {
         SettingsRepository.setLocationSourcePref(fragment.requireContext(), source)
         fragment.findPreference<Preference>(KEY_FIELD_LOCATION_SOURCE)?.summary = summary

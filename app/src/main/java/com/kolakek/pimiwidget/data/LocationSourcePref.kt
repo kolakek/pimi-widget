@@ -17,7 +17,22 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class LocationSourcePref(val key: String) {
-    DEVICE(KEY_LOCATION_SOURCE_DEVICE),
-    FIXED(KEY_LOCATION_SOURCE_FIXED)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import androidx.core.content.edit
+import com.kolakek.pimiwidget.R
+
+enum class LocationSourcePref(val key: String, @StringRes val labelRes: Int) {
+    DEVICE(KEY_LOCATION_SOURCE_DEVICE, R.string.config_weather_location_device),
+    FIXED(KEY_LOCATION_SOURCE_FIXED, R.string.config_weather_location_fixed);
+
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_LOCATION_SOURCE_LIST, key) }
+
+    companion object {
+        val DEFAULT = DEVICE
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_LOCATION_SOURCE_LIST, null)
+        )
+    }
 }

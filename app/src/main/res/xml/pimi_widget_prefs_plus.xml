@@ -30,9 +30,6 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="aux_view_place_condition"
-            android:entries="@array/aux_views"
-            android:entryValues="@array/aux_views_vals"
             android:key="aux_view_list"
             android:title="@string/config_aux_view_title"
             app:iconSpaceReserved="false"

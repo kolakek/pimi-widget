@@ -17,8 +17,23 @@
 
 package com.kolakek.pimiwidget.data
 
-enum class AuxDisplayPref(val key: String) {
-    NOTHING(KEY_DISPLAY_NOTHING),
-    UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME),
-    PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION)
+import android.content.SharedPreferences
+import androidx.annotation.StringRes
+import androidx.core.content.edit
+import com.kolakek.pimiwidget.R
+
+enum class AuxDisplayPref(val key: String, @StringRes val labelRes: Int) {
+    NOTHING(KEY_DISPLAY_NOTHING, R.string.config_aux_view_nothing),
+    UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME, R.string.config_aux_view_update_time),
+    PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION, R.string.config_aux_view_place_condition);
+
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_AUX_DISPLAY_LIST, key) }
+
+    companion object {
+        val DEFAULT = PLACE_CONDITION
+        fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
+        fun fromPrefs(prefs: SharedPreferences) = fromKey(
+            prefs.getString(KEY_AUX_DISPLAY_LIST, null)
+        )
+    }
 }

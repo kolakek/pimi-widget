@@ -125,11 +125,11 @@ object SettingsRepository {
             showAlarms = isAlarmEnabled(context),
             showWeather = isWeatherEnabled(context),
             showBirthday = isBirthdayEnabled(context),
-            useLocationFallback = useLocationFallback(context),
+            useLocationFallback = isLocationFallbackEnabled(context),
             showDailyForecast = isDailyForecastEnabled(context),
             showWeatherWarning = isWeatherWarningEnabled(context),
-            showPermanentAlarm = showPermanentAlarm(context),
-            showTempUnit = showTempUnit(context),
+            showPermanentAlarm = isPermanentAlarmIconEnabled(context),
+            showTempUnit = isTempUnitDisplayEnabled(context),
             backgroundAlpha = getBackgroundAlpha(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
@@ -160,13 +160,62 @@ object SettingsRepository {
         }
     }
 
-    fun setTempUnitPref(context: Context, pref: TempUnitPref) =
-        pref.save(prefs(context))
+    fun isWeatherEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_WEATHER_SWITCH, false)
+    }
+
+    fun isBirthdayEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_BIRTHDAY_SWITCH, false)
+    }
+
+    fun isAlarmEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_ALARM_SWITCH, false)
+    }
+
+    fun isDailyForecastEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_DAILY_FORECAST, true)
+    }
+
+    fun isWeatherWarningEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_WEATHER_WARNING, true)
+    }
+
+    fun isLocationFallbackEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_LOCATION_FALLBACK, true)
+    }
+
+    fun setLocationFallbackEnabled(context: Context, pref: Boolean) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putBoolean(KEY_LOCATION_FALLBACK, pref)
+        }
+    }
+
+    fun isPermanentAlarmIconEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_PERMANENT_ALARM, false)
+    }
+
+    fun isTempUnitDisplayEnabled(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(KEY_SHOW_TEMP_UNIT, true)
+    }
 
     fun getWidgetColorPref(context: Context): WidgetColorPref =
         WidgetColorPref.fromPrefs(prefs(context))
 
     fun setWidgetColorPref(context: Context, pref: WidgetColorPref) =
+        pref.save(prefs(context))
+
+    fun getTempUnitPref(context: Context) =
+        TempUnitPref.fromPrefs(prefs(context))
+
+    fun setTempUnitPref(context: Context, pref: TempUnitPref) =
         pref.save(prefs(context))
 
     fun getTextColorPref(context: Context): TextColorPref =
@@ -193,54 +242,17 @@ object SettingsRepository {
     fun setWidgetStylePref(context: Context, pref: WidgetStylePref) =
         pref.save(prefs(context))
 
-    fun setAuxDisplayPref(context: Context, pref: AuxDisplayPref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_AUX_DISPLAY_LIST, pref.key)
-        }
-    }
+    fun getAuxDisplayPref(context: Context): AuxDisplayPref =
+        AuxDisplayPref.fromPrefs(prefs(context))
 
-    fun setLocationFallback(context: Context, pref: Boolean) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putBoolean(KEY_LOCATION_FALLBACK, pref)
-        }
-    }
+    fun setAuxDisplayPref(context: Context, pref: AuxDisplayPref) =
+        pref.save(prefs(context))
 
-    fun getLocationSourcePref(context: Context): LocationSourcePref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_LOCATION_SOURCE_LIST, null)
-        return LocationSourcePref.entries.find { it.key == key } ?: LocationSourcePref.DEVICE
-    }
+    fun getLocationSourcePref(context: Context): LocationSourcePref =
+        LocationSourcePref.fromPrefs(prefs(context))
 
-    fun setLocationSourcePref(context: Context, pref: LocationSourcePref) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit {
-            putString(KEY_LOCATION_SOURCE_LIST, pref.key)
-        }
-    }
-
-    fun isWeatherEnabled(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_WEATHER_SWITCH, false)
-    }
-
-    private fun isBirthdayEnabled(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_BIRTHDAY_SWITCH, false)
-    }
-
-    private fun isDailyForecastEnabled(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_DAILY_FORECAST, true)
-    }
-
-    private fun isWeatherWarningEnabled(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_WEATHER_WARNING, true)
-    }
-
-    private fun isAlarmEnabled(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_ALARM_SWITCH, false)
-    }
+    fun setLocationSourcePref(context: Context, pref: LocationSourcePref) =
+        pref.save(prefs(context))
 
     private fun getAppIconStylePref(context: Context): AppIconStylePref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
@@ -248,9 +260,6 @@ object SettingsRepository {
         return AppIconStylePref.entries.find { it.key == key }
             ?: AppIconStylePref.FLAT_SKETCH
     }
-
-    private fun getTempUnitPref(context: Context) =
-        TempUnitPref.fromPrefs(prefs(context))
 
     private fun getRainUnitPref(context: Context): RainUnitPref {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
@@ -274,27 +283,6 @@ object SettingsRepository {
         val key = PreferenceManager.getDefaultSharedPreferences(context)
             .getString(KEY_WIND_UNIT_LIST, null)
         return WindUnitPref.entries.find { it.key == key } ?: WindUnitPref.AUTO
-    }
-
-    private fun getAuxDisplayPref(context: Context): AuxDisplayPref {
-        val key = PreferenceManager.getDefaultSharedPreferences(context)
-            .getString(KEY_AUX_DISPLAY_LIST, null)
-        return AuxDisplayPref.entries.find { it.key == key } ?: AuxDisplayPref.PLACE_CONDITION
-    }
-
-    private fun useLocationFallback(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_LOCATION_FALLBACK, true)
-    }
-
-    private fun showPermanentAlarm(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_PERMANENT_ALARM, false)
-    }
-
-    private fun showTempUnit(context: Context): Boolean {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(KEY_SHOW_TEMP_UNIT, true)
     }
 
     private fun getBackgroundAlpha(context: Context): Int {

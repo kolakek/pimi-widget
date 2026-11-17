@@ -57,7 +57,7 @@ object MigrateApp {
                 context,
                 AuxDisplayPref.NOTHING
             )
-            SettingsRepository.setLocationFallback(
+            SettingsRepository.setLocationFallbackEnabled(
                 context,
                 true
             )

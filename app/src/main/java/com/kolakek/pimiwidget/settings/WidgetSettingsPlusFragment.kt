@@ -18,12 +18,24 @@
 package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
+import androidx.preference.ListPreference
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.AuxDisplayPref
+import com.kolakek.pimiwidget.data.KEY_AUX_DISPLAY_LIST
 
 class WidgetSettingsPlusFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_section_settings_plus
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_plus, rootKey)
+
+        val auxDisplayList: ListPreference? = findPreference(KEY_AUX_DISPLAY_LIST)
+
+        auxDisplayList?.setOptions(
+            options = AuxDisplayPref.entries,
+            default = AuxDisplayPref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        )
     }
 }

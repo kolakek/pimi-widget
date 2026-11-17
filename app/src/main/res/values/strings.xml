@@ -31,6 +31,7 @@
     <string name="config_location_fallback">Use last device location</string>
     <string name="config_location_fallback_summary">When location is turned off in Android settings</string>
     <string name="config_weather_location">Weather location</string>
+    <string name="config_weather_location_fixed">Fixed location</string>
     <string name="config_weather_location_device">Device location</string>
     <string name="config_weather_location_device_descr">Follows your location</string>
     <string name="config_fixed_location_search_button">Search</string>
