@@ -123,7 +123,6 @@
     <string name="mu_11">estremo</string>
 
     <string name="widget_label">Data, meteo e altro</string>
-    <string name="widget_date_prev">dom 2 giu</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">domani 19\u00B0 / 13\u00B0 · pioggia debole</string>
     <string name="widget_date_format">EEE d MMM</string>

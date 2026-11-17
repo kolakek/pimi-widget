@@ -123,7 +123,6 @@
     <string name="mu_11">extrem</string>
 
     <string name="widget_label">Dată, vreme și altele</string>
-    <string name="widget_date_prev">lun., 1 dec.</string>
     <string name="widget_temp_prev">3\u2103</string>
     <string name="widget_weather_prev">mâine 4\u00B0 / 1\u00B0 · ninsoare slabă</string>
     <string name="widget_date_format">EEE, d MMM</string>

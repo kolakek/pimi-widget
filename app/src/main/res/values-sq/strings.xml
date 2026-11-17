@@ -123,7 +123,6 @@
     <string name="mu_11">ekstrem</string>
 
     <string name="widget_label">Data, moti dhe të tjera</string>
-    <string name="widget_date_prev">enj, 28 nën</string>
     <string name="widget_temp_prev">12\u2103</string>
     <string name="widget_weather_prev">nesër 14\u00B0 / 5\u00B0 · shi i lehtë</string>
     <string name="widget_date_format">EEE, d MMM</string>

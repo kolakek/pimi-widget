@@ -124,7 +124,6 @@
 
     <string name="widget_label">Дата, погода и прочее</string>
     <string name="widget_date_format">EEE, d MMM</string>
-    <string name="widget_date_prev">ср, 12 апр.</string>
     <string name="widget_temp_prev">8\u2103</string>
     <string name="widget_today">сегодня</string>
     <string name="widget_tomorrow">завтра</string>

@@ -74,6 +74,7 @@
 
                 <TextView
                     android:id="@+id/widget_aux_text"
+                    android:text="@string/widget_weather_prev"
                     style="@style/Widget.Aux.Solid" />
 
             </LinearLayout>
@@ -100,12 +101,14 @@
 
                 <ImageView
                     android:id="@+id/widget_weather_icon"
+                    android:src="@drawable/wb_0d"
                     style="@style/Widget.WeatherIcon.Solid"
                     tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/widget_temp_text"
-                    style="@style/Widget.Temp.Solid" />
+                    style="@style/Widget.Temp.Solid"
+                    android:text="@string/widget_temp_prev" />
 
             </LinearLayout>
 

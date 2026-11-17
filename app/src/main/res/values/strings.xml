@@ -101,7 +101,6 @@
 
     <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
-    <string name="widget_date_prev">Sun, Jul 4</string>
     <string name="widget_temp_prev">71\u2109</string>
     <string name="widget_weather_prev">Tomorrow 67\u00B0 / 52\u00B0 · Light rain</string>
     <string name="widget_today">Today</string>

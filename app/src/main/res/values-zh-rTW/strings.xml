@@ -124,7 +124,6 @@
 
     <string name="widget_label">日期、天氣和其他</string>
     <string name="widget_date_format">EEE, MMM d</string>
-    <string name="widget_date_prev">10月10日 週日</string>
     <string name="widget_temp_prev">26\u2103</string>
     <string name="widget_weather_prev">明天 28\u00B0 / 22\u00B0 · 晴朗</string>
     <string name="widget_today">今天</string>

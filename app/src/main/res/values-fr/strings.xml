@@ -123,7 +123,6 @@
     <string name="mu_11">extrême</string>
 
     <string name="widget_label">Date, météo et plus</string>
-    <string name="widget_date_prev">dim. 14 juil.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">demain 19\u00B0 / 13\u00B0 · pluie faible</string>
     <string name="widget_date_format">EEE d MMM</string>

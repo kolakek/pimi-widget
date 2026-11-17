@@ -123,7 +123,6 @@
     <string name="mu_11">extrémní</string>
 
     <string name="widget_label">Datum, počasí a další</string>
-    <string name="widget_date_prev">út 28. 10.</string>
     <string name="widget_temp_prev">21\u2103</string>
     <string name="widget_weather_prev">zítra 19\u00B0 / 13\u00B0 · slabý déšť</string>
     <string name="widget_date_format">EEE d. M.</string>

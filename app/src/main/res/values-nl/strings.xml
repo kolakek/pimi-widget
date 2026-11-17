@@ -123,7 +123,6 @@
     <string name="mu_11">extreem</string>
 
     <string name="widget_label">Datum, weer en meer</string>
-    <string name="widget_date_prev">za 27 apr</string>
     <string name="widget_temp_prev">13\u2103</string>
     <string name="widget_weather_prev">morgen 14\u00B0 / 6\u00B0 · lichte regen</string>
     <string name="widget_date_format">EEE d MMM</string>

@@ -86,7 +86,6 @@
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>
-    <string name="widget_date_prev">Min, 17 Agu</string>
     <string name="widget_temp_prev">30\u2103</string>
     <string name="widget_weather_prev">Besok 32\u00B0 / 25\u00B0 · Cerah berawan</string>
     <string name="widget_today">Hari ini</string>
