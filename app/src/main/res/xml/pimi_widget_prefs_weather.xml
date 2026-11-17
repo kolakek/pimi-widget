@@ -28,8 +28,7 @@
         <ListPreference
             android:key="weather_app_list"
             android:title="@string/config_weather_app"
-            app:iconSpaceReserved="false"
-            app:useSimpleSummaryProvider="true" />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 

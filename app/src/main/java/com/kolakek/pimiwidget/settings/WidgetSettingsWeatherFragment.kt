@@ -32,6 +32,7 @@ import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
 import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.data.WeatherApp
@@ -88,10 +89,10 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         weatherHandler.enforcePermission()
     }
 
-    private fun setWeatherLocationSummary(locationField: Preference?) {
+    private fun setWeatherLocationSummary(pref: Preference?) {
         val context = requireContext()
         lifecycleScope.launch {
-            locationField?.summary =
+            pref?.summary =
                 if (weatherHandler.usesDeviceLocation()) {
                     getString(R.string.config_weather_location_device)
                 } else {
@@ -104,12 +105,12 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         val installedApps = WeatherApp.entries.filter { app ->
             app == WeatherApp.PIMI || AppLookup.isAppInstalled(requireContext(), app.packageName)
         }
-        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
+        val listPreference: ListPreference? = findPreference(KEY_WEATHER_APP_LIST)
         val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
         val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
 
         installedApps.forEach {
-            entries.add(getString(it.labelId))
+            entries.add(getString(it.labelRes))
             entryValues.add(it.key)
         }
         entries.add(getString(R.string.config_weather_app_nil))
@@ -131,6 +132,12 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
                 return@setOnPreferenceChangeListener false
             }
             true
+        }
+        listPreference?.summaryProvider = Preference.SummaryProvider<Preference> {
+            getString(
+                R.string.config_weather_app_summary,
+                getString(SettingsRepository.getWeatherApp(requireContext()).labelRes)
+            )
         }
     }
 

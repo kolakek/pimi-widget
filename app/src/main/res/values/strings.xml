@@ -49,6 +49,7 @@
     <string name="config_weather_enable_switch">Enable weather</string>
     <string name="config_weather_provider">Weather provider</string>
     <string name="config_weather_location_fixed">Fixed location</string>
+    <string name="config_weather_app_summary">Tapping the widget opens %1$s</string>
     <string name="config_section_general">General</string>
     <string name="config_section_display">Display</string>
     <string name="config_section_style">Style</string>

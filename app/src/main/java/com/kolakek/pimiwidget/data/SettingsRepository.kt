@@ -219,7 +219,7 @@ object SettingsRepository {
         return (100 - transparency) * 255 / 100
     }
 
-    private fun getWeatherApp(context: Context): WeatherApp =
+    fun getWeatherApp(context: Context): WeatherApp =
         WeatherApp.fromPrefs(prefs(context))
 
     fun getWidgetColorPref(context: Context): WidgetColorPref =

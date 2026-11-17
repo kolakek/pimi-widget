@@ -18,9 +18,10 @@
 package com.kolakek.pimiwidget.data
 
 import android.content.SharedPreferences
+import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
-enum class WeatherApp(val key: String, val packageName: String, val labelId: Int) {
+enum class WeatherApp(val key: String, val packageName: String, @StringRes val labelRes: Int) {
     PIMI(
         "weather_app_default",
         "",
