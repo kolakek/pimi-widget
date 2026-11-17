@@ -150,6 +150,8 @@ object SettingsRepository {
         )
     }
 
+    fun clearAll(context: Context) = prefs(context).edit { clear() }
+
     fun isWidgetConfigured(context: Context, appWidgetId: Int): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean("${KEY_WIDGET_CONFIGURED}_$appWidgetId", false)
