@@ -32,23 +32,35 @@ enum class WidgetColor(
         R.color.widget_color_background_dynamic,
         R.color.widget_color_icon_background_dynamic
     ),
-    SYSTEM(
-        R.color.widget_color_text_system,
-        R.color.widget_color_temp_system,
-        R.color.widget_color_background_system,
-        R.color.widget_color_icon_background_system
+    DYNAMIC_LIGHT(
+        R.color.widget_color_text_dynamic_light,
+        R.color.widget_color_temp_dynamic_light,
+        R.color.widget_color_background_dynamic_light,
+        R.color.widget_color_icon_background_dynamic_light
     ),
-    LIGHT(
-        R.color.widget_color_text_light,
-        R.color.widget_color_temp_light,
-        R.color.widget_color_background_light,
-        R.color.widget_color_icon_background_light
+    DYNAMIC_DARK(
+        R.color.widget_color_text_dynamic_dark,
+        R.color.widget_color_temp_dynamic_dark,
+        R.color.widget_color_background_dynamic_dark,
+        R.color.widget_color_icon_background_dynamic_dark
     ),
-    DARK(
-        R.color.widget_color_text_dark,
-        R.color.widget_color_temp_dark,
-        R.color.widget_color_background_dark,
-        R.color.widget_color_icon_background_dark
+    NEUTRAL(
+        R.color.widget_color_text_neutral,
+        R.color.widget_color_temp_neutral,
+        R.color.widget_color_background_neutral,
+        R.color.widget_color_icon_background_neutral
+    ),
+    NEUTRAL_LIGHT(
+        R.color.widget_color_text_neutral_light,
+        R.color.widget_color_temp_neutral_light,
+        R.color.widget_color_background_neutral_light,
+        R.color.widget_color_icon_background_neutral_light
+    ),
+    NEUTRAL_DARK(
+        R.color.widget_color_text_neutral_dark,
+        R.color.widget_color_temp_neutral_dark,
+        R.color.widget_color_background_neutral_dark,
+        R.color.widget_color_icon_background_neutral_dark
     )
 }
 

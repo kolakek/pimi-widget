@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
 enum class SnowUnitPref(val key: String, @StringRes val labelRes: Int) {
-    AUTO(KEY_SNOW_UNIT_AUTO, R.string.config_option_follow_system),
+    AUTO(KEY_SNOW_UNIT_AUTO, R.string.config_option_system_default),
     CM(KEY_SNOW_UNIT_CM, R.string.config_unit_centimeters),
     INCH(KEY_SNOW_UNIT_INCH, R.string.config_unit_inches);
 

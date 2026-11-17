@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
 enum class PressureUnitPref(val key: String, @StringRes val labelRes: Int) {
-    AUTO(KEY_PRESSURE_UNIT_AUTO, R.string.config_option_follow_system),
+    AUTO(KEY_PRESSURE_UNIT_AUTO, R.string.config_option_system_default),
     HPA(KEY_PRESSURE_UNIT_HPA, R.string.config_unit_hectopascal),
     MB(KEY_PRESSURE_UNIT_MB, R.string.config_unit_millibar),
     MMHG(KEY_PRESSURE_UNIT_MMHG, R.string.config_unit_mm_mercury),

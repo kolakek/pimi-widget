@@ -43,7 +43,7 @@
     <string name="config_icon_color_morning">Matahari pagi</string>
     <string name="config_icon_color_evening">Matahari sore</string>
     <string name="config_option_auto">Otomatis</string>
-    <string name="config_option_follow_system">Bawaan sistem</string>
+    <string name="config_option_system_default">Bawaan sistem</string>
     <string name="config_temp">Suhu</string>
     <string name="config_daily_forecast">Tampilkan perkiraan cuaca harian</string>
     <string name="config_daily_forecast_summary">Pada pagi dan sore hari</string>

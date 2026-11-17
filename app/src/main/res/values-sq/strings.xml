@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Dielli i mëngjesit</string>
     <string name="config_icon_color_evening">Dielli i mbrëmjes</string>
     <string name="config_option_auto">Automatike</string>
-    <string name="config_option_follow_system">Parazgjedhja e sistemit</string>
+    <string name="config_option_system_default">Parazgjedhja e sistemit</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_section_features">Shkurtimisht</string>
     <string name="config_section_weather">Cilësimet e motit</string>

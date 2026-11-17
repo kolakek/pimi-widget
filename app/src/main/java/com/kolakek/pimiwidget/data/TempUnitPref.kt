@@ -23,7 +23,7 @@ import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class TempUnitPref(val key: String, @StringRes val labelRes: Int) {
-    AUTO(KEY_TEMP_UNIT_AUTO, R.string.config_option_follow_system),
+    AUTO(KEY_TEMP_UNIT_AUTO, R.string.config_option_system_default),
     CELSIUS(KEY_TEMP_UNIT_CELSIUS, R.string.config_temp_celsius),
     FAHRENHEIT(KEY_TEMP_UNIT_FAHRENHEIT, R.string.config_temp_fahrenheit);
 

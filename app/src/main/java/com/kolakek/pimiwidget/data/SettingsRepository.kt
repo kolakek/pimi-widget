@@ -68,16 +68,23 @@ object SettingsRepository {
         val iconColorPref = getWidgetIconColorPref(context)
         val iconStylePref = getWidgetIconStylePref(context)
         val widgetStylePref = getWidgetStylePref(context)
+        val widgetThemePref = getWidgetThemePref(context)
         val tempUnitPref = getTempUnitPref(context)
         val auxDisplayPref = getAuxDisplayPref(context)
         val weatherLocationPref = getLocationSourcePref(context)
         val weatherApp = getWeatherApp(context)
 
         val widgetColor = when (widgetColorPref) {
-            WidgetColorPref.DYNAMIC -> WidgetColor.DYNAMIC
-            WidgetColorPref.SYSTEM -> WidgetColor.SYSTEM
-            WidgetColorPref.LIGHT -> WidgetColor.LIGHT
-            WidgetColorPref.DARK -> WidgetColor.DARK
+            WidgetColorPref.DYNAMIC -> when (widgetThemePref) {
+                WidgetThemePref.AUTO -> WidgetColor.DYNAMIC
+                WidgetThemePref.DARK -> WidgetColor.DYNAMIC_DARK
+                WidgetThemePref.LIGHT -> WidgetColor.DYNAMIC_LIGHT
+            }
+            WidgetColorPref.NEUTRAL -> when (widgetThemePref) {
+                WidgetThemePref.AUTO -> WidgetColor.NEUTRAL
+                WidgetThemePref.DARK -> WidgetColor.NEUTRAL_DARK
+                WidgetThemePref.LIGHT -> WidgetColor.NEUTRAL_LIGHT
+            }
         }
         val textColor = when (textColorPref) {
             TextColorPref.AUTO -> when (widgetStylePref) {
@@ -250,6 +257,9 @@ object SettingsRepository {
 
     fun setWidgetStylePref(context: Context, pref: WidgetStylePref) =
         pref.save(prefs(context))
+
+    fun getWidgetThemePref(context: Context): WidgetThemePref =
+        WidgetThemePref.fromPrefs(prefs(context))
 
     private fun getAuxDisplayPref(context: Context): AuxDisplayPref =
         AuxDisplayPref.fromPrefs(prefs(context))

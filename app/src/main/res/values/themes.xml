@@ -4,7 +4,6 @@
         <item name="alertDialogTheme">@style/Config.MaterialDialogAlert</item>
         <item name="android:windowBackground">?attr/colorSurfaceContainer</item>
         <item name="android:textAppearanceListItem">@style/TextAppearance.Material3.BodyLarge</item>
-        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.Material3.BodyMedium</item>
         <item name="preferenceCategoryTitleTextColor">?attr/colorPrimary</item>
         <item name="materialSwitchStyle">@style/Widget.PimiWidget.Switch</item>
         <item name="homeAsUpIndicator">@drawable/app_back_button</item>

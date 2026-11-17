@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Soleil du matin</string>
     <string name="config_icon_color_evening">Soleil du soir</string>
     <string name="config_option_auto">Automatique</string>
-    <string name="config_option_follow_system">Comme le système</string>
+    <string name="config_option_system_default">Comme le système</string>
     <string name="config_temp">Température</string>
     <string name="config_section_features">Aperçu</string>
     <string name="config_section_weather">Paramètres météo</string>

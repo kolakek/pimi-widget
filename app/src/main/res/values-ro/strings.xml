@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Soare de dimineață</string>
     <string name="config_icon_color_evening">Soare de seară</string>
     <string name="config_option_auto">Automat</string>
-    <string name="config_option_follow_system">Implicit de sistem</string>
+    <string name="config_option_system_default">Implicit de sistem</string>
     <string name="config_temp">Temperatură</string>
     <string name="config_section_features">Pe scurt</string>
     <string name="config_section_weather">Setări meteo</string>

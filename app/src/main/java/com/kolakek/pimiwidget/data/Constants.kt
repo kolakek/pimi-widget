@@ -68,14 +68,17 @@ internal const val KEY_TEXT_COLOR_AUTO = "color_auto"
 
 internal const val KEY_WIDGET_COLOR_LIST = "widget_color_list"
 internal const val KEY_WIDGET_COLOR_DYNAMIC = "widget_color_dynamic"
-internal const val KEY_WIDGET_COLOR_SYSTEM = "widget_color_system"
-internal const val KEY_WIDGET_COLOR_LIGHT = "widget_color_light"
-internal const val KEY_WIDGET_COLOR_DARK = "widget_color_dark"
+internal const val KEY_WIDGET_COLOR_NEUTRAL = "widget_color_neutral"
 
 internal const val KEY_WIDGET_STYLE_LIST = "widget_style_list"
 internal const val KEY_WIDGET_STYLE_CLASSIC = "widget_style_classic"
 internal const val KEY_WIDGET_STYLE_MODERN = "widget_style_modern"
 internal const val KEY_WIDGET_STYLE_SOLID = "widget_style_solid"
+
+internal const val KEY_WIDGET_THEME_LIST = "widget_theme_list"
+internal const val KEY_WIDGET_THEME_AUTO = "widget_theme_auto"
+internal const val KEY_WIDGET_THEME_LIGHT = "widget_theme_light"
+internal const val KEY_WIDGET_THEME_DARK = "widget_theme_dark"
 
 internal const val KEY_ICON_STYLE_LIST = "icon_style_list"
 internal const val KEY_ICON_STYLE_FLAT_SKETCH = "icon_style_outlined"

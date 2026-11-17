@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Ранкове сонце</string>
     <string name="config_icon_color_evening">Вечірнє сонце</string>
     <string name="config_option_auto">Автоматично</string>
-    <string name="config_option_follow_system">Системне значення за замовчуванням</string>
+    <string name="config_option_system_default">Системне значення за замовчуванням</string>
     <string name="config_temp">Температура</string>
     <string name="config_section_features">Найважливіше</string>
     <string name="config_section_weather">Налаштування погоди</string>

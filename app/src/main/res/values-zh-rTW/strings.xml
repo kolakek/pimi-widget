@@ -42,7 +42,7 @@
     <string name="config_icon_color_morning">黎明</string>
     <string name="config_icon_color_evening">黃昏</string>
     <string name="config_option_auto">自動</string>
-    <string name="config_option_follow_system">系統預設值</string>
+    <string name="config_option_system_default">系統預設值</string>
     <string name="config_temp">溫度</string>
     <string name="config_daily_forecast">顯示每日預報</string>
     <string name="config_daily_forecast_summary">每天早晨和入夜時</string>

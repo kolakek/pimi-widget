@@ -18,14 +18,17 @@
 package com.kolakek.pimiwidget.settings
 
 import android.os.Bundle
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.AuxDisplayPref
+import com.kolakek.pimiwidget.data.KEY_WIDGET_THEME_LIST
 import com.kolakek.pimiwidget.data.KEY_WIDGET_TRANSPARENCY
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TextColorPref
 import com.kolakek.pimiwidget.data.WidgetColorPref
 import com.kolakek.pimiwidget.data.WidgetStylePref
+import com.kolakek.pimiwidget.data.WidgetThemePref
 
 class WidgetSettingsStyleFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_widget_style
@@ -39,6 +42,7 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
         val styleCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_WIDGET_STYLE)
         val textColorCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_TEXT_COLOR)
         val widgetColorCategory: PreferenceCategory? = findPreference(KEY_CATEGORY_WIDGET_COLOR)
+        val widgetThemeList: ListPreference? = findPreference(KEY_WIDGET_THEME_LIST)
 
         val transparencySlider: SliderPreference? = findPreference(KEY_WIDGET_TRANSPARENCY)
 
@@ -69,6 +73,14 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
             labelOf = { it.labelRes }
         ) { color ->
             SettingsRepository.setWidgetColorPref(context, color)
+            previewPreference?.refresh()
+        }
+        widgetThemeList?.setOptions(
+            options = WidgetThemePref.entries,
+            default = WidgetThemePref.DEFAULT,
+            keyOf = { it.key },
+            labelOf = { it.labelRes }
+        ) {
             previewPreference?.refresh()
         }
         transparencySlider?.onValueChange = {

@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
 enum class RainUnitPref(val key: String, @StringRes val labelRes: Int) {
-    AUTO(KEY_RAIN_UNIT_AUTO, R.string.config_option_follow_system),
+    AUTO(KEY_RAIN_UNIT_AUTO, R.string.config_option_system_default),
     MM(KEY_RAIN_UNIT_MM, R.string.config_unit_millimeters),
     INCH(KEY_RAIN_UNIT_INCH, R.string.config_unit_inches);
 

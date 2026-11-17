@@ -30,10 +30,17 @@
         app:allowDividerBelow="false"
         app:iconSpaceReserved="false">
 
+        <ListPreference
+            android:key="widget_theme_list"
+            android:title="@string/config_widget_theme"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true"
+            app:order="100" />
+
         <com.kolakek.pimiwidget.settings.SliderPreference
             app:key="widget_transparency"
-            app:title="@string/config_transparency"
-            app:order="100" />
+            app:title="@string/config_widget_transparency"
+            app:order="200" />
 
     </PreferenceCategory>
 

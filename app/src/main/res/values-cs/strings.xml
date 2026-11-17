@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Ranní slunce</string>
     <string name="config_icon_color_evening">Večerní slunce</string>
     <string name="config_option_auto">Automaticky</string>
-    <string name="config_option_follow_system">Podle systému</string>
+    <string name="config_option_system_default">Podle systému</string>
     <string name="config_temp">Teplota</string>
     <string name="config_section_features">Přehled událostí</string>
     <string name="config_section_weather">Nastavení počasí</string>

@@ -23,10 +23,8 @@ import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class WidgetColorPref(val key: String, @StringRes val labelRes: Int) {
-    DYNAMIC(KEY_WIDGET_COLOR_DYNAMIC, R.string.config_color_dynamic),
-    SYSTEM(KEY_WIDGET_COLOR_SYSTEM, R.string.config_color_system),
-    LIGHT(KEY_WIDGET_COLOR_LIGHT, R.string.config_color_light),
-    DARK(KEY_WIDGET_COLOR_DARK, R.string.config_color_dark);
+    DYNAMIC(KEY_WIDGET_COLOR_DYNAMIC, R.string.config_widget_color_dynamic),
+    NEUTRAL(KEY_WIDGET_COLOR_NEUTRAL, R.string.config_widget_color_neutral);
 
     fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_WIDGET_COLOR_LIST, key) }
 

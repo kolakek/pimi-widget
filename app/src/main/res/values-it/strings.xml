@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Sole del mattino</string>
     <string name="config_icon_color_evening">Sole della sera</string>
     <string name="config_option_auto">Automatico</string>
-    <string name="config_option_follow_system">Predefinita di sistema</string>
+    <string name="config_option_system_default">Predefinita di sistema</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_section_features">Riepilogo</string>
     <string name="config_section_weather">Impostazioni meteo</string>

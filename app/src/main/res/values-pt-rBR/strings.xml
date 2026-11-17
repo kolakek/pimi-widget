@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Sol da manhã</string>
     <string name="config_icon_color_evening">Sol da tarde</string>
     <string name="config_option_auto">Automático</string>
-    <string name="config_option_follow_system">Padrão do sistema</string>
+    <string name="config_option_system_default">Padrão do sistema</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_section_features">Resumo</string>
     <string name="config_section_weather">Configurações de clima</string>

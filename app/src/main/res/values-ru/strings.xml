@@ -43,7 +43,7 @@
     <string name="config_icon_color_morning">Утреннее солнце</string>
     <string name="config_icon_color_evening">Вечернее солнце</string>
     <string name="config_option_auto">Автоматически</string>
-    <string name="config_option_follow_system">По умолчанию</string>
+    <string name="config_option_system_default">По умолчанию</string>
     <string name="config_temp">Температура</string>
     <string name="config_daily_forecast">Показывать ежедневный прогноз погоды</string>
     <string name="config_daily_forecast_summary">Утром и вечером</string>

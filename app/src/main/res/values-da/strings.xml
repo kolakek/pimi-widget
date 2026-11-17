@@ -40,7 +40,7 @@
     <string name="config_icon_color_morning">Morgensol</string>
     <string name="config_icon_color_evening">Aftensol</string>
     <string name="config_option_auto">Automatisk</string>
-    <string name="config_option_follow_system">Systemstandard</string>
+    <string name="config_option_system_default">Systemstandard</string>
     <string name="config_temp">Temperatur</string>
     <string name="config_section_features">Overblik</string>
     <string name="config_section_weather">Vejrindstillinger</string>

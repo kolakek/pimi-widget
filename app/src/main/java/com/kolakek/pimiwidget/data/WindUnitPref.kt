@@ -22,7 +22,7 @@ import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 
 enum class WindUnitPref(val key: String, @StringRes val labelRes: Int) {
-    AUTO(KEY_WIND_UNIT_AUTO, R.string.config_option_follow_system),
+    AUTO(KEY_WIND_UNIT_AUTO, R.string.config_option_system_default),
     KMH(KEY_WIND_UNIT_KMH, R.string.config_unit_km_per_hour),
     MS(KEY_WIND_UNIT_MS, R.string.config_unit_m_per_second),
     MPH(KEY_WIND_UNIT_MPH, R.string.config_unit_miles_per_hour),
