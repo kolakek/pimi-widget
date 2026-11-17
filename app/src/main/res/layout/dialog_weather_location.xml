@@ -9,8 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:paddingTop="16dp">
+        android:paddingHorizontal="24dp">
+
+        <include
+            android:id="@+id/device_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            layout="@layout/item_location_result" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/App.TextInputLayout"
@@ -39,14 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:indeterminate="true"
             android:visibility="invisible"
             app:trackCornerRadius="2dp" />
-
-        <include
-            android:id="@+id/device_location"
-            layout="@layout/item_location_result" />
 
         <LinearLayout
             android:id="@+id/results_container"
