@@ -61,9 +61,9 @@ The widget uses the temperature unit from your Android system settings by defaul
 
 The widget displays the forecast for the next 15 minutes as the current weather. It refreshes every 30 minutes. Forecast data for the next 6 hours is downloaded every 90 minutes, allowing the widget to show accurate weather for up to 6 hours without an internet connection. If the widget cannot update your location or retrieve new weather data for more than 6 hours (e.g., while in airplane mode), it will disable the weather display until both location and internet access are available again. If the internet is unavailable for an extended period, the widget may take some minutes to sync and display weather data.
 
-### Location Access
+### Device Location Access
 
-In most cases, coarse location access is sufficient. For this to work, network-based location services must be enabled in your system settings (sometimes labeled as "Location Accuracy"). If only GPS-based location is available, fine location access must be granted to the widget.
+When using device location, coarse location access (selected by default) is usually sufficient. For this to work, network-based location services must be enabled in your system settings (sometimes labeled as "Location Accuracy"). If only GPS-based location is available, fine location access must be granted to the widget.
 
 ### Weather and Calendar Apps
 
