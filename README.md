@@ -24,15 +24,15 @@ All download options provide the same APK file, signed with the same signing key
 ## Screenshots
 
 <div>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01.png?v=2" alt="Screen 1" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02.png?v=2" alt="Screen 2" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03.png?v=2" alt="Screen 3" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/04.png?v=2" alt="Screen 4" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/05.png?v=2" alt="Screen 5" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/06.png?v=2" alt="Screen 6" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/07.png?v=2" alt="Screen 7" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/08.png?v=2" alt="Screen 8" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/09.png?v=2" alt="Screen 9" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01.png?v=3" alt="Screen 1" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02.png?v=3" alt="Screen 2" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03.png?v=3" alt="Screen 3" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/04.png?v=3" alt="Screen 4" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/05.png?v=3" alt="Screen 5" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/06.png?v=3" alt="Screen 6" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/07.png?v=3" alt="Screen 7" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/08.png?v=3" alt="Screen 8" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/09.png?v=3" alt="Screen 9" style="width: 250px; margin-bottom: 20px;"/>
 </div>
 
 ## Documentation
