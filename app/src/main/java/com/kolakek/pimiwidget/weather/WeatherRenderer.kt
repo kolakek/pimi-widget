@@ -43,6 +43,7 @@ import java.util.Date
 import java.util.Locale
 import com.kolakek.pimiwidget.data.RainUnit
 import com.kolakek.pimiwidget.data.SnowUnit
+import java.time.format.DateTimeFormatter
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -248,8 +249,8 @@ object WeatherRenderer {
             System.currentTimeMillis()
         )
         return SunItem(
-            sunriseValueStr = timeMillisToStr(context, sunriseMillis),
-            sunsetValueStr = timeMillisToStr(context, sunsetMillis),
+            sunriseValueStr = formatTime(context, sunriseMillis, zoneId = weather.zoneId),
+            sunsetValueStr = formatTime(context, sunsetMillis, zoneId = weather.zoneId),
             image = sunImage
         )
     }
@@ -271,7 +272,7 @@ object WeatherRenderer {
 
                 val iconId = WeatherIcon.getWeatherIconId(code, isDay, iconStyle, iconColor)
                 val tempStr = temperatureString(context, temp, tempUnit, false)
-                val timeStr = formatTime(context, timeMillis)
+                val timeStr = formatTime(context, timeMillis, hourOnly = true)
 
                 val prob = weather.hourlyPrecipProb.getOrNull(idx)?.toInt() ?: 0
                 val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "$prob%" else ""
@@ -333,7 +334,7 @@ object WeatherRenderer {
                     String.format(Locale.getDefault(), rainUnit.format, rainVal)
                 } else ""
 
-                val timeStr = formatTime(context, timeMillis)
+                val timeStr = formatTime(context, timeMillis, hourOnly = true)
                 val level = (rainVal / rainUnit.fromMm(RAIN_BAR_MAX_MM)).coerceAtMost(1.0)
 
                 DataBarItem(
@@ -376,7 +377,7 @@ object WeatherRenderer {
                     String.format(Locale.getDefault(), snowUnit.format, snow)
                 } else ""
 
-                val timeStr = formatTime(context, timeMillis)
+                val timeStr = formatTime(context, timeMillis, hourOnly = true)
                 val level = (snow / snowUnit.fromCm(SNOW_BAR_MAX_CM)).coerceAtMost(1.0)
 
                 DataBarItem(
@@ -406,7 +407,7 @@ object WeatherRenderer {
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
                 val probStr = "${humidity.toInt()}%"
-                val timeStr = formatTime(context, timeMillis)
+                val timeStr = formatTime(context, timeMillis, hourOnly = true)
                 val level = (humidity / 100).coerceAtMost(1.0)
 
                 DataBarItem(
@@ -433,7 +434,7 @@ object WeatherRenderer {
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
                 val valStr = "${uvIndex.toInt()}"
-                val timeStr = formatTime(context, timeMillis)
+                val timeStr = formatTime(context, timeMillis, hourOnly = true)
                 val level = (uvIndex / 11).coerceAtMost(1.0)
 
                 DataBarItem(
@@ -462,7 +463,7 @@ object WeatherRenderer {
 
             AuxDisplay.UPDATE_TIME -> {
                 val nowTimeMillis = System.currentTimeMillis()
-                val str = timeMillisToStr(context, nowTimeMillis)
+                val str = formatTime(context, nowTimeMillis)
                 context.getString(R.string.widget_updated_at) + " $str"
             }
 
@@ -485,11 +486,6 @@ object WeatherRenderer {
         return "$value$unit".replace('-', '\u2212')
     }
 
-    private fun formatTime(context: Context, timeMillis: Long): String {
-        val pattern = if (DateFormat.is24HourFormat(context)) "HH:00" else "h a"
-        return SimpleDateFormat(pattern, Locale.getDefault()).format(Date(timeMillis))
-    }
-
     private fun formatDayName(context: Context, timeMillis: Long): String {
         val zone = ZoneId.systemDefault()
         val date = Instant.ofEpochMilli(timeMillis).atZone(zone).toLocalDate()
@@ -501,7 +497,19 @@ object WeatherRenderer {
         }
     }
 
-    private fun timeMillisToStr(context: Context, timeMillis: Long): String {
-        return DateFormat.getTimeFormat(context).format(Date(timeMillis))
+    private fun formatTime(
+        context: Context,
+        timeMillis: Long,
+        hourOnly: Boolean = false,
+        zoneId: ZoneId = ZoneId.systemDefault(),
+    ): String {
+        val skeleton = when {
+            DateFormat.is24HourFormat(context) -> "Hm"
+            hourOnly -> "ha"
+            else -> "hm"
+        }
+        val pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton)
+        return Instant.ofEpochMilli(timeMillis).atZone(zoneId)
+            .format(DateTimeFormatter.ofPattern(pattern, Locale.getDefault()))
     }
 }

@@ -22,6 +22,7 @@ import kotlinx.serialization.Serializable
 @Suppress("PropertyName")
 @Serializable
 data class ProviderData(
+    val timezone: String,
     val minutely_15: ProviderDataMinutely,
     val hourly: ProviderDataHourly,
     val daily: ProviderDataDaily

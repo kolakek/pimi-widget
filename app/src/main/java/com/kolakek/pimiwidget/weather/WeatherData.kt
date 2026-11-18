@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.weather
 
 import kotlinx.serialization.Serializable
+import java.time.ZoneId
 
 @Serializable
 data class WeatherData (
@@ -57,8 +58,12 @@ data class WeatherData (
     val dailySunsetMillis: List<Long>,
     val dailyTimeMillis: List<Long>,
     val timeMillis: Long,
+    val timeZone: String,
     val place: String
 ) {
+    val zoneId: ZoneId get() =
+        runCatching { ZoneId.of(timeZone) }.getOrDefault(ZoneId.systemDefault())
+
     fun currentTempCelsius(): Double? {
         return minutelyTempCelsius.getOrNull(currentMinutelyIndex())
     }

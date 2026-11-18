@@ -147,6 +147,7 @@ object WeatherService {
             dailySunsetMillis = providerData.daily.sunset.map { v -> v.toLong() * 1000L },
             dailyTimeMillis = providerData.daily.time.map { v -> v.toLong() * 1000L },
             timeMillis = System.currentTimeMillis(),
+            timeZone = providerData.timezone,
             place = place
         )
     }
