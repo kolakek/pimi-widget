@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Meter pro Sekunde</string>
     <string name="config_unit_miles_per_hour">Meilen pro Stunde</string>
     <string name="config_unit_knots">Knoten</string>
+    <string name="config_option_on">An</string>
+    <string name="config_option_off">Aus</string>
+    <string name="config_widget_color_dynamic">Dynamisch</string>
+    <string name="config_widget_color_neutral">Neutral</string>
+    <string name="config_widget_theme">Dunkles Design</string>
+    <string name="config_widget_transparency">Transparenz</string>
+    <string name="config_weather_enable_switch">Wetter aktivieren</string>
+    <string name="config_weather_provider">Wetteranbieter</string>
+    <string name="config_weather_location_fixed">Fester Standort</string>
+    <string name="config_weather_app_summary">Tippen auf das Widget öffnet %1$s</string>
+    <string name="config_section_general">Allgemein</string>
+    <string name="config_section_display">Anzeige</string>
+    <string name="config_section_style">Stil</string>
+    <string name="config_section_color">Farbe</string>
+    <string name="config_temp_unit">Temperatureinheit</string>
 
     <string name="app_text_now">Jetzt</string>
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>

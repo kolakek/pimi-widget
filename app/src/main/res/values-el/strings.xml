@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Μέτρα ανά δευτερόλεπτο</string>
     <string name="config_unit_miles_per_hour">Μίλια ανά ώρα</string>
     <string name="config_unit_knots">Κόμβοι</string>
+    <string name="config_option_on">Ενεργό</string>
+    <string name="config_option_off">Ανενεργό</string>
+    <string name="config_widget_color_dynamic">Δυναμικό</string>
+    <string name="config_widget_color_neutral">Ουδέτερο</string>
+    <string name="config_widget_theme">Σκούρο θέμα</string>
+    <string name="config_widget_transparency">Διαφάνεια</string>
+    <string name="config_weather_enable_switch">Ενεργοποίηση καιρού</string>
+    <string name="config_weather_provider">Πάροχος καιρού</string>
+    <string name="config_weather_location_fixed">Σταθερή τοποθεσία</string>
+    <string name="config_weather_app_summary">Πατώντας το widget ανοίγει η εφαρμογή %1$s</string>
+    <string name="config_section_general">Γενικά</string>
+    <string name="config_section_display">Προβολή</string>
+    <string name="config_section_style">Στιλ</string>
+    <string name="config_section_color">Χρώμα</string>
+    <string name="config_temp_unit">Μονάδα θερμοκρασίας</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>

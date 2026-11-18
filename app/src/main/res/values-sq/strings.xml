@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metra në sekondë</string>
     <string name="config_unit_miles_per_hour">Milje në orë</string>
     <string name="config_unit_knots">Nyje</string>
+    <string name="config_option_on">Aktiv</string>
+    <string name="config_option_off">Joaktiv</string>
+    <string name="config_widget_color_dynamic">Dinamike</string>
+    <string name="config_widget_color_neutral">Neutrale</string>
+    <string name="config_widget_theme">Tema e errët</string>
+    <string name="config_widget_transparency">Transparenca</string>
+    <string name="config_weather_enable_switch">Aktivizo motin</string>
+    <string name="config_weather_provider">Ofruesi i motit</string>
+    <string name="config_weather_location_fixed">Vendndodhje fikse</string>
+    <string name="config_weather_app_summary">Trokitja mbi widget-in hap %1$s</string>
+    <string name="config_section_general">Të përgjithshme</string>
+    <string name="config_section_display">Shfaqja</string>
+    <string name="config_section_style">Stili</string>
+    <string name="config_section_color">Ngjyra</string>
+    <string name="config_temp_unit">Njësia e temperaturës</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>

@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metros por segundo</string>
     <string name="config_unit_miles_per_hour">Millas por hora</string>
     <string name="config_unit_knots">Nudos</string>
+    <string name="config_option_on">Activado</string>
+    <string name="config_option_off">Desactivado</string>
+    <string name="config_widget_color_dynamic">Dinámico</string>
+    <string name="config_widget_color_neutral">Neutro</string>
+    <string name="config_widget_theme">Tema oscuro</string>
+    <string name="config_widget_transparency">Transparencia</string>
+    <string name="config_weather_enable_switch">Activar el tiempo</string>
+    <string name="config_weather_provider">Proveedor meteorológico</string>
+    <string name="config_weather_location_fixed">Ubicación fija</string>
+    <string name="config_weather_app_summary">Al tocar el widget se abre %1$s</string>
+    <string name="config_section_general">General</string>
+    <string name="config_section_display">Visualización</string>
+    <string name="config_section_style">Estilo</string>
+    <string name="config_section_color">Color</string>
+    <string name="config_temp_unit">Unidad de temperatura</string>
 
     <string name="app_text_now">Ahora</string>
     <string name="app_text_hourly_forecast">Previsión por horas</string>

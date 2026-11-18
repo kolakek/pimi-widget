@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">公尺/秒</string>
     <string name="config_unit_miles_per_hour">英里/小時</string>
     <string name="config_unit_knots">節</string>
+    <string name="config_option_on">開啟</string>
+    <string name="config_option_off">關閉</string>
+    <string name="config_widget_color_dynamic">動態</string>
+    <string name="config_widget_color_neutral">中性</string>
+    <string name="config_widget_theme">深色主題</string>
+    <string name="config_widget_transparency">透明度</string>
+    <string name="config_weather_enable_switch">啟用天氣</string>
+    <string name="config_weather_provider">天氣服務</string>
+    <string name="config_weather_location_fixed">固定位置</string>
+    <string name="config_weather_app_summary">輕觸小工具會開啟 %1$s</string>
+    <string name="config_section_general">一般</string>
+    <string name="config_section_display">顯示</string>
+    <string name="config_section_style">樣式</string>
+    <string name="config_section_color">顏色</string>
+    <string name="config_temp_unit">溫度單位</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

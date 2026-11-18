@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metre/saniye</string>
     <string name="config_unit_miles_per_hour">Mil/saat</string>
     <string name="config_unit_knots">Knot</string>
+    <string name="config_option_on">Açık</string>
+    <string name="config_option_off">Kapalı</string>
+    <string name="config_widget_color_dynamic">Dinamik</string>
+    <string name="config_widget_color_neutral">Nötr</string>
+    <string name="config_widget_theme">Koyu tema</string>
+    <string name="config_widget_transparency">Şeffaflık</string>
+    <string name="config_weather_enable_switch">Hava durumunu etkinleştir</string>
+    <string name="config_weather_provider">Hava durumu sağlayıcısı</string>
+    <string name="config_weather_location_fixed">Sabit konum</string>
+    <string name="config_weather_app_summary">Widget\'a dokunmak %1$s uygulamasını açar</string>
+    <string name="config_section_general">Genel</string>
+    <string name="config_section_display">Görünüm</string>
+    <string name="config_section_style">Stil</string>
+    <string name="config_section_color">Renk</string>
+    <string name="config_temp_unit">Sıcaklık birimi</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>

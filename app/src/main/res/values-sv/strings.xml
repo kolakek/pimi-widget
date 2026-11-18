@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Meter per sekund</string>
     <string name="config_unit_miles_per_hour">Miles per timme</string>
     <string name="config_unit_knots">Knop</string>
+    <string name="config_option_on">På</string>
+    <string name="config_option_off">Av</string>
+    <string name="config_widget_color_dynamic">Dynamisk</string>
+    <string name="config_widget_color_neutral">Neutral</string>
+    <string name="config_widget_theme">Mörkt tema</string>
+    <string name="config_widget_transparency">Genomskinlighet</string>
+    <string name="config_weather_enable_switch">Aktivera väder</string>
+    <string name="config_weather_provider">Väderleverantör</string>
+    <string name="config_weather_location_fixed">Fast plats</string>
+    <string name="config_weather_app_summary">Ett tryck på widgeten öppnar %1$s</string>
+    <string name="config_section_general">Allmänt</string>
+    <string name="config_section_display">Visning</string>
+    <string name="config_section_style">Stil</string>
+    <string name="config_section_color">Färg</string>
+    <string name="config_temp_unit">Temperaturenhet</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

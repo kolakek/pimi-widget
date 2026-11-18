@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Meter per detik</string>
     <string name="config_unit_miles_per_hour">Mil per jam</string>
     <string name="config_unit_knots">Knot</string>
+    <string name="config_option_on">Aktif</string>
+    <string name="config_option_off">Nonaktif</string>
+    <string name="config_widget_color_dynamic">Dinamis</string>
+    <string name="config_widget_color_neutral">Netral</string>
+    <string name="config_widget_theme">Tema gelap</string>
+    <string name="config_widget_transparency">Transparansi</string>
+    <string name="config_weather_enable_switch">Aktifkan cuaca</string>
+    <string name="config_weather_provider">Penyedia cuaca</string>
+    <string name="config_weather_location_fixed">Lokasi tetap</string>
+    <string name="config_weather_app_summary">Mengetuk widget akan membuka %1$s</string>
+    <string name="config_section_general">Umum</string>
+    <string name="config_section_display">Tampilan</string>
+    <string name="config_section_style">Gaya</string>
+    <string name="config_section_color">Warna</string>
+    <string name="config_temp_unit">Satuan suhu</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>

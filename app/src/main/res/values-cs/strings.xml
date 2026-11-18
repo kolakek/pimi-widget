@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metry za sekundu</string>
     <string name="config_unit_miles_per_hour">Míle za hodinu</string>
     <string name="config_unit_knots">Uzly</string>
+    <string name="config_option_on">Zapnuto</string>
+    <string name="config_option_off">Vypnuto</string>
+    <string name="config_widget_color_dynamic">Dynamické</string>
+    <string name="config_widget_color_neutral">Neutrální</string>
+    <string name="config_widget_theme">Tmavý motiv</string>
+    <string name="config_widget_transparency">Průhlednost</string>
+    <string name="config_weather_enable_switch">Zapnout počasí</string>
+    <string name="config_weather_provider">Poskytovatel počasí</string>
+    <string name="config_weather_location_fixed">Pevná poloha</string>
+    <string name="config_weather_app_summary">Klepnutím na widget se otevře %1$s</string>
+    <string name="config_section_general">Obecné</string>
+    <string name="config_section_display">Zobrazení</string>
+    <string name="config_section_style">Styl</string>
+    <string name="config_section_color">Barva</string>
+    <string name="config_temp_unit">Jednotka teploty</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>

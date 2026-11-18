@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metri pe secundă</string>
     <string name="config_unit_miles_per_hour">Mile pe oră</string>
     <string name="config_unit_knots">Noduri</string>
+    <string name="config_option_on">Activat</string>
+    <string name="config_option_off">Dezactivat</string>
+    <string name="config_widget_color_dynamic">Dinamică</string>
+    <string name="config_widget_color_neutral">Neutră</string>
+    <string name="config_widget_theme">Temă întunecată</string>
+    <string name="config_widget_transparency">Transparență</string>
+    <string name="config_weather_enable_switch">Activează vremea</string>
+    <string name="config_weather_provider">Furnizor meteo</string>
+    <string name="config_weather_location_fixed">Locație fixă</string>
+    <string name="config_weather_app_summary">Atingerea widgetului deschide %1$s</string>
+    <string name="config_section_general">General</string>
+    <string name="config_section_display">Afișare</string>
+    <string name="config_section_style">Stil</string>
+    <string name="config_section_color">Culoare</string>
+    <string name="config_temp_unit">Unitate de temperatură</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>

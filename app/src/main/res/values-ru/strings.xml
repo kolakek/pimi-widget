@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Метры в секунду</string>
     <string name="config_unit_miles_per_hour">Мили в час</string>
     <string name="config_unit_knots">Узлы</string>
+    <string name="config_option_on">Включено</string>
+    <string name="config_option_off">Выключено</string>
+    <string name="config_widget_color_dynamic">Динамический</string>
+    <string name="config_widget_color_neutral">Нейтральный</string>
+    <string name="config_widget_theme">Тёмная тема</string>
+    <string name="config_widget_transparency">Прозрачность</string>
+    <string name="config_weather_enable_switch">Включить погоду</string>
+    <string name="config_weather_provider">Погодный сервис</string>
+    <string name="config_weather_location_fixed">Фиксированное местоположение</string>
+    <string name="config_weather_app_summary">Нажатие на виджет открывает %1$s</string>
+    <string name="config_section_general">Общие</string>
+    <string name="config_section_display">Отображение</string>
+    <string name="config_section_style">Стиль</string>
+    <string name="config_section_color">Цвет</string>
+    <string name="config_temp_unit">Единица температуры</string>
 
     <string name="app_text_now">Сейчас</string>
     <string name="app_text_hourly_forecast">Прогноз по часам</string>

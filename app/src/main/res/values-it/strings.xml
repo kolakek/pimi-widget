@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metri al secondo</string>
     <string name="config_unit_miles_per_hour">Miglia orarie</string>
     <string name="config_unit_knots">Nodi</string>
+    <string name="config_option_on">Attivo</string>
+    <string name="config_option_off">Disattivato</string>
+    <string name="config_widget_color_dynamic">Dinamico</string>
+    <string name="config_widget_color_neutral">Neutro</string>
+    <string name="config_widget_theme">Tema scuro</string>
+    <string name="config_widget_transparency">Trasparenza</string>
+    <string name="config_weather_enable_switch">Attiva meteo</string>
+    <string name="config_weather_provider">Fornitore meteo</string>
+    <string name="config_weather_location_fixed">Posizione fissa</string>
+    <string name="config_weather_app_summary">Toccando il widget si apre %1$s</string>
+    <string name="config_section_general">Generali</string>
+    <string name="config_section_display">Visualizzazione</string>
+    <string name="config_section_style">Stile</string>
+    <string name="config_section_color">Colore</string>
+    <string name="config_temp_unit">Unità di temperatura</string>
 
     <string name="app_text_now">Ora</string>
     <string name="app_text_hourly_forecast">Previsioni orarie</string>

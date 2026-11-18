@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Метри за секунду</string>
     <string name="config_unit_miles_per_hour">Милі на годину</string>
     <string name="config_unit_knots">Вузли</string>
+    <string name="config_option_on">Увімкнено</string>
+    <string name="config_option_off">Вимкнено</string>
+    <string name="config_widget_color_dynamic">Динамічний</string>
+    <string name="config_widget_color_neutral">Нейтральний</string>
+    <string name="config_widget_theme">Темна тема</string>
+    <string name="config_widget_transparency">Прозорість</string>
+    <string name="config_weather_enable_switch">Увімкнути погоду</string>
+    <string name="config_weather_provider">Погодний сервіс</string>
+    <string name="config_weather_location_fixed">Фіксоване місцезнаходження</string>
+    <string name="config_weather_app_summary">Натискання на віджет відкриває %1$s</string>
+    <string name="config_section_general">Загальні</string>
+    <string name="config_section_display">Відображення</string>
+    <string name="config_section_style">Стиль</string>
+    <string name="config_section_color">Колір</string>
+    <string name="config_temp_unit">Одиниця температури</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>

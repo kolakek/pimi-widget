@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Meter per seconde</string>
     <string name="config_unit_miles_per_hour">Mijl per uur</string>
     <string name="config_unit_knots">Knopen</string>
+    <string name="config_option_on">Aan</string>
+    <string name="config_option_off">Uit</string>
+    <string name="config_widget_color_dynamic">Dynamisch</string>
+    <string name="config_widget_color_neutral">Neutraal</string>
+    <string name="config_widget_theme">Donker thema</string>
+    <string name="config_widget_transparency">Transparantie</string>
+    <string name="config_weather_enable_switch">Weer aanzetten</string>
+    <string name="config_weather_provider">Weeraanbieder</string>
+    <string name="config_weather_location_fixed">Vaste locatie</string>
+    <string name="config_weather_app_summary">Tikken op de widget opent %1$s</string>
+    <string name="config_section_general">Algemeen</string>
+    <string name="config_section_display">Weergave</string>
+    <string name="config_section_style">Stijl</string>
+    <string name="config_section_color">Kleur</string>
+    <string name="config_temp_unit">Temperatuureenheid</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>

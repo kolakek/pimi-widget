@@ -83,6 +83,21 @@
     <string name="config_unit_m_per_second">Metriä sekunnissa</string>
     <string name="config_unit_miles_per_hour">Mailia tunnissa</string>
     <string name="config_unit_knots">Solmua</string>
+    <string name="config_option_on">Päällä</string>
+    <string name="config_option_off">Pois päältä</string>
+    <string name="config_widget_color_dynamic">Dynaaminen</string>
+    <string name="config_widget_color_neutral">Neutraali</string>
+    <string name="config_widget_theme">Tumma teema</string>
+    <string name="config_widget_transparency">Läpinäkyvyys</string>
+    <string name="config_weather_enable_switch">Ota sää käyttöön</string>
+    <string name="config_weather_provider">Säätietojen tarjoaja</string>
+    <string name="config_weather_location_fixed">Kiinteä sijainti</string>
+    <string name="config_weather_app_summary">Widgetin napautus avaa: %1$s</string>
+    <string name="config_section_general">Yleiset</string>
+    <string name="config_section_display">Näkymä</string>
+    <string name="config_section_style">Tyyli</string>
+    <string name="config_section_color">Väri</string>
+    <string name="config_temp_unit">Lämpötilayksikkö</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>
