@@ -43,7 +43,7 @@ The widget requires a location to retrieve weather information from the weather 
 
 With device location, the widget collects your location approximately every 90 minutes. Your location data (latitude and longitude), along with your IP address, is shared with the weather provider to retrieve updated weather information. Only coarse location access is required; fine location access is optional. The last valid location information is stored on your device.
 
-With a fixed location, the widget does not use or request any location permission. Only the coordinates of the chosen place, along with your IP address, are shared with the weather provider. When you search for a place by name, the text you type, your system language, and your IP address are sent to the geocoding provider ([Open-Meteo](https://open-meteo.com/)).
+With a fixed location, the widget does not request or use any location permission. Only the coordinates of the chosen place, along with your IP address, are shared with the weather provider. When you search for a place, the text you type, your system language, and your IP address are sent to the geocoding provider ([Open-Meteo](https://open-meteo.com/)).
 
 You can view the data exchanged with the weather provider by long-pressing the Build number in the widget settings.
 
