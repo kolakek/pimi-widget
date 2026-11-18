@@ -37,7 +37,6 @@ import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
-import com.kolakek.pimiwidget.widget.BirthdayUpdater
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -176,7 +175,6 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private fun disableBirthday() {
         lifecycleScope.launch {
-            BirthdayUpdater.deleteDismissHash(requireContext())
             DataRepository.deleteBirthdayData(requireContext())
         }
         findPreference<SwitchPreferenceCompat>(KEY_BIRTHDAY_SWITCH)?.isChecked = false

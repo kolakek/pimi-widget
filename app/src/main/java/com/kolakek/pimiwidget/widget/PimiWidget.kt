@@ -22,11 +22,9 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.SettingsRepository
-import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
 import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.runBlocking
@@ -55,7 +53,6 @@ class PimiWidget : AppWidgetProvider() {
     override fun onDisabled(context: Context) {
         WorkManagerHelper.cancelPeriodicWork(context)
         SettingsRepository.clearAll(context)
-        context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE).edit { clear() }
         runBlocking { DataRepository.deleteAllData(context) }
     }
 

@@ -18,11 +18,10 @@
 package com.kolakek.pimiwidget.utility
 
 import android.content.Context
-import androidx.core.content.edit
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
-import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.data.AuxDisplayPref
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.WidgetIconColorPref
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
@@ -34,7 +33,7 @@ import com.kolakek.pimiwidget.worker.WorkManagerHelper
 object MigrateApp {
 
     fun migrate(context: Context) {
-        val previousVersionCode = getPreviousVersionCode(context)
+        val previousVersionCode = DataRepository.loadVersionCode(context)
 
         if (previousVersionCode < 22) {
             SettingsRepository.setTempUnitPref(
@@ -73,7 +72,7 @@ object MigrateApp {
                 SettingsRepository.setAuxDisplayPref(context, auxDisplayNothing)
             }
         }
-        storeCurrentVersionCode(context)
+        DataRepository.storeVersionCode(context)
 
         WorkManagerHelper.enqueueOneTimeWork(
             context,
@@ -84,15 +83,5 @@ object MigrateApp {
             context,
             workPolicy = ExistingPeriodicWorkPolicy.UPDATE
         )
-    }
-
-    fun storeCurrentVersionCode(context: Context) {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        prefs.edit { putLong(KEY_VERSION_CODE, BuildConfig.VERSION_CODE.toLong()) }
-    }
-
-    private fun getPreviousVersionCode(context: Context): Long {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        return prefs.getLong(KEY_VERSION_CODE, Long.MAX_VALUE)
     }
 }

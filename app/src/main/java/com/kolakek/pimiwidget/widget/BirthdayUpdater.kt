@@ -20,11 +20,9 @@ package com.kolakek.pimiwidget.widget
 import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
-import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.birthday.BirthdayData
-import com.kolakek.pimiwidget.utility.KEY_PIMI_PREFERENCES
-import com.kolakek.pimiwidget.utility.KEY_BIRTHDAY_DISMISS_HASH
+import com.kolakek.pimiwidget.data.DataRepository
 import java.time.LocalDate
 
 object BirthdayUpdater {
@@ -88,14 +86,8 @@ object BirthdayUpdater {
         setDisplayState(context, dismissDay, nextIndex)
     }
 
-    fun deleteDismissHash(context: Context) {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        prefs.edit { remove(KEY_BIRTHDAY_DISMISS_HASH) }
-    }
-
     private fun getDisplayState(context: Context): DisplayState {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        val dismissHash = prefs.getInt(KEY_BIRTHDAY_DISMISS_HASH, 0)
+        val dismissHash = DataRepository.loadBirthdayDismissHash(context)
         return DisplayState(
             dismissDay = dismissHash / 10,
             nextIndex = dismissHash % 10
@@ -103,7 +95,7 @@ object BirthdayUpdater {
     }
 
     private fun setDisplayState(context: Context, dismissDay: Int, nextIndex: Int) {
-        val prefs = context.getSharedPreferences(KEY_PIMI_PREFERENCES, Context.MODE_PRIVATE)
-        prefs.edit { putInt(KEY_BIRTHDAY_DISMISS_HASH, 10 * dismissDay + nextIndex) }
+        val dismissHash = 10 * dismissDay + nextIndex
+        DataRepository.storeBirthdayDismissHash(context, dismissHash)
     }
 }

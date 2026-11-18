@@ -102,4 +102,3 @@ internal const val KEY_DISPLAY_PLACE_CONDITION = "aux_view_place_condition"
 internal const val KEY_LOCATION_SOURCE_LIST = "location_source_list"
 internal const val KEY_LOCATION_SOURCE_DEVICE = "location_source_device"
 internal const val KEY_LOCATION_SOURCE_FIXED = "location_source_fixed"
-

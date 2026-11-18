@@ -18,8 +18,10 @@
 package com.kolakek.pimiwidget.data
 
 import android.content.Context
+import androidx.core.content.edit
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.kolakek.pimiwidget.BuildConfig
 import com.kolakek.pimiwidget.birthday.BirthdayData
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherData
@@ -27,6 +29,10 @@ import com.kolakek.pimiwidget.worker.StatusData
 import kotlinx.coroutines.flow.Flow
 
 object DataRepository {
+
+    private const val PREFS_NAME = "app_preferences"
+    private const val KEY_VERSION_CODE = "version_code"
+    private const val KEY_BIRTHDAY_DISMISS_HASH = "birthday_dismiss_hash"
 
     private enum class DataKeys (val key: Preferences.Key<String>) {
         WEATHER(stringPreferencesKey("weather_json")),
@@ -37,6 +43,7 @@ object DataRepository {
 
     suspend fun deleteAllData(context: Context) {
         DataKeys.entries.forEach { JsonDataStore.delete(context, it.key) }
+        prefs(context).edit { clear() }
     }
 
     suspend fun storeWeatherData(context: Context, weatherData: WeatherData) {
@@ -85,5 +92,20 @@ object DataRepository {
 
     suspend fun deleteBirthdayData(context: Context) {
         JsonDataStore.delete(context, DataKeys.BIRTHDAYS.key)
+        prefs(context).edit { remove(KEY_BIRTHDAY_DISMISS_HASH) }
     }
+
+    fun storeVersionCode(context: Context) =
+        prefs(context).edit { putLong(KEY_VERSION_CODE, BuildConfig.VERSION_CODE.toLong()) }
+
+    fun loadVersionCode(context: Context) = prefs(context).getLong(KEY_VERSION_CODE, Long.MAX_VALUE)
+
+    fun storeBirthdayDismissHash(context: Context, dismissHash: Int) =
+        prefs(context).edit { putInt(KEY_BIRTHDAY_DISMISS_HASH, dismissHash) }
+
+    fun loadBirthdayDismissHash(context: Context) =
+        prefs(context).getInt(KEY_BIRTHDAY_DISMISS_HASH, 0)
+
+    private fun prefs(context: Context) =
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 }

@@ -23,9 +23,9 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.kolakek.pimiwidget.R
+import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.databinding.PimiWidgetConfigureBinding
-import com.kolakek.pimiwidget.utility.MigrateApp
 import com.kolakek.pimiwidget.widget.WidgetUpdater
 
 class WidgetConfigureActivity : AppCompatActivity() {
@@ -73,7 +73,7 @@ class WidgetConfigureActivity : AppCompatActivity() {
         val context = this@WidgetConfigureActivity
 
         WidgetUpdater.updateWidgets(context)
-        MigrateApp.storeCurrentVersionCode(context)
+        DataRepository.storeVersionCode(context)
 
         SettingsRepository.setWidgetConfigured(this, appWidgetId, true)
 

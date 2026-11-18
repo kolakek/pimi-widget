@@ -17,10 +17,6 @@
 
 package com.kolakek.pimiwidget.utility
 
-internal const val KEY_PIMI_PREFERENCES = "app_preferences"
-internal const val KEY_VERSION_CODE = "version_code"
-internal const val KEY_BIRTHDAY_DISMISS_HASH = "birthday_dismiss_hash"
-
 internal const val CONNECT_TIMEOUT_MS = 10 * 1000L
 internal const val REQUEST_TIMEOUT_MS = 30 * 1000L
 internal const val SOCKET_TIMEOUT_MS = 30 * 1000L
