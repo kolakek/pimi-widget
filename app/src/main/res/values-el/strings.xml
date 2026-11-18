@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Εμφάνιση ημερήσιας πρόγνωσης</string>
     <string name="config_daily_forecast_summary">Το πρωί και το βράδυ</string>
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
-    <string name="config_weather_warnings_summary">Για ακραίες καιρικές συνθήκες μέσα στην επόμενη ώρα</string>
+    <string name="config_weather_warnings_summary">Για ακραίο καιρό την επόμενη ώρα</string>
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
     <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σου, η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σου.</string>
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>

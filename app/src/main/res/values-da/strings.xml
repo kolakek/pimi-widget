@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Vis daglig vejrudsigt</string>
     <string name="config_daily_forecast_summary">Morgen og aften</string>
     <string name="config_weather_warnings">Vis vejrvarsler</string>
-    <string name="config_weather_warnings_summary">Ved ekstreme vejrforhold inden for den næste time</string>
+    <string name="config_weather_warnings_summary">Ved ekstremt vejr inden for en time</string>
     <string name="config_loc_perm_alert_title">Placeringstilladelse kræves</string>
     <string name="config_loc_perm_alert_message">For at vise vejret i dit område har appen brug for adgang til din placering.</string>
     <string name="config_bg_perm_alert_title">Baggrundsplaceringstilladelse</string>

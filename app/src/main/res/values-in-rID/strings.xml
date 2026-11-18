@@ -48,7 +48,7 @@
     <string name="config_daily_forecast">Tampilkan perkiraan cuaca harian</string>
     <string name="config_daily_forecast_summary">Pada pagi dan sore hari</string>
     <string name="config_weather_warnings">Tampilkan peringatan cuaca</string>
-    <string name="config_weather_warnings_summary">Untuk kondisi cuaca buruk dalam satu jam</string>
+    <string name="config_weather_warnings_summary">Untuk cuaca ekstrem dalam satu jam</string>
     <string name="config_loc_perm_alert_title">Izin lokasi diperlukan</string>
     <string name="config_loc_perm_alert_message">Untuk menampilkan cuaca di area anda saat ini, aplikasi ini memerlukan akses ke lokasi anda.</string>
     <string name="config_bg_perm_alert_title">Izin lokasi latar belakang</string>

@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Visa dygnsprognos</string>
     <string name="config_daily_forecast_summary">På morgonen och kvällen</string>
     <string name="config_weather_warnings">Visa vädervarningar</string>
-    <string name="config_weather_warnings_summary">Vid extrema väderförhållanden inom den närmaste timmen</string>
+    <string name="config_weather_warnings_summary">Vid extremväder inom en timme</string>
     <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
     <string name="config_loc_perm_alert_message">För att visa vädret i ditt område behöver appen åtkomst till din plats.</string>
     <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>

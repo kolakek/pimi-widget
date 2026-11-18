@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Mostra previsioni giornaliere</string>
     <string name="config_daily_forecast_summary">Mattina e sera</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
-    <string name="config_weather_warnings_summary">Per condizioni meteorologiche avverse entro la prossima ora</string>
+    <string name="config_weather_warnings_summary">Per eventi meteo estremi entro un’ora</string>
     <string name="config_loc_perm_alert_title">Permesso di posizione richiesto</string>
     <string name="config_loc_perm_alert_message">Per mostrare il meteo nella tua area attuale, questa app necessita dell’accesso alla tua posizione.</string>
     <string name="config_bg_perm_alert_title">Permesso posizione in background</string>

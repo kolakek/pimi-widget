@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Mostrar previsión diaria</string>
     <string name="config_daily_forecast_summary">Por la mañana y por la noche</string>
     <string name="config_weather_warnings">Mostrar alertas meteorológicas</string>
-    <string name="config_weather_warnings_summary">Para condiciones meteorológicas adversas en la próxima hora</string>
+    <string name="config_weather_warnings_summary">Para tiempo extremo en la próxima hora</string>
     <string name="config_loc_perm_alert_title">Permiso de ubicación requerido</string>
     <string name="config_loc_perm_alert_message">Para mostrar el tiempo de tu zona actual, esta aplicación necesita acceder a tu ubicación.</string>
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>

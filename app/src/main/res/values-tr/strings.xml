@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Günlük tahmini göster</string>
     <string name="config_daily_forecast_summary">Sabah ve akşam</string>
     <string name="config_weather_warnings">Hava uyarılarını göster</string>
-    <string name="config_weather_warnings_summary">Önümüzdeki bir saat içindeki aşırı hava koşulları için</string>
+    <string name="config_weather_warnings_summary">Bir saat içindeki aşırı hava olayları için</string>
     <string name="config_loc_perm_alert_title">Konum izni gerekli</string>
     <string name="config_loc_perm_alert_message">Bulunduğun bölgedeki hava durumunu göstermek için bu uygulamanın konumuna erişmesi gerekiyor.</string>
     <string name="config_bg_perm_alert_title">Arka plan konum izni</string>

@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Afișează prognoza zilnică</string>
     <string name="config_daily_forecast_summary">Dimineața și seara</string>
     <string name="config_weather_warnings">Afișează alertele meteo</string>
-    <string name="config_weather_warnings_summary">Pentru condiții meteo severe în următoarea oră</string>
+    <string name="config_weather_warnings_summary">Pentru vreme extremă în următoarea oră</string>
     <string name="config_loc_perm_alert_title">Permisiune de locație necesară</string>
     <string name="config_loc_perm_alert_message">Pentru a afișa vremea din zona ta curentă, aplicația are nevoie de acces la locația ta.</string>
     <string name="config_bg_perm_alert_title">Permisiune de locație în fundal</string>

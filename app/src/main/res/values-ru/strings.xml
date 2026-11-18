@@ -48,7 +48,7 @@
     <string name="config_daily_forecast">Показывать ежедневный прогноз погоды</string>
     <string name="config_daily_forecast_summary">Утром и вечером</string>
     <string name="config_weather_warnings">Показывать предупреждения о погоде</string>
-    <string name="config_weather_warnings_summary">При неблагоприятных погодных условиях в течение ближайшего часа</string>
+    <string name="config_weather_warnings_summary">При экстремальной погоде в ближайший час</string>
     <string name="config_loc_perm_alert_title">Требуется разрешение доступа к местоположению</string>
     <string name="config_loc_perm_alert_message">Чтобы показывать погоду вашей текущей местности, этому приложению требуется доступ к вашему местоположению.</string>
     <string name="config_bg_perm_alert_title">Разрешение на фоновый доступ к местоположению</string>

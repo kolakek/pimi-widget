@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Shfaq parashikimin ditor</string>
     <string name="config_daily_forecast_summary">Në mëngjes dhe në mbrëmje</string>
     <string name="config_weather_warnings">Shfaq paralajmërime moti</string>
-    <string name="config_weather_warnings_summary">Për kushte të rënda të motit brenda orës së ardhshme</string>
+    <string name="config_weather_warnings_summary">Për mot ekstrem brenda një ore</string>
     <string name="config_loc_perm_alert_title">Kërkohet leje për vendndodhjen</string>
     <string name="config_loc_perm_alert_message">Për të shfaqur motin në zonën tënde aktuale, ky aplikacion ka nevojë për qasje në vendndodhjen tënde.</string>
     <string name="config_bg_perm_alert_title">Leje për vendndodhjen në sfond</string>

@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Zobrazit denní předpověď</string>
     <string name="config_daily_forecast_summary">Ráno a večer</string>
     <string name="config_weather_warnings">Zobrazit výstrahy počasí</string>
-    <string name="config_weather_warnings_summary">Pro extrémní povětrnostní podmínky během následující hodiny</string>
+    <string name="config_weather_warnings_summary">Pro extrémní počasí do hodiny</string>
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
     <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve tvé oblasti tato aplikace potřebuje přístup k tvé poloze.</string>
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>

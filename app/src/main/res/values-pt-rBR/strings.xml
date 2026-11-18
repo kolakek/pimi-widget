@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Mostrar previsão diária</string>
     <string name="config_daily_forecast_summary">De manhã e à noite</string>
     <string name="config_weather_warnings">Mostrar alertas meteorológicos</string>
-    <string name="config_weather_warnings_summary">Para condições climáticas severas na próxima hora</string>
+    <string name="config_weather_warnings_summary">Para clima extremo na próxima hora</string>
     <string name="config_loc_perm_alert_title">Permissão de localização necessária</string>
     <string name="config_loc_perm_alert_message">Para mostrar o clima da sua região atual, este app precisa acessar sua localização.</string>
     <string name="config_bg_perm_alert_title">Permissão de localização em segundo plano</string>

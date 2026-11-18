@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Tagesvorhersage anzeigen</string>
     <string name="config_daily_forecast_summary">Am Morgen und Abend</string>
     <string name="config_weather_warnings">Wetterwarnungen anzeigen</string>
-    <string name="config_weather_warnings_summary">Bei extremen Wetterbedingungen innerhalb der nächsten Stunde</string>
+    <string name="config_weather_warnings_summary">Bei extremem Wetter in der nächsten Stunde</string>
     <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
     <string name="config_loc_perm_alert_message">Um das Wetter für deine aktuelle Region anzuzeigen, benötigt diese App Zugriff auf deinen Standort.</string>
     <string name="config_bg_perm_alert_title">Hintergrund-Standortberechtigung</string>

@@ -49,7 +49,7 @@
     <string name="config_daily_forecast">Pokaż prognozę dzienną</string>
     <string name="config_daily_forecast_summary">Rano i wieczorem</string>
     <string name="config_weather_warnings">Pokaż alerty pogodowe</string>
-    <string name="config_weather_warnings_summary">W przypadku ekstremalnych warunków pogodowych w ciągu najbliższej godziny</string>
+    <string name="config_weather_warnings_summary">Przy ekstremalnej pogodzie w ciągu godziny</string>
     <string name="config_loc_perm_alert_title">Wymagane uprawnienie lokalizacji</string>
     <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w twojej okolicy, aplikacja potrzebuje dostępu do twojej lokalizacji.</string>
     <string name="config_bg_perm_alert_title">Uprawnienie lokalizacji w tle</string>
