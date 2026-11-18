@@ -185,6 +185,8 @@
     <string name="warn_gusts_severe">προειδοποίηση ισχυρών ριπών ανέμου</string>
     <string name="warn_tstorm_severe">προειδοποίηση ισχυρής καταιγίδας</string>
 
+    <string name="north">Β</string>
+
     <plurals name="days">
         <item quantity="one">1 ημέρα</item>
         <item quantity="other">%d ημέρες</item>

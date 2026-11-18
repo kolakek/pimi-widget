@@ -185,6 +185,8 @@
     <string name="warn_gusts_severe">voimakas puuskatuulivaroitus</string>
     <string name="warn_tstorm_severe">voimakas ukkosvaroitus</string>
 
+    <string name="north">P</string>
+
     <plurals name="days">
         <item quantity="one">1 päivä</item>
         <item quantity="other">%d päivää</item>

@@ -185,6 +185,8 @@
     <string name="warn_tstorm_severe">雷雨警報</string>
     <string name="warn_tstorm_extreme">大雷雨警報</string>
 
+    <string name="north">北</string>
+
     <plurals name="days">
         <item quantity="other">%d 天</item>
     </plurals>

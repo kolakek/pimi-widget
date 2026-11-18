@@ -1,4 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name" translatable="false">Pimi widget</string>
 
     <string name="config_button_add">Add</string>
     <string name="config_button_update">Update</string>
@@ -99,6 +101,41 @@
     <string name="config_unit_miles_per_hour">Miles per hour</string>
     <string name="config_unit_knots">Knots</string>
 
+    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
+    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
+    <string name="config_debug_alert_status_time" translatable="false">%1$s (%2$s)</string>
+    <string name="config_temp_celsius" translatable="false">Celsius</string>
+    <string name="config_temp_fahrenheit" translatable="false">Fahrenheit</string>
+
+    <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
+    <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
+    <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
+    <string name="config_weather_app_bura" translatable="false">Bura</string>
+    <string name="config_weather_app_meteofr" translatable="false">Météo-France</string>
+    <string name="config_weather_app_knmi" translatable="false">KNMI</string>
+    <string name="config_weather_app_dwd" translatable="false">WarnWetter</string>
+    <string name="config_weather_app_metoff" translatable="false">Met Office</string>
+    <string name="config_weather_app_aemet" translatable="false">Aemet</string>
+    <string name="config_weather_app_meteoswiss" translatable="false">MeteoSwiss</string>
+    <string name="config_weather_app_yr" translatable="false">Yr</string>
+    <string name="config_weather_app_bom" translatable="false">BOM Weather</string>
+    <string name="config_weather_app_can" translatable="false">WeatherCAN</string>
+    <string name="config_weather_app_dmi" translatable="false">DMI Vejr</string>
+    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
+    <string name="config_weather_app_xiaomi" translatable="false">Weather - By Xiaomi</string>
+    <string name="config_weather_app_oppo" translatable="false">OPPO Weather</string>
+    <string name="config_weather_app_accu" translatable="false">AccuWeather</string>
+    <string name="config_weather_app_openw" translatable="false">OpenWeather</string>
+    <string name="config_weather_app_yahoo" translatable="false">Yahoo Weather</string>
+    <string name="config_weather_app_msn" translatable="false">MSN Weather</string>
+    <string name="config_weather_app_asus" translatable="false">ASUS Weather</string>
+    <string name="config_weather_app_sams" translatable="false">Samsung Weather</string>
+    <string name="config_weather_app_maweather" translatable="false">MA Weather</string>
+    <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
+    <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
+    <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
+    <string name="config_weather_app_overcast" translatable="false">Overcast</string>
+
     <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
     <string name="widget_temp_prev">71\u2109</string>
@@ -185,6 +222,27 @@
     <string name="warn_tstorm_severe">Severe thunderstorm warning</string>
     <string name="warn_tstorm_extreme">Extreme thunderstorm warning</string>
 
+    <string name="unit_kmh" tools:ignore="MissingTranslation">km/h</string>
+    <string name="unit_ms" tools:ignore="MissingTranslation">m/s</string>
+    <string name="unit_mph" tools:ignore="MissingTranslation">mph</string>
+    <string name="unit_knot" tools:ignore="MissingTranslation">kn</string>
+    <string name="unit_hpa" tools:ignore="MissingTranslation">hPa</string>
+    <string name="unit_mb" tools:ignore="MissingTranslation">mbar</string>
+    <string name="unit_mmhg" tools:ignore="MissingTranslation">mmHg</string>
+    <string name="unit_inhg" tools:ignore="MissingTranslation">inHg</string>
+    <string name="unit_mm" tools:ignore="MissingTranslation">mm</string>
+    <string name="unit_cm" tools:ignore="MissingTranslation">cm</string>
+    <string name="unit_in" tools:ignore="MissingTranslation">in</string>
+    <string name="north" tools:ignore="MissingTranslation">N</string>
+
+    <string name="unit_celsius" translatable="false">\u2103</string>
+    <string name="unit_fahrenheit" translatable="false">\u2109</string>
+    <string name="unit_degree" translatable="false">\u00B0</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="hundred" translatable="false">100</string>
+    <string name="eleven_plus" translatable="false">11+</string>
+    <string name="separator" translatable="false">" · "</string>
+
     <plurals name="days">
         <item quantity="one">1 day</item>
         <item quantity="other">%d days</item>
@@ -199,64 +257,5 @@
         <item quantity="one">1 minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
-
-    <!-- Non-translatable -->
-
-    <string name="app_name" translatable="false">Pimi widget</string>
-
-    <string name="config_icon_style_filled" translatable="false">Twinkle Shadow</string>
-    <string name="config_icon_style_outlined" translatable="false">Flat Sketch</string>
-    <string name="config_debug_alert_status_time" translatable="false">%1$s (%2$s)</string>
-    <string name="config_temp_celsius" translatable="false">Celsius</string>
-    <string name="config_temp_fahrenheit" translatable="false">Fahrenheit</string>
-
-    <string name="unit_celsius" translatable="false">\u2103</string>
-    <string name="unit_fahrenheit" translatable="false">\u2109</string>
-    <string name="unit_degree" translatable="false">\u00B0</string>
-    <string name="unit_kmh" translatable="false">km/h</string>
-    <string name="unit_ms" translatable="false">m/s</string>
-    <string name="unit_mph" translatable="false">mph</string>
-    <string name="unit_knot" translatable="false">kn</string>
-    <string name="unit_hpa" translatable="false">hPa</string>
-    <string name="unit_mb" translatable="false">mbar</string>
-    <string name="unit_mmhg" translatable="false">mmHg</string>
-    <string name="unit_inhg" translatable="false">inHg</string>
-    <string name="unit_mm" translatable="false">mm</string>
-    <string name="unit_cm" translatable="false">cm</string>
-    <string name="unit_in" translatable="false">in</string>
-    <string name="north" translatable="false">N</string>
-    <string name="zero" translatable="false">0</string>
-    <string name="hundred" translatable="false">100</string>
-    <string name="eleven_plus" translatable="false">11+</string>
-    <string name="separator" translatable="false">" · "</string>
-
-    <string name="config_weather_app_pimi" translatable="false">Pimi weather</string>
-    <string name="config_weather_app_breezy" translatable="false">Breezy Weather</string>
-    <string name="config_weather_app_overmorrow" translatable="false">Overmorrow</string>
-    <string name="config_weather_app_bura" translatable="false">Bura</string>
-    <string name="config_weather_app_meteofr" translatable="false">Météo-France</string>
-    <string name="config_weather_app_knmi" translatable="false">KNMI</string>
-    <string name="config_weather_app_dwd" translatable="false">WarnWetter</string>
-    <string name="config_weather_app_metoff" translatable="false">Met Office</string>
-    <string name="config_weather_app_aemet" translatable="false">Aemet</string>
-    <string name="config_weather_app_meteoswiss" translatable="false">MeteoSwiss</string>
-    <string name="config_weather_app_yr" translatable="false">Yr</string>
-    <string name="config_weather_app_bom" translatable="false">BOM Weather</string>
-    <string name="config_weather_app_can" translatable="false">WeatherCAN</string>
-    <string name="config_weather_app_dmi" translatable="false">DMI Vejr</string>
-    <string name="config_weather_app_pixel" translatable="false">Pixel Weather</string>
-    <string name="config_weather_app_xiaomi" translatable="false">Weather - By Xiaomi</string>
-    <string name="config_weather_app_oppo" translatable="false">OPPO Weather</string>
-    <string name="config_weather_app_accu" translatable="false">AccuWeather</string>
-    <string name="config_weather_app_openw" translatable="false">OpenWeather</string>
-    <string name="config_weather_app_yahoo" translatable="false">Yahoo Weather</string>
-    <string name="config_weather_app_msn" translatable="false">MSN Weather</string>
-    <string name="config_weather_app_asus" translatable="false">ASUS Weather</string>
-    <string name="config_weather_app_sams" translatable="false">Samsung Weather</string>
-    <string name="config_weather_app_maweather" translatable="false">MA Weather</string>
-    <string name="config_weather_app_wmaster" translatable="false">WeatherMaster</string>
-    <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
-    <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
-    <string name="config_weather_app_overcast" translatable="false">Overcast</string>
 
 </resources>

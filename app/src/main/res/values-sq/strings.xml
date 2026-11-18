@@ -185,6 +185,8 @@
     <string name="warn_gusts_severe">paralajmërim për erëra të forta</string>
     <string name="warn_tstorm_severe">paralajmërim për stuhi të forta</string>
 
+    <string name="north">V</string>
+
     <plurals name="days">
         <item quantity="one">1 ditë</item>
         <item quantity="other">%d ditë</item>

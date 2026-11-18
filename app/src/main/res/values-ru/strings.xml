@@ -185,6 +185,19 @@
     <string name="warn_tstorm_severe">Предупреждение о сильной грозе</string>
     <string name="warn_tstorm_extreme">Предупреждение об экстремальной грозе</string>
 
+    <string name="unit_kmh">км/ч</string>
+    <string name="unit_ms">м/с</string>
+    <string name="unit_mph">миль/ч</string>
+    <string name="unit_knot">уз</string>
+    <string name="unit_hpa">гПа</string>
+    <string name="unit_mb">мбар</string>
+    <string name="unit_mmhg">мм рт. ст.</string>
+    <string name="unit_inhg">дюйм рт. ст.</string>
+    <string name="unit_mm">мм</string>
+    <string name="unit_cm">см</string>
+    <string name="unit_in">дюйм</string>
+    <string name="north">С</string>
+
     <plurals name="days">
         <item quantity="one">%d день</item>
         <item quantity="few">%d дня</item>

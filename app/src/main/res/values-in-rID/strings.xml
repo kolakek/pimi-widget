@@ -185,6 +185,8 @@
     <string name="warn_tstorm_severe">Peringatan badai petir parah</string>
     <string name="warn_tstorm_extreme">Peringatan badai petir ekstrem</string>
 
+    <string name="north">U</string>
+
     <plurals name="days">
         <item quantity="other">%d hari</item>
     </plurals>
