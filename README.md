@@ -24,12 +24,12 @@ All download options provide the same APK file, signed with the same signing key
 ## Screenshots
 
 <div>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen01.png?v=9" alt="Screen 1" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen03.png?v=9" alt="Screen 2" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen04.png?v=9" alt="Screen 3" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen06.png?v=9" alt="Screen 4" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen07.png?v=9" alt="Screen 5" style="width: 250px; margin-bottom: 20px;"/>
-    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen09.png?v=9" alt="Screen 6" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_01.png?v=9" alt="Screen 1" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_03.png?v=9" alt="Screen 2" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_04.png?v=9" alt="Screen 3" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_06.png?v=9" alt="Screen 4" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_07.png?v=9" alt="Screen 5" style="width: 250px; margin-bottom: 20px;"/>
+    <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/screen_09.png?v=9" alt="Screen 6" style="width: 250px; margin-bottom: 20px;"/>
 </div>
 
 ## Documentation
