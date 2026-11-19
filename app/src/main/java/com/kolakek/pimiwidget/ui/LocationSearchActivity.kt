@@ -27,6 +27,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
@@ -76,7 +77,30 @@ class LocationSearchActivity : AppCompatActivity() {
                 true
             } else false
         }
+        binding.searchInput.doAfterTextChanged {
+            binding.searchClear.isVisible = !it.isNullOrEmpty()
+            if (it.isNullOrEmpty()) {
+                searchJob?.cancel()
+                binding.searchProgress.visibility = View.INVISIBLE
+                binding.resultsContainer.removeAllViews()
+                binding.deviceLocation.root.isVisible = true
+            }
+        }
+        binding.searchClear.setOnClickListener {
+            binding.searchInput.text.clear()
+            binding.searchInput.requestFocus()
+            WindowCompat.getInsetsController(
+                window,
+                binding.searchInput
+            ).show(WindowInsetsCompat.Type.ime())
+        }
         binding.searchInput.requestFocus()
+
+        binding.deviceLocation.title.setText(R.string.config_weather_location_device)
+        binding.deviceLocation.subtitle.setText(R.string.config_weather_location_device_descr)
+        binding.deviceLocation.icon.setImageResource(R.drawable.ic_my_location)
+        binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
+        binding.deviceLocation.root.clipToOutline = true
     }
 
     private fun startSearch() {
@@ -88,6 +112,7 @@ class LocationSearchActivity : AppCompatActivity() {
         WindowCompat.getInsetsController(window, binding.searchInput).hide(
             WindowInsetsCompat.Type.ime()
         )
+        binding.deviceLocation.root.visibility = View.GONE
         binding.searchProgress.visibility = View.VISIBLE
 
         searchJob = lifecycleScope.launch {
