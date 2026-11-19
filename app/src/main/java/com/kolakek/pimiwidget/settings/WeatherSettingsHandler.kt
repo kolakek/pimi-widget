@@ -39,43 +39,32 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
 
     private val permissionHandler = PermissionHandler(fragment)
 
+    private val weatherSwitch get() =
+        fragment.findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)
+
     fun refreshSwitch() {
-        fragment.findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)?.isChecked =
-            SettingsRepository.isWeatherEnabled(fragment.requireContext())
+        weatherSwitch?.isChecked = SettingsRepository.isWeatherEnabled(fragment.requireContext())
         enforcePermission()
     }
 
-    fun weatherSwitchCallback(
-        weatherEnabled: Boolean,
-        canShowLocationDialog: Boolean = false
-    ): Boolean {
-        if (!weatherEnabled) {
+    fun weatherSwitchCallback(isChecked: Boolean): Boolean {
+        if (!isChecked) {
             disableWeather()
             return true
         }
         if (usesDeviceLocation() && isCoarsePermissionDenied()) {
             disableWeather()
-
-            if (canShowLocationDialog) {
-                selectWeatherLocation(true)
-                return false
-            }
             permissionHandler.askPermission(
                 ACCESS_COARSE_LOCATION,
                 fragment.getString(R.string.config_loc_perm_alert_title),
                 fragment.getString(R.string.config_loc_perm_alert_message)
             ) {
-                weatherSwitchCallback(true)
+                weatherSwitchCallback(isChecked)
             }
             return false
         }
         if (usesDeviceLocation() && isBackgroundPermissionDenied()) {
             disableWeather()
-
-            if (canShowLocationDialog) {
-                selectWeatherLocation(true)
-                return false
-            }
             permissionHandler.askPermission(
                 ACCESS_BACKGROUND_LOCATION,
                 fragment.getString(R.string.config_bg_perm_alert_title),
@@ -84,7 +73,7 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
                     fragment.requireContext().packageManager.backgroundPermissionOptionLabel
                 )
             ) {
-                weatherSwitchCallback(true)
+                weatherSwitchCallback(isChecked)
             }
             return false
         }
@@ -92,15 +81,15 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
         return true
     }
 
-    fun selectWeatherLocation(weatherEnabled: Boolean = isWeatherEnabled()) {
+    fun selectWeatherLocation() {
         WeatherLocationDialog(
             context = fragment.requireContext(),
             scope = fragment.lifecycleScope,
             onDeviceLocationSelected = {
-                deviceLocationCallback(weatherEnabled)
+                deviceLocationCallback()
             },
             onFixedLocationSelected = { lat, long, place ->
-                fixedLocationCallback(lat, long, place, weatherEnabled)
+                fixedLocationCallback(lat, long, place)
             },
         ).show()
     }
@@ -126,43 +115,39 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
         SettingsRepository.isWeatherEnabled(fragment.requireContext())
 
     private fun enableWeather() {
+        weatherSwitch?.isChecked = true
+        updateWeather()
+    }
+
+    private fun disableWeather() {
+        weatherSwitch?.isChecked = false
+
+        val context = fragment.requireContext()
+        fragment.lifecycleScope.launch {
+            DataRepository.deleteWeatherData(context)
+            if (usesDeviceLocation()) DataRepository.deleteLocationData(context)
+        }
+    }
+
+    private fun updateWeather() {
         WorkManagerHelper.enqueueOneTimeWork(
             fragment.requireContext(),
             action = UpdateAction.WEATHER_FETCH_THEN_REFRESH,
             workPolicy = ExistingWorkPolicy.REPLACE
         )
-        fragment.findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)?.isChecked = true
     }
 
-    private fun disableWeather() {
-        val context = fragment.requireContext()
-        fragment.lifecycleScope.launch {
-            DataRepository.deleteWeatherData(context)
-            if (usesDeviceLocation()) {
-                DataRepository.deleteLocationData(context)
-            }
-        }
-        fragment.findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)?.isChecked = false
-    }
-
-    private fun deviceLocationCallback(
-        weatherEnabled: Boolean
-    ) {
+    private fun deviceLocationCallback() {
+        if (usesDeviceLocation()) return
         val context = fragment.requireContext()
         fragment.lifecycleScope.launch {
             DataRepository.deleteWeatherData(context)
             DataRepository.deleteLocationData(context)
-
-            applyLocationSource(weatherEnabled, LocationSourcePref.DEVICE)
+            applyLocationSource(LocationSourcePref.DEVICE)
         }
     }
 
-    private fun fixedLocationCallback(
-        lat: Double,
-        long: Double,
-        place: String,
-        weatherEnabled: Boolean
-    ) {
+    private fun fixedLocationCallback(lat: Double, long: Double, place: String) {
         val context = fragment.requireContext()
         fragment.lifecycleScope.launch {
             DataRepository.deleteWeatherData(context)
@@ -170,17 +155,19 @@ class WeatherSettingsHandler(private val fragment: PreferenceFragmentCompat) {
                 context,
                 LocationData(0, lat, long, place, FIXED_LOCATION_NAME)
             )
-            applyLocationSource(weatherEnabled, LocationSourcePref.FIXED, place)
+            applyLocationSource(LocationSourcePref.FIXED, place)
         }
     }
 
     private fun applyLocationSource(
-        weatherEnabled: Boolean,
         source: LocationSourcePref,
         summary: String = fragment.getString(source.labelRes),
     ) {
         SettingsRepository.setLocationSourcePref(fragment.requireContext(), source)
         fragment.findPreference<Preference>(KEY_FIELD_LOCATION_SOURCE)?.summary = summary
-        weatherSwitchCallback(weatherEnabled)
+        if (isWeatherEnabled()) {
+            enforcePermission()
+            updateWeather()
+        }
     }
 }

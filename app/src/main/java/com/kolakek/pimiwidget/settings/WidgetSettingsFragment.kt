@@ -107,10 +107,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
                     workPolicy = ExistingPeriodicWorkPolicy.KEEP
                 )
             }
-            weatherHandler.weatherSwitchCallback(
-                weatherEnabled = newValue == true,
-                canShowLocationDialog = true
-            )
+            weatherHandler.weatherSwitchCallback(newValue == true)
         }
         weatherSwitch?.setOnPreferenceClickListener {
             openSubScreen(WidgetSettingsWeatherFragment())
