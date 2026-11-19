@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/config_fixed_location_search_open_meteo"
-            app:placeholderText="@string/config_fixed_location_search_placeholder"
+            app:placeholderText="@string/config_location_search_hint"
             app:endIconContentDescription="@string/config_fixed_location_search_button"
             app:endIconDrawable="@drawable/ic_search"
             app:endIconMode="custom">

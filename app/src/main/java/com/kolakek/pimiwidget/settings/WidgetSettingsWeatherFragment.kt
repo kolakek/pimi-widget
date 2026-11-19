@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -36,6 +37,7 @@ import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.data.WeatherApp
+import com.kolakek.pimiwidget.ui.LocationSearchActivity
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
 
@@ -44,14 +46,15 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
     private val weatherHandler = WeatherSettingsHandler(this)
 
+    private val locationField get() = findPreference<Preference>(KEY_FIELD_LOCATION_SOURCE)
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs_weather, rootKey)
 
         val context = requireContext()
 
-        val weatherSwitch: TwoStatePreference? = findPreference(KEY_WEATHER_SWITCH)
-        val locationField: Preference? = findPreference(KEY_FIELD_LOCATION_SOURCE)
-        val tempUnitList: ListPreference? = findPreference(KEY_TEMP_UNIT_LIST)
+        val weatherSwitch = findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)
+        val tempUnitList = findPreference<ListPreference>(KEY_TEMP_UNIT_LIST)
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -69,10 +72,10 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
             labelOf = { it.labelRes }
         )
         locationField?.setOnPreferenceClickListener {
-            weatherHandler.selectWeatherLocation()
+            startActivity(Intent(requireContext(), LocationSearchActivity::class.java))
             true
         }
-        setWeatherLocationSummary(locationField)
+        setWeatherLocationSummary()
         handleWeatherAppPreference()
     }
 
@@ -83,13 +86,14 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
     override fun onResume() {
         super.onResume()
+        setWeatherLocationSummary()
         weatherHandler.enforcePermission()
     }
 
-    private fun setWeatherLocationSummary(pref: Preference?) {
+    private fun setWeatherLocationSummary() {
         val context = requireContext()
         lifecycleScope.launch {
-            pref?.summary =
+            locationField?.summary =
                 if (weatherHandler.usesDeviceLocation()) {
                     getString(R.string.config_weather_location_device)
                 } else {
@@ -102,7 +106,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         val installedApps = WeatherApp.entries.filter { app ->
             app == WeatherApp.PIMI || AppLookup.isAppInstalled(requireContext(), app.packageName)
         }
-        val listPreference: ListPreference? = findPreference(KEY_WEATHER_APP_LIST)
+        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
         val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
         val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
 

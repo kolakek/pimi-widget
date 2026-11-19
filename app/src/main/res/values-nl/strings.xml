@@ -32,7 +32,7 @@
     <string name="config_weather_location_device_descr">Volgt je locatie</string>
     <string name="config_fixed_location_search_button">Zoeken</string>
     <string name="config_fixed_location_search_open_meteo">Zoeken met Open-Meteo</string>
-    <string name="config_fixed_location_search_placeholder">Amsterdam, Nederland</string>
+    <string name="config_location_search_hint">Amsterdam, Nederland</string>
     <string name="config_text_color">Tekstkleur</string>
     <string name="config_icon_style">Icoonstijl</string>
     <string name="config_color_light">Licht</string>

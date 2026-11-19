@@ -35,7 +35,7 @@
     <string name="config_weather_attribution_open_meteo">Данные о погоде из Open-Meteo.com</string>
     <string name="config_fixed_location_search_button">Найти</string>
     <string name="config_fixed_location_search_open_meteo">Поиск через Open-Meteo</string>
-    <string name="config_fixed_location_search_placeholder">Москва, Россия</string>
+    <string name="config_location_search_hint">Москва, Россия</string>
     <string name="config_icon_style">Стиль значка</string>
     <string name="config_text_color">Цвет текста</string>
     <string name="config_color_light">Светлый</string>

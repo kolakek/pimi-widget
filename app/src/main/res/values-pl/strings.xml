@@ -32,7 +32,7 @@
     <string name="config_weather_location_device_descr">Śledzi twoją lokalizację</string>
     <string name="config_fixed_location_search_button">Szukaj</string>
     <string name="config_fixed_location_search_open_meteo">Szukaj w Open-Meteo</string>
-    <string name="config_fixed_location_search_placeholder">Warszawa, Polska</string>
+    <string name="config_location_search_hint">Warszawa, Polska</string>
     <string name="config_text_color">Kolor tekstu</string>
     <string name="config_icon_style">Styl ikon</string>
     <string name="config_color_light">Jasny</string>

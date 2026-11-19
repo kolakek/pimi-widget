@@ -71,6 +71,12 @@
         <activity
             android:name=".ui.AppConfigureActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.LocationSearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PimiWidget"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 
     <queries>

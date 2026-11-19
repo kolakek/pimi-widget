@@ -35,7 +35,7 @@
     <string name="config_weather_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
     <string name="config_fixed_location_search_button">Cari</string>
     <string name="config_fixed_location_search_open_meteo">Cari dengan Open-Meteo</string>
-    <string name="config_fixed_location_search_placeholder">Jakarta, Indonesia</string>
+    <string name="config_location_search_hint">Jakarta, Indonesia</string>
     <string name="config_icon_style">Gaya ikon</string>
     <string name="config_text_color">Warna teks</string>
     <string name="config_color_light">Terang</string>

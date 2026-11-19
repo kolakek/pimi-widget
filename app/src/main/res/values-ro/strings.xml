@@ -32,7 +32,7 @@
     <string name="config_weather_location_device_descr">Îți urmărește locația</string>
     <string name="config_fixed_location_search_button">Caută</string>
     <string name="config_fixed_location_search_open_meteo">Caută prin Open-Meteo</string>
-    <string name="config_fixed_location_search_placeholder">București, România</string>
+    <string name="config_location_search_hint">București, România</string>
     <string name="config_text_color">Culoarea textului</string>
     <string name="config_icon_style">Stilul pictogramelor</string>
     <string name="config_color_light">Deschis</string>
