@@ -12,7 +12,6 @@
 
         <com.kolakek.pimiwidget.settings.PrimarySwitchPreference
             android:key="weather_switch"
-            android:summary="@string/config_weather_attribution_open_meteo"
             android:title="@string/config_weather_switch"
             android:defaultValue="false"
             app:iconSpaceReserved="false" />

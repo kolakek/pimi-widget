@@ -89,6 +89,10 @@
     <string name="config_title_settings">Settings</string>
     <string name="config_wind_speed">Wind speed</string>
     <string name="config_option_follow_widget">Same as widget</string>
+    <string name="config_weather_summary_device">Show weather for your device location</string>
+    <string name="config_weather_summary_fixed">Show weather for your fixed location</string>
+    <string name="config_weather_summary_place">Show weather for %1$s</string>
+
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>
     <string name="config_unit_inches">Inches</string>

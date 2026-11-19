@@ -34,6 +34,7 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_ALARM_SWITCH
 import com.kolakek.pimiwidget.data.KEY_BIRTHDAY_SWITCH
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
+import com.kolakek.pimiwidget.data.LocationSourcePref
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.weather.WeatherService
@@ -143,6 +144,25 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         weatherHandler.enforcePermission()
+        updateWeatherSummary()
+    }
+
+    private fun updateWeatherSummary() {
+        val pref = findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)
+        val context = requireContext()
+        when (SettingsRepository.getLocationSourcePref(context)) {
+            LocationSourcePref.DEVICE -> {
+                pref?.summary = getString(R.string.config_weather_summary_device)
+            }
+            LocationSourcePref.FIXED -> {
+                pref?.summary = getString(R.string.config_weather_summary_fixed)
+                lifecycleScope.launch {
+                    DataRepository.loadLocationData(context)?.let {
+                        pref?.summary = getString(R.string.config_weather_summary_place, it.place)
+                    }
+                }
+            }
+        }
     }
 
     private fun birthdaySwitchCallback(isChecked: Boolean): Boolean {
