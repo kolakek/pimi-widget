@@ -26,7 +26,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"
-                android:hint="@string/config_fixed_location_search_open_meteo"
                 android:textAppearance="@style/App.PlaceBarText"
                 app:defaultMarginsEnabled="false"
                 app:navigationIcon="@drawable/ic_location"
@@ -161,14 +160,17 @@
                 layout="@layout/weather_hourly_details" />
 
             <TextView
-                android:text="@string/config_weather_attribution_open_meteo"
+                android:id="@+id/weather_attribution"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif-medium"
-                android:textSize="12sp" />
+                android:paddingHorizontal="8dp"
+                android:minHeight="48dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackground"
+                android:text="@string/config_weather_attribution_open_meteo"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorPrimary" />
 
         </LinearLayout>
 

@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.ui
 
 import android.content.Context
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -26,7 +27,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
@@ -43,6 +43,8 @@ import com.kolakek.pimiwidget.location.GeocodingPlace
 import com.kolakek.pimiwidget.location.GeocodingService
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.location.LocationService
+import com.kolakek.pimiwidget.settings.GEOCODING_URL
+import com.kolakek.pimiwidget.settings.openUrl
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.CancellationException
@@ -83,12 +85,13 @@ class LocationSearchActivity : AppCompatActivity() {
             } else false
         }
         binding.searchInput.doAfterTextChanged {
-            binding.searchClear.isVisible = !it.isNullOrEmpty()
+            binding.searchClear.visibility = if (it.isNullOrEmpty()) View.GONE else View.VISIBLE
             if (it.isNullOrEmpty()) {
                 searchJob?.cancel()
                 binding.searchProgress.visibility = View.INVISIBLE
                 binding.resultsContainer.removeAllViews()
-                binding.deviceLocation.root.isVisible = true
+                binding.deviceLocation.root.visibility = View.VISIBLE
+                binding.locationFooter.visibility = View.VISIBLE
             }
         }
         binding.searchClear.setOnClickListener {
@@ -107,18 +110,23 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
         binding.deviceLocation.root.clipToOutline = true
         binding.deviceLocation.root.setOnClickListener { selectDeviceLocation() }
+        binding.footerLink.paintFlags = binding.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        binding.footerLink.setOnClickListener { openUrl(GEOCODING_URL) }
     }
 
     private fun startSearch() {
         searchJob?.cancel()
         binding.resultsContainer.removeAllViews()
+
+        binding.deviceLocation.root.visibility = View.GONE
+        binding.locationFooter.visibility = View.GONE
+
         val query = binding.searchInput.text.toString().trim()
         if (query.length < GEOCODING_MIN_QUERY_LENGTH) return
 
         WindowCompat.getInsetsController(window, binding.searchInput).hide(
             WindowInsetsCompat.Type.ime()
         )
-        binding.deviceLocation.root.visibility = View.GONE
         binding.searchProgress.visibility = View.VISIBLE
 
         searchJob = lifecycleScope.launch {
@@ -152,10 +160,11 @@ class LocationSearchActivity : AppCompatActivity() {
             row.icon.setImageResource(R.drawable.ic_location)
             row.title.text = parts[0]
             row.subtitle.text = parts.getOrNull(1).orEmpty()
-            row.subtitle.isVisible = parts.size > 1
+            row.subtitle.visibility = if (parts.size > 1) View.VISIBLE else View.GONE
             row.root.setOnClickListener { selectFixedLocation(place) }
             binding.resultsContainer.addView(row.root)
         }
+        binding.locationFooter.visibility = if (places.isNotEmpty()) View.VISIBLE else View.GONE
     }
 
     private fun cardBackground(index: Int, count: Int) = when {

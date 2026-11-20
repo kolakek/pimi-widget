@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.settings
 
+internal const val GEOCODING_URL = "https://open-meteo.com/en/docs/geocoding-api"
 internal const val SOURCE_CODE_URL = "https://github.com/kolakek/pimi-widget"
 internal const val ISSUE_TRACKER_URL = "https://github.com/kolakek/pimi-widget/issues"
 internal const val LOCATION_URL = "https://www.openstreetmap.org"

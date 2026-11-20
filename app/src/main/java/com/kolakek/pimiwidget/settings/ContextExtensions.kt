@@ -18,13 +18,15 @@
 package com.kolakek.pimiwidget.settings
 
 import android.app.WallpaperManager
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
-import androidx.fragment.app.Fragment
 
-fun Fragment.openUrl(url: String) {
-    startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+fun Context.openUrl(url: String) {
+    try {
+        startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+    } catch (_: ActivityNotFoundException) { }
 }
 
 fun Context.wallpaperColor(): Int? = WallpaperManager.getInstance(this)

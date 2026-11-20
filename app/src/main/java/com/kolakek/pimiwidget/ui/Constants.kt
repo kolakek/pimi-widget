@@ -18,3 +18,4 @@
 package com.kolakek.pimiwidget.ui
 
 internal const val NA = "––"
+internal const val WEATHER_URL = "https://open-meteo.com/"

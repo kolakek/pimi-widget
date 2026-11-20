@@ -97,7 +97,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         versionField?.summary = BuildConfig.VERSION_CODE.toString()
 
         sourceCodeField?.setOnPreferenceClickListener {
-            openUrl(SOURCE_CODE_URL)
+            context.openUrl(SOURCE_CODE_URL)
             true
         }
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
@@ -256,7 +256,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         dialog: AlertDialog,
         locationData: LocationData
     ) {
-        openUrl(
+        requireContext().openUrl(
             URLBuilder(LOCATION_URL).apply {
                 parameters.append("mlat", locationData.lat.toString())
                 parameters.append("mlon", locationData.long.toString())
@@ -270,7 +270,9 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         dialog: AlertDialog,
         locationData: LocationData
     ) {
-        openUrl(WeatherService.weatherUrl(locationData, "iso8601").toString())
+        requireContext().openUrl(
+            WeatherService.weatherUrl(locationData, "iso8601").toString()
+        )
         dialog.dismiss()
     }
 

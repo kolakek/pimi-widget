@@ -46,7 +46,7 @@ object WeatherService {
     }
 
     fun weatherUrl(location: LocationData, timeFormat: String): Url {
-        return URLBuilder(BASE_URL).apply {
+        return URLBuilder(WEATHER_SEARCH_URL).apply {
             parameters.apply {
                 append(LATITUDE_KEY, location.lat.toString())
                 append(LONGITUDE_KEY, location.long.toString())

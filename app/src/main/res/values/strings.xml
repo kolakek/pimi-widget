@@ -91,6 +91,8 @@
     <string name="config_weather_summary_device">Show weather for device location</string>
     <string name="config_weather_summary_fixed">Show weather for fixed location</string>
     <string name="config_weather_summary_place">Show weather for %1$s</string>
+    <string name="config_location_search_footer">The selected location applies to both the widget and the weather app.</string>
+    <string name="config_geocoding_open_meteo">Location search by Open-Meteo</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

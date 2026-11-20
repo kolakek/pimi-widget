@@ -29,7 +29,7 @@ object GeocodingService {
         query: String,
         language: String = Locale.getDefault().language
     ): List<GeocodingPlace> {
-        val url = URLBuilder(GEOCODING_URL).apply {
+        val url = URLBuilder(GEOCODING_SEARCH_URL).apply {
             parameters.append("name", query.trim())
             parameters.append("count", GEOCODING_RESULT_COUNT.toString())
             parameters.append("language", language.ifBlank { "en" })

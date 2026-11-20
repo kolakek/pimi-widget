@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -35,6 +36,7 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.settings.openUrl
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DataBarItem
 import com.kolakek.pimiwidget.weather.DetailsItem
@@ -81,6 +83,10 @@ class WeatherActivity : AppCompatActivity() {
         binding.placeBar.setOnClickListener {
             startActivity(Intent(this, LocationSearchActivity::class.java))
         }
+        binding.weatherAttribution.setOnClickListener { openUrl(WEATHER_URL) }
+        binding.weatherAttribution.paintFlags = binding.weatherAttribution.paintFlags or
+                Paint.UNDERLINE_TEXT_FLAG
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             binding.content.updatePadding(top = bars.top, bottom = bars.bottom)

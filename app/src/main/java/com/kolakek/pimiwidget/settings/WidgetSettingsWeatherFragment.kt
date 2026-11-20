@@ -143,10 +143,11 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
     }
 
     private fun showUnlistedAppDialog() {
-        AlertDialog.Builder(requireContext())
+        val context = requireContext()
+        AlertDialog.Builder(context)
             .setMessage(R.string.config_weather_app_nil_alert_message)
             .setPositiveButton(R.string.config_weather_app_alert_button_github) { dialog, _ ->
-                openUrl(ISSUE_TRACKER_URL)
+                context.openUrl(ISSUE_TRACKER_URL)
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.config_alert_button_cancel, null)
