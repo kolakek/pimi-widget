@@ -44,6 +44,7 @@ import com.kolakek.pimiwidget.location.GeocodingService
 import com.kolakek.pimiwidget.location.LocationData
 import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.GEOCODING_URL
+import com.kolakek.pimiwidget.settings.LocationPermissionRequester
 import com.kolakek.pimiwidget.settings.openUrl
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
@@ -54,7 +55,10 @@ import kotlinx.coroutines.launch
 class LocationSearchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLocationSearchBinding
+
     private var searchJob: Job? = null
+
+    private val locationPermission = LocationPermissionRequester(this) { this }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -176,14 +180,16 @@ class LocationSearchActivity : AppCompatActivity() {
 
     private fun selectDeviceLocation() {
         val context = applicationContext
-        if (SettingsRepository.usesDeviceLocation(context)) {
-            finish()
-            return
-        }
-        lifecycleScope.launch {
-            DataRepository.deleteLocationData(context)
-            applyLocationSource(context, LocationSourcePref.DEVICE)
-            finish()
+        locationPermission.request {
+            if (SettingsRepository.usesDeviceLocation(context)) {
+                finish()
+            } else {
+                lifecycleScope.launch {
+                    DataRepository.deleteLocationData(context)
+                    applyLocationSource(context, LocationSourcePref.DEVICE)
+                    finish()
+                }
+            }
         }
     }
 

@@ -17,53 +17,37 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.content.pm.PackageManager
+import android.app.Activity
+import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.core.app.ActivityCompat
 import com.kolakek.pimiwidget.R
 
-class PermissionHandler(private val fragment: Fragment) {
+class PermissionHandler(caller: ActivityResultCaller, private val activity: () -> Activity) {
 
     private var onPermissionGranted: (() -> Unit)? = null
 
-    private val requestPermissionLauncher = fragment.registerForActivityResult(
+    private val launcher = caller.registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { onPermissionGranted?.invoke() }
 
-    fun isPermissionGranted(permission: String) =
-        ContextCompat.checkSelfPermission(
-            fragment.requireContext(),
-            permission
-        ) == PackageManager.PERMISSION_GRANTED
-
-    fun isPermissionDenied(permission: String) =
-        ContextCompat.checkSelfPermission(
-            fragment.requireContext(),
-            permission
-        ) == PackageManager.PERMISSION_DENIED
-
     fun askPermission(permission: String, title: String, message: String, onGranted: () -> Unit) {
-        onPermissionGranted = { if (isPermissionGranted(permission)) onGranted() }
-        if (fragment.shouldShowRequestPermissionRationale(permission)) {
+        onPermissionGranted = { if (activity().isPermissionGranted(permission)) onGranted() }
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity(), permission)) {
             showRationaleDialog(permission, title, message)
         } else {
-            requestPermissionLauncher.launch(permission)
+            launcher.launch(permission)
         }
     }
 
-    private fun showRationaleDialog(
-        permission: String,
-        title: String,
-        message: String
-    ) {
-        AlertDialog.Builder(fragment.requireContext())
+    private fun showRationaleDialog(permission: String, title: String, message: String) {
+        AlertDialog.Builder(activity())
             .setMessage(message)
             .setTitle(title)
             .setCancelable(false)
             .setPositiveButton(R.string.config_alert_button_ok) { _, _ ->
-                requestPermissionLauncher.launch(permission)
+                launcher.launch(permission)
             }
             .setNegativeButton(R.string.config_alert_button_cancel, null)
             .show()

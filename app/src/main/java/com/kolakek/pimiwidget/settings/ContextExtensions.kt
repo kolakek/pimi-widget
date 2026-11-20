@@ -21,6 +21,8 @@ import android.app.WallpaperManager
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 
 fun Context.openUrl(url: String) {
@@ -31,3 +33,9 @@ fun Context.openUrl(url: String) {
 
 fun Context.wallpaperColor(): Int? = WallpaperManager.getInstance(this)
     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)?.primaryColor?.toArgb()
+
+fun Context.isPermissionGranted(permission: String) =
+    ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+
+fun Context.isPermissionDenied(permission: String) =
+    ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED

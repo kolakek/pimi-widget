@@ -30,7 +30,9 @@ import androidx.core.content.ContextCompat
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
 import java.util.Locale
@@ -77,6 +79,15 @@ object LocationService {
                     context,
                     ACCESS_BACKGROUND_LOCATION
                 ) != PERMISSION_GRANTED
+
+    fun enforcePermission(context: Context, scope: CoroutineScope) {
+        if (!SettingsRepository.isWeatherEnabled(context) || !isPermissionMissing(context)) return
+        SettingsRepository.setWeatherEnabled(context, false)
+        scope.launch {
+            DataRepository.deleteWeatherData(context)
+            DataRepository.deleteLocationData(context)
+        }
+    }
 
     private suspend fun getFixedLocation(context: Context): LocationData? {
         val locationData = DataRepository.loadLocationData(context)

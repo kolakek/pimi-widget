@@ -47,7 +47,7 @@ import java.util.Date
 class WidgetSettingsFragment : CardPreferenceFragment() {
     override val titleRes = R.string.app_name
 
-    private val permissionHandler = PermissionHandler(this)
+    private val permissionHandler = PermissionHandler(this) { requireActivity() }
 
     private val weatherHandler = WeatherSwitchHandler(this)
 
@@ -66,7 +66,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         var debugCount = 0
 
         if (SettingsRepository.isBirthdayEnabled(context) &&
-            permissionHandler.isPermissionDenied(READ_CONTACTS)
+            requireContext().isPermissionDenied(READ_CONTACTS)
         ) {
             disableBirthday()
         }
@@ -167,7 +167,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             disableBirthday()
             return true
         }
-        if (permissionHandler.isPermissionDenied(READ_CONTACTS)) {
+        if (requireContext().isPermissionDenied(READ_CONTACTS)) {
             permissionHandler.askPermission(
                 READ_CONTACTS,
                 getString(R.string.config_contact_perm_alert_title),

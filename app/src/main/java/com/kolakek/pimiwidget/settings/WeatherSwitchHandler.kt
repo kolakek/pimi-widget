@@ -17,13 +17,10 @@
 
 package com.kolakek.pimiwidget.settings
 
-import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
-import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
 import androidx.work.ExistingWorkPolicy
-import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.SettingsRepository
@@ -34,7 +31,8 @@ import kotlinx.coroutines.launch
 
 class WeatherSwitchHandler(private val fragment: PreferenceFragmentCompat) {
 
-    private val permissionHandler = PermissionHandler(fragment)
+    private val locationPermission =
+        LocationPermissionRequester(fragment) { fragment.requireActivity() }
 
     private val context get() = fragment.requireContext()
 
@@ -42,13 +40,8 @@ class WeatherSwitchHandler(private val fragment: PreferenceFragmentCompat) {
         fragment.findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)
 
     fun refreshSwitch() {
-        val weatherEnabled = SettingsRepository.isWeatherEnabled(context)
-
-        if (weatherEnabled && LocationService.isPermissionMissing(context)) {
-            disableWeather()
-        } else {
-            weatherSwitch?.isChecked = weatherEnabled
-        }
+        LocationService.enforcePermission(context, fragment.lifecycleScope)
+        weatherSwitch?.isChecked = SettingsRepository.isWeatherEnabled(context)
     }
 
     fun weatherSwitchCallback(isChecked: Boolean): Boolean {
@@ -56,34 +49,9 @@ class WeatherSwitchHandler(private val fragment: PreferenceFragmentCompat) {
             disableWeather()
             return true
         }
-        val usesDeviceLocation = SettingsRepository.usesDeviceLocation(context)
-
-        val locationGranted = permissionHandler.isPermissionGranted(ACCESS_COARSE_LOCATION)
-        val backgroundGranted = permissionHandler.isPermissionGranted(ACCESS_BACKGROUND_LOCATION)
-
-        if (usesDeviceLocation && !locationGranted) {
+        if (LocationService.isPermissionMissing(context)) {
             disableWeather()
-            permissionHandler.askPermission(
-                ACCESS_COARSE_LOCATION,
-                fragment.getString(R.string.config_loc_perm_alert_title),
-                fragment.getString(R.string.config_loc_perm_alert_message)
-            ) {
-                weatherSwitchCallback(isChecked)
-            }
-            return false
-        }
-        if (usesDeviceLocation && !backgroundGranted) {
-            disableWeather()
-            permissionHandler.askPermission(
-                ACCESS_BACKGROUND_LOCATION,
-                fragment.getString(R.string.config_bg_perm_alert_title),
-                fragment.getString(
-                    R.string.config_bg_perm_alert_message,
-                    context.packageManager.backgroundPermissionOptionLabel
-                )
-            ) {
-                weatherSwitchCallback(isChecked)
-            }
+            locationPermission.request { enableWeather() }
             return false
         }
         enableWeather()

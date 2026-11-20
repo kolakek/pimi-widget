@@ -36,6 +36,7 @@ import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.databinding.ActivityWeatherBinding
 import com.kolakek.pimiwidget.databinding.WeatherConditionBinding
 import com.kolakek.pimiwidget.data.SettingsRepository
+import com.kolakek.pimiwidget.location.LocationService
 import com.kolakek.pimiwidget.settings.openUrl
 import com.kolakek.pimiwidget.weather.DailyItem
 import com.kolakek.pimiwidget.weather.DataBarItem
@@ -64,6 +65,8 @@ class WeatherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        LocationService.enforcePermission(applicationContext, lifecycleScope)
 
         enableEdgeToEdge()
 
@@ -100,7 +103,7 @@ class WeatherActivity : AppCompatActivity() {
                     val displayData = weather?.let {
                         DisplayData.collect(this@WeatherActivity, it, settings)
                     }
-                    if (displayData == null || !displayData.isValid()) {
+                    if (!settings.showWeather || displayData == null || !displayData.isValid()) {
                         displayNoDataInfo(settings)
                         finishNoDataDisplay()
                     } else {
@@ -115,6 +118,11 @@ class WeatherActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        LocationService.enforcePermission(applicationContext, lifecycleScope)
     }
 
     override fun onStop() {
