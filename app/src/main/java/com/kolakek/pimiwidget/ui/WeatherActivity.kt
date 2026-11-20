@@ -78,6 +78,9 @@ class WeatherActivity : AppCompatActivity() {
             startActivity(Intent(this, AppConfigureActivity::class.java))
             true
         }
+        binding.placeBar.setOnClickListener {
+            startActivity(Intent(this, LocationSearchActivity::class.java))
+        }
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             binding.content.updatePadding(top = bars.top, bottom = bars.bottom)
