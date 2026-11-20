@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Pour afficher la météo de ta région actuelle, cette application a besoin d’accéder à ta position.</string>
     <string name="config_bg_perm_alert_title">Autorisation de localisation en arrière-plan</string>
     <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Sélectionne « %s » sur l’écran suivant.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annuler</string>
     <string name="config_source_code">Code source</string>
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>

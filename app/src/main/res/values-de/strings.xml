@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Um das Wetter für deine aktuelle Region anzuzeigen, benötigt diese App Zugriff auf deinen Standort.</string>
     <string name="config_bg_perm_alert_title">Hintergrund-Standortberechtigung</string>
     <string name="config_bg_perm_alert_message">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf deinen Standort im Hintergrund. Bitte wähle „%s“ im nächsten Bildschirm.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Abbrechen</string>
     <string name="config_source_code">Quellcode</string>
     <string name="config_source_code_summary">Quellcode und Dokumentation auf GitHub anzeigen</string>

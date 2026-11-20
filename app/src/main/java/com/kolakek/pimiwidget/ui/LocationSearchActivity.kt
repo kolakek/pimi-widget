@@ -114,6 +114,8 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
         binding.deviceLocation.root.clipToOutline = true
         binding.deviceLocation.root.setOnClickListener { selectDeviceLocation() }
+        binding.footerInfo.infoText.setText(R.string.config_location_search_footer)
+        binding.footerInfo.root.updatePadding(bottom = 0)
         binding.footerLink.paintFlags = binding.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         binding.footerLink.setOnClickListener { openUrl(GEOCODING_URL) }
     }

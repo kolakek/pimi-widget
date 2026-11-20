@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Para mostrar o clima da sua região atual, este app precisa acessar sua localização.</string>
     <string name="config_bg_perm_alert_title">Permissão de localização em segundo plano</string>
     <string name="config_bg_perm_alert_message">Atualizações confiáveis de clima exigem acesso à sua localização em segundo plano. Selecione “%s” na próxima tela.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Cancelar</string>
     <string name="config_source_code">Código-fonte</string>
     <string name="config_source_code_summary">Ver código-fonte e documentação no GitHub</string>

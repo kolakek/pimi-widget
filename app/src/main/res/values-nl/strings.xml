@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Om het weer in jouw regio te tonen, heeft deze app toegang tot je locatie nodig.</string>
     <string name="config_bg_perm_alert_title">Achtergrondlocatietoestemming</string>
     <string name="config_bg_perm_alert_message">Betrouwbare weerupdates vereisen toegang tot je locatie op de achtergrond. Selecteer “%s” in het volgende scherm.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annuleren</string>
     <string name="config_source_code">Broncode</string>
     <string name="config_source_code_summary">Bekijk broncode en documentatie op GitHub</string>

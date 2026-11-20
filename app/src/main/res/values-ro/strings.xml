@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Pentru a afișa vremea din zona ta curentă, aplicația are nevoie de acces la locația ta.</string>
     <string name="config_bg_perm_alert_title">Permisiune de locație în fundal</string>
     <string name="config_bg_perm_alert_message">Actualizările meteo fiabile necesită acces la locația ta în fundal. Selectează „%s” în ecranul următor.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anulează</string>
     <string name="config_source_code">Cod sursă</string>
     <string name="config_source_code_summary">Vezi codul sursă și documentația pe GitHub</string>

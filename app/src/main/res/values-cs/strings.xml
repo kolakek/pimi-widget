@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve tvé oblasti tato aplikace potřebuje přístup k tvé poloze.</string>
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>
     <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Zrušit</string>
     <string name="config_source_code">Zdrojový kód</string>
     <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>

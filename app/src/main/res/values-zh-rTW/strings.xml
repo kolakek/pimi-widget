@@ -50,7 +50,6 @@
     <string name="config_loc_perm_alert_message">應用程式需要存取位置資訊，才能顯示您所在地區的天氣。</string>
     <string name="config_bg_perm_alert_title">背景位置存取權限</string>
     <string name="config_bg_perm_alert_message">需要背景存取您的位置以顯示準確天氣。\n請在下個畫面輕觸「%s」。</string>
-    <string name="config_alert_button_ok">確定</string>
     <string name="config_alert_button_cancel">取消</string>
     <string name="config_debug_button_weather">檢視查詢狀態</string>
     <string name="config_debug_button_location">檢視位置</string>

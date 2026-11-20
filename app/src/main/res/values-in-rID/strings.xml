@@ -51,7 +51,6 @@
     <string name="config_loc_perm_alert_message">Untuk menampilkan cuaca di area anda saat ini, aplikasi ini memerlukan akses ke lokasi anda.</string>
     <string name="config_bg_perm_alert_title">Izin lokasi latar belakang</string>
     <string name="config_bg_perm_alert_message">Pembaruan cuaca yang akurat memerlukan akses lokasi anda di latar belakang. Tolong pilih \"%s\" di layar selanjutnya.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Batal</string>
     <string name="config_debug_button_weather">Lihat pencarian cuaca</string>
     <string name="config_debug_button_location">Lihat lokasi</string>

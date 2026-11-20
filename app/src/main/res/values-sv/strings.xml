@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">För att visa vädret i ditt område behöver appen åtkomst till din plats.</string>
     <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>
     <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj ”%s” på nästa skärm.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Avbryt</string>
     <string name="config_source_code">Källkod</string>
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>

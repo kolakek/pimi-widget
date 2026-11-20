@@ -51,7 +51,6 @@
     <string name="config_loc_perm_alert_message">Чтобы показывать погоду вашей текущей местности, этому приложению требуется доступ к вашему местоположению.</string>
     <string name="config_bg_perm_alert_title">Разрешение на фоновый доступ к местоположению</string>
     <string name="config_bg_perm_alert_message">Для получения надежных данных о погоде, требуется фоновый доступ к вашему местоположению. Выберите \"%s\" в следующем окне.</string>
-    <string name="config_alert_button_ok">ОК</string>
     <string name="config_alert_button_cancel">Отмена</string>
     <string name="config_debug_button_weather">Просмотреть запросы погоды</string>
     <string name="config_debug_button_location">Просмотреть местоположение</string>

@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Щоб показувати погоду у твоєму регіоні, цьому застосунку потрібен доступ до твоєї геолокації.</string>
     <string name="config_bg_perm_alert_title">Доступ до геолокації у фоні</string>
     <string name="config_bg_perm_alert_message">Надійні оновлення погоди потребують доступу до твоєї геолокації у фоновому режимі. Обери «%s» на наступному екрані.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Скасувати</string>
     <string name="config_source_code">Вихідний код</string>
     <string name="config_source_code_summary">Переглянути вихідний код і документацію на GitHub</string>

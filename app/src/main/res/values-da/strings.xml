@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">For at vise vejret i dit område har appen brug for adgang til din placering.</string>
     <string name="config_bg_perm_alert_title">Baggrundsplaceringstilladelse</string>
     <string name="config_bg_perm_alert_message">Pålidelige vejr-opdateringer kræver adgang til din placering i baggrunden. Vælg "%s" på næste skærm.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annuller</string>
     <string name="config_source_code">Kildekode</string>
     <string name="config_source_code_summary">Se kildekode og dokumentation på GitHub</string>

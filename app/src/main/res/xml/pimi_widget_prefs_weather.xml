@@ -61,4 +61,7 @@
 
     </PreferenceCategory>
 
+    <com.kolakek.pimiwidget.settings.InfoPreference
+        android:summary="@string/config_weather_privacy_note" />
+
 </androidx.preference.PreferenceScreen>

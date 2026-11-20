@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Para mostrar el tiempo de tu zona actual, esta aplicación necesita acceder a tu ubicación.</string>
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>
     <string name="config_bg_perm_alert_message">Las actualizaciones fiables del tiempo requieren acceso a tu ubicación en segundo plano. Selecciona «%s» en la siguiente pantalla.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Cancelar</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>

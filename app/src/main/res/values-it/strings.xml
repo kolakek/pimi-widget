@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Per mostrare il meteo nella tua area attuale, questa app necessita dell’accesso alla tua posizione.</string>
     <string name="config_bg_perm_alert_title">Permesso posizione in background</string>
     <string name="config_bg_perm_alert_message">Aggiornamenti meteo affidabili richiedono l’accesso alla posizione in background. Seleziona «%s» nella schermata successiva.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Annulla</string>
     <string name="config_source_code">Codice sorgente</string>
     <string name="config_source_code_summary">Visualizza codice sorgente e documentazione su GitHub</string>

@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Aby wyświetlić pogodę w twojej okolicy, aplikacja potrzebuje dostępu do twojej lokalizacji.</string>
     <string name="config_bg_perm_alert_title">Uprawnienie lokalizacji w tle</string>
     <string name="config_bg_perm_alert_message">Wiarygodne aktualizacje pogody wymagają dostępu do lokalizacji w tle. Wybierz „%s” na następnym ekranie.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anuluj</string>
     <string name="config_source_code">Kod źródłowy</string>
     <string name="config_source_code_summary">Zobacz kod źródłowy i dokumentację na GitHubie</string>

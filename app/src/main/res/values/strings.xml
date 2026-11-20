@@ -68,7 +68,6 @@
     <string name="config_loc_perm_alert_message">To show the weather for your current area, this app requires access to your location.</string>
     <string name="config_bg_perm_alert_title">Background location permission</string>
     <string name="config_bg_perm_alert_message">Reliable weather updates require access to your location in the background. Please select \"%s\" on the next screen.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Cancel</string>
     <string name="config_debug_button_weather">View weather query</string>
     <string name="config_debug_button_location">View location</string>
@@ -97,6 +96,7 @@
     <string name="config_contacts_perm_settings_message">To show birthdays, update the contacts permission in the app settings.</string>
     <string name="config_perm_settings_button">Update permission</string>
     <string name="config_alert_button_continue">Continue</string>
+    <string name="config_weather_privacy_note">Enabling weather shares your location and IP address with the weather provider.</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

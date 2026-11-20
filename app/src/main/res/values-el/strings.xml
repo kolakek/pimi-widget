@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σου, η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σου.</string>
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>
     <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σου στο παρασκήνιο. Επίλεξε «%s» στην επόμενη οθόνη.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Ακύρωση</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>

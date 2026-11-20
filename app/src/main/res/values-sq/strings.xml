@@ -52,7 +52,6 @@
     <string name="config_loc_perm_alert_message">Për të shfaqur motin në zonën tënde aktuale, ky aplikacion ka nevojë për qasje në vendndodhjen tënde.</string>
     <string name="config_bg_perm_alert_title">Leje për vendndodhjen në sfond</string>
     <string name="config_bg_perm_alert_message">Përditësimet e besueshme të motit kërkojnë qasje në vendndodhjen tënde në sfond. Zgjidh "%s" në ekranin tjetër.</string>
-    <string name="config_alert_button_ok">OK</string>
     <string name="config_alert_button_cancel">Anulo</string>
     <string name="config_source_code">Kodi burimor</string>
     <string name="config_source_code_summary">Shiko kodin burimor dhe dokumentacionin në GitHub</string>
