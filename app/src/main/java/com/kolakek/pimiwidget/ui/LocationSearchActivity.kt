@@ -17,6 +17,7 @@
 
 package com.kolakek.pimiwidget.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -29,6 +30,7 @@ import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
+import androidx.work.ExistingWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.LocationSourcePref
@@ -40,6 +42,9 @@ import com.kolakek.pimiwidget.location.GEOCODING_MIN_QUERY_LENGTH
 import com.kolakek.pimiwidget.location.GeocodingPlace
 import com.kolakek.pimiwidget.location.GeocodingService
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.location.LocationService
+import com.kolakek.pimiwidget.worker.UpdateAction
+import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -101,6 +106,7 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.deviceLocation.icon.setImageResource(R.drawable.ic_my_location)
         binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
         binding.deviceLocation.root.clipToOutline = true
+        binding.deviceLocation.root.setOnClickListener { selectDeviceLocation() }
     }
 
     private fun startSearch() {
@@ -159,16 +165,43 @@ class LocationSearchActivity : AppCompatActivity() {
         else -> R.drawable.app_pref_background_mid
     }
 
+    private fun selectDeviceLocation() {
+        val context = applicationContext
+        if (SettingsRepository.usesDeviceLocation(context)) {
+            finish()
+            return
+        }
+        lifecycleScope.launch {
+            DataRepository.deleteLocationData(context)
+            applyLocationSource(context, LocationSourcePref.DEVICE)
+            finish()
+        }
+    }
+
     private fun selectFixedLocation(place: GeocodingPlace) {
         val context = applicationContext
         lifecycleScope.launch {
-            DataRepository.deleteWeatherData(context)
-            DataRepository.storeLocationData(
-                context,
-                LocationData(0, place.lat, place.long, place.name, FIXED_LOCATION_NAME)
-            )
-            SettingsRepository.setLocationSourcePref(context, LocationSourcePref.FIXED)
+            val data = LocationData(0, place.lat, place.long, place.name, FIXED_LOCATION_NAME)
+            DataRepository.storeLocationData(context, data)
+            applyLocationSource(context, LocationSourcePref.FIXED)
             finish()
+        }
+    }
+
+    private suspend fun applyLocationSource(context: Context, source: LocationSourcePref) {
+        SettingsRepository.setLocationSourcePref(context, source)
+        DataRepository.deleteWeatherData(context)
+
+        if (!SettingsRepository.isWeatherEnabled(context)) return
+
+        if (LocationService.isPermissionMissing(context)) {
+            SettingsRepository.setWeatherEnabled(context, false)
+        } else {
+            WorkManagerHelper.enqueueOneTimeWork(
+                context,
+                UpdateAction.WEATHER_FETCH_THEN_REFRESH,
+                ExistingWorkPolicy.REPLACE
+            )
         }
     }
 }

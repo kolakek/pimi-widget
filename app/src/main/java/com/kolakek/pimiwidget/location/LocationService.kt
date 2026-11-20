@@ -18,7 +18,9 @@
 package com.kolakek.pimiwidget.location
 
 import android.Manifest
+import android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
 import android.content.Context
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
@@ -26,6 +28,7 @@ import android.os.CancellationSignal
 import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
 import com.kolakek.pimiwidget.data.DataRepository
+import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.exception.LocationUnavailableException
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -67,6 +70,13 @@ object LocationService {
         }
         throw LocationUnavailableException("Failed to obtain location")
     }
+
+    fun isPermissionMissing(context: Context) =
+        SettingsRepository.usesDeviceLocation(context) &&
+                ContextCompat.checkSelfPermission(
+                    context,
+                    ACCESS_BACKGROUND_LOCATION
+                ) != PERMISSION_GRANTED
 
     private suspend fun getFixedLocation(context: Context): LocationData? {
         val locationData = DataRepository.loadLocationData(context)

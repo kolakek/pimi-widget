@@ -30,7 +30,6 @@
     <string name="config_weather_location">Wetterstandort</string>
     <string name="config_weather_location_device">Gerätestandort</string>
     <string name="config_weather_location_device_descr">Folgt deinem Standort</string>
-    <string name="config_fixed_location_search_button">Suchen</string>
     <string name="config_fixed_location_search_open_meteo">Mit Open-Meteo suchen</string>
     <string name="config_location_search_hint">Berlin, Deutschland</string>
     <string name="config_text_color">Textfarbe</string>

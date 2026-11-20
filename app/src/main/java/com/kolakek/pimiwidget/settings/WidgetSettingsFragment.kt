@@ -49,7 +49,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private val permissionHandler = PermissionHandler(this)
 
-    private val weatherHandler = WeatherSettingsHandler(this)
+    private val weatherHandler = WeatherSwitchHandler(this)
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.pimi_widget_prefs, rootKey)
@@ -140,8 +140,8 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     override fun onResume() {
         super.onResume()
-        weatherHandler.enforcePermission()
         updateWeatherSummary()
+        weatherHandler.refreshSwitch()
     }
 
     private fun updateWeatherSummary() {

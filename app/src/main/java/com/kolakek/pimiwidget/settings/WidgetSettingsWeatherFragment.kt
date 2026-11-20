@@ -44,7 +44,7 @@ import kotlinx.coroutines.launch
 class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
     override val titleRes = R.string.config_section_weather
 
-    private val weatherHandler = WeatherSettingsHandler(this)
+    private val weatherHandler = WeatherSwitchHandler(this)
 
     private val locationField get() = findPreference<Preference>(KEY_FIELD_LOCATION_SOURCE)
 
@@ -87,14 +87,14 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         setWeatherLocationSummary()
-        weatherHandler.enforcePermission()
+        weatherHandler.refreshSwitch()
     }
 
     private fun setWeatherLocationSummary() {
         val context = requireContext()
         lifecycleScope.launch {
             locationField?.summary =
-                if (weatherHandler.usesDeviceLocation()) {
+                if (SettingsRepository.usesDeviceLocation(context)) {
                     getString(R.string.config_weather_location_device)
                 } else {
                     DataRepository.loadLocationData(context)?.place

@@ -30,7 +30,6 @@
     <string name="config_weather_location">Väderplats</string>
     <string name="config_weather_location_device">Enhetens plats</string>
     <string name="config_weather_location_device_descr">Följer din plats</string>
-    <string name="config_fixed_location_search_button">Sök</string>
     <string name="config_fixed_location_search_open_meteo">Sök med Open-Meteo</string>
     <string name="config_location_search_hint">Stockholm, Sverige</string>
     <string name="config_text_color">Textfärg</string>

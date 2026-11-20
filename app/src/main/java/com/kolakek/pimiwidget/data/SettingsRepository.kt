@@ -174,6 +174,12 @@ object SettingsRepository {
             .getBoolean(KEY_WEATHER_SWITCH, false)
     }
 
+    fun setWeatherEnabled(context: Context, value: Boolean) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putBoolean(KEY_WEATHER_SWITCH, value)
+        }
+    }
+
     fun isBirthdayEnabled(context: Context): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(context)
             .getBoolean(KEY_BIRTHDAY_SWITCH, false)
@@ -274,6 +280,9 @@ object SettingsRepository {
 
     fun setLocationSourcePref(context: Context, pref: LocationSourcePref) =
         pref.save(prefs(context))
+
+    fun usesDeviceLocation(context: Context) =
+        getLocationSourcePref(context) == LocationSourcePref.DEVICE
 
     private fun getRainUnitPref(context: Context): RainUnitPref =
         RainUnitPref.fromPrefs(prefs(context))
