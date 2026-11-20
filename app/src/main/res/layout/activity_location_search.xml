@@ -68,14 +68,6 @@
             android:indeterminate="true"
             android:visibility="invisible" />
 
-        <include
-            android:id="@+id/device_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="@dimen/app_pref_card_margin"
-            layout="@layout/item_location_result" />
-
         <androidx.core.widget.NestedScrollView
             android:id="@+id/results_scroll"
             android:layout_width="match_parent"
@@ -86,14 +78,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical">
+
+                <include
+                    android:id="@+id/device_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/app_pref_card_margin"
+                    layout="@layout/item_location_result" />
 
                 <LinearLayout
                     android:id="@+id/results_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="@dimen/app_pref_card_margin"
-                    android:paddingTop="8dp"
                     android:orientation="vertical" />
 
                 <LinearLayout
