@@ -92,7 +92,7 @@
     <string name="config_location_search_footer">The selected location applies to both the widget and the weather app.</string>
     <string name="config_geocoding_attr_open_meteo">Location search by Open-Meteo</string>
     <string name="config_perm_settings_title">Permission required</string>
-    <string name="config_loc_perm_settings_message">To show the weather for your current area, update the location permission to “%1$s”.</string>
+    <string name="config_loc_perm_settings_message">To show the weather for your current area, update the location permission to “%1$s” in the app settings.</string>
     <string name="config_contacts_perm_settings_message">To show birthdays, update the contacts permission in the app settings.</string>
     <string name="config_perm_settings_button">Update permission</string>
     <string name="config_alert_button_continue">Continue</string>
