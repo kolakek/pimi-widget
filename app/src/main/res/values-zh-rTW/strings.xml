@@ -32,7 +32,6 @@
     <string name="config_weather_location">天氣位置</string>
     <string name="config_weather_location_device">裝置位置</string>
     <string name="config_weather_location_device_descr">跟隨您的位置</string>
-    <string name="config_fixed_location_search_open_meteo">使用 Open-Meteo 搜尋</string>
     <string name="config_location_search_hint">新北市，台灣</string>
     <string name="config_icon_style">圖示主題</string>
     <string name="config_text_color">文字色彩</string>

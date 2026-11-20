@@ -30,7 +30,6 @@
     <string name="config_weather_location">Emplacement météo</string>
     <string name="config_weather_location_device">Position de l’appareil</string>
     <string name="config_weather_location_device_descr">Suit ta position</string>
-    <string name="config_fixed_location_search_open_meteo">Rechercher avec Open-Meteo</string>
     <string name="config_location_search_hint">Paris, France</string>
     <string name="config_text_color">Couleur du texte</string>
     <string name="config_icon_style">Style des icônes</string>
