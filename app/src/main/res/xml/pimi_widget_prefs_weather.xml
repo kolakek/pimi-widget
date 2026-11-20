@@ -16,7 +16,7 @@
 
         <Preference
             android:title="@string/config_weather_provider"
-            android:summary="@string/config_weather_attribution_open_meteo"
+            android:summary="@string/config_weather_attr_open_meteo"
             android:selectable="false"
             app:iconSpaceReserved="false" />
 

@@ -15,7 +15,7 @@
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Solid</string>
     <string name="config_weather_switch">Weather</string>
-    <string name="config_weather_attribution_open_meteo">Weather data by Open-Meteo.com</string>
+    <string name="config_weather_attr_open_meteo">Weather data by Open-Meteo.com</string>
     <string name="config_birthday_switch">Birthdays</string>
     <string name="config_birthday_switch_summary">Show birthdays from your contacts</string>
     <string name="config_contact_perm_alert_title">Contacts permission required</string>
@@ -91,7 +91,12 @@
     <string name="config_weather_summary_fixed">Show weather for fixed location</string>
     <string name="config_weather_summary_place">Show weather for %1$s</string>
     <string name="config_location_search_footer">The selected location applies to both the widget and the weather app.</string>
-    <string name="config_geocoding_open_meteo">Location search by Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Location search by Open-Meteo</string>
+    <string name="config_perm_settings_title">Permission required</string>
+    <string name="config_loc_perm_settings_message">To show the weather for your current area, update the location permission to “%1$s”.</string>
+    <string name="config_contacts_perm_settings_message">To show birthdays, update the contacts permission in the app settings.</string>
+    <string name="config_perm_settings_button">Update permission</string>
+    <string name="config_alert_button_continue">Continue</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

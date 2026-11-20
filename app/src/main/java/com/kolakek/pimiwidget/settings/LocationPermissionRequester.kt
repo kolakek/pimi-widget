@@ -32,22 +32,29 @@ class LocationPermissionRequester(
 
     fun request(onGranted: () -> Unit) {
         val activity = activity()
+
+        val fallbackMessage = activity.getString(
+            R.string.config_loc_perm_settings_message,
+            activity.packageManager.backgroundPermissionOptionLabel
+        )
         when {
             activity.isPermissionDenied(ACCESS_COARSE_LOCATION) ->
                 permissionHandler.askPermission(
-                    ACCESS_COARSE_LOCATION,
-                    activity.getString(R.string.config_loc_perm_alert_title),
-                    activity.getString(R.string.config_loc_perm_alert_message)
+                    permission = ACCESS_COARSE_LOCATION,
+                    title = activity.getString(R.string.config_loc_perm_alert_title),
+                    message = activity.getString(R.string.config_loc_perm_alert_message),
+                    fallbackMessage = fallbackMessage
                 ) { request(onGranted) }
 
             activity.isPermissionDenied(ACCESS_BACKGROUND_LOCATION) ->
                 permissionHandler.askPermission(
-                    ACCESS_BACKGROUND_LOCATION,
-                    activity.getString(R.string.config_bg_perm_alert_title),
-                    activity.getString(
+                    permission = ACCESS_BACKGROUND_LOCATION,
+                    title = activity.getString(R.string.config_bg_perm_alert_title),
+                    message = activity.getString(
                         R.string.config_bg_perm_alert_message,
                         activity.packageManager.backgroundPermissionOptionLabel
-                    )
+                    ),
+                    fallbackMessage = fallbackMessage
                 ) { request(onGranted) }
 
             else -> onGranted()

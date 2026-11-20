@@ -172,6 +172,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
                 READ_CONTACTS,
                 getString(R.string.config_contact_perm_alert_title),
                 getString(R.string.config_contact_perm_alert_message),
+                getString(R.string.config_contacts_perm_settings_message)
             ) {
                 birthdaySwitchCallback(true)
             }

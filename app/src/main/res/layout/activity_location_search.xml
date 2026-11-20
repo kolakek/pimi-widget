@@ -125,7 +125,7 @@
                         android:minHeight="48dp"
                         android:gravity="center_vertical"
                         android:background="?attr/selectableItemBackground"
-                        android:text="@string/config_geocoding_open_meteo"
+                        android:text="@string/config_geocoding_attr_open_meteo"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?attr/colorPrimary" />
 

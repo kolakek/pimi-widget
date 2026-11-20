@@ -8,7 +8,7 @@
     <string name="config_widget_style_modern">Modern</string>
     <string name="config_widget_style_solid">Düz</string>
     <string name="config_weather_switch">Hava durumu</string>
-    <string name="config_weather_attribution_open_meteo">Open-Meteo.com\'dan hava durumu verileri</string>
+    <string name="config_weather_attr_open_meteo">Open-Meteo.com\'dan hava durumu verileri</string>
     <string name="config_birthday_switch">Doğum günleri</string>
     <string name="config_birthday_switch_summary">Kişilerinin doğum günlerini göster</string>
     <string name="config_contact_perm_alert_title">Kişilere erişim izni gerekli</string>

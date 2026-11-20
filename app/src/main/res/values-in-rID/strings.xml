@@ -32,7 +32,7 @@
     <string name="config_weather_location">Lokasi cuaca</string>
     <string name="config_weather_location_device">Lokasi perangkat</string>
     <string name="config_weather_location_device_descr">Mengikuti lokasimu</string>
-    <string name="config_weather_attribution_open_meteo">Data cuaca oleh Open-Meteo.com</string>
+    <string name="config_weather_attr_open_meteo">Data cuaca oleh Open-Meteo.com</string>
     <string name="config_location_search_hint">Jakarta, Indonesia</string>
     <string name="config_icon_style">Gaya ikon</string>
     <string name="config_text_color">Warna teks</string>

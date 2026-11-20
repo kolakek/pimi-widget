@@ -18,6 +18,9 @@
 package com.kolakek.pimiwidget.settings
 
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
 import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -26,14 +29,29 @@ import com.kolakek.pimiwidget.R
 
 class PermissionHandler(caller: ActivityResultCaller, private val activity: () -> Activity) {
 
+    private var pendingPermission: String? = null
+    private var pendingFallbackMessage: String? = null
     private var onPermissionGranted: (() -> Unit)? = null
 
     private val launcher = caller.registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { onPermissionGranted?.invoke() }
+    ) { granted ->
+        val permission = pendingPermission ?: return@registerForActivityResult
+        val blocked = !ActivityCompat.shouldShowRequestPermissionRationale(activity(), permission)
+        if (granted) onPermissionGranted?.invoke() else if (blocked) showSettingsDialog()
+    }
 
-    fun askPermission(permission: String, title: String, message: String, onGranted: () -> Unit) {
-        onPermissionGranted = { if (activity().isPermissionGranted(permission)) onGranted() }
+    fun askPermission(
+        permission: String,
+        title: String,
+        message: String,
+        fallbackMessage: String,
+        onGranted: () -> Unit
+    ) {
+        pendingPermission = permission
+        pendingFallbackMessage = fallbackMessage
+        onPermissionGranted = onGranted
+
         if (ActivityCompat.shouldShowRequestPermissionRationale(activity(), permission)) {
             showRationaleDialog(permission, title, message)
         } else {
@@ -45,9 +63,24 @@ class PermissionHandler(caller: ActivityResultCaller, private val activity: () -
         AlertDialog.Builder(activity())
             .setMessage(message)
             .setTitle(title)
-            .setCancelable(false)
-            .setPositiveButton(R.string.config_alert_button_ok) { _, _ ->
+            .setPositiveButton(R.string.config_alert_button_continue) { _, _ ->
                 launcher.launch(permission)
+            }
+            .setNegativeButton(R.string.config_alert_button_cancel, null)
+            .show()
+    }
+
+    private fun showSettingsDialog() {
+        val activity = activity()
+        val intent = Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", activity.packageName, null)
+        )
+        AlertDialog.Builder(activity)
+            .setMessage(pendingFallbackMessage)
+            .setTitle(R.string.config_perm_settings_title)
+            .setPositiveButton(R.string.config_perm_settings_button) { _, _ ->
+                activity.startActivity(intent)
             }
             .setNegativeButton(R.string.config_alert_button_cancel, null)
             .show()

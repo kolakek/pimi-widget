@@ -34,8 +34,5 @@ fun Context.openUrl(url: String) {
 fun Context.wallpaperColor(): Int? = WallpaperManager.getInstance(this)
     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)?.primaryColor?.toArgb()
 
-fun Context.isPermissionGranted(permission: String) =
-    ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
-
 fun Context.isPermissionDenied(permission: String) =
     ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED

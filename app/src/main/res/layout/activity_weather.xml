@@ -168,7 +168,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackground"
-                android:text="@string/config_weather_attribution_open_meteo"
+                android:text="@string/config_weather_attr_open_meteo"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?attr/colorPrimary" />
 
