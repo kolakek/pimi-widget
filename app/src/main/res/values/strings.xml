@@ -97,6 +97,7 @@
     <string name="config_perm_settings_button">Update permission</string>
     <string name="config_alert_button_continue">Continue</string>
     <string name="config_weather_privacy_note">Enabling weather shares your location and IP address with the weather provider.</string>
+    <string name="config_location_no_results">No places found</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

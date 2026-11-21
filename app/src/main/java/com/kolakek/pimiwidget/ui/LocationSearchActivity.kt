@@ -96,6 +96,7 @@ class LocationSearchActivity : AppCompatActivity() {
                 binding.resultsContainer.removeAllViews()
                 binding.deviceLocation.root.visibility = View.VISIBLE
                 binding.locationFooter.visibility = View.VISIBLE
+                binding.emptyState.visibility = View.GONE
             }
         }
         binding.searchClear.setOnClickListener {
@@ -114,10 +115,14 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
         binding.deviceLocation.root.clipToOutline = true
         binding.deviceLocation.root.setOnClickListener { selectDeviceLocation() }
+
         binding.footerInfo.infoText.setText(R.string.config_location_search_footer)
         binding.footerInfo.root.updatePadding(bottom = 0)
         binding.footerLink.paintFlags = binding.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         binding.footerLink.setOnClickListener { openUrl(GEOCODING_URL) }
+
+        binding.emptyState.visibility = View.GONE
+
     }
 
     private fun startSearch() {
@@ -126,9 +131,14 @@ class LocationSearchActivity : AppCompatActivity() {
 
         binding.deviceLocation.root.visibility = View.GONE
         binding.locationFooter.visibility = View.GONE
+        binding.emptyState.visibility = View.GONE
 
         val query = binding.searchInput.text.toString().trim()
-        if (query.length < GEOCODING_MIN_QUERY_LENGTH) return
+
+        if (query.length < GEOCODING_MIN_QUERY_LENGTH) {
+            binding.emptyState.visibility = View.VISIBLE
+            return
+        }
 
         WindowCompat.getInsetsController(window, binding.searchInput).hide(
             WindowInsetsCompat.Type.ime()
@@ -170,7 +180,13 @@ class LocationSearchActivity : AppCompatActivity() {
             row.root.setOnClickListener { selectFixedLocation(place) }
             binding.resultsContainer.addView(row.root)
         }
-        binding.locationFooter.visibility = if (places.isNotEmpty()) View.VISIBLE else View.GONE
+        if (places.isEmpty()) {
+            binding.emptyState.visibility = View.VISIBLE
+            binding.locationFooter.visibility = View.GONE
+        } else {
+            binding.emptyState.visibility = View.GONE
+            binding.locationFooter.visibility = View.VISIBLE
+        }
     }
 
     private fun cardBackground(index: Int, count: Int) = when {

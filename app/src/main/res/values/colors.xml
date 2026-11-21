@@ -35,6 +35,7 @@
 
     <color name="app_item_background">?colorSurface</color>
     <color name="app_error_text_color">?colorOnSurfaceVariant</color>
+    <color name="app_text_color">?colorOnSurface</color>
 
     <color name="m_indicator">#010101</color>
     <color name="m_s_fill_day">#aec6f6</color>
