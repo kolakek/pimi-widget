@@ -284,6 +284,9 @@ object SettingsRepository {
     fun usesDeviceLocation(context: Context) =
         getLocationSourcePref(context) == LocationSourcePref.DEVICE
 
+    fun usesFixedLocation(context: Context) =
+        getLocationSourcePref(context) == LocationSourcePref.FIXED
+
     private fun getRainUnitPref(context: Context): RainUnitPref =
         RainUnitPref.fromPrefs(prefs(context))
 

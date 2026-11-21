@@ -114,6 +114,7 @@ object LocationService {
                 it.latitude,
                 it.longitude,
                 getLocationName(context, it),
+                "",
                 CACHED_LOCATION_NAME
             )
         } else null
@@ -144,6 +145,7 @@ object LocationService {
             it.latitude,
             it.longitude,
             getLocationName(context, it),
+            "",
             FRESH_LOCATION_NAME
         )
     }

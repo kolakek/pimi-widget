@@ -85,12 +85,26 @@
                     android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
-                    <include
-                        android:id="@+id/device_location"
+                    <LinearLayout
+                        android:id="@+id/current_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/app_pref_card_margin"
-                        layout="@layout/item_location_result" />
+                        android:orientation="vertical">
+
+                        <include
+                            android:id="@+id/fixed_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            layout="@layout/item_location_result" />
+
+                        <include
+                            android:id="@+id/device_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            layout="@layout/item_location_result" />
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/results_container"
@@ -135,7 +149,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="visible"
+                android:visibility="gone"
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView

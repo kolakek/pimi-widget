@@ -94,7 +94,7 @@ class LocationSearchActivity : AppCompatActivity() {
                 searchJob?.cancel()
                 binding.searchProgress.visibility = View.INVISIBLE
                 binding.resultsContainer.removeAllViews()
-                binding.deviceLocation.root.visibility = View.VISIBLE
+                binding.currentLocation.visibility = View.VISIBLE
                 binding.locationFooter.visibility = View.VISIBLE
                 binding.emptyState.visibility = View.GONE
             }
@@ -109,10 +109,15 @@ class LocationSearchActivity : AppCompatActivity() {
         }
         binding.searchInput.requestFocus()
 
+        binding.fixedLocation.root.clipToOutline = true
+        binding.fixedLocation.root.setOnClickListener { finish() }
+        binding.fixedLocation.icon.setImageResource(R.drawable.ic_location)
+        binding.fixedLocation.iconChecked.visibility = View.VISIBLE
+        binding.fixedLocation.root.setBackgroundResource(R.drawable.app_pref_background_top)
+
         binding.deviceLocation.title.setText(R.string.config_weather_location_device)
         binding.deviceLocation.subtitle.setText(R.string.config_weather_location_device_descr)
         binding.deviceLocation.icon.setImageResource(R.drawable.ic_my_location)
-        binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
         binding.deviceLocation.root.clipToOutline = true
         binding.deviceLocation.root.setOnClickListener { selectDeviceLocation() }
 
@@ -121,15 +126,44 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.footerLink.paintFlags = binding.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         binding.footerLink.setOnClickListener { openUrl(GEOCODING_URL) }
 
-        binding.emptyState.visibility = View.GONE
+        showCurrentSelection()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        showCurrentSelection()
+    }
+
+    private fun showCurrentSelection() {
+        val context = applicationContext
+
+        if (SettingsRepository.usesFixedLocation(context)) {
+            binding.fixedLocation.root.visibility = View.VISIBLE
+            binding.fixedLocation.title.setText(R.string.config_weather_location_fixed)
+            binding.fixedLocation.subtitle.visibility = View.GONE
+            binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background_bottom)
+            binding.deviceLocation.iconChecked.visibility = View.GONE
+            lifecycleScope.launch {
+                DataRepository.loadLocationData(context)?.let {
+                    binding.fixedLocation.title.text = it.place
+                    binding.fixedLocation.subtitle.text = it.region
+                    binding.fixedLocation.subtitle.visibility =
+                        if (it.region.isEmpty()) View.GONE else View.VISIBLE
+                }
+            }
+        } else {
+            binding.fixedLocation.root.visibility = View.GONE
+            binding.deviceLocation.root.setBackgroundResource(R.drawable.app_pref_background)
+            binding.deviceLocation.iconChecked.visibility =
+                if (LocationService.isPermissionMissing(context)) View.GONE else View.VISIBLE
+        }
     }
 
     private fun startSearch() {
         searchJob?.cancel()
         binding.resultsContainer.removeAllViews()
 
-        binding.deviceLocation.root.visibility = View.GONE
+        binding.currentLocation.visibility = View.GONE
         binding.locationFooter.visibility = View.GONE
         binding.emptyState.visibility = View.GONE
 
@@ -152,6 +186,7 @@ class LocationSearchActivity : AppCompatActivity() {
                 throw e
             } catch (_: Exception) {
                 binding.searchProgress.visibility = View.INVISIBLE
+                binding.emptyState.visibility = View.VISIBLE
             }
         }
     }
@@ -170,14 +205,12 @@ class LocationSearchActivity : AppCompatActivity() {
                 cardBackground(index, places.size)
             )
             row.root.clipToOutline = true
-
-            val parts = place.label.split(", ", limit = 2)
-
             row.icon.setImageResource(R.drawable.ic_location)
-            row.title.text = parts[0]
-            row.subtitle.text = parts.getOrNull(1).orEmpty()
-            row.subtitle.visibility = if (parts.size > 1) View.VISIBLE else View.GONE
+            row.title.text = place.name
+            row.subtitle.text = place.region
+            row.subtitle.visibility = if (place.region.isEmpty()) View.GONE else View.VISIBLE
             row.root.setOnClickListener { selectFixedLocation(place) }
+
             binding.resultsContainer.addView(row.root)
         }
         if (places.isEmpty()) {
@@ -214,7 +247,13 @@ class LocationSearchActivity : AppCompatActivity() {
     private fun selectFixedLocation(place: GeocodingPlace) {
         val context = applicationContext
         lifecycleScope.launch {
-            val data = LocationData(0, place.lat, place.long, place.name, FIXED_LOCATION_NAME)
+            val data = LocationData(0,
+                place.lat,
+                place.long,
+                place.name,
+                place.region,
+                FIXED_LOCATION_NAME
+            )
             DataRepository.storeLocationData(context, data)
             applyLocationSource(context, LocationSourcePref.FIXED)
             finish()

@@ -45,11 +45,18 @@ object GeocodingService {
             }
             .map {
                 GeocodingPlace(
-                    label = LocationFormat.placeLabel(it.name, it.admin1, it.country),
-                    name = it.name,
+                    name = it.name.trim(),
+                    region = placeRegion(it.name, it.admin1, it.country),
                     lat = it.latitude,
                     long = it.longitude
                 )
             }
     }
+
+    fun placeRegion(name: String, region: String?, country: String?): String =
+        listOfNotNull(region, country)
+            .map { it.trim() }
+            .filter { it.isNotEmpty() && it != name.trim() }
+            .distinct()
+            .joinToString(", ")
 }

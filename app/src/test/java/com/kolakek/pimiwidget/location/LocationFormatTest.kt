@@ -20,16 +20,32 @@ package com.kolakek.pimiwidget.location
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class LocationFormatTest {
+class GeocodingServiceTest {
 
     @Test
-    fun placeLabel_joinsNameRegionAndCountry() {
-        assertEquals("Paris, Ile-de-France, France", LocationFormat.placeLabel("Paris", "Ile-de-France", "France"))
+    fun placeRegion_joinsRegionAndCountry() {
+        assertEquals("Ile-de-France, France", GeocodingService.placeRegion("Paris", "Ile-de-France", "France"))
     }
 
     @Test
-    fun placeLabel_dropsRepeatedAndBlankParts() {
-        assertEquals("Berlin, Germany", LocationFormat.placeLabel("Berlin", "Berlin", "Germany"))
-        assertEquals("Oslo", LocationFormat.placeLabel("Oslo", null, "  "))
+    fun placeRegion_dropsPartsRepeatingTheName() {
+        assertEquals("Germany", GeocodingService.placeRegion("Berlin", "Berlin", "Germany"))
+        assertEquals("", GeocodingService.placeRegion("Monaco", null, "Monaco"))
+    }
+
+    @Test
+    fun placeRegion_dropsBlankParts() {
+        assertEquals("", GeocodingService.placeRegion("Oslo", null, "  "))
+    }
+
+    @Test
+    fun placeRegion_dropsDuplicateRegionAndCountry() {
+        assertEquals("Luxembourg", GeocodingService.placeRegion("Luxembourg City", "Luxembourg", "Luxembourg"))
+    }
+
+    @Test
+    fun placeRegion_trimsParts() {
+        assertEquals("Bavaria, Germany", GeocodingService.placeRegion("Munich", " Bavaria ", "Germany "))
+        assertEquals("Germany", GeocodingService.placeRegion(" Berlin ", "Berlin", "Germany"))
     }
 }

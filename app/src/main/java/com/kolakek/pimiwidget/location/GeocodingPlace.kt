@@ -18,7 +18,7 @@
 package com.kolakek.pimiwidget.location
 
 data class GeocodingPlace(
-    val label: String,
+    val region: String,
     val name: String,
     val lat: Double,
     val long: Double

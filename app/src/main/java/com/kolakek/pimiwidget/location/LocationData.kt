@@ -25,5 +25,6 @@ data class LocationData (
     val lat: Double,
     val long: Double,
     val place: String,
+    val region: String,
     val locationType: String
 )
