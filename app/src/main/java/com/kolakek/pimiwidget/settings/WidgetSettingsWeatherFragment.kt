@@ -98,6 +98,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
                     getString(R.string.config_weather_location_device)
                 } else {
                     DataRepository.loadLocationData(context)?.place
+                        ?: getString(R.string.config_weather_location_fixed)
                 }
         }
     }

@@ -169,10 +169,7 @@ class LocationSearchActivity : AppCompatActivity() {
 
         val query = binding.searchInput.text.toString().trim()
 
-        if (query.length < GEOCODING_MIN_QUERY_LENGTH) {
-            binding.emptyState.visibility = View.VISIBLE
-            return
-        }
+        if (query.length < GEOCODING_MIN_QUERY_LENGTH) return
 
         WindowCompat.getInsetsController(window, binding.searchInput).hide(
             WindowInsetsCompat.Type.ime()
