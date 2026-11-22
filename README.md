@@ -2,15 +2,15 @@
 
 # Pimi widget
 
-Your day, at a glance
+Your day, at a glance – weather, birthdays & more
 
 ## Features
 
-* Displays date, weather & more
+* Shows date, weather, birthdays & alarms
 * Standalone widget, no app icon
 * Built-in weather app, or open your own
 * Location permission optional
-* Lightweight and battery-efficient
+* Lightweight & battery-efficient
 * No trackers, no ads, no Google services
 
 ## Download

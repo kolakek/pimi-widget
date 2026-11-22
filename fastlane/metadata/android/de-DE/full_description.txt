@@ -1,6 +1,6 @@
-* Zeigt Datum, Wetter & mehr
+* Zeigt Datum, Wetter, Geburtstage & Wecker
 * Eigenständiges Widget, kein App-Symbol
 * Integrierte Wetter-App oder deine eigene
 * Standortberechtigung optional
-* Leichtgewichtig und akkuschonend
+* Leichtgewichtig & akkuschonend
 * Keine Tracker, keine Werbung, keine Google-Dienste
