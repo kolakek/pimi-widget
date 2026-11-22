@@ -95,6 +95,20 @@
     <string name="config_section_style">Stili</string>
     <string name="config_section_color">Ngjyra</string>
     <string name="config_temp_unit">Njësia e temperaturës</string>
+    <string name="config_weather_summary_device">Shfaq motin për vendndodhjen tënde</string>
+    <string name="config_weather_summary_fixed">Shfaq motin për një vendndodhje fikse</string>
+    <string name="config_weather_summary_place">Shfaq motin për: %1$s</string>
+    <string name="config_location_search_footer">Vendndodhja e zgjedhur vlen si për widget-in, ashtu edhe për aplikacionin e motit.</string>
+    <string name="config_geocoding_attr_open_meteo">Kërkimi i vendeve nga Open-Meteo</string>
+    <string name="config_perm_settings_title">Kërkohet leje</string>
+    <string name="config_loc_perm_settings_message">Për të shfaqur motin për zonën tënde aktuale, ndrysho lejen e vendndodhjes në “%1$s” te cilësimet e aplikacionit.</string>
+    <string name="config_contacts_perm_settings_message">Për të shfaqur ditëlindjet, ndrysho lejen e kontakteve te cilësimet e aplikacionit.</string>
+    <string name="config_perm_settings_button">Ndrysho lejen</string>
+    <string name="config_alert_button_continue">Vazhdo</string>
+    <string name="config_weather_privacy_note">Aktivizimi i motit ndan vendndodhjen dhe adresën tënde IP me ofruesin e motit.</string>
+    <string name="config_location_no_results">Nuk u gjet asnjë vend</string>
+    <string name="config_location_search_example">Shembull kërkimi: “%1$s”</string>
+    <string name="config_location_search_hint">Kërko një vend</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>

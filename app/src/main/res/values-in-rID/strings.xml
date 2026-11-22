@@ -95,6 +95,20 @@
     <string name="config_section_style">Gaya</string>
     <string name="config_section_color">Warna</string>
     <string name="config_temp_unit">Satuan suhu</string>
+    <string name="config_weather_summary_device">Tampilkan cuaca untuk lokasimu</string>
+    <string name="config_weather_summary_fixed">Tampilkan cuaca untuk lokasi tetap</string>
+    <string name="config_weather_summary_place">Tampilkan cuaca untuk %1$s</string>
+    <string name="config_location_search_footer">Lokasi yang dipilih berlaku untuk widget dan aplikasi cuaca.</string>
+    <string name="config_geocoding_attr_open_meteo">Pencarian tempat oleh Open-Meteo</string>
+    <string name="config_perm_settings_title">Izin diperlukan</string>
+    <string name="config_loc_perm_settings_message">Untuk menampilkan cuaca di areamu saat ini, ubah izin lokasi menjadi “%1$s” di setelan aplikasi.</string>
+    <string name="config_contacts_perm_settings_message">Untuk menampilkan ulang tahun, ubah izin kontak di setelan aplikasi.</string>
+    <string name="config_perm_settings_button">Ubah izin</string>
+    <string name="config_alert_button_continue">Lanjutkan</string>
+    <string name="config_weather_privacy_note">Mengaktifkan cuaca akan membagikan lokasi dan alamat IP-mu kepada penyedia cuaca.</string>
+    <string name="config_location_no_results">Tempat tidak ditemukan</string>
+    <string name="config_location_search_example">Contoh pencarian: “%1$s”</string>
+    <string name="config_location_search_hint">Cari tempat</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>

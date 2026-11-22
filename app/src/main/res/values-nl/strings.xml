@@ -95,6 +95,20 @@
     <string name="config_section_style">Stijl</string>
     <string name="config_section_color">Kleur</string>
     <string name="config_temp_unit">Temperatuureenheid</string>
+    <string name="config_weather_summary_device">Weer voor je locatie weergeven</string>
+    <string name="config_weather_summary_fixed">Weer voor een vaste locatie weergeven</string>
+    <string name="config_weather_summary_place">Weer voor %1$s weergeven</string>
+    <string name="config_location_search_footer">De gekozen locatie geldt voor zowel de widget als de weer-app.</string>
+    <string name="config_geocoding_attr_open_meteo">Plaatsen zoeken via Open-Meteo</string>
+    <string name="config_perm_settings_title">Toestemming vereist</string>
+    <string name="config_loc_perm_settings_message">Om het weer voor je huidige omgeving weer te geven, wijzig je de locatietoestemming in de app-instellingen naar ‘%1$s’.</string>
+    <string name="config_contacts_perm_settings_message">Om verjaardagen weer te geven, wijzig je de toestemming voor contacten in de app-instellingen.</string>
+    <string name="config_perm_settings_button">Toestemming wijzigen</string>
+    <string name="config_alert_button_continue">Doorgaan</string>
+    <string name="config_weather_privacy_note">Als je het weer aanzet, worden je locatie en IP-adres gedeeld met de weeraanbieder.</string>
+    <string name="config_location_no_results">Geen plaatsen gevonden</string>
+    <string name="config_location_search_example">Zoekvoorbeeld: ‘%1$s’</string>
+    <string name="config_location_search_hint">Zoek een plaats</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>

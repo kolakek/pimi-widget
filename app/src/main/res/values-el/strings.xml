@@ -95,6 +95,20 @@
     <string name="config_section_style">Στιλ</string>
     <string name="config_section_color">Χρώμα</string>
     <string name="config_temp_unit">Μονάδα θερμοκρασίας</string>
+    <string name="config_weather_summary_device">Εμφάνιση καιρού για την τοποθεσία σου</string>
+    <string name="config_weather_summary_fixed">Εμφάνιση καιρού για σταθερή τοποθεσία</string>
+    <string name="config_weather_summary_place">Εμφάνιση καιρού για: %1$s</string>
+    <string name="config_location_search_footer">Η επιλεγμένη τοποθεσία ισχύει τόσο για το widget όσο και για την εφαρμογή καιρού.</string>
+    <string name="config_geocoding_attr_open_meteo">Αναζήτηση τοποθεσιών από το Open-Meteo</string>
+    <string name="config_perm_settings_title">Απαιτείται άδεια</string>
+    <string name="config_loc_perm_settings_message">Για να εμφανίζεται ο καιρός για την τρέχουσα περιοχή σου, άλλαξε την άδεια τοποθεσίας σε «%1$s» στις ρυθμίσεις της εφαρμογής.</string>
+    <string name="config_contacts_perm_settings_message">Για να εμφανίζονται γενέθλια, άλλαξε την άδεια επαφών στις ρυθμίσεις της εφαρμογής.</string>
+    <string name="config_perm_settings_button">Αλλαγή άδειας</string>
+    <string name="config_alert_button_continue">Συνέχεια</string>
+    <string name="config_weather_privacy_note">Με την ενεργοποίηση του καιρού, η τοποθεσία και η διεύθυνση IP σου κοινοποιούνται στον πάροχο καιρού.</string>
+    <string name="config_location_no_results">Δεν βρέθηκαν τοποθεσίες</string>
+    <string name="config_location_search_example">Παράδειγμα αναζήτησης: «%1$s»</string>
+    <string name="config_location_search_hint">Αναζήτηση τοποθεσίας</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>

@@ -95,6 +95,20 @@
     <string name="config_section_style">Estilo</string>
     <string name="config_section_color">Cor</string>
     <string name="config_temp_unit">Unidade de temperatura</string>
+    <string name="config_weather_summary_device">Mostrar o clima da sua localização</string>
+    <string name="config_weather_summary_fixed">Mostrar o clima de um local fixo</string>
+    <string name="config_weather_summary_place">Mostrar o clima para %1$s</string>
+    <string name="config_location_search_footer">O local selecionado vale tanto para o widget quanto para o app de clima.</string>
+    <string name="config_geocoding_attr_open_meteo">Busca de locais por Open-Meteo</string>
+    <string name="config_perm_settings_title">Permissão necessária</string>
+    <string name="config_loc_perm_settings_message">Para mostrar o clima da sua área atual, altere a permissão de localização para “%1$s” nas configurações do app.</string>
+    <string name="config_contacts_perm_settings_message">Para mostrar aniversários, altere a permissão de contatos nas configurações do app.</string>
+    <string name="config_perm_settings_button">Alterar permissão</string>
+    <string name="config_alert_button_continue">Continuar</string>
+    <string name="config_weather_privacy_note">Ao ativar o clima, sua localização e seu endereço IP são compartilhados com o provedor do clima.</string>
+    <string name="config_location_no_results">Nenhum local encontrado</string>
+    <string name="config_location_search_example">Exemplo de busca: “%1$s”</string>
+    <string name="config_location_search_hint">Buscar um local</string>
 
     <string name="app_text_now">Agora</string>
     <string name="app_text_hourly_forecast">Previsão por hora</string>

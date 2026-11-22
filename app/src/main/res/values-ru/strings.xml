@@ -95,6 +95,20 @@
     <string name="config_section_style">Стиль</string>
     <string name="config_section_color">Цвет</string>
     <string name="config_temp_unit">Единица температуры</string>
+    <string name="config_weather_summary_device">Показывать погоду для твоего местоположения</string>
+    <string name="config_weather_summary_fixed">Показывать погоду для фиксированного местоположения</string>
+    <string name="config_weather_summary_place">Показывать погоду: %1$s</string>
+    <string name="config_location_search_footer">Выбранное местоположение используется и для виджета, и для приложения погоды.</string>
+    <string name="config_geocoding_attr_open_meteo">Поиск мест от Open-Meteo</string>
+    <string name="config_perm_settings_title">Требуется разрешение</string>
+    <string name="config_loc_perm_settings_message">Чтобы показывать погоду для твоей текущей местности, измени в настройках приложения разрешение на доступ к местоположению на «%1$s».</string>
+    <string name="config_contacts_perm_settings_message">Чтобы показывать дни рождения, измени в настройках приложения разрешение на доступ к контактам.</string>
+    <string name="config_perm_settings_button">Изменить разрешение</string>
+    <string name="config_alert_button_continue">Продолжить</string>
+    <string name="config_weather_privacy_note">При включении погоды твоё местоположение и IP-адрес передаются погодному сервису.</string>
+    <string name="config_location_no_results">Места не найдены</string>
+    <string name="config_location_search_example">Пример поиска: «%1$s»</string>
+    <string name="config_location_search_hint">Поиск места</string>
 
     <string name="app_text_now">Сейчас</string>
     <string name="app_text_hourly_forecast">Прогноз по часам</string>

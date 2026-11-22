@@ -95,6 +95,20 @@
     <string name="config_section_style">Stil</string>
     <string name="config_section_color">Culoare</string>
     <string name="config_temp_unit">Unitate de temperatură</string>
+    <string name="config_weather_summary_device">Afișează vremea pentru locația ta</string>
+    <string name="config_weather_summary_fixed">Afișează vremea pentru o locație fixă</string>
+    <string name="config_weather_summary_place">Afișează vremea pentru %1$s</string>
+    <string name="config_location_search_footer">Locația selectată se aplică atât widgetului, cât și aplicației meteo.</string>
+    <string name="config_geocoding_attr_open_meteo">Căutarea locurilor oferită de Open-Meteo</string>
+    <string name="config_perm_settings_title">Permisiune necesară</string>
+    <string name="config_loc_perm_settings_message">Pentru a afișa vremea pentru zona ta actuală, schimbă permisiunea de locație în „%1$s” din setările aplicației.</string>
+    <string name="config_contacts_perm_settings_message">Pentru a afișa zilele de naștere, schimbă permisiunea pentru contacte din setările aplicației.</string>
+    <string name="config_perm_settings_button">Schimbă permisiunea</string>
+    <string name="config_alert_button_continue">Continuă</string>
+    <string name="config_weather_privacy_note">Când activezi vremea, locația și adresa IP sunt partajate cu furnizorul meteo.</string>
+    <string name="config_location_no_results">Nu s-au găsit locuri</string>
+    <string name="config_location_search_example">Exemplu de căutare: „%1$s”</string>
+    <string name="config_location_search_hint">Caută un loc</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>

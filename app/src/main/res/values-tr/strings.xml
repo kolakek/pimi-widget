@@ -30,7 +30,7 @@
     <string name="config_weather_location">Hava durumu konumu</string>
     <string name="config_weather_location_device">Cihaz konumu</string>
     <string name="config_weather_location_device_descr">Konumunu takip eder</string>
-    <string name="config_location_search_example_place">İstanbul, Türkiye</string>
+    <string name="config_location_search_example_place">İstanbul, Türkiye Cumhuriyeti</string>
     <string name="config_text_color">Metin rengi</string>
     <string name="config_icon_style">Simge stili</string>
     <string name="config_color_light">Açık</string>
@@ -95,6 +95,20 @@
     <string name="config_section_style">Stil</string>
     <string name="config_section_color">Renk</string>
     <string name="config_temp_unit">Sıcaklık birimi</string>
+    <string name="config_weather_summary_device">Konumun için hava durumunu göster</string>
+    <string name="config_weather_summary_fixed">Sabit bir konum için hava durumunu göster</string>
+    <string name="config_weather_summary_place">%1$s için hava durumunu göster</string>
+    <string name="config_location_search_footer">Seçilen konum hem widget hem de hava durumu uygulaması için geçerlidir.</string>
+    <string name="config_geocoding_attr_open_meteo">Open-Meteo ile yer arama</string>
+    <string name="config_perm_settings_title">İzin gerekli</string>
+    <string name="config_loc_perm_settings_message">Mevcut bölgenin hava durumunu göstermek için uygulama ayarlarından konum iznini “%1$s” olarak değiştir.</string>
+    <string name="config_contacts_perm_settings_message">Doğum günlerini göstermek için uygulama ayarlarından kişiler iznini değiştir.</string>
+    <string name="config_perm_settings_button">İzni değiştir</string>
+    <string name="config_alert_button_continue">Devam</string>
+    <string name="config_weather_privacy_note">Hava durumunu etkinleştirmek, konumunu ve IP adresini hava durumu sağlayıcısıyla paylaşır.</string>
+    <string name="config_location_no_results">Yer bulunamadı</string>
+    <string name="config_location_search_example">Örnek arama: “%1$s”</string>
+    <string name="config_location_search_hint">Yer ara</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>

@@ -95,6 +95,20 @@
     <string name="config_section_style">Stil</string>
     <string name="config_section_color">Färg</string>
     <string name="config_temp_unit">Temperaturenhet</string>
+    <string name="config_weather_summary_device">Visa vädret för din plats</string>
+    <string name="config_weather_summary_fixed">Visa vädret för en fast plats</string>
+    <string name="config_weather_summary_place">Visa vädret för %1$s</string>
+    <string name="config_location_search_footer">Den valda platsen gäller både widgeten och väderappen.</string>
+    <string name="config_geocoding_attr_open_meteo">Platssökning från Open-Meteo</string>
+    <string name="config_perm_settings_title">Behörighet krävs</string>
+    <string name="config_loc_perm_settings_message">Om du vill visa vädret för ditt nuvarande område ändrar du platsbehörigheten till ”%1$s” i appinställningarna.</string>
+    <string name="config_contacts_perm_settings_message">Om du vill visa födelsedagar ändrar du behörigheten för kontakter i appinställningarna.</string>
+    <string name="config_perm_settings_button">Ändra behörighet</string>
+    <string name="config_alert_button_continue">Fortsätt</string>
+    <string name="config_weather_privacy_note">När du aktiverar väder delas din plats och IP-adress med väderleverantören.</string>
+    <string name="config_location_no_results">Inga platser hittades</string>
+    <string name="config_location_search_example">Sökexempel: ”%1$s”</string>
+    <string name="config_location_search_hint">Sök efter en plats</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

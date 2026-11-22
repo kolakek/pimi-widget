@@ -95,6 +95,20 @@
     <string name="config_section_style">Style</string>
     <string name="config_section_color">Couleur</string>
     <string name="config_temp_unit">Unité de température</string>
+    <string name="config_weather_summary_device">Afficher la météo de ta position</string>
+    <string name="config_weather_summary_fixed">Afficher la météo d’une position fixe</string>
+    <string name="config_weather_summary_place">Afficher la météo pour %1$s</string>
+    <string name="config_location_search_footer">La position sélectionnée s’applique au widget et à l’appli météo.</string>
+    <string name="config_geocoding_attr_open_meteo">Recherche de lieux par Open-Meteo</string>
+    <string name="config_perm_settings_title">Autorisation requise</string>
+    <string name="config_loc_perm_settings_message">Pour afficher la météo de ta zone actuelle, modifie l’autorisation de localisation sur «\u00A0%1$s\u00A0» dans les paramètres de l’appli.</string>
+    <string name="config_contacts_perm_settings_message">Pour afficher les anniversaires, modifie l’autorisation d’accès aux contacts dans les paramètres de l’appli.</string>
+    <string name="config_perm_settings_button">Modifier l’autorisation</string>
+    <string name="config_alert_button_continue">Continuer</string>
+    <string name="config_weather_privacy_note">Activer la météo partage ta position et ton adresse IP avec le fournisseur météo.</string>
+    <string name="config_location_no_results">Aucun lieu trouvé</string>
+    <string name="config_location_search_example">Exemple de recherche\u00A0: «\u00A0%1$s\u00A0»</string>
+    <string name="config_location_search_hint">Rechercher un lieu</string>
 
     <string name="app_text_now">Maintenant</string>
     <string name="app_text_hourly_forecast">Prévisions horaires</string>

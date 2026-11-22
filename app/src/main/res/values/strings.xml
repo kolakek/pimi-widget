@@ -86,8 +86,8 @@
     <string name="config_title_settings">Settings</string>
     <string name="config_wind_speed">Wind speed</string>
     <string name="config_option_follow_widget">Same as widget</string>
-    <string name="config_weather_summary_device">Show weather for device location</string>
-    <string name="config_weather_summary_fixed">Show weather for fixed location</string>
+    <string name="config_weather_summary_device">Show weather for your location</string>
+    <string name="config_weather_summary_fixed">Show weather for a fixed location</string>
     <string name="config_weather_summary_place">Show weather for %1$s</string>
     <string name="config_location_search_footer">The selected location applies to both the widget and the weather app.</string>
     <string name="config_geocoding_attr_open_meteo">Location search by Open-Meteo</string>

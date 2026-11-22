@@ -95,6 +95,20 @@
     <string name="config_section_style">Tyyli</string>
     <string name="config_section_color">Väri</string>
     <string name="config_temp_unit">Lämpötilayksikkö</string>
+    <string name="config_weather_summary_device">Näytä sijaintisi sää</string>
+    <string name="config_weather_summary_fixed">Näytä kiinteän sijainnin sää</string>
+    <string name="config_weather_summary_place">Näytä sää: %1$s</string>
+    <string name="config_location_search_footer">Valittu sijainti koskee sekä widgetiä että sääsovellusta.</string>
+    <string name="config_geocoding_attr_open_meteo">Paikkahaun tarjoaa Open-Meteo</string>
+    <string name="config_perm_settings_title">Lupa vaaditaan</string>
+    <string name="config_loc_perm_settings_message">Jos haluat nähdä nykyisen alueesi sään, muuta sovelluksen asetuksissa sijaintilupa asetukseen ”%1$s”.</string>
+    <string name="config_contacts_perm_settings_message">Jos haluat nähdä syntymäpäivät, muuta yhteystietolupaa sovelluksen asetuksissa.</string>
+    <string name="config_perm_settings_button">Muuta lupaa</string>
+    <string name="config_alert_button_continue">Jatka</string>
+    <string name="config_weather_privacy_note">Kun otat sään käyttöön, sijaintisi ja IP-osoitteesi jaetaan säätietojen tarjoajan kanssa.</string>
+    <string name="config_location_no_results">Paikkoja ei löytynyt</string>
+    <string name="config_location_search_example">Esimerkkihaku: ”%1$s”</string>
+    <string name="config_location_search_hint">Hae paikkaa</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>

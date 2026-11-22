@@ -95,6 +95,20 @@
     <string name="config_section_style">Стиль</string>
     <string name="config_section_color">Колір</string>
     <string name="config_temp_unit">Одиниця температури</string>
+    <string name="config_weather_summary_device">Показувати погоду для твого місцезнаходження</string>
+    <string name="config_weather_summary_fixed">Показувати погоду для фіксованого місцезнаходження</string>
+    <string name="config_weather_summary_place">Показувати погоду: %1$s</string>
+    <string name="config_location_search_footer">Вибране місцезнаходження застосовується і до віджета, і до застосунку погоди.</string>
+    <string name="config_geocoding_attr_open_meteo">Пошук місць від Open-Meteo</string>
+    <string name="config_perm_settings_title">Потрібен дозвіл</string>
+    <string name="config_loc_perm_settings_message">Щоб показувати погоду для твоєї поточної місцевості, зміни в налаштуваннях застосунку дозвіл на доступ до місцезнаходження на «%1$s».</string>
+    <string name="config_contacts_perm_settings_message">Щоб показувати дні народження, зміни в налаштуваннях застосунку дозвіл на доступ до контактів.</string>
+    <string name="config_perm_settings_button">Змінити дозвіл</string>
+    <string name="config_alert_button_continue">Продовжити</string>
+    <string name="config_weather_privacy_note">Під час увімкнення погоди твоє місцезнаходження та IP-адреса передаються погодному сервісу.</string>
+    <string name="config_location_no_results">Місця не знайдено</string>
+    <string name="config_location_search_example">Приклад пошуку: «%1$s»</string>
+    <string name="config_location_search_hint">Пошук місця</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>
