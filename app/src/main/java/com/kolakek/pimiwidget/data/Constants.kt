@@ -95,6 +95,7 @@ internal const val KEY_APP_ICON_STYLE_TWINKLE_SHADOW = "app_icon_style_filled"
 internal const val KEY_APP_ICON_STYLE_WIDGET = "app_icon_style_widget"
 
 internal const val KEY_AUX_DISPLAY_LIST = "aux_view_list"
+internal const val KEY_DISPLAY_AUTO = "aux_view_auto"
 internal const val KEY_DISPLAY_NOTHING = "aux_view_nothing"
 internal const val KEY_DISPLAY_UPDATE_TIME = "aux_view_update_time"
 internal const val KEY_DISPLAY_PLACE_CONDITION = "aux_view_place_condition"

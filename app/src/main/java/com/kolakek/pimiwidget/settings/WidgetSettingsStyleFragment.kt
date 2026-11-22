@@ -21,7 +21,6 @@ import android.os.Bundle
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.data.AuxDisplayPref
 import com.kolakek.pimiwidget.data.KEY_WIDGET_THEME_LIST
 import com.kolakek.pimiwidget.data.KEY_WIDGET_TRANSPARENCY
 import com.kolakek.pimiwidget.data.SettingsRepository
@@ -53,7 +52,6 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
             labelOf = { it.labelRes }
         ) { style ->
             SettingsRepository.setWidgetStylePref(context, style)
-            matchWidgetSettings(style)
             handleVisibility(style, widgetColorCategory, textColorCategory, transparencySlider)
             previewPreference?.refresh()
         }
@@ -91,20 +89,6 @@ class WidgetSettingsStyleFragment : CardPreferenceFragment() {
             widgetColorCategory,
             textColorCategory,
             transparencySlider
-        )
-    }
-
-    private fun matchWidgetSettings(style: WidgetStylePref) {
-        val context = requireContext()
-        SettingsRepository.setAuxDisplayPref(
-            context,
-            when (style) {
-                WidgetStylePref.SOLID ->
-                    AuxDisplayPref.PLACE_CONDITION
-
-                WidgetStylePref.CLASSIC, WidgetStylePref.MODERN ->
-                    AuxDisplayPref.NOTHING
-            }
         )
     }
 

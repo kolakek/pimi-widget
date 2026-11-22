@@ -20,5 +20,6 @@ package com.kolakek.pimiwidget.data
 enum class AuxDisplay {
     NOTHING,
     UPDATE_TIME,
-    PLACE_CONDITION
+    PLACE_CONDITION,
+    PLACE
 }

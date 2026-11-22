@@ -72,6 +72,9 @@ object MigrateApp {
                 SettingsRepository.setAuxDisplayPref(context, auxDisplayNothing)
             }
         }
+        if (previousVersionCode < 26) {
+            SettingsRepository.setAuxDisplayPref(context, AuxDisplayPref.AUTO)
+        }
         DataRepository.storeVersionCode(context)
 
         WorkManagerHelper.enqueueOneTimeWork(

@@ -120,6 +120,17 @@ object SettingsRepository {
             WidgetIconStylePref.FLAT_SKETCH -> IconStyle.FLAT_SKETCH
         }
         val auxDisplay = when (auxDisplayPref) {
+            AuxDisplayPref.AUTO -> when (widgetStylePref) {
+                WidgetStylePref.SOLID -> AuxDisplay.PLACE_CONDITION
+                WidgetStylePref.CLASSIC ->
+                    if (usesFixedLocation(context)) AuxDisplay.PLACE
+                    else AuxDisplay.NOTHING
+
+                WidgetStylePref.MODERN ->
+                    if (usesFixedLocation(context)) AuxDisplay.PLACE_CONDITION
+                    else AuxDisplay.NOTHING
+            }
+
             AuxDisplayPref.NOTHING -> AuxDisplay.NOTHING
             AuxDisplayPref.PLACE_CONDITION -> AuxDisplay.PLACE_CONDITION
             AuxDisplayPref.UPDATE_TIME -> AuxDisplay.UPDATE_TIME

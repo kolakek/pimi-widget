@@ -23,14 +23,16 @@ import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class AuxDisplayPref(val key: String, @StringRes val labelRes: Int) {
-    NOTHING(KEY_DISPLAY_NOTHING, R.string.config_aux_view_nothing),
+    AUTO(KEY_DISPLAY_AUTO, R.string.config_option_auto),
+    PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION, R.string.config_aux_view_place_condition),
     UPDATE_TIME(KEY_DISPLAY_UPDATE_TIME, R.string.config_aux_view_update_time),
-    PLACE_CONDITION(KEY_DISPLAY_PLACE_CONDITION, R.string.config_aux_view_place_condition);
+    NOTHING(KEY_DISPLAY_NOTHING, R.string.config_aux_view_nothing);
+
 
     fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_AUX_DISPLAY_LIST, key) }
 
     companion object {
-        val DEFAULT = PLACE_CONDITION
+        val DEFAULT = AUTO
         fun fromKey(key: String?) = entries.firstOrNull { it.key == key } ?: DEFAULT
         fun fromPrefs(prefs: SharedPreferences) = fromKey(
             prefs.getString(KEY_AUX_DISPLAY_LIST, null)

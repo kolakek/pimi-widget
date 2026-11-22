@@ -472,6 +472,11 @@ object WeatherRenderer {
                 weather.place + context.getString(R.string.separator) +
                         currentConditionString(context, weather)
             }
+
+            AuxDisplay.PLACE -> {
+                if (weather.place.first().isDigit()) return null
+                weather.place
+            }
         }
     }
 
