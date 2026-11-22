@@ -33,5 +33,6 @@ data class AppSettings (
     val pressureUnit: PressureUnit,
     val rainUnit: RainUnit,
     val snowUnit: SnowUnit,
-    val showWeather: Boolean
+    val showWeather: Boolean,
+    val usesDeviceLocation: Boolean
 )

@@ -59,6 +59,7 @@ object SettingsRepository {
             rainUnit = rainUnitFromPref(rainUnitPref),
             snowUnit = snowUnitFromPref(snowUnitPref),
             showWeather = isWeatherEnabled(context),
+            usesDeviceLocation = usesDeviceLocation(context)
         )
     }
 

@@ -107,7 +107,7 @@ class WeatherActivity : AppCompatActivity() {
                         displayNoDataInfo(settings)
                         finishNoDataDisplay()
                     } else {
-                        displayPlace(displayData)
+                        displayPlace(displayData, settings)
                         displayCurrentWeather(displayData)
                         displayHourlyWeather(displayData)
                         displayDailyWeather(displayData)
@@ -161,9 +161,12 @@ class WeatherActivity : AppCompatActivity() {
         binding.noData.visibility = View.GONE
     }
 
-    private fun displayPlace(data: DisplayData) {
+    private fun displayPlace(data: DisplayData, settings: AppSettings) {
         @Suppress("UsePropertyAccessSyntax")
         binding.placeBar.setText(data.place)
+        binding.placeBar.setNavigationIcon(
+            if (settings.usesDeviceLocation) R.drawable.ic_my_location else R.drawable.ic_location
+        )
     }
 
     private fun displayCurrentWeather(data: DisplayData) {
