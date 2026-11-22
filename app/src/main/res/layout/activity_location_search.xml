@@ -149,8 +149,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="gone"
-                tools:ignore="UseCompoundDrawables">
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="168dp"
@@ -165,6 +164,15 @@
                     android:text="@string/config_location_no_results"
                     android:textAppearance="?attr/textAppearanceBodyLarge"
                     android:textColor="?attr/colorOnSurface" />
+
+                <TextView
+                    android:id="@+id/empty_state_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
 
             </LinearLayout>
 

@@ -30,7 +30,7 @@
     <string name="config_weather_location">Vejrplacering</string>
     <string name="config_weather_location_device">Enhedens placering</string>
     <string name="config_weather_location_device_descr">Følger din placering</string>
-    <string name="config_location_search_hint">København, Danmark</string>
+    <string name="config_location_search_example_place">København, Danmark</string>
     <string name="config_text_color">Tekstfarve</string>
     <string name="config_icon_style">Ikonstil</string>
     <string name="config_color_light">Lys</string>

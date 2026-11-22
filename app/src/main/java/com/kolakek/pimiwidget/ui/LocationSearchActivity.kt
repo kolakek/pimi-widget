@@ -126,6 +126,10 @@ class LocationSearchActivity : AppCompatActivity() {
         binding.footerLink.paintFlags = binding.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         binding.footerLink.setOnClickListener { openUrl(GEOCODING_URL) }
 
+        binding.emptyStateTip.text = getString(
+            R.string.config_location_search_example,
+            getString(R.string.config_location_search_example_place)
+        )
         showCurrentSelection()
     }
 

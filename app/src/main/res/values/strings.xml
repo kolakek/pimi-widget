@@ -35,7 +35,7 @@
     <string name="config_weather_location">Weather location</string>
     <string name="config_weather_location_device">Device location</string>
     <string name="config_weather_location_device_descr">Follows your location</string>
-    <string name="config_location_search_hint">New York, United States</string>
+    <string name="config_location_search_example_place">New York, United States</string>
     <string name="config_icon_style">Icon style</string>
     <string name="config_text_color">Text color</string>
     <string name="config_color_light">Light</string>
@@ -98,6 +98,8 @@
     <string name="config_alert_button_continue">Continue</string>
     <string name="config_weather_privacy_note">Enabling weather shares your location and IP address with the weather provider.</string>
     <string name="config_location_no_results">No places found</string>
+    <string name="config_location_search_example">Example search: “%1$s”</string>
+    <string name="config_location_search_hint">Search for a place</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

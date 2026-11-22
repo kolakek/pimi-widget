@@ -30,7 +30,7 @@
     <string name="config_weather_location">Vendndodhja e motit</string>
     <string name="config_weather_location_device">Vendndodhja e pajisjes</string>
     <string name="config_weather_location_device_descr">Ndjek vendndodhjen tënde</string>
-    <string name="config_location_search_hint">Tiranë, Shqipëri</string>
+    <string name="config_location_search_example_place">Tiranë, Shqipëri</string>
     <string name="config_text_color">Ngjyra e tekstit</string>
     <string name="config_icon_style">Stili i ikonave</string>
     <string name="config_color_light">E çelët</string>

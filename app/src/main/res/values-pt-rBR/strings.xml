@@ -30,7 +30,7 @@
     <string name="config_weather_location">Localização do clima</string>
     <string name="config_weather_location_device">Localização do dispositivo</string>
     <string name="config_weather_location_device_descr">Segue sua localização</string>
-    <string name="config_location_search_hint">Rio de Janeiro, Brasil</string>
+    <string name="config_location_search_example_place">Rio de Janeiro, Brasil</string>
     <string name="config_text_color">Cor do texto</string>
     <string name="config_icon_style">Estilo de ícones</string>
     <string name="config_color_light">Claro</string>

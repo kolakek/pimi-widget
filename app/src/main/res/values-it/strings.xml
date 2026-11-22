@@ -30,7 +30,7 @@
     <string name="config_weather_location">Posizione meteo</string>
     <string name="config_weather_location_device">Posizione del dispositivo</string>
     <string name="config_weather_location_device_descr">Segue la tua posizione</string>
-    <string name="config_location_search_hint">Roma, Italia</string>
+    <string name="config_location_search_example_place">Roma, Italia</string>
     <string name="config_text_color">Colore del testo</string>
     <string name="config_icon_style">Stile icone</string>
     <string name="config_color_light">Chiaro</string>
