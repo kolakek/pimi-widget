@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Tempat tidak ditemukan</string>
     <string name="config_location_search_example">Contoh pencarian: “%1$s”</string>
     <string name="config_location_search_hint">Cari tempat</string>
+    <string name="config_location_search_clear">Hapus penelusuran</string>
+    <string name="config_location_selected">Dipilih</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>
@@ -117,6 +119,9 @@
     <string name="widget_today">Hari ini</string>
     <string name="widget_tomorrow">Besok</string>
     <string name="widget_updated_at">Disegarkan</string>
+    <string name="widget_alarm_desc">Alarm berikutnya</string>
+    <string name="widget_birthday_desc">Ulang tahun</string>
+    <string name="widget_sync_desc">Pembaruan cuaca tertunda</string>
 
     <string name="app_text_now">Saat ini</string>
     <string name="app_text_hourly_forecast">Perkiraan cuaca per jam</string>

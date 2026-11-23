@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Ingen steder fundet</string>
     <string name="config_location_search_example">Søgeeksempel: »%1$s«</string>
     <string name="config_location_search_hint">Søg efter et sted</string>
+    <string name="config_location_search_clear">Ryd søgning</string>
+    <string name="config_location_selected">Valgt</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Timevis vejrudsigt</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">i dag</string>
     <string name="widget_tomorrow">i morgen</string>
     <string name="widget_updated_at">opdateret</string>
+    <string name="widget_alarm_desc">Næste alarm</string>
+    <string name="widget_birthday_desc">Fødselsdag</string>
+    <string name="widget_sync_desc">Vejropdatering afventer</string>
 
     <string name="wc_heavy_thunderstorms">kraftige tordenbyger</string>
     <string name="wc_thunderstorm">tordenbyge</string>

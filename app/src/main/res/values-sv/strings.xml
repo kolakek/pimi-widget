@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Inga platser hittades</string>
     <string name="config_location_search_example">Sökexempel: ”%1$s”</string>
     <string name="config_location_search_hint">Sök efter en plats</string>
+    <string name="config_location_search_clear">Rensa sökning</string>
+    <string name="config_location_selected">Vald</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">idag</string>
     <string name="widget_tomorrow">imorgon</string>
     <string name="widget_updated_at">uppdaterad</string>
+    <string name="widget_alarm_desc">Nästa alarm</string>
+    <string name="widget_birthday_desc">Födelsedag</string>
+    <string name="widget_sync_desc">Väderuppdatering väntar</string>
 
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>
     <string name="wc_thunderstorm">åskväder</string>

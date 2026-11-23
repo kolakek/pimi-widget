@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Nuk u gjet asnjë vend</string>
     <string name="config_location_search_example">Shembull kërkimi: “%1$s”</string>
     <string name="config_location_search_hint">Kërko një vend</string>
+    <string name="config_location_search_clear">Pastro kërkimin</string>
+    <string name="config_location_selected">I zgjedhur</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">sot</string>
     <string name="widget_tomorrow">nesër</string>
     <string name="widget_updated_at">rifreskuar</string>
+    <string name="widget_alarm_desc">Alarmi i radhës</string>
+    <string name="widget_birthday_desc">Ditëlindje</string>
+    <string name="widget_sync_desc">Përditësimi i motit në pritje</string>
 
     <string name="wc_heavy_thunderstorms">stuhi të forta</string>
     <string name="wc_thunderstorm">stuhi</string>

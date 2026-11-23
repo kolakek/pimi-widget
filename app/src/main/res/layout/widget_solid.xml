@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/widget_background"
-        style="@style/Widget.Background.Solid"
-        tools:ignore="ContentDescription" />
+        android:importantForAccessibility="no"
+        style="@style/Widget.Background.Solid" />
 
     <LinearLayout style="@style/Widget.Container.Solid">
 
@@ -26,9 +26,9 @@
 
                     <ImageView
                         android:id="@+id/widget_alarm_icon"
+                        android:contentDescription="@string/widget_alarm_desc"
                         android:src="@drawable/ic_alarm"
-                        style="@style/Widget.EventIcon"
-                        tools:ignore="ContentDescription" />
+                        style="@style/Widget.EventIcon" />
 
                     <TextView
                         android:id="@+id/widget_alarm_text"
@@ -43,9 +43,9 @@
 
                     <ImageView
                         android:id="@+id/widget_birthday_icon"
+                        android:contentDescription="@string/widget_birthday_desc"
                         android:src="@drawable/ic_birthday"
-                        style="@style/Widget.EventIcon"
-                        tools:ignore="ContentDescription" />
+                        style="@style/Widget.EventIcon" />
 
                     <TextView
                         android:id="@+id/widget_birthday_text"
@@ -62,15 +62,15 @@
 
                 <ImageView
                     android:id="@+id/widget_warn_svr_icon"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/ic_warn_sevr"
-                    style="@style/Widget.WarnIcon.Solid"
-                    tools:ignore="ContentDescription" />
+                    style="@style/Widget.WarnIcon.Solid" />
 
                 <ImageView
                     android:id="@+id/widget_warn_xtr_icon"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/ic_warn_extr"
-                    style="@style/Widget.WarnIcon.Solid"
-                    tools:ignore="ContentDescription" />
+                    style="@style/Widget.WarnIcon.Solid" />
 
                 <TextView
                     android:id="@+id/widget_aux_text"
@@ -85,8 +85,8 @@
 
             <ImageView
                 android:id="@+id/widget_icon_background"
-                style="@style/Widget.Background.Weather.Solid"
-                tools:ignore="ContentDescription" />
+                android:importantForAccessibility="no"
+                style="@style/Widget.Background.Weather.Solid" />
 
             <LinearLayout
                 android:id="@+id/widget_weather"
@@ -95,15 +95,15 @@
 
                 <ImageView
                     android:id="@+id/widget_sync_icon"
+                    android:contentDescription="@string/widget_sync_desc"
                     android:src="@drawable/ic_sync"
-                    style="@style/Widget.SyncIcon"
-                    tools:ignore="ContentDescription" />
+                    style="@style/Widget.SyncIcon" />
 
                 <ImageView
                     android:id="@+id/widget_weather_icon"
+                    android:contentDescription="@string/wc_clear_sky_day"
                     android:src="@drawable/wb_0d"
-                    style="@style/Widget.WeatherIcon.Solid"
-                    tools:ignore="ContentDescription" />
+                    style="@style/Widget.WeatherIcon.Solid" />
 
                 <TextView
                     android:id="@+id/widget_temp_text"

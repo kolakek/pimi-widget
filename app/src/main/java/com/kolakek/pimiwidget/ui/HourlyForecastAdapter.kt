@@ -52,5 +52,6 @@ class HourlyForecastAdapter :
         holder.binding.hourlyTemp.text = item.temp
         holder.binding.hourlyIcon.text = item.prob
         holder.binding.hourlyIcon.setCompoundDrawablesWithIntrinsicBounds(0, item.iconId, 0, 0)
+        holder.binding.hourlyIcon.contentDescription = "${item.iconDescr} ${item.prob}"
     }
 }

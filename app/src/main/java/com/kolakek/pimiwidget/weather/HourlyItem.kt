@@ -18,8 +18,9 @@
 package com.kolakek.pimiwidget.weather
 
 data class HourlyItem(
-    val time: String,
     val iconId: Int,
+    val iconDescr: String,
+    val time: String,
     val temp: String,
     val prob: String
 )

@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Keine Orte gefunden</string>
     <string name="config_location_search_example">Beispielsuche: „%1$s“</string>
     <string name="config_location_search_hint">Ort suchen</string>
+    <string name="config_location_search_clear">Suche löschen</string>
+    <string name="config_location_selected">Ausgewählt</string>
 
     <string name="app_text_now">Jetzt</string>
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">Heute</string>
     <string name="widget_tomorrow">Morgen</string>
     <string name="widget_updated_at">Aktualisiert</string>
+    <string name="widget_alarm_desc">Nächster Wecker</string>
+    <string name="widget_birthday_desc">Geburtstag</string>
+    <string name="widget_sync_desc">Wetteraktualisierung ausstehend</string>
 
     <string name="wc_heavy_thunderstorms">Schwere Gewitter</string>
     <string name="wc_thunderstorm">Gewitter</string>

@@ -58,8 +58,9 @@ object WeatherUpdater {
                 views.setViewVisibility(R.id.widget_weather_icon, View.VISIBLE)
                 views.setViewVisibility(R.id.widget_temp_text, View.VISIBLE)
 
-                views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
                 views.setTextViewText(R.id.widget_temp_text, it.text)
+                views.setImageViewResource(R.id.widget_weather_icon, it.iconId)
+                views.setContentDescription(R.id.widget_weather_icon, it.iconDescr)
 
                 var auxStr: String? = null
                 var warnLevel: WarningLevel? = null

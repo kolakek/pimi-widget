@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Места не найдены</string>
     <string name="config_location_search_example">Пример поиска: «%1$s»</string>
     <string name="config_location_search_hint">Поиск места</string>
+    <string name="config_location_search_clear">Очистить поиск</string>
+    <string name="config_location_selected">Выбрано</string>
 
     <string name="app_text_now">Сейчас</string>
     <string name="app_text_hourly_forecast">Прогноз по часам</string>
@@ -155,6 +157,9 @@
     <string name="widget_tomorrow">завтра</string>
     <string name="widget_updated_at">обновлено в</string>
     <string name="widget_weather_prev">завтра 9\u00B0 / 1\u00B0 · Легкий дождь</string>
+    <string name="widget_alarm_desc">Следующий будильник</string>
+    <string name="widget_birthday_desc">День рождения</string>
+    <string name="widget_sync_desc">Ожидается обновление погоды</string>
 
     <string name="wc_heavy_thunderstorms">Сильные грозы</string>
     <string name="wc_thunderstorm">Гроза</string>

@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Δεν βρέθηκαν τοποθεσίες</string>
     <string name="config_location_search_example">Παράδειγμα αναζήτησης: «%1$s»</string>
     <string name="config_location_search_hint">Αναζήτηση τοποθεσίας</string>
+    <string name="config_location_search_clear">Διαγραφή αναζήτησης</string>
+    <string name="config_location_selected">Επιλεγμένο</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">σήμερα</string>
     <string name="widget_tomorrow">αύριο</string>
     <string name="widget_updated_at">ανανεώθηκε</string>
+    <string name="widget_alarm_desc">Επόμενο ξυπνητήρι</string>
+    <string name="widget_birthday_desc">Γενέθλια</string>
+    <string name="widget_sync_desc">Εκκρεμεί ενημέρωση καιρού</string>
 
     <string name="wc_heavy_thunderstorms">ισχυρές καταιγίδες</string>
     <string name="wc_thunderstorm">καταιγίδα</string>

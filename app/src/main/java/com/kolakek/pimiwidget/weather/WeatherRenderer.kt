@@ -62,9 +62,10 @@ object WeatherRenderer {
         val isDay = weather.currentIsDay() ?: return null
 
         val temperatureStr = temperatureString(context, tempCelsius, tempUnit, fullUnit)
-        val weatherIconId = WeatherIcon.getWeatherIconId(weatherCode, isDay, iconStyle, iconColor)
+        val iconId = WeatherIcon.getWeatherIconId(weatherCode, isDay, iconStyle, iconColor)
+        val iconDescr = context.getString(WeatherString.shortStringId(weatherCode, isDay))
 
-        return LabeledIcon(temperatureStr, weatherIconId)
+        return LabeledIcon(temperatureStr, iconDescr, iconId)
     }
 
     fun currentConditionString(
@@ -271,13 +272,15 @@ object WeatherRenderer {
                 val timeMillis = weather.hourlyTimeMillis[idx]
 
                 val iconId = WeatherIcon.getWeatherIconId(code, isDay, iconStyle, iconColor)
+                val iconDescr = context.getString(WeatherString.shortStringId(code, isDay))
+
                 val tempStr = temperatureString(context, temp, tempUnit, false)
                 val timeStr = formatTime(context, timeMillis, hourOnly = true)
 
                 val prob = weather.hourlyPrecipProb.getOrNull(idx)?.toInt() ?: 0
                 val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "$prob%" else ""
 
-                HourlyItem(timeStr, iconId, tempStr, probStr)
+                HourlyItem(iconId, iconDescr, timeStr, tempStr, probStr)
             }
     }
 
@@ -296,7 +299,9 @@ object WeatherRenderer {
                 val code = weather.dailyWeatherCode.getOrNull(idx) ?: return@mapNotNull null
                 val timeMillis = weather.dailyTimeMillis[idx]
 
-                val iconId = WeatherIcon.getWeatherIconId(code, true, iconStyle, iconColor)
+                val iconId = WeatherIcon.getWeatherIconId(code, isDay = true, iconStyle, iconColor)
+                val iconDescr = context.getString(WeatherString.shortStringId(code, isDay = true))
+
                 val dateStr = formatDayName(context, timeMillis)
 
                 val minTempStr = temperatureString(context, minTemp, tempUnit, false)
@@ -306,7 +311,7 @@ object WeatherRenderer {
                 val prob = weather.dailyPrecipProbMax.getOrNull(idx)?.toInt() ?: 0
                 val probStr = if (prob >= MIN_PROBABILITY_PRECIP_DISPLAY) "$prob%" else ""
 
-                DailyItem(dateStr, iconId, tempStr, probStr)
+                DailyItem(iconId, iconDescr, dateStr, tempStr, probStr)
             }
     }
 

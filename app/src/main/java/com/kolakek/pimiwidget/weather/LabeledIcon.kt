@@ -19,5 +19,6 @@ package com.kolakek.pimiwidget.weather
 
 data class LabeledIcon (
     val text: String,
+    val iconDescr: String,
     val iconId: Int
 )

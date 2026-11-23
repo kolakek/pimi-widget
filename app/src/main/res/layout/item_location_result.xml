@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
@@ -46,11 +45,11 @@
 
     <ImageView
         android:id="@+id/icon_checked"
+        android:contentDescription="@string/config_location_selected"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_circle_check"
-        android:visibility="gone"
-        tools:ignore="ContentDescription" />
+        android:visibility="gone" />
 
 </LinearLayout>

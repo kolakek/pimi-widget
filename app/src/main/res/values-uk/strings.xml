@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Місця не знайдено</string>
     <string name="config_location_search_example">Приклад пошуку: «%1$s»</string>
     <string name="config_location_search_hint">Пошук місця</string>
+    <string name="config_location_search_clear">Очистити пошук</string>
+    <string name="config_location_selected">Вибрано</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">сьогодні</string>
     <string name="widget_tomorrow">завтра</string>
     <string name="widget_updated_at">оновлено</string>
+    <string name="widget_alarm_desc">Наступний будильник</string>
+    <string name="widget_birthday_desc">День народження</string>
+    <string name="widget_sync_desc">Очікується оновлення погоди</string>
 
     <string name="wc_heavy_thunderstorms">сильні грози</string>
     <string name="wc_thunderstorm">гроза</string>

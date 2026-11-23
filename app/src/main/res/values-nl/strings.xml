@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Geen plaatsen gevonden</string>
     <string name="config_location_search_example">Zoekvoorbeeld: ‘%1$s’</string>
     <string name="config_location_search_hint">Zoek een plaats</string>
+    <string name="config_location_search_clear">Zoekopdracht wissen</string>
+    <string name="config_location_selected">Geselecteerd</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">vandaag</string>
     <string name="widget_tomorrow">morgen</string>
     <string name="widget_updated_at">ververst</string>
+    <string name="widget_alarm_desc">Volgende wekker</string>
+    <string name="widget_birthday_desc">Verjaardag</string>
+    <string name="widget_sync_desc">Weerupdate volgt</string>
 
     <string name="wc_heavy_thunderstorms">zware onweersbuien</string>
     <string name="wc_thunderstorm">onweersbui</string>

@@ -6,30 +6,30 @@
 
     <ImageView
         android:id="@+id/back_layer"
+        android:importantForAccessibility="no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/fill_layer"
+        android:importantForAccessibility="no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/mask_layer"
+        android:importantForAccessibility="no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        tools:ignore="ContentDescription" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/indicator"
+        android:importantForAccessibility="no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        tools:ignore="ContentDescription" />
+        android:scaleType="fitCenter" />
 
 </FrameLayout>

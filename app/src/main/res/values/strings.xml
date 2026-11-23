@@ -147,6 +147,8 @@
     <string name="config_weather_app_neffos" translatable="false">Neffos Weather</string>
     <string name="config_weather_app_fluid" translatable="false">Fluid Meteo</string>
     <string name="config_weather_app_overcast" translatable="false">Overcast</string>
+    <string name="config_location_search_clear">Clear search</string>
+    <string name="config_location_selected">Selected</string>
 
     <string name="widget_label">Date, weather &amp; more</string>
     <string name="widget_date_format">EEE, MMM d</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">Today</string>
     <string name="widget_tomorrow">Tomorrow</string>
     <string name="widget_updated_at">Refreshed</string>
+    <string name="widget_alarm_desc">Next alarm</string>
+    <string name="widget_birthday_desc">Birthday</string>
+    <string name="widget_sync_desc">Weather update pending</string>
 
     <string name="app_text_now">Now</string>
     <string name="app_text_hourly_forecast">Hourly forecast</string>

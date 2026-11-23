@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Yer bulunamadı</string>
     <string name="config_location_search_example">Örnek arama: “%1$s”</string>
     <string name="config_location_search_hint">Yer ara</string>
+    <string name="config_location_search_clear">Aramayı temizle</string>
+    <string name="config_location_selected">Seçili</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>
@@ -154,6 +156,9 @@
     <string name="widget_date_format">d MMM E</string>
     <string name="widget_today">bugün</string>
     <string name="widget_tomorrow">yarın</string>
+    <string name="widget_alarm_desc">Sonraki alarm</string>
+    <string name="widget_birthday_desc">Doğum günü</string>
+    <string name="widget_sync_desc">Hava durumu güncellemesi bekleniyor</string>
 
     <string name="widget_updated_at">yenilendi</string>
     <string name="wc_heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>

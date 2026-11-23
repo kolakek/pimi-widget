@@ -17,11 +17,13 @@
 
 package com.kolakek.pimiwidget.resources
 
+import androidx.annotation.StringRes
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.weather.WeatherCode
 
 object WeatherString {
 
+    @StringRes
     fun shortStringId(weatherCode: WeatherCode, isDay: Boolean): Int {
         return when (weatherCode) {
             WeatherCode.CLEAR_SKY ->

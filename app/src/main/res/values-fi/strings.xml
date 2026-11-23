@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Paikkoja ei löytynyt</string>
     <string name="config_location_search_example">Esimerkkihaku: ”%1$s”</string>
     <string name="config_location_search_hint">Hae paikkaa</string>
+    <string name="config_location_search_clear">Tyhjennä haku</string>
+    <string name="config_location_selected">Valittu</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">tänään</string>
     <string name="widget_tomorrow">huomenna</string>
     <string name="widget_updated_at">päivitetty</string>
+    <string name="widget_alarm_desc">Seuraava herätys</string>
+    <string name="widget_birthday_desc">Syntymäpäivä</string>
+    <string name="widget_sync_desc">Sään päivitys odottaa</string>
 
     <string name="wc_heavy_thunderstorms">voimakkaat ukkosmyrskyt</string>
     <string name="wc_thunderstorm">ukkosmyrsky</string>

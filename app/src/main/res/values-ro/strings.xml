@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Nu s-au găsit locuri</string>
     <string name="config_location_search_example">Exemplu de căutare: „%1$s”</string>
     <string name="config_location_search_hint">Caută un loc</string>
+    <string name="config_location_search_clear">Șterge căutarea</string>
+    <string name="config_location_selected">Selectat</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">astăzi</string>
     <string name="widget_tomorrow">mâine</string>
     <string name="widget_updated_at">actualizat</string>
+    <string name="widget_alarm_desc">Următoarea alarmă</string>
+    <string name="widget_birthday_desc">Zi de naștere</string>
+    <string name="widget_sync_desc">Actualizarea vremii este în așteptare</string>
 
     <string name="wc_heavy_thunderstorms">furtuni puternice</string>
     <string name="wc_thunderstorm">furtună</string>

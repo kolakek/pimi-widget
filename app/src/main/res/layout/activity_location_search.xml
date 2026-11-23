@@ -37,6 +37,7 @@
 
                 <ImageButton
                     android:id="@+id/search_clear"
+                    android:contentDescription="@string/config_location_search_clear"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginEnd="4dp"
@@ -45,8 +46,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_close"
                     android:visibility="gone"
-                    app:tint="?attr/colorOnSurfaceVariant"
-                    tools:ignore="ContentDescription" />
+                    app:tint="?attr/colorOnSurfaceVariant" />
 
             </LinearLayout>
 

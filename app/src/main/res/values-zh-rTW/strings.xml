@@ -109,6 +109,8 @@
     <string name="config_location_no_results">找不到地點</string>
     <string name="config_location_search_example">搜尋範例：「%1$s」</string>
     <string name="config_location_search_hint">搜尋地點</string>
+    <string name="config_location_search_clear">清除搜尋</string>
+    <string name="config_location_selected">已選取</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">今天</string>
     <string name="widget_tomorrow">明天</string>
     <string name="widget_updated_at">更新於</string>
+    <string name="widget_alarm_desc">下一個鬧鐘</string>
+    <string name="widget_birthday_desc">生日</string>
+    <string name="widget_sync_desc">天氣即將更新</string>
 
     <string name="wc_heavy_thunderstorms">大雷雨</string>
     <string name="wc_thunderstorm">雷雨</string>

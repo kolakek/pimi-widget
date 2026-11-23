@@ -109,6 +109,8 @@
     <string name="config_location_no_results">Nenalezena žádná místa</string>
     <string name="config_location_search_example">Příklad hledání: „%1$s“</string>
     <string name="config_location_search_hint">Hledat místo</string>
+    <string name="config_location_search_clear">Vymazat hledání</string>
+    <string name="config_location_selected">Vybráno</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>
@@ -155,6 +157,9 @@
     <string name="widget_today">dnes</string>
     <string name="widget_tomorrow">zítra</string>
     <string name="widget_updated_at">obnoveno</string>
+    <string name="widget_alarm_desc">Další budík</string>
+    <string name="widget_birthday_desc">Narozeniny</string>
+    <string name="widget_sync_desc">Čeká se na aktualizaci počasí</string>
 
     <string name="wc_heavy_thunderstorms">silné bouřky</string>
     <string name="wc_thunderstorm">bouřka</string>

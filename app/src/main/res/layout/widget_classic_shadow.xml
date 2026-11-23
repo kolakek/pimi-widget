@@ -17,9 +17,9 @@
 
             <ImageView
                 android:id="@+id/widget_alarm_icon"
+                android:contentDescription="@string/widget_alarm_desc"
                 android:src="@drawable/ic_alarm_shadow"
-                style="@style/Widget.EventIcon"
-                tools:ignore="ContentDescription" />
+                style="@style/Widget.EventIcon" />
 
             <TextView
                 android:id="@+id/widget_alarm_text"
@@ -34,9 +34,9 @@
 
             <ImageView
                 android:id="@+id/widget_birthday_icon"
+                android:contentDescription="@string/widget_birthday_desc"
                 android:src="@drawable/ic_birthday_shadow"
-                style="@style/Widget.EventIcon"
-                tools:ignore="ContentDescription" />
+                style="@style/Widget.EventIcon" />
 
             <TextView
                 android:id="@+id/widget_birthday_text"
@@ -55,14 +55,14 @@
 
             <ImageView
                 android:id="@+id/widget_sync_icon"
+                android:contentDescription="@string/widget_sync_desc"
                 android:src="@drawable/ic_sync_shadow"
-                style="@style/Widget.SyncIcon"
-                tools:ignore="ContentDescription" />
+                style="@style/Widget.SyncIcon" />
 
             <ImageView
                 android:id="@+id/widget_weather_icon"
-                style="@style/Widget.WeatherIcon"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                style="@style/Widget.WeatherIcon" />
 
             <TextView
                 android:id="@+id/widget_temp_text"
@@ -86,15 +86,15 @@
 
             <ImageView
                 android:id="@+id/widget_warn_svr_icon"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_warn_sevr_shadow"
-                style="@style/Widget.WarnIcon.Classic"
-                tools:ignore="ContentDescription" />
+                style="@style/Widget.WarnIcon.Classic" />
 
             <ImageView
                 android:id="@+id/widget_warn_xtr_icon"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_warn_extr_shadow"
-                style="@style/Widget.WarnIcon.Classic"
-                tools:ignore="ContentDescription" />
+                style="@style/Widget.WarnIcon.Classic" />
 
         </LinearLayout>
 
