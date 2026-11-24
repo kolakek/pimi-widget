@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Tampilkan cuaca untuk %1$s</string>
     <string name="config_location_search_footer">Lokasi yang dipilih berlaku untuk widget dan aplikasi cuaca.</string>
     <string name="config_geocoding_attr_open_meteo">Pencarian tempat oleh Open-Meteo</string>
-    <string name="config_perm_settings_title">Izin diperlukan</string>
+    <string name="config_perm_settings_title">Izin tidak diberikan</string>
     <string name="config_loc_perm_settings_message">Untuk menampilkan cuaca di areamu saat ini, ubah izin lokasi menjadi “%1$s” di setelan aplikasi.</string>
     <string name="config_contacts_perm_settings_message">Untuk menampilkan ulang tahun, ubah izin kontak di setelan aplikasi.</string>
     <string name="config_perm_settings_button">Ubah izin</string>

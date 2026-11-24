@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Εμφάνιση καιρού για: %1$s</string>
     <string name="config_location_search_footer">Η επιλεγμένη τοποθεσία ισχύει τόσο για το widget όσο και για την εφαρμογή καιρού.</string>
     <string name="config_geocoding_attr_open_meteo">Αναζήτηση τοποθεσιών από το Open-Meteo</string>
-    <string name="config_perm_settings_title">Απαιτείται άδεια</string>
+    <string name="config_perm_settings_title">Δεν δόθηκε άδεια</string>
     <string name="config_loc_perm_settings_message">Για να εμφανίζεται ο καιρός για την τρέχουσα περιοχή σου, άλλαξε την άδεια τοποθεσίας σε «%1$s» στις ρυθμίσεις της εφαρμογής.</string>
     <string name="config_contacts_perm_settings_message">Για να εμφανίζονται γενέθλια, άλλαξε την άδεια επαφών στις ρυθμίσεις της εφαρμογής.</string>
     <string name="config_perm_settings_button">Αλλαγή άδειας</string>

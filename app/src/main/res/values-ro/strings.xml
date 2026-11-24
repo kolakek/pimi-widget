@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Afișează vremea pentru %1$s</string>
     <string name="config_location_search_footer">Locația selectată se aplică atât widgetului, cât și aplicației meteo.</string>
     <string name="config_geocoding_attr_open_meteo">Căutarea locurilor oferită de Open-Meteo</string>
-    <string name="config_perm_settings_title">Permisiune necesară</string>
+    <string name="config_perm_settings_title">Permisiune neacordată</string>
     <string name="config_loc_perm_settings_message">Pentru a afișa vremea pentru zona ta actuală, schimbă permisiunea de locație în „%1$s” din setările aplicației.</string>
     <string name="config_contacts_perm_settings_message">Pentru a afișa zilele de naștere, schimbă permisiunea pentru contacte din setările aplicației.</string>
     <string name="config_perm_settings_button">Schimbă permisiunea</string>

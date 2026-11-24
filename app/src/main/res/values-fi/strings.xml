@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Näytä sää: %1$s</string>
     <string name="config_location_search_footer">Valittu sijainti koskee sekä widgetiä että sääsovellusta.</string>
     <string name="config_geocoding_attr_open_meteo">Paikkahaun tarjoaa Open-Meteo</string>
-    <string name="config_perm_settings_title">Lupa vaaditaan</string>
+    <string name="config_perm_settings_title">Lupaa ei myönnetty</string>
     <string name="config_loc_perm_settings_message">Jos haluat nähdä nykyisen alueesi sään, muuta sovelluksen asetuksissa sijaintilupa asetukseen ”%1$s”.</string>
     <string name="config_contacts_perm_settings_message">Jos haluat nähdä syntymäpäivät, muuta yhteystietolupaa sovelluksen asetuksissa.</string>
     <string name="config_perm_settings_button">Muuta lupaa</string>

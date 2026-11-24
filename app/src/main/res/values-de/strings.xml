@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Wetter für %1$s anzeigen</string>
     <string name="config_location_search_footer">Der ausgewählte Standort gilt für das Widget und die Wetter-App.</string>
     <string name="config_geocoding_attr_open_meteo">Ortssuche von Open-Meteo</string>
-    <string name="config_perm_settings_title">Berechtigung erforderlich</string>
+    <string name="config_perm_settings_title">Berechtigung nicht erteilt</string>
     <string name="config_loc_perm_settings_message">Um das Wetter an deinem aktuellen Standort anzuzeigen, ändere die Standortberechtigung in den App-Einstellungen auf „%1$s“.</string>
     <string name="config_contacts_perm_settings_message">Um Geburtstage anzuzeigen, ändere die Kontaktberechtigung in den App-Einstellungen.</string>
     <string name="config_perm_settings_button">Berechtigung ändern</string>

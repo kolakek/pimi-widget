@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Pokazuj pogodę dla: %1$s</string>
     <string name="config_location_search_footer">Wybrana lokalizacja dotyczy zarówno widżetu, jak i aplikacji pogodowej.</string>
     <string name="config_geocoding_attr_open_meteo">Wyszukiwanie miejsc zapewnia Open-Meteo</string>
-    <string name="config_perm_settings_title">Wymagane uprawnienie</string>
+    <string name="config_perm_settings_title">Nie przyznano uprawnienia</string>
     <string name="config_loc_perm_settings_message">Aby pokazywać pogodę dla twojej bieżącej okolicy, zmień w ustawieniach aplikacji uprawnienie do lokalizacji na „%1$s”.</string>
     <string name="config_contacts_perm_settings_message">Aby pokazywać urodziny, zmień w ustawieniach aplikacji uprawnienie do kontaktów.</string>
     <string name="config_perm_settings_button">Zmień uprawnienie</string>

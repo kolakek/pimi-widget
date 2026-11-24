@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Afficher la météo pour %1$s</string>
     <string name="config_location_search_footer">La position sélectionnée s’applique au widget et à l’appli météo.</string>
     <string name="config_geocoding_attr_open_meteo">Recherche de lieux par Open-Meteo</string>
-    <string name="config_perm_settings_title">Autorisation requise</string>
+    <string name="config_perm_settings_title">Autorisation non accordée</string>
     <string name="config_loc_perm_settings_message">Pour afficher la météo de ta zone actuelle, modifie l’autorisation de localisation sur «\u00A0%1$s\u00A0» dans les paramètres de l’appli.</string>
     <string name="config_contacts_perm_settings_message">Pour afficher les anniversaires, modifie l’autorisation d’accès aux contacts dans les paramètres de l’appli.</string>
     <string name="config_perm_settings_button">Modifier l’autorisation</string>

@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Weer voor %1$s weergeven</string>
     <string name="config_location_search_footer">De gekozen locatie geldt voor zowel de widget als de weer-app.</string>
     <string name="config_geocoding_attr_open_meteo">Plaatsen zoeken via Open-Meteo</string>
-    <string name="config_perm_settings_title">Toestemming vereist</string>
+    <string name="config_perm_settings_title">Toestemming niet verleend</string>
     <string name="config_loc_perm_settings_message">Om het weer voor je huidige omgeving weer te geven, wijzig je de locatietoestemming in de app-instellingen naar ‘%1$s’.</string>
     <string name="config_contacts_perm_settings_message">Om verjaardagen weer te geven, wijzig je de toestemming voor contacten in de app-instellingen.</string>
     <string name="config_perm_settings_button">Toestemming wijzigen</string>

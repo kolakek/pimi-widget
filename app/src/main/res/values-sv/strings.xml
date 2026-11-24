@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Visa vädret för %1$s</string>
     <string name="config_location_search_footer">Den valda platsen gäller både widgeten och väderappen.</string>
     <string name="config_geocoding_attr_open_meteo">Platssökning från Open-Meteo</string>
-    <string name="config_perm_settings_title">Behörighet krävs</string>
+    <string name="config_perm_settings_title">Behörighet inte beviljad</string>
     <string name="config_loc_perm_settings_message">Om du vill visa vädret för ditt nuvarande område ändrar du platsbehörigheten till ”%1$s” i appinställningarna.</string>
     <string name="config_contacts_perm_settings_message">Om du vill visa födelsedagar ändrar du behörigheten för kontakter i appinställningarna.</string>
     <string name="config_perm_settings_button">Ändra behörighet</string>

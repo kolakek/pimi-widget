@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Показывать погоду: %1$s</string>
     <string name="config_location_search_footer">Выбранное местоположение используется и для виджета, и для приложения погоды.</string>
     <string name="config_geocoding_attr_open_meteo">Поиск мест от Open-Meteo</string>
-    <string name="config_perm_settings_title">Требуется разрешение</string>
+    <string name="config_perm_settings_title">Разрешение не предоставлено</string>
     <string name="config_loc_perm_settings_message">Чтобы показывать погоду для твоей текущей местности, измени в настройках приложения разрешение на доступ к местоположению на «%1$s».</string>
     <string name="config_contacts_perm_settings_message">Чтобы показывать дни рождения, измени в настройках приложения разрешение на доступ к контактам.</string>
     <string name="config_perm_settings_button">Изменить разрешение</string>

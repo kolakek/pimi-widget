@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">顯示 %1$s 的天氣</string>
     <string name="config_location_search_footer">所選位置同時適用於小工具和天氣應用程式。</string>
     <string name="config_geocoding_attr_open_meteo">地點搜尋由 Open-Meteo 提供</string>
-    <string name="config_perm_settings_title">需要權限</string>
+    <string name="config_perm_settings_title">未授予權限</string>
     <string name="config_loc_perm_settings_message">如要顯示你目前所在地區的天氣，請在應用程式設定中將位置權限更改為「%1$s」。</string>
     <string name="config_contacts_perm_settings_message">如要顯示生日，請在應用程式設定中更改聯絡人權限。</string>
     <string name="config_perm_settings_button">更改權限</string>

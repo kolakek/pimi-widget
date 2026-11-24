@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Zobrazit počasí pro místo %1$s</string>
     <string name="config_location_search_footer">Vybraná poloha platí pro widget i aplikaci počasí.</string>
     <string name="config_geocoding_attr_open_meteo">Vyhledávání míst zajišťuje Open-Meteo</string>
-    <string name="config_perm_settings_title">Vyžadováno oprávnění</string>
+    <string name="config_perm_settings_title">Oprávnění nebylo uděleno</string>
     <string name="config_loc_perm_settings_message">Chceš-li zobrazit počasí pro svou aktuální oblast, změň v nastavení aplikace oprávnění k poloze na „%1$s“.</string>
     <string name="config_contacts_perm_settings_message">Chceš-li zobrazit narozeniny, změň v nastavení aplikace oprávnění ke kontaktům.</string>
     <string name="config_perm_settings_button">Změnit oprávnění</string>

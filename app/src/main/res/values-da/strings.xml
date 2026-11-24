@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Vis vejret for %1$s</string>
     <string name="config_location_search_footer">Den valgte placering gælder både for widgetten og vejrappen.</string>
     <string name="config_geocoding_attr_open_meteo">Stedsøgning fra Open-Meteo</string>
-    <string name="config_perm_settings_title">Tilladelse påkrævet</string>
+    <string name="config_perm_settings_title">Tilladelse ikke givet</string>
     <string name="config_loc_perm_settings_message">For at vise vejret for dit nuværende område skal du opdatere placeringstilladelsen til »%1$s« i appindstillingerne.</string>
     <string name="config_contacts_perm_settings_message">For at vise fødselsdage skal du opdatere kontakttilladelsen i appindstillingerne.</string>
     <string name="config_perm_settings_button">Opdater tilladelse</string>

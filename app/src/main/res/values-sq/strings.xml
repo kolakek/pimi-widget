@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Shfaq motin për: %1$s</string>
     <string name="config_location_search_footer">Vendndodhja e zgjedhur vlen si për widget-in, ashtu edhe për aplikacionin e motit.</string>
     <string name="config_geocoding_attr_open_meteo">Kërkimi i vendeve nga Open-Meteo</string>
-    <string name="config_perm_settings_title">Kërkohet leje</string>
+    <string name="config_perm_settings_title">Leja nuk u dha</string>
     <string name="config_loc_perm_settings_message">Për të shfaqur motin për zonën tënde aktuale, ndrysho lejen e vendndodhjes në “%1$s” te cilësimet e aplikacionit.</string>
     <string name="config_contacts_perm_settings_message">Për të shfaqur ditëlindjet, ndrysho lejen e kontakteve te cilësimet e aplikacionit.</string>
     <string name="config_perm_settings_button">Ndrysho lejen</string>

@@ -100,7 +100,7 @@
     <string name="config_weather_summary_place">Mostrar o clima para %1$s</string>
     <string name="config_location_search_footer">O local selecionado vale tanto para o widget quanto para o app de clima.</string>
     <string name="config_geocoding_attr_open_meteo">Busca de locais por Open-Meteo</string>
-    <string name="config_perm_settings_title">Permissão necessária</string>
+    <string name="config_perm_settings_title">Permissão não concedida</string>
     <string name="config_loc_perm_settings_message">Para mostrar o clima da sua área atual, altere a permissão de localização para “%1$s” nas configurações do app.</string>
     <string name="config_contacts_perm_settings_message">Para mostrar aniversários, altere a permissão de contatos nas configurações do app.</string>
     <string name="config_perm_settings_button">Alterar permissão</string>
