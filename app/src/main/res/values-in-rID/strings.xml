@@ -14,9 +14,9 @@
     <string name="config_widget_style_solid">Padat</string>
     <string name="config_weather_switch">Cuaca</string>
     <string name="config_birthday_switch">Ulang tahun</string>
-    <string name="config_birthday_switch_summary">Tampilkan tanggal lahir dari kontak anda</string>
+    <string name="config_birthday_switch_summary">Tampilkan ulang tahun dari kontakmu</string>
     <string name="config_contact_perm_alert_title">Izin kontak diperlukan</string>
-    <string name="config_contact_perm_alert_message">Untuk menampilkan tanggal lahir, aplikasi ini memerlukan akses ke kontak anda.</string>
+    <string name="config_contact_perm_alert_message">Untuk menampilkan ulang tahun, aplikasi ini memerlukan akses ke kontakmu.</string>
     <string name="config_version_title">Nomor build</string>
     <string name="config_show_alarms">Alarm</string>
     <string name="config_show_alarms_descr">Tampilkan alarm yang akan datang</string>
@@ -48,9 +48,9 @@
     <string name="config_weather_warnings">Tampilkan peringatan cuaca</string>
     <string name="config_weather_warnings_summary">Untuk cuaca ekstrem dalam satu jam</string>
     <string name="config_loc_perm_alert_title">Izin lokasi diperlukan</string>
-    <string name="config_loc_perm_alert_message">Untuk menampilkan cuaca di area anda saat ini, aplikasi ini memerlukan akses ke lokasi anda.</string>
+    <string name="config_loc_perm_alert_message">Untuk menampilkan cuaca di areamu saat ini, aplikasi ini memerlukan akses ke lokasimu.</string>
     <string name="config_bg_perm_alert_title">Izin lokasi latar belakang</string>
-    <string name="config_bg_perm_alert_message">Pembaruan cuaca yang akurat memerlukan akses lokasi anda di latar belakang. Tolong pilih \"%s\" di layar selanjutnya.</string>
+    <string name="config_bg_perm_alert_message">Pembaruan cuaca yang andal memerlukan akses ke lokasimu di latar belakang. Pilih “%1$s” di layar berikutnya.</string>
     <string name="config_alert_button_cancel">Batal</string>
     <string name="config_debug_button_weather">Lihat pencarian cuaca</string>
     <string name="config_debug_button_location">Lihat lokasi</string>
@@ -62,7 +62,7 @@
     <string name="config_aux_view_title">Tampilkan detail</string>
     <string name="config_weather_app">Aplikasi cuaca</string>
     <string name="config_weather_app_nil">Tidak terdaftar</string>
-    <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuaca anda, buka issue di GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuacamu, buka issue di GitHub.</string>
     <string name="config_weather_app_alert_button_github">Buka GitHub</string>
     <string name="config_show_temp_unit">Tampilkan satuan suhu</string>
     <string name="config_show_temp_unit_descr">Tampilkan simbol Fahrenheit atau Celsius</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Tampilkan cuaca untuk lokasi tetap</string>
     <string name="config_weather_summary_place">Tampilkan cuaca untuk %1$s</string>
     <string name="config_location_search_footer">Lokasi yang dipilih berlaku untuk widget dan aplikasi cuaca.</string>
-    <string name="config_geocoding_attr_open_meteo">Pencarian tempat oleh Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Pencarian tempat oleh Open-Meteo.com</string>
     <string name="config_perm_settings_title">Izin tidak diberikan</string>
     <string name="config_loc_perm_settings_message">Untuk menampilkan cuaca di areamu saat ini, ubah izin lokasi menjadi “%1$s” di setelan aplikasi.</string>
-    <string name="config_contacts_perm_settings_message">Untuk menampilkan ulang tahun, ubah izin kontak di setelan aplikasi.</string>
-    <string name="config_perm_settings_button">Ubah izin</string>
+    <string name="config_contacts_perm_settings_message">Untuk menampilkan ulang tahun, berikan izin kontak di setelan aplikasi.</string>
     <string name="config_alert_button_continue">Lanjutkan</string>
     <string name="config_weather_privacy_note">Mengaktifkan cuaca akan membagikan lokasi dan alamat IP-mu kepada penyedia cuaca.</string>
     <string name="config_location_no_results">Tempat tidak ditemukan</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Cari tempat</string>
     <string name="config_location_search_clear">Hapus penelusuran</string>
     <string name="config_location_selected">Dipilih</string>
+    <string name="config_network_location_hint">Untuk lokasi yang cepat dan andal, aktifkan “Lokasi jaringan” atau “Akurasi Lokasi” di setelan lokasi Android.</string>
+    <string name="config_alert_button_skip">Lewati</string>
+    <string name="config_location_services_title">Layanan lokasi yang disarankan</string>
+    <string name="config_open_settings_button">Buka setelan</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>
@@ -141,7 +144,7 @@
     <string name="app_text_no_data">Tidak ada data cuaca yang tersedia</string>
     <string name="app_text_weather_off">Cuaca dimatikan</string>
     <string name="app_text_enable_in_settings">Hidupkan cuaca di setelan widget</string>
-    <string name="app_text_check_connection">Periksa koneksi internet anda dan coba lagi</string>
+    <string name="app_text_check_connection">Periksa koneksi internetmu dan coba lagi</string>
     <string name="app_text_button_try_again">Coba lagi</string>
     <string name="app_text_rain">Hujan</string>
     <string name="app_text_snow">Salju</string>

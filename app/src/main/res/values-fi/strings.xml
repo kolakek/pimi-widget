@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Säätiedot Open-Meteo.comista</string>
     <string name="config_birthday_switch">Syntymäpäivät</string>
     <string name="config_birthday_switch_summary">Näytä yhteystietojesi syntymäpäivät</string>
-    <string name="config_contact_perm_alert_title">Yhteystietojen käyttöoikeus vaaditaan</string>
+    <string name="config_contact_perm_alert_title">Yhteystietolupa vaaditaan</string>
     <string name="config_contact_perm_alert_message">Syntymäpäivien näyttämiseksi tämä sovellus tarvitsee pääsyn yhteystietoihisi.</string>
     <string name="config_version_title">Koontinumero</string>
     <string name="config_show_alarms">Herätykset</string>
@@ -49,9 +49,9 @@
     <string name="config_weather_warnings">Näytä säävaroitukset</string>
     <string name="config_weather_warnings_summary">Äärisäässä tunnin sisällä</string>
     <string name="config_loc_perm_alert_title">Sijaintilupa vaaditaan</string>
-    <string name="config_loc_perm_alert_message">Sään näyttämiseksi alueellasi sovellus tarvitsee pääsyn sijaintiisi.</string>
+    <string name="config_loc_perm_alert_message">Nykyisen alueesi sään näyttämiseksi sovellus tarvitsee pääsyn sijaintiisi.</string>
     <string name="config_bg_perm_alert_title">Taustasijaintilupa</string>
-    <string name="config_bg_perm_alert_message">Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla. Valitse seuraavassa näytössä ”%s”.</string>
+    <string name="config_bg_perm_alert_message">Luotettavat sääpäivitykset vaativat sijainnin käyttöä taustalla. Valitse seuraavassa näytössä ”%1$s”.</string>
     <string name="config_alert_button_cancel">Peruuta</string>
     <string name="config_source_code">Lähdekoodi</string>
     <string name="config_source_code_summary">Näytä lähdekoodi ja dokumentaatio GitHubissa</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Näytä kiinteän sijainnin sää</string>
     <string name="config_weather_summary_place">Näytä sää: %1$s</string>
     <string name="config_location_search_footer">Valittu sijainti koskee sekä widgetiä että sääsovellusta.</string>
-    <string name="config_geocoding_attr_open_meteo">Paikkahaun tarjoaa Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Paikkahaun tarjoaa Open-Meteo.com</string>
     <string name="config_perm_settings_title">Lupaa ei myönnetty</string>
     <string name="config_loc_perm_settings_message">Jos haluat nähdä nykyisen alueesi sään, muuta sovelluksen asetuksissa sijaintilupa asetukseen ”%1$s”.</string>
-    <string name="config_contacts_perm_settings_message">Jos haluat nähdä syntymäpäivät, muuta yhteystietolupaa sovelluksen asetuksissa.</string>
-    <string name="config_perm_settings_button">Muuta lupaa</string>
+    <string name="config_contacts_perm_settings_message">Jos haluat nähdä syntymäpäivät, myönnä yhteystietolupa sovelluksen asetuksissa.</string>
     <string name="config_alert_button_continue">Jatka</string>
     <string name="config_weather_privacy_note">Kun otat sään käyttöön, sijaintisi ja IP-osoitteesi jaetaan säätietojen tarjoajan kanssa.</string>
     <string name="config_location_no_results">Paikkoja ei löytynyt</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Hae paikkaa</string>
     <string name="config_location_search_clear">Tyhjennä haku</string>
     <string name="config_location_selected">Valittu</string>
+    <string name="config_network_location_hint">Nopeaa ja luotettavaa sijaintia varten ota käyttöön ”Verkkosijainti” tai ”Sijaintitietojen tarkkuus” Androidin sijaintiasetuksissa.</string>
+    <string name="config_alert_button_skip">Ohita</string>
+    <string name="config_location_services_title">Suositellut sijaintipalvelut</string>
+    <string name="config_open_settings_button">Avaa asetukset</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>

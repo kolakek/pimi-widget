@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">顯示固定位置的天氣</string>
     <string name="config_weather_summary_place">顯示 %1$s 的天氣</string>
     <string name="config_location_search_footer">所選位置同時適用於小工具和天氣應用程式。</string>
-    <string name="config_geocoding_attr_open_meteo">地點搜尋由 Open-Meteo 提供</string>
+    <string name="config_geocoding_attr_open_meteo">地點搜尋由 Open-Meteo.com 提供</string>
     <string name="config_perm_settings_title">未授予權限</string>
     <string name="config_loc_perm_settings_message">如要顯示你目前所在地區的天氣，請在應用程式設定中將位置權限更改為「%1$s」。</string>
-    <string name="config_contacts_perm_settings_message">如要顯示生日，請在應用程式設定中更改聯絡人權限。</string>
-    <string name="config_perm_settings_button">更改權限</string>
+    <string name="config_contacts_perm_settings_message">如要顯示生日，請在應用程式設定中授予聯絡人權限。</string>
     <string name="config_alert_button_continue">繼續</string>
     <string name="config_weather_privacy_note">啟用天氣後，你的位置和 IP 位址會分享給天氣服務。</string>
     <string name="config_location_no_results">找不到地點</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">搜尋地點</string>
     <string name="config_location_search_clear">清除搜尋</string>
     <string name="config_location_selected">已選取</string>
+    <string name="config_network_location_hint">如要快速、可靠地定位，請在 Android 定位設定中開啟「網路定位」或「定位精確度」。</string>
+    <string name="config_alert_button_skip">略過</string>
+    <string name="config_location_services_title">建議的定位服務</string>
+    <string name="config_open_settings_button">開啟設定</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

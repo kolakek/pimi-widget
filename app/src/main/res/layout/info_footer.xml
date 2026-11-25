@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="24dp"
-    android:paddingVertical="16dp"
+    android:paddingVertical="18dp"
     tools:ignore="UseCompoundDrawables">
 
     <ImageView
@@ -18,8 +18,10 @@
         android:id="@+id/info_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:letterSpacing="0"
+        android:lineHeight="18sp"
         android:textColor="?attr/colorOnSurfaceVariant" />
 
 </LinearLayout>

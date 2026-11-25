@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Datos meteorológicos de Open-Meteo.com</string>
     <string name="config_birthday_switch">Cumpleaños</string>
     <string name="config_birthday_switch_summary">Mostrar cumpleaños de tus contactos</string>
-    <string name="config_contact_perm_alert_title">Se requiere acceso a los contactos</string>
+    <string name="config_contact_perm_alert_title">Permiso de contactos requerido</string>
     <string name="config_contact_perm_alert_message">Para mostrar los cumpleaños, esta aplicación necesita acceso a tus contactos.</string>
     <string name="config_version_title">Número de compilación</string>
     <string name="config_show_alarms">Alarmas</string>
@@ -51,7 +51,7 @@
     <string name="config_loc_perm_alert_title">Permiso de ubicación requerido</string>
     <string name="config_loc_perm_alert_message">Para mostrar el tiempo de tu zona actual, esta aplicación necesita acceder a tu ubicación.</string>
     <string name="config_bg_perm_alert_title">Permiso de ubicación en segundo plano</string>
-    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del tiempo requieren acceso a tu ubicación en segundo plano. Selecciona «%s» en la siguiente pantalla.</string>
+    <string name="config_bg_perm_alert_message">Las actualizaciones fiables del tiempo requieren acceso a tu ubicación en segundo plano. Selecciona «%1$s» en la siguiente pantalla.</string>
     <string name="config_alert_button_cancel">Cancelar</string>
     <string name="config_source_code">Código fuente</string>
     <string name="config_source_code_summary">Ver código fuente y documentación en GitHub</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Mostrar el tiempo de una ubicación fija</string>
     <string name="config_weather_summary_place">Mostrar el tiempo de %1$s</string>
     <string name="config_location_search_footer">La ubicación seleccionada se aplica tanto al widget como a la aplicación del tiempo.</string>
-    <string name="config_geocoding_attr_open_meteo">Búsqueda de lugares de Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Búsqueda de lugares de Open-Meteo.com</string>
     <string name="config_perm_settings_title">Permiso no concedido</string>
     <string name="config_loc_perm_settings_message">Para mostrar el tiempo de tu zona actual, cambia el permiso de ubicación a «%1$s» en los ajustes de la aplicación.</string>
-    <string name="config_contacts_perm_settings_message">Para mostrar cumpleaños, cambia el permiso de contactos en los ajustes de la aplicación.</string>
-    <string name="config_perm_settings_button">Cambiar permiso</string>
+    <string name="config_contacts_perm_settings_message">Para mostrar cumpleaños, concede el permiso de contactos en los ajustes de la aplicación.</string>
     <string name="config_alert_button_continue">Continuar</string>
     <string name="config_weather_privacy_note">Al activar el tiempo, se comparten tu ubicación y tu dirección IP con el proveedor meteorológico.</string>
     <string name="config_location_no_results">No se han encontrado lugares</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Buscar un lugar</string>
     <string name="config_location_search_clear">Borrar búsqueda</string>
     <string name="config_location_selected">Seleccionado</string>
+    <string name="config_network_location_hint">Para una ubicación rápida y fiable, activa «Ubicación de red» o «Precisión de la ubicación» en los ajustes de ubicación de Android.</string>
+    <string name="config_alert_button_skip">Omitir</string>
+    <string name="config_location_services_title">Servicios de ubicación recomendados</string>
+    <string name="config_open_settings_button">Abrir ajustes</string>
 
     <string name="app_text_now">Ahora</string>
     <string name="app_text_hourly_forecast">Previsión por horas</string>

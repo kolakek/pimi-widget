@@ -25,6 +25,7 @@ import com.kolakek.pimiwidget.data.DataRepository
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.location.LocationService
+import com.kolakek.pimiwidget.ui.showLocationServicesHint
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
@@ -49,13 +50,15 @@ class WeatherSwitchHandler(private val fragment: PreferenceFragmentCompat) {
             disableWeather()
             return true
         }
-        if (LocationService.isPermissionMissing(context)) {
-            disableWeather()
-            locationPermission.request { enableWeather() }
-            return false
+        if (!SettingsRepository.usesDeviceLocation(context)) {
+            enableWeather()
+            return true
         }
-        enableWeather()
-        return true
+        if (LocationService.isPermissionMissing(context)) disableWeather()
+        locationPermission.request {
+            fragment.requireActivity().showLocationServicesHint { enableWeather() }
+        }
+        return false
     }
 
     private fun enableWeather() {

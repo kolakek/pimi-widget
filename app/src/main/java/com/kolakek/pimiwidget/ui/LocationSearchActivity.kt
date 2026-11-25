@@ -231,17 +231,21 @@ class LocationSearchActivity : AppCompatActivity() {
     }
 
     private fun selectDeviceLocation() {
-        val context = applicationContext
         locationPermission.request {
-            if (SettingsRepository.usesDeviceLocation(context)) {
-                finish()
-            } else {
-                lifecycleScope.launch {
-                    DataRepository.deleteLocationData(context)
-                    applyLocationSource(context, LocationSourcePref.DEVICE)
-                    finish()
-                }
-            }
+            showLocationServicesHint { applyDeviceLocation() }
+        }
+    }
+
+    private fun applyDeviceLocation() {
+        val context = applicationContext
+        if (SettingsRepository.usesDeviceLocation(context)) {
+            finish()
+            return
+        }
+        lifecycleScope.launch {
+            DataRepository.deleteLocationData(context)
+            applyLocationSource(context, LocationSourcePref.DEVICE)
+            finish()
         }
     }
 

@@ -25,14 +25,16 @@ import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 
-fun Context.openUrl(url: String) {
-    try {
-        startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
-    } catch (_: ActivityNotFoundException) { }
-}
-
 fun Context.wallpaperColor(): Int? = WallpaperManager.getInstance(this)
     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM)?.primaryColor?.toArgb()
 
 fun Context.isPermissionDenied(permission: String) =
     ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED
+
+fun Context.openUrl(url: String) = startActivitySafely(Intent(Intent.ACTION_VIEW, url.toUri()))
+
+fun Context.startActivitySafely(intent: Intent) {
+    try {
+        startActivity(intent)
+    } catch (_: ActivityNotFoundException) { }
+}

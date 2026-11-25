@@ -3,7 +3,7 @@
     <string name="config_button_add">Προσθήκη</string>
     <string name="config_button_update">Ενημέρωση</string>
     <string name="config_section_appearance">Εμφάνιση</string>
-    <string name="config_widget_style">Στυλ γραφικού στοιχείου</string>
+    <string name="config_widget_style">Στιλ widget</string>
     <string name="config_widget_style_classic">Κλασικό</string>
     <string name="config_widget_style_modern">Μοντέρνο</string>
     <string name="config_widget_style_solid">Μονόχρωμο</string>
@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Δεδομένα καιρού από το Open-Meteo.com</string>
     <string name="config_birthday_switch">Γενέθλια</string>
     <string name="config_birthday_switch_summary">Εμφάνιση των γενεθλίων των επαφών σου</string>
-    <string name="config_contact_perm_alert_title">Απαιτείται πρόσβαση στις επαφές</string>
+    <string name="config_contact_perm_alert_title">Απαιτείται άδεια επαφών</string>
     <string name="config_contact_perm_alert_message">Για την εμφάνιση των γενεθλίων, αυτή η εφαρμογή χρειάζεται πρόσβαση στις επαφές σου.</string>
     <string name="config_version_title">Αριθμός έκδοσης</string>
     <string name="config_show_alarms">Ξυπνητήρια</string>
@@ -32,7 +32,7 @@
     <string name="config_weather_location_device_descr">Ακολουθεί την τοποθεσία σου</string>
     <string name="config_location_search_example_place">Αθήνα, Ελλάδα</string>
     <string name="config_text_color">Χρώμα κειμένου</string>
-    <string name="config_icon_style">Στυλ εικονιδίων</string>
+    <string name="config_icon_style">Στιλ εικονιδίων</string>
     <string name="config_color_light">Φωτεινό</string>
     <string name="config_color_dark">Σκοτεινό</string>
     <string name="config_icon_color_morning">Πρωινός ήλιος</string>
@@ -49,9 +49,9 @@
     <string name="config_weather_warnings">Εμφάνιση προειδοποιήσεων καιρού</string>
     <string name="config_weather_warnings_summary">Για ακραίο καιρό την επόμενη ώρα</string>
     <string name="config_loc_perm_alert_title">Απαιτείται άδεια τοποθεσίας</string>
-    <string name="config_loc_perm_alert_message">Για να εμφανιστεί ο καιρός στην περιοχή σου, η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σου.</string>
+    <string name="config_loc_perm_alert_message">Για να εμφανίζεται ο καιρός για την τρέχουσα περιοχή σου, η εφαρμογή χρειάζεται πρόσβαση στην τοποθεσία σου.</string>
     <string name="config_bg_perm_alert_title">Άδεια τοποθεσίας στο παρασκήνιο</string>
-    <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σου στο παρασκήνιο. Επίλεξε «%s» στην επόμενη οθόνη.</string>
+    <string name="config_bg_perm_alert_message">Οι αξιόπιστες ενημερώσεις καιρού απαιτούν πρόσβαση στην τοποθεσία σου στο παρασκήνιο. Επίλεξε «%1$s» στην επόμενη οθόνη.</string>
     <string name="config_alert_button_cancel">Ακύρωση</string>
     <string name="config_source_code">Πηγαίος κώδικας</string>
     <string name="config_source_code_summary">Προβολή πηγαίου κώδικα και τεκμηρίωσης στο GitHub</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Εμφάνιση καιρού για σταθερή τοποθεσία</string>
     <string name="config_weather_summary_place">Εμφάνιση καιρού για: %1$s</string>
     <string name="config_location_search_footer">Η επιλεγμένη τοποθεσία ισχύει τόσο για το widget όσο και για την εφαρμογή καιρού.</string>
-    <string name="config_geocoding_attr_open_meteo">Αναζήτηση τοποθεσιών από το Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Αναζήτηση τοποθεσιών από το Open-Meteo.com</string>
     <string name="config_perm_settings_title">Δεν δόθηκε άδεια</string>
     <string name="config_loc_perm_settings_message">Για να εμφανίζεται ο καιρός για την τρέχουσα περιοχή σου, άλλαξε την άδεια τοποθεσίας σε «%1$s» στις ρυθμίσεις της εφαρμογής.</string>
-    <string name="config_contacts_perm_settings_message">Για να εμφανίζονται γενέθλια, άλλαξε την άδεια επαφών στις ρυθμίσεις της εφαρμογής.</string>
-    <string name="config_perm_settings_button">Αλλαγή άδειας</string>
+    <string name="config_contacts_perm_settings_message">Για να εμφανίζονται γενέθλια, παραχώρησε την άδεια επαφών στις ρυθμίσεις της εφαρμογής.</string>
     <string name="config_alert_button_continue">Συνέχεια</string>
     <string name="config_weather_privacy_note">Με την ενεργοποίηση του καιρού, η τοποθεσία και η διεύθυνση IP σου κοινοποιούνται στον πάροχο καιρού.</string>
     <string name="config_location_no_results">Δεν βρέθηκαν τοποθεσίες</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Αναζήτηση τοποθεσίας</string>
     <string name="config_location_search_clear">Διαγραφή αναζήτησης</string>
     <string name="config_location_selected">Επιλεγμένο</string>
+    <string name="config_network_location_hint">Για γρήγορο και αξιόπιστο εντοπισμό, ενεργοποίησε την «Τοποθεσία δικτύου» ή την «Ακρίβεια τοποθεσίας» στις ρυθμίσεις τοποθεσίας του Android.</string>
+    <string name="config_alert_button_skip">Παράλειψη</string>
+    <string name="config_location_services_title">Προτεινόμενες υπηρεσίες τοποθεσίας</string>
+    <string name="config_open_settings_button">Άνοιγμα ρυθμίσεων</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>

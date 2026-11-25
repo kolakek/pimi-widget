@@ -38,7 +38,7 @@
     <string name="config_icon_color_morning">Sole del mattino</string>
     <string name="config_icon_color_evening">Sole della sera</string>
     <string name="config_option_auto">Automatico</string>
-    <string name="config_option_system_default">Predefinita di sistema</string>
+    <string name="config_option_system_default">Predefinito di sistema</string>
     <string name="config_temp">Temperatura</string>
     <string name="config_section_features">Riepilogo</string>
     <string name="config_section_weather">Impostazioni meteo</string>
@@ -48,10 +48,10 @@
     <string name="config_daily_forecast_summary">Mattina e sera</string>
     <string name="config_weather_warnings">Mostra avvisi meteo</string>
     <string name="config_weather_warnings_summary">Per eventi meteo estremi entro un’ora</string>
-    <string name="config_loc_perm_alert_title">Permesso di posizione richiesto</string>
+    <string name="config_loc_perm_alert_title">Accesso alla posizione richiesto</string>
     <string name="config_loc_perm_alert_message">Per mostrare il meteo nella tua area attuale, questa app necessita dell’accesso alla tua posizione.</string>
-    <string name="config_bg_perm_alert_title">Permesso posizione in background</string>
-    <string name="config_bg_perm_alert_message">Aggiornamenti meteo affidabili richiedono l’accesso alla posizione in background. Seleziona «%s» nella schermata successiva.</string>
+    <string name="config_bg_perm_alert_title">Accesso alla posizione in background</string>
+    <string name="config_bg_perm_alert_message">Aggiornamenti meteo affidabili richiedono l’accesso alla posizione in background. Seleziona «%1$s» nella schermata successiva.</string>
     <string name="config_alert_button_cancel">Annulla</string>
     <string name="config_source_code">Codice sorgente</string>
     <string name="config_source_code_summary">Visualizza codice sorgente e documentazione su GitHub</string>
@@ -60,7 +60,7 @@
     <string name="config_aux_view_update_time">Ora di aggiornamento</string>
     <string name="config_weather_app">App meteo</string>
     <string name="config_weather_app_nil">Non elencata</string>
-    <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri un issue su GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">Per far aggiungere la tua app meteo, apri una segnalazione su GitHub.</string>
     <string name="config_weather_app_alert_button_github">Apri GitHub</string>
     <string name="config_section_settings_units">Unità</string>
     <string name="config_aux_view_place_condition">Luogo &amp; meteo</string>
@@ -81,7 +81,7 @@
     <string name="config_unit_miles_per_hour">Miglia orarie</string>
     <string name="config_unit_knots">Nodi</string>
     <string name="config_option_on">Attivo</string>
-    <string name="config_option_off">Disattivato</string>
+    <string name="config_option_off">Disattivo</string>
     <string name="config_widget_color_dynamic">Dinamico</string>
     <string name="config_widget_color_neutral">Neutro</string>
     <string name="config_widget_theme">Tema scuro</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Mostra il meteo per una posizione fissa</string>
     <string name="config_weather_summary_place">Mostra il meteo per %1$s</string>
     <string name="config_location_search_footer">La posizione selezionata vale sia per il widget sia per l’app meteo.</string>
-    <string name="config_geocoding_attr_open_meteo">Ricerca luoghi di Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Ricerca luoghi di Open-Meteo.com</string>
     <string name="config_perm_settings_title">Autorizzazione non concessa</string>
     <string name="config_loc_perm_settings_message">Per mostrare il meteo della tua zona attuale, modifica l’autorizzazione di posizione in «%1$s» nelle impostazioni dell’app.</string>
-    <string name="config_contacts_perm_settings_message">Per mostrare i compleanni, modifica l’autorizzazione dei contatti nelle impostazioni dell’app.</string>
-    <string name="config_perm_settings_button">Modifica autorizzazione</string>
+    <string name="config_contacts_perm_settings_message">Per mostrare i compleanni, concedi l’autorizzazione ai contatti nelle impostazioni dell’app.</string>
     <string name="config_alert_button_continue">Continua</string>
     <string name="config_weather_privacy_note">Attivando il meteo, la tua posizione e il tuo indirizzo IP vengono condivisi con il fornitore meteo.</string>
     <string name="config_location_no_results">Nessun luogo trovato</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Cerca un luogo</string>
     <string name="config_location_search_clear">Cancella ricerca</string>
     <string name="config_location_selected">Selezionato</string>
+    <string name="config_network_location_hint">Per una posizione rapida e affidabile, attiva «Posizione tramite rete» o «Precisione della localizzazione» nelle impostazioni di localizzazione di Android.</string>
+    <string name="config_alert_button_skip">Salta</string>
+    <string name="config_location_services_title">Servizi di localizzazione consigliati</string>
+    <string name="config_open_settings_button">Apri impostazioni</string>
 
     <string name="app_text_now">Ora</string>
     <string name="app_text_hourly_forecast">Previsioni orarie</string>
@@ -164,7 +167,7 @@
     <string name="wc_heavy_thunderstorms">forti temporali</string>
     <string name="wc_thunderstorm">temporale</string>
     <string name="wc_freezing_rain">pioggia gelata</string>
-    <string name="wc_light_freezing_rain">debole pioggia gelata</string>
+    <string name="wc_light_freezing_rain">pioggia gelata debole</string>
     <string name="wc_freezing_drizzle">pioviggine gelata</string>
     <string name="wc_heavy_rain_showers">forti rovesci</string>
     <string name="wc_rain_showers">rovesci</string>

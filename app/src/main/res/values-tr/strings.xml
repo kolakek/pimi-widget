@@ -51,16 +51,16 @@
     <string name="config_loc_perm_alert_title">Konum izni gerekli</string>
     <string name="config_loc_perm_alert_message">Bulunduğun bölgedeki hava durumunu göstermek için bu uygulamanın konumuna erişmesi gerekiyor.</string>
     <string name="config_bg_perm_alert_title">Arka plan konum izni</string>
-    <string name="config_bg_perm_alert_message">Güvenilir hava durumu güncellemeleri için arka planda konumuna erişim gerekir. Sonraki ekranda \"%s\" seçeneğini seç.</string>
+    <string name="config_bg_perm_alert_message">Güvenilir hava durumu güncellemeleri için arka planda konumuna erişim gerekir. Sonraki ekranda “%1$s” seçeneğini seç.</string>
     <string name="config_alert_button_cancel">İptal</string>
     <string name="config_source_code">Kaynak kod</string>
     <string name="config_source_code_summary">Kaynak kodu ve belgeleri GitHub\'da görüntüle</string>
-    <string name="config_aux_view_title">Detayları göster</string>
-    <string name="config_aux_view_nothing">Detay yok</string>
-    <string name="config_aux_view_update_time">Yenileme saati</string>
+    <string name="config_aux_view_title">Ayrıntıları göster</string>
+    <string name="config_aux_view_nothing">Ayrıntı yok</string>
+    <string name="config_aux_view_update_time">Güncelleme saati</string>
     <string name="config_weather_app">Hava durumu uygulaması</string>
     <string name="config_weather_app_nil">Listede yok</string>
-    <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir issue aç.</string>
+    <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir talep aç.</string>
     <string name="config_weather_app_alert_button_github">GitHub\'ı aç</string>
     <string name="config_section_settings_units">Birimler</string>
     <string name="config_aux_view_place_condition">Konum &amp; hava</string>
@@ -91,7 +91,7 @@
     <string name="config_weather_location_fixed">Sabit konum</string>
     <string name="config_weather_app_summary">Widget\'a dokunmak %1$s uygulamasını açar</string>
     <string name="config_section_general">Genel</string>
-    <string name="config_section_display">Görünüm</string>
+    <string name="config_section_display">Gösterim</string>
     <string name="config_section_style">Stil</string>
     <string name="config_section_color">Renk</string>
     <string name="config_temp_unit">Sıcaklık birimi</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Sabit bir konum için hava durumunu göster</string>
     <string name="config_weather_summary_place">%1$s için hava durumunu göster</string>
     <string name="config_location_search_footer">Seçilen konum hem widget hem de hava durumu uygulaması için geçerlidir.</string>
-    <string name="config_geocoding_attr_open_meteo">Open-Meteo ile yer arama</string>
+    <string name="config_geocoding_attr_open_meteo">Open-Meteo.com ile yer arama</string>
     <string name="config_perm_settings_title">İzin verilmedi</string>
     <string name="config_loc_perm_settings_message">Mevcut bölgenin hava durumunu göstermek için uygulama ayarlarından konum iznini “%1$s” olarak değiştir.</string>
-    <string name="config_contacts_perm_settings_message">Doğum günlerini göstermek için uygulama ayarlarından kişiler iznini değiştir.</string>
-    <string name="config_perm_settings_button">İzni değiştir</string>
+    <string name="config_contacts_perm_settings_message">Doğum günlerini göstermek için uygulama ayarlarından kişilere erişim izni ver.</string>
     <string name="config_alert_button_continue">Devam</string>
     <string name="config_weather_privacy_note">Hava durumunu etkinleştirmek, konumunu ve IP adresini hava durumu sağlayıcısıyla paylaşır.</string>
     <string name="config_location_no_results">Yer bulunamadı</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Yer ara</string>
     <string name="config_location_search_clear">Aramayı temizle</string>
     <string name="config_location_selected">Seçili</string>
+    <string name="config_network_location_hint">Hızlı ve güvenilir konum için Android konum ayarlarında “Ağ konumu” veya “Konum Doğruluğu” seçeneğini aç.</string>
+    <string name="config_alert_button_skip">Atla</string>
+    <string name="config_location_services_title">Önerilen konum hizmetleri</string>
+    <string name="config_open_settings_button">Ayarları aç</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>
@@ -160,7 +163,7 @@
     <string name="widget_birthday_desc">Doğum günü</string>
     <string name="widget_sync_desc">Hava durumu güncellemesi bekleniyor</string>
 
-    <string name="widget_updated_at">yenilendi</string>
+    <string name="widget_updated_at">güncellendi</string>
     <string name="wc_heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>
     <string name="wc_thunderstorm">gök gürültülü fırtına</string>
     <string name="wc_freezing_rain">dondurucu yağmur</string>

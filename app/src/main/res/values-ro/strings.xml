@@ -48,10 +48,10 @@
     <string name="config_daily_forecast_summary">Dimineața și seara</string>
     <string name="config_weather_warnings">Afișează alertele meteo</string>
     <string name="config_weather_warnings_summary">Pentru vreme extremă în următoarea oră</string>
-    <string name="config_loc_perm_alert_title">Permisiune de locație necesară</string>
-    <string name="config_loc_perm_alert_message">Pentru a afișa vremea din zona ta curentă, aplicația are nevoie de acces la locația ta.</string>
-    <string name="config_bg_perm_alert_title">Permisiune de locație în fundal</string>
-    <string name="config_bg_perm_alert_message">Actualizările meteo fiabile necesită acces la locația ta în fundal. Selectează „%s” în ecranul următor.</string>
+    <string name="config_loc_perm_alert_title">Este necesar accesul la locație</string>
+    <string name="config_loc_perm_alert_message">Pentru a afișa vremea din zona ta actuală, această aplicație are nevoie de acces la locația ta.</string>
+    <string name="config_bg_perm_alert_title">Acces la locație în fundal</string>
+    <string name="config_bg_perm_alert_message">Actualizările meteo fiabile necesită acces la locația ta în fundal. Selectează „%1$s” în ecranul următor.</string>
     <string name="config_alert_button_cancel">Anulează</string>
     <string name="config_source_code">Cod sursă</string>
     <string name="config_source_code_summary">Vezi codul sursă și documentația pe GitHub</string>
@@ -60,7 +60,7 @@
     <string name="config_aux_view_update_time">Ora actualizării</string>
     <string name="config_weather_app">Aplicație meteo</string>
     <string name="config_weather_app_nil">Nu este listată</string>
-    <string name="config_weather_app_nil_alert_message">Pentru a adăuga aplicația ta meteo, deschide un issue pe GitHub.</string>
+    <string name="config_weather_app_nil_alert_message">Pentru ca aplicația ta meteo să fie adăugată, deschide o solicitare pe GitHub.</string>
     <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
     <string name="config_section_settings_units">Unități</string>
     <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
@@ -99,11 +99,10 @@
     <string name="config_weather_summary_fixed">Afișează vremea pentru o locație fixă</string>
     <string name="config_weather_summary_place">Afișează vremea pentru %1$s</string>
     <string name="config_location_search_footer">Locația selectată se aplică atât widgetului, cât și aplicației meteo.</string>
-    <string name="config_geocoding_attr_open_meteo">Căutarea locurilor oferită de Open-Meteo</string>
+    <string name="config_geocoding_attr_open_meteo">Căutarea locurilor oferită de Open-Meteo.com</string>
     <string name="config_perm_settings_title">Permisiune neacordată</string>
     <string name="config_loc_perm_settings_message">Pentru a afișa vremea pentru zona ta actuală, schimbă permisiunea de locație în „%1$s” din setările aplicației.</string>
-    <string name="config_contacts_perm_settings_message">Pentru a afișa zilele de naștere, schimbă permisiunea pentru contacte din setările aplicației.</string>
-    <string name="config_perm_settings_button">Schimbă permisiunea</string>
+    <string name="config_contacts_perm_settings_message">Pentru a afișa aniversările, acordă permisiunea pentru contacte din setările aplicației.</string>
     <string name="config_alert_button_continue">Continuă</string>
     <string name="config_weather_privacy_note">Când activezi vremea, locația și adresa IP sunt partajate cu furnizorul meteo.</string>
     <string name="config_location_no_results">Nu s-au găsit locuri</string>
@@ -111,6 +110,10 @@
     <string name="config_location_search_hint">Caută un loc</string>
     <string name="config_location_search_clear">Șterge căutarea</string>
     <string name="config_location_selected">Selectat</string>
+    <string name="config_network_location_hint">Pentru o locație rapidă și fiabilă, activează „Locație prin rețea” sau „Precizia locației” în setările de locație Android.</string>
+    <string name="config_alert_button_skip">Omite</string>
+    <string name="config_location_services_title">Servicii de localizare recomandate</string>
+    <string name="config_open_settings_button">Deschide setările</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>
@@ -158,7 +161,7 @@
     <string name="widget_tomorrow">mâine</string>
     <string name="widget_updated_at">actualizat</string>
     <string name="widget_alarm_desc">Următoarea alarmă</string>
-    <string name="widget_birthday_desc">Zi de naștere</string>
+    <string name="widget_birthday_desc">Aniversare</string>
     <string name="widget_sync_desc">Actualizarea vremii este în așteptare</string>
 
     <string name="wc_heavy_thunderstorms">furtuni puternice</string>
