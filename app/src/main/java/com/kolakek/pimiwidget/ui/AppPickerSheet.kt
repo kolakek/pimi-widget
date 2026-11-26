@@ -18,42 +18,42 @@
 package com.kolakek.pimiwidget.ui
 
 import android.app.Activity
-import android.view.LayoutInflater
+import android.graphics.Paint
 import android.view.View
 import androidx.annotation.StringRes
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kolakek.pimiwidget.databinding.ItemAppChoiceBinding
-import com.kolakek.pimiwidget.databinding.SheetAppChoiceBinding
-import com.kolakek.pimiwidget.widget.WidgetIntent
+import com.kolakek.pimiwidget.databinding.SheetAppPickerBinding
+import com.kolakek.pimiwidget.settings.openUrl
 
 fun Activity.showAppPickerSheet(
-    category: String,
     @StringRes title: Int,
+    options: List<AppOption>,
     selected: String?,
+    @StringRes footerLink: Int? = null,
+    footerUrl: String? = null,
     onPicked: (String) -> Unit
 ) {
     val dialog = BottomSheetDialog(this)
-    val inflater = LayoutInflater.from(this)
-    val sheet = SheetAppChoiceBinding.inflate(inflater)
+    val sheet = SheetAppPickerBinding.inflate(layoutInflater)
     sheet.title.setText(title)
-
-    val apps = WidgetIntent.categoryApps(this, category)
-    apps.forEachIndexed { index, app ->
-        val row = ItemAppChoiceBinding.inflate(inflater, sheet.appList, true)
-        row.root.setBackgroundResource(cardBackground(index, apps.size))
-        row.appIcon.setImageDrawable(app.loadIcon(packageManager))
-        row.appLabel.text = app.loadLabel(packageManager)
-        row.iconChecked.visibility = if (app.packageName == selected) {
-            View.VISIBLE
-        } else {
-            View.INVISIBLE
-        }
+    if (footerLink != null && footerUrl != null) {
+        sheet.footerLink.setText(footerLink)
+        sheet.footerLink.paintFlags = sheet.footerLink.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        sheet.footerLink.setOnClickListener { openUrl(footerUrl) }
+        sheet.footerLink.visibility = View.VISIBLE
+    }
+    options.forEachIndexed { index, choice ->
+        val row = ItemAppChoiceBinding.inflate(layoutInflater, sheet.appList, true)
+        row.root.setBackgroundResource(cardBackground(index, options.size))
+        row.appIcon.setImageDrawable(choice.icon)
+        row.appLabel.text = choice.label
+        row.iconChecked.visibility = if (choice.key == selected) View.VISIBLE else View.INVISIBLE
         row.root.setOnClickListener {
-            onPicked(app.packageName)
             dialog.dismiss()
+            onPicked(choice.key)
         }
     }
-
     dialog.setContentView(sheet.root)
     dialog.show()
 }

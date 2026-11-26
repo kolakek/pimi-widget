@@ -21,10 +21,23 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/app_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/app_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/footer_link"
+                style="@style/Config.FooterLink"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

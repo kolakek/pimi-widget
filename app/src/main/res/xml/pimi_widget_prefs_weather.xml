@@ -24,7 +24,7 @@
             android:title="@string/config_weather_location"
             app:iconSpaceReserved="false" />
 
-        <ListPreference
+        <Preference
             android:key="weather_app_list"
             android:title="@string/config_weather_app"
             app:iconSpaceReserved="false" />

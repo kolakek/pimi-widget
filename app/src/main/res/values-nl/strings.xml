@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Geen details</string>
     <string name="config_aux_view_update_time">Verversingstijd</string>
     <string name="config_weather_app">Weer-app</string>
-    <string name="config_weather_app_nil">Niet vermeld</string>
-    <string name="config_weather_app_nil_alert_message">Open een issue op GitHub om je weer-app te laten toevoegen.</string>
-    <string name="config_weather_app_alert_button_github">GitHub openen</string>
     <string name="config_section_settings_units">Eenheden</string>
     <string name="config_aux_view_place_condition">Plaats &amp; weer</string>
     <string name="config_show_temp_unit">Temperatuureenheid weergeven</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Agenda-app</string>
     <string name="config_calendar_app_summary">Tikken op de datum opent %1$s</string>
     <string name="config_calendar_app_none">Geen agenda-app gevonden</string>
+    <string name="config_weather_app_request">Vraag een ontbrekende weer-app aan op GitHub</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>

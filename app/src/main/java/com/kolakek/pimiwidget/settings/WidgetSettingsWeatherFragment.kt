@@ -20,7 +20,6 @@ package com.kolakek.pimiwidget.settings
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -28,8 +27,6 @@ import androidx.preference.TwoStatePreference
 import androidx.work.ExistingPeriodicWorkPolicy
 import com.kolakek.pimiwidget.R
 import com.kolakek.pimiwidget.data.DataRepository
-import com.kolakek.pimiwidget.data.KEY_DEFAULT_WEATHER_APP
-import com.kolakek.pimiwidget.data.KEY_NIL_WEATHER_APP
 import com.kolakek.pimiwidget.data.KEY_TEMP_UNIT_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_APP_LIST
 import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
@@ -37,7 +34,9 @@ import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.data.WeatherApp
+import com.kolakek.pimiwidget.ui.AppOption
 import com.kolakek.pimiwidget.ui.LocationSearchActivity
+import com.kolakek.pimiwidget.ui.showAppPickerSheet
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import kotlinx.coroutines.launch
 
@@ -55,6 +54,7 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
         val weatherSwitch = findPreference<TwoStatePreference>(KEY_WEATHER_SWITCH)
         val tempUnitList = findPreference<ListPreference>(KEY_TEMP_UNIT_LIST)
+        val weatherAppList = findPreference<Preference>(KEY_WEATHER_APP_LIST)
 
         weatherSwitch?.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
@@ -71,12 +71,16 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
             keyOf = { it.key },
             labelOf = { it.labelRes }
         )
+        weatherAppList?.setOnPreferenceClickListener {
+            showWeatherAppPicker()
+            true
+        }
         locationField?.setOnPreferenceClickListener {
             startActivity(Intent(requireContext(), LocationSearchActivity::class.java))
             true
         }
-        setWeatherLocationSummary()
-        handleWeatherAppPreference()
+        updateWeatherLocationSummary()
+        updateWeatherAppSummary()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,11 +90,12 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
 
     override fun onResume() {
         super.onResume()
-        setWeatherLocationSummary()
+        updateWeatherLocationSummary()
+        updateWeatherAppSummary()
         weatherHandler.refreshSwitch()
     }
 
-    private fun setWeatherLocationSummary() {
+    private fun updateWeatherLocationSummary() {
         val context = requireContext()
         lifecycleScope.launch {
             locationField?.summary =
@@ -103,55 +108,32 @@ class WidgetSettingsWeatherFragment : CardPreferenceFragment() {
         }
     }
 
-    private fun handleWeatherAppPreference() {
-        val installedApps = WeatherApp.entries.filter { app ->
-            app == WeatherApp.PIMI || AppLookup.isAppInstalled(requireContext(), app.packageName)
-        }
-        val listPreference = findPreference<ListPreference>(KEY_WEATHER_APP_LIST)
-        val entries = listPreference?.entries?.toMutableList() ?: mutableListOf()
-        val entryValues = listPreference?.entryValues?.toMutableList() ?: mutableListOf()
-
-        installedApps.forEach {
-            entries.add(getString(it.labelRes))
-            entryValues.add(it.key)
-        }
-        entries.add(getString(R.string.config_weather_app_nil))
-        entryValues.add(KEY_NIL_WEATHER_APP)
-
-        listPreference?.entries = entries.toTypedArray()
-        listPreference?.entryValues = entryValues.toTypedArray()
-
-        val currentApp = listPreference?.value
-        val isCurrentAppInstalled = installedApps.any {
-            it.key == currentApp
-        }
-        if (!isCurrentAppInstalled) {
-            listPreference?.value = KEY_DEFAULT_WEATHER_APP
-        }
-        listPreference?.setOnPreferenceChangeListener { _, newValue ->
-            if (newValue == KEY_NIL_WEATHER_APP) {
-                showUnlistedAppDialog()
-                return@setOnPreferenceChangeListener false
+    private fun showWeatherAppPicker() {
+        val context = requireContext()
+        val packageManager = context.packageManager
+        val choices = WeatherApp.entries
+            .filter { it == WeatherApp.PIMI || AppLookup.isAppInstalled(context, it.packageName) }
+            .map {
+                val icon = if (it == WeatherApp.PIMI) context.applicationInfo.loadIcon(packageManager) else packageManager.getApplicationIcon(it.packageName)
+                AppOption(it.key, getString(it.labelRes), icon)
             }
-            true
-        }
-        listPreference?.summaryProvider = Preference.SummaryProvider<Preference> {
-            getString(
-                R.string.config_weather_app_summary,
-                getString(SettingsRepository.getWeatherApp(requireContext()).labelRes)
-            )
+
+        requireActivity().showAppPickerSheet(
+            R.string.config_weather_app,
+            choices,
+            SettingsRepository.getWeatherApp(context).key,
+            R.string.config_weather_app_request,
+            ISSUE_TRACKER_URL
+        ) { key ->
+            SettingsRepository.setWeatherApp(context, WeatherApp.entries.first { it.key == key })
+            updateWeatherAppSummary()
         }
     }
 
-    private fun showUnlistedAppDialog() {
-        val context = requireContext()
-        AlertDialog.Builder(context)
-            .setMessage(R.string.config_weather_app_nil_alert_message)
-            .setPositiveButton(R.string.config_weather_app_alert_button_github) { dialog, _ ->
-                context.openUrl(ISSUE_TRACKER_URL)
-                dialog.dismiss()
-            }
-            .setNegativeButton(R.string.config_alert_button_cancel, null)
-            .show()
+    private fun updateWeatherAppSummary() {
+        findPreference<Preference>(KEY_WEATHER_APP_LIST)?.summary = getString(
+            R.string.config_weather_app_summary,
+            getString(SettingsRepository.getWeatherApp(requireContext()).labelRes)
+        )
     }
 }

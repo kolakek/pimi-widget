@@ -61,9 +61,6 @@
     <string name="config_aux_view_update_time">Waktu penyegaran</string>
     <string name="config_aux_view_title">Tampilkan detail</string>
     <string name="config_weather_app">Aplikasi cuaca</string>
-    <string name="config_weather_app_nil">Tidak terdaftar</string>
-    <string name="config_weather_app_nil_alert_message">Untuk menambahkan aplikasi cuacamu, buka issue di GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Buka GitHub</string>
     <string name="config_show_temp_unit">Tampilkan satuan suhu</string>
     <string name="config_show_temp_unit_descr">Tampilkan simbol Fahrenheit atau Celsius</string>
     <string name="config_title_settings">Setelan</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Aplikasi kalender</string>
     <string name="config_calendar_app_summary">Mengetuk tanggal akan membuka %1$s</string>
     <string name="config_calendar_app_none">Aplikasi kalender tidak ditemukan</string>
+    <string name="config_weather_app_request">Minta aplikasi cuaca yang belum ada di GitHub</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>

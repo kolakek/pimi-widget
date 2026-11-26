@@ -122,19 +122,12 @@
 
                         <include
                             android:id="@+id/footer_info"
-                            layout="@layout/info_footer" />
+                            layout="@layout/footer_info" />
 
                         <TextView
                             android:id="@+id/footer_link"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="24dp"
-                            android:minHeight="48dp"
-                            android:gravity="center_vertical"
-                            android:background="?attr/selectableItemBackground"
-                            android:text="@string/config_geocoding_attr_open_meteo"
-                            android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="?attr/colorPrimary" />
+                            style="@style/Config.FooterLink"
+                            android:text="@string/config_geocoding_attr_open_meteo" />
 
                     </LinearLayout>
 

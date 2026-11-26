@@ -59,9 +59,6 @@
     <string name="config_aux_view_update_time">Час оновлення</string>
     <string name="config_aux_view_title">Показувати деталі</string>
     <string name="config_weather_app">Застосунок погоди</string>
-    <string name="config_weather_app_nil">Відсутній у списку</string>
-    <string name="config_weather_app_nil_alert_message">Щоб твій застосунок погоди додали, створи запит на GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Відкрити GitHub</string>
     <string name="config_section_settings_units">Одиниці</string>
     <string name="config_aux_view_place_condition">Місце &amp; погода</string>
     <string name="config_show_temp_unit">Показувати одиницю температури</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Застосунок календаря</string>
     <string name="config_calendar_app_summary">Натискання на дату відкриває %1$s</string>
     <string name="config_calendar_app_none">Застосунок календаря не знайдено</string>
+    <string name="config_weather_app_request">Попроси додати відсутній застосунок погоди на GitHub</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>

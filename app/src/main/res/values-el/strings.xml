@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Χωρίς λεπτομέρειες</string>
     <string name="config_aux_view_update_time">Ώρα ανανέωσης</string>
     <string name="config_weather_app">Εφαρμογή καιρού</string>
-    <string name="config_weather_app_nil">Δεν περιλαμβάνεται</string>
-    <string name="config_weather_app_nil_alert_message">Για να προστεθεί η εφαρμογή καιρού σου, άνοιξε ένα issue στο GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Άνοιγμα GitHub</string>
     <string name="config_section_settings_units">Μονάδες</string>
     <string name="config_aux_view_place_condition">Τοποθεσία &amp; καιρός</string>
     <string name="config_show_temp_unit">Εμφάνιση μονάδας θερμοκρασίας</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Εφαρμογή ημερολογίου</string>
     <string name="config_calendar_app_summary">Πατώντας την ημερομηνία ανοίγει η εφαρμογή %1$s</string>
     <string name="config_calendar_app_none">Δεν βρέθηκε εφαρμογή ημερολογίου</string>
+    <string name="config_weather_app_request">Ζήτησε μια εφαρμογή καιρού που λείπει στο GitHub</string>
 
     <string name="app_text_now">Τώρα</string>
     <string name="app_text_hourly_forecast">Ωριαία πρόγνωση</string>

@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Pa detaje</string>
     <string name="config_aux_view_update_time">Koha e përditësimit</string>
     <string name="config_weather_app">Aplikacioni i motit</string>
-    <string name="config_weather_app_nil">Nuk është në listë</string>
-    <string name="config_weather_app_nil_alert_message">Që aplikacioni yt i motit të shtohet, hap një kërkesë në GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Hap GitHub</string>
     <string name="config_section_settings_units">Njësi</string>
     <string name="config_aux_view_place_condition">Vendi &amp; moti</string>
     <string name="config_show_temp_unit">Shfaq njësinë e temperaturës</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Aplikacioni i kalendarit</string>
     <string name="config_calendar_app_summary">Trokitja mbi datën hap %1$s</string>
     <string name="config_calendar_app_none">Nuk u gjet asnjë aplikacion kalendari</string>
+    <string name="config_weather_app_request">Kërko një aplikacion moti që mungon në GitHub</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>

@@ -59,9 +59,6 @@
     <string name="config_aux_view_update_time">更新時間</string>
     <string name="config_aux_view_title">顯示詳細資訊</string>
     <string name="config_weather_app">天氣應用程式</string>
-    <string name="config_weather_app_nil">其他</string>
-    <string name="config_weather_app_nil_alert_message">如要新增您的天氣應用程式，請至 GitHub 回報。</string>
-    <string name="config_weather_app_alert_button_github">前往 GitHub</string>
     <string name="config_section_settings_units">單位</string>
     <string name="config_aux_view_place_condition">天氣和地點</string>
     <string name="config_show_temp_unit">顯示溫度單位</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">日曆應用程式</string>
     <string name="config_calendar_app_summary">輕觸日期會開啟 %1$s</string>
     <string name="config_calendar_app_none">找不到日曆應用程式</string>
+    <string name="config_weather_app_request">在 GitHub 要求新增缺少的天氣應用程式</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

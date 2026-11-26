@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Sans détails</string>
     <string name="config_aux_view_update_time">Temps d’actualisation</string>
     <string name="config_weather_app">Application météo</string>
-    <string name="config_weather_app_nil">Non répertoriée</string>
-    <string name="config_weather_app_nil_alert_message">Pour faire ajouter ton application météo, ouvre un ticket sur GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Ouvrir GitHub</string>
     <string name="config_section_settings_units">Unités</string>
     <string name="config_aux_view_place_condition">Lieu &amp; météo</string>
     <string name="config_show_temp_unit">Afficher l’unité de température</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Application d’agenda</string>
     <string name="config_calendar_app_summary">Un appui sur la date ouvre %1$s</string>
     <string name="config_calendar_app_none">Aucune application d’agenda trouvée</string>
+    <string name="config_weather_app_request">Demande une application météo manquante sur GitHub</string>
 
     <string name="app_text_now">Maintenant</string>
     <string name="app_text_hourly_forecast">Prévisions horaires</string>

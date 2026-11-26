@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Inga detaljer</string>
     <string name="config_aux_view_update_time">Uppdateringstid</string>
     <string name="config_weather_app">Väderapp</string>
-    <string name="config_weather_app_nil">Inte listad</string>
-    <string name="config_weather_app_nil_alert_message">Öppna ett ärende på GitHub för att få din väderapp tillagd.</string>
-    <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
     <string name="config_section_settings_units">Enheter</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
     <string name="config_show_temp_unit">Visa temperaturenhet</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Kalenderapp</string>
     <string name="config_calendar_app_summary">Ett tryck på datumet öppnar %1$s</string>
     <string name="config_calendar_app_none">Ingen kalenderapp hittades</string>
+    <string name="config_weather_app_request">Begär en saknad väderapp på GitHub</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

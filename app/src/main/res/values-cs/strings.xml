@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Bez podrobností</string>
     <string name="config_aux_view_update_time">Čas aktualizace</string>
     <string name="config_weather_app">Aplikace počasí</string>
-    <string name="config_weather_app_nil">Není v seznamu</string>
-    <string name="config_weather_app_nil_alert_message">Pokud chceš přidat svou aplikaci počasí, otevři issue na GitHubu.</string>
-    <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
     <string name="config_section_settings_units">Jednotky</string>
     <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
     <string name="config_show_temp_unit">Zobrazit jednotku teploty</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Aplikace kalendáře</string>
     <string name="config_calendar_app_summary">Klepnutím na datum se otevře %1$s</string>
     <string name="config_calendar_app_none">Nenalezena žádná aplikace kalendáře</string>
+    <string name="config_weather_app_request">Požádej o chybějící aplikaci počasí na GitHubu</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>

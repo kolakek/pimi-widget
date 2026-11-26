@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Ayrıntı yok</string>
     <string name="config_aux_view_update_time">Güncelleme saati</string>
     <string name="config_weather_app">Hava durumu uygulaması</string>
-    <string name="config_weather_app_nil">Listede yok</string>
-    <string name="config_weather_app_nil_alert_message">Hava durumu uygulamanın eklenmesi için GitHub\'da bir talep aç.</string>
-    <string name="config_weather_app_alert_button_github">GitHub\'ı aç</string>
     <string name="config_section_settings_units">Birimler</string>
     <string name="config_aux_view_place_condition">Konum &amp; hava</string>
     <string name="config_show_temp_unit">Sıcaklık birimini göster</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Takvim uygulaması</string>
     <string name="config_calendar_app_summary">Tarihe dokunmak %1$s uygulamasını açar</string>
     <string name="config_calendar_app_none">Takvim uygulaması bulunamadı</string>
+    <string name="config_weather_app_request">Eksik bir hava durumu uygulamasını GitHub\'da iste</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>

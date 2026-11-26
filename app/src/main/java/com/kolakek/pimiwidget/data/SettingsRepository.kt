@@ -28,6 +28,7 @@ import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.ui.AppSettings
+import com.kolakek.pimiwidget.utility.AppLookup
 import com.kolakek.pimiwidget.widget.WidgetIntent
 import com.kolakek.pimiwidget.widget.WidgetSettings
 
@@ -263,7 +264,12 @@ object SettingsRepository {
         prefs(context).edit { putString(KEY_CALENDAR_APP, packageName) }
 
     fun getWeatherApp(context: Context): WeatherApp =
-        WeatherApp.fromPrefs(prefs(context))
+        WeatherApp.fromPrefs(prefs(context)).takeIf {
+            it == WeatherApp.PIMI || AppLookup.isAppInstalled(context, it.packageName)
+        } ?: WeatherApp.PIMI
+
+    fun setWeatherApp(context: Context, pref: WeatherApp) =
+        pref.save(prefs(context))
 
     fun getWidgetColorPref(context: Context): WidgetColorPref =
         WidgetColorPref.fromPrefs(prefs(context))

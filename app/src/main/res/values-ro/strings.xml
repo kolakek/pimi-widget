@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Fără detalii</string>
     <string name="config_aux_view_update_time">Ora actualizării</string>
     <string name="config_weather_app">Aplicație meteo</string>
-    <string name="config_weather_app_nil">Nu este listată</string>
-    <string name="config_weather_app_nil_alert_message">Pentru ca aplicația ta meteo să fie adăugată, deschide o solicitare pe GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Deschide GitHub</string>
     <string name="config_section_settings_units">Unități</string>
     <string name="config_aux_view_place_condition">Loc &amp; vreme</string>
     <string name="config_show_temp_unit">Afișează unitatea de temperatură</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Aplicație calendar</string>
     <string name="config_calendar_app_summary">Atingerea datei deschide %1$s</string>
     <string name="config_calendar_app_none">Nu s-a găsit nicio aplicație calendar</string>
+    <string name="config_weather_app_request">Solicită o aplicație meteo lipsă pe GitHub</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>

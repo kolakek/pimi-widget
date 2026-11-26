@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Keine Details</string>
     <string name="config_aux_view_update_time">Aktualisierungszeit</string>
     <string name="config_weather_app">Wetter-App</string>
-    <string name="config_weather_app_nil">Nicht aufgeführt</string>
-    <string name="config_weather_app_nil_alert_message">Damit deine Wetter-App aufgenommen wird, erstelle ein Issue auf GitHub.</string>
-    <string name="config_weather_app_alert_button_github">GitHub öffnen</string>
     <string name="config_section_settings_units">Einheiten</string>
     <string name="config_aux_view_place_condition">Ort &amp; Wetter</string>
     <string name="config_show_temp_unit">Temperatureinheit anzeigen</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Kalender-App</string>
     <string name="config_calendar_app_summary">Tippen auf das Datum öffnet %1$s</string>
     <string name="config_calendar_app_none">Keine Kalender-App gefunden</string>
+    <string name="config_weather_app_request">Fehlende Wetter-App auf GitHub anfragen</string>
 
     <string name="app_text_now">Jetzt</string>
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>

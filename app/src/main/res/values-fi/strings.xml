@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Ei lisätietoja</string>
     <string name="config_aux_view_update_time">Päivitysaika</string>
     <string name="config_weather_app">Sääsovellus</string>
-    <string name="config_weather_app_nil">Ei listalla</string>
-    <string name="config_weather_app_nil_alert_message">Jos haluat sääsovelluksesi listalle, avaa issue GitHubissa.</string>
-    <string name="config_weather_app_alert_button_github">Avaa GitHub</string>
     <string name="config_section_settings_units">Yksiköt</string>
     <string name="config_aux_view_place_condition">Paikka &amp; sää</string>
     <string name="config_show_temp_unit">Näytä lämpötilayksikkö</string>
@@ -117,6 +114,7 @@
     <string name="config_calendar_app">Kalenterisovellus</string>
     <string name="config_calendar_app_summary">Päivämäärän napautus avaa: %1$s</string>
     <string name="config_calendar_app_none">Kalenterisovellusta ei löytynyt</string>
+    <string name="config_weather_app_request">Pyydä puuttuvaa sääsovellusta GitHubissa</string>
 
     <string name="app_text_now">Nyt</string>
     <string name="app_text_hourly_forecast">Tuntikohtainen sääennuste</string>

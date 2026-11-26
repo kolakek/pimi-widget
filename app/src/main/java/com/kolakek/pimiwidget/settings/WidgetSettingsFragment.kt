@@ -38,6 +38,7 @@ import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.LocationSourcePref
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.ui.AppOption
 import com.kolakek.pimiwidget.ui.showAppPickerSheet
 import com.kolakek.pimiwidget.weather.WeatherService
 import com.kolakek.pimiwidget.widget.WidgetIntent
@@ -309,9 +310,13 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
     private fun showCalendarAppPicker() {
         val context = requireContext()
+        val packageManager = context.packageManager
+        val choices = WidgetIntent.categoryApps(context, Intent.CATEGORY_APP_CALENDAR).map {
+            AppOption(it.packageName, it.loadLabel(packageManager), it.loadIcon(packageManager))
+        }
         requireActivity().showAppPickerSheet(
-            Intent.CATEGORY_APP_CALENDAR,
             R.string.config_calendar_app,
+            choices,
             SettingsRepository.getCalendarApp(context)
         ) { packageName ->
             SettingsRepository.setCalendarApp(context, packageName)
