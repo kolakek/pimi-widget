@@ -27,6 +27,7 @@ internal const val KEY_WEATHER_WARNING = "weather_warnings"
 internal const val KEY_PERMANENT_ALARM = "permanent_alarm"
 internal const val KEY_SHOW_TEMP_UNIT = "show_temp_unit"
 internal const val KEY_WIDGET_TRANSPARENCY = "widget_transparency"
+internal const val KEY_CALENDAR_APP = "calendar_app"
 
 internal const val KEY_WEATHER_APP_LIST = "weather_app_list"
 internal const val KEY_DEFAULT_WEATHER_APP = "weather_app_default"

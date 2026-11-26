@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Hoppa över</string>
     <string name="config_location_services_title">Rekommenderade platstjänster</string>
     <string name="config_open_settings_button">Öppna inställningar</string>
+    <string name="config_calendar_app">Kalenderapp</string>
+    <string name="config_calendar_app_summary">Ett tryck på datumet öppnar %1$s</string>
+    <string name="config_calendar_app_none">Ingen kalenderapp hittades</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>

@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Kapërce</string>
     <string name="config_location_services_title">Shërbimet e rekomanduara të vendndodhjes</string>
     <string name="config_open_settings_button">Hap cilësimet</string>
+    <string name="config_calendar_app">Aplikacioni i kalendarit</string>
+    <string name="config_calendar_app_summary">Trokitja mbi datën hap %1$s</string>
+    <string name="config_calendar_app_none">Nuk u gjet asnjë aplikacion kalendari</string>
 
     <string name="app_text_now">Tani</string>
     <string name="app_text_hourly_forecast">Parashikimi i përorshëm</string>

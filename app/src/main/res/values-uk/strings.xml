@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Пропустити</string>
     <string name="config_location_services_title">Рекомендовані служби геолокації</string>
     <string name="config_open_settings_button">Відкрити налаштування</string>
+    <string name="config_calendar_app">Застосунок календаря</string>
+    <string name="config_calendar_app_summary">Натискання на дату відкриває %1$s</string>
+    <string name="config_calendar_app_none">Застосунок календаря не знайдено</string>
 
     <string name="app_text_now">Зараз</string>
     <string name="app_text_hourly_forecast">Погодинний прогноз</string>

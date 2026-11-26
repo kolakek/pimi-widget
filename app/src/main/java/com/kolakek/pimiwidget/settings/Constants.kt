@@ -28,6 +28,7 @@ internal const val KEY_FIELD_ICON_STYLE = "field_icon_style"
 internal const val KEY_FIELD_VERSION = "field_build_number"
 internal const val KEY_FIELD_SOURCE_CODE = "field_source_code"
 internal const val KEY_FIELD_LOCATION_SOURCE = "field_location_source"
+internal const val KEY_FIELD_CALENDAR_APP = "field_calendar_app"
 
 internal const val KEY_PREVIEW_WIDGET = "preview_widget"
 internal const val KEY_PREVIEW_ICON = "preview_icon"

@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Passer</string>
     <string name="config_location_services_title">Services de localisation recommandés</string>
     <string name="config_open_settings_button">Ouvrir les paramètres</string>
+    <string name="config_calendar_app">Application d’agenda</string>
+    <string name="config_calendar_app_summary">Un appui sur la date ouvre %1$s</string>
+    <string name="config_calendar_app_none">Aucune application d’agenda trouvée</string>
 
     <string name="app_text_now">Maintenant</string>
     <string name="app_text_hourly_forecast">Prévisions horaires</string>

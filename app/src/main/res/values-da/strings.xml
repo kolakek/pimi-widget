@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Spring over</string>
     <string name="config_location_services_title">Anbefalede placeringstjenester</string>
     <string name="config_open_settings_button">Åbn indstillinger</string>
+    <string name="config_calendar_app">Kalender-app</string>
+    <string name="config_calendar_app_summary">Et tryk på datoen åbner %1$s</string>
+    <string name="config_calendar_app_none">Ingen kalender-app fundet</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Timevis vejrudsigt</string>

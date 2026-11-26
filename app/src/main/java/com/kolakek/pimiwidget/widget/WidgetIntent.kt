@@ -21,8 +21,7 @@ import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ApplicationInfo
-import android.content.pm.PackageManager
+import android.content.pm.ActivityInfo
 import com.kolakek.pimiwidget.ui.WeatherActivity
 
 object WidgetIntent {
@@ -43,55 +42,21 @@ object WidgetIntent {
         )
     }
 
-    fun categoryIntent(
-        context: Context,
-        category: String,
-        requestCode: Int
-    ): PendingIntent? {
-        val packageManager = context.packageManager
-        val query = Intent(Intent.ACTION_MAIN).addCategory(category)
-        val matches = packageManager.queryIntentActivities(query, 0)
-            .map { it.activityInfo.applicationInfo }
-            .distinctBy { it.packageName }
-
-        val userApps = matches
-            .filter { it.flags and ApplicationInfo.FLAG_SYSTEM == 0 }
-            .map { it.packageName }
-
-        val systemChoice = packageManager.resolveActivity(query, PackageManager.MATCH_DEFAULT_ONLY)
-            ?.activityInfo?.packageName?.takeIf { it != "android" }
-
-        val packageName = systemChoice?.takeIf { it in userApps }
-            ?: userApps.firstOrNull()
-            ?: systemChoice
-            ?: matches.firstOrNull()?.packageName
-            ?: return null
-
-        val intent = packageManager.getLaunchIntentForPackage(packageName)
-            ?.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
-            ?: return null
-
-        return PendingIntent.getActivity(
-            context,
-            requestCode,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-        )
-    }
-
     fun appIntent(
         context: Context,
         requestCode: Int,
         packageName: String
     ): PendingIntent? {
-        return context.packageManager.getLaunchIntentForPackage(packageName)?.let {
-            PendingIntent.getActivity(
-                context,
-                requestCode,
-                it,
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-        }
+        return context.packageManager.getLaunchIntentForPackage(packageName)
+            ?.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+            ?.let {
+                PendingIntent.getActivity(
+                    context,
+                    requestCode,
+                    it,
+                    PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                )
+            }
     }
 
     fun birthdayDismissIntent(
@@ -123,4 +88,10 @@ object WidgetIntent {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
     }
+
+    fun categoryApps(context: Context, category: String): List<ActivityInfo> =
+        context.packageManager
+            .queryIntentActivities(Intent(Intent.ACTION_MAIN).addCategory(category), 0)
+            .map { it.activityInfo }
+            .distinctBy { it.packageName }
 }

@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Atla</string>
     <string name="config_location_services_title">Önerilen konum hizmetleri</string>
     <string name="config_open_settings_button">Ayarları aç</string>
+    <string name="config_calendar_app">Takvim uygulaması</string>
+    <string name="config_calendar_app_summary">Tarihe dokunmak %1$s uygulamasını açar</string>
+    <string name="config_calendar_app_none">Takvim uygulaması bulunamadı</string>
 
     <string name="app_text_now">Şimdi</string>
     <string name="app_text_hourly_forecast">Saatlik tahmin</string>

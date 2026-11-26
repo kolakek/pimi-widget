@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Pomiń</string>
     <string name="config_location_services_title">Zalecane usługi lokalizacyjne</string>
     <string name="config_open_settings_button">Otwórz ustawienia</string>
+    <string name="config_calendar_app">Aplikacja kalendarza</string>
+    <string name="config_calendar_app_summary">Dotknięcie daty otwiera %1$s</string>
+    <string name="config_calendar_app_none">Nie znaleziono aplikacji kalendarza</string>
 
     <string name="app_text_now">Teraz</string>
     <string name="app_text_hourly_forecast">Prognoza godzinowa</string>

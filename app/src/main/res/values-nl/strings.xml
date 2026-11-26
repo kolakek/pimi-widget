@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Overslaan</string>
     <string name="config_location_services_title">Aanbevolen locatieservices</string>
     <string name="config_open_settings_button">Instellingen openen</string>
+    <string name="config_calendar_app">Agenda-app</string>
+    <string name="config_calendar_app_summary">Tikken op de datum opent %1$s</string>
+    <string name="config_calendar_app_none">Geen agenda-app gevonden</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Voorspelling per uur</string>

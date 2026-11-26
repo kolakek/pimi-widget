@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Omite</string>
     <string name="config_location_services_title">Servicii de localizare recomandate</string>
     <string name="config_open_settings_button">Deschide setările</string>
+    <string name="config_calendar_app">Aplicație calendar</string>
+    <string name="config_calendar_app_summary">Atingerea datei deschide %1$s</string>
+    <string name="config_calendar_app_none">Nu s-a găsit nicio aplicație calendar</string>
 
     <string name="app_text_now">Acum</string>
     <string name="app_text_hourly_forecast">Prognoză pe ore</string>

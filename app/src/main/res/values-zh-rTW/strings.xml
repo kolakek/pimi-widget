@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">略過</string>
     <string name="config_location_services_title">建議的定位服務</string>
     <string name="config_open_settings_button">開啟設定</string>
+    <string name="config_calendar_app">日曆應用程式</string>
+    <string name="config_calendar_app_summary">輕觸日期會開啟 %1$s</string>
+    <string name="config_calendar_app_none">找不到日曆應用程式</string>
 
     <string name="app_text_now">現在</string>
     <string name="app_text_hourly_forecast">每小時預報</string>

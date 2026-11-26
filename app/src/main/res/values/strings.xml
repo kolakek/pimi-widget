@@ -103,6 +103,9 @@
     <string name="config_alert_button_skip">Skip</string>
     <string name="config_location_services_title">Recommended location services</string>
     <string name="config_open_settings_button">Open settings</string>
+    <string name="config_calendar_app">Calendar app</string>
+    <string name="config_calendar_app_summary">Tapping the date opens %1$s</string>
+    <string name="config_calendar_app_none">No calendar app found</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

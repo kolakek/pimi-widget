@@ -18,6 +18,7 @@
 package com.kolakek.pimiwidget.settings
 
 import android.Manifest.permission.READ_CONTACTS
+import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.View
@@ -37,7 +38,9 @@ import com.kolakek.pimiwidget.data.KEY_WEATHER_SWITCH
 import com.kolakek.pimiwidget.data.LocationSourcePref
 import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.location.LocationData
+import com.kolakek.pimiwidget.ui.showAppPickerSheet
 import com.kolakek.pimiwidget.weather.WeatherService
+import com.kolakek.pimiwidget.widget.WidgetIntent
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 import io.ktor.http.URLBuilder
@@ -62,6 +65,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         val sourceCodeField: Preference? = findPreference(KEY_FIELD_SOURCE_CODE)
         val widgetStyleField: Preference? = findPreference(KEY_FIELD_WIDGET_STYLE)
         val iconStyleField: Preference? = findPreference(KEY_FIELD_ICON_STYLE)
+        val calendarAppField: Preference? = findPreference(KEY_FIELD_CALENDAR_APP)
 
         var debugCount = 0
 
@@ -82,6 +86,10 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
         }
         iconStyleField?.setOnPreferenceClickListener {
             openSubScreen(WidgetSettingsIconFragment())
+            true
+        }
+        calendarAppField?.setOnPreferenceClickListener {
+            showCalendarAppPicker()
             true
         }
         versionField?.setOnPreferenceClickListener {
@@ -141,6 +149,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         updateWeatherSummary()
+        updateCalendarAppSummary()
         weatherHandler.refreshSwitch()
     }
 
@@ -296,5 +305,30 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
             ageMins < 60 * 48 -> resources.getQuantityString(R.plurals.hours, ageHours, ageHours)
             else -> resources.getQuantityString(R.plurals.days, ageDays, ageDays)
         }
+    }
+
+    private fun showCalendarAppPicker() {
+        val context = requireContext()
+        requireActivity().showAppPickerSheet(
+            Intent.CATEGORY_APP_CALENDAR,
+            R.string.config_calendar_app,
+            SettingsRepository.getCalendarApp(context)
+        ) { packageName ->
+            SettingsRepository.setCalendarApp(context, packageName)
+            updateCalendarAppSummary()
+        }
+    }
+
+    private fun updateCalendarAppSummary() {
+        val context = requireContext()
+        val preference = findPreference<Preference>(KEY_FIELD_CALENDAR_APP) ?: return
+        val packageName = SettingsRepository.getCalendarApp(context)
+        val app = WidgetIntent.categoryApps(context, Intent.CATEGORY_APP_CALENDAR)
+            .firstOrNull { it.packageName == packageName }
+
+        preference.isEnabled = app != null
+        preference.summary = app?.let {
+            getString(R.string.config_calendar_app_summary, it.loadLabel(context.packageManager))
+        } ?: getString(R.string.config_calendar_app_none)
     }
 }

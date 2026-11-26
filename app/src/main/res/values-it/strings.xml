@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Salta</string>
     <string name="config_location_services_title">Servizi di localizzazione consigliati</string>
     <string name="config_open_settings_button">Apri impostazioni</string>
+    <string name="config_calendar_app">App calendario</string>
+    <string name="config_calendar_app_summary">Toccando la data si apre %1$s</string>
+    <string name="config_calendar_app_none">Nessuna app calendario trovata</string>
 
     <string name="app_text_now">Ora</string>
     <string name="app_text_hourly_forecast">Previsioni orarie</string>

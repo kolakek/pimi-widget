@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Přeskočit</string>
     <string name="config_location_services_title">Doporučené služby určování polohy</string>
     <string name="config_open_settings_button">Otevřít nastavení</string>
+    <string name="config_calendar_app">Aplikace kalendáře</string>
+    <string name="config_calendar_app_summary">Klepnutím na datum se otevře %1$s</string>
+    <string name="config_calendar_app_none">Nenalezena žádná aplikace kalendáře</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>

@@ -114,6 +114,9 @@
     <string name="config_alert_button_skip">Lewati</string>
     <string name="config_location_services_title">Layanan lokasi yang disarankan</string>
     <string name="config_open_settings_button">Buka setelan</string>
+    <string name="config_calendar_app">Aplikasi kalender</string>
+    <string name="config_calendar_app_summary">Mengetuk tanggal akan membuka %1$s</string>
+    <string name="config_calendar_app_none">Aplikasi kalender tidak ditemukan</string>
 
     <string name="widget_label">Tanggal, cuaca &amp; lainnya</string>
     <string name="widget_date_format">EEE, d MMM</string>

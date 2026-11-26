@@ -8,7 +8,6 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
-        android:selectable="false"
         android:title="@string/config_section_general"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
@@ -33,7 +32,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:selectable="false"
         android:title="@string/config_section_display"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"

@@ -37,6 +37,7 @@ data class WidgetSettings (
     val showPermanentAlarm: Boolean,
     val showTempUnit: Boolean,
     val backgroundAlpha: Int,
+    val calendarApp: String?,
     val iconStyle: IconStyle,
     val widgetStyle: WidgetStyle,
     val textColor: TextColor,
