@@ -19,9 +19,10 @@ package com.kolakek.pimiwidget.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import com.kolakek.pimiwidget.ui.WeatherActivity
 
 object WidgetIntent {
@@ -47,23 +48,35 @@ object WidgetIntent {
         category: String,
         requestCode: Int
     ): PendingIntent? {
-        val intent = Intent(Intent.ACTION_MAIN).addCategory(category)
+        val packageManager = context.packageManager
+        val query = Intent(Intent.ACTION_MAIN).addCategory(category)
+        val matches = packageManager.queryIntentActivities(query, 0)
+            .map { it.activityInfo.applicationInfo }
+            .distinctBy { it.packageName }
 
-        if (intent.resolveActivity(context.packageManager) == null) {
-            val resolveInfos = context.packageManager.queryIntentActivities(intent, 0)
-            resolveInfos.firstOrNull()?.activityInfo?.let {
-                intent.setComponent(ComponentName(it.packageName, it.name))
-            }
-        }
+        val userApps = matches
+            .filter { it.flags and ApplicationInfo.FLAG_SYSTEM == 0 }
+            .map { it.packageName }
 
-        return intent.resolveActivity(context.packageManager)?.let {
-            PendingIntent.getActivity(
-                context,
-                requestCode,
-                intent,
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-        }
+        val systemChoice = packageManager.resolveActivity(query, PackageManager.MATCH_DEFAULT_ONLY)
+            ?.activityInfo?.packageName?.takeIf { it != "android" }
+
+        val packageName = systemChoice?.takeIf { it in userApps }
+            ?: userApps.firstOrNull()
+            ?: systemChoice
+            ?: matches.firstOrNull()?.packageName
+            ?: return null
+
+        val intent = packageManager.getLaunchIntentForPackage(packageName)
+            ?.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+            ?: return null
+
+        return PendingIntent.getActivity(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
     }
 
     fun appIntent(
