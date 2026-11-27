@@ -48,10 +48,10 @@
     <string name="config_daily_forecast_summary">På morgonen och kvällen</string>
     <string name="config_weather_warnings">Visa vädervarningar</string>
     <string name="config_weather_warnings_summary">Vid extremväder inom en timme</string>
-    <string name="config_loc_perm_alert_title">Platsbehörighet krävs</string>
-    <string name="config_loc_perm_alert_message">För att visa vädret i ditt område behöver appen åtkomst till din plats.</string>
-    <string name="config_bg_perm_alert_title">Platsbehörighet i bakgrunden</string>
-    <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj ”%s” på nästa skärm.</string>
+    <string name="config_loc_perm_alert_title">Åtkomst till plats krävs</string>
+    <string name="config_loc_perm_alert_message">För att visa vädret i ditt nuvarande område behöver den här appen åtkomst till din plats.</string>
+    <string name="config_bg_perm_alert_title">Platsåtkomst i bakgrunden</string>
+    <string name="config_bg_perm_alert_message">Pålitliga väderuppdateringar kräver åtkomst till din plats i bakgrunden. Välj ”%1$s” på nästa skärm.</string>
     <string name="config_alert_button_cancel">Avbryt</string>
     <string name="config_source_code">Källkod</string>
     <string name="config_source_code_summary">Visa källkod och dokumentation på GitHub</string>
@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Inga detaljer</string>
     <string name="config_aux_view_update_time">Uppdateringstid</string>
     <string name="config_weather_app">Väderapp</string>
-    <string name="config_weather_app_nil">Inte listad</string>
-    <string name="config_weather_app_nil_alert_message">För att få din väderapp tillagd, öppna ett issue på GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Öppna GitHub</string>
     <string name="config_section_settings_units">Enheter</string>
     <string name="config_aux_view_place_condition">Plats &amp; väder</string>
     <string name="config_show_temp_unit">Visa temperaturenhet</string>
@@ -99,11 +96,10 @@
     <string name="config_weather_summary_fixed">Visa vädret för en fast plats</string>
     <string name="config_weather_summary_place">Visa vädret för %1$s</string>
     <string name="config_location_search_footer">Den valda platsen gäller både widgeten och väderappen.</string>
-    <string name="config_geocoding_attr_open_meteo">Platssökning från Open-Meteo</string>
-    <string name="config_perm_settings_title">Behörighet krävs</string>
+    <string name="config_geocoding_attr_open_meteo">Platssökning från Open-Meteo.com</string>
+    <string name="config_perm_settings_title">Behörighet inte beviljad</string>
     <string name="config_loc_perm_settings_message">Om du vill visa vädret för ditt nuvarande område ändrar du platsbehörigheten till ”%1$s” i appinställningarna.</string>
-    <string name="config_contacts_perm_settings_message">Om du vill visa födelsedagar ändrar du behörigheten för kontakter i appinställningarna.</string>
-    <string name="config_perm_settings_button">Ändra behörighet</string>
+    <string name="config_contacts_perm_settings_message">Om du vill visa födelsedagar ger du åtkomst till kontakter i appinställningarna.</string>
     <string name="config_alert_button_continue">Fortsätt</string>
     <string name="config_weather_privacy_note">När du aktiverar väder delas din plats och IP-adress med väderleverantören.</string>
     <string name="config_location_no_results">Inga platser hittades</string>
@@ -111,6 +107,14 @@
     <string name="config_location_search_hint">Sök efter en plats</string>
     <string name="config_location_search_clear">Rensa sökning</string>
     <string name="config_location_selected">Vald</string>
+    <string name="config_network_location_hint">Aktivera ”Nätverksplats” eller ”Platsangivelsens exakthet” i Androids platsinställningar för snabb och tillförlitlig plats.</string>
+    <string name="config_alert_button_skip">Hoppa över</string>
+    <string name="config_location_services_title">Rekommenderade platstjänster</string>
+    <string name="config_open_settings_button">Öppna inställningar</string>
+    <string name="config_calendar_app">Kalenderapp</string>
+    <string name="config_calendar_app_summary">Ett tryck på datumet öppnar %1$s</string>
+    <string name="config_calendar_app_none">Ingen kalenderapp hittades</string>
+    <string name="config_weather_app_request">Begär en saknad väderapp på GitHub</string>
 
     <string name="app_text_now">Nu</string>
     <string name="app_text_hourly_forecast">Prognos per timme</string>
@@ -164,7 +168,7 @@
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>
     <string name="wc_thunderstorm">åskväder</string>
     <string name="wc_freezing_rain">underkylt regn</string>
-    <string name="wc_light_freezing_rain">svagt underkylt regn</string>
+    <string name="wc_light_freezing_rain">lätt underkylt regn</string>
     <string name="wc_freezing_drizzle">underkylt duggregn</string>
     <string name="wc_heavy_rain_showers">kraftiga regnskurar</string>
     <string name="wc_rain_showers">regnskurar</string>

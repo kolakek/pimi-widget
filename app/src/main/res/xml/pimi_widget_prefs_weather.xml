@@ -8,7 +8,6 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
-        android:selectable="false"
         android:title="@string/config_section_general"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
@@ -25,7 +24,7 @@
             android:title="@string/config_weather_location"
             app:iconSpaceReserved="false" />
 
-        <ListPreference
+        <Preference
             android:key="weather_app_list"
             android:title="@string/config_weather_app"
             app:iconSpaceReserved="false" />
@@ -33,7 +32,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:selectable="false"
         android:title="@string/config_section_display"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"

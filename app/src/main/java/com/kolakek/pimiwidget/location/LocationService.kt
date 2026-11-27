@@ -73,6 +73,11 @@ object LocationService {
         throw LocationUnavailableException("Failed to obtain location")
     }
 
+    fun isNetworkLocationAvailable(context: Context): Boolean {
+        val locationManager = context.getSystemService(LocationManager::class.java) ?: return false
+        return locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    }
+
     fun isPermissionMissing(context: Context) =
         SettingsRepository.usesDeviceLocation(context) &&
                 ContextCompat.checkSelfPermission(

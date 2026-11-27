@@ -22,16 +22,16 @@ import android.util.AttributeSet
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.kolakek.pimiwidget.R
-import com.kolakek.pimiwidget.databinding.InfoFooterBinding
+import com.kolakek.pimiwidget.databinding.FooterInfoBinding
 
 class InfoPreference(context: Context, attrs: AttributeSet?) : Preference(context, attrs) {
     init {
-        layoutResource = R.layout.info_footer
+        layoutResource = R.layout.footer_info
         isSelectable = false
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-        InfoFooterBinding.bind(holder.itemView).infoText.text = summary
+        FooterInfoBinding.bind(holder.itemView).infoText.text = summary
     }
 }

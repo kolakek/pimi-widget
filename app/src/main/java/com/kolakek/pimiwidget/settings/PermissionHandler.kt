@@ -75,12 +75,12 @@ class PermissionHandler(caller: ActivityResultCaller, private val activity: () -
         val intent = Intent(
             Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
             Uri.fromParts("package", activity.packageName, null)
-        )
+        ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         AlertDialog.Builder(activity)
             .setMessage(pendingFallbackMessage)
             .setTitle(R.string.config_perm_settings_title)
-            .setPositiveButton(R.string.config_perm_settings_button) { _, _ ->
-                activity.startActivity(intent)
+            .setNeutralButton(R.string.config_open_settings_button) { _, _ ->
+                activity.startActivitySafely(intent)
             }
             .setNegativeButton(R.string.config_alert_button_cancel, null)
             .show()

@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Meteorologická data z Open-Meteo.com</string>
     <string name="config_birthday_switch">Narozeniny</string>
     <string name="config_birthday_switch_summary">Zobrazovat narozeniny tvých kontaktů</string>
-    <string name="config_contact_perm_alert_title">Vyžadován přístup ke kontaktům</string>
+    <string name="config_contact_perm_alert_title">Vyžadováno oprávnění ke kontaktům</string>
     <string name="config_contact_perm_alert_message">Pro zobrazení narozenin tato aplikace potřebuje přístup k tvým kontaktům.</string>
     <string name="config_version_title">Číslo sestavení</string>
     <string name="config_show_alarms">Budíky</string>
@@ -51,7 +51,7 @@
     <string name="config_loc_perm_alert_title">Vyžadováno oprávnění k poloze</string>
     <string name="config_loc_perm_alert_message">Pro zobrazení počasí ve tvé oblasti tato aplikace potřebuje přístup k tvé poloze.</string>
     <string name="config_bg_perm_alert_title">Oprávnění k poloze na pozadí</string>
-    <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k vaší poloze na pozadí. V dalším kroku vyberte „%s“.</string>
+    <string name="config_bg_perm_alert_message">Spolehlivé aktualizace počasí vyžadují přístup k tvé poloze na pozadí. V dalším kroku vyber „%1$s“.</string>
     <string name="config_alert_button_cancel">Zrušit</string>
     <string name="config_source_code">Zdrojový kód</string>
     <string name="config_source_code_summary">Zobrazit zdrojový kód a dokumentaci na GitHubu</string>
@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Bez podrobností</string>
     <string name="config_aux_view_update_time">Čas aktualizace</string>
     <string name="config_weather_app">Aplikace počasí</string>
-    <string name="config_weather_app_nil">Není v seznamu</string>
-    <string name="config_weather_app_nil_alert_message">Pokud chceš přidat svou aplikaci počasí, otevři issue na GitHubu.</string>
-    <string name="config_weather_app_alert_button_github">Otevřít GitHub</string>
     <string name="config_section_settings_units">Jednotky</string>
     <string name="config_aux_view_place_condition">Místo &amp; počasí</string>
     <string name="config_show_temp_unit">Zobrazit jednotku teploty</string>
@@ -95,15 +92,14 @@
     <string name="config_section_style">Styl</string>
     <string name="config_section_color">Barva</string>
     <string name="config_temp_unit">Jednotka teploty</string>
-    <string name="config_weather_summary_device">Zobrazit počasí pro tvou polohu</string>
-    <string name="config_weather_summary_fixed">Zobrazit počasí pro pevnou polohu</string>
-    <string name="config_weather_summary_place">Zobrazit počasí pro místo %1$s</string>
+    <string name="config_weather_summary_device">Zobrazovat počasí pro tvou polohu</string>
+    <string name="config_weather_summary_fixed">Zobrazovat počasí pro pevnou polohu</string>
+    <string name="config_weather_summary_place">Zobrazovat počasí pro místo %1$s</string>
     <string name="config_location_search_footer">Vybraná poloha platí pro widget i aplikaci počasí.</string>
-    <string name="config_geocoding_attr_open_meteo">Vyhledávání míst zajišťuje Open-Meteo</string>
-    <string name="config_perm_settings_title">Vyžadováno oprávnění</string>
+    <string name="config_geocoding_attr_open_meteo">Vyhledávání míst zajišťuje Open-Meteo.com</string>
+    <string name="config_perm_settings_title">Oprávnění nebylo uděleno</string>
     <string name="config_loc_perm_settings_message">Chceš-li zobrazit počasí pro svou aktuální oblast, změň v nastavení aplikace oprávnění k poloze na „%1$s“.</string>
-    <string name="config_contacts_perm_settings_message">Chceš-li zobrazit narozeniny, změň v nastavení aplikace oprávnění ke kontaktům.</string>
-    <string name="config_perm_settings_button">Změnit oprávnění</string>
+    <string name="config_contacts_perm_settings_message">Chceš-li zobrazit narozeniny, uděl v nastavení aplikace oprávnění ke kontaktům.</string>
     <string name="config_alert_button_continue">Pokračovat</string>
     <string name="config_weather_privacy_note">Zapnutím počasí sdílíš svou polohu a IP adresu s poskytovatelem počasí.</string>
     <string name="config_location_no_results">Nenalezena žádná místa</string>
@@ -111,6 +107,14 @@
     <string name="config_location_search_hint">Hledat místo</string>
     <string name="config_location_search_clear">Vymazat hledání</string>
     <string name="config_location_selected">Vybráno</string>
+    <string name="config_network_location_hint">Pro rychlé a spolehlivé určení polohy zapni v nastavení polohy Androidu „Síťová poloha“ nebo „Přesnost určování polohy“.</string>
+    <string name="config_alert_button_skip">Přeskočit</string>
+    <string name="config_location_services_title">Doporučené služby určování polohy</string>
+    <string name="config_open_settings_button">Otevřít nastavení</string>
+    <string name="config_calendar_app">Aplikace kalendáře</string>
+    <string name="config_calendar_app_summary">Klepnutím na datum se otevře %1$s</string>
+    <string name="config_calendar_app_none">Nenalezena žádná aplikace kalendáře</string>
+    <string name="config_weather_app_request">Požádej o chybějící aplikaci počasí na GitHubu</string>
 
     <string name="app_text_now">Teď</string>
     <string name="app_text_hourly_forecast">Hodinová předpověď</string>

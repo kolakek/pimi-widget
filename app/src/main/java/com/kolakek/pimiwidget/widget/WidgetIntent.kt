@@ -19,9 +19,9 @@ package com.kolakek.pimiwidget.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import com.kolakek.pimiwidget.ui.WeatherActivity
 
 object WidgetIntent {
@@ -42,43 +42,21 @@ object WidgetIntent {
         )
     }
 
-    fun categoryIntent(
-        context: Context,
-        category: String,
-        requestCode: Int
-    ): PendingIntent? {
-        val intent = Intent(Intent.ACTION_MAIN).addCategory(category)
-
-        if (intent.resolveActivity(context.packageManager) == null) {
-            val resolveInfos = context.packageManager.queryIntentActivities(intent, 0)
-            resolveInfos.firstOrNull()?.activityInfo?.let {
-                intent.setComponent(ComponentName(it.packageName, it.name))
-            }
-        }
-
-        return intent.resolveActivity(context.packageManager)?.let {
-            PendingIntent.getActivity(
-                context,
-                requestCode,
-                intent,
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-        }
-    }
-
     fun appIntent(
         context: Context,
         requestCode: Int,
         packageName: String
     ): PendingIntent? {
-        return context.packageManager.getLaunchIntentForPackage(packageName)?.let {
-            PendingIntent.getActivity(
-                context,
-                requestCode,
-                it,
-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-            )
-        }
+        return context.packageManager.getLaunchIntentForPackage(packageName)
+            ?.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+            ?.let {
+                PendingIntent.getActivity(
+                    context,
+                    requestCode,
+                    it,
+                    PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                )
+            }
     }
 
     fun birthdayDismissIntent(
@@ -110,4 +88,10 @@ object WidgetIntent {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
     }
+
+    fun categoryApps(context: Context, category: String): List<ActivityInfo> =
+        context.packageManager
+            .queryIntentActivities(Intent(Intent.ACTION_MAIN).addCategory(category), 0)
+            .map { it.activityInfo }
+            .distinctBy { it.packageName }
 }

@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        android:key="category_features"
-        android:selectable="false"
         android:title="@string/config_section_features"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
@@ -35,9 +33,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="category_style"
-        android:selectable="false"
-        android:title="@string/config_section_appearance"
+        android:title="@string/config_section_general"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
@@ -52,11 +48,14 @@
             android:title="@string/config_icon_style"
             app:iconSpaceReserved="false" />
 
+        <Preference
+            app:key="field_calendar_app"
+            app:title="@string/config_calendar_app"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="category_about"
-        android:selectable="false"
         android:title="@string/config_section_about"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"

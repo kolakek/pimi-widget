@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Données météo par Open-Meteo.com</string>
     <string name="config_birthday_switch">Anniversaires</string>
     <string name="config_birthday_switch_summary">Afficher les anniversaires de tes contacts</string>
-    <string name="config_contact_perm_alert_title">Accès aux contacts requis</string>
+    <string name="config_contact_perm_alert_title">Autorisation d’accès aux contacts requise</string>
     <string name="config_contact_perm_alert_message">Pour afficher les anniversaires, cette application a besoin d’accéder à tes contacts.</string>
     <string name="config_version_title">Numéro de build</string>
     <string name="config_show_alarms">Alarmes</string>
@@ -20,10 +20,10 @@
     <string name="config_perm_alarm_descr">Accès rapide à l’application Horloge</string>
     <string name="config_debug_info">État de l’application</string>
     <string name="config_debug_weather_data_age">Âge des données météo</string>
-    <string name="config_debug_last_valid_location">Dernière localisation valide</string>
+    <string name="config_debug_last_valid_location">Dernière position valide</string>
     <string name="config_debug_last_work_status">Dernier état du travail</string>
     <string name="config_debug_button_weather">Voir la requête météo</string>
-    <string name="config_debug_button_location">Voir la localisation</string>
+    <string name="config_debug_button_location">Voir la position</string>
     <string name="config_debug_background_service">Service en arrière-plan</string>
     <string name="config_location_fallback">Utiliser la dernière position de l’appareil</string>
     <string name="config_location_fallback_summary">Quand la localisation est désactivée dans les paramètres Android</string>
@@ -49,9 +49,9 @@
     <string name="config_weather_warnings">Afficher les alertes météo</string>
     <string name="config_weather_warnings_summary">En cas de météo extrême dans l’heure</string>
     <string name="config_loc_perm_alert_title">Autorisation de localisation requise</string>
-    <string name="config_loc_perm_alert_message">Pour afficher la météo de ta région actuelle, cette application a besoin d’accéder à ta position.</string>
+    <string name="config_loc_perm_alert_message">Pour afficher la météo de ta zone actuelle, cette application a besoin d’accéder à ta position.</string>
     <string name="config_bg_perm_alert_title">Autorisation de localisation en arrière-plan</string>
-    <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Sélectionne « %s » sur l’écran suivant.</string>
+    <string name="config_bg_perm_alert_message">Des mises à jour météo fiables nécessitent l’accès à ta position en arrière-plan. Sélectionne «\u00A0%1$s\u00A0» sur l’écran suivant.</string>
     <string name="config_alert_button_cancel">Annuler</string>
     <string name="config_source_code">Code source</string>
     <string name="config_source_code_summary">Afficher le code source et la documentation sur GitHub</string>
@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Sans détails</string>
     <string name="config_aux_view_update_time">Temps d’actualisation</string>
     <string name="config_weather_app">Application météo</string>
-    <string name="config_weather_app_nil">Non répertoriée</string>
-    <string name="config_weather_app_nil_alert_message">Pour faire ajouter ton application météo, ouvre un ticket sur GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Ouvrir GitHub</string>
     <string name="config_section_settings_units">Unités</string>
     <string name="config_aux_view_place_condition">Lieu &amp; météo</string>
     <string name="config_show_temp_unit">Afficher l’unité de température</string>
@@ -99,11 +96,10 @@
     <string name="config_weather_summary_fixed">Afficher la météo d’une position fixe</string>
     <string name="config_weather_summary_place">Afficher la météo pour %1$s</string>
     <string name="config_location_search_footer">La position sélectionnée s’applique au widget et à l’appli météo.</string>
-    <string name="config_geocoding_attr_open_meteo">Recherche de lieux par Open-Meteo</string>
-    <string name="config_perm_settings_title">Autorisation requise</string>
+    <string name="config_geocoding_attr_open_meteo">Recherche de lieux par Open-Meteo.com</string>
+    <string name="config_perm_settings_title">Autorisation non accordée</string>
     <string name="config_loc_perm_settings_message">Pour afficher la météo de ta zone actuelle, modifie l’autorisation de localisation sur «\u00A0%1$s\u00A0» dans les paramètres de l’appli.</string>
-    <string name="config_contacts_perm_settings_message">Pour afficher les anniversaires, modifie l’autorisation d’accès aux contacts dans les paramètres de l’appli.</string>
-    <string name="config_perm_settings_button">Modifier l’autorisation</string>
+    <string name="config_contacts_perm_settings_message">Pour afficher les anniversaires, autorise l’accès aux contacts dans les paramètres de l’appli.</string>
     <string name="config_alert_button_continue">Continuer</string>
     <string name="config_weather_privacy_note">Activer la météo partage ta position et ton adresse IP avec le fournisseur météo.</string>
     <string name="config_location_no_results">Aucun lieu trouvé</string>
@@ -111,6 +107,14 @@
     <string name="config_location_search_hint">Rechercher un lieu</string>
     <string name="config_location_search_clear">Effacer la recherche</string>
     <string name="config_location_selected">Sélectionné</string>
+    <string name="config_network_location_hint">Pour une localisation rapide et fiable, active «\u00A0Localisation réseau\u00A0» ou «\u00A0Précision de la localisation\u00A0» dans les paramètres de localisation d’Android.</string>
+    <string name="config_alert_button_skip">Passer</string>
+    <string name="config_location_services_title">Services de localisation recommandés</string>
+    <string name="config_open_settings_button">Ouvrir les paramètres</string>
+    <string name="config_calendar_app">Application d’agenda</string>
+    <string name="config_calendar_app_summary">Un appui sur la date ouvre %1$s</string>
+    <string name="config_calendar_app_none">Aucune application d’agenda trouvée</string>
+    <string name="config_weather_app_request">Demande une application météo manquante sur GitHub</string>
 
     <string name="app_text_now">Maintenant</string>
     <string name="app_text_hourly_forecast">Prévisions horaires</string>

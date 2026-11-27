@@ -18,7 +18,6 @@
 package com.kolakek.pimiwidget.widget
 
 import android.content.Context
-import android.content.Intent
 import android.provider.AlarmClock
 import android.text.format.DateFormat
 import android.widget.RemoteViews
@@ -44,11 +43,9 @@ object CoreUpdater {
 
         views.setOnClickPendingIntent(R.id.widget_root, null)
 
-        val calendarIntent = WidgetIntent.categoryIntent(
-            context,
-            Intent.CATEGORY_APP_CALENDAR,
-            appWidgetId
-        )
+        val calendarIntent = settings.calendarApp?.let {
+            WidgetIntent.appIntent(context, appWidgetId, it)
+        }
         views.setOnClickPendingIntent(R.id.widget_date_text, calendarIntent)
 
         val weatherAppIntent = if (settings.weatherApp == WeatherApp.PIMI) {

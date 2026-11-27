@@ -11,7 +11,7 @@
     <string name="config_weather_attr_open_meteo">Wetterdaten von Open-Meteo.com</string>
     <string name="config_birthday_switch">Geburtstage</string>
     <string name="config_birthday_switch_summary">Geburtstage deiner Kontakte anzeigen</string>
-    <string name="config_contact_perm_alert_title">Zugriff auf Kontakte erforderlich</string>
+    <string name="config_contact_perm_alert_title">Kontaktberechtigung erforderlich</string>
     <string name="config_contact_perm_alert_message">Um Geburtstage anzuzeigen, benötigt diese App Zugriff auf deine Kontakte.</string>
     <string name="config_version_title">Build-Nummer</string>
     <string name="config_show_alarms">Wecker</string>
@@ -49,9 +49,9 @@
     <string name="config_weather_warnings">Wetterwarnungen anzeigen</string>
     <string name="config_weather_warnings_summary">Bei extremem Wetter in der nächsten Stunde</string>
     <string name="config_loc_perm_alert_title">Standortberechtigung erforderlich</string>
-    <string name="config_loc_perm_alert_message">Um das Wetter für deine aktuelle Region anzuzeigen, benötigt diese App Zugriff auf deinen Standort.</string>
+    <string name="config_loc_perm_alert_message">Um das Wetter für deine aktuelle Umgebung anzuzeigen, benötigt diese App Zugriff auf deinen Standort.</string>
     <string name="config_bg_perm_alert_title">Hintergrund-Standortberechtigung</string>
-    <string name="config_bg_perm_alert_message">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf deinen Standort im Hintergrund. Bitte wähle „%s“ im nächsten Bildschirm.</string>
+    <string name="config_bg_perm_alert_message">Zuverlässige Wetteraktualisierungen erfordern den Zugriff auf deinen Standort im Hintergrund. Wähle „%1$s“ auf dem nächsten Bildschirm.</string>
     <string name="config_alert_button_cancel">Abbrechen</string>
     <string name="config_source_code">Quellcode</string>
     <string name="config_source_code_summary">Quellcode und Dokumentation auf GitHub anzeigen</string>
@@ -59,9 +59,6 @@
     <string name="config_aux_view_nothing">Keine Details</string>
     <string name="config_aux_view_update_time">Aktualisierungszeit</string>
     <string name="config_weather_app">Wetter-App</string>
-    <string name="config_weather_app_nil">Nicht aufgeführt</string>
-    <string name="config_weather_app_nil_alert_message">Damit deine Wetter-App aufgenommen wird, erstelle ein Issue auf GitHub.</string>
-    <string name="config_weather_app_alert_button_github">GitHub öffnen</string>
     <string name="config_section_settings_units">Einheiten</string>
     <string name="config_aux_view_place_condition">Ort &amp; Wetter</string>
     <string name="config_show_temp_unit">Temperatureinheit anzeigen</string>
@@ -99,11 +96,10 @@
     <string name="config_weather_summary_fixed">Wetter für einen festen Standort anzeigen</string>
     <string name="config_weather_summary_place">Wetter für %1$s anzeigen</string>
     <string name="config_location_search_footer">Der ausgewählte Standort gilt für das Widget und die Wetter-App.</string>
-    <string name="config_geocoding_attr_open_meteo">Ortssuche von Open-Meteo</string>
-    <string name="config_perm_settings_title">Berechtigung erforderlich</string>
-    <string name="config_loc_perm_settings_message">Um das Wetter an deinem aktuellen Standort anzuzeigen, ändere die Standortberechtigung in den App-Einstellungen auf „%1$s“.</string>
-    <string name="config_contacts_perm_settings_message">Um Geburtstage anzuzeigen, ändere die Kontaktberechtigung in den App-Einstellungen.</string>
-    <string name="config_perm_settings_button">Berechtigung ändern</string>
+    <string name="config_geocoding_attr_open_meteo">Ortssuche von Open-Meteo.com</string>
+    <string name="config_perm_settings_title">Berechtigung nicht erteilt</string>
+    <string name="config_loc_perm_settings_message">Um das Wetter für deine aktuelle Umgebung anzuzeigen, ändere die Standortberechtigung in den App-Einstellungen auf „%1$s“.</string>
+    <string name="config_contacts_perm_settings_message">Um Geburtstage anzuzeigen, erteile die Kontaktberechtigung in den App-Einstellungen.</string>
     <string name="config_alert_button_continue">Weiter</string>
     <string name="config_weather_privacy_note">Wenn du das Wetter aktivierst, werden dein Standort und deine IP-Adresse mit dem Wetteranbieter geteilt.</string>
     <string name="config_location_no_results">Keine Orte gefunden</string>
@@ -111,6 +107,14 @@
     <string name="config_location_search_hint">Ort suchen</string>
     <string name="config_location_search_clear">Suche löschen</string>
     <string name="config_location_selected">Ausgewählt</string>
+    <string name="config_network_location_hint">Für eine schnelle und zuverlässige Standortbestimmung aktiviere „Netzwerkstandort“ oder „Standortgenauigkeit“ in den Android-Standorteinstellungen.</string>
+    <string name="config_alert_button_skip">Überspringen</string>
+    <string name="config_location_services_title">Empfohlene Standortdienste</string>
+    <string name="config_open_settings_button">Einstellungen öffnen</string>
+    <string name="config_calendar_app">Kalender-App</string>
+    <string name="config_calendar_app_summary">Tippen auf das Datum öffnet %1$s</string>
+    <string name="config_calendar_app_none">Keine Kalender-App gefunden</string>
+    <string name="config_weather_app_request">Fehlende Wetter-App auf GitHub anfragen</string>
 
     <string name="app_text_now">Jetzt</string>
     <string name="app_text_hourly_forecast">Stündliche Vorhersage</string>

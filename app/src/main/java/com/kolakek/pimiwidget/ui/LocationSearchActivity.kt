@@ -223,25 +223,22 @@ class LocationSearchActivity : AppCompatActivity() {
         }
     }
 
-    private fun cardBackground(index: Int, count: Int) = when {
-        count == 1 -> R.drawable.app_pref_background
-        index == 0 -> R.drawable.app_pref_background_top
-        index == count - 1 -> R.drawable.app_pref_background_bottom
-        else -> R.drawable.app_pref_background_mid
+    private fun selectDeviceLocation() {
+        locationPermission.request {
+            showLocationServicesHint { applyDeviceLocation() }
+        }
     }
 
-    private fun selectDeviceLocation() {
+    private fun applyDeviceLocation() {
         val context = applicationContext
-        locationPermission.request {
-            if (SettingsRepository.usesDeviceLocation(context)) {
-                finish()
-            } else {
-                lifecycleScope.launch {
-                    DataRepository.deleteLocationData(context)
-                    applyLocationSource(context, LocationSourcePref.DEVICE)
-                    finish()
-                }
-            }
+        if (SettingsRepository.usesDeviceLocation(context)) {
+            finish()
+            return
+        }
+        lifecycleScope.launch {
+            DataRepository.deleteLocationData(context)
+            applyLocationSource(context, LocationSourcePref.DEVICE)
+            finish()
         }
     }
 

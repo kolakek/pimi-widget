@@ -19,6 +19,7 @@ package com.kolakek.pimiwidget.data
 
 import android.content.SharedPreferences
 import androidx.annotation.StringRes
+import androidx.core.content.edit
 import com.kolakek.pimiwidget.R
 
 enum class WeatherApp(val key: String, val packageName: String, @StringRes val labelRes: Int) {
@@ -167,6 +168,8 @@ enum class WeatherApp(val key: String, val packageName: String, @StringRes val l
         "no.nrk.yr",
         R.string.config_weather_app_yr
     );
+
+    fun save(prefs: SharedPreferences) = prefs.edit { putString(KEY_WEATHER_APP_LIST, key) }
 
     companion object {
         val DEFAULT = PIMI

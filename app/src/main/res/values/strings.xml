@@ -31,7 +31,7 @@
     <string name="config_debug_last_work_status">Last work status</string>
     <string name="config_debug_background_service">Background service</string>
     <string name="config_location_fallback">Use last device location</string>
-    <string name="config_location_fallback_summary">When location is turned off in Android settings</string>
+    <string name="config_location_fallback_summary">When location is turned off in the Android settings</string>
     <string name="config_weather_location">Weather location</string>
     <string name="config_weather_location_device">Device location</string>
     <string name="config_weather_location_device_descr">Follows your location</string>
@@ -67,7 +67,7 @@
     <string name="config_loc_perm_alert_title">Location permission required</string>
     <string name="config_loc_perm_alert_message">To show the weather for your current area, this app requires access to your location.</string>
     <string name="config_bg_perm_alert_title">Background location permission</string>
-    <string name="config_bg_perm_alert_message">Reliable weather updates require access to your location in the background. Please select \"%s\" on the next screen.</string>
+    <string name="config_bg_perm_alert_message">Reliable weather updates require access to your location in the background. Select “%1$s” on the next screen.</string>
     <string name="config_alert_button_cancel">Cancel</string>
     <string name="config_debug_button_weather">View weather query</string>
     <string name="config_debug_button_location">View location</string>
@@ -78,9 +78,7 @@
     <string name="config_aux_view_update_time">Refresh time</string>
     <string name="config_aux_view_title">Show details</string>
     <string name="config_weather_app">Weather app</string>
-    <string name="config_weather_app_nil">Not listed</string>
-    <string name="config_weather_app_nil_alert_message">To have your weather app added, please open an issue on GitHub.</string>
-    <string name="config_weather_app_alert_button_github">Open GitHub</string>
+    <string name="config_weather_app_request">Request a missing weather app on GitHub</string>
     <string name="config_show_temp_unit">Show temperature unit</string>
     <string name="config_show_temp_unit_descr">Show symbol for Fahrenheit or Celsius</string>
     <string name="config_title_settings">Settings</string>
@@ -90,16 +88,22 @@
     <string name="config_weather_summary_fixed">Show weather for a fixed location</string>
     <string name="config_weather_summary_place">Show weather for %1$s</string>
     <string name="config_location_search_footer">The selected location applies to both the widget and the weather app.</string>
-    <string name="config_geocoding_attr_open_meteo">Location search by Open-Meteo</string>
-    <string name="config_perm_settings_title">Permission required</string>
+    <string name="config_geocoding_attr_open_meteo">Location search by Open-Meteo.com</string>
+    <string name="config_perm_settings_title">Permission not granted</string>
     <string name="config_loc_perm_settings_message">To show the weather for your current area, update the location permission to “%1$s” in the app settings.</string>
-    <string name="config_contacts_perm_settings_message">To show birthdays, update the contacts permission in the app settings.</string>
-    <string name="config_perm_settings_button">Update permission</string>
+    <string name="config_contacts_perm_settings_message">To show birthdays, grant the contacts permission in the app settings.</string>
     <string name="config_alert_button_continue">Continue</string>
     <string name="config_weather_privacy_note">Enabling weather shares your location and IP address with the weather provider.</string>
     <string name="config_location_no_results">No places found</string>
     <string name="config_location_search_example">Example search: “%1$s”</string>
     <string name="config_location_search_hint">Search for a place</string>
+    <string name="config_network_location_hint">For fast and reliable location, turn on “Network location” or “Location Accuracy” in the Android location settings.</string>
+    <string name="config_alert_button_skip">Skip</string>
+    <string name="config_location_services_title">Recommended location services</string>
+    <string name="config_open_settings_button">Open settings</string>
+    <string name="config_calendar_app">Calendar app</string>
+    <string name="config_calendar_app_summary">Tapping the date opens %1$s</string>
+    <string name="config_calendar_app_none">No calendar app found</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

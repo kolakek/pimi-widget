@@ -20,12 +20,16 @@ package com.kolakek.pimiwidget.data
 import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.Configuration
 import androidx.core.content.edit
 import androidx.core.text.util.LocalePreferences
 import androidx.preference.PreferenceManager
 import com.kolakek.pimiwidget.location.LocationSource
 import com.kolakek.pimiwidget.ui.AppSettings
+import com.kolakek.pimiwidget.utility.AppLookup
+import com.kolakek.pimiwidget.widget.WidgetIntent
 import com.kolakek.pimiwidget.widget.WidgetSettings
 
 object SettingsRepository {
@@ -150,6 +154,7 @@ object SettingsRepository {
             showPermanentAlarm = isPermanentAlarmIconEnabled(context),
             showTempUnit = isTempUnitDisplayEnabled(context),
             backgroundAlpha = getWidgetAlpha(context),
+            calendarApp = getCalendarApp(context),
             tempUnit = tempUnitFromPref(tempUnitPref),
             iconStyle = iconStyle,
             widgetStyle = widgetStyle,
@@ -239,8 +244,32 @@ object SettingsRepository {
         return (100 - transparency) * 255 / 100
     }
 
+    fun getCalendarApp(context: Context): String? {
+        val installed = WidgetIntent
+            .categoryApps(context, Intent.CATEGORY_APP_CALENDAR)
+            .map { it.packageName }
+        val selected = prefs(context).getString(KEY_CALENDAR_APP, null)
+        val systemDefault = context.packageManager
+            .resolveActivity(
+                Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_APP_CALENDAR),
+                PackageManager.MATCH_DEFAULT_ONLY
+            )
+            ?.activityInfo?.packageName
+        return selected?.takeIf { it in installed }
+            ?: systemDefault?.takeIf { it in installed }
+            ?: installed.firstOrNull()
+    }
+
+    fun setCalendarApp(context: Context, packageName: String) =
+        prefs(context).edit { putString(KEY_CALENDAR_APP, packageName) }
+
     fun getWeatherApp(context: Context): WeatherApp =
-        WeatherApp.fromPrefs(prefs(context))
+        WeatherApp.fromPrefs(prefs(context)).takeIf {
+            it == WeatherApp.PIMI || AppLookup.isAppInstalled(context, it.packageName)
+        } ?: WeatherApp.PIMI
+
+    fun setWeatherApp(context: Context, pref: WeatherApp) =
+        pref.save(prefs(context))
 
     fun getWidgetColorPref(context: Context): WidgetColorPref =
         WidgetColorPref.fromPrefs(prefs(context))
