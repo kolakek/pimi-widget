@@ -104,6 +104,7 @@
     <string name="config_calendar_app">Calendar app</string>
     <string name="config_calendar_app_summary">Tapping the date opens %1$s</string>
     <string name="config_calendar_app_none">No calendar app found</string>
+    <string name="config_option_calendar">Calendar</string>
 
     <string name="config_unit_millimeters">Millimeters</string>
     <string name="config_unit_centimeters">Centimeters</string>

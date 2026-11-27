@@ -30,10 +30,15 @@
             android:defaultValue="false"
             app:iconSpaceReserved="false" />
 
+        <Preference
+            app:key="field_calendar_app"
+            app:title="@string/config_option_calendar"
+            app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/config_section_general"
+        android:title="@string/config_section_appearance"
         app:iconSpaceReserved="false"
         app:allowDividerAbove="false"
         app:allowDividerBelow="false">
@@ -46,11 +51,6 @@
         <Preference
             android:key="field_icon_style"
             android:title="@string/config_icon_style"
-            app:iconSpaceReserved="false" />
-
-        <Preference
-            app:key="field_calendar_app"
-            app:title="@string/config_calendar_app"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
