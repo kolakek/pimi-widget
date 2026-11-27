@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Рекомендовані служби геолокації</string>
     <string name="config_open_settings_button">Відкрити налаштування</string>
     <string name="config_calendar_app">Застосунок календаря</string>
-    <string name="config_calendar_app_summary">Натискання на дату відкриває %1$s</string>
+    <string name="config_calendar_app_summary">Натискання на дату відкриває твій календар</string>
     <string name="config_calendar_app_none">Застосунок календаря не знайдено</string>
+    <string name="config_option_calendar">Календар</string>
     <string name="config_weather_app_request">Попроси додати відсутній застосунок погоди на GitHub</string>
 
     <string name="app_text_now">Зараз</string>

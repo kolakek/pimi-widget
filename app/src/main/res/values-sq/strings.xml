@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Shërbimet e rekomanduara të vendndodhjes</string>
     <string name="config_open_settings_button">Hap cilësimet</string>
     <string name="config_calendar_app">Aplikacioni i kalendarit</string>
-    <string name="config_calendar_app_summary">Trokitja mbi datën hap %1$s</string>
+    <string name="config_calendar_app_summary">Trokitja mbi datën hap kalendarin tënd</string>
     <string name="config_calendar_app_none">Nuk u gjet asnjë aplikacion kalendari</string>
+    <string name="config_option_calendar">Kalendari</string>
     <string name="config_weather_app_request">Kërko një aplikacion moti që mungon në GitHub</string>
 
     <string name="app_text_now">Tani</string>

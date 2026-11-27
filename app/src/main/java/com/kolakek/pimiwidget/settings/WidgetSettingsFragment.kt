@@ -333,7 +333,7 @@ class WidgetSettingsFragment : CardPreferenceFragment() {
 
         preference.isEnabled = app != null
         preference.summary = app?.let {
-            getString(R.string.config_calendar_app_summary, it.loadLabel(context.packageManager))
+            getString(R.string.config_calendar_app_summary)
         } ?: getString(R.string.config_calendar_app_none)
     }
 }

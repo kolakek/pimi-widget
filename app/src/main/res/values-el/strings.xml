@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Προτεινόμενες υπηρεσίες τοποθεσίας</string>
     <string name="config_open_settings_button">Άνοιγμα ρυθμίσεων</string>
     <string name="config_calendar_app">Εφαρμογή ημερολογίου</string>
-    <string name="config_calendar_app_summary">Πατώντας την ημερομηνία ανοίγει η εφαρμογή %1$s</string>
+    <string name="config_calendar_app_summary">Πατώντας την ημερομηνία ανοίγει το ημερολόγιό σου</string>
     <string name="config_calendar_app_none">Δεν βρέθηκε εφαρμογή ημερολογίου</string>
+    <string name="config_option_calendar">Ημερολόγιο</string>
     <string name="config_weather_app_request">Ζήτησε μια εφαρμογή καιρού που λείπει στο GitHub</string>
 
     <string name="app_text_now">Τώρα</string>

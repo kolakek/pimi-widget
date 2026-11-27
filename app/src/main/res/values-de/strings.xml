@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Empfohlene Standortdienste</string>
     <string name="config_open_settings_button">Einstellungen öffnen</string>
     <string name="config_calendar_app">Kalender-App</string>
-    <string name="config_calendar_app_summary">Tippen auf das Datum öffnet %1$s</string>
+    <string name="config_calendar_app_summary">Tippen auf das Datum öffnet deinen Kalender</string>
     <string name="config_calendar_app_none">Keine Kalender-App gefunden</string>
+    <string name="config_option_calendar">Kalender</string>
     <string name="config_weather_app_request">Fehlende Wetter-App auf GitHub anfragen</string>
 
     <string name="app_text_now">Jetzt</string>

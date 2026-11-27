@@ -102,7 +102,7 @@
     <string name="config_location_services_title">Recommended location services</string>
     <string name="config_open_settings_button">Open settings</string>
     <string name="config_calendar_app">Calendar app</string>
-    <string name="config_calendar_app_summary">Tapping the date opens %1$s</string>
+    <string name="config_calendar_app_summary">Tapping the date opens your calendar</string>
     <string name="config_calendar_app_none">No calendar app found</string>
     <string name="config_option_calendar">Calendar</string>
 

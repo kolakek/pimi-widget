@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Servicii de localizare recomandate</string>
     <string name="config_open_settings_button">Deschide setările</string>
     <string name="config_calendar_app">Aplicație calendar</string>
-    <string name="config_calendar_app_summary">Atingerea datei deschide %1$s</string>
+    <string name="config_calendar_app_summary">Atingerea datei deschide calendarul tău</string>
     <string name="config_calendar_app_none">Nu s-a găsit nicio aplicație calendar</string>
+    <string name="config_option_calendar">Calendar</string>
     <string name="config_weather_app_request">Solicită o aplicație meteo lipsă pe GitHub</string>
 
     <string name="app_text_now">Acum</string>

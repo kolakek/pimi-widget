@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Doporučené služby určování polohy</string>
     <string name="config_open_settings_button">Otevřít nastavení</string>
     <string name="config_calendar_app">Aplikace kalendáře</string>
-    <string name="config_calendar_app_summary">Klepnutím na datum se otevře %1$s</string>
+    <string name="config_calendar_app_summary">Klepnutím na datum se otevře tvůj kalendář</string>
     <string name="config_calendar_app_none">Nenalezena žádná aplikace kalendáře</string>
+    <string name="config_option_calendar">Kalendář</string>
     <string name="config_weather_app_request">Požádej o chybějící aplikaci počasí na GitHubu</string>
 
     <string name="app_text_now">Teď</string>

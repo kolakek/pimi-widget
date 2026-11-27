@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Serviços de localização recomendados</string>
     <string name="config_open_settings_button">Abrir configurações</string>
     <string name="config_calendar_app">App de agenda</string>
-    <string name="config_calendar_app_summary">Tocar na data abre %1$s</string>
+    <string name="config_calendar_app_summary">Tocar na data abre sua agenda</string>
     <string name="config_calendar_app_none">Nenhum app de agenda encontrado</string>
+    <string name="config_option_calendar">Agenda</string>
     <string name="config_weather_app_request">Solicite um app de clima que está faltando no GitHub</string>
 
     <string name="app_text_now">Agora</string>

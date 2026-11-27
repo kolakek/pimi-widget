@@ -112,8 +112,9 @@
     <string name="config_location_services_title">Suositellut sijaintipalvelut</string>
     <string name="config_open_settings_button">Avaa asetukset</string>
     <string name="config_calendar_app">Kalenterisovellus</string>
-    <string name="config_calendar_app_summary">Päivämäärän napautus avaa: %1$s</string>
+    <string name="config_calendar_app_summary">Päivämäärän napautus avaa kalenterisi</string>
     <string name="config_calendar_app_none">Kalenterisovellusta ei löytynyt</string>
+    <string name="config_option_calendar">Kalenteri</string>
     <string name="config_weather_app_request">Pyydä puuttuvaa sääsovellusta GitHubissa</string>
 
     <string name="app_text_now">Nyt</string>
