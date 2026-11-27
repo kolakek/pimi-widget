@@ -86,13 +86,13 @@
 
             <ImageView
                 android:id="@+id/widget_warn_svr_icon"
-                android:importantForAccessibility="no"
+                android:contentDescription="@string/widget_warning_desc"
                 android:src="@drawable/ic_warn_sevr"
                 style="@style/Widget.WarnIcon.Classic" />
 
             <ImageView
                 android:id="@+id/widget_warn_xtr_icon"
-                android:importantForAccessibility="no"
+                android:contentDescription="@string/widget_warning_desc"
                 android:src="@drawable/ic_warn_extr"
                 style="@style/Widget.WarnIcon.Classic" />
 

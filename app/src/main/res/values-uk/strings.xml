@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Наступний будильник</string>
     <string name="widget_birthday_desc">День народження</string>
     <string name="widget_sync_desc">Очікується оновлення погоди</string>
+    <string name="widget_warning_desc">Попередження про погоду</string>
 
     <string name="wc_heavy_thunderstorms">сильні грози</string>
     <string name="wc_thunderstorm">гроза</string>
@@ -194,17 +195,17 @@
     <string name="wc_clear_sky_day">сонячно</string>
     <string name="wc_clear_sky_night">ясно</string>
 
-    <string name="warn_uv_extreme">попередження про екстремальний УФ-рівень</string>
-    <string name="warn_heat_extreme">попередження про екстремальну спеку</string>
-    <string name="warn_rain_extreme">попередження про екстремальний дощ</string>
-    <string name="warn_gusts_extreme">попередження про екстремальні пориви вітру</string>
-    <string name="warn_tstorm_extreme">попередження про екстремальну грозу</string>
+    <string name="warn_uv_extreme">екстремальне УФ-випромінювання</string>
+    <string name="warn_heat_extreme">екстремальна спека</string>
+    <string name="warn_rain_extreme">дуже сильні дощі</string>
+    <string name="warn_gusts_extreme">дуже сильні пориви вітру</string>
+    <string name="warn_tstorm_extreme">дуже сильна гроза</string>
     <string name="warn_no_warning">немає попереджень</string>
-    <string name="warn_uv_severe">попередження про високий УФ-рівень</string>
-    <string name="warn_heat_severe">попередження про сильну спеку</string>
-    <string name="warn_rain_severe">попередження про інтенсивний дощ</string>
-    <string name="warn_gusts_severe">попередження про сильні пориви вітру</string>
-    <string name="warn_tstorm_severe">попередження про сильну грозу</string>
+    <string name="warn_uv_severe">сильне УФ-випромінювання</string>
+    <string name="warn_heat_severe">сильна спека</string>
+    <string name="warn_rain_severe">сильні дощі</string>
+    <string name="warn_gusts_severe">сильні пориви вітру</string>
+    <string name="warn_tstorm_severe">сильна гроза</string>
 
     <string name="unit_kmh">км/год</string>
     <string name="unit_ms">м/с</string>

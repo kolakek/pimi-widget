@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Prochaine alarme</string>
     <string name="widget_birthday_desc">Anniversaire</string>
     <string name="widget_sync_desc">Mise à jour de la météo en attente</string>
+    <string name="widget_warning_desc">Alerte météo</string>
 
     <string name="wc_heavy_thunderstorms">orages violents</string>
     <string name="wc_thunderstorm">orage</string>
@@ -195,16 +196,16 @@
     <string name="wc_clear_sky_night">dégagé</string>
 
     <string name="warn_uv_extreme">alerte UV extrême</string>
-    <string name="warn_heat_extreme">alerte chaleur extrême</string>
-    <string name="warn_rain_extreme">alerte pluies extrêmes</string>
-    <string name="warn_gusts_extreme">alerte rafales de vent extrêmes</string>
-    <string name="warn_tstorm_extreme">alerte orages extrêmes</string>
+    <string name="warn_heat_extreme">chaleur extrême</string>
+    <string name="warn_rain_extreme">pluies extrêmes</string>
+    <string name="warn_gusts_extreme">rafales de vent extrêmes</string>
+    <string name="warn_tstorm_extreme">orages extrêmes</string>
     <string name="warn_no_warning">aucune alerte</string>
     <string name="warn_uv_severe">alerte UV élevée</string>
-    <string name="warn_heat_severe">alerte chaleur excessive</string>
-    <string name="warn_rain_severe">alerte pluies intenses</string>
-    <string name="warn_gusts_severe">alerte rafales de vent violentes</string>
-    <string name="warn_tstorm_severe">alerte orages violents</string>
+    <string name="warn_heat_severe">fortes chaleurs</string>
+    <string name="warn_rain_severe">pluies intenses</string>
+    <string name="warn_gusts_severe">rafales de vent violentes</string>
+    <string name="warn_tstorm_severe">forts orages</string>
 
     <plurals name="days">
         <item quantity="one">%d jour</item>

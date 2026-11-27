@@ -164,6 +164,7 @@
     <string name="widget_alarm_desc">Sonraki alarm</string>
     <string name="widget_birthday_desc">Doğum günü</string>
     <string name="widget_sync_desc">Hava durumu güncellemesi bekleniyor</string>
+    <string name="widget_warning_desc">Hava durumu uyarısı</string>
 
     <string name="widget_updated_at">güncellendi</string>
     <string name="wc_heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>
@@ -195,16 +196,16 @@
     <string name="wc_clear_sky_night">açık</string>
 
     <string name="warn_uv_extreme">aşırı UV uyarısı</string>
-    <string name="warn_heat_extreme">aşırı sıcaklık uyarısı</string>
-    <string name="warn_rain_extreme">aşırı yağmur uyarısı</string>
-    <string name="warn_gusts_extreme">aşırı rüzgar uyarısı</string>
-    <string name="warn_tstorm_extreme">aşırı fırtına uyarısı</string>
+    <string name="warn_heat_extreme">aşırı sıcaklar</string>
+    <string name="warn_rain_extreme">aşırı yağış</string>
+    <string name="warn_gusts_extreme">çok şiddetli rüzgar</string>
+    <string name="warn_tstorm_extreme">çok şiddetli fırtına</string>
     <string name="warn_no_warning">uyarı yok</string>
     <string name="warn_uv_severe">yüksek UV uyarısı</string>
-    <string name="warn_heat_severe">yüksek sıcaklık uyarısı</string>
-    <string name="warn_rain_severe">şiddetli yağmur uyarısı</string>
-    <string name="warn_gusts_severe">şiddetli rüzgar uyarısı</string>
-    <string name="warn_tstorm_severe">şiddetli fırtına uyarısı</string>
+    <string name="warn_heat_severe">yüksek sıcaklık</string>
+    <string name="warn_rain_severe">şiddetli yağmur</string>
+    <string name="warn_gusts_severe">şiddetli rüzgar</string>
+    <string name="warn_tstorm_severe">şiddetli fırtına</string>
 
     <string name="north">K</string>
 

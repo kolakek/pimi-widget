@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Volgende wekker</string>
     <string name="widget_birthday_desc">Verjaardag</string>
     <string name="widget_sync_desc">Weerupdate volgt</string>
+    <string name="widget_warning_desc">Weerwaarschuwing</string>
 
     <string name="wc_heavy_thunderstorms">zware onweersbuien</string>
     <string name="wc_thunderstorm">onweersbui</string>
@@ -194,17 +195,17 @@
     <string name="wc_clear_sky_day">zonnig</string>
     <string name="wc_clear_sky_night">helder</string>
 
-    <string name="warn_uv_extreme">waarschuwing voor extreme UV-straling</string>
-    <string name="warn_heat_extreme">waarschuwing voor extreme hitte</string>
-    <string name="warn_rain_extreme">waarschuwing voor extreme regen</string>
-    <string name="warn_gusts_extreme">waarschuwing voor extreme windstoten</string>
-    <string name="warn_tstorm_extreme">waarschuwing voor extreem onweer</string>
+    <string name="warn_uv_extreme">extreme UV-straling</string>
+    <string name="warn_heat_extreme">extreme hitte</string>
+    <string name="warn_rain_extreme">extreme regenval</string>
+    <string name="warn_gusts_extreme">extreme windstoten</string>
+    <string name="warn_tstorm_extreme">extreem onweer</string>
     <string name="warn_no_warning">geen waarschuwingen</string>
-    <string name="warn_uv_severe">waarschuwing voor hoge UV-straling</string>
-    <string name="warn_heat_severe">waarschuwing voor grote hitte</string>
-    <string name="warn_rain_severe">waarschuwing voor intense regen</string>
-    <string name="warn_gusts_severe">waarschuwing voor sterke windstoten</string>
-    <string name="warn_tstorm_severe">waarschuwing voor zwaar onweer</string>
+    <string name="warn_uv_severe">hoge UV-straling</string>
+    <string name="warn_heat_severe">grote hitte</string>
+    <string name="warn_rain_severe">zware regenval</string>
+    <string name="warn_gusts_severe">zware windstoten</string>
+    <string name="warn_tstorm_severe">zwaar onweer</string>
 
     <plurals name="days">
         <item quantity="one">1 dag</item>

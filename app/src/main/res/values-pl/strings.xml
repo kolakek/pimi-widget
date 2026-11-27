@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Następny alarm</string>
     <string name="widget_birthday_desc">Urodziny</string>
     <string name="widget_sync_desc">Oczekiwanie na aktualizację pogody</string>
+    <string name="widget_warning_desc">Ostrzeżenie pogodowe</string>
 
     <string name="wc_heavy_thunderstorms">silne burze</string>
     <string name="wc_thunderstorm">burza</string>
@@ -194,17 +195,17 @@
     <string name="wc_clear_sky_day">słonecznie</string>
     <string name="wc_clear_sky_night">pogodnie</string>
 
-    <string name="warn_uv_extreme">ostrzeżenie UV ekstremalne</string>
-    <string name="warn_heat_extreme">ostrzeżenie upał ekstremalny</string>
-    <string name="warn_rain_extreme">ostrzeżenie deszcz ekstremalny</string>
-    <string name="warn_gusts_extreme">ostrzeżenie ekstremalnych porywów wiatru</string>
-    <string name="warn_tstorm_extreme">ostrzeżenie przed ekstremalnymi burzami</string>
+    <string name="warn_uv_extreme">ekstremalne promieniowanie UV</string>
+    <string name="warn_heat_extreme">ekstremalny upał</string>
+    <string name="warn_rain_extreme">nawalny deszcz</string>
+    <string name="warn_gusts_extreme">ekstremalne porywy wiatru</string>
+    <string name="warn_tstorm_extreme">ekstremalne burze</string>
     <string name="warn_no_warning">brak ostrzeżeń</string>
-    <string name="warn_uv_severe">ostrzeżenie UV silne</string>
-    <string name="warn_heat_severe">ostrzeżenie upał silny</string>
-    <string name="warn_rain_severe">ostrzeżenie deszcz intensywny</string>
-    <string name="warn_gusts_severe">ostrzeżenie silnych porywów wiatru</string>
-    <string name="warn_tstorm_severe">ostrzeżenie przed silnymi burzami</string>
+    <string name="warn_uv_severe">silne promieniowanie UV</string>
+    <string name="warn_heat_severe">silny upał</string>
+    <string name="warn_rain_severe">intensywny deszcz</string>
+    <string name="warn_gusts_severe">silne porywy wiatru</string>
+    <string name="warn_tstorm_severe">gwałtowne burze</string>
 
     <plurals name="days">
         <item quantity="one">1 dzień</item>

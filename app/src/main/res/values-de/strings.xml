@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Nächster Wecker</string>
     <string name="widget_birthday_desc">Geburtstag</string>
     <string name="widget_sync_desc">Wetteraktualisierung ausstehend</string>
+    <string name="widget_warning_desc">Wetterwarnung</string>
 
     <string name="wc_heavy_thunderstorms">Schwere Gewitter</string>
     <string name="wc_thunderstorm">Gewitter</string>
@@ -194,17 +195,17 @@
     <string name="wc_clear_sky_day">Sonnig</string>
     <string name="wc_clear_sky_night">Klar</string>
 
-    <string name="warn_uv_extreme">Warnung vor extremer UV-Strahlung</string>
-    <string name="warn_heat_extreme">Warnung vor extremer Hitze</string>
-    <string name="warn_rain_severe">Warnung vor heftigem Regen</string>
-    <string name="warn_rain_extreme">Warnung vor extremem Regen</string>
-    <string name="warn_gusts_severe">Warnung vor Orkanböen</string>
-    <string name="warn_gusts_extreme">Warnung vor extremen Orkanböen</string>
-    <string name="warn_tstorm_extreme">Warnung vor extremen Gewittern</string>
+    <string name="warn_uv_extreme">Extreme UV-Strahlung</string>
+    <string name="warn_heat_extreme">Extreme Hitze</string>
+    <string name="warn_rain_severe">Heftiger Starkregen</string>
+    <string name="warn_rain_extreme">Extremer Starkregen</string>
+    <string name="warn_gusts_severe">Orkanböen</string>
+    <string name="warn_gusts_extreme">Extreme Orkanböen</string>
+    <string name="warn_tstorm_extreme">Extreme Gewitter</string>
     <string name="warn_no_warning">Keine Warnungen</string>
-    <string name="warn_uv_severe">Warnung vor starker UV-Strahlung</string>
-    <string name="warn_heat_severe">Warnung vor starker Hitze</string>
-    <string name="warn_tstorm_severe">Warnung vor schweren Gewittern</string>
+    <string name="warn_uv_severe">Starke UV-Strahlung</string>
+    <string name="warn_heat_severe">Starke Hitze</string>
+    <string name="warn_tstorm_severe">Schwere Gewitter</string>
 
     <plurals name="days">
         <item quantity="one">1 Tag</item>

@@ -165,6 +165,7 @@
     <string name="widget_alarm_desc">Nästa alarm</string>
     <string name="widget_birthday_desc">Födelsedag</string>
     <string name="widget_sync_desc">Väderuppdatering väntar</string>
+    <string name="widget_warning_desc">Vädervarning</string>
 
     <string name="wc_heavy_thunderstorms">kraftiga åskväder</string>
     <string name="wc_thunderstorm">åskväder</string>
@@ -194,17 +195,17 @@
     <string name="wc_clear_sky_day">soligt</string>
     <string name="wc_clear_sky_night">klart</string>
 
-    <string name="warn_uv_extreme">varning för extrem UV-strålning</string>
-    <string name="warn_heat_extreme">varning för extrem värme</string>
-    <string name="warn_rain_extreme">varning för extremt regn</string>
-    <string name="warn_gusts_extreme">varning för extrema vindbyar</string>
-    <string name="warn_tstorm_extreme">varning för extrema åskväder</string>
+    <string name="warn_uv_extreme">extrem UV-strålning</string>
+    <string name="warn_heat_extreme">extrem värme</string>
+    <string name="warn_rain_extreme">skyfall</string>
+    <string name="warn_gusts_extreme">extrema vindbyar</string>
+    <string name="warn_tstorm_extreme">extrema åskväder</string>
     <string name="warn_no_warning">inga varningar</string>
-    <string name="warn_uv_severe">varning för hög UV-strålning</string>
-    <string name="warn_heat_severe">varning för intensiv värme</string>
-    <string name="warn_rain_severe">varning för intensivt regn</string>
-    <string name="warn_gusts_severe">varning för kraftiga vindbyar</string>
-    <string name="warn_tstorm_severe">varning för kraftiga åskväder</string>
+    <string name="warn_uv_severe">hög UV-strålning</string>
+    <string name="warn_heat_severe">höga temperaturer</string>
+    <string name="warn_rain_severe">intensivt regn</string>
+    <string name="warn_gusts_severe">kraftiga vindbyar</string>
+    <string name="warn_tstorm_severe">kraftiga åskskurar</string>
 
     <plurals name="days">
         <item quantity="one">1 dag</item>
