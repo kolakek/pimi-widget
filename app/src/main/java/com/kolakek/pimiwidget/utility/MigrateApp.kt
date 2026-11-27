@@ -17,6 +17,8 @@
 
 package com.kolakek.pimiwidget.utility
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
@@ -27,6 +29,7 @@ import com.kolakek.pimiwidget.data.SettingsRepository
 import com.kolakek.pimiwidget.data.TempUnitPref
 import com.kolakek.pimiwidget.data.TextColorPref
 import com.kolakek.pimiwidget.data.WidgetStylePref
+import com.kolakek.pimiwidget.widget.PimiWidget
 import com.kolakek.pimiwidget.worker.UpdateAction
 import com.kolakek.pimiwidget.worker.WorkManagerHelper
 
@@ -73,6 +76,13 @@ object MigrateApp {
             }
         }
         if (previousVersionCode < 26) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val appWidgetIds = appWidgetManager.getAppWidgetIds(
+                ComponentName(context, PimiWidget::class.java)
+            )
+            for (appWidgetId in appWidgetIds) {
+                SettingsRepository.setWidgetConfigured(context, appWidgetId, true)
+            }
             SettingsRepository.setAuxDisplayPref(context, AuxDisplayPref.AUTO)
         }
         DataRepository.storeVersionCode(context)
