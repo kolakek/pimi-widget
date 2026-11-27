@@ -169,14 +169,14 @@
 
     <string name="wc_heavy_thunderstorms">Badai petir lebat</string>
     <string name="wc_thunderstorm">Badai petir</string>
-    <string name="wc_freezing_rain">Hujan es</string>
-    <string name="wc_light_freezing_rain">Hujan membekukan ringan</string>
-    <string name="wc_freezing_drizzle">Gerimis yang membekukan</string>
+    <string name="wc_freezing_rain">Hujan beku</string>
+    <string name="wc_light_freezing_rain">Hujan beku ringan</string>
+    <string name="wc_freezing_drizzle">Gerimis beku</string>
     <string name="wc_heavy_rain_showers">Hujan lebat sesaat</string>
     <string name="wc_rain_showers">Hujan sesaat</string>
     <string name="wc_light_rain_showers">Hujan ringan sesaat</string>
-    <string name="wc_heavy_snow_showers">Hujan salju lebat sesaat</string>
-    <string name="wc_light_snow_showers">Hujan salju ringan sesaat</string>
+    <string name="wc_heavy_snow_showers">Salju lebat sesaat</string>
+    <string name="wc_light_snow_showers">Salju ringan sesaat</string>
     <string name="wc_heavy_rain">Hujan lebat</string>
     <string name="wc_rain">Hujan</string>
     <string name="wc_light_rain">Hujan ringan</string>
@@ -187,7 +187,7 @@
     <string name="wc_snow_grains">Butiran salju</string>
     <string name="wc_fog">Berkabut</string>
     <string name="wc_overcast">Mendung</string>
-    <string name="wc_mostly_cloudy">Sebagian besar berawan</string>
+    <string name="wc_mostly_cloudy">Berawan</string>
     <string name="wc_partly_cloudy_day">Cerah berawan</string>
     <string name="wc_partly_cloudy_night">Berawan sebagian</string>
     <string name="wc_mainly_clear_day">Cerah</string>

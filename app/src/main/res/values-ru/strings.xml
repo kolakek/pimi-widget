@@ -171,7 +171,7 @@
     <string name="wc_thunderstorm">гроза</string>
     <string name="wc_freezing_rain">ледяной дождь</string>
     <string name="wc_light_freezing_rain">легкий ледяной дождь</string>
-    <string name="wc_freezing_drizzle">ледяная изморось</string>
+    <string name="wc_freezing_drizzle">ледяная морось</string>
     <string name="wc_heavy_rain_showers">сильные ливни</string>
     <string name="wc_rain_showers">ливни</string>
     <string name="wc_light_rain_showers">легкие ливни</string>
@@ -180,18 +180,18 @@
     <string name="wc_heavy_rain">сильный дождь</string>
     <string name="wc_rain">дождь</string>
     <string name="wc_light_rain">легкий дождь</string>
-    <string name="wc_drizzle">изморось</string>
+    <string name="wc_drizzle">морось</string>
     <string name="wc_heavy_snow">сильный снег</string>
     <string name="wc_snow">снег</string>
     <string name="wc_light_snow">легкий снег</string>
     <string name="wc_snow_grains">снежная крупа</string>
     <string name="wc_fog">туман</string>
     <string name="wc_overcast">облачно</string>
-    <string name="wc_mostly_cloudy">преимущественно облачно</string>
+    <string name="wc_mostly_cloudy">в основном облачно</string>
     <string name="wc_partly_cloudy_day">переменная облачность</string>
     <string name="wc_partly_cloudy_night">переменная облачность</string>
-    <string name="wc_mainly_clear_day">преимущественно солнечно</string>
-    <string name="wc_mainly_clear_night">преимущественно ясно</string>
+    <string name="wc_mainly_clear_day">в основном солнечно</string>
+    <string name="wc_mainly_clear_night">в основном ясно</string>
     <string name="wc_clear_sky_day">солнечно</string>
     <string name="wc_clear_sky_night">ясно</string>
 

@@ -187,11 +187,11 @@
     <string name="wc_snow_grains">granuli di neve</string>
     <string name="wc_fog">nebbia</string>
     <string name="wc_overcast">coperto</string>
-    <string name="wc_mostly_cloudy">prevalentemente nuvoloso</string>
-    <string name="wc_partly_cloudy_day">parzialmente soleggiato</string>
-    <string name="wc_partly_cloudy_night">parzialmente nuvoloso</string>
+    <string name="wc_mostly_cloudy">molto nuvoloso</string>
+    <string name="wc_partly_cloudy_day">sole e nuvole</string>
+    <string name="wc_partly_cloudy_night">poco nuvoloso</string>
     <string name="wc_mainly_clear_day">per lo più soleggiato</string>
-    <string name="wc_mainly_clear_night">per lo più sereno</string>
+    <string name="wc_mainly_clear_night">quasi sereno</string>
     <string name="wc_clear_sky_day">soleggiato</string>
     <string name="wc_clear_sky_night">sereno</string>
 

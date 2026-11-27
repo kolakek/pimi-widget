@@ -172,9 +172,9 @@
     <string name="wc_freezing_rain">shi i ngrirë</string>
     <string name="wc_light_freezing_rain">shi i ngrirë i lehtë</string>
     <string name="wc_freezing_drizzle">shi i imët i ngrirë</string>
-    <string name="wc_heavy_rain_showers">rrebeshe të forta shiu</string>
-    <string name="wc_rain_showers">rrebeshe shiu</string>
-    <string name="wc_light_rain_showers">rrebeshe të lehta shiu</string>
+    <string name="wc_heavy_rain_showers">rrebeshe të forta</string>
+    <string name="wc_rain_showers">rrebeshe</string>
+    <string name="wc_light_rain_showers">rrebeshe të lehta</string>
     <string name="wc_heavy_snow_showers">rrebeshe të forta dëbore</string>
     <string name="wc_light_snow_showers">rrebeshe të lehta dëbore</string>
     <string name="wc_heavy_rain">shi i fortë</string>
@@ -186,10 +186,10 @@
     <string name="wc_light_snow">dëborë e lehtë</string>
     <string name="wc_snow_grains">kokrra dëbore</string>
     <string name="wc_fog">mjegull</string>
-    <string name="wc_overcast">me vranësira</string>
-    <string name="wc_mostly_cloudy">kryesisht me vranësira</string>
+    <string name="wc_overcast">i vranët</string>
+    <string name="wc_mostly_cloudy">kryesisht i vranët</string>
     <string name="wc_partly_cloudy_day">pjesërisht me diell</string>
-    <string name="wc_partly_cloudy_night">pjesërisht me vranësira</string>
+    <string name="wc_partly_cloudy_night">pjesërisht i vranët</string>
     <string name="wc_mainly_clear_day">kryesisht me diell</string>
     <string name="wc_mainly_clear_night">kryesisht i kthjellët</string>
     <string name="wc_clear_sky_day">me diell</string>

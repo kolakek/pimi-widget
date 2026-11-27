@@ -169,8 +169,8 @@
 
     <string name="wc_heavy_thunderstorms">Schwere Gewitter</string>
     <string name="wc_thunderstorm">Gewitter</string>
-    <string name="wc_freezing_rain">Gefrierender Regen</string>
-    <string name="wc_light_freezing_rain">Leichter gefrierender Regen</string>
+    <string name="wc_freezing_rain">Eisregen</string>
+    <string name="wc_light_freezing_rain">Leichter Eisregen</string>
     <string name="wc_freezing_drizzle">Gefrierender Nieselregen</string>
     <string name="wc_heavy_rain_showers">Starke Regenschauer</string>
     <string name="wc_rain_showers">Regenschauer</string>

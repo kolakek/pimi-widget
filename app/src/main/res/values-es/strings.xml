@@ -183,7 +183,7 @@
     <string name="wc_drizzle">llovizna</string>
     <string name="wc_heavy_snow">nevada intensa</string>
     <string name="wc_snow">nieve</string>
-    <string name="wc_light_snow">nieve débil</string>
+    <string name="wc_light_snow">nevada débil</string>
     <string name="wc_snow_grains">granizo de nieve</string>
     <string name="wc_fog">niebla</string>
     <string name="wc_overcast">nublado</string>

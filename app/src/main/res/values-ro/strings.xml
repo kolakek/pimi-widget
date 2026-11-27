@@ -190,8 +190,8 @@
     <string name="wc_mostly_cloudy">mai mult înnorat</string>
     <string name="wc_partly_cloudy_day">parțial însorit</string>
     <string name="wc_partly_cloudy_night">parțial înnorat</string>
-    <string name="wc_mainly_clear_day">în mare parte însorit</string>
-    <string name="wc_mainly_clear_night">în mare parte senin</string>
+    <string name="wc_mainly_clear_day">mai mult însorit</string>
+    <string name="wc_mainly_clear_night">mai mult senin</string>
     <string name="wc_clear_sky_day">însorit</string>
     <string name="wc_clear_sky_night">senin</string>
 

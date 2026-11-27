@@ -184,11 +184,11 @@
     <string name="wc_heavy_snow">сильний снігопад</string>
     <string name="wc_snow">сніг</string>
     <string name="wc_light_snow">слабкий сніг</string>
-    <string name="wc_snow_grains">снігові зерна</string>
+    <string name="wc_snow_grains">снігова крупа</string>
     <string name="wc_fog">туман</string>
     <string name="wc_overcast">хмарно</string>
     <string name="wc_mostly_cloudy">переважно хмарно</string>
-    <string name="wc_partly_cloudy_day">мінлива хмарність із сонцем</string>
+    <string name="wc_partly_cloudy_day">частково сонячно</string>
     <string name="wc_partly_cloudy_night">мінлива хмарність</string>
     <string name="wc_mainly_clear_day">переважно сонячно</string>
     <string name="wc_mainly_clear_night">переважно ясно</string>

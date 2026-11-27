@@ -165,16 +165,16 @@
     <string name="widget_birthday_desc">Doğum günü</string>
     <string name="widget_sync_desc">Hava durumu güncellemesi bekleniyor</string>
     <string name="widget_warning_desc">Hava durumu uyarısı</string>
-
     <string name="widget_updated_at">güncellendi</string>
+
     <string name="wc_heavy_thunderstorms">şiddetli gök gürültülü fırtına</string>
     <string name="wc_thunderstorm">gök gürültülü fırtına</string>
     <string name="wc_freezing_rain">dondurucu yağmur</string>
     <string name="wc_light_freezing_rain">hafif dondurucu yağmur</string>
     <string name="wc_freezing_drizzle">dondurucu çisenti</string>
-    <string name="wc_heavy_rain_showers">kuvvetli sağanak yağış</string>
-    <string name="wc_rain_showers">sağanak yağış</string>
-    <string name="wc_light_rain_showers">hafif sağanak yağış</string>
+    <string name="wc_heavy_rain_showers">kuvvetli sağanak</string>
+    <string name="wc_rain_showers">sağanak</string>
+    <string name="wc_light_rain_showers">hafif sağanak</string>
     <string name="wc_heavy_snow_showers">kuvvetli kar yağışı</string>
     <string name="wc_light_snow_showers">hafif kar yağışı</string>
     <string name="wc_heavy_rain">kuvvetli yağmur</string>
