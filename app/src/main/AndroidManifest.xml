@@ -21,7 +21,7 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:name=".PimiApplication"
@@ -66,7 +66,7 @@
 
         <activity
             android:name=".ui.WeatherActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <activity
             android:name=".ui.AppConfigureActivity"
@@ -75,7 +75,6 @@
         <activity
             android:name=".ui.LocationSearchActivity"
             android:exported="false"
-            android:theme="@style/Theme.PimiWidget"
             android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 
